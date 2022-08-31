@@ -78,6 +78,9 @@ func (j *jsiiProxy_InterfaceVpcEndpointService) PrivateDnsDefault() *bool {
 func NewInterfaceVpcEndpointService(name *string, port *float64) InterfaceVpcEndpointService {
 	_init_.Initialize()
 
+	if err := validateNewInterfaceVpcEndpointServiceParameters(name); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InterfaceVpcEndpointService{}
 
 	_jsii_.Create(

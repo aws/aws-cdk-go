@@ -308,6 +308,9 @@ func (j *jsiiProxy_FirewallDomainList) Stack() awscdk.Stack {
 func NewFirewallDomainList(scope constructs.Construct, id *string, props *FirewallDomainListProps) FirewallDomainList {
 	_init_.Initialize()
 
+	if err := validateNewFirewallDomainListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FirewallDomainList{}
 
 	_jsii_.Create(
@@ -335,6 +338,9 @@ func NewFirewallDomainList_Override(f FirewallDomainList, scope constructs.Const
 func FirewallDomainList_FromFirewallDomainListId(scope constructs.Construct, id *string, firewallDomainListId *string) IFirewallDomainList {
 	_init_.Initialize()
 
+	if err := validateFirewallDomainList_FromFirewallDomainListIdParameters(scope, id, firewallDomainListId); err != nil {
+		panic(err)
+	}
 	var returns IFirewallDomainList
 
 	_jsii_.StaticInvoke(
@@ -352,6 +358,9 @@ func FirewallDomainList_FromFirewallDomainListId(scope constructs.Construct, id 
 func FirewallDomainList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFirewallDomainList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -369,6 +378,9 @@ func FirewallDomainList_IsConstruct(x interface{}) *bool {
 func FirewallDomainList_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFirewallDomainList_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -382,6 +394,9 @@ func FirewallDomainList_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (f *jsiiProxy_FirewallDomainList) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -403,6 +418,9 @@ func (f *jsiiProxy_FirewallDomainList) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FirewallDomainList) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -416,6 +434,9 @@ func (f *jsiiProxy_FirewallDomainList) GetResourceArnAttribute(arnAttr *string, 
 }
 
 func (f *jsiiProxy_FirewallDomainList) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -437,6 +458,9 @@ func (f *jsiiProxy_FirewallDomainList) OnPrepare() {
 }
 
 func (f *jsiiProxy_FirewallDomainList) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -466,6 +490,9 @@ func (f *jsiiProxy_FirewallDomainList) Prepare() {
 }
 
 func (f *jsiiProxy_FirewallDomainList) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

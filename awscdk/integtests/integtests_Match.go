@@ -33,6 +33,9 @@ func NewMatch_Override(m Match) {
 func Match_ArrayWith(pattern *[]interface{}) *map[string]*[]interface{} {
 	_init_.Initialize()
 
+	if err := validateMatch_ArrayWithParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*[]interface{}
 
 	_jsii_.StaticInvoke(
@@ -52,6 +55,9 @@ func Match_ArrayWith(pattern *[]interface{}) *map[string]*[]interface{} {
 func Match_ObjectLike(pattern *map[string]interface{}) *map[string]*map[string]interface{} {
 	_init_.Initialize()
 
+	if err := validateMatch_ObjectLikeParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*map[string]interface{}
 
 	_jsii_.StaticInvoke(
@@ -69,6 +75,9 @@ func Match_ObjectLike(pattern *map[string]interface{}) *map[string]*map[string]i
 func Match_StringLikeRegexp(pattern *string) *map[string]*string {
 	_init_.Initialize()
 
+	if err := validateMatch_StringLikeRegexpParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.StaticInvoke(

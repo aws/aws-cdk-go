@@ -519,6 +519,9 @@ func (j *jsiiProxy_CfnPortal) UpdatedProperites() *map[string]interface{} {
 func NewCfnPortal(scope awscdk.Construct, id *string, props *CfnPortalProps) CfnPortal {
 	_init_.Initialize()
 
+	if err := validateNewCfnPortalParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnPortal{}
 
 	_jsii_.Create(
@@ -541,7 +544,10 @@ func NewCfnPortal_Override(c CfnPortal, scope awscdk.Construct, id *string, prop
 	)
 }
 
-func (j *jsiiProxy_CfnPortal) SetAlarms(val interface{}) {
+func (j *jsiiProxy_CfnPortal)SetAlarms(val interface{}) {
+	if err := j.validateSetAlarmsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"alarms",
@@ -549,7 +555,7 @@ func (j *jsiiProxy_CfnPortal) SetAlarms(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnPortal) SetNotificationSenderEmail(val *string) {
+func (j *jsiiProxy_CfnPortal)SetNotificationSenderEmail(val *string) {
 	_jsii_.Set(
 		j,
 		"notificationSenderEmail",
@@ -557,7 +563,7 @@ func (j *jsiiProxy_CfnPortal) SetNotificationSenderEmail(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPortal) SetPortalAuthMode(val *string) {
+func (j *jsiiProxy_CfnPortal)SetPortalAuthMode(val *string) {
 	_jsii_.Set(
 		j,
 		"portalAuthMode",
@@ -565,7 +571,10 @@ func (j *jsiiProxy_CfnPortal) SetPortalAuthMode(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPortal) SetPortalContactEmail(val *string) {
+func (j *jsiiProxy_CfnPortal)SetPortalContactEmail(val *string) {
+	if err := j.validateSetPortalContactEmailParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"portalContactEmail",
@@ -573,7 +582,7 @@ func (j *jsiiProxy_CfnPortal) SetPortalContactEmail(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPortal) SetPortalDescription(val *string) {
+func (j *jsiiProxy_CfnPortal)SetPortalDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"portalDescription",
@@ -581,7 +590,10 @@ func (j *jsiiProxy_CfnPortal) SetPortalDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPortal) SetPortalName(val *string) {
+func (j *jsiiProxy_CfnPortal)SetPortalName(val *string) {
+	if err := j.validateSetPortalNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"portalName",
@@ -589,7 +601,10 @@ func (j *jsiiProxy_CfnPortal) SetPortalName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPortal) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnPortal)SetRoleArn(val *string) {
+	if err := j.validateSetRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -607,6 +622,9 @@ func (j *jsiiProxy_CfnPortal) SetRoleArn(val *string) {
 func CfnPortal_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPortal_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -624,6 +642,9 @@ func CfnPortal_IsCfnElement(x interface{}) *bool {
 func CfnPortal_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPortal_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -641,6 +662,9 @@ func CfnPortal_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnPortal_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPortal_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -665,6 +689,9 @@ func CfnPortal_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnPortal) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -673,6 +700,9 @@ func (c *jsiiProxy_CfnPortal) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnPortal) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -681,6 +711,9 @@ func (c *jsiiProxy_CfnPortal) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnPortal) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -689,6 +722,9 @@ func (c *jsiiProxy_CfnPortal) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnPortal) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -697,6 +733,9 @@ func (c *jsiiProxy_CfnPortal) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnPortal) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -705,6 +744,9 @@ func (c *jsiiProxy_CfnPortal) AddPropertyDeletionOverride(propertyPath *string) 
 }
 
 func (c *jsiiProxy_CfnPortal) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -713,6 +755,9 @@ func (c *jsiiProxy_CfnPortal) AddPropertyOverride(propertyPath *string, value in
 }
 
 func (c *jsiiProxy_CfnPortal) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -721,6 +766,9 @@ func (c *jsiiProxy_CfnPortal) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 }
 
 func (c *jsiiProxy_CfnPortal) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -734,6 +782,9 @@ func (c *jsiiProxy_CfnPortal) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnPortal) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -747,6 +798,9 @@ func (c *jsiiProxy_CfnPortal) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnPortal) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -763,6 +817,9 @@ func (c *jsiiProxy_CfnPortal) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnPortal) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -784,6 +841,9 @@ func (c *jsiiProxy_CfnPortal) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPortal) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -800,6 +860,9 @@ func (c *jsiiProxy_CfnPortal) Prepare() {
 }
 
 func (c *jsiiProxy_CfnPortal) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -826,6 +889,9 @@ func (c *jsiiProxy_CfnPortal) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnPortal) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -860,6 +926,9 @@ func (c *jsiiProxy_CfnPortal) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPortal) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

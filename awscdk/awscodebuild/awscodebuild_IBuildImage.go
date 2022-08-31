@@ -47,6 +47,9 @@ type jsiiProxy_IBuildImage struct {
 }
 
 func (i *jsiiProxy_IBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
+	if err := i.validateRunScriptBuildspecParameters(entrypoint); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.Invoke(
@@ -60,6 +63,9 @@ func (i *jsiiProxy_IBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec
 }
 
 func (i *jsiiProxy_IBuildImage) Validate(buildEnvironment *BuildEnvironment) *[]*string {
+	if err := i.validateValidateParameters(buildEnvironment); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

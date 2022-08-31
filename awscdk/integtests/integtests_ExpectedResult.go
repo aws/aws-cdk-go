@@ -62,7 +62,10 @@ func NewExpectedResult_Override(e ExpectedResult) {
 	)
 }
 
-func (j *jsiiProxy_ExpectedResult) SetResult(val *string) {
+func (j *jsiiProxy_ExpectedResult)SetResult(val *string) {
+	if err := j.validateSetResultParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"result",
@@ -93,6 +96,9 @@ func (j *jsiiProxy_ExpectedResult) SetResult(val *string) {
 func ExpectedResult_ArrayWith(expected *[]interface{}) ExpectedResult {
 	_init_.Initialize()
 
+	if err := validateExpectedResult_ArrayWithParameters(expected); err != nil {
+		panic(err)
+	}
 	var returns ExpectedResult
 
 	_jsii_.StaticInvoke(
@@ -133,6 +139,9 @@ func ExpectedResult_ArrayWith(expected *[]interface{}) ExpectedResult {
 func ExpectedResult_Exact(expected interface{}) ExpectedResult {
 	_init_.Initialize()
 
+	if err := validateExpectedResult_ExactParameters(expected); err != nil {
+		panic(err)
+	}
 	var returns ExpectedResult
 
 	_jsii_.StaticInvoke(
@@ -163,6 +172,9 @@ func ExpectedResult_Exact(expected interface{}) ExpectedResult {
 func ExpectedResult_ObjectLike(expected *map[string]interface{}) ExpectedResult {
 	_init_.Initialize()
 
+	if err := validateExpectedResult_ObjectLikeParameters(expected); err != nil {
+		panic(err)
+	}
 	var returns ExpectedResult
 
 	_jsii_.StaticInvoke(
@@ -188,6 +200,9 @@ func ExpectedResult_ObjectLike(expected *map[string]interface{}) ExpectedResult 
 func ExpectedResult_StringLikeRegexp(expected *string) ExpectedResult {
 	_init_.Initialize()
 
+	if err := validateExpectedResult_StringLikeRegexpParameters(expected); err != nil {
+		panic(err)
+	}
 	var returns ExpectedResult
 
 	_jsii_.StaticInvoke(

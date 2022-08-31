@@ -58,6 +58,9 @@ func NewStateTransitionMetric_Override(s StateTransitionMetric) {
 func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateStateTransitionMetric_MetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -75,6 +78,9 @@ func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.Metri
 func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateStateTransitionMetric_MetricConsumedCapacityParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -92,6 +98,9 @@ func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOpt
 func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateStateTransitionMetric_MetricProvisionedBucketSizeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -109,6 +118,9 @@ func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.Metr
 func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateStateTransitionMetric_MetricProvisionedRefillRateParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -126,6 +138,9 @@ func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.Metr
 func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateStateTransitionMetric_MetricThrottledEventsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(

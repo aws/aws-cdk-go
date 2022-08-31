@@ -39,6 +39,9 @@ type jsiiProxy_ApplicationScalingAction struct {
 func NewApplicationScalingAction(stepScalingAction awsapplicationautoscaling.StepScalingAction) ApplicationScalingAction {
 	_init_.Initialize()
 
+	if err := validateNewApplicationScalingActionParameters(stepScalingAction); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationScalingAction{}
 
 	_jsii_.Create(
@@ -62,6 +65,9 @@ func NewApplicationScalingAction_Override(a ApplicationScalingAction, stepScalin
 }
 
 func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := a.validateBindParameters(_scope, _alarm); err != nil {
+		panic(err)
+	}
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(

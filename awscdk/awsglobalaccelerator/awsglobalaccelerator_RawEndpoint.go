@@ -58,6 +58,9 @@ func (j *jsiiProxy_RawEndpoint) Region() *string {
 func NewRawEndpoint(props *RawEndpointProps) RawEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewRawEndpointParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RawEndpoint{}
 
 	_jsii_.Create(

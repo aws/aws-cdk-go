@@ -35,6 +35,9 @@ type jsiiProxy_IFileSystem struct {
 }
 
 func (i *jsiiProxy_IFileSystem) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -53,6 +56,9 @@ func (i *jsiiProxy_IFileSystem) Grant(grantee awsiam.IGrantable, actions ...*str
 }
 
 func (i *jsiiProxy_IFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

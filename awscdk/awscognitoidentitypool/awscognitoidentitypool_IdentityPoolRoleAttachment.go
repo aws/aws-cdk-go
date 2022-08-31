@@ -222,6 +222,9 @@ func (j *jsiiProxy_IdentityPoolRoleAttachment) Stack() awscdk.Stack {
 func NewIdentityPoolRoleAttachment(scope constructs.Construct, id *string, props *IdentityPoolRoleAttachmentProps) IdentityPoolRoleAttachment {
 	_init_.Initialize()
 
+	if err := validateNewIdentityPoolRoleAttachmentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IdentityPoolRoleAttachment{}
 
 	_jsii_.Create(
@@ -249,6 +252,9 @@ func NewIdentityPoolRoleAttachment_Override(i IdentityPoolRoleAttachment, scope 
 func IdentityPoolRoleAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateIdentityPoolRoleAttachment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -266,6 +272,9 @@ func IdentityPoolRoleAttachment_IsConstruct(x interface{}) *bool {
 func IdentityPoolRoleAttachment_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateIdentityPoolRoleAttachment_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -279,6 +288,9 @@ func IdentityPoolRoleAttachment_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (i *jsiiProxy_IdentityPoolRoleAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -300,6 +312,9 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) GeneratePhysicalName() *string {
 }
 
 func (i *jsiiProxy_IdentityPoolRoleAttachment) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := i.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -313,6 +328,9 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) GetResourceArnAttribute(arnAttr *
 }
 
 func (i *jsiiProxy_IdentityPoolRoleAttachment) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := i.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -334,6 +352,9 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) OnPrepare() {
 }
 
 func (i *jsiiProxy_IdentityPoolRoleAttachment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := i.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"onSynthesize",
@@ -363,6 +384,9 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) Prepare() {
 }
 
 func (i *jsiiProxy_IdentityPoolRoleAttachment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

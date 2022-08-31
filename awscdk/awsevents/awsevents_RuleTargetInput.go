@@ -63,6 +63,9 @@ func NewRuleTargetInput_Override(r RuleTargetInput) {
 func RuleTargetInput_FromEventPath(path *string) RuleTargetInput {
 	_init_.Initialize()
 
+	if err := validateRuleTargetInput_FromEventPathParameters(path); err != nil {
+		panic(err)
+	}
 	var returns RuleTargetInput
 
 	_jsii_.StaticInvoke(
@@ -86,6 +89,9 @@ func RuleTargetInput_FromEventPath(path *string) RuleTargetInput {
 func RuleTargetInput_FromMultilineText(text *string) RuleTargetInput {
 	_init_.Initialize()
 
+	if err := validateRuleTargetInput_FromMultilineTextParameters(text); err != nil {
+		panic(err)
+	}
 	var returns RuleTargetInput
 
 	_jsii_.StaticInvoke(
@@ -106,6 +112,9 @@ func RuleTargetInput_FromMultilineText(text *string) RuleTargetInput {
 func RuleTargetInput_FromObject(obj interface{}) RuleTargetInput {
 	_init_.Initialize()
 
+	if err := validateRuleTargetInput_FromObjectParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns RuleTargetInput
 
 	_jsii_.StaticInvoke(
@@ -130,6 +139,9 @@ func RuleTargetInput_FromObject(obj interface{}) RuleTargetInput {
 func RuleTargetInput_FromText(text *string) RuleTargetInput {
 	_init_.Initialize()
 
+	if err := validateRuleTargetInput_FromTextParameters(text); err != nil {
+		panic(err)
+	}
 	var returns RuleTargetInput
 
 	_jsii_.StaticInvoke(
@@ -143,6 +155,9 @@ func RuleTargetInput_FromText(text *string) RuleTargetInput {
 }
 
 func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties {
+	if err := r.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *RuleTargetInputProperties
 
 	_jsii_.Invoke(

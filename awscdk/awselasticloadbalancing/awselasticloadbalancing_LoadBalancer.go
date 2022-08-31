@@ -297,6 +297,9 @@ func (j *jsiiProxy_LoadBalancer) Stack() awscdk.Stack {
 func NewLoadBalancer(scope constructs.Construct, id *string, props *LoadBalancerProps) LoadBalancer {
 	_init_.Initialize()
 
+	if err := validateNewLoadBalancerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LoadBalancer{}
 
 	_jsii_.Create(
@@ -324,6 +327,9 @@ func NewLoadBalancer_Override(l LoadBalancer, scope constructs.Construct, id *st
 func LoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLoadBalancer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -341,6 +347,9 @@ func LoadBalancer_IsConstruct(x interface{}) *bool {
 func LoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLoadBalancer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -354,6 +363,9 @@ func LoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LoadBalancer) AddListener(listener *LoadBalancerListener) ListenerPort {
+	if err := l.validateAddListenerParameters(listener); err != nil {
+		panic(err)
+	}
 	var returns ListenerPort
 
 	_jsii_.Invoke(
@@ -367,6 +379,9 @@ func (l *jsiiProxy_LoadBalancer) AddListener(listener *LoadBalancerListener) Lis
 }
 
 func (l *jsiiProxy_LoadBalancer) AddTarget(target ILoadBalancerTarget) {
+	if err := l.validateAddTargetParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addTarget",
@@ -375,6 +390,9 @@ func (l *jsiiProxy_LoadBalancer) AddTarget(target ILoadBalancerTarget) {
 }
 
 func (l *jsiiProxy_LoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -396,6 +414,9 @@ func (l *jsiiProxy_LoadBalancer) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LoadBalancer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -409,6 +430,9 @@ func (l *jsiiProxy_LoadBalancer) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (l *jsiiProxy_LoadBalancer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -430,6 +454,9 @@ func (l *jsiiProxy_LoadBalancer) OnPrepare() {
 }
 
 func (l *jsiiProxy_LoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -459,6 +486,9 @@ func (l *jsiiProxy_LoadBalancer) Prepare() {
 }
 
 func (l *jsiiProxy_LoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

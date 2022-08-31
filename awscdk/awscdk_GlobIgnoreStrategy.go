@@ -39,6 +39,9 @@ type jsiiProxy_GlobIgnoreStrategy struct {
 func NewGlobIgnoreStrategy(absoluteRootPath *string, patterns *[]*string) GlobIgnoreStrategy {
 	_init_.Initialize()
 
+	if err := validateNewGlobIgnoreStrategyParameters(absoluteRootPath, patterns); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GlobIgnoreStrategy{}
 
 	_jsii_.Create(
@@ -68,6 +71,9 @@ func NewGlobIgnoreStrategy_Override(g GlobIgnoreStrategy, absoluteRootPath *stri
 func GlobIgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) DockerIgnoreStrategy {
 	_init_.Initialize()
 
+	if err := validateGlobIgnoreStrategy_DockerParameters(absoluteRootPath, patterns); err != nil {
+		panic(err)
+	}
 	var returns DockerIgnoreStrategy
 
 	_jsii_.StaticInvoke(
@@ -87,6 +93,9 @@ func GlobIgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) Do
 func GlobIgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *string) IgnoreStrategy {
 	_init_.Initialize()
 
+	if err := validateGlobIgnoreStrategy_FromCopyOptionsParameters(options, absoluteRootPath); err != nil {
+		panic(err)
+	}
 	var returns IgnoreStrategy
 
 	_jsii_.StaticInvoke(
@@ -106,6 +115,9 @@ func GlobIgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *
 func GlobIgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIgnoreStrategy {
 	_init_.Initialize()
 
+	if err := validateGlobIgnoreStrategy_GitParameters(absoluteRootPath, patterns); err != nil {
+		panic(err)
+	}
 	var returns GitIgnoreStrategy
 
 	_jsii_.StaticInvoke(
@@ -125,6 +137,9 @@ func GlobIgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIg
 func GlobIgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) GlobIgnoreStrategy {
 	_init_.Initialize()
 
+	if err := validateGlobIgnoreStrategy_GlobParameters(absoluteRootPath, patterns); err != nil {
+		panic(err)
+	}
 	var returns GlobIgnoreStrategy
 
 	_jsii_.StaticInvoke(
@@ -138,6 +153,9 @@ func GlobIgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) Glob
 }
 
 func (g *jsiiProxy_GlobIgnoreStrategy) Add(pattern *string) {
+	if err := g.validateAddParameters(pattern); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"add",
@@ -146,6 +164,9 @@ func (g *jsiiProxy_GlobIgnoreStrategy) Add(pattern *string) {
 }
 
 func (g *jsiiProxy_GlobIgnoreStrategy) Ignores(absoluteFilePath *string) *bool {
+	if err := g.validateIgnoresParameters(absoluteFilePath); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

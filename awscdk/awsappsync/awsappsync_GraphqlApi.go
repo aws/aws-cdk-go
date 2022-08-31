@@ -356,6 +356,9 @@ func (j *jsiiProxy_GraphqlApi) Stack() awscdk.Stack {
 func NewGraphqlApi(scope constructs.Construct, id *string, props *GraphqlApiProps) GraphqlApi {
 	_init_.Initialize()
 
+	if err := validateNewGraphqlApiParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GraphqlApi{}
 
 	_jsii_.Create(
@@ -383,6 +386,9 @@ func NewGraphqlApi_Override(g GraphqlApi, scope constructs.Construct, id *string
 func GraphqlApi_FromGraphqlApiAttributes(scope constructs.Construct, id *string, attrs *GraphqlApiAttributes) IGraphqlApi {
 	_init_.Initialize()
 
+	if err := validateGraphqlApi_FromGraphqlApiAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IGraphqlApi
 
 	_jsii_.StaticInvoke(
@@ -400,6 +406,9 @@ func GraphqlApi_FromGraphqlApiAttributes(scope constructs.Construct, id *string,
 func GraphqlApi_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGraphqlApi_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -417,6 +426,9 @@ func GraphqlApi_IsConstruct(x interface{}) *bool {
 func GraphqlApi_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateGraphqlApi_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -430,6 +442,9 @@ func GraphqlApi_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (g *jsiiProxy_GraphqlApi) AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource {
+	if err := g.validateAddDynamoDbDataSourceParameters(id, table, options); err != nil {
+		panic(err)
+	}
 	var returns DynamoDbDataSource
 
 	_jsii_.Invoke(
@@ -443,6 +458,9 @@ func (g *jsiiProxy_GraphqlApi) AddDynamoDbDataSource(id *string, table awsdynamo
 }
 
 func (g *jsiiProxy_GraphqlApi) AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource {
+	if err := g.validateAddElasticsearchDataSourceParameters(id, domain, options); err != nil {
+		panic(err)
+	}
 	var returns ElasticsearchDataSource
 
 	_jsii_.Invoke(
@@ -456,6 +474,9 @@ func (g *jsiiProxy_GraphqlApi) AddElasticsearchDataSource(id *string, domain aws
 }
 
 func (g *jsiiProxy_GraphqlApi) AddHttpDataSource(id *string, endpoint *string, options *HttpDataSourceOptions) HttpDataSource {
+	if err := g.validateAddHttpDataSourceParameters(id, endpoint, options); err != nil {
+		panic(err)
+	}
 	var returns HttpDataSource
 
 	_jsii_.Invoke(
@@ -469,6 +490,9 @@ func (g *jsiiProxy_GraphqlApi) AddHttpDataSource(id *string, endpoint *string, o
 }
 
 func (g *jsiiProxy_GraphqlApi) AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *DataSourceOptions) LambdaDataSource {
+	if err := g.validateAddLambdaDataSourceParameters(id, lambdaFunction, options); err != nil {
+		panic(err)
+	}
 	var returns LambdaDataSource
 
 	_jsii_.Invoke(
@@ -482,6 +506,9 @@ func (g *jsiiProxy_GraphqlApi) AddLambdaDataSource(id *string, lambdaFunction aw
 }
 
 func (g *jsiiProxy_GraphqlApi) AddMutation(fieldName *string, field ResolvableField) ObjectType {
+	if err := g.validateAddMutationParameters(fieldName, field); err != nil {
+		panic(err)
+	}
 	var returns ObjectType
 
 	_jsii_.Invoke(
@@ -495,6 +522,9 @@ func (g *jsiiProxy_GraphqlApi) AddMutation(fieldName *string, field ResolvableFi
 }
 
 func (g *jsiiProxy_GraphqlApi) AddNoneDataSource(id *string, options *DataSourceOptions) NoneDataSource {
+	if err := g.validateAddNoneDataSourceParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns NoneDataSource
 
 	_jsii_.Invoke(
@@ -508,6 +538,9 @@ func (g *jsiiProxy_GraphqlApi) AddNoneDataSource(id *string, options *DataSource
 }
 
 func (g *jsiiProxy_GraphqlApi) AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource {
+	if err := g.validateAddOpenSearchDataSourceParameters(id, domain, options); err != nil {
+		panic(err)
+	}
 	var returns OpenSearchDataSource
 
 	_jsii_.Invoke(
@@ -521,6 +554,9 @@ func (g *jsiiProxy_GraphqlApi) AddOpenSearchDataSource(id *string, domain awsope
 }
 
 func (g *jsiiProxy_GraphqlApi) AddQuery(fieldName *string, field ResolvableField) ObjectType {
+	if err := g.validateAddQueryParameters(fieldName, field); err != nil {
+		panic(err)
+	}
 	var returns ObjectType
 
 	_jsii_.Invoke(
@@ -534,6 +570,9 @@ func (g *jsiiProxy_GraphqlApi) AddQuery(fieldName *string, field ResolvableField
 }
 
 func (g *jsiiProxy_GraphqlApi) AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource {
+	if err := g.validateAddRdsDataSourceParameters(id, serverlessCluster, secretStore, options); err != nil {
+		panic(err)
+	}
 	var returns RdsDataSource
 
 	_jsii_.Invoke(
@@ -547,6 +586,9 @@ func (g *jsiiProxy_GraphqlApi) AddRdsDataSource(id *string, serverlessCluster aw
 }
 
 func (g *jsiiProxy_GraphqlApi) AddSchemaDependency(construct awscdk.CfnResource) *bool {
+	if err := g.validateAddSchemaDependencyParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -560,6 +602,9 @@ func (g *jsiiProxy_GraphqlApi) AddSchemaDependency(construct awscdk.CfnResource)
 }
 
 func (g *jsiiProxy_GraphqlApi) AddSubscription(fieldName *string, field ResolvableField) ObjectType {
+	if err := g.validateAddSubscriptionParameters(fieldName, field); err != nil {
+		panic(err)
+	}
 	var returns ObjectType
 
 	_jsii_.Invoke(
@@ -573,6 +618,9 @@ func (g *jsiiProxy_GraphqlApi) AddSubscription(fieldName *string, field Resolvab
 }
 
 func (g *jsiiProxy_GraphqlApi) AddToSchema(addition *string, delimiter *string) {
+	if err := g.validateAddToSchemaParameters(addition); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addToSchema",
@@ -581,6 +629,9 @@ func (g *jsiiProxy_GraphqlApi) AddToSchema(addition *string, delimiter *string) 
 }
 
 func (g *jsiiProxy_GraphqlApi) AddType(type_ IIntermediateType) IIntermediateType {
+	if err := g.validateAddTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns IIntermediateType
 
 	_jsii_.Invoke(
@@ -594,6 +645,9 @@ func (g *jsiiProxy_GraphqlApi) AddType(type_ IIntermediateType) IIntermediateTyp
 }
 
 func (g *jsiiProxy_GraphqlApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := g.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"applyRemovalPolicy",
@@ -602,6 +656,9 @@ func (g *jsiiProxy_GraphqlApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (g *jsiiProxy_GraphqlApi) CreateResolver(props *ExtendedResolverProps) Resolver {
+	if err := g.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -628,6 +685,9 @@ func (g *jsiiProxy_GraphqlApi) GeneratePhysicalName() *string {
 }
 
 func (g *jsiiProxy_GraphqlApi) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := g.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -641,6 +701,9 @@ func (g *jsiiProxy_GraphqlApi) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (g *jsiiProxy_GraphqlApi) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := g.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -654,6 +717,9 @@ func (g *jsiiProxy_GraphqlApi) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 func (g *jsiiProxy_GraphqlApi) Grant(grantee awsiam.IGrantable, resources IamResource, actions ...*string) awsiam.Grant {
+	if err := g.validateGrantParameters(grantee, resources); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee, resources}
 	for _, a := range actions {
 		args = append(args, a)
@@ -672,6 +738,9 @@ func (g *jsiiProxy_GraphqlApi) Grant(grantee awsiam.IGrantable, resources IamRes
 }
 
 func (g *jsiiProxy_GraphqlApi) GrantMutation(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant {
+	if err := g.validateGrantMutationParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range fields {
 		args = append(args, a)
@@ -690,6 +759,9 @@ func (g *jsiiProxy_GraphqlApi) GrantMutation(grantee awsiam.IGrantable, fields .
 }
 
 func (g *jsiiProxy_GraphqlApi) GrantQuery(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant {
+	if err := g.validateGrantQueryParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range fields {
 		args = append(args, a)
@@ -708,6 +780,9 @@ func (g *jsiiProxy_GraphqlApi) GrantQuery(grantee awsiam.IGrantable, fields ...*
 }
 
 func (g *jsiiProxy_GraphqlApi) GrantSubscription(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant {
+	if err := g.validateGrantSubscriptionParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range fields {
 		args = append(args, a)
@@ -734,6 +809,9 @@ func (g *jsiiProxy_GraphqlApi) OnPrepare() {
 }
 
 func (g *jsiiProxy_GraphqlApi) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -763,6 +841,9 @@ func (g *jsiiProxy_GraphqlApi) Prepare() {
 }
 
 func (g *jsiiProxy_GraphqlApi) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",

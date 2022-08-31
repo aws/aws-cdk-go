@@ -130,6 +130,9 @@ func (j *jsiiProxy_SessionTagsPrincipal) PrincipalAccount() *string {
 func NewSessionTagsPrincipal(principal IPrincipal) SessionTagsPrincipal {
 	_init_.Initialize()
 
+	if err := validateNewSessionTagsPrincipalParameters(principal); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SessionTagsPrincipal{}
 
 	_jsii_.Create(
@@ -153,6 +156,9 @@ func NewSessionTagsPrincipal_Override(s SessionTagsPrincipal, principal IPrincip
 }
 
 func (s *jsiiProxy_SessionTagsPrincipal) AddToAssumeRolePolicy(doc PolicyDocument) {
+	if err := s.validateAddToAssumeRolePolicyParameters(doc); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToAssumeRolePolicy",
@@ -161,6 +167,9 @@ func (s *jsiiProxy_SessionTagsPrincipal) AddToAssumeRolePolicy(doc PolicyDocumen
 }
 
 func (s *jsiiProxy_SessionTagsPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := s.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -174,6 +183,9 @@ func (s *jsiiProxy_SessionTagsPrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 func (s *jsiiProxy_SessionTagsPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -187,6 +199,9 @@ func (s *jsiiProxy_SessionTagsPrincipal) AddToPrincipalPolicy(statement PolicySt
 }
 
 func (s *jsiiProxy_SessionTagsPrincipal) AppendDedupe(append *string) *string {
+	if err := s.validateAppendDedupeParameters(append); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -239,6 +254,9 @@ func (s *jsiiProxy_SessionTagsPrincipal) ToString() *string {
 }
 
 func (s *jsiiProxy_SessionTagsPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := s.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

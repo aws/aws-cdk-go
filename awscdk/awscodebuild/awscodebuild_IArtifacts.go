@@ -30,6 +30,9 @@ type jsiiProxy_IArtifacts struct {
 }
 
 func (i *jsiiProxy_IArtifacts) Bind(scope awscdk.Construct, project IProject) *ArtifactsConfig {
+	if err := i.validateBindParameters(scope, project); err != nil {
+		panic(err)
+	}
 	var returns *ArtifactsConfig
 
 	_jsii_.Invoke(

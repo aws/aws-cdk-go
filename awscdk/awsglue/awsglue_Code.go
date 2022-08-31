@@ -52,6 +52,9 @@ func NewCode_Override(c Code) {
 func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateCode_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -69,6 +72,9 @@ func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 func Code_FromBucket(bucket awss3.IBucket, key *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateCode_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -82,6 +88,9 @@ func Code_FromBucket(bucket awss3.IBucket, key *string) S3Code {
 }
 
 func (c *jsiiProxy_Code) Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig {
+	if err := c.validateBindParameters(scope, grantable); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(

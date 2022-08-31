@@ -223,6 +223,9 @@ func (j *jsiiProxy_RateLimitedApiKey) Stack() awscdk.Stack {
 func NewRateLimitedApiKey(scope constructs.Construct, id *string, props *RateLimitedApiKeyProps) RateLimitedApiKey {
 	_init_.Initialize()
 
+	if err := validateNewRateLimitedApiKeyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RateLimitedApiKey{}
 
 	_jsii_.Create(
@@ -250,6 +253,9 @@ func NewRateLimitedApiKey_Override(r RateLimitedApiKey, scope constructs.Constru
 func RateLimitedApiKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRateLimitedApiKey_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -267,6 +273,9 @@ func RateLimitedApiKey_IsConstruct(x interface{}) *bool {
 func RateLimitedApiKey_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateRateLimitedApiKey_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -280,6 +289,9 @@ func RateLimitedApiKey_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -301,6 +313,9 @@ func (r *jsiiProxy_RateLimitedApiKey) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -314,6 +329,9 @@ func (r *jsiiProxy_RateLimitedApiKey) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -327,6 +345,9 @@ func (r *jsiiProxy_RateLimitedApiKey) GetResourceNameAttribute(nameAttr *string)
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := r.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -340,6 +361,9 @@ func (r *jsiiProxy_RateLimitedApiKey) GrantRead(grantee awsiam.IGrantable) awsia
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := r.validateGrantReadWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -353,6 +377,9 @@ func (r *jsiiProxy_RateLimitedApiKey) GrantReadWrite(grantee awsiam.IGrantable) 
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := r.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -374,6 +401,9 @@ func (r *jsiiProxy_RateLimitedApiKey) OnPrepare() {
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -403,6 +433,9 @@ func (r *jsiiProxy_RateLimitedApiKey) Prepare() {
 }
 
 func (r *jsiiProxy_RateLimitedApiKey) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

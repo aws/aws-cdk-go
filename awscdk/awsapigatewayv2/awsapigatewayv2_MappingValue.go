@@ -53,6 +53,9 @@ func (j *jsiiProxy_MappingValue) Value() *string {
 func NewMappingValue(value *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateNewMappingValueParameters(value); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MappingValue{}
 
 	_jsii_.Create(
@@ -80,6 +83,9 @@ func NewMappingValue_Override(m MappingValue, value *string) {
 func MappingValue_ContextVariable(variableName *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateMappingValue_ContextVariableParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns MappingValue
 
 	_jsii_.StaticInvoke(
@@ -97,6 +103,9 @@ func MappingValue_ContextVariable(variableName *string) MappingValue {
 func MappingValue_Custom(value *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateMappingValue_CustomParameters(value); err != nil {
+		panic(err)
+	}
 	var returns MappingValue
 
 	_jsii_.StaticInvoke(
@@ -114,6 +123,9 @@ func MappingValue_Custom(value *string) MappingValue {
 func MappingValue_RequestBody(name *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateMappingValue_RequestBodyParameters(name); err != nil {
+		panic(err)
+	}
 	var returns MappingValue
 
 	_jsii_.StaticInvoke(
@@ -131,6 +143,9 @@ func MappingValue_RequestBody(name *string) MappingValue {
 func MappingValue_RequestHeader(name *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateMappingValue_RequestHeaderParameters(name); err != nil {
+		panic(err)
+	}
 	var returns MappingValue
 
 	_jsii_.StaticInvoke(
@@ -165,6 +180,9 @@ func MappingValue_RequestPath() MappingValue {
 func MappingValue_RequestPathParam(name *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateMappingValue_RequestPathParamParameters(name); err != nil {
+		panic(err)
+	}
 	var returns MappingValue
 
 	_jsii_.StaticInvoke(
@@ -182,6 +200,9 @@ func MappingValue_RequestPathParam(name *string) MappingValue {
 func MappingValue_RequestQueryString(name *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateMappingValue_RequestQueryStringParameters(name); err != nil {
+		panic(err)
+	}
 	var returns MappingValue
 
 	_jsii_.StaticInvoke(
@@ -199,6 +220,9 @@ func MappingValue_RequestQueryString(name *string) MappingValue {
 func MappingValue_StageVariable(variableName *string) MappingValue {
 	_init_.Initialize()
 
+	if err := validateMappingValue_StageVariableParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns MappingValue
 
 	_jsii_.StaticInvoke(

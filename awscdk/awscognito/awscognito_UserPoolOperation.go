@@ -55,6 +55,9 @@ func (j *jsiiProxy_UserPoolOperation) OperationName() *string {
 func UserPoolOperation_Of(name *string) UserPoolOperation {
 	_init_.Initialize()
 
+	if err := validateUserPoolOperation_OfParameters(name); err != nil {
+		panic(err)
+	}
 	var returns UserPoolOperation
 
 	_jsii_.StaticInvoke(

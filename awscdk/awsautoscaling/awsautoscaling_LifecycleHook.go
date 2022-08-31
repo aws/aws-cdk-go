@@ -224,6 +224,9 @@ func (j *jsiiProxy_LifecycleHook) Stack() awscdk.Stack {
 func NewLifecycleHook(scope constructs.Construct, id *string, props *LifecycleHookProps) LifecycleHook {
 	_init_.Initialize()
 
+	if err := validateNewLifecycleHookParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LifecycleHook{}
 
 	_jsii_.Create(
@@ -251,6 +254,9 @@ func NewLifecycleHook_Override(l LifecycleHook, scope constructs.Construct, id *
 func LifecycleHook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLifecycleHook_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -268,6 +274,9 @@ func LifecycleHook_IsConstruct(x interface{}) *bool {
 func LifecycleHook_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLifecycleHook_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -281,6 +290,9 @@ func LifecycleHook_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LifecycleHook) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -302,6 +314,9 @@ func (l *jsiiProxy_LifecycleHook) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LifecycleHook) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -315,6 +330,9 @@ func (l *jsiiProxy_LifecycleHook) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (l *jsiiProxy_LifecycleHook) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -336,6 +354,9 @@ func (l *jsiiProxy_LifecycleHook) OnPrepare() {
 }
 
 func (l *jsiiProxy_LifecycleHook) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -365,6 +386,9 @@ func (l *jsiiProxy_LifecycleHook) Prepare() {
 }
 
 func (l *jsiiProxy_LifecycleHook) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

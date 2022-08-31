@@ -102,6 +102,9 @@ func (j *jsiiProxy_ManualApprovalAction) ProvidedActionProperties() *awscodepipe
 func NewManualApprovalAction(props *ManualApprovalActionProps) ManualApprovalAction {
 	_init_.Initialize()
 
+	if err := validateNewManualApprovalActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ManualApprovalAction{}
 
 	_jsii_.Create(
@@ -125,6 +128,9 @@ func NewManualApprovalAction_Override(m ManualApprovalAction, props *ManualAppro
 }
 
 func (m *jsiiProxy_ManualApprovalAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := m.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -138,6 +144,9 @@ func (m *jsiiProxy_ManualApprovalAction) Bind(scope awscdk.Construct, stage awsc
 }
 
 func (m *jsiiProxy_ManualApprovalAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := m.validateBoundParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -151,6 +160,9 @@ func (m *jsiiProxy_ManualApprovalAction) Bound(scope awscdk.Construct, stage aws
 }
 
 func (m *jsiiProxy_ManualApprovalAction) GrantManualApproval(grantable awsiam.IGrantable) {
+	if err := m.validateGrantManualApprovalParameters(grantable); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"grantManualApproval",
@@ -159,6 +171,9 @@ func (m *jsiiProxy_ManualApprovalAction) GrantManualApproval(grantable awsiam.IG
 }
 
 func (m *jsiiProxy_ManualApprovalAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := m.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -172,6 +187,9 @@ func (m *jsiiProxy_ManualApprovalAction) OnStateChange(name *string, target awse
 }
 
 func (m *jsiiProxy_ManualApprovalAction) VariableExpression(variableName *string) *string {
+	if err := m.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

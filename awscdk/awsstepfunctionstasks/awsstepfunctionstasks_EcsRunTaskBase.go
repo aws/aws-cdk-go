@@ -88,6 +88,9 @@ func (j *jsiiProxy_EcsRunTaskBase) Connections() awsec2.Connections {
 func NewEcsRunTaskBase(props *EcsRunTaskBaseProps) EcsRunTaskBase {
 	_init_.Initialize()
 
+	if err := validateNewEcsRunTaskBaseParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcsRunTaskBase{}
 
 	_jsii_.Create(
@@ -111,6 +114,9 @@ func NewEcsRunTaskBase_Override(e EcsRunTaskBase, props *EcsRunTaskBaseProps) {
 }
 
 func (e *jsiiProxy_EcsRunTaskBase) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := e.validateBindParameters(task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(
@@ -124,6 +130,9 @@ func (e *jsiiProxy_EcsRunTaskBase) Bind(task awsstepfunctions.Task) *awsstepfunc
 }
 
 func (e *jsiiProxy_EcsRunTaskBase) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	if err := e.validateConfigureAwsVpcNetworkingParameters(vpc, subnetSelection); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"configureAwsVpcNetworking",

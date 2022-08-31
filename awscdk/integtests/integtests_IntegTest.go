@@ -126,6 +126,9 @@ func (j *jsiiProxy_IntegTest) Node() awscdk.ConstructNode {
 func NewIntegTest(scope constructs.Construct, id *string, props *IntegTestProps) IntegTest {
 	_init_.Initialize()
 
+	if err := validateNewIntegTestParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IntegTest{}
 
 	_jsii_.Create(
@@ -153,6 +156,9 @@ func NewIntegTest_Override(i IntegTest, scope constructs.Construct, id *string, 
 func IntegTest_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateIntegTest_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -174,6 +180,9 @@ func (i *jsiiProxy_IntegTest) OnPrepare() {
 }
 
 func (i *jsiiProxy_IntegTest) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := i.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"onSynthesize",
@@ -203,6 +212,9 @@ func (i *jsiiProxy_IntegTest) Prepare() {
 }
 
 func (i *jsiiProxy_IntegTest) Synthesize(session awscdk.ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

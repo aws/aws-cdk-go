@@ -398,6 +398,9 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) VpcEndpointId() *string
 func NewCfnVPCEndpointConnectionNotification(scope awscdk.Construct, id *string, props *CfnVPCEndpointConnectionNotificationProps) CfnVPCEndpointConnectionNotification {
 	_init_.Initialize()
 
+	if err := validateNewCfnVPCEndpointConnectionNotificationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnVPCEndpointConnectionNotification{}
 
 	_jsii_.Create(
@@ -420,7 +423,10 @@ func NewCfnVPCEndpointConnectionNotification_Override(c CfnVPCEndpointConnection
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetConnectionEvents(val *[]*string) {
+func (j *jsiiProxy_CfnVPCEndpointConnectionNotification)SetConnectionEvents(val *[]*string) {
+	if err := j.validateSetConnectionEventsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectionEvents",
@@ -428,7 +434,10 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetConnectionEvents(val
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetConnectionNotificationArn(val *string) {
+func (j *jsiiProxy_CfnVPCEndpointConnectionNotification)SetConnectionNotificationArn(val *string) {
+	if err := j.validateSetConnectionNotificationArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectionNotificationArn",
@@ -436,7 +445,7 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetConnectionNotificati
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetServiceId(val *string) {
+func (j *jsiiProxy_CfnVPCEndpointConnectionNotification)SetServiceId(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceId",
@@ -444,7 +453,7 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetServiceId(val *strin
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetVpcEndpointId(val *string) {
+func (j *jsiiProxy_CfnVPCEndpointConnectionNotification)SetVpcEndpointId(val *string) {
 	_jsii_.Set(
 		j,
 		"vpcEndpointId",
@@ -462,6 +471,9 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) SetVpcEndpointId(val *s
 func CfnVPCEndpointConnectionNotification_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCEndpointConnectionNotification_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -479,6 +491,9 @@ func CfnVPCEndpointConnectionNotification_IsCfnElement(x interface{}) *bool {
 func CfnVPCEndpointConnectionNotification_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCEndpointConnectionNotification_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -496,6 +511,9 @@ func CfnVPCEndpointConnectionNotification_IsCfnResource(construct constructs.ICo
 func CfnVPCEndpointConnectionNotification_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCEndpointConnectionNotification_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -520,6 +538,9 @@ func CfnVPCEndpointConnectionNotification_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -528,6 +549,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddDeletionOverride(pat
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -536,6 +560,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddDependsOn(target aws
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -544,6 +571,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddMetadata(key *string
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -552,6 +582,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddOverride(path *strin
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -560,6 +593,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddPropertyDeletionOver
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -568,6 +604,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) AddPropertyOverride(pro
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -576,6 +615,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) ApplyRemovalPolicy(poli
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -589,6 +631,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) GetAtt(attributeName *s
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -602,6 +647,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) GetMetadata(key *string
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -618,6 +666,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -639,6 +690,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) OnValidate() *[]*string
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -655,6 +709,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) Prepare() {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -681,6 +738,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) ShouldSynthesize() *boo
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -715,6 +775,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

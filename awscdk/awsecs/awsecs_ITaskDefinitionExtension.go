@@ -24,6 +24,9 @@ type jsiiProxy_ITaskDefinitionExtension struct {
 }
 
 func (i *jsiiProxy_ITaskDefinitionExtension) Extend(taskDefinition TaskDefinition) {
+	if err := i.validateExtendParameters(taskDefinition); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"extend",

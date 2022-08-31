@@ -45,6 +45,9 @@ func (j *jsiiProxy_SpaceDelimitedTextPattern) LogPatternString() *string {
 func NewSpaceDelimitedTextPattern(columns *[]*string, restrictions *map[string]*[]*ColumnRestriction) SpaceDelimitedTextPattern {
 	_init_.Initialize()
 
+	if err := validateNewSpaceDelimitedTextPatternParameters(columns, restrictions); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SpaceDelimitedTextPattern{}
 
 	_jsii_.Create(
@@ -78,6 +81,9 @@ func NewSpaceDelimitedTextPattern_Override(s SpaceDelimitedTextPattern, columns 
 func SpaceDelimitedTextPattern_Construct(columns *[]*string) SpaceDelimitedTextPattern {
 	_init_.Initialize()
 
+	if err := validateSpaceDelimitedTextPattern_ConstructParameters(columns); err != nil {
+		panic(err)
+	}
 	var returns SpaceDelimitedTextPattern
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func SpaceDelimitedTextPattern_Construct(columns *[]*string) SpaceDelimitedTextP
 }
 
 func (s *jsiiProxy_SpaceDelimitedTextPattern) WhereNumber(columnName *string, comparison *string, value *float64) SpaceDelimitedTextPattern {
+	if err := s.validateWhereNumberParameters(columnName, comparison, value); err != nil {
+		panic(err)
+	}
 	var returns SpaceDelimitedTextPattern
 
 	_jsii_.Invoke(
@@ -104,6 +113,9 @@ func (s *jsiiProxy_SpaceDelimitedTextPattern) WhereNumber(columnName *string, co
 }
 
 func (s *jsiiProxy_SpaceDelimitedTextPattern) WhereString(columnName *string, comparison *string, value *string) SpaceDelimitedTextPattern {
+	if err := s.validateWhereStringParameters(columnName, comparison, value); err != nil {
+		panic(err)
+	}
 	var returns SpaceDelimitedTextPattern
 
 	_jsii_.Invoke(

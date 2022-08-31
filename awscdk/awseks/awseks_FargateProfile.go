@@ -178,6 +178,9 @@ func (j *jsiiProxy_FargateProfile) Tags() awscdk.TagManager {
 func NewFargateProfile(scope constructs.Construct, id *string, props *FargateProfileProps) FargateProfile {
 	_init_.Initialize()
 
+	if err := validateNewFargateProfileParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FargateProfile{}
 
 	_jsii_.Create(
@@ -205,6 +208,9 @@ func NewFargateProfile_Override(f FargateProfile, scope constructs.Construct, id
 func FargateProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFargateProfile_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -226,6 +232,9 @@ func (f *jsiiProxy_FargateProfile) OnPrepare() {
 }
 
 func (f *jsiiProxy_FargateProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -255,6 +264,9 @@ func (f *jsiiProxy_FargateProfile) Prepare() {
 }
 
 func (f *jsiiProxy_FargateProfile) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

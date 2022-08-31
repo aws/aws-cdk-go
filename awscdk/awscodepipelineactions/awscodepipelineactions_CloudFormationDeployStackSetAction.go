@@ -131,6 +131,9 @@ func (j *jsiiProxy_CloudFormationDeployStackSetAction) ProvidedActionProperties(
 func NewCloudFormationDeployStackSetAction(props *CloudFormationDeployStackSetActionProps) CloudFormationDeployStackSetAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationDeployStackSetActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationDeployStackSetAction{}
 
 	_jsii_.Create(
@@ -154,6 +157,9 @@ func NewCloudFormationDeployStackSetAction_Override(c CloudFormationDeployStackS
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -167,6 +173,9 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bind(scope awscdk.Constru
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -180,6 +189,9 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bound(scope awscdk.Constr
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -193,6 +205,9 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) OnStateChange(name *strin
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackSetAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

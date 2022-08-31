@@ -58,6 +58,9 @@ func (j *jsiiProxy_ApplicationLoadBalancerEndpoint) Region() *string {
 func NewApplicationLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer, options *ApplicationLoadBalancerEndpointOptions) ApplicationLoadBalancerEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewApplicationLoadBalancerEndpointParameters(loadBalancer, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationLoadBalancerEndpoint{}
 
 	_jsii_.Create(

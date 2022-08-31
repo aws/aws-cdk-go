@@ -55,6 +55,9 @@ func NewFileSystem_Override(f FileSystem) {
 func FileSystem_CopyDirectory(srcDir *string, destDir *string, options *CopyOptions, rootDir *string) {
 	_init_.Initialize()
 
+	if err := validateFileSystem_CopyDirectoryParameters(srcDir, destDir, options); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.FileSystem",
 		"copyDirectory",
@@ -72,6 +75,9 @@ func FileSystem_CopyDirectory(srcDir *string, destDir *string, options *CopyOpti
 func FileSystem_Fingerprint(fileOrDirectory *string, options *FingerprintOptions) *string {
 	_init_.Initialize()
 
+	if err := validateFileSystem_FingerprintParameters(fileOrDirectory, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -89,6 +95,9 @@ func FileSystem_Fingerprint(fileOrDirectory *string, options *FingerprintOptions
 func FileSystem_IsEmpty(dir *string) *bool {
 	_init_.Initialize()
 
+	if err := validateFileSystem_IsEmptyParameters(dir); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -106,6 +115,9 @@ func FileSystem_IsEmpty(dir *string) *bool {
 func FileSystem_Mkdtemp(prefix *string) *string {
 	_init_.Initialize()
 
+	if err := validateFileSystem_MkdtempParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

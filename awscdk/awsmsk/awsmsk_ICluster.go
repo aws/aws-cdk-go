@@ -28,6 +28,9 @@ type jsiiProxy_ICluster struct {
 }
 
 func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

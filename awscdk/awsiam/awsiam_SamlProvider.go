@@ -193,6 +193,9 @@ func (j *jsiiProxy_SamlProvider) Stack() awscdk.Stack {
 func NewSamlProvider(scope constructs.Construct, id *string, props *SamlProviderProps) SamlProvider {
 	_init_.Initialize()
 
+	if err := validateNewSamlProviderParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SamlProvider{}
 
 	_jsii_.Create(
@@ -220,6 +223,9 @@ func NewSamlProvider_Override(s SamlProvider, scope constructs.Construct, id *st
 func SamlProvider_FromSamlProviderArn(scope constructs.Construct, id *string, samlProviderArn *string) ISamlProvider {
 	_init_.Initialize()
 
+	if err := validateSamlProvider_FromSamlProviderArnParameters(scope, id, samlProviderArn); err != nil {
+		panic(err)
+	}
 	var returns ISamlProvider
 
 	_jsii_.StaticInvoke(
@@ -237,6 +243,9 @@ func SamlProvider_FromSamlProviderArn(scope constructs.Construct, id *string, sa
 func SamlProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSamlProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -254,6 +263,9 @@ func SamlProvider_IsConstruct(x interface{}) *bool {
 func SamlProvider_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSamlProvider_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -267,6 +279,9 @@ func SamlProvider_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_SamlProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -288,6 +303,9 @@ func (s *jsiiProxy_SamlProvider) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_SamlProvider) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -301,6 +319,9 @@ func (s *jsiiProxy_SamlProvider) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (s *jsiiProxy_SamlProvider) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -322,6 +343,9 @@ func (s *jsiiProxy_SamlProvider) OnPrepare() {
 }
 
 func (s *jsiiProxy_SamlProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -351,6 +375,9 @@ func (s *jsiiProxy_SamlProvider) Prepare() {
 }
 
 func (s *jsiiProxy_SamlProvider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

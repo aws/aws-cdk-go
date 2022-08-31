@@ -751,6 +751,9 @@ func (j *jsiiProxy_CfnVirtualNode) VirtualNodeName() *string {
 func NewCfnVirtualNode(scope awscdk.Construct, id *string, props *CfnVirtualNodeProps) CfnVirtualNode {
 	_init_.Initialize()
 
+	if err := validateNewCfnVirtualNodeParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnVirtualNode{}
 
 	_jsii_.Create(
@@ -773,7 +776,10 @@ func NewCfnVirtualNode_Override(c CfnVirtualNode, scope awscdk.Construct, id *st
 	)
 }
 
-func (j *jsiiProxy_CfnVirtualNode) SetMeshName(val *string) {
+func (j *jsiiProxy_CfnVirtualNode)SetMeshName(val *string) {
+	if err := j.validateSetMeshNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"meshName",
@@ -781,7 +787,7 @@ func (j *jsiiProxy_CfnVirtualNode) SetMeshName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVirtualNode) SetMeshOwner(val *string) {
+func (j *jsiiProxy_CfnVirtualNode)SetMeshOwner(val *string) {
 	_jsii_.Set(
 		j,
 		"meshOwner",
@@ -789,7 +795,10 @@ func (j *jsiiProxy_CfnVirtualNode) SetMeshOwner(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVirtualNode) SetSpec(val interface{}) {
+func (j *jsiiProxy_CfnVirtualNode)SetSpec(val interface{}) {
+	if err := j.validateSetSpecParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"spec",
@@ -797,7 +806,7 @@ func (j *jsiiProxy_CfnVirtualNode) SetSpec(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnVirtualNode) SetVirtualNodeName(val *string) {
+func (j *jsiiProxy_CfnVirtualNode)SetVirtualNodeName(val *string) {
 	_jsii_.Set(
 		j,
 		"virtualNodeName",
@@ -815,6 +824,9 @@ func (j *jsiiProxy_CfnVirtualNode) SetVirtualNodeName(val *string) {
 func CfnVirtualNode_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVirtualNode_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -832,6 +844,9 @@ func CfnVirtualNode_IsCfnElement(x interface{}) *bool {
 func CfnVirtualNode_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVirtualNode_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -849,6 +864,9 @@ func CfnVirtualNode_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnVirtualNode_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVirtualNode_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -873,6 +891,9 @@ func CfnVirtualNode_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -881,6 +902,9 @@ func (c *jsiiProxy_CfnVirtualNode) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -889,6 +913,9 @@ func (c *jsiiProxy_CfnVirtualNode) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -897,6 +924,9 @@ func (c *jsiiProxy_CfnVirtualNode) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -905,6 +935,9 @@ func (c *jsiiProxy_CfnVirtualNode) AddOverride(path *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnVirtualNode) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -913,6 +946,9 @@ func (c *jsiiProxy_CfnVirtualNode) AddPropertyDeletionOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnVirtualNode) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -921,6 +957,9 @@ func (c *jsiiProxy_CfnVirtualNode) AddPropertyOverride(propertyPath *string, val
 }
 
 func (c *jsiiProxy_CfnVirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -929,6 +968,9 @@ func (c *jsiiProxy_CfnVirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (c *jsiiProxy_CfnVirtualNode) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -942,6 +984,9 @@ func (c *jsiiProxy_CfnVirtualNode) GetAtt(attributeName *string) awscdk.Referenc
 }
 
 func (c *jsiiProxy_CfnVirtualNode) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -955,6 +1000,9 @@ func (c *jsiiProxy_CfnVirtualNode) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -971,6 +1019,9 @@ func (c *jsiiProxy_CfnVirtualNode) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -992,6 +1043,9 @@ func (c *jsiiProxy_CfnVirtualNode) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1008,6 +1062,9 @@ func (c *jsiiProxy_CfnVirtualNode) Prepare() {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1034,6 +1091,9 @@ func (c *jsiiProxy_CfnVirtualNode) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1068,6 +1128,9 @@ func (c *jsiiProxy_CfnVirtualNode) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVirtualNode) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

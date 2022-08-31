@@ -43,6 +43,9 @@ type jsiiProxy_ApiGateway struct {
 func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	_init_.Initialize()
 
+	if err := validateNewApiGatewayParameters(api); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiGateway{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApiBase) {
 }
 
 func (a *jsiiProxy_ApiGateway) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := a.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

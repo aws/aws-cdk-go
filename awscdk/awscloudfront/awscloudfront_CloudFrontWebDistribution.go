@@ -281,6 +281,9 @@ func (j *jsiiProxy_CloudFrontWebDistribution) Stack() awscdk.Stack {
 func NewCloudFrontWebDistribution(scope constructs.Construct, id *string, props *CloudFrontWebDistributionProps) CloudFrontWebDistribution {
 	_init_.Initialize()
 
+	if err := validateNewCloudFrontWebDistributionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFrontWebDistribution{}
 
 	_jsii_.Create(
@@ -308,6 +311,9 @@ func NewCloudFrontWebDistribution_Override(c CloudFrontWebDistribution, scope co
 func CloudFrontWebDistribution_FromDistributionAttributes(scope constructs.Construct, id *string, attrs *CloudFrontWebDistributionAttributes) IDistribution {
 	_init_.Initialize()
 
+	if err := validateCloudFrontWebDistribution_FromDistributionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDistribution
 
 	_jsii_.StaticInvoke(
@@ -325,6 +331,9 @@ func CloudFrontWebDistribution_FromDistributionAttributes(scope constructs.Const
 func CloudFrontWebDistribution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudFrontWebDistribution_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -342,6 +351,9 @@ func CloudFrontWebDistribution_IsConstruct(x interface{}) *bool {
 func CloudFrontWebDistribution_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudFrontWebDistribution_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -355,6 +367,9 @@ func CloudFrontWebDistribution_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CloudFrontWebDistribution) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -376,6 +391,9 @@ func (c *jsiiProxy_CloudFrontWebDistribution) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CloudFrontWebDistribution) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -389,6 +407,9 @@ func (c *jsiiProxy_CloudFrontWebDistribution) GetResourceArnAttribute(arnAttr *s
 }
 
 func (c *jsiiProxy_CloudFrontWebDistribution) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -410,6 +431,9 @@ func (c *jsiiProxy_CloudFrontWebDistribution) OnPrepare() {
 }
 
 func (c *jsiiProxy_CloudFrontWebDistribution) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -439,6 +463,9 @@ func (c *jsiiProxy_CloudFrontWebDistribution) Prepare() {
 }
 
 func (c *jsiiProxy_CloudFrontWebDistribution) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

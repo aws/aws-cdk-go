@@ -84,6 +84,9 @@ func NewValues_Override(v Values) {
 func Values_Attribute(attr *string) AttributeValuesStep {
 	_init_.Initialize()
 
+	if err := validateValues_AttributeParameters(attr); err != nil {
+		panic(err)
+	}
 	var returns AttributeValuesStep
 
 	_jsii_.StaticInvoke(

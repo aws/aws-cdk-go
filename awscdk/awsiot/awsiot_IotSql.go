@@ -51,6 +51,9 @@ func NewIotSql_Override(i IotSql) {
 func IotSql_FromStringAsVer20151008(sql *string) IotSql {
 	_init_.Initialize()
 
+	if err := validateIotSql_FromStringAsVer20151008Parameters(sql); err != nil {
+		panic(err)
+	}
 	var returns IotSql
 
 	_jsii_.StaticInvoke(
@@ -70,6 +73,9 @@ func IotSql_FromStringAsVer20151008(sql *string) IotSql {
 func IotSql_FromStringAsVer20160323(sql *string) IotSql {
 	_init_.Initialize()
 
+	if err := validateIotSql_FromStringAsVer20160323Parameters(sql); err != nil {
+		panic(err)
+	}
 	var returns IotSql
 
 	_jsii_.StaticInvoke(
@@ -92,6 +98,9 @@ func IotSql_FromStringAsVer20160323(sql *string) IotSql {
 func IotSql_FromStringAsVerNewestUnstable(sql *string) IotSql {
 	_init_.Initialize()
 
+	if err := validateIotSql_FromStringAsVerNewestUnstableParameters(sql); err != nil {
+		panic(err)
+	}
 	var returns IotSql
 
 	_jsii_.StaticInvoke(
@@ -105,6 +114,9 @@ func IotSql_FromStringAsVerNewestUnstable(sql *string) IotSql {
 }
 
 func (i *jsiiProxy_IotSql) Bind(scope constructs.Construct) *IotSqlConfig {
+	if err := i.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *IotSqlConfig
 
 	_jsii_.Invoke(

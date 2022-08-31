@@ -187,6 +187,9 @@ func (j *jsiiProxy_WarmPool) Stack() awscdk.Stack {
 func NewWarmPool(scope constructs.Construct, id *string, props *WarmPoolProps) WarmPool {
 	_init_.Initialize()
 
+	if err := validateNewWarmPoolParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WarmPool{}
 
 	_jsii_.Create(
@@ -214,6 +217,9 @@ func NewWarmPool_Override(w WarmPool, scope constructs.Construct, id *string, pr
 func WarmPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateWarmPool_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -231,6 +237,9 @@ func WarmPool_IsConstruct(x interface{}) *bool {
 func WarmPool_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateWarmPool_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -244,6 +253,9 @@ func WarmPool_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (w *jsiiProxy_WarmPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := w.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"applyRemovalPolicy",
@@ -265,6 +277,9 @@ func (w *jsiiProxy_WarmPool) GeneratePhysicalName() *string {
 }
 
 func (w *jsiiProxy_WarmPool) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := w.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -278,6 +293,9 @@ func (w *jsiiProxy_WarmPool) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (w *jsiiProxy_WarmPool) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := w.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -299,6 +317,9 @@ func (w *jsiiProxy_WarmPool) OnPrepare() {
 }
 
 func (w *jsiiProxy_WarmPool) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := w.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"onSynthesize",
@@ -328,6 +349,9 @@ func (w *jsiiProxy_WarmPool) Prepare() {
 }
 
 func (w *jsiiProxy_WarmPool) Synthesize(session awscdk.ISynthesisSession) {
+	if err := w.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"synthesize",

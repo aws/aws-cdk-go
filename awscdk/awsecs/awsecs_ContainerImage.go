@@ -72,6 +72,9 @@ func NewContainerImage_Override(c ContainerImage) {
 func ContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
+	if err := validateContainerImage_FromAssetParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
@@ -89,6 +92,9 @@ func ContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetIm
 func ContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
+	if err := validateContainerImage_FromDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
@@ -106,6 +112,9 @@ func ContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Co
 func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
+	if err := validateContainerImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
@@ -123,6 +132,9 @@ func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string
 func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
+	if err := validateContainerImage_FromRegistryParameters(name, props); err != nil {
+		panic(err)
+	}
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
@@ -143,6 +155,9 @@ func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) Repo
 func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
+	if err := validateContainerImage_FromTarballParameters(tarballFile); err != nil {
+		panic(err)
+	}
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
@@ -156,6 +171,9 @@ func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
 }
 
 func (c *jsiiProxy_ContainerImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+	if err := c.validateBindParameters(scope, containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(

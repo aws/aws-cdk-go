@@ -18,6 +18,9 @@ type jsiiProxy_IStepFunctionsTask struct {
 }
 
 func (i *jsiiProxy_IStepFunctionsTask) Bind(task Task) *StepFunctionsTaskConfig {
+	if err := i.validateBindParameters(task); err != nil {
+		panic(err)
+	}
 	var returns *StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

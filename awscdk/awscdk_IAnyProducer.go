@@ -19,6 +19,9 @@ type jsiiProxy_IAnyProducer struct {
 }
 
 func (i *jsiiProxy_IAnyProducer) Produce(context IResolveContext) interface{} {
+	if err := i.validateProduceParameters(context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

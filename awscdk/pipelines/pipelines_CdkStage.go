@@ -154,6 +154,9 @@ func (j *jsiiProxy_CdkStage) Node() awscdk.ConstructNode {
 func NewCdkStage(scope constructs.Construct, id *string, props *CdkStageProps) CdkStage {
 	_init_.Initialize()
 
+	if err := validateNewCdkStageParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CdkStage{}
 
 	_jsii_.Create(
@@ -181,6 +184,9 @@ func NewCdkStage_Override(c CdkStage, scope constructs.Construct, id *string, pr
 func CdkStage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCdkStage_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -207,6 +213,9 @@ func (c *jsiiProxy_CdkStage) AddActions(actions ...awscodepipeline.IAction) {
 }
 
 func (c *jsiiProxy_CdkStage) AddApplication(appStage awscdk.Stage, options *AddStageOptions) {
+	if err := c.validateAddApplicationParameters(appStage, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addApplication",
@@ -215,6 +224,9 @@ func (c *jsiiProxy_CdkStage) AddApplication(appStage awscdk.Stage, options *AddS
 }
 
 func (c *jsiiProxy_CdkStage) AddManualApprovalAction(options *AddManualApprovalOptions) {
+	if err := c.validateAddManualApprovalActionParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addManualApprovalAction",
@@ -223,6 +235,9 @@ func (c *jsiiProxy_CdkStage) AddManualApprovalAction(options *AddManualApprovalO
 }
 
 func (c *jsiiProxy_CdkStage) AddStackArtifactDeployment(stackArtifact cxapi.CloudFormationStackArtifact, options *AddStackOptions) {
+	if err := c.validateAddStackArtifactDeploymentParameters(stackArtifact, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addStackArtifactDeployment",
@@ -231,6 +246,9 @@ func (c *jsiiProxy_CdkStage) AddStackArtifactDeployment(stackArtifact cxapi.Clou
 }
 
 func (c *jsiiProxy_CdkStage) DeploysStack(artifactId *string) *bool {
+	if err := c.validateDeploysStackParameters(artifactId); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -265,6 +283,9 @@ func (c *jsiiProxy_CdkStage) OnPrepare() {
 }
 
 func (c *jsiiProxy_CdkStage) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -294,6 +315,9 @@ func (c *jsiiProxy_CdkStage) Prepare() {
 }
 
 func (c *jsiiProxy_CdkStage) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

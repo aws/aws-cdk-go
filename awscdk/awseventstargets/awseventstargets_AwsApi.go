@@ -47,6 +47,9 @@ type jsiiProxy_AwsApi struct {
 func NewAwsApi(props *AwsApiProps) AwsApi {
 	_init_.Initialize()
 
+	if err := validateNewAwsApiParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AwsApi{}
 
 	_jsii_.Create(
@@ -70,6 +73,9 @@ func NewAwsApi_Override(a AwsApi, props *AwsApiProps) {
 }
 
 func (a *jsiiProxy_AwsApi) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+	if err := a.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

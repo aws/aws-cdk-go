@@ -132,6 +132,9 @@ func (j *jsiiProxy_CustomActionRegistration) Node() awscdk.ConstructNode {
 func NewCustomActionRegistration(scope constructs.Construct, id *string, props *CustomActionRegistrationProps) CustomActionRegistration {
 	_init_.Initialize()
 
+	if err := validateNewCustomActionRegistrationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CustomActionRegistration{}
 
 	_jsii_.Create(
@@ -159,6 +162,9 @@ func NewCustomActionRegistration_Override(c CustomActionRegistration, scope cons
 func CustomActionRegistration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCustomActionRegistration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -180,6 +186,9 @@ func (c *jsiiProxy_CustomActionRegistration) OnPrepare() {
 }
 
 func (c *jsiiProxy_CustomActionRegistration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -209,6 +218,9 @@ func (c *jsiiProxy_CustomActionRegistration) Prepare() {
 }
 
 func (c *jsiiProxy_CustomActionRegistration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

@@ -25,6 +25,9 @@ type jsiiProxy_INetworkAcl struct {
 }
 
 func (i *jsiiProxy_INetworkAcl) AddEntry(id *string, options *CommonNetworkAclEntryOptions) NetworkAclEntry {
+	if err := i.validateAddEntryParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns NetworkAclEntry
 
 	_jsii_.Invoke(

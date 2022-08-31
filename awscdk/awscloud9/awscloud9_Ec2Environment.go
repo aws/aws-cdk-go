@@ -270,6 +270,9 @@ func (j *jsiiProxy_Ec2Environment) Vpc() awsec2.IVpc {
 func NewEc2Environment(scope constructs.Construct, id *string, props *Ec2EnvironmentProps) Ec2Environment {
 	_init_.Initialize()
 
+	if err := validateNewEc2EnvironmentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Ec2Environment{}
 
 	_jsii_.Create(
@@ -297,6 +300,9 @@ func NewEc2Environment_Override(e Ec2Environment, scope constructs.Construct, id
 func Ec2Environment_FromEc2EnvironmentName(scope constructs.Construct, id *string, ec2EnvironmentName *string) IEc2Environment {
 	_init_.Initialize()
 
+	if err := validateEc2Environment_FromEc2EnvironmentNameParameters(scope, id, ec2EnvironmentName); err != nil {
+		panic(err)
+	}
 	var returns IEc2Environment
 
 	_jsii_.StaticInvoke(
@@ -314,6 +320,9 @@ func Ec2Environment_FromEc2EnvironmentName(scope constructs.Construct, id *strin
 func Ec2Environment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEc2Environment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -331,6 +340,9 @@ func Ec2Environment_IsConstruct(x interface{}) *bool {
 func Ec2Environment_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateEc2Environment_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -344,6 +356,9 @@ func Ec2Environment_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (e *jsiiProxy_Ec2Environment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -365,6 +380,9 @@ func (e *jsiiProxy_Ec2Environment) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_Ec2Environment) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -378,6 +396,9 @@ func (e *jsiiProxy_Ec2Environment) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (e *jsiiProxy_Ec2Environment) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -399,6 +420,9 @@ func (e *jsiiProxy_Ec2Environment) OnPrepare() {
 }
 
 func (e *jsiiProxy_Ec2Environment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -428,6 +452,9 @@ func (e *jsiiProxy_Ec2Environment) Prepare() {
 }
 
 func (e *jsiiProxy_Ec2Environment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

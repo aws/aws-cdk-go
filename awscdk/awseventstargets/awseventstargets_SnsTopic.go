@@ -50,6 +50,9 @@ func (j *jsiiProxy_SnsTopic) Topic() awssns.ITopic {
 func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	_init_.Initialize()
 
+	if err := validateNewSnsTopicParameters(topic, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsTopic{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewSnsTopic_Override(s SnsTopic, topic awssns.ITopic, props *SnsTopicProps)
 }
 
 func (s *jsiiProxy_SnsTopic) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := s.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

@@ -82,6 +82,9 @@ func (j *jsiiProxy_Tag) Value() *string {
 func NewTag(key *string, value *string, props *TagProps) Tag {
 	_init_.Initialize()
 
+	if err := validateNewTagParameters(key, value, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Tag{}
 
 	_jsii_.Create(
@@ -109,6 +112,9 @@ func NewTag_Override(t Tag, key *string, value *string, props *TagProps) {
 func Tag_Add(scope Construct, key *string, value *string, props *TagProps) {
 	_init_.Initialize()
 
+	if err := validateTag_AddParameters(scope, key, value, props); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.Tag",
 		"add",
@@ -121,6 +127,9 @@ func Tag_Add(scope Construct, key *string, value *string, props *TagProps) {
 func Tag_Remove(scope Construct, key *string, props *TagProps) {
 	_init_.Initialize()
 
+	if err := validateTag_RemoveParameters(scope, key, props); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.Tag",
 		"remove",
@@ -129,6 +138,9 @@ func Tag_Remove(scope Construct, key *string, props *TagProps) {
 }
 
 func (t *jsiiProxy_Tag) ApplyTag(resource ITaggable) {
+	if err := t.validateApplyTagParameters(resource); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyTag",
@@ -137,6 +149,9 @@ func (t *jsiiProxy_Tag) ApplyTag(resource ITaggable) {
 }
 
 func (t *jsiiProxy_Tag) Visit(construct IConstruct) {
+	if err := t.validateVisitParameters(construct); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"visit",

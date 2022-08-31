@@ -31,6 +31,9 @@ type jsiiProxy_IRole struct {
 }
 
 func (i *jsiiProxy_IRole) Grant(grantee IPrincipal, actions ...*string) Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -49,6 +52,9 @@ func (i *jsiiProxy_IRole) Grant(grantee IPrincipal, actions ...*string) Grant {
 }
 
 func (i *jsiiProxy_IRole) GrantAssumeRole(grantee IPrincipal) Grant {
+	if err := i.validateGrantAssumeRoleParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.Invoke(
@@ -62,6 +68,9 @@ func (i *jsiiProxy_IRole) GrantAssumeRole(grantee IPrincipal) Grant {
 }
 
 func (i *jsiiProxy_IRole) GrantPassRole(grantee IPrincipal) Grant {
+	if err := i.validateGrantPassRoleParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.Invoke(

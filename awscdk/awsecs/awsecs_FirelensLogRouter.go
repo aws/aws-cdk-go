@@ -471,6 +471,9 @@ func (j *jsiiProxy_FirelensLogRouter) VolumesFrom() *[]*VolumeFrom {
 func NewFirelensLogRouter(scope constructs.Construct, id *string, props *FirelensLogRouterProps) FirelensLogRouter {
 	_init_.Initialize()
 
+	if err := validateNewFirelensLogRouterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FirelensLogRouter{}
 
 	_jsii_.Create(
@@ -499,6 +502,9 @@ func NewFirelensLogRouter_Override(f FirelensLogRouter, scope constructs.Constru
 func FirelensLogRouter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFirelensLogRouter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -512,6 +518,9 @@ func FirelensLogRouter_IsConstruct(x interface{}) *bool {
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddContainerDependencies(containerDependencies ...*ContainerDependency) {
+	if err := f.validateAddContainerDependenciesParameters(&containerDependencies); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range containerDependencies {
 		args = append(args, a)
@@ -525,6 +534,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddContainerDependencies(containerDependen
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddEnvironment(name *string, value *string) {
+	if err := f.validateAddEnvironmentParameters(name, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addEnvironment",
@@ -546,6 +558,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddInferenceAcceleratorResource(inferenceA
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddLink(container ContainerDefinition, alias *string) {
+	if err := f.validateAddLinkParameters(container); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addLink",
@@ -554,6 +569,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddLink(container ContainerDefinition, ali
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddMountPoints(mountPoints ...*MountPoint) {
+	if err := f.validateAddMountPointsParameters(&mountPoints); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range mountPoints {
 		args = append(args, a)
@@ -567,6 +585,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddMountPoints(mountPoints ...*MountPoint)
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddPortMappings(portMappings ...*PortMapping) {
+	if err := f.validateAddPortMappingsParameters(&portMappings); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range portMappings {
 		args = append(args, a)
@@ -580,6 +601,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddPortMappings(portMappings ...*PortMappi
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddScratch(scratch *ScratchSpace) {
+	if err := f.validateAddScratchParameters(scratch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addScratch",
@@ -588,6 +612,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddScratch(scratch *ScratchSpace) {
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddToExecutionPolicy(statement awsiam.PolicyStatement) {
+	if err := f.validateAddToExecutionPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addToExecutionPolicy",
@@ -596,6 +623,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddToExecutionPolicy(statement awsiam.Poli
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddUlimits(ulimits ...*Ulimit) {
+	if err := f.validateAddUlimitsParameters(&ulimits); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range ulimits {
 		args = append(args, a)
@@ -609,6 +639,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddUlimits(ulimits ...*Ulimit) {
 }
 
 func (f *jsiiProxy_FirelensLogRouter) AddVolumesFrom(volumesFrom ...*VolumeFrom) {
+	if err := f.validateAddVolumesFromParameters(&volumesFrom); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range volumesFrom {
 		args = append(args, a)
@@ -622,6 +655,9 @@ func (f *jsiiProxy_FirelensLogRouter) AddVolumesFrom(volumesFrom ...*VolumeFrom)
 }
 
 func (f *jsiiProxy_FirelensLogRouter) FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping {
+	if err := f.validateFindPortMappingParameters(containerPort, protocol); err != nil {
+		panic(err)
+	}
 	var returns *PortMapping
 
 	_jsii_.Invoke(
@@ -643,6 +679,9 @@ func (f *jsiiProxy_FirelensLogRouter) OnPrepare() {
 }
 
 func (f *jsiiProxy_FirelensLogRouter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -685,6 +724,9 @@ func (f *jsiiProxy_FirelensLogRouter) RenderContainerDefinition(_taskDefinition 
 }
 
 func (f *jsiiProxy_FirelensLogRouter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

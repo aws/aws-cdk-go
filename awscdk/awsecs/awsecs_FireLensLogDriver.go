@@ -51,6 +51,9 @@ type jsiiProxy_FireLensLogDriver struct {
 func NewFireLensLogDriver(props *FireLensLogDriverProps) FireLensLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewFireLensLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FireLensLogDriver{}
 
 	_jsii_.Create(
@@ -79,6 +82,9 @@ func NewFireLensLogDriver_Override(f FireLensLogDriver, props *FireLensLogDriver
 func FireLensLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateFireLensLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -92,6 +98,9 @@ func FireLensLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (f *jsiiProxy_FireLensLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := f.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

@@ -91,7 +91,10 @@ func NewValidationResults_Override(v ValidationResults, results *[]ValidationRes
 	)
 }
 
-func (j *jsiiProxy_ValidationResults) SetResults(val *[]ValidationResult) {
+func (j *jsiiProxy_ValidationResults)SetResults(val *[]ValidationResult) {
+	if err := j.validateSetResultsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"results",
@@ -100,6 +103,9 @@ func (j *jsiiProxy_ValidationResults) SetResults(val *[]ValidationResult) {
 }
 
 func (v *jsiiProxy_ValidationResults) Collect(result ValidationResult) {
+	if err := v.validateCollectParameters(result); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"collect",
@@ -121,6 +127,9 @@ func (v *jsiiProxy_ValidationResults) ErrorTreeList() *string {
 }
 
 func (v *jsiiProxy_ValidationResults) Wrap(message *string) ValidationResult {
+	if err := v.validateWrapParameters(message); err != nil {
+		panic(err)
+	}
 	var returns ValidationResult
 
 	_jsii_.Invoke(

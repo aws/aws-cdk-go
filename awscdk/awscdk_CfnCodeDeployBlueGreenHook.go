@@ -251,6 +251,9 @@ func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) Type() *string {
 func NewCfnCodeDeployBlueGreenHook(scope constructs.Construct, id *string, props *CfnCodeDeployBlueGreenHookProps) CfnCodeDeployBlueGreenHook {
 	_init_.Initialize()
 
+	if err := validateNewCfnCodeDeployBlueGreenHookParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCodeDeployBlueGreenHook{}
 
 	_jsii_.Create(
@@ -274,7 +277,10 @@ func NewCfnCodeDeployBlueGreenHook_Override(c CfnCodeDeployBlueGreenHook, scope 
 	)
 }
 
-func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetAdditionalOptions(val *CfnCodeDeployBlueGreenAdditionalOptions) {
+func (j *jsiiProxy_CfnCodeDeployBlueGreenHook)SetAdditionalOptions(val *CfnCodeDeployBlueGreenAdditionalOptions) {
+	if err := j.validateSetAdditionalOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"additionalOptions",
@@ -282,7 +288,10 @@ func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetAdditionalOptions(val *CfnCode
 	)
 }
 
-func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetApplications(val *[]*CfnCodeDeployBlueGreenApplication) {
+func (j *jsiiProxy_CfnCodeDeployBlueGreenHook)SetApplications(val *[]*CfnCodeDeployBlueGreenApplication) {
+	if err := j.validateSetApplicationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"applications",
@@ -290,7 +299,10 @@ func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetApplications(val *[]*CfnCodeDe
 	)
 }
 
-func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetLifecycleEventHooks(val *CfnCodeDeployBlueGreenLifecycleEventHooks) {
+func (j *jsiiProxy_CfnCodeDeployBlueGreenHook)SetLifecycleEventHooks(val *CfnCodeDeployBlueGreenLifecycleEventHooks) {
+	if err := j.validateSetLifecycleEventHooksParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"lifecycleEventHooks",
@@ -298,7 +310,10 @@ func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetLifecycleEventHooks(val *CfnCo
 	)
 }
 
-func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetServiceRole(val *string) {
+func (j *jsiiProxy_CfnCodeDeployBlueGreenHook)SetServiceRole(val *string) {
+	if err := j.validateSetServiceRoleParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -306,7 +321,10 @@ func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetServiceRole(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetTrafficRoutingConfig(val *CfnTrafficRoutingConfig) {
+func (j *jsiiProxy_CfnCodeDeployBlueGreenHook)SetTrafficRoutingConfig(val *CfnTrafficRoutingConfig) {
+	if err := j.validateSetTrafficRoutingConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"trafficRoutingConfig",
@@ -324,6 +342,9 @@ func (j *jsiiProxy_CfnCodeDeployBlueGreenHook) SetTrafficRoutingConfig(val *CfnT
 func CfnCodeDeployBlueGreenHook_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCodeDeployBlueGreenHook_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -341,6 +362,9 @@ func CfnCodeDeployBlueGreenHook_IsCfnElement(x interface{}) *bool {
 func CfnCodeDeployBlueGreenHook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCodeDeployBlueGreenHook_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -362,6 +386,9 @@ func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -383,6 +410,9 @@ func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -412,6 +442,9 @@ func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) RenderProperties(_props *map[stri
 }
 
 func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

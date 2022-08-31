@@ -18,6 +18,9 @@ type jsiiProxy_IEventSource struct {
 }
 
 func (i *jsiiProxy_IEventSource) Bind(target IFunction) {
+	if err := i.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"bind",

@@ -63,6 +63,9 @@ type jsiiProxy_Tags struct {
 func Tags_Of(scope IConstruct) Tags {
 	_init_.Initialize()
 
+	if err := validateTags_OfParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns Tags
 
 	_jsii_.StaticInvoke(
@@ -76,6 +79,9 @@ func Tags_Of(scope IConstruct) Tags {
 }
 
 func (t *jsiiProxy_Tags) Add(key *string, value *string, props *TagProps) {
+	if err := t.validateAddParameters(key, value, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"add",
@@ -84,6 +90,9 @@ func (t *jsiiProxy_Tags) Add(key *string, value *string, props *TagProps) {
 }
 
 func (t *jsiiProxy_Tags) Remove(key *string, props *TagProps) {
+	if err := t.validateRemoveParameters(key, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"remove",

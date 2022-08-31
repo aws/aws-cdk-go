@@ -52,6 +52,9 @@ func (j *jsiiProxy_Port) CanInlineRule() *bool {
 func NewPort(props *PortProps) Port {
 	_init_.Initialize()
 
+	if err := validateNewPortParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Port{}
 
 	_jsii_.Create(
@@ -198,6 +201,9 @@ func Port_IcmpPing() Port {
 func Port_IcmpType(type_ *float64) Port {
 	_init_.Initialize()
 
+	if err := validatePort_IcmpTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns Port
 
 	_jsii_.StaticInvoke(
@@ -217,6 +223,9 @@ func Port_IcmpType(type_ *float64) Port {
 func Port_IcmpTypeAndCode(type_ *float64, code *float64) Port {
 	_init_.Initialize()
 
+	if err := validatePort_IcmpTypeAndCodeParameters(type_, code); err != nil {
+		panic(err)
+	}
 	var returns Port
 
 	_jsii_.StaticInvoke(
@@ -234,6 +243,9 @@ func Port_IcmpTypeAndCode(type_ *float64, code *float64) Port {
 func Port_Tcp(port *float64) Port {
 	_init_.Initialize()
 
+	if err := validatePort_TcpParameters(port); err != nil {
+		panic(err)
+	}
 	var returns Port
 
 	_jsii_.StaticInvoke(
@@ -251,6 +263,9 @@ func Port_Tcp(port *float64) Port {
 func Port_TcpRange(startPort *float64, endPort *float64) Port {
 	_init_.Initialize()
 
+	if err := validatePort_TcpRangeParameters(startPort, endPort); err != nil {
+		panic(err)
+	}
 	var returns Port
 
 	_jsii_.StaticInvoke(
@@ -268,6 +283,9 @@ func Port_TcpRange(startPort *float64, endPort *float64) Port {
 func Port_Udp(port *float64) Port {
 	_init_.Initialize()
 
+	if err := validatePort_UdpParameters(port); err != nil {
+		panic(err)
+	}
 	var returns Port
 
 	_jsii_.StaticInvoke(
@@ -285,6 +303,9 @@ func Port_Udp(port *float64) Port {
 func Port_UdpRange(startPort *float64, endPort *float64) Port {
 	_init_.Initialize()
 
+	if err := validatePort_UdpRangeParameters(startPort, endPort); err != nil {
+		panic(err)
+	}
 	var returns Port
 
 	_jsii_.StaticInvoke(

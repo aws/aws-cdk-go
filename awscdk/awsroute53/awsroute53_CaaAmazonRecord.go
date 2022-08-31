@@ -203,6 +203,9 @@ func (j *jsiiProxy_CaaAmazonRecord) Stack() awscdk.Stack {
 func NewCaaAmazonRecord(scope constructs.Construct, id *string, props *CaaAmazonRecordProps) CaaAmazonRecord {
 	_init_.Initialize()
 
+	if err := validateNewCaaAmazonRecordParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CaaAmazonRecord{}
 
 	_jsii_.Create(
@@ -230,6 +233,9 @@ func NewCaaAmazonRecord_Override(c CaaAmazonRecord, scope constructs.Construct, 
 func CaaAmazonRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCaaAmazonRecord_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -247,6 +253,9 @@ func CaaAmazonRecord_IsConstruct(x interface{}) *bool {
 func CaaAmazonRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCaaAmazonRecord_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -260,6 +269,9 @@ func CaaAmazonRecord_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CaaAmazonRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -281,6 +293,9 @@ func (c *jsiiProxy_CaaAmazonRecord) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CaaAmazonRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -294,6 +309,9 @@ func (c *jsiiProxy_CaaAmazonRecord) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (c *jsiiProxy_CaaAmazonRecord) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -315,6 +333,9 @@ func (c *jsiiProxy_CaaAmazonRecord) OnPrepare() {
 }
 
 func (c *jsiiProxy_CaaAmazonRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -344,6 +365,9 @@ func (c *jsiiProxy_CaaAmazonRecord) Prepare() {
 }
 
 func (c *jsiiProxy_CaaAmazonRecord) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

@@ -176,6 +176,9 @@ func (j *jsiiProxy_StepScalingPolicy) UpperAlarm() awscloudwatch.Alarm {
 func NewStepScalingPolicy(scope constructs.Construct, id *string, props *StepScalingPolicyProps) StepScalingPolicy {
 	_init_.Initialize()
 
+	if err := validateNewStepScalingPolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StepScalingPolicy{}
 
 	_jsii_.Create(
@@ -203,6 +206,9 @@ func NewStepScalingPolicy_Override(s StepScalingPolicy, scope constructs.Constru
 func StepScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStepScalingPolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -224,6 +230,9 @@ func (s *jsiiProxy_StepScalingPolicy) OnPrepare() {
 }
 
 func (s *jsiiProxy_StepScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -253,6 +262,9 @@ func (s *jsiiProxy_StepScalingPolicy) Prepare() {
 }
 
 func (s *jsiiProxy_StepScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

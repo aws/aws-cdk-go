@@ -24,6 +24,9 @@ type jsiiProxy_IBucketNotificationDestination struct {
 }
 
 func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope awscdk.Construct, bucket IBucket) *BucketNotificationDestinationConfig {
+	if err := i.validateBindParameters(scope, bucket); err != nil {
+		panic(err)
+	}
 	var returns *BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(

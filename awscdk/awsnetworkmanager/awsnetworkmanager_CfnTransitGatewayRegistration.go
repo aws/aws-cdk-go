@@ -362,6 +362,9 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) UpdatedProperites() *map[strin
 func NewCfnTransitGatewayRegistration(scope awscdk.Construct, id *string, props *CfnTransitGatewayRegistrationProps) CfnTransitGatewayRegistration {
 	_init_.Initialize()
 
+	if err := validateNewCfnTransitGatewayRegistrationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnTransitGatewayRegistration{}
 
 	_jsii_.Create(
@@ -384,7 +387,10 @@ func NewCfnTransitGatewayRegistration_Override(c CfnTransitGatewayRegistration, 
 	)
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRegistration) SetGlobalNetworkId(val *string) {
+func (j *jsiiProxy_CfnTransitGatewayRegistration)SetGlobalNetworkId(val *string) {
+	if err := j.validateSetGlobalNetworkIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"globalNetworkId",
@@ -392,7 +398,10 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) SetGlobalNetworkId(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRegistration) SetTransitGatewayArn(val *string) {
+func (j *jsiiProxy_CfnTransitGatewayRegistration)SetTransitGatewayArn(val *string) {
+	if err := j.validateSetTransitGatewayArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"transitGatewayArn",
@@ -410,6 +419,9 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) SetTransitGatewayArn(val *stri
 func CfnTransitGatewayRegistration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTransitGatewayRegistration_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -427,6 +439,9 @@ func CfnTransitGatewayRegistration_IsCfnElement(x interface{}) *bool {
 func CfnTransitGatewayRegistration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTransitGatewayRegistration_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -444,6 +459,9 @@ func CfnTransitGatewayRegistration_IsCfnResource(construct constructs.IConstruct
 func CfnTransitGatewayRegistration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTransitGatewayRegistration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -468,6 +486,9 @@ func CfnTransitGatewayRegistration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -476,6 +497,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) AddDeletionOverride(path *stri
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -484,6 +508,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) AddDependsOn(target awscdk.Cfn
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -492,6 +519,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) AddMetadata(key *string, value
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -500,6 +530,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) AddOverride(path *string, valu
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -508,6 +541,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) AddPropertyDeletionOverride(pr
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -516,6 +552,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) AddPropertyOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -524,6 +563,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) ApplyRemovalPolicy(policy awsc
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -537,6 +579,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) GetAtt(attributeName *string) 
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -550,6 +595,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) GetMetadata(key *string) inter
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -566,6 +614,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -587,6 +638,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -603,6 +657,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) Prepare() {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -629,6 +686,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -663,6 +723,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRegistration) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

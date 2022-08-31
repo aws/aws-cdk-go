@@ -98,6 +98,9 @@ func (j *jsiiProxy_DataFormat) SerializationLibrary() SerializationLibrary {
 func NewDataFormat(props *DataFormatProps) DataFormat {
 	_init_.Initialize()
 
+	if err := validateNewDataFormatParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DataFormat{}
 
 	_jsii_.Create(

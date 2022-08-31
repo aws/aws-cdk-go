@@ -66,6 +66,9 @@ type jsiiProxy_AddHeader struct {
 func NewAddHeader(props *AddHeaderProps) AddHeader {
 	_init_.Initialize()
 
+	if err := validateNewAddHeaderParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AddHeader{}
 
 	_jsii_.Create(
@@ -89,6 +92,9 @@ func NewAddHeader_Override(a AddHeader, props *AddHeaderProps) {
 }
 
 func (a *jsiiProxy_AddHeader) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := a.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsses.ReceiptRuleActionConfig
 
 	_jsii_.Invoke(

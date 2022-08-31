@@ -275,6 +275,9 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) TaskDefinition() a
 func NewApplicationMultipleTargetGroupsEc2Service(scope constructs.Construct, id *string, props *ApplicationMultipleTargetGroupsEc2ServiceProps) ApplicationMultipleTargetGroupsEc2Service {
 	_init_.Initialize()
 
+	if err := validateNewApplicationMultipleTargetGroupsEc2ServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationMultipleTargetGroupsEc2Service{}
 
 	_jsii_.Create(
@@ -298,7 +301,10 @@ func NewApplicationMultipleTargetGroupsEc2Service_Override(a ApplicationMultiple
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service)SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
+	if err := j.validateSetListenersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"listeners",
@@ -306,7 +312,7 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetListeners(val *
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetLogDriver(val awsecs.LogDriver) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service)SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
@@ -314,7 +320,10 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetLogDriver(val a
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service)SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
+	if err := j.validateSetTargetGroupsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetGroups",
@@ -327,6 +336,9 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetTargetGroups(va
 func ApplicationMultipleTargetGroupsEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationMultipleTargetGroupsEc2Service_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -340,6 +352,9 @@ func ApplicationMultipleTargetGroupsEc2Service_IsConstruct(x interface{}) *bool 
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) {
+	if err := a.validateAddPortMappingForTargetsParameters(container, targets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addPortMappingForTargets",
@@ -348,6 +363,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) AddPortMappingForT
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := a.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -374,6 +392,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) FindListener(name 
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := a.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -395,6 +416,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -424,6 +448,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
+	if err := a.validateRegisterECSTargetsParameters(service, container, targets); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ApplicationTargetGroup
 
 	_jsii_.Invoke(
@@ -437,6 +464,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) RegisterECSTargets
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

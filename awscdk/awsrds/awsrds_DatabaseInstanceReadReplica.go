@@ -405,6 +405,9 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) VpcPlacement() *awsec2.SubnetSel
 func NewDatabaseInstanceReadReplica(scope constructs.Construct, id *string, props *DatabaseInstanceReadReplicaProps) DatabaseInstanceReadReplica {
 	_init_.Initialize()
 
+	if err := validateNewDatabaseInstanceReadReplicaParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DatabaseInstanceReadReplica{}
 
 	_jsii_.Create(
@@ -427,7 +430,7 @@ func NewDatabaseInstanceReadReplica_Override(d DatabaseInstanceReadReplica, scop
 	)
 }
 
-func (j *jsiiProxy_DatabaseInstanceReadReplica) SetEnableIamAuthentication(val *bool) {
+func (j *jsiiProxy_DatabaseInstanceReadReplica)SetEnableIamAuthentication(val *bool) {
 	_jsii_.Set(
 		j,
 		"enableIamAuthentication",
@@ -440,6 +443,9 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) SetEnableIamAuthentication(val *
 func DatabaseInstanceReadReplica_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceReadReplica_FromDatabaseInstanceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
@@ -457,6 +463,9 @@ func DatabaseInstanceReadReplica_FromDatabaseInstanceAttributes(scope constructs
 func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceReadReplica_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -474,6 +483,9 @@ func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 func DatabaseInstanceReadReplica_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceReadReplica_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -487,6 +499,9 @@ func DatabaseInstanceReadReplica_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
+	if err := d.validateAddProxyParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns DatabaseProxy
 
 	_jsii_.Invoke(
@@ -500,6 +515,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) AddProxy(id *string, options *Da
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -534,6 +552,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -547,6 +568,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceArnAttribute(arnAttr 
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -560,6 +584,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceNameAttribute(nameAtt
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantConnectParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -573,6 +600,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GrantConnect(grantee awsiam.IGra
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -586,6 +616,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) Metric(metricName *string, props
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricCPUUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -599,6 +632,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricCPUUtilization(props *awsc
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricDatabaseConnectionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -612,6 +648,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricDatabaseConnections(props 
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFreeableMemoryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -625,6 +664,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeableMemory(props *awsc
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFreeStorageSpaceParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -638,6 +680,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeStorageSpace(props *aw
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricReadIOPSParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -651,6 +696,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricReadIOPS(props *awscloudwa
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricWriteIOPSParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -664,6 +712,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricWriteIOPS(props *awscloudw
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := d.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -685,6 +736,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) OnPrepare() {
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -722,6 +776,9 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) SetLogRetention() {
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

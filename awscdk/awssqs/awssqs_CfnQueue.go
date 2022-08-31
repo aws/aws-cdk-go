@@ -685,6 +685,9 @@ func (j *jsiiProxy_CfnQueue) VisibilityTimeout() *float64 {
 func NewCfnQueue(scope awscdk.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
+	if err := validateNewCfnQueueParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnQueue{}
 
 	_jsii_.Create(
@@ -707,7 +710,10 @@ func NewCfnQueue_Override(c CfnQueue, scope awscdk.Construct, id *string, props 
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetContentBasedDeduplication(val interface{}) {
+func (j *jsiiProxy_CfnQueue)SetContentBasedDeduplication(val interface{}) {
+	if err := j.validateSetContentBasedDeduplicationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"contentBasedDeduplication",
@@ -715,7 +721,7 @@ func (j *jsiiProxy_CfnQueue) SetContentBasedDeduplication(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetDeduplicationScope(val *string) {
+func (j *jsiiProxy_CfnQueue)SetDeduplicationScope(val *string) {
 	_jsii_.Set(
 		j,
 		"deduplicationScope",
@@ -723,7 +729,7 @@ func (j *jsiiProxy_CfnQueue) SetDeduplicationScope(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetDelaySeconds(val *float64) {
+func (j *jsiiProxy_CfnQueue)SetDelaySeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"delaySeconds",
@@ -731,7 +737,10 @@ func (j *jsiiProxy_CfnQueue) SetDelaySeconds(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetFifoQueue(val interface{}) {
+func (j *jsiiProxy_CfnQueue)SetFifoQueue(val interface{}) {
+	if err := j.validateSetFifoQueueParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"fifoQueue",
@@ -739,7 +748,7 @@ func (j *jsiiProxy_CfnQueue) SetFifoQueue(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetFifoThroughputLimit(val *string) {
+func (j *jsiiProxy_CfnQueue)SetFifoThroughputLimit(val *string) {
 	_jsii_.Set(
 		j,
 		"fifoThroughputLimit",
@@ -747,7 +756,7 @@ func (j *jsiiProxy_CfnQueue) SetFifoThroughputLimit(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetKmsDataKeyReusePeriodSeconds(val *float64) {
+func (j *jsiiProxy_CfnQueue)SetKmsDataKeyReusePeriodSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"kmsDataKeyReusePeriodSeconds",
@@ -755,7 +764,7 @@ func (j *jsiiProxy_CfnQueue) SetKmsDataKeyReusePeriodSeconds(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetKmsMasterKeyId(val *string) {
+func (j *jsiiProxy_CfnQueue)SetKmsMasterKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsMasterKeyId",
@@ -763,7 +772,7 @@ func (j *jsiiProxy_CfnQueue) SetKmsMasterKeyId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetMaximumMessageSize(val *float64) {
+func (j *jsiiProxy_CfnQueue)SetMaximumMessageSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"maximumMessageSize",
@@ -771,7 +780,7 @@ func (j *jsiiProxy_CfnQueue) SetMaximumMessageSize(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetMessageRetentionPeriod(val *float64) {
+func (j *jsiiProxy_CfnQueue)SetMessageRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"messageRetentionPeriod",
@@ -779,7 +788,7 @@ func (j *jsiiProxy_CfnQueue) SetMessageRetentionPeriod(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetQueueName(val *string) {
+func (j *jsiiProxy_CfnQueue)SetQueueName(val *string) {
 	_jsii_.Set(
 		j,
 		"queueName",
@@ -787,7 +796,7 @@ func (j *jsiiProxy_CfnQueue) SetQueueName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetReceiveMessageWaitTimeSeconds(val *float64) {
+func (j *jsiiProxy_CfnQueue)SetReceiveMessageWaitTimeSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"receiveMessageWaitTimeSeconds",
@@ -795,7 +804,10 @@ func (j *jsiiProxy_CfnQueue) SetReceiveMessageWaitTimeSeconds(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetRedriveAllowPolicy(val interface{}) {
+func (j *jsiiProxy_CfnQueue)SetRedriveAllowPolicy(val interface{}) {
+	if err := j.validateSetRedriveAllowPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"redriveAllowPolicy",
@@ -803,7 +815,10 @@ func (j *jsiiProxy_CfnQueue) SetRedriveAllowPolicy(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetRedrivePolicy(val interface{}) {
+func (j *jsiiProxy_CfnQueue)SetRedrivePolicy(val interface{}) {
+	if err := j.validateSetRedrivePolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"redrivePolicy",
@@ -811,7 +826,10 @@ func (j *jsiiProxy_CfnQueue) SetRedrivePolicy(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetSqsManagedSseEnabled(val interface{}) {
+func (j *jsiiProxy_CfnQueue)SetSqsManagedSseEnabled(val interface{}) {
+	if err := j.validateSetSqsManagedSseEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sqsManagedSseEnabled",
@@ -819,7 +837,7 @@ func (j *jsiiProxy_CfnQueue) SetSqsManagedSseEnabled(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnQueue) SetVisibilityTimeout(val *float64) {
+func (j *jsiiProxy_CfnQueue)SetVisibilityTimeout(val *float64) {
 	_jsii_.Set(
 		j,
 		"visibilityTimeout",
@@ -837,6 +855,9 @@ func (j *jsiiProxy_CfnQueue) SetVisibilityTimeout(val *float64) {
 func CfnQueue_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnQueue_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -854,6 +875,9 @@ func CfnQueue_IsCfnElement(x interface{}) *bool {
 func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnQueue_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -871,6 +895,9 @@ func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnQueue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnQueue_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -895,6 +922,9 @@ func CfnQueue_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -903,6 +933,9 @@ func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -911,6 +944,9 @@ func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -919,6 +955,9 @@ func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -927,6 +966,9 @@ func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -935,6 +977,9 @@ func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
 }
 
 func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -943,6 +988,9 @@ func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value int
 }
 
 func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -951,6 +999,9 @@ func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 }
 
 func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -964,6 +1015,9 @@ func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnQueue) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -977,6 +1031,9 @@ func (c *jsiiProxy_CfnQueue) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnQueue) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -993,6 +1050,9 @@ func (c *jsiiProxy_CfnQueue) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnQueue) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1014,6 +1074,9 @@ func (c *jsiiProxy_CfnQueue) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnQueue) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1030,6 +1093,9 @@ func (c *jsiiProxy_CfnQueue) Prepare() {
 }
 
 func (c *jsiiProxy_CfnQueue) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1056,6 +1122,9 @@ func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnQueue) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1090,6 +1159,9 @@ func (c *jsiiProxy_CfnQueue) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -438,6 +438,9 @@ func (j *jsiiProxy_SageMakerCreateModel) TaskPolicies() *[]awsiam.PolicyStatemen
 func NewSageMakerCreateModel(scope constructs.Construct, id *string, props *SageMakerCreateModelProps) SageMakerCreateModel {
 	_init_.Initialize()
 
+	if err := validateNewSageMakerCreateModelParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SageMakerCreateModel{}
 
 	_jsii_.Create(
@@ -460,7 +463,7 @@ func NewSageMakerCreateModel_Override(s SageMakerCreateModel, scope constructs.C
 	)
 }
 
-func (j *jsiiProxy_SageMakerCreateModel) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_SageMakerCreateModel)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -468,7 +471,7 @@ func (j *jsiiProxy_SageMakerCreateModel) SetDefaultChoice(val awsstepfunctions.S
 	)
 }
 
-func (j *jsiiProxy_SageMakerCreateModel) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_SageMakerCreateModel)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -481,6 +484,9 @@ func (j *jsiiProxy_SageMakerCreateModel) SetIteration(val awsstepfunctions.State
 func SageMakerCreateModel_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateModel_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -498,6 +504,9 @@ func SageMakerCreateModel_FilterNextables(states *[]awsstepfunctions.State) *[]a
 func SageMakerCreateModel_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateModel_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -517,6 +526,9 @@ func SageMakerCreateModel_FindReachableEndStates(start awsstepfunctions.State, o
 func SageMakerCreateModel_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateModel_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -534,6 +546,9 @@ func SageMakerCreateModel_FindReachableStates(start awsstepfunctions.State, opti
 func SageMakerCreateModel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateModel_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -551,6 +566,9 @@ func SageMakerCreateModel_IsConstruct(x interface{}) *bool {
 func SageMakerCreateModel_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateModel_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"prefixStates",
@@ -559,6 +577,9 @@ func SageMakerCreateModel_PrefixStates(root constructs.IConstruct, prefix *strin
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := s.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addBranch",
@@ -567,6 +588,9 @@ func (s *jsiiProxy_SageMakerCreateModel) AddBranch(branch awsstepfunctions.State
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := s.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -580,6 +604,9 @@ func (s *jsiiProxy_SageMakerCreateModel) AddCatch(handler awsstepfunctions.IChai
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := s.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addChoice",
@@ -588,6 +615,9 @@ func (s *jsiiProxy_SageMakerCreateModel) AddChoice(condition awsstepfunctions.Co
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := s.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addIterator",
@@ -596,6 +626,9 @@ func (s *jsiiProxy_SageMakerCreateModel) AddIterator(iteration awsstepfunctions.
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) AddPrefix(x *string) {
+	if err := s.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addPrefix",
@@ -604,6 +637,9 @@ func (s *jsiiProxy_SageMakerCreateModel) AddPrefix(x *string) {
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := s.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -617,6 +653,9 @@ func (s *jsiiProxy_SageMakerCreateModel) AddRetry(props *awsstepfunctions.RetryP
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) AddSecurityGroup(securityGroup awsec2.ISecurityGroup) {
+	if err := s.validateAddSecurityGroupParameters(securityGroup); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addSecurityGroup",
@@ -625,6 +664,9 @@ func (s *jsiiProxy_SageMakerCreateModel) AddSecurityGroup(securityGroup awsec2.I
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := s.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bindToGraph",
@@ -633,6 +675,9 @@ func (s *jsiiProxy_SageMakerCreateModel) BindToGraph(graph awsstepfunctions.Stat
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MakeDefault(def awsstepfunctions.State) {
+	if err := s.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"makeDefault",
@@ -641,6 +686,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MakeDefault(def awsstepfunctions.State)
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MakeNext(next awsstepfunctions.State) {
+	if err := s.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"makeNext",
@@ -649,6 +697,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MakeNext(next awsstepfunctions.State) {
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -662,6 +713,9 @@ func (s *jsiiProxy_SageMakerCreateModel) Metric(metricName *string, props *awscl
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -675,6 +729,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricFailed(props *awscloudwatch.Metri
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -688,6 +745,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricHeartbeatTimedOut(props *awscloud
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -701,6 +761,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricRunTime(props *awscloudwatch.Metr
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -714,6 +777,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricScheduled(props *awscloudwatch.Me
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -727,6 +793,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricScheduleTime(props *awscloudwatch
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -740,6 +809,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricStarted(props *awscloudwatch.Metr
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -753,6 +825,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricSucceeded(props *awscloudwatch.Me
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -766,6 +841,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricTime(props *awscloudwatch.MetricO
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -779,6 +857,9 @@ func (s *jsiiProxy_SageMakerCreateModel) MetricTimedOut(props *awscloudwatch.Met
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := s.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -800,6 +881,9 @@ func (s *jsiiProxy_SageMakerCreateModel) OnPrepare() {
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -920,6 +1004,9 @@ func (s *jsiiProxy_SageMakerCreateModel) RenderRetryCatch() interface{} {
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",
@@ -967,6 +1054,9 @@ func (s *jsiiProxy_SageMakerCreateModel) Validate() *[]*string {
 }
 
 func (s *jsiiProxy_SageMakerCreateModel) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := s.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"whenBoundToGraph",

@@ -87,6 +87,9 @@ type jsiiProxy_IResource struct {
 }
 
 func (i *jsiiProxy_IResource) AddCorsPreflight(options *CorsOptions) Method {
+	if err := i.validateAddCorsPreflightParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Method
 
 	_jsii_.Invoke(
@@ -100,6 +103,9 @@ func (i *jsiiProxy_IResource) AddCorsPreflight(options *CorsOptions) Method {
 }
 
 func (i *jsiiProxy_IResource) AddMethod(httpMethod *string, target Integration, options *MethodOptions) Method {
+	if err := i.validateAddMethodParameters(httpMethod, options); err != nil {
+		panic(err)
+	}
 	var returns Method
 
 	_jsii_.Invoke(
@@ -113,6 +119,9 @@ func (i *jsiiProxy_IResource) AddMethod(httpMethod *string, target Integration, 
 }
 
 func (i *jsiiProxy_IResource) AddProxy(options *ProxyResourceOptions) ProxyResource {
+	if err := i.validateAddProxyParameters(options); err != nil {
+		panic(err)
+	}
 	var returns ProxyResource
 
 	_jsii_.Invoke(
@@ -126,6 +135,9 @@ func (i *jsiiProxy_IResource) AddProxy(options *ProxyResourceOptions) ProxyResou
 }
 
 func (i *jsiiProxy_IResource) AddResource(pathPart *string, options *ResourceOptions) Resource {
+	if err := i.validateAddResourceParameters(pathPart, options); err != nil {
+		panic(err)
+	}
 	var returns Resource
 
 	_jsii_.Invoke(
@@ -139,6 +151,9 @@ func (i *jsiiProxy_IResource) AddResource(pathPart *string, options *ResourceOpt
 }
 
 func (i *jsiiProxy_IResource) GetResource(pathPart *string) IResource {
+	if err := i.validateGetResourceParameters(pathPart); err != nil {
+		panic(err)
+	}
 	var returns IResource
 
 	_jsii_.Invoke(
@@ -152,6 +167,9 @@ func (i *jsiiProxy_IResource) GetResource(pathPart *string) IResource {
 }
 
 func (i *jsiiProxy_IResource) ResourceForPath(path *string) Resource {
+	if err := i.validateResourceForPathParameters(path); err != nil {
+		panic(err)
+	}
 	var returns Resource
 
 	_jsii_.Invoke(

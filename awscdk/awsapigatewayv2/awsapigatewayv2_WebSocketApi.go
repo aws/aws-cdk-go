@@ -236,6 +236,9 @@ func (j *jsiiProxy_WebSocketApi) WebSocketApiName() *string {
 func NewWebSocketApi(scope constructs.Construct, id *string, props *WebSocketApiProps) WebSocketApi {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketApiParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketApi{}
 
 	_jsii_.Create(
@@ -263,6 +266,9 @@ func NewWebSocketApi_Override(w WebSocketApi, scope constructs.Construct, id *st
 func WebSocketApi_FromWebSocketApiAttributes(scope constructs.Construct, id *string, attrs *WebSocketApiAttributes) IWebSocketApi {
 	_init_.Initialize()
 
+	if err := validateWebSocketApi_FromWebSocketApiAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IWebSocketApi
 
 	_jsii_.StaticInvoke(
@@ -280,6 +286,9 @@ func WebSocketApi_FromWebSocketApiAttributes(scope constructs.Construct, id *str
 func WebSocketApi_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketApi_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -297,6 +306,9 @@ func WebSocketApi_IsConstruct(x interface{}) *bool {
 func WebSocketApi_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketApi_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -310,6 +322,9 @@ func WebSocketApi_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (w *jsiiProxy_WebSocketApi) AddRoute(routeKey *string, options *WebSocketRouteOptions) WebSocketRoute {
+	if err := w.validateAddRouteParameters(routeKey, options); err != nil {
+		panic(err)
+	}
 	var returns WebSocketRoute
 
 	_jsii_.Invoke(
@@ -323,6 +338,9 @@ func (w *jsiiProxy_WebSocketApi) AddRoute(routeKey *string, options *WebSocketRo
 }
 
 func (w *jsiiProxy_WebSocketApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := w.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"applyRemovalPolicy",
@@ -344,6 +362,9 @@ func (w *jsiiProxy_WebSocketApi) GeneratePhysicalName() *string {
 }
 
 func (w *jsiiProxy_WebSocketApi) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := w.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -357,6 +378,9 @@ func (w *jsiiProxy_WebSocketApi) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (w *jsiiProxy_WebSocketApi) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := w.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -370,6 +394,9 @@ func (w *jsiiProxy_WebSocketApi) GetResourceNameAttribute(nameAttr *string) *str
 }
 
 func (w *jsiiProxy_WebSocketApi) GrantManageConnections(identity awsiam.IGrantable) awsiam.Grant {
+	if err := w.validateGrantManageConnectionsParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -383,6 +410,9 @@ func (w *jsiiProxy_WebSocketApi) GrantManageConnections(identity awsiam.IGrantab
 }
 
 func (w *jsiiProxy_WebSocketApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := w.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -404,6 +434,9 @@ func (w *jsiiProxy_WebSocketApi) OnPrepare() {
 }
 
 func (w *jsiiProxy_WebSocketApi) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := w.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"onSynthesize",
@@ -433,6 +466,9 @@ func (w *jsiiProxy_WebSocketApi) Prepare() {
 }
 
 func (w *jsiiProxy_WebSocketApi) Synthesize(session awscdk.ISynthesisSession) {
+	if err := w.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"synthesize",

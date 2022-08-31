@@ -230,6 +230,9 @@ func (j *jsiiProxy_ClientVpnEndpoint) TargetNetworksAssociated() awscdk.IDependa
 func NewClientVpnEndpoint(scope constructs.Construct, id *string, props *ClientVpnEndpointProps) ClientVpnEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewClientVpnEndpointParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ClientVpnEndpoint{}
 
 	_jsii_.Create(
@@ -257,6 +260,9 @@ func NewClientVpnEndpoint_Override(c ClientVpnEndpoint, scope constructs.Constru
 func ClientVpnEndpoint_FromEndpointAttributes(scope constructs.Construct, id *string, attrs *ClientVpnEndpointAttributes) IClientVpnEndpoint {
 	_init_.Initialize()
 
+	if err := validateClientVpnEndpoint_FromEndpointAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IClientVpnEndpoint
 
 	_jsii_.StaticInvoke(
@@ -274,6 +280,9 @@ func ClientVpnEndpoint_FromEndpointAttributes(scope constructs.Construct, id *st
 func ClientVpnEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateClientVpnEndpoint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -291,6 +300,9 @@ func ClientVpnEndpoint_IsConstruct(x interface{}) *bool {
 func ClientVpnEndpoint_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateClientVpnEndpoint_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -304,6 +316,9 @@ func ClientVpnEndpoint_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_ClientVpnEndpoint) AddAuthorizationRule(id *string, props *ClientVpnAuthorizationRuleOptions) ClientVpnAuthorizationRule {
+	if err := c.validateAddAuthorizationRuleParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ClientVpnAuthorizationRule
 
 	_jsii_.Invoke(
@@ -317,6 +332,9 @@ func (c *jsiiProxy_ClientVpnEndpoint) AddAuthorizationRule(id *string, props *Cl
 }
 
 func (c *jsiiProxy_ClientVpnEndpoint) AddRoute(id *string, props *ClientVpnRouteOptions) ClientVpnRoute {
+	if err := c.validateAddRouteParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ClientVpnRoute
 
 	_jsii_.Invoke(
@@ -330,6 +348,9 @@ func (c *jsiiProxy_ClientVpnEndpoint) AddRoute(id *string, props *ClientVpnRoute
 }
 
 func (c *jsiiProxy_ClientVpnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -351,6 +372,9 @@ func (c *jsiiProxy_ClientVpnEndpoint) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_ClientVpnEndpoint) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -364,6 +388,9 @@ func (c *jsiiProxy_ClientVpnEndpoint) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (c *jsiiProxy_ClientVpnEndpoint) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -385,6 +412,9 @@ func (c *jsiiProxy_ClientVpnEndpoint) OnPrepare() {
 }
 
 func (c *jsiiProxy_ClientVpnEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -414,6 +444,9 @@ func (c *jsiiProxy_ClientVpnEndpoint) Prepare() {
 }
 
 func (c *jsiiProxy_ClientVpnEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

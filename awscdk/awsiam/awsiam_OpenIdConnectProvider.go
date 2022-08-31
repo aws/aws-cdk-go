@@ -216,6 +216,9 @@ func (j *jsiiProxy_OpenIdConnectProvider) Stack() awscdk.Stack {
 func NewOpenIdConnectProvider(scope constructs.Construct, id *string, props *OpenIdConnectProviderProps) OpenIdConnectProvider {
 	_init_.Initialize()
 
+	if err := validateNewOpenIdConnectProviderParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_OpenIdConnectProvider{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewOpenIdConnectProvider_Override(o OpenIdConnectProvider, scope constructs
 func OpenIdConnectProvider_FromOpenIdConnectProviderArn(scope constructs.Construct, id *string, openIdConnectProviderArn *string) IOpenIdConnectProvider {
 	_init_.Initialize()
 
+	if err := validateOpenIdConnectProvider_FromOpenIdConnectProviderArnParameters(scope, id, openIdConnectProviderArn); err != nil {
+		panic(err)
+	}
 	var returns IOpenIdConnectProvider
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func OpenIdConnectProvider_FromOpenIdConnectProviderArn(scope constructs.Constru
 func OpenIdConnectProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateOpenIdConnectProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -278,6 +287,9 @@ func OpenIdConnectProvider_IsConstruct(x interface{}) *bool {
 func OpenIdConnectProvider_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateOpenIdConnectProvider_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -291,6 +303,9 @@ func OpenIdConnectProvider_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (o *jsiiProxy_OpenIdConnectProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := o.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"applyRemovalPolicy",
@@ -312,6 +327,9 @@ func (o *jsiiProxy_OpenIdConnectProvider) GeneratePhysicalName() *string {
 }
 
 func (o *jsiiProxy_OpenIdConnectProvider) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := o.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -325,6 +343,9 @@ func (o *jsiiProxy_OpenIdConnectProvider) GetResourceArnAttribute(arnAttr *strin
 }
 
 func (o *jsiiProxy_OpenIdConnectProvider) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := o.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -346,6 +367,9 @@ func (o *jsiiProxy_OpenIdConnectProvider) OnPrepare() {
 }
 
 func (o *jsiiProxy_OpenIdConnectProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := o.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"onSynthesize",
@@ -375,6 +399,9 @@ func (o *jsiiProxy_OpenIdConnectProvider) Prepare() {
 }
 
 func (o *jsiiProxy_OpenIdConnectProvider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := o.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"synthesize",

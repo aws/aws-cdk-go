@@ -232,6 +232,9 @@ func (j *jsiiProxy_CfnInclude) Stack() awscdk.Stack {
 func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProps) CfnInclude {
 	_init_.Initialize()
 
+	if err := validateNewCfnIncludeParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnInclude{}
 
 	_jsii_.Create(
@@ -264,6 +267,9 @@ func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string
 func CfnInclude_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInclude_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -281,6 +287,9 @@ func CfnInclude_IsCfnElement(x interface{}) *bool {
 func CfnInclude_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInclude_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -294,6 +303,9 @@ func CfnInclude_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_CfnInclude) GetCondition(conditionName *string) awscdk.CfnCondition {
+	if err := c.validateGetConditionParameters(conditionName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.CfnCondition
 
 	_jsii_.Invoke(
@@ -307,6 +319,9 @@ func (c *jsiiProxy_CfnInclude) GetCondition(conditionName *string) awscdk.CfnCon
 }
 
 func (c *jsiiProxy_CfnInclude) GetHook(hookLogicalId *string) awscdk.CfnHook {
+	if err := c.validateGetHookParameters(hookLogicalId); err != nil {
+		panic(err)
+	}
 	var returns awscdk.CfnHook
 
 	_jsii_.Invoke(
@@ -320,6 +335,9 @@ func (c *jsiiProxy_CfnInclude) GetHook(hookLogicalId *string) awscdk.CfnHook {
 }
 
 func (c *jsiiProxy_CfnInclude) GetMapping(mappingName *string) awscdk.CfnMapping {
+	if err := c.validateGetMappingParameters(mappingName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.CfnMapping
 
 	_jsii_.Invoke(
@@ -333,6 +351,9 @@ func (c *jsiiProxy_CfnInclude) GetMapping(mappingName *string) awscdk.CfnMapping
 }
 
 func (c *jsiiProxy_CfnInclude) GetNestedStack(logicalId *string) *IncludedNestedStack {
+	if err := c.validateGetNestedStackParameters(logicalId); err != nil {
+		panic(err)
+	}
 	var returns *IncludedNestedStack
 
 	_jsii_.Invoke(
@@ -346,6 +367,9 @@ func (c *jsiiProxy_CfnInclude) GetNestedStack(logicalId *string) *IncludedNested
 }
 
 func (c *jsiiProxy_CfnInclude) GetOutput(logicalId *string) awscdk.CfnOutput {
+	if err := c.validateGetOutputParameters(logicalId); err != nil {
+		panic(err)
+	}
 	var returns awscdk.CfnOutput
 
 	_jsii_.Invoke(
@@ -359,6 +383,9 @@ func (c *jsiiProxy_CfnInclude) GetOutput(logicalId *string) awscdk.CfnOutput {
 }
 
 func (c *jsiiProxy_CfnInclude) GetParameter(parameterName *string) awscdk.CfnParameter {
+	if err := c.validateGetParameterParameters(parameterName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.CfnParameter
 
 	_jsii_.Invoke(
@@ -372,6 +399,9 @@ func (c *jsiiProxy_CfnInclude) GetParameter(parameterName *string) awscdk.CfnPar
 }
 
 func (c *jsiiProxy_CfnInclude) GetResource(logicalId *string) awscdk.CfnResource {
+	if err := c.validateGetResourceParameters(logicalId); err != nil {
+		panic(err)
+	}
 	var returns awscdk.CfnResource
 
 	_jsii_.Invoke(
@@ -385,6 +415,9 @@ func (c *jsiiProxy_CfnInclude) GetResource(logicalId *string) awscdk.CfnResource
 }
 
 func (c *jsiiProxy_CfnInclude) GetRule(ruleName *string) awscdk.CfnRule {
+	if err := c.validateGetRuleParameters(ruleName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.CfnRule
 
 	_jsii_.Invoke(
@@ -398,6 +431,9 @@ func (c *jsiiProxy_CfnInclude) GetRule(ruleName *string) awscdk.CfnRule {
 }
 
 func (c *jsiiProxy_CfnInclude) LoadNestedStack(logicalId *string, nestedStackProps *CfnIncludeProps) *IncludedNestedStack {
+	if err := c.validateLoadNestedStackParameters(logicalId, nestedStackProps); err != nil {
+		panic(err)
+	}
 	var returns *IncludedNestedStack
 
 	_jsii_.Invoke(
@@ -419,6 +455,9 @@ func (c *jsiiProxy_CfnInclude) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnInclude) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -440,6 +479,9 @@ func (c *jsiiProxy_CfnInclude) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -456,6 +498,9 @@ func (c *jsiiProxy_CfnInclude) Prepare() {
 }
 
 func (c *jsiiProxy_CfnInclude) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

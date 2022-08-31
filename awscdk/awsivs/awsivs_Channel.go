@@ -224,6 +224,9 @@ func (j *jsiiProxy_Channel) Stack() awscdk.Stack {
 func NewChannel(scope constructs.Construct, id *string, props *ChannelProps) Channel {
 	_init_.Initialize()
 
+	if err := validateNewChannelParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Channel{}
 
 	_jsii_.Create(
@@ -251,6 +254,9 @@ func NewChannel_Override(c Channel, scope constructs.Construct, id *string, prop
 func Channel_FromChannelArn(scope constructs.Construct, id *string, channelArn *string) IChannel {
 	_init_.Initialize()
 
+	if err := validateChannel_FromChannelArnParameters(scope, id, channelArn); err != nil {
+		panic(err)
+	}
 	var returns IChannel
 
 	_jsii_.StaticInvoke(
@@ -268,6 +274,9 @@ func Channel_FromChannelArn(scope constructs.Construct, id *string, channelArn *
 func Channel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateChannel_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -285,6 +294,9 @@ func Channel_IsConstruct(x interface{}) *bool {
 func Channel_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateChannel_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -298,6 +310,9 @@ func Channel_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_Channel) AddStreamKey(id *string) StreamKey {
+	if err := c.validateAddStreamKeyParameters(id); err != nil {
+		panic(err)
+	}
 	var returns StreamKey
 
 	_jsii_.Invoke(
@@ -311,6 +326,9 @@ func (c *jsiiProxy_Channel) AddStreamKey(id *string) StreamKey {
 }
 
 func (c *jsiiProxy_Channel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -332,6 +350,9 @@ func (c *jsiiProxy_Channel) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_Channel) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -345,6 +366,9 @@ func (c *jsiiProxy_Channel) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (c *jsiiProxy_Channel) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -366,6 +390,9 @@ func (c *jsiiProxy_Channel) OnPrepare() {
 }
 
 func (c *jsiiProxy_Channel) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -395,6 +422,9 @@ func (c *jsiiProxy_Channel) Prepare() {
 }
 
 func (c *jsiiProxy_Channel) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

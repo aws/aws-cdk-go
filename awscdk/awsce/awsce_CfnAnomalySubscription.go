@@ -459,6 +459,9 @@ func (j *jsiiProxy_CfnAnomalySubscription) UpdatedProperites() *map[string]inter
 func NewCfnAnomalySubscription(scope awscdk.Construct, id *string, props *CfnAnomalySubscriptionProps) CfnAnomalySubscription {
 	_init_.Initialize()
 
+	if err := validateNewCfnAnomalySubscriptionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnAnomalySubscription{}
 
 	_jsii_.Create(
@@ -481,7 +484,10 @@ func NewCfnAnomalySubscription_Override(c CfnAnomalySubscription, scope awscdk.C
 	)
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) SetFrequency(val *string) {
+func (j *jsiiProxy_CfnAnomalySubscription)SetFrequency(val *string) {
+	if err := j.validateSetFrequencyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"frequency",
@@ -489,7 +495,10 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetFrequency(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) SetMonitorArnList(val *[]*string) {
+func (j *jsiiProxy_CfnAnomalySubscription)SetMonitorArnList(val *[]*string) {
+	if err := j.validateSetMonitorArnListParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"monitorArnList",
@@ -497,7 +506,10 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetMonitorArnList(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) SetResourceTags(val interface{}) {
+func (j *jsiiProxy_CfnAnomalySubscription)SetResourceTags(val interface{}) {
+	if err := j.validateSetResourceTagsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"resourceTags",
@@ -505,7 +517,10 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetResourceTags(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) SetSubscribers(val interface{}) {
+func (j *jsiiProxy_CfnAnomalySubscription)SetSubscribers(val interface{}) {
+	if err := j.validateSetSubscribersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"subscribers",
@@ -513,7 +528,10 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetSubscribers(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) SetSubscriptionName(val *string) {
+func (j *jsiiProxy_CfnAnomalySubscription)SetSubscriptionName(val *string) {
+	if err := j.validateSetSubscriptionNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"subscriptionName",
@@ -521,7 +539,10 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetSubscriptionName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) SetThreshold(val *float64) {
+func (j *jsiiProxy_CfnAnomalySubscription)SetThreshold(val *float64) {
+	if err := j.validateSetThresholdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"threshold",
@@ -539,6 +560,9 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetThreshold(val *float64) {
 func CfnAnomalySubscription_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAnomalySubscription_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -556,6 +580,9 @@ func CfnAnomalySubscription_IsCfnElement(x interface{}) *bool {
 func CfnAnomalySubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAnomalySubscription_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -573,6 +600,9 @@ func CfnAnomalySubscription_IsCfnResource(construct constructs.IConstruct) *bool
 func CfnAnomalySubscription_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAnomalySubscription_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -597,6 +627,9 @@ func CfnAnomalySubscription_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -605,6 +638,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -613,6 +649,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) AddDependsOn(target awscdk.CfnResourc
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -621,6 +660,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) AddMetadata(key *string, value interf
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -629,6 +671,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) AddOverride(path *string, value inter
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -637,6 +682,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) AddPropertyDeletionOverride(propertyP
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -645,6 +693,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) AddPropertyOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -653,6 +704,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) ApplyRemovalPolicy(policy awscdk.Remo
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -666,6 +720,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) GetAtt(attributeName *string) awscdk.
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -679,6 +736,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) GetMetadata(key *string) interface{} 
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -695,6 +755,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -716,6 +779,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -732,6 +798,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) Prepare() {
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -758,6 +827,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -792,6 +864,9 @@ func (c *jsiiProxy_CfnAnomalySubscription) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

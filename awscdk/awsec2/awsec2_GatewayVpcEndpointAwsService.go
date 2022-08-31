@@ -71,6 +71,9 @@ func (j *jsiiProxy_GatewayVpcEndpointAwsService) Name() *string {
 func NewGatewayVpcEndpointAwsService(name *string, prefix *string) GatewayVpcEndpointAwsService {
 	_init_.Initialize()
 
+	if err := validateNewGatewayVpcEndpointAwsServiceParameters(name); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GatewayVpcEndpointAwsService{}
 
 	_jsii_.Create(

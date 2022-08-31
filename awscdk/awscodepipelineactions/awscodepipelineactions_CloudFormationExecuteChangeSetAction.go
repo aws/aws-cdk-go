@@ -119,6 +119,9 @@ func (j *jsiiProxy_CloudFormationExecuteChangeSetAction) ProvidedActionPropertie
 func NewCloudFormationExecuteChangeSetAction(props *CloudFormationExecuteChangeSetActionProps) CloudFormationExecuteChangeSetAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationExecuteChangeSetActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationExecuteChangeSetAction{}
 
 	_jsii_.Create(
@@ -142,6 +145,9 @@ func NewCloudFormationExecuteChangeSetAction_Override(c CloudFormationExecuteCha
 }
 
 func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -155,6 +161,9 @@ func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bind(scope awscdk.Const
 }
 
 func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -168,6 +177,9 @@ func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bound(scope awscdk.Cons
 }
 
 func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -181,6 +193,9 @@ func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) OnStateChange(name *str
 }
 
 func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

@@ -567,6 +567,9 @@ func (j *jsiiProxy_Bucket) Stack() awscdk.Stack {
 func NewBucket(scope constructs.Construct, id *string, props *BucketProps) Bucket {
 	_init_.Initialize()
 
+	if err := validateNewBucketParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Bucket{}
 
 	_jsii_.Create(
@@ -589,7 +592,10 @@ func NewBucket_Override(b Bucket, scope constructs.Construct, id *string, props 
 	)
 }
 
-func (j *jsiiProxy_Bucket) SetAutoCreatePolicy(val *bool) {
+func (j *jsiiProxy_Bucket)SetAutoCreatePolicy(val *bool) {
+	if err := j.validateSetAutoCreatePolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"autoCreatePolicy",
@@ -597,7 +603,7 @@ func (j *jsiiProxy_Bucket) SetAutoCreatePolicy(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_Bucket) SetDisallowPublicAccess(val *bool) {
+func (j *jsiiProxy_Bucket)SetDisallowPublicAccess(val *bool) {
 	_jsii_.Set(
 		j,
 		"disallowPublicAccess",
@@ -605,7 +611,7 @@ func (j *jsiiProxy_Bucket) SetDisallowPublicAccess(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_Bucket) SetNotificationsHandlerRole(val awsiam.IRole) {
+func (j *jsiiProxy_Bucket)SetNotificationsHandlerRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"notificationsHandlerRole",
@@ -613,7 +619,7 @@ func (j *jsiiProxy_Bucket) SetNotificationsHandlerRole(val awsiam.IRole) {
 	)
 }
 
-func (j *jsiiProxy_Bucket) SetPolicy(val BucketPolicy) {
+func (j *jsiiProxy_Bucket)SetPolicy(val BucketPolicy) {
 	_jsii_.Set(
 		j,
 		"policy",
@@ -625,6 +631,9 @@ func (j *jsiiProxy_Bucket) SetPolicy(val BucketPolicy) {
 func Bucket_FromBucketArn(scope constructs.Construct, id *string, bucketArn *string) IBucket {
 	_init_.Initialize()
 
+	if err := validateBucket_FromBucketArnParameters(scope, id, bucketArn); err != nil {
+		panic(err)
+	}
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
@@ -642,6 +651,9 @@ func Bucket_FromBucketArn(scope constructs.Construct, id *string, bucketArn *str
 func Bucket_FromBucketAttributes(scope constructs.Construct, id *string, attrs *BucketAttributes) IBucket {
 	_init_.Initialize()
 
+	if err := validateBucket_FromBucketAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
@@ -658,6 +670,9 @@ func Bucket_FromBucketAttributes(scope constructs.Construct, id *string, attrs *
 func Bucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) IBucket {
 	_init_.Initialize()
 
+	if err := validateBucket_FromBucketNameParameters(scope, id, bucketName); err != nil {
+		panic(err)
+	}
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
@@ -675,6 +690,9 @@ func Bucket_FromBucketName(scope constructs.Construct, id *string, bucketName *s
 func Bucket_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBucket_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -692,6 +710,9 @@ func Bucket_IsConstruct(x interface{}) *bool {
 func Bucket_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBucket_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -709,6 +730,9 @@ func Bucket_IsResource(construct awscdk.IConstruct) *bool {
 func Bucket_ValidateBucketName(physicalName *string) {
 	_init_.Initialize()
 
+	if err := validateBucket_ValidateBucketNameParameters(physicalName); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_s3.Bucket",
 		"validateBucketName",
@@ -717,6 +741,9 @@ func Bucket_ValidateBucketName(physicalName *string) {
 }
 
 func (b *jsiiProxy_Bucket) AddCorsRule(rule *CorsRule) {
+	if err := b.validateAddCorsRuleParameters(rule); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addCorsRule",
@@ -725,6 +752,9 @@ func (b *jsiiProxy_Bucket) AddCorsRule(rule *CorsRule) {
 }
 
 func (b *jsiiProxy_Bucket) AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
+	if err := b.validateAddEventNotificationParameters(event, dest, &filters); err != nil {
+		panic(err)
+	}
 	args := []interface{}{event, dest}
 	for _, a := range filters {
 		args = append(args, a)
@@ -738,6 +768,9 @@ func (b *jsiiProxy_Bucket) AddEventNotification(event EventType, dest IBucketNot
 }
 
 func (b *jsiiProxy_Bucket) AddInventory(inventory *Inventory) {
+	if err := b.validateAddInventoryParameters(inventory); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addInventory",
@@ -746,6 +779,9 @@ func (b *jsiiProxy_Bucket) AddInventory(inventory *Inventory) {
 }
 
 func (b *jsiiProxy_Bucket) AddLifecycleRule(rule *LifecycleRule) {
+	if err := b.validateAddLifecycleRuleParameters(rule); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addLifecycleRule",
@@ -754,6 +790,9 @@ func (b *jsiiProxy_Bucket) AddLifecycleRule(rule *LifecycleRule) {
 }
 
 func (b *jsiiProxy_Bucket) AddMetric(metric *BucketMetrics) {
+	if err := b.validateAddMetricParameters(metric); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addMetric",
@@ -762,6 +801,9 @@ func (b *jsiiProxy_Bucket) AddMetric(metric *BucketMetrics) {
 }
 
 func (b *jsiiProxy_Bucket) AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
+	if err := b.validateAddObjectCreatedNotificationParameters(dest, &filters); err != nil {
+		panic(err)
+	}
 	args := []interface{}{dest}
 	for _, a := range filters {
 		args = append(args, a)
@@ -775,6 +817,9 @@ func (b *jsiiProxy_Bucket) AddObjectCreatedNotification(dest IBucketNotification
 }
 
 func (b *jsiiProxy_Bucket) AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
+	if err := b.validateAddObjectRemovedNotificationParameters(dest, &filters); err != nil {
+		panic(err)
+	}
 	args := []interface{}{dest}
 	for _, a := range filters {
 		args = append(args, a)
@@ -788,6 +833,9 @@ func (b *jsiiProxy_Bucket) AddObjectRemovedNotification(dest IBucketNotification
 }
 
 func (b *jsiiProxy_Bucket) AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := b.validateAddToResourcePolicyParameters(permission); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -801,6 +849,9 @@ func (b *jsiiProxy_Bucket) AddToResourcePolicy(permission awsiam.PolicyStatement
 }
 
 func (b *jsiiProxy_Bucket) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -809,6 +860,9 @@ func (b *jsiiProxy_Bucket) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (b *jsiiProxy_Bucket) ArnForObjects(keyPattern *string) *string {
+	if err := b.validateArnForObjectsParameters(keyPattern); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -843,6 +897,9 @@ func (b *jsiiProxy_Bucket) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_Bucket) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -856,6 +913,9 @@ func (b *jsiiProxy_Bucket) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (b *jsiiProxy_Bucket) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -869,6 +929,9 @@ func (b *jsiiProxy_Bucket) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (b *jsiiProxy_Bucket) GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
+	if err := b.validateGrantDeleteParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -900,6 +963,9 @@ func (b *jsiiProxy_Bucket) GrantPublicAccess(keyPrefix *string, allowedActions .
 }
 
 func (b *jsiiProxy_Bucket) GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
+	if err := b.validateGrantPutParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -913,6 +979,9 @@ func (b *jsiiProxy_Bucket) GrantPut(identity awsiam.IGrantable, objectsKeyPatter
 }
 
 func (b *jsiiProxy_Bucket) GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant {
+	if err := b.validateGrantPutAclParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -926,6 +995,9 @@ func (b *jsiiProxy_Bucket) GrantPutAcl(identity awsiam.IGrantable, objectsKeyPat
 }
 
 func (b *jsiiProxy_Bucket) GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
+	if err := b.validateGrantReadParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -939,6 +1011,9 @@ func (b *jsiiProxy_Bucket) GrantRead(identity awsiam.IGrantable, objectsKeyPatte
 }
 
 func (b *jsiiProxy_Bucket) GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
+	if err := b.validateGrantReadWriteParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -952,6 +1027,9 @@ func (b *jsiiProxy_Bucket) GrantReadWrite(identity awsiam.IGrantable, objectsKey
 }
 
 func (b *jsiiProxy_Bucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
+	if err := b.validateGrantWriteParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -965,6 +1043,9 @@ func (b *jsiiProxy_Bucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPatt
 }
 
 func (b *jsiiProxy_Bucket) OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule {
+	if err := b.validateOnCloudTrailEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -978,6 +1059,9 @@ func (b *jsiiProxy_Bucket) OnCloudTrailEvent(id *string, options *OnCloudTrailBu
 }
 
 func (b *jsiiProxy_Bucket) OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule {
+	if err := b.validateOnCloudTrailPutObjectParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -991,6 +1075,9 @@ func (b *jsiiProxy_Bucket) OnCloudTrailPutObject(id *string, options *OnCloudTra
 }
 
 func (b *jsiiProxy_Bucket) OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule {
+	if err := b.validateOnCloudTrailWriteObjectParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -1012,6 +1099,9 @@ func (b *jsiiProxy_Bucket) OnPrepare() {
 }
 
 func (b *jsiiProxy_Bucket) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -1054,6 +1144,9 @@ func (b *jsiiProxy_Bucket) S3UrlForObject(key *string) *string {
 }
 
 func (b *jsiiProxy_Bucket) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",
@@ -1075,6 +1168,9 @@ func (b *jsiiProxy_Bucket) ToString() *string {
 }
 
 func (b *jsiiProxy_Bucket) TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string {
+	if err := b.validateTransferAccelerationUrlForObjectParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -1114,6 +1210,9 @@ func (b *jsiiProxy_Bucket) Validate() *[]*string {
 }
 
 func (b *jsiiProxy_Bucket) VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string {
+	if err := b.validateVirtualHostedUrlForObjectParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

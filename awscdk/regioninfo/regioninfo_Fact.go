@@ -32,6 +32,9 @@ type jsiiProxy_Fact struct {
 func Fact_Find(region *string, name *string) *string {
 	_init_.Initialize()
 
+	if err := validateFact_FindParameters(region, name); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -49,6 +52,9 @@ func Fact_Find(region *string, name *string) *string {
 func Fact_Register(fact IFact, allowReplacing *bool) {
 	_init_.Initialize()
 
+	if err := validateFact_RegisterParameters(fact); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.region_info.Fact",
 		"register",
@@ -64,6 +70,9 @@ func Fact_Register(fact IFact, allowReplacing *bool) {
 func Fact_RequireFact(region *string, name *string) *string {
 	_init_.Initialize()
 
+	if err := validateFact_RequireFactParameters(region, name); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -81,6 +90,9 @@ func Fact_RequireFact(region *string, name *string) *string {
 func Fact_Unregister(region *string, name *string, value *string) {
 	_init_.Initialize()
 
+	if err := validateFact_UnregisterParameters(region, name); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.region_info.Fact",
 		"unregister",

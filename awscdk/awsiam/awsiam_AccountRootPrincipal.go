@@ -181,6 +181,9 @@ func NewAccountRootPrincipal_Override(a AccountRootPrincipal) {
 }
 
 func (a *jsiiProxy_AccountRootPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := a.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addToAssumeRolePolicy",
@@ -189,6 +192,9 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToAssumeRolePolicy(document PolicyDo
 }
 
 func (a *jsiiProxy_AccountRootPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := a.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -202,6 +208,9 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := a.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -228,6 +237,9 @@ func (a *jsiiProxy_AccountRootPrincipal) DedupeString() *string {
 }
 
 func (a *jsiiProxy_AccountRootPrincipal) InOrganization(organizationId *string) PrincipalBase {
+	if err := a.validateInOrganizationParameters(organizationId); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(
@@ -267,6 +279,9 @@ func (a *jsiiProxy_AccountRootPrincipal) ToString() *string {
 }
 
 func (a *jsiiProxy_AccountRootPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := a.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

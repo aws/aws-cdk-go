@@ -292,6 +292,9 @@ func (j *jsiiProxy_Service) Stack() awscdk.Stack {
 func NewService(scope constructs.Construct, id *string, props *ServiceProps) Service {
 	_init_.Initialize()
 
+	if err := validateNewServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Service{}
 
 	_jsii_.Create(
@@ -318,6 +321,9 @@ func NewService_Override(s Service, scope constructs.Construct, id *string, prop
 func Service_FromServiceAttributes(scope constructs.Construct, id *string, attrs *ServiceAttributes) IService {
 	_init_.Initialize()
 
+	if err := validateService_FromServiceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IService
 
 	_jsii_.StaticInvoke(
@@ -335,6 +341,9 @@ func Service_FromServiceAttributes(scope constructs.Construct, id *string, attrs
 func Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -352,6 +361,9 @@ func Service_IsConstruct(x interface{}) *bool {
 func Service_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateService_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -365,6 +377,9 @@ func Service_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -386,6 +401,9 @@ func (s *jsiiProxy_Service) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_Service) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -399,6 +417,9 @@ func (s *jsiiProxy_Service) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (s *jsiiProxy_Service) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -420,6 +441,9 @@ func (s *jsiiProxy_Service) OnPrepare() {
 }
 
 func (s *jsiiProxy_Service) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -449,6 +473,9 @@ func (s *jsiiProxy_Service) Prepare() {
 }
 
 func (s *jsiiProxy_Service) RegisterCnameInstance(id *string, props *CnameInstanceBaseProps) IInstance {
+	if err := s.validateRegisterCnameInstanceParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns IInstance
 
 	_jsii_.Invoke(
@@ -462,6 +489,9 @@ func (s *jsiiProxy_Service) RegisterCnameInstance(id *string, props *CnameInstan
 }
 
 func (s *jsiiProxy_Service) RegisterIpInstance(id *string, props *IpInstanceBaseProps) IInstance {
+	if err := s.validateRegisterIpInstanceParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns IInstance
 
 	_jsii_.Invoke(
@@ -475,6 +505,9 @@ func (s *jsiiProxy_Service) RegisterIpInstance(id *string, props *IpInstanceBase
 }
 
 func (s *jsiiProxy_Service) RegisterLoadBalancer(id *string, loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, customAttributes *map[string]*string) IInstance {
+	if err := s.validateRegisterLoadBalancerParameters(id, loadBalancer); err != nil {
+		panic(err)
+	}
 	var returns IInstance
 
 	_jsii_.Invoke(
@@ -488,6 +521,9 @@ func (s *jsiiProxy_Service) RegisterLoadBalancer(id *string, loadBalancer awsela
 }
 
 func (s *jsiiProxy_Service) RegisterNonIpInstance(id *string, props *NonIpInstanceBaseProps) IInstance {
+	if err := s.validateRegisterNonIpInstanceParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns IInstance
 
 	_jsii_.Invoke(
@@ -501,6 +537,9 @@ func (s *jsiiProxy_Service) RegisterNonIpInstance(id *string, props *NonIpInstan
 }
 
 func (s *jsiiProxy_Service) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

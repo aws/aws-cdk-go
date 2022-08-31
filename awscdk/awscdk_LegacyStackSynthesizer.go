@@ -97,6 +97,9 @@ func NewLegacyStackSynthesizer_Override(l LegacyStackSynthesizer) {
 }
 
 func (l *jsiiProxy_LegacyStackSynthesizer) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := l.validateAddDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -110,6 +113,9 @@ func (l *jsiiProxy_LegacyStackSynthesizer) AddDockerImageAsset(asset *DockerImag
 }
 
 func (l *jsiiProxy_LegacyStackSynthesizer) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	if err := l.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *FileAssetLocation
 
 	_jsii_.Invoke(
@@ -123,6 +129,9 @@ func (l *jsiiProxy_LegacyStackSynthesizer) AddFileAsset(asset *FileAssetSource) 
 }
 
 func (l *jsiiProxy_LegacyStackSynthesizer) Bind(stack Stack) {
+	if err := l.validateBindParameters(stack); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"bind",
@@ -131,6 +140,9 @@ func (l *jsiiProxy_LegacyStackSynthesizer) Bind(stack Stack) {
 }
 
 func (l *jsiiProxy_LegacyStackSynthesizer) EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions) {
+	if err := l.validateEmitStackArtifactParameters(stack, session, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"emitStackArtifact",
@@ -139,6 +151,9 @@ func (l *jsiiProxy_LegacyStackSynthesizer) EmitStackArtifact(stack Stack, sessio
 }
 
 func (l *jsiiProxy_LegacyStackSynthesizer) Synthesize(session ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",
@@ -147,6 +162,9 @@ func (l *jsiiProxy_LegacyStackSynthesizer) Synthesize(session ISynthesisSession)
 }
 
 func (l *jsiiProxy_LegacyStackSynthesizer) SynthesizeStackTemplate(stack Stack, session ISynthesisSession) {
+	if err := l.validateSynthesizeStackTemplateParameters(stack, session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesizeStackTemplate",

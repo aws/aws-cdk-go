@@ -95,6 +95,9 @@ func (j *jsiiProxy_RuleScope) Value() *string {
 func RuleScope_FromResource(resourceType ResourceType, resourceId *string) RuleScope {
 	_init_.Initialize()
 
+	if err := validateRuleScope_FromResourceParameters(resourceType); err != nil {
+		panic(err)
+	}
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
@@ -112,6 +115,9 @@ func RuleScope_FromResource(resourceType ResourceType, resourceId *string) RuleS
 func RuleScope_FromResources(resourceTypes *[]ResourceType) RuleScope {
 	_init_.Initialize()
 
+	if err := validateRuleScope_FromResourcesParameters(resourceTypes); err != nil {
+		panic(err)
+	}
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
@@ -129,6 +135,9 @@ func RuleScope_FromResources(resourceTypes *[]ResourceType) RuleScope {
 func RuleScope_FromTag(key *string, value *string) RuleScope {
 	_init_.Initialize()
 
+	if err := validateRuleScope_FromTagParameters(key); err != nil {
+		panic(err)
+	}
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(

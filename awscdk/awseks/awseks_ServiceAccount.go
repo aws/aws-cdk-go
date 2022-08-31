@@ -197,6 +197,9 @@ func (j *jsiiProxy_ServiceAccount) ServiceAccountNamespace() *string {
 func NewServiceAccount(scope constructs.Construct, id *string, props *ServiceAccountProps) ServiceAccount {
 	_init_.Initialize()
 
+	if err := validateNewServiceAccountParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ServiceAccount{}
 
 	_jsii_.Create(
@@ -224,6 +227,9 @@ func NewServiceAccount_Override(s ServiceAccount, scope constructs.Construct, id
 func ServiceAccount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateServiceAccount_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -237,6 +243,9 @@ func ServiceAccount_IsConstruct(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_ServiceAccount) AddToPolicy(statement awsiam.PolicyStatement) *bool {
+	if err := s.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -250,6 +259,9 @@ func (s *jsiiProxy_ServiceAccount) AddToPolicy(statement awsiam.PolicyStatement)
 }
 
 func (s *jsiiProxy_ServiceAccount) AddToPrincipalPolicy(statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -271,6 +283,9 @@ func (s *jsiiProxy_ServiceAccount) OnPrepare() {
 }
 
 func (s *jsiiProxy_ServiceAccount) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -300,6 +315,9 @@ func (s *jsiiProxy_ServiceAccount) Prepare() {
 }
 
 func (s *jsiiProxy_ServiceAccount) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

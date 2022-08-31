@@ -62,6 +62,9 @@ type jsiiProxy_SplunkLogDriver struct {
 func NewSplunkLogDriver(props *SplunkLogDriverProps) SplunkLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewSplunkLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SplunkLogDriver{}
 
 	_jsii_.Create(
@@ -90,6 +93,9 @@ func NewSplunkLogDriver_Override(s SplunkLogDriver, props *SplunkLogDriverProps)
 func SplunkLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateSplunkLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -103,6 +109,9 @@ func SplunkLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (s *jsiiProxy_SplunkLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := s.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

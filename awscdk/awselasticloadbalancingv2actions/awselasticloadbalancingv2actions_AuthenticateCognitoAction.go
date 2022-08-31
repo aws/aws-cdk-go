@@ -129,6 +129,9 @@ func (j *jsiiProxy_AuthenticateCognitoAction) Next() awselasticloadbalancingv2.L
 func NewAuthenticateCognitoAction(options *AuthenticateCognitoActionProps) AuthenticateCognitoAction {
 	_init_.Initialize()
 
+	if err := validateNewAuthenticateCognitoActionParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AuthenticateCognitoAction{}
 
 	_jsii_.Create(
@@ -159,6 +162,9 @@ func NewAuthenticateCognitoAction_Override(a AuthenticateCognitoAction, options 
 func AuthenticateCognitoAction_AuthenticateOidc(options *awselasticloadbalancingv2.AuthenticateOidcOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
+	if err := validateAuthenticateCognitoAction_AuthenticateOidcParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -178,6 +184,9 @@ func AuthenticateCognitoAction_AuthenticateOidc(options *awselasticloadbalancing
 func AuthenticateCognitoAction_FixedResponse(statusCode *float64, options *awselasticloadbalancingv2.FixedResponseOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
+	if err := validateAuthenticateCognitoAction_FixedResponseParameters(statusCode, options); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -197,6 +206,9 @@ func AuthenticateCognitoAction_FixedResponse(statusCode *float64, options *awsel
 func AuthenticateCognitoAction_Forward(targetGroups *[]awselasticloadbalancingv2.IApplicationTargetGroup, options *awselasticloadbalancingv2.ForwardOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
+	if err := validateAuthenticateCognitoAction_ForwardParameters(targetGroups, options); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -232,6 +244,9 @@ func AuthenticateCognitoAction_Forward(targetGroups *[]awselasticloadbalancingv2
 func AuthenticateCognitoAction_Redirect(options *awselasticloadbalancingv2.RedirectOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
+	if err := validateAuthenticateCognitoAction_RedirectParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -251,6 +266,9 @@ func AuthenticateCognitoAction_Redirect(options *awselasticloadbalancingv2.Redir
 func AuthenticateCognitoAction_WeightedForward(targetGroups *[]*awselasticloadbalancingv2.WeightedTargetGroup, options *awselasticloadbalancingv2.ForwardOptions) awselasticloadbalancingv2.ListenerAction {
 	_init_.Initialize()
 
+	if err := validateAuthenticateCognitoAction_WeightedForwardParameters(targetGroups, options); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -264,6 +282,9 @@ func AuthenticateCognitoAction_WeightedForward(targetGroups *[]*awselasticloadba
 }
 
 func (a *jsiiProxy_AuthenticateCognitoAction) Bind(scope awscdk.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct awscdk.IConstruct) {
+	if err := a.validateBindParameters(scope, listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"bind",
@@ -285,6 +306,9 @@ func (a *jsiiProxy_AuthenticateCognitoAction) RenderActions() *[]*awselasticload
 }
 
 func (a *jsiiProxy_AuthenticateCognitoAction) Renumber(actions *[]*awselasticloadbalancingv2.CfnListener_ActionProperty) *[]*awselasticloadbalancingv2.CfnListener_ActionProperty {
+	if err := a.validateRenumberParameters(actions); err != nil {
+		panic(err)
+	}
 	var returns *[]*awselasticloadbalancingv2.CfnListener_ActionProperty
 
 	_jsii_.Invoke(

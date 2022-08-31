@@ -97,6 +97,9 @@ func (j *jsiiProxy_InterfaceVpcEndpointAwsService) PrivateDnsDefault() *bool {
 func NewInterfaceVpcEndpointAwsService(name *string, prefix *string, port *float64) InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 
+	if err := validateNewInterfaceVpcEndpointAwsServiceParameters(name); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InterfaceVpcEndpointAwsService{}
 
 	_jsii_.Create(

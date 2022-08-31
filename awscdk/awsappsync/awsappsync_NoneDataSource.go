@@ -165,6 +165,9 @@ func (j *jsiiProxy_NoneDataSource) ServiceRole() awsiam.IRole {
 func NewNoneDataSource(scope constructs.Construct, id *string, props *NoneDataSourceProps) NoneDataSource {
 	_init_.Initialize()
 
+	if err := validateNewNoneDataSourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NoneDataSource{}
 
 	_jsii_.Create(
@@ -187,7 +190,10 @@ func NewNoneDataSource_Override(n NoneDataSource, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_NoneDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_NoneDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -195,7 +201,7 @@ func (j *jsiiProxy_NoneDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_NoneDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_NoneDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -208,6 +214,9 @@ func (j *jsiiProxy_NoneDataSource) SetServiceRole(val awsiam.IRole) {
 func NoneDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNoneDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -221,6 +230,9 @@ func NoneDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (n *jsiiProxy_NoneDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := n.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -234,6 +246,9 @@ func (n *jsiiProxy_NoneDataSource) CreateFunction(props *BaseAppsyncFunctionProp
 }
 
 func (n *jsiiProxy_NoneDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := n.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -255,6 +270,9 @@ func (n *jsiiProxy_NoneDataSource) OnPrepare() {
 }
 
 func (n *jsiiProxy_NoneDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -284,6 +302,9 @@ func (n *jsiiProxy_NoneDataSource) Prepare() {
 }
 
 func (n *jsiiProxy_NoneDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

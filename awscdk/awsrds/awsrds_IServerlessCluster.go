@@ -41,6 +41,9 @@ type jsiiProxy_IServerlessCluster struct {
 }
 
 func (i *jsiiProxy_IServerlessCluster) GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantDataApiAccessParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -54,6 +57,9 @@ func (i *jsiiProxy_IServerlessCluster) GrantDataApiAccess(grantee awsiam.IGranta
 }
 
 func (i *jsiiProxy_IServerlessCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

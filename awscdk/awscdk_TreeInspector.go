@@ -71,6 +71,9 @@ func NewTreeInspector_Override(t TreeInspector) {
 }
 
 func (t *jsiiProxy_TreeInspector) AddAttribute(key *string, value interface{}) {
+	if err := t.validateAddAttributeParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addAttribute",

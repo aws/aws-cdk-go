@@ -490,6 +490,9 @@ func (j *jsiiProxy_CfnWebhook) UpdatedProperites() *map[string]interface{} {
 func NewCfnWebhook(scope awscdk.Construct, id *string, props *CfnWebhookProps) CfnWebhook {
 	_init_.Initialize()
 
+	if err := validateNewCfnWebhookParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnWebhook{}
 
 	_jsii_.Create(
@@ -512,7 +515,10 @@ func NewCfnWebhook_Override(c CfnWebhook, scope awscdk.Construct, id *string, pr
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetAuthentication(val *string) {
+func (j *jsiiProxy_CfnWebhook)SetAuthentication(val *string) {
+	if err := j.validateSetAuthenticationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"authentication",
@@ -520,7 +526,10 @@ func (j *jsiiProxy_CfnWebhook) SetAuthentication(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetAuthenticationConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnWebhook)SetAuthenticationConfiguration(val interface{}) {
+	if err := j.validateSetAuthenticationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"authenticationConfiguration",
@@ -528,7 +537,10 @@ func (j *jsiiProxy_CfnWebhook) SetAuthenticationConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetFilters(val interface{}) {
+func (j *jsiiProxy_CfnWebhook)SetFilters(val interface{}) {
+	if err := j.validateSetFiltersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"filters",
@@ -536,7 +548,7 @@ func (j *jsiiProxy_CfnWebhook) SetFilters(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetName(val *string) {
+func (j *jsiiProxy_CfnWebhook)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
@@ -544,7 +556,10 @@ func (j *jsiiProxy_CfnWebhook) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetRegisterWithThirdParty(val interface{}) {
+func (j *jsiiProxy_CfnWebhook)SetRegisterWithThirdParty(val interface{}) {
+	if err := j.validateSetRegisterWithThirdPartyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"registerWithThirdParty",
@@ -552,7 +567,10 @@ func (j *jsiiProxy_CfnWebhook) SetRegisterWithThirdParty(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetTargetAction(val *string) {
+func (j *jsiiProxy_CfnWebhook)SetTargetAction(val *string) {
+	if err := j.validateSetTargetActionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetAction",
@@ -560,7 +578,10 @@ func (j *jsiiProxy_CfnWebhook) SetTargetAction(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetTargetPipeline(val *string) {
+func (j *jsiiProxy_CfnWebhook)SetTargetPipeline(val *string) {
+	if err := j.validateSetTargetPipelineParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetPipeline",
@@ -568,7 +589,10 @@ func (j *jsiiProxy_CfnWebhook) SetTargetPipeline(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnWebhook) SetTargetPipelineVersion(val *float64) {
+func (j *jsiiProxy_CfnWebhook)SetTargetPipelineVersion(val *float64) {
+	if err := j.validateSetTargetPipelineVersionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetPipelineVersion",
@@ -586,6 +610,9 @@ func (j *jsiiProxy_CfnWebhook) SetTargetPipelineVersion(val *float64) {
 func CfnWebhook_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnWebhook_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -603,6 +630,9 @@ func CfnWebhook_IsCfnElement(x interface{}) *bool {
 func CfnWebhook_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnWebhook_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -620,6 +650,9 @@ func CfnWebhook_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnWebhook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnWebhook_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -644,6 +677,9 @@ func CfnWebhook_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnWebhook) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -652,6 +688,9 @@ func (c *jsiiProxy_CfnWebhook) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnWebhook) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -660,6 +699,9 @@ func (c *jsiiProxy_CfnWebhook) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnWebhook) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -668,6 +710,9 @@ func (c *jsiiProxy_CfnWebhook) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnWebhook) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -676,6 +721,9 @@ func (c *jsiiProxy_CfnWebhook) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnWebhook) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -684,6 +732,9 @@ func (c *jsiiProxy_CfnWebhook) AddPropertyDeletionOverride(propertyPath *string)
 }
 
 func (c *jsiiProxy_CfnWebhook) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -692,6 +743,9 @@ func (c *jsiiProxy_CfnWebhook) AddPropertyOverride(propertyPath *string, value i
 }
 
 func (c *jsiiProxy_CfnWebhook) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -700,6 +754,9 @@ func (c *jsiiProxy_CfnWebhook) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 }
 
 func (c *jsiiProxy_CfnWebhook) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -713,6 +770,9 @@ func (c *jsiiProxy_CfnWebhook) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnWebhook) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -726,6 +786,9 @@ func (c *jsiiProxy_CfnWebhook) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnWebhook) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -742,6 +805,9 @@ func (c *jsiiProxy_CfnWebhook) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnWebhook) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -763,6 +829,9 @@ func (c *jsiiProxy_CfnWebhook) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnWebhook) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -779,6 +848,9 @@ func (c *jsiiProxy_CfnWebhook) Prepare() {
 }
 
 func (c *jsiiProxy_CfnWebhook) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -805,6 +877,9 @@ func (c *jsiiProxy_CfnWebhook) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnWebhook) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -839,6 +914,9 @@ func (c *jsiiProxy_CfnWebhook) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnWebhook) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

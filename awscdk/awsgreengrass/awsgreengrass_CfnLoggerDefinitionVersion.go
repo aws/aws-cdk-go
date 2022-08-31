@@ -378,6 +378,9 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) UpdatedProperites() *map[string]i
 func NewCfnLoggerDefinitionVersion(scope awscdk.Construct, id *string, props *CfnLoggerDefinitionVersionProps) CfnLoggerDefinitionVersion {
 	_init_.Initialize()
 
+	if err := validateNewCfnLoggerDefinitionVersionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnLoggerDefinitionVersion{}
 
 	_jsii_.Create(
@@ -400,7 +403,10 @@ func NewCfnLoggerDefinitionVersion_Override(c CfnLoggerDefinitionVersion, scope 
 	)
 }
 
-func (j *jsiiProxy_CfnLoggerDefinitionVersion) SetLoggerDefinitionId(val *string) {
+func (j *jsiiProxy_CfnLoggerDefinitionVersion)SetLoggerDefinitionId(val *string) {
+	if err := j.validateSetLoggerDefinitionIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"loggerDefinitionId",
@@ -408,7 +414,10 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) SetLoggerDefinitionId(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnLoggerDefinitionVersion) SetLoggers(val interface{}) {
+func (j *jsiiProxy_CfnLoggerDefinitionVersion)SetLoggers(val interface{}) {
+	if err := j.validateSetLoggersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"loggers",
@@ -426,6 +435,9 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) SetLoggers(val interface{}) {
 func CfnLoggerDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLoggerDefinitionVersion_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -443,6 +455,9 @@ func CfnLoggerDefinitionVersion_IsCfnElement(x interface{}) *bool {
 func CfnLoggerDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLoggerDefinitionVersion_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -460,6 +475,9 @@ func CfnLoggerDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *
 func CfnLoggerDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLoggerDefinitionVersion_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -484,6 +502,9 @@ func CfnLoggerDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -492,6 +513,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDeletionOverride(path *string)
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -500,6 +524,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDependsOn(target awscdk.CfnRes
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -508,6 +535,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddMetadata(key *string, value in
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -516,6 +546,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddOverride(path *string, value i
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -524,6 +557,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyDeletionOverride(prope
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -532,6 +568,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyOverride(propertyPath 
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -540,6 +579,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ApplyRemovalPolicy(policy awscdk.
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -553,6 +595,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) GetAtt(attributeName *string) aws
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -566,6 +611,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) GetMetadata(key *string) interfac
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -582,6 +630,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -603,6 +654,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -619,6 +673,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) Prepare() {
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -645,6 +702,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -679,6 +739,9 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

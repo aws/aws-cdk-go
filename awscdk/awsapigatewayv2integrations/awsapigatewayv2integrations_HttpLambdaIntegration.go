@@ -55,6 +55,9 @@ type jsiiProxy_HttpLambdaIntegration struct {
 func NewHttpLambdaIntegration(id *string, handler awslambda.IFunction, props *HttpLambdaIntegrationProps) HttpLambdaIntegration {
 	_init_.Initialize()
 
+	if err := validateNewHttpLambdaIntegrationParameters(id, handler, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpLambdaIntegration{}
 
 	_jsii_.Create(
@@ -78,6 +81,9 @@ func NewHttpLambdaIntegration_Override(h HttpLambdaIntegration, id *string, hand
 }
 
 func (h *jsiiProxy_HttpLambdaIntegration) Bind(_arg *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteIntegrationConfig
 
 	_jsii_.Invoke(
@@ -91,6 +97,9 @@ func (h *jsiiProxy_HttpLambdaIntegration) Bind(_arg *awsapigatewayv2.HttpRouteIn
 }
 
 func (h *jsiiProxy_HttpLambdaIntegration) CompleteBind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) {
+	if err := h.validateCompleteBindParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"completeBind",

@@ -429,6 +429,9 @@ func (j *jsiiProxy_FargateService) TaskDefinition() TaskDefinition {
 func NewFargateService(scope constructs.Construct, id *string, props *FargateServiceProps) FargateService {
 	_init_.Initialize()
 
+	if err := validateNewFargateServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FargateService{}
 
 	_jsii_.Create(
@@ -452,7 +455,7 @@ func NewFargateService_Override(f FargateService, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_FargateService) SetCloudmapService(val awsservicediscovery.Service) {
+func (j *jsiiProxy_FargateService)SetCloudmapService(val awsservicediscovery.Service) {
 	_jsii_.Set(
 		j,
 		"cloudmapService",
@@ -460,7 +463,10 @@ func (j *jsiiProxy_FargateService) SetCloudmapService(val awsservicediscovery.Se
 	)
 }
 
-func (j *jsiiProxy_FargateService) SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty) {
+func (j *jsiiProxy_FargateService)SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty) {
+	if err := j.validateSetLoadBalancersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"loadBalancers",
@@ -468,7 +474,10 @@ func (j *jsiiProxy_FargateService) SetLoadBalancers(val *[]*CfnService_LoadBalan
 	)
 }
 
-func (j *jsiiProxy_FargateService) SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty) {
+func (j *jsiiProxy_FargateService)SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty) {
+	if err := j.validateSetNetworkConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkConfiguration",
@@ -476,7 +485,10 @@ func (j *jsiiProxy_FargateService) SetNetworkConfiguration(val *CfnService_Netwo
 	)
 }
 
-func (j *jsiiProxy_FargateService) SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty) {
+func (j *jsiiProxy_FargateService)SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty) {
+	if err := j.validateSetServiceRegistriesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"serviceRegistries",
@@ -489,6 +501,9 @@ func (j *jsiiProxy_FargateService) SetServiceRegistries(val *[]*CfnService_Servi
 func FargateService_FromFargateServiceArn(scope constructs.Construct, id *string, fargateServiceArn *string) IFargateService {
 	_init_.Initialize()
 
+	if err := validateFargateService_FromFargateServiceArnParameters(scope, id, fargateServiceArn); err != nil {
+		panic(err)
+	}
 	var returns IFargateService
 
 	_jsii_.StaticInvoke(
@@ -506,6 +521,9 @@ func FargateService_FromFargateServiceArn(scope constructs.Construct, id *string
 func FargateService_FromFargateServiceAttributes(scope constructs.Construct, id *string, attrs *FargateServiceAttributes) IBaseService {
 	_init_.Initialize()
 
+	if err := validateFargateService_FromFargateServiceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
@@ -527,6 +545,9 @@ func FargateService_FromFargateServiceAttributes(scope constructs.Construct, id 
 func FargateService_FromServiceArnWithCluster(scope constructs.Construct, id *string, serviceArn *string) IBaseService {
 	_init_.Initialize()
 
+	if err := validateFargateService_FromServiceArnWithClusterParameters(scope, id, serviceArn); err != nil {
+		panic(err)
+	}
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
@@ -544,6 +565,9 @@ func FargateService_FromServiceArnWithCluster(scope constructs.Construct, id *st
 func FargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFargateService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -561,6 +585,9 @@ func FargateService_IsConstruct(x interface{}) *bool {
 func FargateService_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFargateService_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -574,6 +601,9 @@ func FargateService_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (f *jsiiProxy_FargateService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -582,6 +612,9 @@ func (f *jsiiProxy_FargateService) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (f *jsiiProxy_FargateService) AssociateCloudMapService(options *AssociateCloudMapServiceOptions) {
+	if err := f.validateAssociateCloudMapServiceParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"associateCloudMapService",
@@ -590,6 +623,9 @@ func (f *jsiiProxy_FargateService) AssociateCloudMapService(options *AssociateCl
 }
 
 func (f *jsiiProxy_FargateService) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := f.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -603,6 +639,9 @@ func (f *jsiiProxy_FargateService) AttachToApplicationTargetGroup(targetGroup aw
 }
 
 func (f *jsiiProxy_FargateService) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
+	if err := f.validateAttachToClassicLBParameters(loadBalancer); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"attachToClassicLB",
@@ -611,6 +650,9 @@ func (f *jsiiProxy_FargateService) AttachToClassicLB(loadBalancer awselasticload
 }
 
 func (f *jsiiProxy_FargateService) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := f.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -624,6 +666,9 @@ func (f *jsiiProxy_FargateService) AttachToNetworkTargetGroup(targetGroup awsela
 }
 
 func (f *jsiiProxy_FargateService) AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
+	if err := f.validateAutoScaleTaskCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ScalableTaskCount
 
 	_jsii_.Invoke(
@@ -637,6 +682,9 @@ func (f *jsiiProxy_FargateService) AutoScaleTaskCount(props *awsapplicationautos
 }
 
 func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	if err := f.validateConfigureAwsVpcNetworkingParameters(vpc, vpcSubnets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"configureAwsVpcNetworking",
@@ -645,6 +693,9 @@ func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, as
 }
 
 func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
+	if err := f.validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc, vpcSubnets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"configureAwsVpcNetworkingWithSecurityGroups",
@@ -653,6 +704,9 @@ func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworkingWithSecurityGroups(v
 }
 
 func (f *jsiiProxy_FargateService) EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service {
+	if err := f.validateEnableCloudMapParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awsservicediscovery.Service
 
 	_jsii_.Invoke(
@@ -679,6 +733,9 @@ func (f *jsiiProxy_FargateService) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FargateService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -692,6 +749,9 @@ func (f *jsiiProxy_FargateService) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (f *jsiiProxy_FargateService) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -705,6 +765,9 @@ func (f *jsiiProxy_FargateService) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 func (f *jsiiProxy_FargateService) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+	if err := f.validateLoadBalancerTargetParameters(options); err != nil {
+		panic(err)
+	}
 	var returns IEcsLoadBalancerTarget
 
 	_jsii_.Invoke(
@@ -718,6 +781,9 @@ func (f *jsiiProxy_FargateService) LoadBalancerTarget(options *LoadBalancerTarge
 }
 
 func (f *jsiiProxy_FargateService) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -731,6 +797,9 @@ func (f *jsiiProxy_FargateService) Metric(metricName *string, props *awscloudwat
 }
 
 func (f *jsiiProxy_FargateService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricCpuUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -744,6 +813,9 @@ func (f *jsiiProxy_FargateService) MetricCpuUtilization(props *awscloudwatch.Met
 }
 
 func (f *jsiiProxy_FargateService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricMemoryUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -765,6 +837,9 @@ func (f *jsiiProxy_FargateService) OnPrepare() {
 }
 
 func (f *jsiiProxy_FargateService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -794,6 +869,9 @@ func (f *jsiiProxy_FargateService) Prepare() {
 }
 
 func (f *jsiiProxy_FargateService) RegisterLoadBalancerTargets(targets ...*EcsTarget) {
+	if err := f.validateRegisterLoadBalancerTargetsParameters(&targets); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range targets {
 		args = append(args, a)
@@ -807,6 +885,9 @@ func (f *jsiiProxy_FargateService) RegisterLoadBalancerTargets(targets ...*EcsTa
 }
 
 func (f *jsiiProxy_FargateService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

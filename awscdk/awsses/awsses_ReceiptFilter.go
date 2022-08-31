@@ -178,6 +178,9 @@ func (j *jsiiProxy_ReceiptFilter) Stack() awscdk.Stack {
 func NewReceiptFilter(scope constructs.Construct, id *string, props *ReceiptFilterProps) ReceiptFilter {
 	_init_.Initialize()
 
+	if err := validateNewReceiptFilterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ReceiptFilter{}
 
 	_jsii_.Create(
@@ -205,6 +208,9 @@ func NewReceiptFilter_Override(r ReceiptFilter, scope constructs.Construct, id *
 func ReceiptFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateReceiptFilter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -222,6 +228,9 @@ func ReceiptFilter_IsConstruct(x interface{}) *bool {
 func ReceiptFilter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateReceiptFilter_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -235,6 +244,9 @@ func ReceiptFilter_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_ReceiptFilter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -256,6 +268,9 @@ func (r *jsiiProxy_ReceiptFilter) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_ReceiptFilter) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -269,6 +284,9 @@ func (r *jsiiProxy_ReceiptFilter) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (r *jsiiProxy_ReceiptFilter) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -290,6 +308,9 @@ func (r *jsiiProxy_ReceiptFilter) OnPrepare() {
 }
 
 func (r *jsiiProxy_ReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -319,6 +340,9 @@ func (r *jsiiProxy_ReceiptFilter) Prepare() {
 }
 
 func (r *jsiiProxy_ReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

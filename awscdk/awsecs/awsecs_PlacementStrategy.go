@@ -66,6 +66,9 @@ type jsiiProxy_PlacementStrategy struct {
 func PlacementStrategy_PackedBy(resource BinPackResource) PlacementStrategy {
 	_init_.Initialize()
 
+	if err := validatePlacementStrategy_PackedByParameters(resource); err != nil {
+		panic(err)
+	}
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(

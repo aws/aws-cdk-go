@@ -44,6 +44,9 @@ func NewHttpParameter_Override(h HttpParameter) {
 func HttpParameter_FromSecret(value awscdk.SecretValue) HttpParameter {
 	_init_.Initialize()
 
+	if err := validateHttpParameter_FromSecretParameters(value); err != nil {
+		panic(err)
+	}
 	var returns HttpParameter
 
 	_jsii_.StaticInvoke(
@@ -63,6 +66,9 @@ func HttpParameter_FromSecret(value awscdk.SecretValue) HttpParameter {
 func HttpParameter_FromString(value *string) HttpParameter {
 	_init_.Initialize()
 
+	if err := validateHttpParameter_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns HttpParameter
 
 	_jsii_.StaticInvoke(

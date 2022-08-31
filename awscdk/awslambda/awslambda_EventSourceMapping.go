@@ -233,6 +233,9 @@ func (j *jsiiProxy_EventSourceMapping) Stack() awscdk.Stack {
 func NewEventSourceMapping(scope constructs.Construct, id *string, props *EventSourceMappingProps) EventSourceMapping {
 	_init_.Initialize()
 
+	if err := validateNewEventSourceMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EventSourceMapping{}
 
 	_jsii_.Create(
@@ -260,6 +263,9 @@ func NewEventSourceMapping_Override(e EventSourceMapping, scope constructs.Const
 func EventSourceMapping_FromEventSourceMappingId(scope constructs.Construct, id *string, eventSourceMappingId *string) IEventSourceMapping {
 	_init_.Initialize()
 
+	if err := validateEventSourceMapping_FromEventSourceMappingIdParameters(scope, id, eventSourceMappingId); err != nil {
+		panic(err)
+	}
 	var returns IEventSourceMapping
 
 	_jsii_.StaticInvoke(
@@ -277,6 +283,9 @@ func EventSourceMapping_FromEventSourceMappingId(scope constructs.Construct, id 
 func EventSourceMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEventSourceMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -294,6 +303,9 @@ func EventSourceMapping_IsConstruct(x interface{}) *bool {
 func EventSourceMapping_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateEventSourceMapping_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -307,6 +319,9 @@ func EventSourceMapping_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (e *jsiiProxy_EventSourceMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -328,6 +343,9 @@ func (e *jsiiProxy_EventSourceMapping) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_EventSourceMapping) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -341,6 +359,9 @@ func (e *jsiiProxy_EventSourceMapping) GetResourceArnAttribute(arnAttr *string, 
 }
 
 func (e *jsiiProxy_EventSourceMapping) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -362,6 +383,9 @@ func (e *jsiiProxy_EventSourceMapping) OnPrepare() {
 }
 
 func (e *jsiiProxy_EventSourceMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -391,6 +415,9 @@ func (e *jsiiProxy_EventSourceMapping) Prepare() {
 }
 
 func (e *jsiiProxy_EventSourceMapping) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

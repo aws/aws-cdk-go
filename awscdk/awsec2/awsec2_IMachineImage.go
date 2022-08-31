@@ -20,6 +20,9 @@ type jsiiProxy_IMachineImage struct {
 }
 
 func (i *jsiiProxy_IMachineImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := i.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

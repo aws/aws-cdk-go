@@ -28,6 +28,9 @@ type jsiiProxy_InstanceType struct {
 func InstanceType_Of(instanceType *string) InstanceType {
 	_init_.Initialize()
 
+	if err := validateInstanceType_OfParameters(instanceType); err != nil {
+		panic(err)
+	}
 	var returns InstanceType
 
 	_jsii_.StaticInvoke(

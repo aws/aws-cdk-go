@@ -273,6 +273,9 @@ func (j *jsiiProxy_StringListParameter) StringListValue() *[]*string {
 func NewStringListParameter(scope constructs.Construct, id *string, props *StringListParameterProps) StringListParameter {
 	_init_.Initialize()
 
+	if err := validateNewStringListParameterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StringListParameter{}
 
 	_jsii_.Create(
@@ -302,6 +305,9 @@ func NewStringListParameter_Override(s StringListParameter, scope constructs.Con
 func StringListParameter_FromStringListParameterName(scope constructs.Construct, id *string, stringListParameterName *string) IStringListParameter {
 	_init_.Initialize()
 
+	if err := validateStringListParameter_FromStringListParameterNameParameters(scope, id, stringListParameterName); err != nil {
+		panic(err)
+	}
 	var returns IStringListParameter
 
 	_jsii_.StaticInvoke(
@@ -319,6 +325,9 @@ func StringListParameter_FromStringListParameterName(scope constructs.Construct,
 func StringListParameter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStringListParameter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -336,6 +345,9 @@ func StringListParameter_IsConstruct(x interface{}) *bool {
 func StringListParameter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateStringListParameter_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -349,6 +361,9 @@ func StringListParameter_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_StringListParameter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -370,6 +385,9 @@ func (s *jsiiProxy_StringListParameter) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_StringListParameter) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -383,6 +401,9 @@ func (s *jsiiProxy_StringListParameter) GetResourceArnAttribute(arnAttr *string,
 }
 
 func (s *jsiiProxy_StringListParameter) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -396,6 +417,9 @@ func (s *jsiiProxy_StringListParameter) GetResourceNameAttribute(nameAttr *strin
 }
 
 func (s *jsiiProxy_StringListParameter) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -409,6 +433,9 @@ func (s *jsiiProxy_StringListParameter) GrantRead(grantee awsiam.IGrantable) aws
 }
 
 func (s *jsiiProxy_StringListParameter) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -430,6 +457,9 @@ func (s *jsiiProxy_StringListParameter) OnPrepare() {
 }
 
 func (s *jsiiProxy_StringListParameter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -459,6 +489,9 @@ func (s *jsiiProxy_StringListParameter) Prepare() {
 }
 
 func (s *jsiiProxy_StringListParameter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

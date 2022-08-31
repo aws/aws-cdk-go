@@ -636,6 +636,9 @@ func (j *jsiiProxy_CfnCapacityReservation) UpdatedProperites() *map[string]inter
 func NewCfnCapacityReservation(scope awscdk.Construct, id *string, props *CfnCapacityReservationProps) CfnCapacityReservation {
 	_init_.Initialize()
 
+	if err := validateNewCfnCapacityReservationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCapacityReservation{}
 
 	_jsii_.Create(
@@ -658,7 +661,10 @@ func NewCfnCapacityReservation_Override(c CfnCapacityReservation, scope awscdk.C
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetAvailabilityZone(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetAvailabilityZone(val *string) {
+	if err := j.validateSetAvailabilityZoneParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"availabilityZone",
@@ -666,7 +672,10 @@ func (j *jsiiProxy_CfnCapacityReservation) SetAvailabilityZone(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetEbsOptimized(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservation)SetEbsOptimized(val interface{}) {
+	if err := j.validateSetEbsOptimizedParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ebsOptimized",
@@ -674,7 +683,7 @@ func (j *jsiiProxy_CfnCapacityReservation) SetEbsOptimized(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetEndDate(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetEndDate(val *string) {
 	_jsii_.Set(
 		j,
 		"endDate",
@@ -682,7 +691,7 @@ func (j *jsiiProxy_CfnCapacityReservation) SetEndDate(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetEndDateType(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetEndDateType(val *string) {
 	_jsii_.Set(
 		j,
 		"endDateType",
@@ -690,7 +699,10 @@ func (j *jsiiProxy_CfnCapacityReservation) SetEndDateType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetEphemeralStorage(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservation)SetEphemeralStorage(val interface{}) {
+	if err := j.validateSetEphemeralStorageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ephemeralStorage",
@@ -698,7 +710,10 @@ func (j *jsiiProxy_CfnCapacityReservation) SetEphemeralStorage(val interface{}) 
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetInstanceCount(val *float64) {
+func (j *jsiiProxy_CfnCapacityReservation)SetInstanceCount(val *float64) {
+	if err := j.validateSetInstanceCountParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceCount",
@@ -706,7 +721,7 @@ func (j *jsiiProxy_CfnCapacityReservation) SetInstanceCount(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetInstanceMatchCriteria(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetInstanceMatchCriteria(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceMatchCriteria",
@@ -714,7 +729,10 @@ func (j *jsiiProxy_CfnCapacityReservation) SetInstanceMatchCriteria(val *string)
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetInstancePlatform(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetInstancePlatform(val *string) {
+	if err := j.validateSetInstancePlatformParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instancePlatform",
@@ -722,7 +740,10 @@ func (j *jsiiProxy_CfnCapacityReservation) SetInstancePlatform(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetInstanceType(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetInstanceType(val *string) {
+	if err := j.validateSetInstanceTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceType",
@@ -730,7 +751,7 @@ func (j *jsiiProxy_CfnCapacityReservation) SetInstanceType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetOutPostArn(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetOutPostArn(val *string) {
 	_jsii_.Set(
 		j,
 		"outPostArn",
@@ -738,7 +759,7 @@ func (j *jsiiProxy_CfnCapacityReservation) SetOutPostArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetPlacementGroupArn(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetPlacementGroupArn(val *string) {
 	_jsii_.Set(
 		j,
 		"placementGroupArn",
@@ -746,7 +767,10 @@ func (j *jsiiProxy_CfnCapacityReservation) SetPlacementGroupArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetTagSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservation)SetTagSpecifications(val interface{}) {
+	if err := j.validateSetTagSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagSpecifications",
@@ -754,7 +778,7 @@ func (j *jsiiProxy_CfnCapacityReservation) SetTagSpecifications(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) SetTenancy(val *string) {
+func (j *jsiiProxy_CfnCapacityReservation)SetTenancy(val *string) {
 	_jsii_.Set(
 		j,
 		"tenancy",
@@ -772,6 +796,9 @@ func (j *jsiiProxy_CfnCapacityReservation) SetTenancy(val *string) {
 func CfnCapacityReservation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCapacityReservation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -789,6 +816,9 @@ func CfnCapacityReservation_IsCfnElement(x interface{}) *bool {
 func CfnCapacityReservation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCapacityReservation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -806,6 +836,9 @@ func CfnCapacityReservation_IsCfnResource(construct constructs.IConstruct) *bool
 func CfnCapacityReservation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCapacityReservation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -830,6 +863,9 @@ func CfnCapacityReservation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -838,6 +874,9 @@ func (c *jsiiProxy_CfnCapacityReservation) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -846,6 +885,9 @@ func (c *jsiiProxy_CfnCapacityReservation) AddDependsOn(target awscdk.CfnResourc
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -854,6 +896,9 @@ func (c *jsiiProxy_CfnCapacityReservation) AddMetadata(key *string, value interf
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -862,6 +907,9 @@ func (c *jsiiProxy_CfnCapacityReservation) AddOverride(path *string, value inter
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -870,6 +918,9 @@ func (c *jsiiProxy_CfnCapacityReservation) AddPropertyDeletionOverride(propertyP
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -878,6 +929,9 @@ func (c *jsiiProxy_CfnCapacityReservation) AddPropertyOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -886,6 +940,9 @@ func (c *jsiiProxy_CfnCapacityReservation) ApplyRemovalPolicy(policy awscdk.Remo
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -899,6 +956,9 @@ func (c *jsiiProxy_CfnCapacityReservation) GetAtt(attributeName *string) awscdk.
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -912,6 +972,9 @@ func (c *jsiiProxy_CfnCapacityReservation) GetMetadata(key *string) interface{} 
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -928,6 +991,9 @@ func (c *jsiiProxy_CfnCapacityReservation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -949,6 +1015,9 @@ func (c *jsiiProxy_CfnCapacityReservation) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -965,6 +1034,9 @@ func (c *jsiiProxy_CfnCapacityReservation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -991,6 +1063,9 @@ func (c *jsiiProxy_CfnCapacityReservation) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1025,6 +1100,9 @@ func (c *jsiiProxy_CfnCapacityReservation) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

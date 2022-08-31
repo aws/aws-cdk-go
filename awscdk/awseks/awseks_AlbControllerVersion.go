@@ -61,6 +61,9 @@ func (j *jsiiProxy_AlbControllerVersion) Version() *string {
 func AlbControllerVersion_Of(version *string) AlbControllerVersion {
 	_init_.Initialize()
 
+	if err := validateAlbControllerVersion_OfParameters(version); err != nil {
+		panic(err)
+	}
 	var returns AlbControllerVersion
 
 	_jsii_.StaticInvoke(

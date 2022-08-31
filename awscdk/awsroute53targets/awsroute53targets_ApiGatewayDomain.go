@@ -44,6 +44,9 @@ type jsiiProxy_ApiGatewayDomain struct {
 func NewApiGatewayDomain(domainName awsapigateway.IDomainName) ApiGatewayDomain {
 	_init_.Initialize()
 
+	if err := validateNewApiGatewayDomainParameters(domainName); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiGatewayDomain{}
 
 	_jsii_.Create(
@@ -67,6 +70,9 @@ func NewApiGatewayDomain_Override(a ApiGatewayDomain, domainName awsapigateway.I
 }
 
 func (a *jsiiProxy_ApiGatewayDomain) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := a.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

@@ -94,6 +94,9 @@ type jsiiProxy_Template struct {
 func Template_FromJSON(template *map[string]interface{}) Template {
 	_init_.Initialize()
 
+	if err := validateTemplate_FromJSONParameters(template); err != nil {
+		panic(err)
+	}
 	var returns Template
 
 	_jsii_.StaticInvoke(
@@ -111,6 +114,9 @@ func Template_FromJSON(template *map[string]interface{}) Template {
 func Template_FromStack(stack awscdk.Stack) Template {
 	_init_.Initialize()
 
+	if err := validateTemplate_FromStackParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns Template
 
 	_jsii_.StaticInvoke(
@@ -128,6 +134,9 @@ func Template_FromStack(stack awscdk.Stack) Template {
 func Template_FromString(template *string) Template {
 	_init_.Initialize()
 
+	if err := validateTemplate_FromStringParameters(template); err != nil {
+		panic(err)
+	}
 	var returns Template
 
 	_jsii_.StaticInvoke(
@@ -141,6 +150,9 @@ func Template_FromString(template *string) Template {
 }
 
 func (t *jsiiProxy_Template) FindConditions(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
+	if err := t.validateFindConditionsParameters(logicalId); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*map[string]interface{}
 
 	_jsii_.Invoke(
@@ -154,6 +166,9 @@ func (t *jsiiProxy_Template) FindConditions(logicalId *string, props interface{}
 }
 
 func (t *jsiiProxy_Template) FindMappings(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
+	if err := t.validateFindMappingsParameters(logicalId); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*map[string]interface{}
 
 	_jsii_.Invoke(
@@ -167,6 +182,9 @@ func (t *jsiiProxy_Template) FindMappings(logicalId *string, props interface{}) 
 }
 
 func (t *jsiiProxy_Template) FindOutputs(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
+	if err := t.validateFindOutputsParameters(logicalId); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*map[string]interface{}
 
 	_jsii_.Invoke(
@@ -180,6 +198,9 @@ func (t *jsiiProxy_Template) FindOutputs(logicalId *string, props interface{}) *
 }
 
 func (t *jsiiProxy_Template) FindParameters(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
+	if err := t.validateFindParametersParameters(logicalId); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*map[string]interface{}
 
 	_jsii_.Invoke(
@@ -193,6 +214,9 @@ func (t *jsiiProxy_Template) FindParameters(logicalId *string, props interface{}
 }
 
 func (t *jsiiProxy_Template) FindResources(type_ *string, props interface{}) *map[string]*map[string]interface{} {
+	if err := t.validateFindResourcesParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*map[string]interface{}
 
 	_jsii_.Invoke(
@@ -206,6 +230,9 @@ func (t *jsiiProxy_Template) FindResources(type_ *string, props interface{}) *ma
 }
 
 func (t *jsiiProxy_Template) HasCondition(logicalId *string, props interface{}) {
+	if err := t.validateHasConditionParameters(logicalId, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"hasCondition",
@@ -214,6 +241,9 @@ func (t *jsiiProxy_Template) HasCondition(logicalId *string, props interface{}) 
 }
 
 func (t *jsiiProxy_Template) HasMapping(logicalId *string, props interface{}) {
+	if err := t.validateHasMappingParameters(logicalId, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"hasMapping",
@@ -222,6 +252,9 @@ func (t *jsiiProxy_Template) HasMapping(logicalId *string, props interface{}) {
 }
 
 func (t *jsiiProxy_Template) HasOutput(logicalId *string, props interface{}) {
+	if err := t.validateHasOutputParameters(logicalId, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"hasOutput",
@@ -230,6 +263,9 @@ func (t *jsiiProxy_Template) HasOutput(logicalId *string, props interface{}) {
 }
 
 func (t *jsiiProxy_Template) HasParameter(logicalId *string, props interface{}) {
+	if err := t.validateHasParameterParameters(logicalId, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"hasParameter",
@@ -238,6 +274,9 @@ func (t *jsiiProxy_Template) HasParameter(logicalId *string, props interface{}) 
 }
 
 func (t *jsiiProxy_Template) HasResource(type_ *string, props interface{}) {
+	if err := t.validateHasResourceParameters(type_, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"hasResource",
@@ -246,6 +285,9 @@ func (t *jsiiProxy_Template) HasResource(type_ *string, props interface{}) {
 }
 
 func (t *jsiiProxy_Template) HasResourceProperties(type_ *string, props interface{}) {
+	if err := t.validateHasResourcePropertiesParameters(type_, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"hasResourceProperties",
@@ -254,6 +296,9 @@ func (t *jsiiProxy_Template) HasResourceProperties(type_ *string, props interfac
 }
 
 func (t *jsiiProxy_Template) ResourceCountIs(type_ *string, count *float64) {
+	if err := t.validateResourceCountIsParameters(type_, count); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"resourceCountIs",
@@ -262,6 +307,9 @@ func (t *jsiiProxy_Template) ResourceCountIs(type_ *string, count *float64) {
 }
 
 func (t *jsiiProxy_Template) TemplateMatches(expected interface{}) {
+	if err := t.validateTemplateMatchesParameters(expected); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"templateMatches",

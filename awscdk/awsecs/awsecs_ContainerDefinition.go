@@ -382,6 +382,9 @@ func (j *jsiiProxy_ContainerDefinition) VolumesFrom() *[]*VolumeFrom {
 func NewContainerDefinition(scope constructs.Construct, id *string, props *ContainerDefinitionProps) ContainerDefinition {
 	_init_.Initialize()
 
+	if err := validateNewContainerDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ContainerDefinition{}
 
 	_jsii_.Create(
@@ -410,6 +413,9 @@ func NewContainerDefinition_Override(c ContainerDefinition, scope constructs.Con
 func ContainerDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateContainerDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -423,6 +429,9 @@ func ContainerDefinition_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddContainerDependencies(containerDependencies ...*ContainerDependency) {
+	if err := c.validateAddContainerDependenciesParameters(&containerDependencies); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range containerDependencies {
 		args = append(args, a)
@@ -436,6 +445,9 @@ func (c *jsiiProxy_ContainerDefinition) AddContainerDependencies(containerDepend
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddEnvironment(name *string, value *string) {
+	if err := c.validateAddEnvironmentParameters(name, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addEnvironment",
@@ -457,6 +469,9 @@ func (c *jsiiProxy_ContainerDefinition) AddInferenceAcceleratorResource(inferenc
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddLink(container ContainerDefinition, alias *string) {
+	if err := c.validateAddLinkParameters(container); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addLink",
@@ -465,6 +480,9 @@ func (c *jsiiProxy_ContainerDefinition) AddLink(container ContainerDefinition, a
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddMountPoints(mountPoints ...*MountPoint) {
+	if err := c.validateAddMountPointsParameters(&mountPoints); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range mountPoints {
 		args = append(args, a)
@@ -478,6 +496,9 @@ func (c *jsiiProxy_ContainerDefinition) AddMountPoints(mountPoints ...*MountPoin
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddPortMappings(portMappings ...*PortMapping) {
+	if err := c.validateAddPortMappingsParameters(&portMappings); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range portMappings {
 		args = append(args, a)
@@ -491,6 +512,9 @@ func (c *jsiiProxy_ContainerDefinition) AddPortMappings(portMappings ...*PortMap
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddScratch(scratch *ScratchSpace) {
+	if err := c.validateAddScratchParameters(scratch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addScratch",
@@ -499,6 +523,9 @@ func (c *jsiiProxy_ContainerDefinition) AddScratch(scratch *ScratchSpace) {
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddToExecutionPolicy(statement awsiam.PolicyStatement) {
+	if err := c.validateAddToExecutionPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addToExecutionPolicy",
@@ -507,6 +534,9 @@ func (c *jsiiProxy_ContainerDefinition) AddToExecutionPolicy(statement awsiam.Po
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddUlimits(ulimits ...*Ulimit) {
+	if err := c.validateAddUlimitsParameters(&ulimits); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range ulimits {
 		args = append(args, a)
@@ -520,6 +550,9 @@ func (c *jsiiProxy_ContainerDefinition) AddUlimits(ulimits ...*Ulimit) {
 }
 
 func (c *jsiiProxy_ContainerDefinition) AddVolumesFrom(volumesFrom ...*VolumeFrom) {
+	if err := c.validateAddVolumesFromParameters(&volumesFrom); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range volumesFrom {
 		args = append(args, a)
@@ -533,6 +566,9 @@ func (c *jsiiProxy_ContainerDefinition) AddVolumesFrom(volumesFrom ...*VolumeFro
 }
 
 func (c *jsiiProxy_ContainerDefinition) FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping {
+	if err := c.validateFindPortMappingParameters(containerPort, protocol); err != nil {
+		panic(err)
+	}
 	var returns *PortMapping
 
 	_jsii_.Invoke(
@@ -554,6 +590,9 @@ func (c *jsiiProxy_ContainerDefinition) OnPrepare() {
 }
 
 func (c *jsiiProxy_ContainerDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -596,6 +635,9 @@ func (c *jsiiProxy_ContainerDefinition) RenderContainerDefinition(_taskDefinitio
 }
 
 func (c *jsiiProxy_ContainerDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

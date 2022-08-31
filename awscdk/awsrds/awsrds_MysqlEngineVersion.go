@@ -67,6 +67,9 @@ func (j *jsiiProxy_MysqlEngineVersion) MysqlMajorVersion() *string {
 func MysqlEngineVersion_Of(mysqlFullVersion *string, mysqlMajorVersion *string) MysqlEngineVersion {
 	_init_.Initialize()
 
+	if err := validateMysqlEngineVersion_OfParameters(mysqlFullVersion, mysqlMajorVersion); err != nil {
+		panic(err)
+	}
 	var returns MysqlEngineVersion
 
 	_jsii_.StaticInvoke(

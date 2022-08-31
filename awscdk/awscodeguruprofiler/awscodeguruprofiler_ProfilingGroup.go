@@ -224,6 +224,9 @@ func (j *jsiiProxy_ProfilingGroup) Stack() awscdk.Stack {
 func NewProfilingGroup(scope constructs.Construct, id *string, props *ProfilingGroupProps) ProfilingGroup {
 	_init_.Initialize()
 
+	if err := validateNewProfilingGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ProfilingGroup{}
 
 	_jsii_.Create(
@@ -251,6 +254,9 @@ func NewProfilingGroup_Override(p ProfilingGroup, scope constructs.Construct, id
 func ProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string, profilingGroupArn *string) IProfilingGroup {
 	_init_.Initialize()
 
+	if err := validateProfilingGroup_FromProfilingGroupArnParameters(scope, id, profilingGroupArn); err != nil {
+		panic(err)
+	}
 	var returns IProfilingGroup
 
 	_jsii_.StaticInvoke(
@@ -268,6 +274,9 @@ func ProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string
 func ProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *string, profilingGroupName *string) IProfilingGroup {
 	_init_.Initialize()
 
+	if err := validateProfilingGroup_FromProfilingGroupNameParameters(scope, id, profilingGroupName); err != nil {
+		panic(err)
+	}
 	var returns IProfilingGroup
 
 	_jsii_.StaticInvoke(
@@ -285,6 +294,9 @@ func ProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *strin
 func ProfilingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateProfilingGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -302,6 +314,9 @@ func ProfilingGroup_IsConstruct(x interface{}) *bool {
 func ProfilingGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateProfilingGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -315,6 +330,9 @@ func ProfilingGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_ProfilingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -336,6 +354,9 @@ func (p *jsiiProxy_ProfilingGroup) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_ProfilingGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -349,6 +370,9 @@ func (p *jsiiProxy_ProfilingGroup) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (p *jsiiProxy_ProfilingGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -362,6 +386,9 @@ func (p *jsiiProxy_ProfilingGroup) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 func (p *jsiiProxy_ProfilingGroup) GrantPublish(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := p.validateGrantPublishParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -375,6 +402,9 @@ func (p *jsiiProxy_ProfilingGroup) GrantPublish(grantee awsiam.IGrantable) awsia
 }
 
 func (p *jsiiProxy_ProfilingGroup) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := p.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -396,6 +426,9 @@ func (p *jsiiProxy_ProfilingGroup) OnPrepare() {
 }
 
 func (p *jsiiProxy_ProfilingGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -425,6 +458,9 @@ func (p *jsiiProxy_ProfilingGroup) Prepare() {
 }
 
 func (p *jsiiProxy_ProfilingGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

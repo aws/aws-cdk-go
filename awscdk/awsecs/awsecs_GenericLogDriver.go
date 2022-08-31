@@ -41,6 +41,9 @@ type jsiiProxy_GenericLogDriver struct {
 func NewGenericLogDriver(props *GenericLogDriverProps) GenericLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewGenericLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GenericLogDriver{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func NewGenericLogDriver_Override(g GenericLogDriver, props *GenericLogDriverPro
 func GenericLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateGenericLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -82,6 +88,9 @@ func GenericLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (g *jsiiProxy_GenericLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := g.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

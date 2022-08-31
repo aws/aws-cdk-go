@@ -44,6 +44,9 @@ type jsiiProxy_SnsDestination struct {
 func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	_init_.Initialize()
 
+	if err := validateNewSnsDestinationParameters(topic); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsDestination{}
 
 	_jsii_.Create(
@@ -67,6 +70,9 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 }
 
 func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+	if err := s.validateBindParameters(_scope, fn, _options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(

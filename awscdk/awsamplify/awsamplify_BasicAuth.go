@@ -36,6 +36,9 @@ type jsiiProxy_BasicAuth struct {
 func NewBasicAuth(props *BasicAuthProps) BasicAuth {
 	_init_.Initialize()
 
+	if err := validateNewBasicAuthParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BasicAuth{}
 
 	_jsii_.Create(
@@ -63,6 +66,9 @@ func NewBasicAuth_Override(b BasicAuth, props *BasicAuthProps) {
 func BasicAuth_FromCredentials(username *string, password awscdk.SecretValue) BasicAuth {
 	_init_.Initialize()
 
+	if err := validateBasicAuth_FromCredentialsParameters(username, password); err != nil {
+		panic(err)
+	}
 	var returns BasicAuth
 
 	_jsii_.StaticInvoke(
@@ -80,6 +86,9 @@ func BasicAuth_FromCredentials(username *string, password awscdk.SecretValue) Ba
 func BasicAuth_FromGeneratedPassword(username *string, encryptionKey awskms.IKey) BasicAuth {
 	_init_.Initialize()
 
+	if err := validateBasicAuth_FromGeneratedPasswordParameters(username); err != nil {
+		panic(err)
+	}
 	var returns BasicAuth
 
 	_jsii_.StaticInvoke(
@@ -93,6 +102,9 @@ func BasicAuth_FromGeneratedPassword(username *string, encryptionKey awskms.IKey
 }
 
 func (b *jsiiProxy_BasicAuth) Bind(scope awscdk.Construct, id *string) *BasicAuthConfig {
+	if err := b.validateBindParameters(scope, id); err != nil {
+		panic(err)
+	}
 	var returns *BasicAuthConfig
 
 	_jsii_.Invoke(

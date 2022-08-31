@@ -46,6 +46,9 @@ type jsiiProxy_ICommandHooks struct {
 }
 
 func (i *jsiiProxy_ICommandHooks) AfterBundling(inputDir *string, outputDir *string) *[]*string {
+	if err := i.validateAfterBundlingParameters(inputDir, outputDir); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -59,6 +62,9 @@ func (i *jsiiProxy_ICommandHooks) AfterBundling(inputDir *string, outputDir *str
 }
 
 func (i *jsiiProxy_ICommandHooks) BeforeBundling(inputDir *string, outputDir *string) *[]*string {
+	if err := i.validateBeforeBundlingParameters(inputDir, outputDir); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
@@ -72,6 +78,9 @@ func (i *jsiiProxy_ICommandHooks) BeforeBundling(inputDir *string, outputDir *st
 }
 
 func (i *jsiiProxy_ICommandHooks) BeforeInstall(inputDir *string, outputDir *string) *[]*string {
+	if err := i.validateBeforeInstallParameters(inputDir, outputDir); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

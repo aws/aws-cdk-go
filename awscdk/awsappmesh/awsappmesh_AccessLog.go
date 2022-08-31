@@ -67,6 +67,9 @@ func NewAccessLog_Override(a AccessLog) {
 func AccessLog_FromFilePath(filePath *string) AccessLog {
 	_init_.Initialize()
 
+	if err := validateAccessLog_FromFilePathParameters(filePath); err != nil {
+		panic(err)
+	}
 	var returns AccessLog
 
 	_jsii_.StaticInvoke(
@@ -80,6 +83,9 @@ func AccessLog_FromFilePath(filePath *string) AccessLog {
 }
 
 func (a *jsiiProxy_AccessLog) Bind(scope awscdk.Construct) *AccessLogConfig {
+	if err := a.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *AccessLogConfig
 
 	_jsii_.Invoke(

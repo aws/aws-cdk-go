@@ -367,6 +367,9 @@ func (j *jsiiProxy_Queue) Stack() awscdk.Stack {
 func NewQueue(scope constructs.Construct, id *string, props *QueueProps) Queue {
 	_init_.Initialize()
 
+	if err := validateNewQueueParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Queue{}
 
 	_jsii_.Create(
@@ -394,6 +397,9 @@ func NewQueue_Override(q Queue, scope constructs.Construct, id *string, props *Q
 func Queue_FromQueueArn(scope constructs.Construct, id *string, queueArn *string) IQueue {
 	_init_.Initialize()
 
+	if err := validateQueue_FromQueueArnParameters(scope, id, queueArn); err != nil {
+		panic(err)
+	}
 	var returns IQueue
 
 	_jsii_.StaticInvoke(
@@ -411,6 +417,9 @@ func Queue_FromQueueArn(scope constructs.Construct, id *string, queueArn *string
 func Queue_FromQueueAttributes(scope constructs.Construct, id *string, attrs *QueueAttributes) IQueue {
 	_init_.Initialize()
 
+	if err := validateQueue_FromQueueAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IQueue
 
 	_jsii_.StaticInvoke(
@@ -428,6 +437,9 @@ func Queue_FromQueueAttributes(scope constructs.Construct, id *string, attrs *Qu
 func Queue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQueue_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -445,6 +457,9 @@ func Queue_IsConstruct(x interface{}) *bool {
 func Queue_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateQueue_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -458,6 +473,9 @@ func Queue_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (q *jsiiProxy_Queue) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := q.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -471,6 +489,9 @@ func (q *jsiiProxy_Queue) AddToResourcePolicy(statement awsiam.PolicyStatement) 
 }
 
 func (q *jsiiProxy_Queue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := q.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"applyRemovalPolicy",
@@ -492,6 +513,9 @@ func (q *jsiiProxy_Queue) GeneratePhysicalName() *string {
 }
 
 func (q *jsiiProxy_Queue) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := q.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -505,6 +529,9 @@ func (q *jsiiProxy_Queue) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (q *jsiiProxy_Queue) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := q.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -518,6 +545,9 @@ func (q *jsiiProxy_Queue) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (q *jsiiProxy_Queue) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := q.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -536,6 +566,9 @@ func (q *jsiiProxy_Queue) Grant(grantee awsiam.IGrantable, actions ...*string) a
 }
 
 func (q *jsiiProxy_Queue) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantConsumeMessagesParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -549,6 +582,9 @@ func (q *jsiiProxy_Queue) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam
 }
 
 func (q *jsiiProxy_Queue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantPurgeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -562,6 +598,9 @@ func (q *jsiiProxy_Queue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (q *jsiiProxy_Queue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantSendMessagesParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -575,6 +614,9 @@ func (q *jsiiProxy_Queue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Gr
 }
 
 func (q *jsiiProxy_Queue) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -588,6 +630,9 @@ func (q *jsiiProxy_Queue) Metric(metricName *string, props *awscloudwatch.Metric
 }
 
 func (q *jsiiProxy_Queue) MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateAgeOfOldestMessageParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -601,6 +646,9 @@ func (q *jsiiProxy_Queue) MetricApproximateAgeOfOldestMessage(props *awscloudwat
 }
 
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateNumberOfMessagesDelayedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -614,6 +662,9 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesDelayed(props *awsclo
 }
 
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateNumberOfMessagesNotVisibleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -627,6 +678,9 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesNotVisible(props *aws
 }
 
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateNumberOfMessagesVisibleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -640,6 +694,9 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesVisible(props *awsclo
 }
 
 func (q *jsiiProxy_Queue) MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfEmptyReceivesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -653,6 +710,9 @@ func (q *jsiiProxy_Queue) MetricNumberOfEmptyReceives(props *awscloudwatch.Metri
 }
 
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfMessagesDeletedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -666,6 +726,9 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesDeleted(props *awscloudwatch.Met
 }
 
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfMessagesReceivedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -679,6 +742,9 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesReceived(props *awscloudwatch.Me
 }
 
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfMessagesSentParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -692,6 +758,9 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesSent(props *awscloudwatch.Metric
 }
 
 func (q *jsiiProxy_Queue) MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricSentMessageSizeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -713,6 +782,9 @@ func (q *jsiiProxy_Queue) OnPrepare() {
 }
 
 func (q *jsiiProxy_Queue) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -742,6 +814,9 @@ func (q *jsiiProxy_Queue) Prepare() {
 }
 
 func (q *jsiiProxy_Queue) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",

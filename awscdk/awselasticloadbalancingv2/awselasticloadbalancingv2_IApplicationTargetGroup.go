@@ -45,6 +45,9 @@ func (i *jsiiProxy_IApplicationTargetGroup) AddTarget(targets ...IApplicationLoa
 }
 
 func (i *jsiiProxy_IApplicationTargetGroup) RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port) {
+	if err := i.validateRegisterConnectableParameters(connectable); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"registerConnectable",
@@ -53,6 +56,9 @@ func (i *jsiiProxy_IApplicationTargetGroup) RegisterConnectable(connectable awse
 }
 
 func (i *jsiiProxy_IApplicationTargetGroup) RegisterListener(listener IApplicationListener, associatingConstruct constructs.IConstruct) {
+	if err := i.validateRegisterListenerParameters(listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"registerListener",

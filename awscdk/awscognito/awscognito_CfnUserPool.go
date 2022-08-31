@@ -838,6 +838,9 @@ func (j *jsiiProxy_CfnUserPool) VerificationMessageTemplate() interface{} {
 func NewCfnUserPool(scope awscdk.Construct, id *string, props *CfnUserPoolProps) CfnUserPool {
 	_init_.Initialize()
 
+	if err := validateNewCfnUserPoolParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnUserPool{}
 
 	_jsii_.Create(
@@ -860,7 +863,10 @@ func NewCfnUserPool_Override(c CfnUserPool, scope awscdk.Construct, id *string, 
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetAccountRecoverySetting(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetAccountRecoverySetting(val interface{}) {
+	if err := j.validateSetAccountRecoverySettingParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"accountRecoverySetting",
@@ -868,7 +874,10 @@ func (j *jsiiProxy_CfnUserPool) SetAccountRecoverySetting(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetAdminCreateUserConfig(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetAdminCreateUserConfig(val interface{}) {
+	if err := j.validateSetAdminCreateUserConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"adminCreateUserConfig",
@@ -876,7 +885,7 @@ func (j *jsiiProxy_CfnUserPool) SetAdminCreateUserConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetAliasAttributes(val *[]*string) {
+func (j *jsiiProxy_CfnUserPool)SetAliasAttributes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"aliasAttributes",
@@ -884,7 +893,7 @@ func (j *jsiiProxy_CfnUserPool) SetAliasAttributes(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetAutoVerifiedAttributes(val *[]*string) {
+func (j *jsiiProxy_CfnUserPool)SetAutoVerifiedAttributes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"autoVerifiedAttributes",
@@ -892,7 +901,10 @@ func (j *jsiiProxy_CfnUserPool) SetAutoVerifiedAttributes(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetDeviceConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetDeviceConfiguration(val interface{}) {
+	if err := j.validateSetDeviceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"deviceConfiguration",
@@ -900,7 +912,10 @@ func (j *jsiiProxy_CfnUserPool) SetDeviceConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetEmailConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetEmailConfiguration(val interface{}) {
+	if err := j.validateSetEmailConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"emailConfiguration",
@@ -908,7 +923,7 @@ func (j *jsiiProxy_CfnUserPool) SetEmailConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetEmailVerificationMessage(val *string) {
+func (j *jsiiProxy_CfnUserPool)SetEmailVerificationMessage(val *string) {
 	_jsii_.Set(
 		j,
 		"emailVerificationMessage",
@@ -916,7 +931,7 @@ func (j *jsiiProxy_CfnUserPool) SetEmailVerificationMessage(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetEmailVerificationSubject(val *string) {
+func (j *jsiiProxy_CfnUserPool)SetEmailVerificationSubject(val *string) {
 	_jsii_.Set(
 		j,
 		"emailVerificationSubject",
@@ -924,7 +939,7 @@ func (j *jsiiProxy_CfnUserPool) SetEmailVerificationSubject(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetEnabledMfas(val *[]*string) {
+func (j *jsiiProxy_CfnUserPool)SetEnabledMfas(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"enabledMfas",
@@ -932,7 +947,10 @@ func (j *jsiiProxy_CfnUserPool) SetEnabledMfas(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetLambdaConfig(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetLambdaConfig(val interface{}) {
+	if err := j.validateSetLambdaConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"lambdaConfig",
@@ -940,7 +958,7 @@ func (j *jsiiProxy_CfnUserPool) SetLambdaConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetMfaConfiguration(val *string) {
+func (j *jsiiProxy_CfnUserPool)SetMfaConfiguration(val *string) {
 	_jsii_.Set(
 		j,
 		"mfaConfiguration",
@@ -948,7 +966,10 @@ func (j *jsiiProxy_CfnUserPool) SetMfaConfiguration(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetPolicies(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetPolicies(val interface{}) {
+	if err := j.validateSetPoliciesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"policies",
@@ -956,7 +977,10 @@ func (j *jsiiProxy_CfnUserPool) SetPolicies(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetSchema(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetSchema(val interface{}) {
+	if err := j.validateSetSchemaParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"schema",
@@ -964,7 +988,7 @@ func (j *jsiiProxy_CfnUserPool) SetSchema(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetSmsAuthenticationMessage(val *string) {
+func (j *jsiiProxy_CfnUserPool)SetSmsAuthenticationMessage(val *string) {
 	_jsii_.Set(
 		j,
 		"smsAuthenticationMessage",
@@ -972,7 +996,10 @@ func (j *jsiiProxy_CfnUserPool) SetSmsAuthenticationMessage(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetSmsConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetSmsConfiguration(val interface{}) {
+	if err := j.validateSetSmsConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"smsConfiguration",
@@ -980,7 +1007,7 @@ func (j *jsiiProxy_CfnUserPool) SetSmsConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetSmsVerificationMessage(val *string) {
+func (j *jsiiProxy_CfnUserPool)SetSmsVerificationMessage(val *string) {
 	_jsii_.Set(
 		j,
 		"smsVerificationMessage",
@@ -988,7 +1015,10 @@ func (j *jsiiProxy_CfnUserPool) SetSmsVerificationMessage(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetUserAttributeUpdateSettings(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetUserAttributeUpdateSettings(val interface{}) {
+	if err := j.validateSetUserAttributeUpdateSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"userAttributeUpdateSettings",
@@ -996,7 +1026,7 @@ func (j *jsiiProxy_CfnUserPool) SetUserAttributeUpdateSettings(val interface{}) 
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetUsernameAttributes(val *[]*string) {
+func (j *jsiiProxy_CfnUserPool)SetUsernameAttributes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"usernameAttributes",
@@ -1004,7 +1034,10 @@ func (j *jsiiProxy_CfnUserPool) SetUsernameAttributes(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetUsernameConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetUsernameConfiguration(val interface{}) {
+	if err := j.validateSetUsernameConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"usernameConfiguration",
@@ -1012,7 +1045,10 @@ func (j *jsiiProxy_CfnUserPool) SetUsernameConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetUserPoolAddOns(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetUserPoolAddOns(val interface{}) {
+	if err := j.validateSetUserPoolAddOnsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"userPoolAddOns",
@@ -1020,7 +1056,7 @@ func (j *jsiiProxy_CfnUserPool) SetUserPoolAddOns(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetUserPoolName(val *string) {
+func (j *jsiiProxy_CfnUserPool)SetUserPoolName(val *string) {
 	_jsii_.Set(
 		j,
 		"userPoolName",
@@ -1028,7 +1064,10 @@ func (j *jsiiProxy_CfnUserPool) SetUserPoolName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPool) SetVerificationMessageTemplate(val interface{}) {
+func (j *jsiiProxy_CfnUserPool)SetVerificationMessageTemplate(val interface{}) {
+	if err := j.validateSetVerificationMessageTemplateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"verificationMessageTemplate",
@@ -1046,6 +1085,9 @@ func (j *jsiiProxy_CfnUserPool) SetVerificationMessageTemplate(val interface{}) 
 func CfnUserPool_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnUserPool_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1063,6 +1105,9 @@ func CfnUserPool_IsCfnElement(x interface{}) *bool {
 func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnUserPool_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1080,6 +1125,9 @@ func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnUserPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnUserPool_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1104,6 +1152,9 @@ func CfnUserPool_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnUserPool) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -1112,6 +1163,9 @@ func (c *jsiiProxy_CfnUserPool) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnUserPool) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1120,6 +1174,9 @@ func (c *jsiiProxy_CfnUserPool) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnUserPool) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1128,6 +1185,9 @@ func (c *jsiiProxy_CfnUserPool) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnUserPool) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1136,6 +1196,9 @@ func (c *jsiiProxy_CfnUserPool) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnUserPool) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1144,6 +1207,9 @@ func (c *jsiiProxy_CfnUserPool) AddPropertyDeletionOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnUserPool) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1152,6 +1218,9 @@ func (c *jsiiProxy_CfnUserPool) AddPropertyOverride(propertyPath *string, value 
 }
 
 func (c *jsiiProxy_CfnUserPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1160,6 +1229,9 @@ func (c *jsiiProxy_CfnUserPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 }
 
 func (c *jsiiProxy_CfnUserPool) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1173,6 +1245,9 @@ func (c *jsiiProxy_CfnUserPool) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnUserPool) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1186,6 +1261,9 @@ func (c *jsiiProxy_CfnUserPool) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnUserPool) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1202,6 +1280,9 @@ func (c *jsiiProxy_CfnUserPool) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnUserPool) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1223,6 +1304,9 @@ func (c *jsiiProxy_CfnUserPool) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnUserPool) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1239,6 +1323,9 @@ func (c *jsiiProxy_CfnUserPool) Prepare() {
 }
 
 func (c *jsiiProxy_CfnUserPool) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1265,6 +1352,9 @@ func (c *jsiiProxy_CfnUserPool) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnUserPool) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1299,6 +1389,9 @@ func (c *jsiiProxy_CfnUserPool) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnUserPool) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

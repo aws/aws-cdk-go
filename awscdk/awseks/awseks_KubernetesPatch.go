@@ -110,6 +110,9 @@ func (j *jsiiProxy_KubernetesPatch) Node() awscdk.ConstructNode {
 func NewKubernetesPatch(scope constructs.Construct, id *string, props *KubernetesPatchProps) KubernetesPatch {
 	_init_.Initialize()
 
+	if err := validateNewKubernetesPatchParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubernetesPatch{}
 
 	_jsii_.Create(
@@ -137,6 +140,9 @@ func NewKubernetesPatch_Override(k KubernetesPatch, scope constructs.Construct, 
 func KubernetesPatch_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubernetesPatch_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -158,6 +164,9 @@ func (k *jsiiProxy_KubernetesPatch) OnPrepare() {
 }
 
 func (k *jsiiProxy_KubernetesPatch) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"onSynthesize",
@@ -187,6 +196,9 @@ func (k *jsiiProxy_KubernetesPatch) Prepare() {
 }
 
 func (k *jsiiProxy_KubernetesPatch) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"synthesize",

@@ -101,6 +101,9 @@ func (j *jsiiProxy_Chain) StartState() State {
 func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable) Chain {
 	_init_.Initialize()
 
+	if err := validateChain_CustomParameters(startState, endStates, lastAdded); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.StaticInvoke(
@@ -118,6 +121,9 @@ func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable
 func Chain_Sequence(start IChainable, next IChainable) Chain {
 	_init_.Initialize()
 
+	if err := validateChain_SequenceParameters(start, next); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.StaticInvoke(
@@ -135,6 +141,9 @@ func Chain_Sequence(start IChainable, next IChainable) Chain {
 func Chain_Start(state IChainable) Chain {
 	_init_.Initialize()
 
+	if err := validateChain_StartParameters(state); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.StaticInvoke(
@@ -148,6 +157,9 @@ func Chain_Start(state IChainable) Chain {
 }
 
 func (c *jsiiProxy_Chain) Next(next IChainable) Chain {
+	if err := c.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.Invoke(
@@ -161,6 +173,9 @@ func (c *jsiiProxy_Chain) Next(next IChainable) Chain {
 }
 
 func (c *jsiiProxy_Chain) ToSingleState(id *string, props *ParallelProps) Parallel {
+	if err := c.validateToSingleStateParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns Parallel
 
 	_jsii_.Invoke(

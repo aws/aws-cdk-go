@@ -41,6 +41,9 @@ func (j *jsiiProxy_KubernetesVersion) Version() *string {
 func KubernetesVersion_Of(version *string) KubernetesVersion {
 	_init_.Initialize()
 
+	if err := validateKubernetesVersion_OfParameters(version); err != nil {
+		panic(err)
+	}
 	var returns KubernetesVersion
 
 	_jsii_.StaticInvoke(

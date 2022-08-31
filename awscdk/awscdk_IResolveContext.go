@@ -31,6 +31,9 @@ type jsiiProxy_IResolveContext struct {
 }
 
 func (i *jsiiProxy_IResolveContext) RegisterPostProcessor(postProcessor IPostProcessor) {
+	if err := i.validateRegisterPostProcessorParameters(postProcessor); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"registerPostProcessor",
@@ -39,6 +42,9 @@ func (i *jsiiProxy_IResolveContext) RegisterPostProcessor(postProcessor IPostPro
 }
 
 func (i *jsiiProxy_IResolveContext) Resolve(x interface{}, options *ResolveChangeContextOptions) interface{} {
+	if err := i.validateResolveParameters(x, options); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

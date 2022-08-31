@@ -333,6 +333,9 @@ func (j *jsiiProxy_ApplicationTargetGroup) TargetType() TargetType {
 func NewApplicationTargetGroup(scope constructs.Construct, id *string, props *ApplicationTargetGroupProps) ApplicationTargetGroup {
 	_init_.Initialize()
 
+	if err := validateNewApplicationTargetGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationTargetGroup{}
 
 	_jsii_.Create(
@@ -355,7 +358,10 @@ func NewApplicationTargetGroup_Override(a ApplicationTargetGroup, scope construc
 	)
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) SetHealthCheck(val *HealthCheck) {
+func (j *jsiiProxy_ApplicationTargetGroup)SetHealthCheck(val *HealthCheck) {
+	if err := j.validateSetHealthCheckParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"healthCheck",
@@ -363,7 +369,7 @@ func (j *jsiiProxy_ApplicationTargetGroup) SetHealthCheck(val *HealthCheck) {
 	)
 }
 
-func (j *jsiiProxy_ApplicationTargetGroup) SetTargetType(val TargetType) {
+func (j *jsiiProxy_ApplicationTargetGroup)SetTargetType(val TargetType) {
 	_jsii_.Set(
 		j,
 		"targetType",
@@ -376,6 +382,9 @@ func (j *jsiiProxy_ApplicationTargetGroup) SetTargetType(val TargetType) {
 func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) IApplicationTargetGroup {
 	_init_.Initialize()
 
+	if err := validateApplicationTargetGroup_FromTargetGroupAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IApplicationTargetGroup
 
 	_jsii_.StaticInvoke(
@@ -393,6 +402,9 @@ func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct
 func ApplicationTargetGroup_Import(scope constructs.Construct, id *string, props *TargetGroupImportProps) IApplicationTargetGroup {
 	_init_.Initialize()
 
+	if err := validateApplicationTargetGroup_ImportParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	var returns IApplicationTargetGroup
 
 	_jsii_.StaticInvoke(
@@ -410,6 +422,9 @@ func ApplicationTargetGroup_Import(scope constructs.Construct, id *string, props
 func ApplicationTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationTargetGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -423,6 +438,9 @@ func ApplicationTargetGroup_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) AddLoadBalancerTarget(props *LoadBalancerTargetProps) {
+	if err := a.validateAddLoadBalancerTargetParameters(props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addLoadBalancerTarget",
@@ -444,6 +462,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) AddTarget(targets ...IApplicationLoad
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) ConfigureHealthCheck(healthCheck *HealthCheck) {
+	if err := a.validateConfigureHealthCheckParameters(healthCheck); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"configureHealthCheck",
@@ -452,6 +473,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) ConfigureHealthCheck(healthCheck *Hea
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) EnableCookieStickiness(duration awscdk.Duration, cookieName *string) {
+	if err := a.validateEnableCookieStickinessParameters(duration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"enableCookieStickiness",
@@ -460,6 +484,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) EnableCookieStickiness(duration awscd
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -473,6 +500,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) Metric(metricName *string, props *aws
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHealthyHostCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -486,6 +516,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricHealthyHostCount(props *awsclou
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricHttpCodeTarget(code HttpCodeTarget, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHttpCodeTargetParameters(code, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -499,6 +532,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricHttpCodeTarget(code HttpCodeTar
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricIpv6RequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricIpv6RequestCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -512,6 +548,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricIpv6RequestCount(props *awsclou
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricRequestCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -525,6 +564,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCount(props *awscloudwat
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCountPerTarget(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricRequestCountPerTargetParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -538,6 +580,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricRequestCountPerTarget(props *aw
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetConnectionErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTargetConnectionErrorCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -551,6 +596,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetConnectionErrorCount(prop
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetResponseTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTargetResponseTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -564,6 +612,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetResponseTime(props *awscl
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetTLSNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTargetTLSNegotiationErrorCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -577,6 +628,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) MetricTargetTLSNegotiationErrorCount(
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) MetricUnhealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricUnhealthyHostCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -598,6 +652,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -627,6 +684,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port) {
+	if err := a.validateRegisterConnectableParameters(connectable); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"registerConnectable",
@@ -635,6 +695,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) RegisterConnectable(connectable awsec
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) RegisterListener(listener IApplicationListener, associatingConstruct constructs.IConstruct) {
+	if err := a.validateRegisterListenerParameters(listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"registerListener",
@@ -643,6 +706,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) RegisterListener(listener IApplicatio
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) SetAttribute(key *string, value *string) {
+	if err := a.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"setAttribute",
@@ -651,6 +717,9 @@ func (a *jsiiProxy_ApplicationTargetGroup) SetAttribute(key *string, value *stri
 }
 
 func (a *jsiiProxy_ApplicationTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

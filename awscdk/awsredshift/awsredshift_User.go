@@ -197,6 +197,9 @@ func (j *jsiiProxy_User) Username() *string {
 func NewUser(scope constructs.Construct, id *string, props *UserProps) User {
 	_init_.Initialize()
 
+	if err := validateNewUserParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_User{}
 
 	_jsii_.Create(
@@ -219,7 +222,10 @@ func NewUser_Override(u User, scope constructs.Construct, id *string, props *Use
 	)
 }
 
-func (j *jsiiProxy_User) SetDatabaseProps(val *DatabaseOptions) {
+func (j *jsiiProxy_User)SetDatabaseProps(val *DatabaseOptions) {
+	if err := j.validateSetDatabasePropsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"databaseProps",
@@ -232,6 +238,9 @@ func (j *jsiiProxy_User) SetDatabaseProps(val *DatabaseOptions) {
 func User_FromUserAttributes(scope constructs.Construct, id *string, attrs *UserAttributes) IUser {
 	_init_.Initialize()
 
+	if err := validateUser_FromUserAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IUser
 
 	_jsii_.StaticInvoke(
@@ -249,6 +258,9 @@ func User_FromUserAttributes(scope constructs.Construct, id *string, attrs *User
 func User_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUser_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -262,6 +274,9 @@ func User_IsConstruct(x interface{}) *bool {
 }
 
 func (u *jsiiProxy_User) AddTablePrivileges(table ITable, actions ...TableAction) {
+	if err := u.validateAddTablePrivilegesParameters(table); err != nil {
+		panic(err)
+	}
 	args := []interface{}{table}
 	for _, a := range actions {
 		args = append(args, a)
@@ -275,6 +290,9 @@ func (u *jsiiProxy_User) AddTablePrivileges(table ITable, actions ...TableAction
 }
 
 func (u *jsiiProxy_User) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -291,6 +309,9 @@ func (u *jsiiProxy_User) OnPrepare() {
 }
 
 func (u *jsiiProxy_User) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -320,6 +341,9 @@ func (u *jsiiProxy_User) Prepare() {
 }
 
 func (u *jsiiProxy_User) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

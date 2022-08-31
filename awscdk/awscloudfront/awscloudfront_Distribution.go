@@ -233,6 +233,9 @@ func (j *jsiiProxy_Distribution) Stack() awscdk.Stack {
 func NewDistribution(scope constructs.Construct, id *string, props *DistributionProps) Distribution {
 	_init_.Initialize()
 
+	if err := validateNewDistributionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Distribution{}
 
 	_jsii_.Create(
@@ -260,6 +263,9 @@ func NewDistribution_Override(d Distribution, scope constructs.Construct, id *st
 func Distribution_FromDistributionAttributes(scope constructs.Construct, id *string, attrs *DistributionAttributes) IDistribution {
 	_init_.Initialize()
 
+	if err := validateDistribution_FromDistributionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDistribution
 
 	_jsii_.StaticInvoke(
@@ -277,6 +283,9 @@ func Distribution_FromDistributionAttributes(scope constructs.Construct, id *str
 func Distribution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDistribution_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -294,6 +303,9 @@ func Distribution_IsConstruct(x interface{}) *bool {
 func Distribution_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDistribution_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -307,6 +319,9 @@ func Distribution_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_Distribution) AddBehavior(pathPattern *string, origin IOrigin, behaviorOptions *AddBehaviorOptions) {
+	if err := d.validateAddBehaviorParameters(pathPattern, origin, behaviorOptions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addBehavior",
@@ -315,6 +330,9 @@ func (d *jsiiProxy_Distribution) AddBehavior(pathPattern *string, origin IOrigin
 }
 
 func (d *jsiiProxy_Distribution) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -336,6 +354,9 @@ func (d *jsiiProxy_Distribution) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_Distribution) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -349,6 +370,9 @@ func (d *jsiiProxy_Distribution) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (d *jsiiProxy_Distribution) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -370,6 +394,9 @@ func (d *jsiiProxy_Distribution) OnPrepare() {
 }
 
 func (d *jsiiProxy_Distribution) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -399,6 +426,9 @@ func (d *jsiiProxy_Distribution) Prepare() {
 }
 
 func (d *jsiiProxy_Distribution) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

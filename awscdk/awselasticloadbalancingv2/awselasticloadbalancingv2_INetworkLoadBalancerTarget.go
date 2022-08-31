@@ -21,6 +21,9 @@ type jsiiProxy_INetworkLoadBalancerTarget struct {
 }
 
 func (i *jsiiProxy_INetworkLoadBalancerTarget) AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps {
+	if err := i.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *LoadBalancerTargetProps
 
 	_jsii_.Invoke(

@@ -49,6 +49,9 @@ type jsiiProxy_Integration struct {
 func NewIntegration(props *IntegrationProps) Integration {
 	_init_.Initialize()
 
+	if err := validateNewIntegrationParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Integration{}
 
 	_jsii_.Create(
@@ -72,6 +75,9 @@ func NewIntegration_Override(i Integration, props *IntegrationProps) {
 }
 
 func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
+	if err := i.validateBindParameters(_method); err != nil {
+		panic(err)
+	}
 	var returns *IntegrationConfig
 
 	_jsii_.Invoke(

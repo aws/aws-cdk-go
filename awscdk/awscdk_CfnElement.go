@@ -162,6 +162,9 @@ func NewCfnElement_Override(c CfnElement, scope constructs.Construct, id *string
 func CfnElement_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnElement_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -179,6 +182,9 @@ func CfnElement_IsCfnElement(x interface{}) *bool {
 func CfnElement_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnElement_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -200,6 +206,9 @@ func (c *jsiiProxy_CfnElement) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnElement) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -221,6 +230,9 @@ func (c *jsiiProxy_CfnElement) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnElement) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -237,6 +249,9 @@ func (c *jsiiProxy_CfnElement) Prepare() {
 }
 
 func (c *jsiiProxy_CfnElement) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

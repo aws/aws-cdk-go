@@ -244,6 +244,9 @@ func (j *jsiiProxy_NetworkListener) Stack() awscdk.Stack {
 func NewNetworkListener(scope constructs.Construct, id *string, props *NetworkListenerProps) NetworkListener {
 	_init_.Initialize()
 
+	if err := validateNewNetworkListenerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NetworkListener{}
 
 	_jsii_.Create(
@@ -271,6 +274,9 @@ func NewNetworkListener_Override(n NetworkListener, scope constructs.Construct, 
 func NetworkListener_FromLookup(scope constructs.Construct, id *string, options *NetworkListenerLookupOptions) INetworkListener {
 	_init_.Initialize()
 
+	if err := validateNetworkListener_FromLookupParameters(scope, id, options); err != nil {
+		panic(err)
+	}
 	var returns INetworkListener
 
 	_jsii_.StaticInvoke(
@@ -288,6 +294,9 @@ func NetworkListener_FromLookup(scope constructs.Construct, id *string, options 
 func NetworkListener_FromNetworkListenerArn(scope constructs.Construct, id *string, networkListenerArn *string) INetworkListener {
 	_init_.Initialize()
 
+	if err := validateNetworkListener_FromNetworkListenerArnParameters(scope, id, networkListenerArn); err != nil {
+		panic(err)
+	}
 	var returns INetworkListener
 
 	_jsii_.StaticInvoke(
@@ -305,6 +314,9 @@ func NetworkListener_FromNetworkListenerArn(scope constructs.Construct, id *stri
 func NetworkListener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkListener_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -322,6 +334,9 @@ func NetworkListener_IsConstruct(x interface{}) *bool {
 func NetworkListener_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkListener_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -335,6 +350,9 @@ func NetworkListener_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (n *jsiiProxy_NetworkListener) AddAction(_id *string, props *AddNetworkActionProps) {
+	if err := n.validateAddActionParameters(_id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"addAction",
@@ -343,6 +361,9 @@ func (n *jsiiProxy_NetworkListener) AddAction(_id *string, props *AddNetworkActi
 }
 
 func (n *jsiiProxy_NetworkListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
+	if err := n.validateAddCertificatesParameters(id, certificates); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"addCertificates",
@@ -351,6 +372,9 @@ func (n *jsiiProxy_NetworkListener) AddCertificates(id *string, certificates *[]
 }
 
 func (n *jsiiProxy_NetworkListener) AddTargetGroups(_id *string, targetGroups ...INetworkTargetGroup) {
+	if err := n.validateAddTargetGroupsParameters(_id); err != nil {
+		panic(err)
+	}
 	args := []interface{}{_id}
 	for _, a := range targetGroups {
 		args = append(args, a)
@@ -364,6 +388,9 @@ func (n *jsiiProxy_NetworkListener) AddTargetGroups(_id *string, targetGroups ..
 }
 
 func (n *jsiiProxy_NetworkListener) AddTargets(id *string, props *AddNetworkTargetsProps) NetworkTargetGroup {
+	if err := n.validateAddTargetsParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns NetworkTargetGroup
 
 	_jsii_.Invoke(
@@ -377,6 +404,9 @@ func (n *jsiiProxy_NetworkListener) AddTargets(id *string, props *AddNetworkTarg
 }
 
 func (n *jsiiProxy_NetworkListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := n.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"applyRemovalPolicy",
@@ -398,6 +428,9 @@ func (n *jsiiProxy_NetworkListener) GeneratePhysicalName() *string {
 }
 
 func (n *jsiiProxy_NetworkListener) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := n.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -411,6 +444,9 @@ func (n *jsiiProxy_NetworkListener) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (n *jsiiProxy_NetworkListener) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := n.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -432,6 +468,9 @@ func (n *jsiiProxy_NetworkListener) OnPrepare() {
 }
 
 func (n *jsiiProxy_NetworkListener) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -461,6 +500,9 @@ func (n *jsiiProxy_NetworkListener) Prepare() {
 }
 
 func (n *jsiiProxy_NetworkListener) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

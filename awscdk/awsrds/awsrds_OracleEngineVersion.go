@@ -65,6 +65,9 @@ func (j *jsiiProxy_OracleEngineVersion) OracleMajorVersion() *string {
 func OracleEngineVersion_Of(oracleFullVersion *string, oracleMajorVersion *string) OracleEngineVersion {
 	_init_.Initialize()
 
+	if err := validateOracleEngineVersion_OfParameters(oracleFullVersion, oracleMajorVersion); err != nil {
+		panic(err)
+	}
 	var returns OracleEngineVersion
 
 	_jsii_.StaticInvoke(

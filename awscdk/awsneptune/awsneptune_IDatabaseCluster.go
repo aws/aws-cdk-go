@@ -38,6 +38,9 @@ type jsiiProxy_IDatabaseCluster struct {
 }
 
 func (i *jsiiProxy_IDatabaseCluster) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantConnectParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -51,6 +54,9 @@ func (i *jsiiProxy_IDatabaseCluster) GrantConnect(grantee awsiam.IGrantable) aws
 }
 
 func (i *jsiiProxy_IDatabaseCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

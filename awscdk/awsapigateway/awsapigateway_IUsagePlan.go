@@ -25,6 +25,9 @@ type jsiiProxy_IUsagePlan struct {
 }
 
 func (i *jsiiProxy_IUsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOptions) {
+	if err := i.validateAddApiKeyParameters(apiKey, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addApiKey",

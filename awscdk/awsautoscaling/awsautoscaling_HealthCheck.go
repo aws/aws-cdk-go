@@ -60,6 +60,9 @@ func (j *jsiiProxy_HealthCheck) Type() *string {
 func HealthCheck_Ec2(options *Ec2HealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
+	if err := validateHealthCheck_Ec2Parameters(options); err != nil {
+		panic(err)
+	}
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
@@ -79,6 +82,9 @@ func HealthCheck_Ec2(options *Ec2HealthCheckOptions) HealthCheck {
 func HealthCheck_Elb(options *ElbHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
+	if err := validateHealthCheck_ElbParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(

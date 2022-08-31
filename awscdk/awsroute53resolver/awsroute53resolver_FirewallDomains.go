@@ -57,6 +57,9 @@ func NewFirewallDomains_Override(f FirewallDomains) {
 func FirewallDomains_FromAsset(assetPath *string) FirewallDomains {
 	_init_.Initialize()
 
+	if err := validateFirewallDomains_FromAssetParameters(assetPath); err != nil {
+		panic(err)
+	}
 	var returns FirewallDomains
 
 	_jsii_.StaticInvoke(
@@ -74,6 +77,9 @@ func FirewallDomains_FromAsset(assetPath *string) FirewallDomains {
 func FirewallDomains_FromList(list *[]*string) FirewallDomains {
 	_init_.Initialize()
 
+	if err := validateFirewallDomains_FromListParameters(list); err != nil {
+		panic(err)
+	}
 	var returns FirewallDomains
 
 	_jsii_.StaticInvoke(
@@ -94,6 +100,9 @@ func FirewallDomains_FromList(list *[]*string) FirewallDomains {
 func FirewallDomains_FromS3(bucket awss3.IBucket, key *string) FirewallDomains {
 	_init_.Initialize()
 
+	if err := validateFirewallDomains_FromS3Parameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns FirewallDomains
 
 	_jsii_.StaticInvoke(
@@ -114,6 +123,9 @@ func FirewallDomains_FromS3(bucket awss3.IBucket, key *string) FirewallDomains {
 func FirewallDomains_FromS3Url(url *string) FirewallDomains {
 	_init_.Initialize()
 
+	if err := validateFirewallDomains_FromS3UrlParameters(url); err != nil {
+		panic(err)
+	}
 	var returns FirewallDomains
 
 	_jsii_.StaticInvoke(
@@ -127,6 +139,9 @@ func FirewallDomains_FromS3Url(url *string) FirewallDomains {
 }
 
 func (f *jsiiProxy_FirewallDomains) Bind(scope constructs.Construct) *DomainsConfig {
+	if err := f.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *DomainsConfig
 
 	_jsii_.Invoke(

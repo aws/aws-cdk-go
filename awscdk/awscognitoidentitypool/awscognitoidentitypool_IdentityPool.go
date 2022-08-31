@@ -260,6 +260,9 @@ func (j *jsiiProxy_IdentityPool) UnauthenticatedRole() awsiam.IRole {
 func NewIdentityPool(scope constructs.Construct, id *string, props *IdentityPoolProps) IdentityPool {
 	_init_.Initialize()
 
+	if err := validateNewIdentityPoolParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IdentityPool{}
 
 	_jsii_.Create(
@@ -287,6 +290,9 @@ func NewIdentityPool_Override(i IdentityPool, scope constructs.Construct, id *st
 func IdentityPool_FromIdentityPoolArn(scope constructs.Construct, id *string, identityPoolArn *string) IIdentityPool {
 	_init_.Initialize()
 
+	if err := validateIdentityPool_FromIdentityPoolArnParameters(scope, id, identityPoolArn); err != nil {
+		panic(err)
+	}
 	var returns IIdentityPool
 
 	_jsii_.StaticInvoke(
@@ -304,6 +310,9 @@ func IdentityPool_FromIdentityPoolArn(scope constructs.Construct, id *string, id
 func IdentityPool_FromIdentityPoolId(scope constructs.Construct, id *string, identityPoolId *string) IIdentityPool {
 	_init_.Initialize()
 
+	if err := validateIdentityPool_FromIdentityPoolIdParameters(scope, id, identityPoolId); err != nil {
+		panic(err)
+	}
 	var returns IIdentityPool
 
 	_jsii_.StaticInvoke(
@@ -321,6 +330,9 @@ func IdentityPool_FromIdentityPoolId(scope constructs.Construct, id *string, ide
 func IdentityPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateIdentityPool_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -338,6 +350,9 @@ func IdentityPool_IsConstruct(x interface{}) *bool {
 func IdentityPool_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateIdentityPool_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -351,6 +366,9 @@ func IdentityPool_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (i *jsiiProxy_IdentityPool) AddRoleMappings(roleMappings ...*IdentityPoolRoleMapping) {
+	if err := i.validateAddRoleMappingsParameters(&roleMappings); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range roleMappings {
 		args = append(args, a)
@@ -364,6 +382,9 @@ func (i *jsiiProxy_IdentityPool) AddRoleMappings(roleMappings ...*IdentityPoolRo
 }
 
 func (i *jsiiProxy_IdentityPool) AddUserPoolAuthentication(userPool IUserPoolAuthenticationProvider) {
+	if err := i.validateAddUserPoolAuthenticationParameters(userPool); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addUserPoolAuthentication",
@@ -372,6 +393,9 @@ func (i *jsiiProxy_IdentityPool) AddUserPoolAuthentication(userPool IUserPoolAut
 }
 
 func (i *jsiiProxy_IdentityPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -393,6 +417,9 @@ func (i *jsiiProxy_IdentityPool) GeneratePhysicalName() *string {
 }
 
 func (i *jsiiProxy_IdentityPool) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := i.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -406,6 +433,9 @@ func (i *jsiiProxy_IdentityPool) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (i *jsiiProxy_IdentityPool) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := i.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -427,6 +457,9 @@ func (i *jsiiProxy_IdentityPool) OnPrepare() {
 }
 
 func (i *jsiiProxy_IdentityPool) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := i.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"onSynthesize",
@@ -456,6 +489,9 @@ func (i *jsiiProxy_IdentityPool) Prepare() {
 }
 
 func (i *jsiiProxy_IdentityPool) Synthesize(session awscdk.ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

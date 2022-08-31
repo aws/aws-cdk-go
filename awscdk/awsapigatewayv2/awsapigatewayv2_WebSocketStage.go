@@ -264,6 +264,9 @@ func (j *jsiiProxy_WebSocketStage) Url() *string {
 func NewWebSocketStage(scope constructs.Construct, id *string, props *WebSocketStageProps) WebSocketStage {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketStageParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketStage{}
 
 	_jsii_.Create(
@@ -291,6 +294,9 @@ func NewWebSocketStage_Override(w WebSocketStage, scope constructs.Construct, id
 func WebSocketStage_FromWebSocketStageAttributes(scope constructs.Construct, id *string, attrs *WebSocketStageAttributes) IWebSocketStage {
 	_init_.Initialize()
 
+	if err := validateWebSocketStage_FromWebSocketStageAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IWebSocketStage
 
 	_jsii_.StaticInvoke(
@@ -308,6 +314,9 @@ func WebSocketStage_FromWebSocketStageAttributes(scope constructs.Construct, id 
 func WebSocketStage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketStage_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -325,6 +334,9 @@ func WebSocketStage_IsConstruct(x interface{}) *bool {
 func WebSocketStage_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketStage_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -338,6 +350,9 @@ func WebSocketStage_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (w *jsiiProxy_WebSocketStage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := w.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"applyRemovalPolicy",
@@ -359,6 +374,9 @@ func (w *jsiiProxy_WebSocketStage) GeneratePhysicalName() *string {
 }
 
 func (w *jsiiProxy_WebSocketStage) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := w.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -372,6 +390,9 @@ func (w *jsiiProxy_WebSocketStage) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (w *jsiiProxy_WebSocketStage) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := w.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -385,6 +406,9 @@ func (w *jsiiProxy_WebSocketStage) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 func (w *jsiiProxy_WebSocketStage) GrantManagementApiAccess(identity awsiam.IGrantable) awsiam.Grant {
+	if err := w.validateGrantManagementApiAccessParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -398,6 +422,9 @@ func (w *jsiiProxy_WebSocketStage) GrantManagementApiAccess(identity awsiam.IGra
 }
 
 func (w *jsiiProxy_WebSocketStage) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := w.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -419,6 +446,9 @@ func (w *jsiiProxy_WebSocketStage) OnPrepare() {
 }
 
 func (w *jsiiProxy_WebSocketStage) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := w.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"onSynthesize",
@@ -448,6 +478,9 @@ func (w *jsiiProxy_WebSocketStage) Prepare() {
 }
 
 func (w *jsiiProxy_WebSocketStage) Synthesize(session awscdk.ISynthesisSession) {
+	if err := w.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"synthesize",

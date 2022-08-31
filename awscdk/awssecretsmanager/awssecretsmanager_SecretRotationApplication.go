@@ -87,6 +87,9 @@ func (j *jsiiProxy_SecretRotationApplication) SemanticVersion() *string {
 func NewSecretRotationApplication(applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) SecretRotationApplication {
 	_init_.Initialize()
 
+	if err := validateNewSecretRotationApplicationParameters(applicationId, semanticVersion, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SecretRotationApplication{}
 
 	_jsii_.Create(
@@ -264,6 +267,9 @@ func SecretRotationApplication_SQLSERVER_ROTATION_SINGLE_USER() SecretRotationAp
 }
 
 func (s *jsiiProxy_SecretRotationApplication) ApplicationArnForPartition(partition *string) *string {
+	if err := s.validateApplicationArnForPartitionParameters(partition); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -277,6 +283,9 @@ func (s *jsiiProxy_SecretRotationApplication) ApplicationArnForPartition(partiti
 }
 
 func (s *jsiiProxy_SecretRotationApplication) SemanticVersionForPartition(partition *string) *string {
+	if err := s.validateSemanticVersionForPartitionParameters(partition); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

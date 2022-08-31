@@ -271,6 +271,9 @@ func (j *jsiiProxy_VirtualGateway) VirtualGatewayName() *string {
 func NewVirtualGateway(scope constructs.Construct, id *string, props *VirtualGatewayProps) VirtualGateway {
 	_init_.Initialize()
 
+	if err := validateNewVirtualGatewayParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_VirtualGateway{}
 
 	_jsii_.Create(
@@ -298,6 +301,9 @@ func NewVirtualGateway_Override(v VirtualGateway, scope constructs.Construct, id
 func VirtualGateway_FromVirtualGatewayArn(scope constructs.Construct, id *string, virtualGatewayArn *string) IVirtualGateway {
 	_init_.Initialize()
 
+	if err := validateVirtualGateway_FromVirtualGatewayArnParameters(scope, id, virtualGatewayArn); err != nil {
+		panic(err)
+	}
 	var returns IVirtualGateway
 
 	_jsii_.StaticInvoke(
@@ -315,6 +321,9 @@ func VirtualGateway_FromVirtualGatewayArn(scope constructs.Construct, id *string
 func VirtualGateway_FromVirtualGatewayAttributes(scope constructs.Construct, id *string, attrs *VirtualGatewayAttributes) IVirtualGateway {
 	_init_.Initialize()
 
+	if err := validateVirtualGateway_FromVirtualGatewayAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IVirtualGateway
 
 	_jsii_.StaticInvoke(
@@ -332,6 +341,9 @@ func VirtualGateway_FromVirtualGatewayAttributes(scope constructs.Construct, id 
 func VirtualGateway_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVirtualGateway_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -349,6 +361,9 @@ func VirtualGateway_IsConstruct(x interface{}) *bool {
 func VirtualGateway_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVirtualGateway_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -362,6 +377,9 @@ func VirtualGateway_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (v *jsiiProxy_VirtualGateway) AddGatewayRoute(id *string, props *GatewayRouteBaseProps) GatewayRoute {
+	if err := v.validateAddGatewayRouteParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns GatewayRoute
 
 	_jsii_.Invoke(
@@ -375,6 +393,9 @@ func (v *jsiiProxy_VirtualGateway) AddGatewayRoute(id *string, props *GatewayRou
 }
 
 func (v *jsiiProxy_VirtualGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -396,6 +417,9 @@ func (v *jsiiProxy_VirtualGateway) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_VirtualGateway) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -409,6 +433,9 @@ func (v *jsiiProxy_VirtualGateway) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (v *jsiiProxy_VirtualGateway) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -422,6 +449,9 @@ func (v *jsiiProxy_VirtualGateway) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 func (v *jsiiProxy_VirtualGateway) GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant {
+	if err := v.validateGrantStreamAggregatedResourcesParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -443,6 +473,9 @@ func (v *jsiiProxy_VirtualGateway) OnPrepare() {
 }
 
 func (v *jsiiProxy_VirtualGateway) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -472,6 +505,9 @@ func (v *jsiiProxy_VirtualGateway) Prepare() {
 }
 
 func (v *jsiiProxy_VirtualGateway) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

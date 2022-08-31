@@ -38,6 +38,9 @@ type jsiiProxy_SnsDestination struct {
 func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	_init_.Initialize()
 
+	if err := validateNewSnsDestinationParameters(topic); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsDestination{}
 
 	_jsii_.Create(
@@ -61,6 +64,9 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 }
 
 func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
+	if err := s.validateBindParameters(_scope, bucket); err != nil {
+		panic(err)
+	}
 	var returns *awss3.BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(

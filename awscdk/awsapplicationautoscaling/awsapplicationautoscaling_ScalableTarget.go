@@ -242,6 +242,9 @@ func (j *jsiiProxy_ScalableTarget) Stack() awscdk.Stack {
 func NewScalableTarget(scope constructs.Construct, id *string, props *ScalableTargetProps) ScalableTarget {
 	_init_.Initialize()
 
+	if err := validateNewScalableTargetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ScalableTarget{}
 
 	_jsii_.Create(
@@ -268,6 +271,9 @@ func NewScalableTarget_Override(s ScalableTarget, scope constructs.Construct, id
 func ScalableTarget_FromScalableTargetId(scope constructs.Construct, id *string, scalableTargetId *string) IScalableTarget {
 	_init_.Initialize()
 
+	if err := validateScalableTarget_FromScalableTargetIdParameters(scope, id, scalableTargetId); err != nil {
+		panic(err)
+	}
 	var returns IScalableTarget
 
 	_jsii_.StaticInvoke(
@@ -285,6 +291,9 @@ func ScalableTarget_FromScalableTargetId(scope constructs.Construct, id *string,
 func ScalableTarget_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateScalableTarget_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -302,6 +311,9 @@ func ScalableTarget_IsConstruct(x interface{}) *bool {
 func ScalableTarget_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateScalableTarget_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -315,6 +327,9 @@ func ScalableTarget_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_ScalableTarget) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := s.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToRolePolicy",
@@ -323,6 +338,9 @@ func (s *jsiiProxy_ScalableTarget) AddToRolePolicy(statement awsiam.PolicyStatem
 }
 
 func (s *jsiiProxy_ScalableTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -344,6 +362,9 @@ func (s *jsiiProxy_ScalableTarget) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_ScalableTarget) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -357,6 +378,9 @@ func (s *jsiiProxy_ScalableTarget) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (s *jsiiProxy_ScalableTarget) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -378,6 +402,9 @@ func (s *jsiiProxy_ScalableTarget) OnPrepare() {
 }
 
 func (s *jsiiProxy_ScalableTarget) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -407,6 +434,9 @@ func (s *jsiiProxy_ScalableTarget) Prepare() {
 }
 
 func (s *jsiiProxy_ScalableTarget) ScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) StepScalingPolicy {
+	if err := s.validateScaleOnMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns StepScalingPolicy
 
 	_jsii_.Invoke(
@@ -420,6 +450,9 @@ func (s *jsiiProxy_ScalableTarget) ScaleOnMetric(id *string, props *BasicStepSca
 }
 
 func (s *jsiiProxy_ScalableTarget) ScaleOnSchedule(id *string, action *ScalingSchedule) {
+	if err := s.validateScaleOnScheduleParameters(id, action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"scaleOnSchedule",
@@ -428,6 +461,9 @@ func (s *jsiiProxy_ScalableTarget) ScaleOnSchedule(id *string, action *ScalingSc
 }
 
 func (s *jsiiProxy_ScalableTarget) ScaleToTrackMetric(id *string, props *BasicTargetTrackingScalingPolicyProps) TargetTrackingScalingPolicy {
+	if err := s.validateScaleToTrackMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -441,6 +477,9 @@ func (s *jsiiProxy_ScalableTarget) ScaleToTrackMetric(id *string, props *BasicTa
 }
 
 func (s *jsiiProxy_ScalableTarget) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

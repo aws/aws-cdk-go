@@ -49,6 +49,9 @@ func NewLogDriver_Override(l LogDriver) {
 func LogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -62,6 +65,9 @@ func LogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (l *jsiiProxy_LogDriver) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := l.validateBindParameters(scope, containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

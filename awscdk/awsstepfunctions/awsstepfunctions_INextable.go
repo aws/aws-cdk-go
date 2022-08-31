@@ -20,6 +20,9 @@ type jsiiProxy_INextable struct {
 }
 
 func (i *jsiiProxy_INextable) Next(state IChainable) Chain {
+	if err := i.validateNextParameters(state); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.Invoke(

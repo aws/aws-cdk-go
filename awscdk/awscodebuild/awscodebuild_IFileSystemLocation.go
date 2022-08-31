@@ -22,6 +22,9 @@ type jsiiProxy_IFileSystemLocation struct {
 }
 
 func (i *jsiiProxy_IFileSystemLocation) Bind(scope awscdk.Construct, project IProject) *FileSystemConfig {
+	if err := i.validateBindParameters(scope, project); err != nil {
+		panic(err)
+	}
 	var returns *FileSystemConfig
 
 	_jsii_.Invoke(

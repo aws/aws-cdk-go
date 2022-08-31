@@ -191,6 +191,9 @@ func (j *jsiiProxy_BasePathMapping) Stack() awscdk.Stack {
 func NewBasePathMapping(scope constructs.Construct, id *string, props *BasePathMappingProps) BasePathMapping {
 	_init_.Initialize()
 
+	if err := validateNewBasePathMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BasePathMapping{}
 
 	_jsii_.Create(
@@ -218,6 +221,9 @@ func NewBasePathMapping_Override(b BasePathMapping, scope constructs.Construct, 
 func BasePathMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBasePathMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -235,6 +241,9 @@ func BasePathMapping_IsConstruct(x interface{}) *bool {
 func BasePathMapping_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBasePathMapping_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -248,6 +257,9 @@ func BasePathMapping_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BasePathMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -269,6 +281,9 @@ func (b *jsiiProxy_BasePathMapping) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BasePathMapping) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -282,6 +297,9 @@ func (b *jsiiProxy_BasePathMapping) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (b *jsiiProxy_BasePathMapping) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -303,6 +321,9 @@ func (b *jsiiProxy_BasePathMapping) OnPrepare() {
 }
 
 func (b *jsiiProxy_BasePathMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -332,6 +353,9 @@ func (b *jsiiProxy_BasePathMapping) Prepare() {
 }
 
 func (b *jsiiProxy_BasePathMapping) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

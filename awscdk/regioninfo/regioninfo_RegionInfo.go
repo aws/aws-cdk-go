@@ -191,6 +191,9 @@ func (j *jsiiProxy_RegionInfo) VpcEndpointServiceNamePrefix() *string {
 func RegionInfo_Get(name *string) RegionInfo {
 	_init_.Initialize()
 
+	if err := validateRegionInfo_GetParameters(name); err != nil {
+		panic(err)
+	}
 	var returns RegionInfo
 
 	_jsii_.StaticInvoke(
@@ -211,6 +214,9 @@ func RegionInfo_Get(name *string) RegionInfo {
 func RegionInfo_LimitedRegionMap(factName *string, partitions *[]*string) *map[string]*string {
 	_init_.Initialize()
 
+	if err := validateRegionInfo_LimitedRegionMapParameters(factName, partitions); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.StaticInvoke(
@@ -231,6 +237,9 @@ func RegionInfo_LimitedRegionMap(factName *string, partitions *[]*string) *map[s
 func RegionInfo_RegionMap(factName *string) *map[string]*string {
 	_init_.Initialize()
 
+	if err := validateRegionInfo_RegionMapParameters(factName); err != nil {
+		panic(err)
+	}
 	var returns *map[string]*string
 
 	_jsii_.StaticInvoke(
@@ -255,6 +264,9 @@ func RegionInfo_Regions() *[]RegionInfo {
 }
 
 func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *string, architecture *string) *string {
+	if err := r.validateCloudwatchLambdaInsightsArnParameters(insightsVersion); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -268,6 +280,9 @@ func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *stri
 }
 
 func (r *jsiiProxy_RegionInfo) ServicePrincipal(service *string) *string {
+	if err := r.validateServicePrincipalParameters(service); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

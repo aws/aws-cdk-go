@@ -498,6 +498,9 @@ func (j *jsiiProxy_CfnLocationObjectStorage) UpdatedProperites() *map[string]int
 func NewCfnLocationObjectStorage(scope awscdk.Construct, id *string, props *CfnLocationObjectStorageProps) CfnLocationObjectStorage {
 	_init_.Initialize()
 
+	if err := validateNewCfnLocationObjectStorageParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnLocationObjectStorage{}
 
 	_jsii_.Create(
@@ -520,7 +523,7 @@ func NewCfnLocationObjectStorage_Override(c CfnLocationObjectStorage, scope awsc
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetAccessKey(val *string) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetAccessKey(val *string) {
 	_jsii_.Set(
 		j,
 		"accessKey",
@@ -528,7 +531,10 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetAccessKey(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetAgentArns(val *[]*string) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetAgentArns(val *[]*string) {
+	if err := j.validateSetAgentArnsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"agentArns",
@@ -536,7 +542,10 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetAgentArns(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetBucketName(val *string) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetBucketName(val *string) {
+	if err := j.validateSetBucketNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"bucketName",
@@ -544,7 +553,7 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetBucketName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetSecretKey(val *string) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetSecretKey(val *string) {
 	_jsii_.Set(
 		j,
 		"secretKey",
@@ -552,7 +561,10 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetSecretKey(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetServerHostname(val *string) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetServerHostname(val *string) {
+	if err := j.validateSetServerHostnameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"serverHostname",
@@ -560,7 +572,7 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetServerHostname(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetServerPort(val *float64) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetServerPort(val *float64) {
 	_jsii_.Set(
 		j,
 		"serverPort",
@@ -568,7 +580,7 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetServerPort(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetServerProtocol(val *string) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetServerProtocol(val *string) {
 	_jsii_.Set(
 		j,
 		"serverProtocol",
@@ -576,7 +588,7 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetServerProtocol(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) SetSubdirectory(val *string) {
+func (j *jsiiProxy_CfnLocationObjectStorage)SetSubdirectory(val *string) {
 	_jsii_.Set(
 		j,
 		"subdirectory",
@@ -594,6 +606,9 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetSubdirectory(val *string) {
 func CfnLocationObjectStorage_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLocationObjectStorage_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -611,6 +626,9 @@ func CfnLocationObjectStorage_IsCfnElement(x interface{}) *bool {
 func CfnLocationObjectStorage_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLocationObjectStorage_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -628,6 +646,9 @@ func CfnLocationObjectStorage_IsCfnResource(construct constructs.IConstruct) *bo
 func CfnLocationObjectStorage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLocationObjectStorage_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -652,6 +673,9 @@ func CfnLocationObjectStorage_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -660,6 +684,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -668,6 +695,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) AddDependsOn(target awscdk.CfnResou
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -676,6 +706,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) AddMetadata(key *string, value inte
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -684,6 +717,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) AddOverride(path *string, value int
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -692,6 +728,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) AddPropertyDeletionOverride(propert
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -700,6 +739,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) AddPropertyOverride(propertyPath *s
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -708,6 +750,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ApplyRemovalPolicy(policy awscdk.Re
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -721,6 +766,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) GetAtt(attributeName *string) awscd
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -734,6 +782,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) GetMetadata(key *string) interface{
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -750,6 +801,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -771,6 +825,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -787,6 +844,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) Prepare() {
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -813,6 +873,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -847,6 +910,9 @@ func (c *jsiiProxy_CfnLocationObjectStorage) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -385,6 +385,9 @@ func (j *jsiiProxy_Task) StateId() *string {
 func NewTask(scope constructs.Construct, id *string, props *TaskProps) Task {
 	_init_.Initialize()
 
+	if err := validateNewTaskParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Task{}
 
 	_jsii_.Create(
@@ -407,7 +410,7 @@ func NewTask_Override(t Task, scope constructs.Construct, id *string, props *Tas
 	)
 }
 
-func (j *jsiiProxy_Task) SetDefaultChoice(val State) {
+func (j *jsiiProxy_Task)SetDefaultChoice(val State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -415,7 +418,7 @@ func (j *jsiiProxy_Task) SetDefaultChoice(val State) {
 	)
 }
 
-func (j *jsiiProxy_Task) SetIteration(val StateGraph) {
+func (j *jsiiProxy_Task)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -428,6 +431,9 @@ func (j *jsiiProxy_Task) SetIteration(val StateGraph) {
 func Task_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
+	if err := validateTask_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
@@ -445,6 +451,9 @@ func Task_FilterNextables(states *[]State) *[]INextable {
 func Task_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateTask_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -464,6 +473,9 @@ func Task_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 func Task_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateTask_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -481,6 +493,9 @@ func Task_FindReachableStates(start State, options *FindStateOptions) *[]State {
 func Task_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTask_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -498,6 +513,9 @@ func Task_IsConstruct(x interface{}) *bool {
 func Task_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateTask_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions.Task",
 		"prefixStates",
@@ -506,6 +524,9 @@ func Task_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (t *jsiiProxy_Task) AddBranch(branch StateGraph) {
+	if err := t.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addBranch",
@@ -514,6 +535,9 @@ func (t *jsiiProxy_Task) AddBranch(branch StateGraph) {
 }
 
 func (t *jsiiProxy_Task) AddCatch(handler IChainable, props *CatchProps) Task {
+	if err := t.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns Task
 
 	_jsii_.Invoke(
@@ -527,6 +551,9 @@ func (t *jsiiProxy_Task) AddCatch(handler IChainable, props *CatchProps) Task {
 }
 
 func (t *jsiiProxy_Task) AddChoice(condition Condition, next State) {
+	if err := t.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addChoice",
@@ -535,6 +562,9 @@ func (t *jsiiProxy_Task) AddChoice(condition Condition, next State) {
 }
 
 func (t *jsiiProxy_Task) AddIterator(iteration StateGraph) {
+	if err := t.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addIterator",
@@ -543,6 +573,9 @@ func (t *jsiiProxy_Task) AddIterator(iteration StateGraph) {
 }
 
 func (t *jsiiProxy_Task) AddPrefix(x *string) {
+	if err := t.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addPrefix",
@@ -551,6 +584,9 @@ func (t *jsiiProxy_Task) AddPrefix(x *string) {
 }
 
 func (t *jsiiProxy_Task) AddRetry(props *RetryProps) Task {
+	if err := t.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Task
 
 	_jsii_.Invoke(
@@ -564,6 +600,9 @@ func (t *jsiiProxy_Task) AddRetry(props *RetryProps) Task {
 }
 
 func (t *jsiiProxy_Task) BindToGraph(graph StateGraph) {
+	if err := t.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"bindToGraph",
@@ -572,6 +611,9 @@ func (t *jsiiProxy_Task) BindToGraph(graph StateGraph) {
 }
 
 func (t *jsiiProxy_Task) MakeDefault(def State) {
+	if err := t.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"makeDefault",
@@ -580,6 +622,9 @@ func (t *jsiiProxy_Task) MakeDefault(def State) {
 }
 
 func (t *jsiiProxy_Task) MakeNext(next State) {
+	if err := t.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"makeNext",
@@ -588,6 +633,9 @@ func (t *jsiiProxy_Task) MakeNext(next State) {
 }
 
 func (t *jsiiProxy_Task) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -601,6 +649,9 @@ func (t *jsiiProxy_Task) Metric(metricName *string, props *awscloudwatch.MetricO
 }
 
 func (t *jsiiProxy_Task) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -614,6 +665,9 @@ func (t *jsiiProxy_Task) MetricFailed(props *awscloudwatch.MetricOptions) awsclo
 }
 
 func (t *jsiiProxy_Task) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -627,6 +681,9 @@ func (t *jsiiProxy_Task) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOpti
 }
 
 func (t *jsiiProxy_Task) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -640,6 +697,9 @@ func (t *jsiiProxy_Task) MetricRunTime(props *awscloudwatch.MetricOptions) awscl
 }
 
 func (t *jsiiProxy_Task) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -653,6 +713,9 @@ func (t *jsiiProxy_Task) MetricScheduled(props *awscloudwatch.MetricOptions) aws
 }
 
 func (t *jsiiProxy_Task) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -666,6 +729,9 @@ func (t *jsiiProxy_Task) MetricScheduleTime(props *awscloudwatch.MetricOptions) 
 }
 
 func (t *jsiiProxy_Task) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -679,6 +745,9 @@ func (t *jsiiProxy_Task) MetricStarted(props *awscloudwatch.MetricOptions) awscl
 }
 
 func (t *jsiiProxy_Task) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -692,6 +761,9 @@ func (t *jsiiProxy_Task) MetricSucceeded(props *awscloudwatch.MetricOptions) aws
 }
 
 func (t *jsiiProxy_Task) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -705,6 +777,9 @@ func (t *jsiiProxy_Task) MetricTime(props *awscloudwatch.MetricOptions) awscloud
 }
 
 func (t *jsiiProxy_Task) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := t.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -718,6 +793,9 @@ func (t *jsiiProxy_Task) MetricTimedOut(props *awscloudwatch.MetricOptions) awsc
 }
 
 func (t *jsiiProxy_Task) Next(next IChainable) Chain {
+	if err := t.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.Invoke(
@@ -739,6 +817,9 @@ func (t *jsiiProxy_Task) OnPrepare() {
 }
 
 func (t *jsiiProxy_Task) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -859,6 +940,9 @@ func (t *jsiiProxy_Task) RenderRetryCatch() interface{} {
 }
 
 func (t *jsiiProxy_Task) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",
@@ -906,6 +990,9 @@ func (t *jsiiProxy_Task) Validate() *[]*string {
 }
 
 func (t *jsiiProxy_Task) WhenBoundToGraph(graph StateGraph) {
+	if err := t.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"whenBoundToGraph",

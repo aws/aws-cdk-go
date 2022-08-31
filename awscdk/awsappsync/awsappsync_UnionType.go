@@ -105,6 +105,9 @@ func (j *jsiiProxy_UnionType) Name() *string {
 func NewUnionType(name *string, options *UnionTypeOptions) UnionType {
 	_init_.Initialize()
 
+	if err := validateNewUnionTypeParameters(name, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UnionType{}
 
 	_jsii_.Create(
@@ -127,7 +130,7 @@ func NewUnionType_Override(u UnionType, name *string, options *UnionTypeOptions)
 	)
 }
 
-func (j *jsiiProxy_UnionType) SetModes(val *[]AuthorizationType) {
+func (j *jsiiProxy_UnionType)SetModes(val *[]AuthorizationType) {
 	_jsii_.Set(
 		j,
 		"modes",
@@ -136,6 +139,9 @@ func (j *jsiiProxy_UnionType) SetModes(val *[]AuthorizationType) {
 }
 
 func (u *jsiiProxy_UnionType) AddField(options *AddFieldOptions) {
+	if err := u.validateAddFieldParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addField",
@@ -144,6 +150,9 @@ func (u *jsiiProxy_UnionType) AddField(options *AddFieldOptions) {
 }
 
 func (u *jsiiProxy_UnionType) Attribute(options *BaseTypeOptions) GraphqlType {
+	if err := u.validateAttributeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.Invoke(

@@ -23,6 +23,9 @@ type jsiiProxy_IScalableTableAttribute struct {
 }
 
 func (i *jsiiProxy_IScalableTableAttribute) ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule) {
+	if err := i.validateScaleOnScheduleParameters(id, actions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"scaleOnSchedule",
@@ -31,6 +34,9 @@ func (i *jsiiProxy_IScalableTableAttribute) ScaleOnSchedule(id *string, actions 
 }
 
 func (i *jsiiProxy_IScalableTableAttribute) ScaleOnUtilization(props *UtilizationScalingProps) {
+	if err := i.validateScaleOnUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"scaleOnUtilization",

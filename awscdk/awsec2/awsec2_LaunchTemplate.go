@@ -371,6 +371,9 @@ func (j *jsiiProxy_LaunchTemplate) VersionNumber() *string {
 func NewLaunchTemplate(scope constructs.Construct, id *string, props *LaunchTemplateProps) LaunchTemplate {
 	_init_.Initialize()
 
+	if err := validateNewLaunchTemplateParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LaunchTemplate{}
 
 	_jsii_.Create(
@@ -398,6 +401,9 @@ func NewLaunchTemplate_Override(l LaunchTemplate, scope constructs.Construct, id
 func LaunchTemplate_FromLaunchTemplateAttributes(scope constructs.Construct, id *string, attrs *LaunchTemplateAttributes) ILaunchTemplate {
 	_init_.Initialize()
 
+	if err := validateLaunchTemplate_FromLaunchTemplateAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ILaunchTemplate
 
 	_jsii_.StaticInvoke(
@@ -415,6 +421,9 @@ func LaunchTemplate_FromLaunchTemplateAttributes(scope constructs.Construct, id 
 func LaunchTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLaunchTemplate_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -432,6 +441,9 @@ func LaunchTemplate_IsConstruct(x interface{}) *bool {
 func LaunchTemplate_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLaunchTemplate_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -445,6 +457,9 @@ func LaunchTemplate_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LaunchTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -466,6 +481,9 @@ func (l *jsiiProxy_LaunchTemplate) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LaunchTemplate) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -479,6 +497,9 @@ func (l *jsiiProxy_LaunchTemplate) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (l *jsiiProxy_LaunchTemplate) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -500,6 +521,9 @@ func (l *jsiiProxy_LaunchTemplate) OnPrepare() {
 }
 
 func (l *jsiiProxy_LaunchTemplate) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -529,6 +553,9 @@ func (l *jsiiProxy_LaunchTemplate) Prepare() {
 }
 
 func (l *jsiiProxy_LaunchTemplate) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

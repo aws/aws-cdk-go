@@ -42,6 +42,9 @@ func (j *jsiiProxy_ClassificationString) Value() *string {
 func NewClassificationString(value *string) ClassificationString {
 	_init_.Initialize()
 
+	if err := validateNewClassificationStringParameters(value); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ClassificationString{}
 
 	_jsii_.Create(

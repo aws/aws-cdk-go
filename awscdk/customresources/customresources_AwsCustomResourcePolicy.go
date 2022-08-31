@@ -82,6 +82,9 @@ func (j *jsiiProxy_AwsCustomResourcePolicy) Statements() *[]awsiam.PolicyStateme
 func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCustomResourcePolicy {
 	_init_.Initialize()
 
+	if err := validateAwsCustomResourcePolicy_FromSdkCallsParameters(options); err != nil {
+		panic(err)
+	}
 	var returns AwsCustomResourcePolicy
 
 	_jsii_.StaticInvoke(
@@ -99,6 +102,9 @@ func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCus
 func AwsCustomResourcePolicy_FromStatements(statements *[]awsiam.PolicyStatement) AwsCustomResourcePolicy {
 	_init_.Initialize()
 
+	if err := validateAwsCustomResourcePolicy_FromStatementsParameters(statements); err != nil {
+		panic(err)
+	}
 	var returns AwsCustomResourcePolicy
 
 	_jsii_.StaticInvoke(

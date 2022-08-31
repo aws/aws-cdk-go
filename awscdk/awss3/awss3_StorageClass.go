@@ -74,6 +74,9 @@ func (j *jsiiProxy_StorageClass) Value() *string {
 func NewStorageClass(value *string) StorageClass {
 	_init_.Initialize()
 
+	if err := validateNewStorageClassParameters(value); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StorageClass{}
 
 	_jsii_.Create(

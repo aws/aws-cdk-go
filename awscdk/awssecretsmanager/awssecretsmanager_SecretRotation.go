@@ -107,6 +107,9 @@ func (j *jsiiProxy_SecretRotation) Node() awscdk.ConstructNode {
 func NewSecretRotation(scope constructs.Construct, id *string, props *SecretRotationProps) SecretRotation {
 	_init_.Initialize()
 
+	if err := validateNewSecretRotationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SecretRotation{}
 
 	_jsii_.Create(
@@ -134,6 +137,9 @@ func NewSecretRotation_Override(s SecretRotation, scope constructs.Construct, id
 func SecretRotation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSecretRotation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -155,6 +161,9 @@ func (s *jsiiProxy_SecretRotation) OnPrepare() {
 }
 
 func (s *jsiiProxy_SecretRotation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -184,6 +193,9 @@ func (s *jsiiProxy_SecretRotation) Prepare() {
 }
 
 func (s *jsiiProxy_SecretRotation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

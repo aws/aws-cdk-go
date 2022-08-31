@@ -38,6 +38,9 @@ type jsiiProxy_AlbArnTarget struct {
 func NewAlbArnTarget(albArn *string, port *float64) AlbArnTarget {
 	_init_.Initialize()
 
+	if err := validateNewAlbArnTargetParameters(albArn, port); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AlbArnTarget{}
 
 	_jsii_.Create(
@@ -62,6 +65,9 @@ func NewAlbArnTarget_Override(a AlbArnTarget, albArn *string, port *float64) {
 }
 
 func (a *jsiiProxy_AlbArnTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := a.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(

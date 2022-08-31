@@ -219,6 +219,9 @@ func (j *jsiiProxy_CodeSigningConfig) Stack() awscdk.Stack {
 func NewCodeSigningConfig(scope constructs.Construct, id *string, props *CodeSigningConfigProps) CodeSigningConfig {
 	_init_.Initialize()
 
+	if err := validateNewCodeSigningConfigParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodeSigningConfig{}
 
 	_jsii_.Create(
@@ -246,6 +249,9 @@ func NewCodeSigningConfig_Override(c CodeSigningConfig, scope constructs.Constru
 func CodeSigningConfig_FromCodeSigningConfigArn(scope constructs.Construct, id *string, codeSigningConfigArn *string) ICodeSigningConfig {
 	_init_.Initialize()
 
+	if err := validateCodeSigningConfig_FromCodeSigningConfigArnParameters(scope, id, codeSigningConfigArn); err != nil {
+		panic(err)
+	}
 	var returns ICodeSigningConfig
 
 	_jsii_.StaticInvoke(
@@ -263,6 +269,9 @@ func CodeSigningConfig_FromCodeSigningConfigArn(scope constructs.Construct, id *
 func CodeSigningConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCodeSigningConfig_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -280,6 +289,9 @@ func CodeSigningConfig_IsConstruct(x interface{}) *bool {
 func CodeSigningConfig_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCodeSigningConfig_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -293,6 +305,9 @@ func CodeSigningConfig_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CodeSigningConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -314,6 +329,9 @@ func (c *jsiiProxy_CodeSigningConfig) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CodeSigningConfig) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -327,6 +345,9 @@ func (c *jsiiProxy_CodeSigningConfig) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (c *jsiiProxy_CodeSigningConfig) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -348,6 +369,9 @@ func (c *jsiiProxy_CodeSigningConfig) OnPrepare() {
 }
 
 func (c *jsiiProxy_CodeSigningConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -377,6 +401,9 @@ func (c *jsiiProxy_CodeSigningConfig) Prepare() {
 }
 
 func (c *jsiiProxy_CodeSigningConfig) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

@@ -261,6 +261,9 @@ func (j *jsiiProxy_LambdaDeploymentGroup) Stack() awscdk.Stack {
 func NewLambdaDeploymentGroup(scope constructs.Construct, id *string, props *LambdaDeploymentGroupProps) LambdaDeploymentGroup {
 	_init_.Initialize()
 
+	if err := validateNewLambdaDeploymentGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaDeploymentGroup{}
 
 	_jsii_.Create(
@@ -290,6 +293,9 @@ func NewLambdaDeploymentGroup_Override(l LambdaDeploymentGroup, scope constructs
 func LambdaDeploymentGroup_FromLambdaDeploymentGroupAttributes(scope constructs.Construct, id *string, attrs *LambdaDeploymentGroupAttributes) ILambdaDeploymentGroup {
 	_init_.Initialize()
 
+	if err := validateLambdaDeploymentGroup_FromLambdaDeploymentGroupAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ILambdaDeploymentGroup
 
 	_jsii_.StaticInvoke(
@@ -307,6 +313,9 @@ func LambdaDeploymentGroup_FromLambdaDeploymentGroupAttributes(scope constructs.
 func LambdaDeploymentGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLambdaDeploymentGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -324,6 +333,9 @@ func LambdaDeploymentGroup_IsConstruct(x interface{}) *bool {
 func LambdaDeploymentGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLambdaDeploymentGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -337,6 +349,9 @@ func LambdaDeploymentGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) AddAlarm(alarm awscloudwatch.IAlarm) {
+	if err := l.validateAddAlarmParameters(alarm); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addAlarm",
@@ -345,6 +360,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) AddAlarm(alarm awscloudwatch.IAlarm) {
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) AddPostHook(postHook awslambda.IFunction) {
+	if err := l.validateAddPostHookParameters(postHook); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addPostHook",
@@ -353,6 +371,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) AddPostHook(postHook awslambda.IFuncti
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) AddPreHook(preHook awslambda.IFunction) {
+	if err := l.validateAddPreHookParameters(preHook); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addPreHook",
@@ -361,6 +382,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) AddPreHook(preHook awslambda.IFunction
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -382,6 +406,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -395,6 +422,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) GetResourceArnAttribute(arnAttr *strin
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -408,6 +438,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) GetResourceNameAttribute(nameAttr *str
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) GrantPutLifecycleEventHookExecutionStatus(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := l.validateGrantPutLifecycleEventHookExecutionStatusParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -429,6 +462,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) OnPrepare() {
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -458,6 +494,9 @@ func (l *jsiiProxy_LambdaDeploymentGroup) Prepare() {
 }
 
 func (l *jsiiProxy_LambdaDeploymentGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

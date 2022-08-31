@@ -26,6 +26,9 @@ type jsiiProxy_IDataProcessor struct {
 }
 
 func (i *jsiiProxy_IDataProcessor) Bind(scope constructs.Construct, options *DataProcessorBindOptions) *DataProcessorConfig {
+	if err := i.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *DataProcessorConfig
 
 	_jsii_.Invoke(

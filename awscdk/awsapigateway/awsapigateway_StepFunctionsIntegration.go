@@ -72,6 +72,9 @@ func NewStepFunctionsIntegration_Override(s StepFunctionsIntegration) {
 func StepFunctionsIntegration_StartExecution(stateMachine awsstepfunctions.IStateMachine, options *StepFunctionsExecutionIntegrationOptions) AwsIntegration {
 	_init_.Initialize()
 
+	if err := validateStepFunctionsIntegration_StartExecutionParameters(stateMachine, options); err != nil {
+		panic(err)
+	}
 	var returns AwsIntegration
 
 	_jsii_.StaticInvoke(

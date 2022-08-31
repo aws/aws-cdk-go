@@ -184,6 +184,9 @@ func (j *jsiiProxy_CfnRule) Stack() Stack {
 func NewCfnRule(scope constructs.Construct, id *string, props *CfnRuleProps) CfnRule {
 	_init_.Initialize()
 
+	if err := validateNewCfnRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnRule{}
 
 	_jsii_.Create(
@@ -217,6 +220,9 @@ func NewCfnRule_Override(c CfnRule, scope constructs.Construct, id *string, prop
 func CfnRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRule_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -234,6 +240,9 @@ func CfnRule_IsCfnElement(x interface{}) *bool {
 func CfnRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -247,6 +256,9 @@ func CfnRule_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_CfnRule) AddAssertion(condition ICfnConditionExpression, description *string) {
+	if err := c.validateAddAssertionParameters(condition, description); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addAssertion",
@@ -263,6 +275,9 @@ func (c *jsiiProxy_CfnRule) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -284,6 +299,9 @@ func (c *jsiiProxy_CfnRule) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRule) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -300,6 +318,9 @@ func (c *jsiiProxy_CfnRule) Prepare() {
 }
 
 func (c *jsiiProxy_CfnRule) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

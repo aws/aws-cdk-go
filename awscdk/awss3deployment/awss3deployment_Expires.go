@@ -53,6 +53,9 @@ func (j *jsiiProxy_Expires) Value() interface{} {
 func Expires_After(t awscdk.Duration) Expires {
 	_init_.Initialize()
 
+	if err := validateExpires_AfterParameters(t); err != nil {
+		panic(err)
+	}
 	var returns Expires
 
 	_jsii_.StaticInvoke(
@@ -70,6 +73,9 @@ func Expires_After(t awscdk.Duration) Expires {
 func Expires_AtDate(d *time.Time) Expires {
 	_init_.Initialize()
 
+	if err := validateExpires_AtDateParameters(d); err != nil {
+		panic(err)
+	}
 	var returns Expires
 
 	_jsii_.StaticInvoke(
@@ -87,6 +93,9 @@ func Expires_AtDate(d *time.Time) Expires {
 func Expires_AtTimestamp(t *float64) Expires {
 	_init_.Initialize()
 
+	if err := validateExpires_AtTimestampParameters(t); err != nil {
+		panic(err)
+	}
 	var returns Expires
 
 	_jsii_.StaticInvoke(
@@ -104,6 +113,9 @@ func Expires_AtTimestamp(t *float64) Expires {
 func Expires_FromString(s *string) Expires {
 	_init_.Initialize()
 
+	if err := validateExpires_FromStringParameters(s); err != nil {
+		panic(err)
+	}
 	var returns Expires
 
 	_jsii_.StaticInvoke(

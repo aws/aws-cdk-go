@@ -260,6 +260,9 @@ func (j *jsiiProxy_DatabaseProxy) Stack() awscdk.Stack {
 func NewDatabaseProxy(scope constructs.Construct, id *string, props *DatabaseProxyProps) DatabaseProxy {
 	_init_.Initialize()
 
+	if err := validateNewDatabaseProxyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DatabaseProxy{}
 
 	_jsii_.Create(
@@ -287,6 +290,9 @@ func NewDatabaseProxy_Override(d DatabaseProxy, scope constructs.Construct, id *
 func DatabaseProxy_FromDatabaseProxyAttributes(scope constructs.Construct, id *string, attrs *DatabaseProxyAttributes) IDatabaseProxy {
 	_init_.Initialize()
 
+	if err := validateDatabaseProxy_FromDatabaseProxyAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDatabaseProxy
 
 	_jsii_.StaticInvoke(
@@ -304,6 +310,9 @@ func DatabaseProxy_FromDatabaseProxyAttributes(scope constructs.Construct, id *s
 func DatabaseProxy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseProxy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -321,6 +330,9 @@ func DatabaseProxy_IsConstruct(x interface{}) *bool {
 func DatabaseProxy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseProxy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -334,6 +346,9 @@ func DatabaseProxy_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DatabaseProxy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -368,6 +383,9 @@ func (d *jsiiProxy_DatabaseProxy) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DatabaseProxy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -381,6 +399,9 @@ func (d *jsiiProxy_DatabaseProxy) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (d *jsiiProxy_DatabaseProxy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -394,6 +415,9 @@ func (d *jsiiProxy_DatabaseProxy) GetResourceNameAttribute(nameAttr *string) *st
 }
 
 func (d *jsiiProxy_DatabaseProxy) GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant {
+	if err := d.validateGrantConnectParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -415,6 +439,9 @@ func (d *jsiiProxy_DatabaseProxy) OnPrepare() {
 }
 
 func (d *jsiiProxy_DatabaseProxy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -444,6 +471,9 @@ func (d *jsiiProxy_DatabaseProxy) Prepare() {
 }
 
 func (d *jsiiProxy_DatabaseProxy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

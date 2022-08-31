@@ -81,6 +81,9 @@ func NewStackSetDeploymentModel_Override(s StackSetDeploymentModel) {
 func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) StackSetDeploymentModel {
 	_init_.Initialize()
 
+	if err := validateStackSetDeploymentModel_OrganizationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns StackSetDeploymentModel
 
 	_jsii_.StaticInvoke(
@@ -127,6 +130,9 @@ func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) 
 func StackSetDeploymentModel_SelfManaged(props *SelfManagedDeploymentProps) StackSetDeploymentModel {
 	_init_.Initialize()
 
+	if err := validateStackSetDeploymentModel_SelfManagedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns StackSetDeploymentModel
 
 	_jsii_.StaticInvoke(

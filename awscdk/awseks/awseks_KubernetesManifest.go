@@ -117,6 +117,9 @@ func (j *jsiiProxy_KubernetesManifest) Node() awscdk.ConstructNode {
 func NewKubernetesManifest(scope constructs.Construct, id *string, props *KubernetesManifestProps) KubernetesManifest {
 	_init_.Initialize()
 
+	if err := validateNewKubernetesManifestParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubernetesManifest{}
 
 	_jsii_.Create(
@@ -144,6 +147,9 @@ func NewKubernetesManifest_Override(k KubernetesManifest, scope constructs.Const
 func KubernetesManifest_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubernetesManifest_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -176,6 +182,9 @@ func (k *jsiiProxy_KubernetesManifest) OnPrepare() {
 }
 
 func (k *jsiiProxy_KubernetesManifest) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"onSynthesize",
@@ -205,6 +214,9 @@ func (k *jsiiProxy_KubernetesManifest) Prepare() {
 }
 
 func (k *jsiiProxy_KubernetesManifest) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"synthesize",

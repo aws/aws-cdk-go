@@ -18,6 +18,9 @@ type jsiiProxy_IWebSocketRouteAuthorizer struct {
 }
 
 func (i *jsiiProxy_IWebSocketRouteAuthorizer) Bind(options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig {
+	if err := i.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *WebSocketRouteAuthorizerConfig
 
 	_jsii_.Invoke(

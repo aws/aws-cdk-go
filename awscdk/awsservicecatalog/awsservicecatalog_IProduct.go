@@ -31,6 +31,9 @@ type jsiiProxy_IProduct struct {
 }
 
 func (i *jsiiProxy_IProduct) AssociateTagOptions(tagOptions TagOptions) {
+	if err := i.validateAssociateTagOptionsParameters(tagOptions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"associateTagOptions",

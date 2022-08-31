@@ -29,6 +29,9 @@ type jsiiProxy_IIdentity struct {
 }
 
 func (i *jsiiProxy_IIdentity) AddManagedPolicy(policy IManagedPolicy) {
+	if err := i.validateAddManagedPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addManagedPolicy",
@@ -37,6 +40,9 @@ func (i *jsiiProxy_IIdentity) AddManagedPolicy(policy IManagedPolicy) {
 }
 
 func (i *jsiiProxy_IIdentity) AttachInlinePolicy(policy Policy) {
+	if err := i.validateAttachInlinePolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"attachInlinePolicy",
@@ -45,6 +51,9 @@ func (i *jsiiProxy_IIdentity) AttachInlinePolicy(policy Policy) {
 }
 
 func (i *jsiiProxy_IIdentity) AddToPolicy(statement PolicyStatement) *bool {
+	if err := i.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -58,6 +67,9 @@ func (i *jsiiProxy_IIdentity) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 func (i *jsiiProxy_IIdentity) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := i.validateAddToPrincipalPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -71,6 +83,9 @@ func (i *jsiiProxy_IIdentity) AddToPrincipalPolicy(statement PolicyStatement) *A
 }
 
 func (i *jsiiProxy_IIdentity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

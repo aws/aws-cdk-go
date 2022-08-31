@@ -56,6 +56,9 @@ func NewApiDefinition_Override(a ApiDefinition) {
 func ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
+	if err := validateApiDefinition_FromAssetParameters(file, options); err != nil {
+		panic(err)
+	}
 	var returns AssetApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -73,6 +76,9 @@ func ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) As
 func ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
+	if err := validateApiDefinition_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3ApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -136,6 +142,9 @@ func ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *
 func ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
+	if err := validateApiDefinition_FromInlineParameters(definition); err != nil {
+		panic(err)
+	}
 	var returns InlineApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -149,6 +158,9 @@ func ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 }
 
 func (a *jsiiProxy_ApiDefinition) Bind(scope awscdk.Construct) *ApiDefinitionConfig {
+	if err := a.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *ApiDefinitionConfig
 
 	_jsii_.Invoke(
@@ -162,6 +174,9 @@ func (a *jsiiProxy_ApiDefinition) Bind(scope awscdk.Construct) *ApiDefinitionCon
 }
 
 func (a *jsiiProxy_ApiDefinition) BindAfterCreate(_scope awscdk.Construct, _restApi IRestApi) {
+	if err := a.validateBindAfterCreateParameters(_scope, _restApi); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"bindAfterCreate",

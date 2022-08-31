@@ -57,6 +57,9 @@ func NewListenerCondition_Override(l ListenerCondition) {
 func ListenerCondition_HostHeaders(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
+	if err := validateListenerCondition_HostHeadersParameters(values); err != nil {
+		panic(err)
+	}
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
@@ -74,6 +77,9 @@ func ListenerCondition_HostHeaders(values *[]*string) ListenerCondition {
 func ListenerCondition_HttpHeader(name *string, values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
+	if err := validateListenerCondition_HttpHeaderParameters(name, values); err != nil {
+		panic(err)
+	}
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func ListenerCondition_HttpHeader(name *string, values *[]*string) ListenerCondi
 func ListenerCondition_HttpRequestMethods(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
+	if err := validateListenerCondition_HttpRequestMethodsParameters(values); err != nil {
+		panic(err)
+	}
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
@@ -108,6 +117,9 @@ func ListenerCondition_HttpRequestMethods(values *[]*string) ListenerCondition {
 func ListenerCondition_PathPatterns(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
+	if err := validateListenerCondition_PathPatternsParameters(values); err != nil {
+		panic(err)
+	}
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
@@ -125,6 +137,9 @@ func ListenerCondition_PathPatterns(values *[]*string) ListenerCondition {
 func ListenerCondition_QueryStrings(values *[]*QueryStringCondition) ListenerCondition {
 	_init_.Initialize()
 
+	if err := validateListenerCondition_QueryStringsParameters(values); err != nil {
+		panic(err)
+	}
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(
@@ -142,6 +157,9 @@ func ListenerCondition_QueryStrings(values *[]*QueryStringCondition) ListenerCon
 func ListenerCondition_SourceIps(values *[]*string) ListenerCondition {
 	_init_.Initialize()
 
+	if err := validateListenerCondition_SourceIpsParameters(values); err != nil {
+		panic(err)
+	}
 	var returns ListenerCondition
 
 	_jsii_.StaticInvoke(

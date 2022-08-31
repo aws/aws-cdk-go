@@ -29,6 +29,9 @@ type jsiiProxy_ContextProvider struct {
 func ContextProvider_GetKey(scope constructs.Construct, options *GetContextKeyOptions) *GetContextKeyResult {
 	_init_.Initialize()
 
+	if err := validateContextProvider_GetKeyParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *GetContextKeyResult
 
 	_jsii_.StaticInvoke(
@@ -45,6 +48,9 @@ func ContextProvider_GetKey(scope constructs.Construct, options *GetContextKeyOp
 func ContextProvider_GetValue(scope constructs.Construct, options *GetContextValueOptions) *GetContextValueResult {
 	_init_.Initialize()
 
+	if err := validateContextProvider_GetValueParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *GetContextValueResult
 
 	_jsii_.StaticInvoke(

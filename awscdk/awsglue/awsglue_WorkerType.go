@@ -45,6 +45,9 @@ func (j *jsiiProxy_WorkerType) Name() *string {
 func WorkerType_Of(workerType *string) WorkerType {
 	_init_.Initialize()
 
+	if err := validateWorkerType_OfParameters(workerType); err != nil {
+		panic(err)
+	}
 	var returns WorkerType
 
 	_jsii_.StaticInvoke(

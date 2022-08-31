@@ -199,6 +199,9 @@ func (j *jsiiProxy_ServerDeploymentConfig) Stack() awscdk.Stack {
 func NewServerDeploymentConfig(scope constructs.Construct, id *string, props *ServerDeploymentConfigProps) ServerDeploymentConfig {
 	_init_.Initialize()
 
+	if err := validateNewServerDeploymentConfigParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ServerDeploymentConfig{}
 
 	_jsii_.Create(
@@ -228,6 +231,9 @@ func NewServerDeploymentConfig_Override(s ServerDeploymentConfig, scope construc
 func ServerDeploymentConfig_FromServerDeploymentConfigName(scope constructs.Construct, id *string, serverDeploymentConfigName *string) IServerDeploymentConfig {
 	_init_.Initialize()
 
+	if err := validateServerDeploymentConfig_FromServerDeploymentConfigNameParameters(scope, id, serverDeploymentConfigName); err != nil {
+		panic(err)
+	}
 	var returns IServerDeploymentConfig
 
 	_jsii_.StaticInvoke(
@@ -245,6 +251,9 @@ func ServerDeploymentConfig_FromServerDeploymentConfigName(scope constructs.Cons
 func ServerDeploymentConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateServerDeploymentConfig_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -262,6 +271,9 @@ func ServerDeploymentConfig_IsConstruct(x interface{}) *bool {
 func ServerDeploymentConfig_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateServerDeploymentConfig_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -308,6 +320,9 @@ func ServerDeploymentConfig_ONE_AT_A_TIME() IServerDeploymentConfig {
 }
 
 func (s *jsiiProxy_ServerDeploymentConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -329,6 +344,9 @@ func (s *jsiiProxy_ServerDeploymentConfig) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_ServerDeploymentConfig) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -342,6 +360,9 @@ func (s *jsiiProxy_ServerDeploymentConfig) GetResourceArnAttribute(arnAttr *stri
 }
 
 func (s *jsiiProxy_ServerDeploymentConfig) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -363,6 +384,9 @@ func (s *jsiiProxy_ServerDeploymentConfig) OnPrepare() {
 }
 
 func (s *jsiiProxy_ServerDeploymentConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -392,6 +416,9 @@ func (s *jsiiProxy_ServerDeploymentConfig) Prepare() {
 }
 
 func (s *jsiiProxy_ServerDeploymentConfig) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

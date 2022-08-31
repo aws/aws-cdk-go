@@ -551,6 +551,9 @@ func (j *jsiiProxy_CfnCloudFormationProduct) UpdatedProperites() *map[string]int
 func NewCfnCloudFormationProduct(scope awscdk.Construct, id *string, props *CfnCloudFormationProductProps) CfnCloudFormationProduct {
 	_init_.Initialize()
 
+	if err := validateNewCfnCloudFormationProductParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCloudFormationProduct{}
 
 	_jsii_.Create(
@@ -573,7 +576,7 @@ func NewCfnCloudFormationProduct_Override(c CfnCloudFormationProduct, scope awsc
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetAcceptLanguage(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetAcceptLanguage(val *string) {
 	_jsii_.Set(
 		j,
 		"acceptLanguage",
@@ -581,7 +584,7 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetAcceptLanguage(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetDescription(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -589,7 +592,7 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetDistributor(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetDistributor(val *string) {
 	_jsii_.Set(
 		j,
 		"distributor",
@@ -597,7 +600,10 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetDistributor(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetName(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -605,7 +611,10 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetOwner(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetOwner(val *string) {
+	if err := j.validateSetOwnerParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"owner",
@@ -613,7 +622,10 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetOwner(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetProvisioningArtifactParameters(val interface{}) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetProvisioningArtifactParameters(val interface{}) {
+	if err := j.validateSetProvisioningArtifactParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"provisioningArtifactParameters",
@@ -621,7 +633,10 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetProvisioningArtifactParameters(v
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetReplaceProvisioningArtifacts(val interface{}) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetReplaceProvisioningArtifacts(val interface{}) {
+	if err := j.validateSetReplaceProvisioningArtifactsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"replaceProvisioningArtifacts",
@@ -629,7 +644,7 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetReplaceProvisioningArtifacts(val
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetSupportDescription(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetSupportDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"supportDescription",
@@ -637,7 +652,7 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetSupportDescription(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetSupportEmail(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetSupportEmail(val *string) {
 	_jsii_.Set(
 		j,
 		"supportEmail",
@@ -645,7 +660,7 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetSupportEmail(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCloudFormationProduct) SetSupportUrl(val *string) {
+func (j *jsiiProxy_CfnCloudFormationProduct)SetSupportUrl(val *string) {
 	_jsii_.Set(
 		j,
 		"supportUrl",
@@ -663,6 +678,9 @@ func (j *jsiiProxy_CfnCloudFormationProduct) SetSupportUrl(val *string) {
 func CfnCloudFormationProduct_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCloudFormationProduct_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -680,6 +698,9 @@ func CfnCloudFormationProduct_IsCfnElement(x interface{}) *bool {
 func CfnCloudFormationProduct_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCloudFormationProduct_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -697,6 +718,9 @@ func CfnCloudFormationProduct_IsCfnResource(construct constructs.IConstruct) *bo
 func CfnCloudFormationProduct_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCloudFormationProduct_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -721,6 +745,9 @@ func CfnCloudFormationProduct_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -729,6 +756,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -737,6 +767,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) AddDependsOn(target awscdk.CfnResou
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -745,6 +778,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) AddMetadata(key *string, value inte
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -753,6 +789,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) AddOverride(path *string, value int
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -761,6 +800,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) AddPropertyDeletionOverride(propert
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -769,6 +811,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) AddPropertyOverride(propertyPath *s
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -777,6 +822,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) ApplyRemovalPolicy(policy awscdk.Re
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -790,6 +838,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) GetAtt(attributeName *string) awscd
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -803,6 +854,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) GetMetadata(key *string) interface{
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -819,6 +873,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -840,6 +897,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -856,6 +916,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) Prepare() {
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -882,6 +945,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -916,6 +982,9 @@ func (c *jsiiProxy_CfnCloudFormationProduct) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

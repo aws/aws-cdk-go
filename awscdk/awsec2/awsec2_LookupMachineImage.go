@@ -58,6 +58,9 @@ type jsiiProxy_LookupMachineImage struct {
 func NewLookupMachineImage(props *LookupMachineImageProps) LookupMachineImage {
 	_init_.Initialize()
 
+	if err := validateNewLookupMachineImageParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LookupMachineImage{}
 
 	_jsii_.Create(
@@ -81,6 +84,9 @@ func NewLookupMachineImage_Override(l LookupMachineImage, props *LookupMachineIm
 }
 
 func (l *jsiiProxy_LookupMachineImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := l.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

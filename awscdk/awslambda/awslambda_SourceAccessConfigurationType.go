@@ -46,6 +46,9 @@ func (j *jsiiProxy_SourceAccessConfigurationType) Type() *string {
 func SourceAccessConfigurationType_Of(name *string) SourceAccessConfigurationType {
 	_init_.Initialize()
 
+	if err := validateSourceAccessConfigurationType_OfParameters(name); err != nil {
+		panic(err)
+	}
 	var returns SourceAccessConfigurationType
 
 	_jsii_.StaticInvoke(

@@ -406,6 +406,9 @@ func (j *jsiiProxy_CfnBasePathMapping) UpdatedProperites() *map[string]interface
 func NewCfnBasePathMapping(scope awscdk.Construct, id *string, props *CfnBasePathMappingProps) CfnBasePathMapping {
 	_init_.Initialize()
 
+	if err := validateNewCfnBasePathMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnBasePathMapping{}
 
 	_jsii_.Create(
@@ -428,7 +431,7 @@ func NewCfnBasePathMapping_Override(c CfnBasePathMapping, scope awscdk.Construct
 	)
 }
 
-func (j *jsiiProxy_CfnBasePathMapping) SetBasePath(val *string) {
+func (j *jsiiProxy_CfnBasePathMapping)SetBasePath(val *string) {
 	_jsii_.Set(
 		j,
 		"basePath",
@@ -436,7 +439,10 @@ func (j *jsiiProxy_CfnBasePathMapping) SetBasePath(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBasePathMapping) SetDomainName(val *string) {
+func (j *jsiiProxy_CfnBasePathMapping)SetDomainName(val *string) {
+	if err := j.validateSetDomainNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"domainName",
@@ -444,7 +450,7 @@ func (j *jsiiProxy_CfnBasePathMapping) SetDomainName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBasePathMapping) SetId(val *string) {
+func (j *jsiiProxy_CfnBasePathMapping)SetId(val *string) {
 	_jsii_.Set(
 		j,
 		"id",
@@ -452,7 +458,7 @@ func (j *jsiiProxy_CfnBasePathMapping) SetId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBasePathMapping) SetRestApiId(val *string) {
+func (j *jsiiProxy_CfnBasePathMapping)SetRestApiId(val *string) {
 	_jsii_.Set(
 		j,
 		"restApiId",
@@ -460,7 +466,7 @@ func (j *jsiiProxy_CfnBasePathMapping) SetRestApiId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBasePathMapping) SetStage(val *string) {
+func (j *jsiiProxy_CfnBasePathMapping)SetStage(val *string) {
 	_jsii_.Set(
 		j,
 		"stage",
@@ -478,6 +484,9 @@ func (j *jsiiProxy_CfnBasePathMapping) SetStage(val *string) {
 func CfnBasePathMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBasePathMapping_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -495,6 +504,9 @@ func CfnBasePathMapping_IsCfnElement(x interface{}) *bool {
 func CfnBasePathMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBasePathMapping_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -512,6 +524,9 @@ func CfnBasePathMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnBasePathMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBasePathMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -536,6 +551,9 @@ func CfnBasePathMapping_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -544,6 +562,9 @@ func (c *jsiiProxy_CfnBasePathMapping) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -552,6 +573,9 @@ func (c *jsiiProxy_CfnBasePathMapping) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -560,6 +584,9 @@ func (c *jsiiProxy_CfnBasePathMapping) AddMetadata(key *string, value interface{
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -568,6 +595,9 @@ func (c *jsiiProxy_CfnBasePathMapping) AddOverride(path *string, value interface
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -576,6 +606,9 @@ func (c *jsiiProxy_CfnBasePathMapping) AddPropertyDeletionOverride(propertyPath 
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -584,6 +617,9 @@ func (c *jsiiProxy_CfnBasePathMapping) AddPropertyOverride(propertyPath *string,
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -592,6 +628,9 @@ func (c *jsiiProxy_CfnBasePathMapping) ApplyRemovalPolicy(policy awscdk.RemovalP
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -605,6 +644,9 @@ func (c *jsiiProxy_CfnBasePathMapping) GetAtt(attributeName *string) awscdk.Refe
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -618,6 +660,9 @@ func (c *jsiiProxy_CfnBasePathMapping) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -634,6 +679,9 @@ func (c *jsiiProxy_CfnBasePathMapping) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -655,6 +703,9 @@ func (c *jsiiProxy_CfnBasePathMapping) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -671,6 +722,9 @@ func (c *jsiiProxy_CfnBasePathMapping) Prepare() {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -697,6 +751,9 @@ func (c *jsiiProxy_CfnBasePathMapping) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -731,6 +788,9 @@ func (c *jsiiProxy_CfnBasePathMapping) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnBasePathMapping) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

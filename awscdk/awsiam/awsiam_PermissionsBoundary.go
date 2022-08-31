@@ -43,6 +43,9 @@ type jsiiProxy_PermissionsBoundary struct {
 func PermissionsBoundary_Of(scope constructs.IConstruct) PermissionsBoundary {
 	_init_.Initialize()
 
+	if err := validatePermissionsBoundary_OfParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns PermissionsBoundary
 
 	_jsii_.StaticInvoke(
@@ -56,6 +59,9 @@ func PermissionsBoundary_Of(scope constructs.IConstruct) PermissionsBoundary {
 }
 
 func (p *jsiiProxy_PermissionsBoundary) Apply(boundaryPolicy IManagedPolicy) {
+	if err := p.validateApplyParameters(boundaryPolicy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"apply",

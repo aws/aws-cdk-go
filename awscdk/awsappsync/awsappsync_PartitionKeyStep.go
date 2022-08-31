@@ -33,6 +33,9 @@ type jsiiProxy_PartitionKeyStep struct {
 func NewPartitionKeyStep(key *string) PartitionKeyStep {
 	_init_.Initialize()
 
+	if err := validateNewPartitionKeyStepParameters(key); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PartitionKeyStep{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func (p *jsiiProxy_PartitionKeyStep) Auto() PartitionKey {
 }
 
 func (p *jsiiProxy_PartitionKeyStep) Is(val *string) PartitionKey {
+	if err := p.validateIsParameters(val); err != nil {
+		panic(err)
+	}
 	var returns PartitionKey
 
 	_jsii_.Invoke(

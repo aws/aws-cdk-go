@@ -140,6 +140,9 @@ func DnsBlockResponse_NxDomain() DnsBlockResponse {
 func DnsBlockResponse_Override(domain *string, ttl awscdk.Duration) DnsBlockResponse {
 	_init_.Initialize()
 
+	if err := validateDnsBlockResponse_OverrideParameters(domain); err != nil {
+		panic(err)
+	}
 	var returns DnsBlockResponse
 
 	_jsii_.StaticInvoke(

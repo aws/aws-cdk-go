@@ -44,6 +44,9 @@ type jsiiProxy_CodePipeline struct {
 func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) CodePipeline {
 	_init_.Initialize()
 
+	if err := validateNewCodePipelineParameters(pipeline, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
@@ -67,6 +70,9 @@ func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline
 }
 
 func (c *jsiiProxy_CodePipeline) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := c.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

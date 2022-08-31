@@ -240,6 +240,9 @@ func (j *jsiiProxy_Listener) Stack() awscdk.Stack {
 func NewListener(scope constructs.Construct, id *string, props *ListenerProps) Listener {
 	_init_.Initialize()
 
+	if err := validateNewListenerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Listener{}
 
 	_jsii_.Create(
@@ -267,6 +270,9 @@ func NewListener_Override(l Listener, scope constructs.Construct, id *string, pr
 func Listener_FromListenerArn(scope constructs.Construct, id *string, listenerArn *string) IListener {
 	_init_.Initialize()
 
+	if err := validateListener_FromListenerArnParameters(scope, id, listenerArn); err != nil {
+		panic(err)
+	}
 	var returns IListener
 
 	_jsii_.StaticInvoke(
@@ -284,6 +290,9 @@ func Listener_FromListenerArn(scope constructs.Construct, id *string, listenerAr
 func Listener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateListener_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -301,6 +310,9 @@ func Listener_IsConstruct(x interface{}) *bool {
 func Listener_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateListener_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -314,6 +326,9 @@ func Listener_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_Listener) AddEndpointGroup(id *string, options *EndpointGroupOptions) EndpointGroup {
+	if err := l.validateAddEndpointGroupParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns EndpointGroup
 
 	_jsii_.Invoke(
@@ -327,6 +342,9 @@ func (l *jsiiProxy_Listener) AddEndpointGroup(id *string, options *EndpointGroup
 }
 
 func (l *jsiiProxy_Listener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -348,6 +366,9 @@ func (l *jsiiProxy_Listener) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_Listener) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -361,6 +382,9 @@ func (l *jsiiProxy_Listener) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (l *jsiiProxy_Listener) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -382,6 +406,9 @@ func (l *jsiiProxy_Listener) OnPrepare() {
 }
 
 func (l *jsiiProxy_Listener) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -411,6 +438,9 @@ func (l *jsiiProxy_Listener) Prepare() {
 }
 
 func (l *jsiiProxy_Listener) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

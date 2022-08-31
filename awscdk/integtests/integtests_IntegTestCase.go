@@ -253,6 +253,9 @@ func (j *jsiiProxy_IntegTestCase) Node() awscdk.ConstructNode {
 func NewIntegTestCase(scope constructs.Construct, id *string, props *IntegTestCaseProps) IntegTestCase {
 	_init_.Initialize()
 
+	if err := validateNewIntegTestCaseParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IntegTestCase{}
 
 	_jsii_.Create(
@@ -280,6 +283,9 @@ func NewIntegTestCase_Override(i IntegTestCase, scope constructs.Construct, id *
 func IntegTestCase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateIntegTestCase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -301,6 +307,9 @@ func (i *jsiiProxy_IntegTestCase) OnPrepare() {
 }
 
 func (i *jsiiProxy_IntegTestCase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := i.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"onSynthesize",
@@ -330,6 +339,9 @@ func (i *jsiiProxy_IntegTestCase) Prepare() {
 }
 
 func (i *jsiiProxy_IntegTestCase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

@@ -502,6 +502,9 @@ func (j *jsiiProxy_CfnMaintenanceWindow) UpdatedProperites() *map[string]interfa
 func NewCfnMaintenanceWindow(scope awscdk.Construct, id *string, props *CfnMaintenanceWindowProps) CfnMaintenanceWindow {
 	_init_.Initialize()
 
+	if err := validateNewCfnMaintenanceWindowParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnMaintenanceWindow{}
 
 	_jsii_.Create(
@@ -524,7 +527,10 @@ func NewCfnMaintenanceWindow_Override(c CfnMaintenanceWindow, scope awscdk.Const
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetAllowUnassociatedTargets(val interface{}) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetAllowUnassociatedTargets(val interface{}) {
+	if err := j.validateSetAllowUnassociatedTargetsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"allowUnassociatedTargets",
@@ -532,7 +538,10 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetAllowUnassociatedTargets(val interfa
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetCutoff(val *float64) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetCutoff(val *float64) {
+	if err := j.validateSetCutoffParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cutoff",
@@ -540,7 +549,7 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetCutoff(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetDescription(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -548,7 +557,10 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetDuration(val *float64) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetDuration(val *float64) {
+	if err := j.validateSetDurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"duration",
@@ -556,7 +568,7 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetDuration(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetEndDate(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetEndDate(val *string) {
 	_jsii_.Set(
 		j,
 		"endDate",
@@ -564,7 +576,10 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetEndDate(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetName(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -572,7 +587,10 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetSchedule(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetSchedule(val *string) {
+	if err := j.validateSetScheduleParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"schedule",
@@ -580,7 +598,7 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetSchedule(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetScheduleOffset(val *float64) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetScheduleOffset(val *float64) {
 	_jsii_.Set(
 		j,
 		"scheduleOffset",
@@ -588,7 +606,7 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetScheduleOffset(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetScheduleTimezone(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetScheduleTimezone(val *string) {
 	_jsii_.Set(
 		j,
 		"scheduleTimezone",
@@ -596,7 +614,7 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetScheduleTimezone(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindow) SetStartDate(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindow)SetStartDate(val *string) {
 	_jsii_.Set(
 		j,
 		"startDate",
@@ -614,6 +632,9 @@ func (j *jsiiProxy_CfnMaintenanceWindow) SetStartDate(val *string) {
 func CfnMaintenanceWindow_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMaintenanceWindow_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -631,6 +652,9 @@ func CfnMaintenanceWindow_IsCfnElement(x interface{}) *bool {
 func CfnMaintenanceWindow_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMaintenanceWindow_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -648,6 +672,9 @@ func CfnMaintenanceWindow_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnMaintenanceWindow_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMaintenanceWindow_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -672,6 +699,9 @@ func CfnMaintenanceWindow_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -680,6 +710,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -688,6 +721,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) AddDependsOn(target awscdk.CfnResource)
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -696,6 +732,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) AddMetadata(key *string, value interfac
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -704,6 +743,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) AddOverride(path *string, value interfa
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -712,6 +754,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) AddPropertyDeletionOverride(propertyPat
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -720,6 +765,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) AddPropertyOverride(propertyPath *strin
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -728,6 +776,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) ApplyRemovalPolicy(policy awscdk.Remova
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -741,6 +792,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) GetAtt(attributeName *string) awscdk.Re
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -754,6 +808,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -770,6 +827,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -791,6 +851,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -807,6 +870,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) Prepare() {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -833,6 +899,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -867,6 +936,9 @@ func (c *jsiiProxy_CfnMaintenanceWindow) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindow) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

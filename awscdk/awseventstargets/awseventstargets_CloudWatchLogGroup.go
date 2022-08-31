@@ -46,6 +46,9 @@ type jsiiProxy_CloudWatchLogGroup struct {
 func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) CloudWatchLogGroup {
 	_init_.Initialize()
 
+	if err := validateNewCloudWatchLogGroupParameters(logGroup, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudWatchLogGroup{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogG
 }
 
 func (c *jsiiProxy_CloudWatchLogGroup) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := c.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

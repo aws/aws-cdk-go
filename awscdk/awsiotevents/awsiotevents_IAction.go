@@ -20,6 +20,9 @@ type jsiiProxy_IAction struct {
 }
 
 func (i *jsiiProxy_IAction) Bind(scope constructs.Construct, options *ActionBindOptions) *ActionConfig {
+	if err := i.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *ActionConfig
 
 	_jsii_.Invoke(

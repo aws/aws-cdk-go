@@ -124,6 +124,9 @@ func (j *jsiiProxy_Field) Type() Type {
 func NewField(options *FieldOptions) Field {
 	_init_.Initialize()
 
+	if err := validateNewFieldParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Field{}
 
 	_jsii_.Create(
@@ -153,6 +156,9 @@ func NewField_Override(f Field, options *FieldOptions) {
 func Field_AwsDate(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsDateParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -172,6 +178,9 @@ func Field_AwsDate(options *BaseTypeOptions) GraphqlType {
 func Field_AwsDateTime(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsDateTimeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -189,6 +198,9 @@ func Field_AwsDateTime(options *BaseTypeOptions) GraphqlType {
 func Field_AwsEmail(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsEmailParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -206,6 +218,9 @@ func Field_AwsEmail(options *BaseTypeOptions) GraphqlType {
 func Field_AwsIpAddress(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsIpAddressParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -223,6 +238,9 @@ func Field_AwsIpAddress(options *BaseTypeOptions) GraphqlType {
 func Field_AwsJson(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsJsonParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -242,6 +260,9 @@ func Field_AwsJson(options *BaseTypeOptions) GraphqlType {
 func Field_AwsPhone(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsPhoneParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -261,6 +282,9 @@ func Field_AwsPhone(options *BaseTypeOptions) GraphqlType {
 func Field_AwsTime(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsTimeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -280,6 +304,9 @@ func Field_AwsTime(options *BaseTypeOptions) GraphqlType {
 func Field_AwsTimestamp(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsTimestampParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -299,6 +326,9 @@ func Field_AwsTimestamp(options *BaseTypeOptions) GraphqlType {
 func Field_AwsUrl(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_AwsUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -316,6 +346,9 @@ func Field_AwsUrl(options *BaseTypeOptions) GraphqlType {
 func Field_Boolean(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_BooleanParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -333,6 +366,9 @@ func Field_Boolean(options *BaseTypeOptions) GraphqlType {
 func Field_Float(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_FloatParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -352,6 +388,9 @@ func Field_Float(options *BaseTypeOptions) GraphqlType {
 func Field_Id(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_IdParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -369,6 +408,9 @@ func Field_Id(options *BaseTypeOptions) GraphqlType {
 func Field_Int(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_IntParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -386,6 +428,9 @@ func Field_Int(options *BaseTypeOptions) GraphqlType {
 func Field_Intermediate(options *GraphqlTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_IntermediateParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -403,6 +448,9 @@ func Field_Intermediate(options *GraphqlTypeOptions) GraphqlType {
 func Field_String(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateField_StringParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(

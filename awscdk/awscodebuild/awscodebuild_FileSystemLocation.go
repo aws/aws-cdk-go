@@ -62,6 +62,9 @@ func NewFileSystemLocation_Override(f FileSystemLocation) {
 func FileSystemLocation_Efs(props *EfsFileSystemLocationProps) IFileSystemLocation {
 	_init_.Initialize()
 
+	if err := validateFileSystemLocation_EfsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IFileSystemLocation
 
 	_jsii_.StaticInvoke(

@@ -109,6 +109,9 @@ func (j *jsiiProxy_Compression) Value() *string {
 func Compression_Of(value *string) Compression {
 	_init_.Initialize()
 
+	if err := validateCompression_OfParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Compression
 
 	_jsii_.StaticInvoke(

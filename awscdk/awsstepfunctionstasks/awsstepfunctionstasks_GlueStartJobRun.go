@@ -394,6 +394,9 @@ func (j *jsiiProxy_GlueStartJobRun) TaskPolicies() *[]awsiam.PolicyStatement {
 func NewGlueStartJobRun(scope constructs.Construct, id *string, props *GlueStartJobRunProps) GlueStartJobRun {
 	_init_.Initialize()
 
+	if err := validateNewGlueStartJobRunParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GlueStartJobRun{}
 
 	_jsii_.Create(
@@ -416,7 +419,7 @@ func NewGlueStartJobRun_Override(g GlueStartJobRun, scope constructs.Construct, 
 	)
 }
 
-func (j *jsiiProxy_GlueStartJobRun) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_GlueStartJobRun)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -424,7 +427,7 @@ func (j *jsiiProxy_GlueStartJobRun) SetDefaultChoice(val awsstepfunctions.State)
 	)
 }
 
-func (j *jsiiProxy_GlueStartJobRun) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_GlueStartJobRun)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -437,6 +440,9 @@ func (j *jsiiProxy_GlueStartJobRun) SetIteration(val awsstepfunctions.StateGraph
 func GlueStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateGlueStartJobRun_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -454,6 +460,9 @@ func GlueStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsste
 func GlueStartJobRun_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateGlueStartJobRun_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -473,6 +482,9 @@ func GlueStartJobRun_FindReachableEndStates(start awsstepfunctions.State, option
 func GlueStartJobRun_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateGlueStartJobRun_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -490,6 +502,9 @@ func GlueStartJobRun_FindReachableStates(start awsstepfunctions.State, options *
 func GlueStartJobRun_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGlueStartJobRun_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -507,6 +522,9 @@ func GlueStartJobRun_IsConstruct(x interface{}) *bool {
 func GlueStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateGlueStartJobRun_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		"prefixStates",
@@ -515,6 +533,9 @@ func GlueStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (g *jsiiProxy_GlueStartJobRun) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := g.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addBranch",
@@ -523,6 +544,9 @@ func (g *jsiiProxy_GlueStartJobRun) AddBranch(branch awsstepfunctions.StateGraph
 }
 
 func (g *jsiiProxy_GlueStartJobRun) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := g.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -536,6 +560,9 @@ func (g *jsiiProxy_GlueStartJobRun) AddCatch(handler awsstepfunctions.IChainable
 }
 
 func (g *jsiiProxy_GlueStartJobRun) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := g.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addChoice",
@@ -544,6 +571,9 @@ func (g *jsiiProxy_GlueStartJobRun) AddChoice(condition awsstepfunctions.Conditi
 }
 
 func (g *jsiiProxy_GlueStartJobRun) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := g.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addIterator",
@@ -552,6 +582,9 @@ func (g *jsiiProxy_GlueStartJobRun) AddIterator(iteration awsstepfunctions.State
 }
 
 func (g *jsiiProxy_GlueStartJobRun) AddPrefix(x *string) {
+	if err := g.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addPrefix",
@@ -560,6 +593,9 @@ func (g *jsiiProxy_GlueStartJobRun) AddPrefix(x *string) {
 }
 
 func (g *jsiiProxy_GlueStartJobRun) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := g.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -573,6 +609,9 @@ func (g *jsiiProxy_GlueStartJobRun) AddRetry(props *awsstepfunctions.RetryProps)
 }
 
 func (g *jsiiProxy_GlueStartJobRun) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := g.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"bindToGraph",
@@ -581,6 +620,9 @@ func (g *jsiiProxy_GlueStartJobRun) BindToGraph(graph awsstepfunctions.StateGrap
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MakeDefault(def awsstepfunctions.State) {
+	if err := g.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"makeDefault",
@@ -589,6 +631,9 @@ func (g *jsiiProxy_GlueStartJobRun) MakeDefault(def awsstepfunctions.State) {
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MakeNext(next awsstepfunctions.State) {
+	if err := g.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"makeNext",
@@ -597,6 +642,9 @@ func (g *jsiiProxy_GlueStartJobRun) MakeNext(next awsstepfunctions.State) {
 }
 
 func (g *jsiiProxy_GlueStartJobRun) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -610,6 +658,9 @@ func (g *jsiiProxy_GlueStartJobRun) Metric(metricName *string, props *awscloudwa
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -623,6 +674,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricFailed(props *awscloudwatch.MetricOpti
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -636,6 +690,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricHeartbeatTimedOut(props *awscloudwatch
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -649,6 +706,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricRunTime(props *awscloudwatch.MetricOpt
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -662,6 +722,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricScheduled(props *awscloudwatch.MetricO
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -675,6 +738,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricScheduleTime(props *awscloudwatch.Metr
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -688,6 +754,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricStarted(props *awscloudwatch.MetricOpt
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -701,6 +770,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricSucceeded(props *awscloudwatch.MetricO
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -714,6 +786,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricTime(props *awscloudwatch.MetricOption
 }
 
 func (g *jsiiProxy_GlueStartJobRun) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -727,6 +802,9 @@ func (g *jsiiProxy_GlueStartJobRun) MetricTimedOut(props *awscloudwatch.MetricOp
 }
 
 func (g *jsiiProxy_GlueStartJobRun) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := g.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -748,6 +826,9 @@ func (g *jsiiProxy_GlueStartJobRun) OnPrepare() {
 }
 
 func (g *jsiiProxy_GlueStartJobRun) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -868,6 +949,9 @@ func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch() interface{} {
 }
 
 func (g *jsiiProxy_GlueStartJobRun) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",
@@ -915,6 +999,9 @@ func (g *jsiiProxy_GlueStartJobRun) Validate() *[]*string {
 }
 
 func (g *jsiiProxy_GlueStartJobRun) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := g.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"whenBoundToGraph",

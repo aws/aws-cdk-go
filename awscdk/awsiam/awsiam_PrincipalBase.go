@@ -132,6 +132,9 @@ func NewPrincipalBase_Override(p PrincipalBase) {
 }
 
 func (p *jsiiProxy_PrincipalBase) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := p.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addToAssumeRolePolicy",
@@ -140,6 +143,9 @@ func (p *jsiiProxy_PrincipalBase) AddToAssumeRolePolicy(document PolicyDocument)
 }
 
 func (p *jsiiProxy_PrincipalBase) AddToPolicy(statement PolicyStatement) *bool {
+	if err := p.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -153,6 +159,9 @@ func (p *jsiiProxy_PrincipalBase) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 func (p *jsiiProxy_PrincipalBase) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := p.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -205,6 +214,9 @@ func (p *jsiiProxy_PrincipalBase) ToString() *string {
 }
 
 func (p *jsiiProxy_PrincipalBase) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := p.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

@@ -36,6 +36,9 @@ type jsiiProxy_QueryString struct {
 func NewQueryString(props *QueryStringProps) QueryString {
 	_init_.Initialize()
 
+	if err := validateNewQueryStringParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_QueryString{}
 
 	_jsii_.Create(

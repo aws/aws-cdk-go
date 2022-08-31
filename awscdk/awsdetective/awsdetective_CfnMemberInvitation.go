@@ -410,6 +410,9 @@ func (j *jsiiProxy_CfnMemberInvitation) UpdatedProperites() *map[string]interfac
 func NewCfnMemberInvitation(scope awscdk.Construct, id *string, props *CfnMemberInvitationProps) CfnMemberInvitation {
 	_init_.Initialize()
 
+	if err := validateNewCfnMemberInvitationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnMemberInvitation{}
 
 	_jsii_.Create(
@@ -432,7 +435,10 @@ func NewCfnMemberInvitation_Override(c CfnMemberInvitation, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnMemberInvitation) SetDisableEmailNotification(val interface{}) {
+func (j *jsiiProxy_CfnMemberInvitation)SetDisableEmailNotification(val interface{}) {
+	if err := j.validateSetDisableEmailNotificationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"disableEmailNotification",
@@ -440,7 +446,10 @@ func (j *jsiiProxy_CfnMemberInvitation) SetDisableEmailNotification(val interfac
 	)
 }
 
-func (j *jsiiProxy_CfnMemberInvitation) SetGraphArn(val *string) {
+func (j *jsiiProxy_CfnMemberInvitation)SetGraphArn(val *string) {
+	if err := j.validateSetGraphArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"graphArn",
@@ -448,7 +457,10 @@ func (j *jsiiProxy_CfnMemberInvitation) SetGraphArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMemberInvitation) SetMemberEmailAddress(val *string) {
+func (j *jsiiProxy_CfnMemberInvitation)SetMemberEmailAddress(val *string) {
+	if err := j.validateSetMemberEmailAddressParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"memberEmailAddress",
@@ -456,7 +468,10 @@ func (j *jsiiProxy_CfnMemberInvitation) SetMemberEmailAddress(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMemberInvitation) SetMemberId(val *string) {
+func (j *jsiiProxy_CfnMemberInvitation)SetMemberId(val *string) {
+	if err := j.validateSetMemberIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"memberId",
@@ -464,7 +479,7 @@ func (j *jsiiProxy_CfnMemberInvitation) SetMemberId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMemberInvitation) SetMessage(val *string) {
+func (j *jsiiProxy_CfnMemberInvitation)SetMessage(val *string) {
 	_jsii_.Set(
 		j,
 		"message",
@@ -482,6 +497,9 @@ func (j *jsiiProxy_CfnMemberInvitation) SetMessage(val *string) {
 func CfnMemberInvitation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMemberInvitation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -499,6 +517,9 @@ func CfnMemberInvitation_IsCfnElement(x interface{}) *bool {
 func CfnMemberInvitation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMemberInvitation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -516,6 +537,9 @@ func CfnMemberInvitation_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnMemberInvitation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMemberInvitation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -540,6 +564,9 @@ func CfnMemberInvitation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -548,6 +575,9 @@ func (c *jsiiProxy_CfnMemberInvitation) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -556,6 +586,9 @@ func (c *jsiiProxy_CfnMemberInvitation) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -564,6 +597,9 @@ func (c *jsiiProxy_CfnMemberInvitation) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -572,6 +608,9 @@ func (c *jsiiProxy_CfnMemberInvitation) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -580,6 +619,9 @@ func (c *jsiiProxy_CfnMemberInvitation) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -588,6 +630,9 @@ func (c *jsiiProxy_CfnMemberInvitation) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -596,6 +641,9 @@ func (c *jsiiProxy_CfnMemberInvitation) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -609,6 +657,9 @@ func (c *jsiiProxy_CfnMemberInvitation) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -622,6 +673,9 @@ func (c *jsiiProxy_CfnMemberInvitation) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -638,6 +692,9 @@ func (c *jsiiProxy_CfnMemberInvitation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -659,6 +716,9 @@ func (c *jsiiProxy_CfnMemberInvitation) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -675,6 +735,9 @@ func (c *jsiiProxy_CfnMemberInvitation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -701,6 +764,9 @@ func (c *jsiiProxy_CfnMemberInvitation) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -735,6 +801,9 @@ func (c *jsiiProxy_CfnMemberInvitation) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

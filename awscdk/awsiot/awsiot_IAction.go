@@ -18,6 +18,9 @@ type jsiiProxy_IAction struct {
 }
 
 func (i *jsiiProxy_IAction) Bind(topicRule ITopicRule) *ActionConfig {
+	if err := i.validateBindParameters(topicRule); err != nil {
+		panic(err)
+	}
 	var returns *ActionConfig
 
 	_jsii_.Invoke(

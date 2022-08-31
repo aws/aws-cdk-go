@@ -44,6 +44,9 @@ type jsiiProxy_SqsDestination struct {
 func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	_init_.Initialize()
 
+	if err := validateNewSqsDestinationParameters(queue); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SqsDestination{}
 
 	_jsii_.Create(
@@ -67,6 +70,9 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 }
 
 func (s *jsiiProxy_SqsDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+	if err := s.validateBindParameters(_scope, fn, _options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(

@@ -50,6 +50,9 @@ type jsiiProxy_WebSocketLambdaAuthorizer struct {
 func NewWebSocketLambdaAuthorizer(id *string, handler awslambda.IFunction, props *WebSocketLambdaAuthorizerProps) WebSocketLambdaAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketLambdaAuthorizerParameters(id, handler, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketLambdaAuthorizer{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewWebSocketLambdaAuthorizer_Override(w WebSocketLambdaAuthorizer, id *stri
 }
 
 func (w *jsiiProxy_WebSocketLambdaAuthorizer) Bind(options *awsapigatewayv2.WebSocketRouteAuthorizerBindOptions) *awsapigatewayv2.WebSocketRouteAuthorizerConfig {
+	if err := w.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.WebSocketRouteAuthorizerConfig
 
 	_jsii_.Invoke(

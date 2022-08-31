@@ -44,6 +44,9 @@ func (j *jsiiProxy_AcceleratorClass) Version() *string {
 func AcceleratorClass_Of(version *string) AcceleratorClass {
 	_init_.Initialize()
 
+	if err := validateAcceleratorClass_OfParameters(version); err != nil {
+		panic(err)
+	}
 	var returns AcceleratorClass
 
 	_jsii_.StaticInvoke(

@@ -106,6 +106,9 @@ func (j *jsiiProxy_TextWidget) Y() *float64 {
 func NewTextWidget(props *TextWidgetProps) TextWidget {
 	_init_.Initialize()
 
+	if err := validateNewTextWidgetParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TextWidget{}
 
 	_jsii_.Create(
@@ -128,7 +131,7 @@ func NewTextWidget_Override(t TextWidget, props *TextWidgetProps) {
 	)
 }
 
-func (j *jsiiProxy_TextWidget) SetX(val *float64) {
+func (j *jsiiProxy_TextWidget)SetX(val *float64) {
 	_jsii_.Set(
 		j,
 		"x",
@@ -136,7 +139,7 @@ func (j *jsiiProxy_TextWidget) SetX(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_TextWidget) SetY(val *float64) {
+func (j *jsiiProxy_TextWidget)SetY(val *float64) {
 	_jsii_.Set(
 		j,
 		"y",
@@ -158,6 +161,9 @@ func (t *jsiiProxy_TextWidget) CopyMetricWarnings(ms ...IMetric) {
 }
 
 func (t *jsiiProxy_TextWidget) Position(x *float64, y *float64) {
+	if err := t.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"position",

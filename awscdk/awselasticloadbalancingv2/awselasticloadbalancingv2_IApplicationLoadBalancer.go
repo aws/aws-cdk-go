@@ -42,6 +42,9 @@ type jsiiProxy_IApplicationLoadBalancer struct {
 }
 
 func (i *jsiiProxy_IApplicationLoadBalancer) AddListener(id *string, props *BaseApplicationListenerProps) ApplicationListener {
+	if err := i.validateAddListenerParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ApplicationListener
 
 	_jsii_.Invoke(
@@ -55,6 +58,9 @@ func (i *jsiiProxy_IApplicationLoadBalancer) AddListener(id *string, props *Base
 }
 
 func (i *jsiiProxy_IApplicationLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

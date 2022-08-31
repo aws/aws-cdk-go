@@ -331,6 +331,9 @@ func NewResourceBase_Override(r ResourceBase, scope constructs.Construct, id *st
 func ResourceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateResourceBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -348,6 +351,9 @@ func ResourceBase_IsConstruct(x interface{}) *bool {
 func ResourceBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateResourceBase_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -361,6 +367,9 @@ func ResourceBase_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_ResourceBase) AddCorsPreflight(options *CorsOptions) Method {
+	if err := r.validateAddCorsPreflightParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Method
 
 	_jsii_.Invoke(
@@ -374,6 +383,9 @@ func (r *jsiiProxy_ResourceBase) AddCorsPreflight(options *CorsOptions) Method {
 }
 
 func (r *jsiiProxy_ResourceBase) AddMethod(httpMethod *string, integration Integration, options *MethodOptions) Method {
+	if err := r.validateAddMethodParameters(httpMethod, options); err != nil {
+		panic(err)
+	}
 	var returns Method
 
 	_jsii_.Invoke(
@@ -387,6 +399,9 @@ func (r *jsiiProxy_ResourceBase) AddMethod(httpMethod *string, integration Integ
 }
 
 func (r *jsiiProxy_ResourceBase) AddProxy(options *ProxyResourceOptions) ProxyResource {
+	if err := r.validateAddProxyParameters(options); err != nil {
+		panic(err)
+	}
 	var returns ProxyResource
 
 	_jsii_.Invoke(
@@ -400,6 +415,9 @@ func (r *jsiiProxy_ResourceBase) AddProxy(options *ProxyResourceOptions) ProxyRe
 }
 
 func (r *jsiiProxy_ResourceBase) AddResource(pathPart *string, options *ResourceOptions) Resource {
+	if err := r.validateAddResourceParameters(pathPart, options); err != nil {
+		panic(err)
+	}
 	var returns Resource
 
 	_jsii_.Invoke(
@@ -413,6 +431,9 @@ func (r *jsiiProxy_ResourceBase) AddResource(pathPart *string, options *Resource
 }
 
 func (r *jsiiProxy_ResourceBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -434,6 +455,9 @@ func (r *jsiiProxy_ResourceBase) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_ResourceBase) GetResource(pathPart *string) IResource {
+	if err := r.validateGetResourceParameters(pathPart); err != nil {
+		panic(err)
+	}
 	var returns IResource
 
 	_jsii_.Invoke(
@@ -447,6 +471,9 @@ func (r *jsiiProxy_ResourceBase) GetResource(pathPart *string) IResource {
 }
 
 func (r *jsiiProxy_ResourceBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -460,6 +487,9 @@ func (r *jsiiProxy_ResourceBase) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (r *jsiiProxy_ResourceBase) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -481,6 +511,9 @@ func (r *jsiiProxy_ResourceBase) OnPrepare() {
 }
 
 func (r *jsiiProxy_ResourceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -510,6 +543,9 @@ func (r *jsiiProxy_ResourceBase) Prepare() {
 }
 
 func (r *jsiiProxy_ResourceBase) ResourceForPath(path *string) Resource {
+	if err := r.validateResourceForPathParameters(path); err != nil {
+		panic(err)
+	}
 	var returns Resource
 
 	_jsii_.Invoke(
@@ -523,6 +559,9 @@ func (r *jsiiProxy_ResourceBase) ResourceForPath(path *string) Resource {
 }
 
 func (r *jsiiProxy_ResourceBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

@@ -226,6 +226,9 @@ func (j *jsiiProxy_JobQueue) Stack() awscdk.Stack {
 func NewJobQueue(scope constructs.Construct, id *string, props *JobQueueProps) JobQueue {
 	_init_.Initialize()
 
+	if err := validateNewJobQueueParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_JobQueue{}
 
 	_jsii_.Create(
@@ -253,6 +256,9 @@ func NewJobQueue_Override(j JobQueue, scope constructs.Construct, id *string, pr
 func JobQueue_FromJobQueueArn(scope constructs.Construct, id *string, jobQueueArn *string) IJobQueue {
 	_init_.Initialize()
 
+	if err := validateJobQueue_FromJobQueueArnParameters(scope, id, jobQueueArn); err != nil {
+		panic(err)
+	}
 	var returns IJobQueue
 
 	_jsii_.StaticInvoke(
@@ -270,6 +276,9 @@ func JobQueue_FromJobQueueArn(scope constructs.Construct, id *string, jobQueueAr
 func JobQueue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateJobQueue_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -287,6 +296,9 @@ func JobQueue_IsConstruct(x interface{}) *bool {
 func JobQueue_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateJobQueue_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -300,6 +312,9 @@ func JobQueue_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (j *jsiiProxy_JobQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := j.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"applyRemovalPolicy",
@@ -321,6 +336,9 @@ func (j *jsiiProxy_JobQueue) GeneratePhysicalName() *string {
 }
 
 func (j *jsiiProxy_JobQueue) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := j.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -334,6 +352,9 @@ func (j *jsiiProxy_JobQueue) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (j *jsiiProxy_JobQueue) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := j.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -355,6 +376,9 @@ func (j *jsiiProxy_JobQueue) OnPrepare() {
 }
 
 func (j *jsiiProxy_JobQueue) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := j.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"onSynthesize",
@@ -384,6 +408,9 @@ func (j *jsiiProxy_JobQueue) Prepare() {
 }
 
 func (j *jsiiProxy_JobQueue) Synthesize(session awscdk.ISynthesisSession) {
+	if err := j.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"synthesize",

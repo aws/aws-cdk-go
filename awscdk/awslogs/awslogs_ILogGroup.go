@@ -54,6 +54,9 @@ type jsiiProxy_ILogGroup struct {
 }
 
 func (i *jsiiProxy_ILogGroup) AddMetricFilter(id *string, props *MetricFilterOptions) MetricFilter {
+	if err := i.validateAddMetricFilterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns MetricFilter
 
 	_jsii_.Invoke(
@@ -67,6 +70,9 @@ func (i *jsiiProxy_ILogGroup) AddMetricFilter(id *string, props *MetricFilterOpt
 }
 
 func (i *jsiiProxy_ILogGroup) AddStream(id *string, props *StreamOptions) LogStream {
+	if err := i.validateAddStreamParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns LogStream
 
 	_jsii_.Invoke(
@@ -80,6 +86,9 @@ func (i *jsiiProxy_ILogGroup) AddStream(id *string, props *StreamOptions) LogStr
 }
 
 func (i *jsiiProxy_ILogGroup) AddSubscriptionFilter(id *string, props *SubscriptionFilterOptions) SubscriptionFilter {
+	if err := i.validateAddSubscriptionFilterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns SubscriptionFilter
 
 	_jsii_.Invoke(
@@ -93,6 +102,9 @@ func (i *jsiiProxy_ILogGroup) AddSubscriptionFilter(id *string, props *Subscript
 }
 
 func (i *jsiiProxy_ILogGroup) ExtractMetric(jsonField *string, metricNamespace *string, metricName *string) awscloudwatch.Metric {
+	if err := i.validateExtractMetricParameters(jsonField, metricNamespace, metricName); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -106,6 +118,9 @@ func (i *jsiiProxy_ILogGroup) ExtractMetric(jsonField *string, metricNamespace *
 }
 
 func (i *jsiiProxy_ILogGroup) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -124,6 +139,9 @@ func (i *jsiiProxy_ILogGroup) Grant(grantee awsiam.IGrantable, actions ...*strin
 }
 
 func (i *jsiiProxy_ILogGroup) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

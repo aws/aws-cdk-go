@@ -73,6 +73,9 @@ func NewTlsValidationTrust_Override(t TlsValidationTrust) {
 func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuthority) TlsValidationTrust {
 	_init_.Initialize()
 
+	if err := validateTlsValidationTrust_AcmParameters(certificateAuthorities); err != nil {
+		panic(err)
+	}
 	var returns TlsValidationTrust
 
 	_jsii_.StaticInvoke(
@@ -90,6 +93,9 @@ func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuth
 func TlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
+	if err := validateTlsValidationTrust_FileParameters(certificateChain); err != nil {
+		panic(err)
+	}
 	var returns MutualTlsValidationTrust
 
 	_jsii_.StaticInvoke(
@@ -107,6 +113,9 @@ func TlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust 
 func TlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
+	if err := validateTlsValidationTrust_SdsParameters(secretName); err != nil {
+		panic(err)
+	}
 	var returns MutualTlsValidationTrust
 
 	_jsii_.StaticInvoke(
@@ -120,6 +129,9 @@ func TlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 }
 
 func (t *jsiiProxy_TlsValidationTrust) Bind(scope awscdk.Construct) *TlsValidationTrustConfig {
+	if err := t.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *TlsValidationTrustConfig
 
 	_jsii_.Invoke(

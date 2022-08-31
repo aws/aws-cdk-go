@@ -59,6 +59,9 @@ func NewDynamoProjectionExpression_Override(d DynamoProjectionExpression) {
 }
 
 func (d *jsiiProxy_DynamoProjectionExpression) AtIndex(index *float64) DynamoProjectionExpression {
+	if err := d.validateAtIndexParameters(index); err != nil {
+		panic(err)
+	}
 	var returns DynamoProjectionExpression
 
 	_jsii_.Invoke(
@@ -85,6 +88,9 @@ func (d *jsiiProxy_DynamoProjectionExpression) ToString() *string {
 }
 
 func (d *jsiiProxy_DynamoProjectionExpression) WithAttribute(attr *string) DynamoProjectionExpression {
+	if err := d.validateWithAttributeParameters(attr); err != nil {
+		panic(err)
+	}
 	var returns DynamoProjectionExpression
 
 	_jsii_.Invoke(

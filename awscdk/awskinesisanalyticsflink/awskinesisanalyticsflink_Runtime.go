@@ -57,6 +57,9 @@ func (j *jsiiProxy_Runtime) Value() *string {
 func Runtime_Of(value *string) Runtime {
 	_init_.Initialize()
 
+	if err := validateRuntime_OfParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Runtime
 
 	_jsii_.StaticInvoke(

@@ -55,6 +55,9 @@ func (j *jsiiProxy_AuroraPostgresEngineVersion) AuroraPostgresMajorVersion() *st
 func AuroraPostgresEngineVersion_Of(auroraPostgresFullVersion *string, auroraPostgresMajorVersion *string, auroraPostgresFeatures *AuroraPostgresEngineFeatures) AuroraPostgresEngineVersion {
 	_init_.Initialize()
 
+	if err := validateAuroraPostgresEngineVersion_OfParameters(auroraPostgresFullVersion, auroraPostgresMajorVersion, auroraPostgresFeatures); err != nil {
+		panic(err)
+	}
 	var returns AuroraPostgresEngineVersion
 
 	_jsii_.StaticInvoke(

@@ -20,6 +20,9 @@ type jsiiProxy_ILifecycleHookTarget struct {
 }
 
 func (i *jsiiProxy_ILifecycleHookTarget) Bind(scope constructs.Construct, options *BindHookTargetOptions) *LifecycleHookTargetConfig {
+	if err := i.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *LifecycleHookTargetConfig
 
 	_jsii_.Invoke(

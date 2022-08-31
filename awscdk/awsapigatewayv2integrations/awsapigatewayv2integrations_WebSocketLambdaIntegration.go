@@ -44,6 +44,9 @@ type jsiiProxy_WebSocketLambdaIntegration struct {
 func NewWebSocketLambdaIntegration(id *string, handler awslambda.IFunction) WebSocketLambdaIntegration {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketLambdaIntegrationParameters(id, handler); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketLambdaIntegration{}
 
 	_jsii_.Create(
@@ -67,6 +70,9 @@ func NewWebSocketLambdaIntegration_Override(w WebSocketLambdaIntegration, id *st
 }
 
 func (w *jsiiProxy_WebSocketLambdaIntegration) Bind(options *awsapigatewayv2.WebSocketRouteIntegrationBindOptions) *awsapigatewayv2.WebSocketRouteIntegrationConfig {
+	if err := w.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.WebSocketRouteIntegrationConfig
 
 	_jsii_.Invoke(

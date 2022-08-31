@@ -27,6 +27,9 @@ type jsiiProxy_IClientVpnEndpoint struct {
 }
 
 func (i *jsiiProxy_IClientVpnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

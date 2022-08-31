@@ -279,6 +279,9 @@ func (j *jsiiProxy_Repository) Stack() awscdk.Stack {
 func NewRepository(scope constructs.Construct, id *string, props *RepositoryProps) Repository {
 	_init_.Initialize()
 
+	if err := validateNewRepositoryParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Repository{}
 
 	_jsii_.Create(
@@ -306,6 +309,9 @@ func NewRepository_Override(r Repository, scope constructs.Construct, id *string
 func Repository_ArnForLocalRepository(repositoryName *string, scope constructs.IConstruct, account *string) *string {
 	_init_.Initialize()
 
+	if err := validateRepository_ArnForLocalRepositoryParameters(repositoryName, scope); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -322,6 +328,9 @@ func Repository_ArnForLocalRepository(repositoryName *string, scope constructs.I
 func Repository_FromRepositoryArn(scope constructs.Construct, id *string, repositoryArn *string) IRepository {
 	_init_.Initialize()
 
+	if err := validateRepository_FromRepositoryArnParameters(scope, id, repositoryArn); err != nil {
+		panic(err)
+	}
 	var returns IRepository
 
 	_jsii_.StaticInvoke(
@@ -339,6 +348,9 @@ func Repository_FromRepositoryArn(scope constructs.Construct, id *string, reposi
 func Repository_FromRepositoryAttributes(scope constructs.Construct, id *string, attrs *RepositoryAttributes) IRepository {
 	_init_.Initialize()
 
+	if err := validateRepository_FromRepositoryAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IRepository
 
 	_jsii_.StaticInvoke(
@@ -355,6 +367,9 @@ func Repository_FromRepositoryAttributes(scope constructs.Construct, id *string,
 func Repository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) IRepository {
 	_init_.Initialize()
 
+	if err := validateRepository_FromRepositoryNameParameters(scope, id, repositoryName); err != nil {
+		panic(err)
+	}
 	var returns IRepository
 
 	_jsii_.StaticInvoke(
@@ -372,6 +387,9 @@ func Repository_FromRepositoryName(scope constructs.Construct, id *string, repos
 func Repository_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRepository_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -389,6 +407,9 @@ func Repository_IsConstruct(x interface{}) *bool {
 func Repository_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateRepository_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -402,6 +423,9 @@ func Repository_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_Repository) AddLifecycleRule(rule *LifecycleRule) {
+	if err := r.validateAddLifecycleRuleParameters(rule); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"addLifecycleRule",
@@ -410,6 +434,9 @@ func (r *jsiiProxy_Repository) AddLifecycleRule(rule *LifecycleRule) {
 }
 
 func (r *jsiiProxy_Repository) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := r.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -423,6 +450,9 @@ func (r *jsiiProxy_Repository) AddToResourcePolicy(statement awsiam.PolicyStatem
 }
 
 func (r *jsiiProxy_Repository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -444,6 +474,9 @@ func (r *jsiiProxy_Repository) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_Repository) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -457,6 +490,9 @@ func (r *jsiiProxy_Repository) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (r *jsiiProxy_Repository) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -470,6 +506,9 @@ func (r *jsiiProxy_Repository) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 func (r *jsiiProxy_Repository) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := r.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -488,6 +527,9 @@ func (r *jsiiProxy_Repository) Grant(grantee awsiam.IGrantable, actions ...*stri
 }
 
 func (r *jsiiProxy_Repository) GrantPull(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := r.validateGrantPullParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -501,6 +543,9 @@ func (r *jsiiProxy_Repository) GrantPull(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 func (r *jsiiProxy_Repository) GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := r.validateGrantPullPushParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -514,6 +559,9 @@ func (r *jsiiProxy_Repository) GrantPullPush(grantee awsiam.IGrantable) awsiam.G
 }
 
 func (r *jsiiProxy_Repository) OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := r.validateOnCloudTrailEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -527,6 +575,9 @@ func (r *jsiiProxy_Repository) OnCloudTrailEvent(id *string, options *awsevents.
 }
 
 func (r *jsiiProxy_Repository) OnCloudTrailImagePushed(id *string, options *OnCloudTrailImagePushedOptions) awsevents.Rule {
+	if err := r.validateOnCloudTrailImagePushedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -540,6 +591,9 @@ func (r *jsiiProxy_Repository) OnCloudTrailImagePushed(id *string, options *OnCl
 }
 
 func (r *jsiiProxy_Repository) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := r.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -553,6 +607,9 @@ func (r *jsiiProxy_Repository) OnEvent(id *string, options *awsevents.OnEventOpt
 }
 
 func (r *jsiiProxy_Repository) OnImageScanCompleted(id *string, options *OnImageScanCompletedOptions) awsevents.Rule {
+	if err := r.validateOnImageScanCompletedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -574,6 +631,9 @@ func (r *jsiiProxy_Repository) OnPrepare() {
 }
 
 func (r *jsiiProxy_Repository) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -642,6 +702,9 @@ func (r *jsiiProxy_Repository) RepositoryUriForTagOrDigest(tagOrDigest *string) 
 }
 
 func (r *jsiiProxy_Repository) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

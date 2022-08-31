@@ -18,6 +18,9 @@ type jsiiProxy_IHttpRouteAuthorizer struct {
 }
 
 func (i *jsiiProxy_IHttpRouteAuthorizer) Bind(options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig {
+	if err := i.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *HttpRouteAuthorizerConfig
 
 	_jsii_.Invoke(

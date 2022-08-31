@@ -234,6 +234,9 @@ func (j *jsiiProxy_BackupSelection) Stack() awscdk.Stack {
 func NewBackupSelection(scope constructs.Construct, id *string, props *BackupSelectionProps) BackupSelection {
 	_init_.Initialize()
 
+	if err := validateNewBackupSelectionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BackupSelection{}
 
 	_jsii_.Create(
@@ -261,6 +264,9 @@ func NewBackupSelection_Override(b BackupSelection, scope constructs.Construct, 
 func BackupSelection_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBackupSelection_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -278,6 +284,9 @@ func BackupSelection_IsConstruct(x interface{}) *bool {
 func BackupSelection_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBackupSelection_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -291,6 +300,9 @@ func BackupSelection_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BackupSelection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -312,6 +324,9 @@ func (b *jsiiProxy_BackupSelection) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BackupSelection) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -325,6 +340,9 @@ func (b *jsiiProxy_BackupSelection) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (b *jsiiProxy_BackupSelection) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -346,6 +364,9 @@ func (b *jsiiProxy_BackupSelection) OnPrepare() {
 }
 
 func (b *jsiiProxy_BackupSelection) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -375,6 +396,9 @@ func (b *jsiiProxy_BackupSelection) Prepare() {
 }
 
 func (b *jsiiProxy_BackupSelection) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

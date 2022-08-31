@@ -116,6 +116,9 @@ func (j *jsiiProxy_ScopedAws) UrlSuffix() *string {
 func NewScopedAws(scope Construct) ScopedAws {
 	_init_.Initialize()
 
+	if err := validateNewScopedAwsParameters(scope); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ScopedAws{}
 
 	_jsii_.Create(

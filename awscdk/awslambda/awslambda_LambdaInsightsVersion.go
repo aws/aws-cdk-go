@@ -60,6 +60,9 @@ func NewLambdaInsightsVersion_Override(l LambdaInsightsVersion) {
 func LambdaInsightsVersion_FromInsightVersionArn(arn *string) LambdaInsightsVersion {
 	_init_.Initialize()
 
+	if err := validateLambdaInsightsVersion_FromInsightVersionArnParameters(arn); err != nil {
+		panic(err)
+	}
 	var returns LambdaInsightsVersion
 
 	_jsii_.StaticInvoke(

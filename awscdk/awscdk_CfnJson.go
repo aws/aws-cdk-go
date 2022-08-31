@@ -150,6 +150,9 @@ func (j *jsiiProxy_CfnJson) Value() Reference {
 func NewCfnJson(scope constructs.Construct, id *string, props *CfnJsonProps) CfnJson {
 	_init_.Initialize()
 
+	if err := validateNewCfnJsonParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnJson{}
 
 	_jsii_.Create(
@@ -177,6 +180,9 @@ func NewCfnJson_Override(c CfnJson, scope constructs.Construct, id *string, prop
 func CfnJson_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnJson_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -198,6 +204,9 @@ func (c *jsiiProxy_CfnJson) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnJson) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -227,6 +236,9 @@ func (c *jsiiProxy_CfnJson) Prepare() {
 }
 
 func (c *jsiiProxy_CfnJson) Resolve(_arg IResolveContext) interface{} {
+	if err := c.validateResolveParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -240,6 +252,9 @@ func (c *jsiiProxy_CfnJson) Resolve(_arg IResolveContext) interface{} {
 }
 
 func (c *jsiiProxy_CfnJson) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

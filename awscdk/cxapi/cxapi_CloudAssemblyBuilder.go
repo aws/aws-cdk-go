@@ -75,6 +75,9 @@ func (j *jsiiProxy_CloudAssemblyBuilder) Outdir() *string {
 func NewCloudAssemblyBuilder(outdir *string, props *CloudAssemblyBuilderProps) CloudAssemblyBuilder {
 	_init_.Initialize()
 
+	if err := validateNewCloudAssemblyBuilderParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudAssemblyBuilder{}
 
 	_jsii_.Create(
@@ -99,6 +102,9 @@ func NewCloudAssemblyBuilder_Override(c CloudAssemblyBuilder, outdir *string, pr
 }
 
 func (c *jsiiProxy_CloudAssemblyBuilder) AddArtifact(id *string, manifest *cloudassemblyschema.ArtifactManifest) {
+	if err := c.validateAddArtifactParameters(id, manifest); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addArtifact",
@@ -107,6 +113,9 @@ func (c *jsiiProxy_CloudAssemblyBuilder) AddArtifact(id *string, manifest *cloud
 }
 
 func (c *jsiiProxy_CloudAssemblyBuilder) AddMissing(missing *cloudassemblyschema.MissingContext) {
+	if err := c.validateAddMissingParameters(missing); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMissing",
@@ -115,6 +124,9 @@ func (c *jsiiProxy_CloudAssemblyBuilder) AddMissing(missing *cloudassemblyschema
 }
 
 func (c *jsiiProxy_CloudAssemblyBuilder) BuildAssembly(options *AssemblyBuildOptions) CloudAssembly {
+	if err := c.validateBuildAssemblyParameters(options); err != nil {
+		panic(err)
+	}
 	var returns CloudAssembly
 
 	_jsii_.Invoke(
@@ -128,6 +140,9 @@ func (c *jsiiProxy_CloudAssemblyBuilder) BuildAssembly(options *AssemblyBuildOpt
 }
 
 func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string, displayName *string) CloudAssemblyBuilder {
+	if err := c.validateCreateNestedAssemblyParameters(artifactId, displayName); err != nil {
+		panic(err)
+	}
 	var returns CloudAssemblyBuilder
 
 	_jsii_.Invoke(

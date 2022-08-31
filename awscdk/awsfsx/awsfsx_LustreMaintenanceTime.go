@@ -34,6 +34,9 @@ type jsiiProxy_LustreMaintenanceTime struct {
 func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenanceTime {
 	_init_.Initialize()
 
+	if err := validateNewLustreMaintenanceTimeParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LustreMaintenanceTime{}
 
 	_jsii_.Create(

@@ -87,6 +87,9 @@ func (j *jsiiProxy_EnumType) Name() *string {
 func NewEnumType(name *string, options *EnumTypeOptions) EnumType {
 	_init_.Initialize()
 
+	if err := validateNewEnumTypeParameters(name, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EnumType{}
 
 	_jsii_.Create(
@@ -109,7 +112,7 @@ func NewEnumType_Override(e EnumType, name *string, options *EnumTypeOptions) {
 	)
 }
 
-func (j *jsiiProxy_EnumType) SetModes(val *[]AuthorizationType) {
+func (j *jsiiProxy_EnumType)SetModes(val *[]AuthorizationType) {
 	_jsii_.Set(
 		j,
 		"modes",
@@ -118,6 +121,9 @@ func (j *jsiiProxy_EnumType) SetModes(val *[]AuthorizationType) {
 }
 
 func (e *jsiiProxy_EnumType) AddField(options *AddFieldOptions) {
+	if err := e.validateAddFieldParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addField",
@@ -126,6 +132,9 @@ func (e *jsiiProxy_EnumType) AddField(options *AddFieldOptions) {
 }
 
 func (e *jsiiProxy_EnumType) Attribute(options *BaseTypeOptions) GraphqlType {
+	if err := e.validateAttributeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.Invoke(

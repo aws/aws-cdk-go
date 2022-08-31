@@ -36,6 +36,9 @@ type jsiiProxy_EventBus struct {
 func NewEventBus(eventBus awsevents.IEventBus, props *EventBusProps) EventBus {
 	_init_.Initialize()
 
+	if err := validateNewEventBusParameters(eventBus, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EventBus{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewEventBus_Override(e EventBus, eventBus awsevents.IEventBus, props *Event
 }
 
 func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := e.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

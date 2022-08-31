@@ -92,6 +92,9 @@ func NewStackInstances_Override(s StackInstances) {
 func StackInstances_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
+	if err := validateStackInstances_FromArtifactPathParameters(artifactPath, regions); err != nil {
+		panic(err)
+	}
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
@@ -116,6 +119,9 @@ func StackInstances_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath, 
 func StackInstances_InAccounts(accounts *[]*string, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
+	if err := validateStackInstances_InAccountsParameters(accounts, regions); err != nil {
+		panic(err)
+	}
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
@@ -143,6 +149,9 @@ func StackInstances_InAccounts(accounts *[]*string, regions *[]*string) StackIns
 func StackInstances_InOrganizationalUnits(ous *[]*string, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
+	if err := validateStackInstances_InOrganizationalUnitsParameters(ous, regions); err != nil {
+		panic(err)
+	}
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(

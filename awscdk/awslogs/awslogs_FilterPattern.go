@@ -190,6 +190,9 @@ func FilterPattern_AnyTermGroup(termGroups ...*[]*string) IFilterPattern {
 func FilterPattern_BooleanValue(jsonField *string, value *bool) JsonPattern {
 	_init_.Initialize()
 
+	if err := validateFilterPattern_BooleanValueParameters(jsonField, value); err != nil {
+		panic(err)
+	}
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
@@ -209,6 +212,9 @@ func FilterPattern_BooleanValue(jsonField *string, value *bool) JsonPattern {
 func FilterPattern_Exists(jsonField *string) JsonPattern {
 	_init_.Initialize()
 
+	if err := validateFilterPattern_ExistsParameters(jsonField); err != nil {
+		panic(err)
+	}
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
@@ -226,6 +232,9 @@ func FilterPattern_Exists(jsonField *string) JsonPattern {
 func FilterPattern_IsNull(jsonField *string) JsonPattern {
 	_init_.Initialize()
 
+	if err := validateFilterPattern_IsNullParameters(jsonField); err != nil {
+		panic(err)
+	}
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
@@ -246,6 +255,9 @@ func FilterPattern_IsNull(jsonField *string) JsonPattern {
 func FilterPattern_Literal(logPatternString *string) IFilterPattern {
 	_init_.Initialize()
 
+	if err := validateFilterPattern_LiteralParameters(logPatternString); err != nil {
+		panic(err)
+	}
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
@@ -263,6 +275,9 @@ func FilterPattern_Literal(logPatternString *string) IFilterPattern {
 func FilterPattern_NotExists(jsonField *string) JsonPattern {
 	_init_.Initialize()
 
+	if err := validateFilterPattern_NotExistsParameters(jsonField); err != nil {
+		panic(err)
+	}
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
@@ -291,6 +306,9 @@ func FilterPattern_NotExists(jsonField *string) JsonPattern {
 func FilterPattern_NumberValue(jsonField *string, comparison *string, value *float64) JsonPattern {
 	_init_.Initialize()
 
+	if err := validateFilterPattern_NumberValueParameters(jsonField, comparison, value); err != nil {
+		panic(err)
+	}
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
@@ -349,6 +367,9 @@ func FilterPattern_SpaceDelimited(columns ...*string) SpaceDelimitedTextPattern 
 func FilterPattern_StringValue(jsonField *string, comparison *string, value *string) JsonPattern {
 	_init_.Initialize()
 
+	if err := validateFilterPattern_StringValueParameters(jsonField, comparison, value); err != nil {
+		panic(err)
+	}
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(

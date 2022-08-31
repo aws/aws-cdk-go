@@ -602,6 +602,9 @@ func (j *jsiiProxy_CfnNotebookInstance) VolumeSizeInGb() *float64 {
 func NewCfnNotebookInstance(scope awscdk.Construct, id *string, props *CfnNotebookInstanceProps) CfnNotebookInstance {
 	_init_.Initialize()
 
+	if err := validateNewCfnNotebookInstanceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnNotebookInstance{}
 
 	_jsii_.Create(
@@ -624,7 +627,7 @@ func NewCfnNotebookInstance_Override(c CfnNotebookInstance, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetAcceleratorTypes(val *[]*string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetAcceleratorTypes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"acceleratorTypes",
@@ -632,7 +635,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetAcceleratorTypes(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetAdditionalCodeRepositories(val *[]*string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetAdditionalCodeRepositories(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"additionalCodeRepositories",
@@ -640,7 +643,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetAdditionalCodeRepositories(val *[]*st
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetDefaultCodeRepository(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetDefaultCodeRepository(val *string) {
 	_jsii_.Set(
 		j,
 		"defaultCodeRepository",
@@ -648,7 +651,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetDefaultCodeRepository(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetDirectInternetAccess(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetDirectInternetAccess(val *string) {
 	_jsii_.Set(
 		j,
 		"directInternetAccess",
@@ -656,7 +659,10 @@ func (j *jsiiProxy_CfnNotebookInstance) SetDirectInternetAccess(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetInstanceType(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetInstanceType(val *string) {
+	if err := j.validateSetInstanceTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceType",
@@ -664,7 +670,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetInstanceType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetKmsKeyId(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
@@ -672,7 +678,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetKmsKeyId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetLifecycleConfigName(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetLifecycleConfigName(val *string) {
 	_jsii_.Set(
 		j,
 		"lifecycleConfigName",
@@ -680,7 +686,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetLifecycleConfigName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetNotebookInstanceName(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetNotebookInstanceName(val *string) {
 	_jsii_.Set(
 		j,
 		"notebookInstanceName",
@@ -688,7 +694,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetNotebookInstanceName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetPlatformIdentifier(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetPlatformIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"platformIdentifier",
@@ -696,7 +702,10 @@ func (j *jsiiProxy_CfnNotebookInstance) SetPlatformIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetRoleArn(val *string) {
+	if err := j.validateSetRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -704,7 +713,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetRootAccess(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetRootAccess(val *string) {
 	_jsii_.Set(
 		j,
 		"rootAccess",
@@ -712,7 +721,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetRootAccess(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetSecurityGroupIds(val *[]*string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
@@ -720,7 +729,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetSecurityGroupIds(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetSubnetId(val *string) {
+func (j *jsiiProxy_CfnNotebookInstance)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
@@ -728,7 +737,7 @@ func (j *jsiiProxy_CfnNotebookInstance) SetSubnetId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNotebookInstance) SetVolumeSizeInGb(val *float64) {
+func (j *jsiiProxy_CfnNotebookInstance)SetVolumeSizeInGb(val *float64) {
 	_jsii_.Set(
 		j,
 		"volumeSizeInGb",
@@ -746,6 +755,9 @@ func (j *jsiiProxy_CfnNotebookInstance) SetVolumeSizeInGb(val *float64) {
 func CfnNotebookInstance_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNotebookInstance_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -763,6 +775,9 @@ func CfnNotebookInstance_IsCfnElement(x interface{}) *bool {
 func CfnNotebookInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNotebookInstance_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -780,6 +795,9 @@ func CfnNotebookInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnNotebookInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNotebookInstance_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -804,6 +822,9 @@ func CfnNotebookInstance_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -812,6 +833,9 @@ func (c *jsiiProxy_CfnNotebookInstance) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -820,6 +844,9 @@ func (c *jsiiProxy_CfnNotebookInstance) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -828,6 +855,9 @@ func (c *jsiiProxy_CfnNotebookInstance) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -836,6 +866,9 @@ func (c *jsiiProxy_CfnNotebookInstance) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -844,6 +877,9 @@ func (c *jsiiProxy_CfnNotebookInstance) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -852,6 +888,9 @@ func (c *jsiiProxy_CfnNotebookInstance) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -860,6 +899,9 @@ func (c *jsiiProxy_CfnNotebookInstance) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -873,6 +915,9 @@ func (c *jsiiProxy_CfnNotebookInstance) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -886,6 +931,9 @@ func (c *jsiiProxy_CfnNotebookInstance) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -902,6 +950,9 @@ func (c *jsiiProxy_CfnNotebookInstance) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -923,6 +974,9 @@ func (c *jsiiProxy_CfnNotebookInstance) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -939,6 +993,9 @@ func (c *jsiiProxy_CfnNotebookInstance) Prepare() {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -965,6 +1022,9 @@ func (c *jsiiProxy_CfnNotebookInstance) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -999,6 +1059,9 @@ func (c *jsiiProxy_CfnNotebookInstance) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

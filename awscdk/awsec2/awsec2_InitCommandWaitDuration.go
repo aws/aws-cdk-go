@@ -75,6 +75,9 @@ func InitCommandWaitDuration_None() InitCommandWaitDuration {
 func InitCommandWaitDuration_Of(duration awscdk.Duration) InitCommandWaitDuration {
 	_init_.Initialize()
 
+	if err := validateInitCommandWaitDuration_OfParameters(duration); err != nil {
+		panic(err)
+	}
 	var returns InitCommandWaitDuration
 
 	_jsii_.StaticInvoke(

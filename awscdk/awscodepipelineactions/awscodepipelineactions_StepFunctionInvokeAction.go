@@ -87,6 +87,9 @@ func (j *jsiiProxy_StepFunctionInvokeAction) ProvidedActionProperties() *awscode
 func NewStepFunctionInvokeAction(props *StepFunctionsInvokeActionProps) StepFunctionInvokeAction {
 	_init_.Initialize()
 
+	if err := validateNewStepFunctionInvokeActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StepFunctionInvokeAction{}
 
 	_jsii_.Create(
@@ -110,6 +113,9 @@ func NewStepFunctionInvokeAction_Override(s StepFunctionInvokeAction, props *Ste
 }
 
 func (s *jsiiProxy_StepFunctionInvokeAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -123,6 +129,9 @@ func (s *jsiiProxy_StepFunctionInvokeAction) Bind(scope awscdk.Construct, stage 
 }
 
 func (s *jsiiProxy_StepFunctionInvokeAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBoundParameters(_scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -136,6 +145,9 @@ func (s *jsiiProxy_StepFunctionInvokeAction) Bound(_scope awscdk.Construct, _sta
 }
 
 func (s *jsiiProxy_StepFunctionInvokeAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := s.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -149,6 +161,9 @@ func (s *jsiiProxy_StepFunctionInvokeAction) OnStateChange(name *string, target 
 }
 
 func (s *jsiiProxy_StepFunctionInvokeAction) VariableExpression(variableName *string) *string {
+	if err := s.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

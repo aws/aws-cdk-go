@@ -220,6 +220,9 @@ func (j *jsiiProxy_PrivateCertificate) Stack() awscdk.Stack {
 func NewPrivateCertificate(scope constructs.Construct, id *string, props *PrivateCertificateProps) PrivateCertificate {
 	_init_.Initialize()
 
+	if err := validateNewPrivateCertificateParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PrivateCertificate{}
 
 	_jsii_.Create(
@@ -247,6 +250,9 @@ func NewPrivateCertificate_Override(p PrivateCertificate, scope constructs.Const
 func PrivateCertificate_FromCertificateArn(scope constructs.Construct, id *string, certificateArn *string) ICertificate {
 	_init_.Initialize()
 
+	if err := validatePrivateCertificate_FromCertificateArnParameters(scope, id, certificateArn); err != nil {
+		panic(err)
+	}
 	var returns ICertificate
 
 	_jsii_.StaticInvoke(
@@ -264,6 +270,9 @@ func PrivateCertificate_FromCertificateArn(scope constructs.Construct, id *strin
 func PrivateCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePrivateCertificate_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -281,6 +290,9 @@ func PrivateCertificate_IsConstruct(x interface{}) *bool {
 func PrivateCertificate_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePrivateCertificate_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -294,6 +306,9 @@ func PrivateCertificate_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_PrivateCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -315,6 +330,9 @@ func (p *jsiiProxy_PrivateCertificate) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_PrivateCertificate) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -328,6 +346,9 @@ func (p *jsiiProxy_PrivateCertificate) GetResourceArnAttribute(arnAttr *string, 
 }
 
 func (p *jsiiProxy_PrivateCertificate) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -341,6 +362,9 @@ func (p *jsiiProxy_PrivateCertificate) GetResourceNameAttribute(nameAttr *string
 }
 
 func (p *jsiiProxy_PrivateCertificate) MetricDaysToExpiry(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := p.validateMetricDaysToExpiryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -362,6 +386,9 @@ func (p *jsiiProxy_PrivateCertificate) OnPrepare() {
 }
 
 func (p *jsiiProxy_PrivateCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -391,6 +418,9 @@ func (p *jsiiProxy_PrivateCertificate) Prepare() {
 }
 
 func (p *jsiiProxy_PrivateCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

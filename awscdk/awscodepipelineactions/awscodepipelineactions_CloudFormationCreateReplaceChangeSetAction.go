@@ -138,6 +138,9 @@ func (j *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) ProvidedActionPro
 func NewCloudFormationCreateReplaceChangeSetAction(props *CloudFormationCreateReplaceChangeSetActionProps) CloudFormationCreateReplaceChangeSetAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationCreateReplaceChangeSetActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationCreateReplaceChangeSetAction{}
 
 	_jsii_.Create(
@@ -161,6 +164,9 @@ func NewCloudFormationCreateReplaceChangeSetAction_Override(c CloudFormationCrea
 }
 
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool {
+	if err := c.validateAddToDeploymentRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -174,6 +180,9 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) AddToDeploymentRo
 }
 
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -187,6 +196,9 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bind(scope awscdk
 }
 
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -200,6 +212,9 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bound(scope awscd
 }
 
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -213,6 +228,9 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) OnStateChange(nam
 }
 
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

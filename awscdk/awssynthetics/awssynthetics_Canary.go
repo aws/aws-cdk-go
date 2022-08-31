@@ -282,6 +282,9 @@ func (j *jsiiProxy_Canary) Stack() awscdk.Stack {
 func NewCanary(scope constructs.Construct, id *string, props *CanaryProps) Canary {
 	_init_.Initialize()
 
+	if err := validateNewCanaryParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Canary{}
 
 	_jsii_.Create(
@@ -309,6 +312,9 @@ func NewCanary_Override(c Canary, scope constructs.Construct, id *string, props 
 func Canary_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCanary_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -326,6 +332,9 @@ func Canary_IsConstruct(x interface{}) *bool {
 func Canary_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCanary_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -339,6 +348,9 @@ func Canary_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_Canary) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -360,6 +372,9 @@ func (c *jsiiProxy_Canary) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_Canary) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -373,6 +388,9 @@ func (c *jsiiProxy_Canary) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (c *jsiiProxy_Canary) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -386,6 +404,9 @@ func (c *jsiiProxy_Canary) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (c *jsiiProxy_Canary) MetricDuration(options *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricDurationParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -399,6 +420,9 @@ func (c *jsiiProxy_Canary) MetricDuration(options *awscloudwatch.MetricOptions) 
 }
 
 func (c *jsiiProxy_Canary) MetricFailed(options *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricFailedParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -412,6 +436,9 @@ func (c *jsiiProxy_Canary) MetricFailed(options *awscloudwatch.MetricOptions) aw
 }
 
 func (c *jsiiProxy_Canary) MetricSuccessPercent(options *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricSuccessPercentParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -433,6 +460,9 @@ func (c *jsiiProxy_Canary) OnPrepare() {
 }
 
 func (c *jsiiProxy_Canary) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -462,6 +492,9 @@ func (c *jsiiProxy_Canary) Prepare() {
 }
 
 func (c *jsiiProxy_Canary) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

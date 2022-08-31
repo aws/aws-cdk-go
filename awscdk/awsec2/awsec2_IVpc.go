@@ -69,6 +69,9 @@ type jsiiProxy_IVpc struct {
 }
 
 func (i *jsiiProxy_IVpc) AddClientVpnEndpoint(id *string, options *ClientVpnEndpointOptions) ClientVpnEndpoint {
+	if err := i.validateAddClientVpnEndpointParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns ClientVpnEndpoint
 
 	_jsii_.Invoke(
@@ -82,6 +85,9 @@ func (i *jsiiProxy_IVpc) AddClientVpnEndpoint(id *string, options *ClientVpnEndp
 }
 
 func (i *jsiiProxy_IVpc) AddFlowLog(id *string, options *FlowLogOptions) FlowLog {
+	if err := i.validateAddFlowLogParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns FlowLog
 
 	_jsii_.Invoke(
@@ -95,6 +101,9 @@ func (i *jsiiProxy_IVpc) AddFlowLog(id *string, options *FlowLogOptions) FlowLog
 }
 
 func (i *jsiiProxy_IVpc) AddGatewayEndpoint(id *string, options *GatewayVpcEndpointOptions) GatewayVpcEndpoint {
+	if err := i.validateAddGatewayEndpointParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns GatewayVpcEndpoint
 
 	_jsii_.Invoke(
@@ -108,6 +117,9 @@ func (i *jsiiProxy_IVpc) AddGatewayEndpoint(id *string, options *GatewayVpcEndpo
 }
 
 func (i *jsiiProxy_IVpc) AddInterfaceEndpoint(id *string, options *InterfaceVpcEndpointOptions) InterfaceVpcEndpoint {
+	if err := i.validateAddInterfaceEndpointParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns InterfaceVpcEndpoint
 
 	_jsii_.Invoke(
@@ -121,6 +133,9 @@ func (i *jsiiProxy_IVpc) AddInterfaceEndpoint(id *string, options *InterfaceVpcE
 }
 
 func (i *jsiiProxy_IVpc) AddVpnConnection(id *string, options *VpnConnectionOptions) VpnConnection {
+	if err := i.validateAddVpnConnectionParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns VpnConnection
 
 	_jsii_.Invoke(
@@ -134,6 +149,9 @@ func (i *jsiiProxy_IVpc) AddVpnConnection(id *string, options *VpnConnectionOpti
 }
 
 func (i *jsiiProxy_IVpc) EnableVpnGateway(options *EnableVpnGatewayOptions) {
+	if err := i.validateEnableVpnGatewayParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"enableVpnGateway",
@@ -142,6 +160,9 @@ func (i *jsiiProxy_IVpc) EnableVpnGateway(options *EnableVpnGatewayOptions) {
 }
 
 func (i *jsiiProxy_IVpc) SelectSubnets(selection *SubnetSelection) *SelectedSubnets {
+	if err := i.validateSelectSubnetsParameters(selection); err != nil {
+		panic(err)
+	}
 	var returns *SelectedSubnets
 
 	_jsii_.Invoke(

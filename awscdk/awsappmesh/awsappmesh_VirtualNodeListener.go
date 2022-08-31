@@ -64,6 +64,9 @@ func NewVirtualNodeListener_Override(v VirtualNodeListener) {
 func VirtualNodeListener_Grpc(props *GrpcVirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
+	if err := validateVirtualNodeListener_GrpcParameters(props); err != nil {
+		panic(err)
+	}
 	var returns VirtualNodeListener
 
 	_jsii_.StaticInvoke(
@@ -81,6 +84,9 @@ func VirtualNodeListener_Grpc(props *GrpcVirtualNodeListenerOptions) VirtualNode
 func VirtualNodeListener_Http(props *HttpVirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
+	if err := validateVirtualNodeListener_HttpParameters(props); err != nil {
+		panic(err)
+	}
 	var returns VirtualNodeListener
 
 	_jsii_.StaticInvoke(
@@ -98,6 +104,9 @@ func VirtualNodeListener_Http(props *HttpVirtualNodeListenerOptions) VirtualNode
 func VirtualNodeListener_Http2(props *Http2VirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
+	if err := validateVirtualNodeListener_Http2Parameters(props); err != nil {
+		panic(err)
+	}
 	var returns VirtualNodeListener
 
 	_jsii_.StaticInvoke(
@@ -115,6 +124,9 @@ func VirtualNodeListener_Http2(props *Http2VirtualNodeListenerOptions) VirtualNo
 func VirtualNodeListener_Tcp(props *TcpVirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
+	if err := validateVirtualNodeListener_TcpParameters(props); err != nil {
+		panic(err)
+	}
 	var returns VirtualNodeListener
 
 	_jsii_.StaticInvoke(
@@ -128,6 +140,9 @@ func VirtualNodeListener_Tcp(props *TcpVirtualNodeListenerOptions) VirtualNodeLi
 }
 
 func (v *jsiiProxy_VirtualNodeListener) Bind(scope awscdk.Construct) *VirtualNodeListenerConfig {
+	if err := v.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *VirtualNodeListenerConfig
 
 	_jsii_.Invoke(

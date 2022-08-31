@@ -95,6 +95,9 @@ func (j *jsiiProxy_Grant) Success() *bool {
 func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 	_init_.Initialize()
 
+	if err := validateGrant_AddToPrincipalParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.StaticInvoke(
@@ -118,6 +121,9 @@ func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions) Grant {
 	_init_.Initialize()
 
+	if err := validateGrant_AddToPrincipalAndResourceParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.StaticInvoke(
@@ -146,6 +152,9 @@ func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions
 func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 	_init_.Initialize()
 
+	if err := validateGrant_AddToPrincipalOrResourceParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.StaticInvoke(
@@ -166,6 +175,9 @@ func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 	_init_.Initialize()
 
+	if err := validateGrant_DropParameters(grantee, _intent); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.StaticInvoke(

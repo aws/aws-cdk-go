@@ -169,6 +169,9 @@ func (j *jsiiProxy_CfnHook) Type() *string {
 func NewCfnHook(scope constructs.Construct, id *string, props *CfnHookProps) CfnHook {
 	_init_.Initialize()
 
+	if err := validateNewCfnHookParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnHook{}
 
 	_jsii_.Create(
@@ -202,6 +205,9 @@ func NewCfnHook_Override(c CfnHook, scope constructs.Construct, id *string, prop
 func CfnHook_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnHook_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -219,6 +225,9 @@ func CfnHook_IsCfnElement(x interface{}) *bool {
 func CfnHook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnHook_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -240,6 +249,9 @@ func (c *jsiiProxy_CfnHook) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnHook) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -261,6 +273,9 @@ func (c *jsiiProxy_CfnHook) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnHook) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -290,6 +305,9 @@ func (c *jsiiProxy_CfnHook) RenderProperties(props *map[string]interface{}) *map
 }
 
 func (c *jsiiProxy_CfnHook) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

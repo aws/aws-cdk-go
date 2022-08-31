@@ -440,6 +440,9 @@ func (j *jsiiProxy_CfnRotationSchedule) UpdatedProperites() *map[string]interfac
 func NewCfnRotationSchedule(scope awscdk.Construct, id *string, props *CfnRotationScheduleProps) CfnRotationSchedule {
 	_init_.Initialize()
 
+	if err := validateNewCfnRotationScheduleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnRotationSchedule{}
 
 	_jsii_.Create(
@@ -462,7 +465,10 @@ func NewCfnRotationSchedule_Override(c CfnRotationSchedule, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) SetHostedRotationLambda(val interface{}) {
+func (j *jsiiProxy_CfnRotationSchedule)SetHostedRotationLambda(val interface{}) {
+	if err := j.validateSetHostedRotationLambdaParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"hostedRotationLambda",
@@ -470,7 +476,10 @@ func (j *jsiiProxy_CfnRotationSchedule) SetHostedRotationLambda(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) SetRotateImmediatelyOnUpdate(val interface{}) {
+func (j *jsiiProxy_CfnRotationSchedule)SetRotateImmediatelyOnUpdate(val interface{}) {
+	if err := j.validateSetRotateImmediatelyOnUpdateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"rotateImmediatelyOnUpdate",
@@ -478,7 +487,7 @@ func (j *jsiiProxy_CfnRotationSchedule) SetRotateImmediatelyOnUpdate(val interfa
 	)
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) SetRotationLambdaArn(val *string) {
+func (j *jsiiProxy_CfnRotationSchedule)SetRotationLambdaArn(val *string) {
 	_jsii_.Set(
 		j,
 		"rotationLambdaArn",
@@ -486,7 +495,10 @@ func (j *jsiiProxy_CfnRotationSchedule) SetRotationLambdaArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) SetRotationRules(val interface{}) {
+func (j *jsiiProxy_CfnRotationSchedule)SetRotationRules(val interface{}) {
+	if err := j.validateSetRotationRulesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"rotationRules",
@@ -494,7 +506,10 @@ func (j *jsiiProxy_CfnRotationSchedule) SetRotationRules(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) SetSecretId(val *string) {
+func (j *jsiiProxy_CfnRotationSchedule)SetSecretId(val *string) {
+	if err := j.validateSetSecretIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"secretId",
@@ -512,6 +527,9 @@ func (j *jsiiProxy_CfnRotationSchedule) SetSecretId(val *string) {
 func CfnRotationSchedule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRotationSchedule_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -529,6 +547,9 @@ func CfnRotationSchedule_IsCfnElement(x interface{}) *bool {
 func CfnRotationSchedule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRotationSchedule_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -546,6 +567,9 @@ func CfnRotationSchedule_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnRotationSchedule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRotationSchedule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -570,6 +594,9 @@ func CfnRotationSchedule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -578,6 +605,9 @@ func (c *jsiiProxy_CfnRotationSchedule) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -586,6 +616,9 @@ func (c *jsiiProxy_CfnRotationSchedule) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -594,6 +627,9 @@ func (c *jsiiProxy_CfnRotationSchedule) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -602,6 +638,9 @@ func (c *jsiiProxy_CfnRotationSchedule) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -610,6 +649,9 @@ func (c *jsiiProxy_CfnRotationSchedule) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -618,6 +660,9 @@ func (c *jsiiProxy_CfnRotationSchedule) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -626,6 +671,9 @@ func (c *jsiiProxy_CfnRotationSchedule) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -639,6 +687,9 @@ func (c *jsiiProxy_CfnRotationSchedule) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -652,6 +703,9 @@ func (c *jsiiProxy_CfnRotationSchedule) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -668,6 +722,9 @@ func (c *jsiiProxy_CfnRotationSchedule) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -689,6 +746,9 @@ func (c *jsiiProxy_CfnRotationSchedule) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -705,6 +765,9 @@ func (c *jsiiProxy_CfnRotationSchedule) Prepare() {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -731,6 +794,9 @@ func (c *jsiiProxy_CfnRotationSchedule) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -765,6 +831,9 @@ func (c *jsiiProxy_CfnRotationSchedule) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

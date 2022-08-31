@@ -257,6 +257,9 @@ func (j *jsiiProxy_LustreFileSystem) Stack() awscdk.Stack {
 func NewLustreFileSystem(scope constructs.Construct, id *string, props *LustreFileSystemProps) LustreFileSystem {
 	_init_.Initialize()
 
+	if err := validateNewLustreFileSystemParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LustreFileSystem{}
 
 	_jsii_.Create(
@@ -284,6 +287,9 @@ func NewLustreFileSystem_Override(l LustreFileSystem, scope constructs.Construct
 func LustreFileSystem_FromLustreFileSystemAttributes(scope constructs.Construct, id *string, attrs *FileSystemAttributes) IFileSystem {
 	_init_.Initialize()
 
+	if err := validateLustreFileSystem_FromLustreFileSystemAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IFileSystem
 
 	_jsii_.StaticInvoke(
@@ -301,6 +307,9 @@ func LustreFileSystem_FromLustreFileSystemAttributes(scope constructs.Construct,
 func LustreFileSystem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLustreFileSystem_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -318,6 +327,9 @@ func LustreFileSystem_IsConstruct(x interface{}) *bool {
 func LustreFileSystem_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLustreFileSystem_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -331,6 +343,9 @@ func LustreFileSystem_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LustreFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -352,6 +367,9 @@ func (l *jsiiProxy_LustreFileSystem) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LustreFileSystem) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -365,6 +383,9 @@ func (l *jsiiProxy_LustreFileSystem) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (l *jsiiProxy_LustreFileSystem) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -386,6 +407,9 @@ func (l *jsiiProxy_LustreFileSystem) OnPrepare() {
 }
 
 func (l *jsiiProxy_LustreFileSystem) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -415,6 +439,9 @@ func (l *jsiiProxy_LustreFileSystem) Prepare() {
 }
 
 func (l *jsiiProxy_LustreFileSystem) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

@@ -53,6 +53,9 @@ func (j *jsiiProxy_ProviderAttribute) AttributeName() *string {
 func ProviderAttribute_Other(attributeName *string) ProviderAttribute {
 	_init_.Initialize()
 
+	if err := validateProviderAttribute_OtherParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns ProviderAttribute
 
 	_jsii_.StaticInvoke(

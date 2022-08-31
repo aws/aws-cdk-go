@@ -430,6 +430,9 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) UpdatedProperites() *map[string]inte
 func NewCfnLaunchRoleConstraint(scope awscdk.Construct, id *string, props *CfnLaunchRoleConstraintProps) CfnLaunchRoleConstraint {
 	_init_.Initialize()
 
+	if err := validateNewCfnLaunchRoleConstraintParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnLaunchRoleConstraint{}
 
 	_jsii_.Create(
@@ -452,7 +455,7 @@ func NewCfnLaunchRoleConstraint_Override(c CfnLaunchRoleConstraint, scope awscdk
 	)
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) SetAcceptLanguage(val *string) {
+func (j *jsiiProxy_CfnLaunchRoleConstraint)SetAcceptLanguage(val *string) {
 	_jsii_.Set(
 		j,
 		"acceptLanguage",
@@ -460,7 +463,7 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) SetAcceptLanguage(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) SetDescription(val *string) {
+func (j *jsiiProxy_CfnLaunchRoleConstraint)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -468,7 +471,7 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) SetLocalRoleName(val *string) {
+func (j *jsiiProxy_CfnLaunchRoleConstraint)SetLocalRoleName(val *string) {
 	_jsii_.Set(
 		j,
 		"localRoleName",
@@ -476,7 +479,10 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) SetLocalRoleName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) SetPortfolioId(val *string) {
+func (j *jsiiProxy_CfnLaunchRoleConstraint)SetPortfolioId(val *string) {
+	if err := j.validateSetPortfolioIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"portfolioId",
@@ -484,7 +490,10 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) SetPortfolioId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) SetProductId(val *string) {
+func (j *jsiiProxy_CfnLaunchRoleConstraint)SetProductId(val *string) {
+	if err := j.validateSetProductIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"productId",
@@ -492,7 +501,7 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) SetProductId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLaunchRoleConstraint) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnLaunchRoleConstraint)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -510,6 +519,9 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) SetRoleArn(val *string) {
 func CfnLaunchRoleConstraint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLaunchRoleConstraint_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -527,6 +539,9 @@ func CfnLaunchRoleConstraint_IsCfnElement(x interface{}) *bool {
 func CfnLaunchRoleConstraint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLaunchRoleConstraint_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -544,6 +559,9 @@ func CfnLaunchRoleConstraint_IsCfnResource(construct constructs.IConstruct) *boo
 func CfnLaunchRoleConstraint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLaunchRoleConstraint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -568,6 +586,9 @@ func CfnLaunchRoleConstraint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -576,6 +597,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -584,6 +608,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) AddDependsOn(target awscdk.CfnResour
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -592,6 +619,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) AddMetadata(key *string, value inter
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -600,6 +630,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) AddOverride(path *string, value inte
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -608,6 +641,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) AddPropertyDeletionOverride(property
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -616,6 +652,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) AddPropertyOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -624,6 +663,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) ApplyRemovalPolicy(policy awscdk.Rem
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -637,6 +679,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) GetAtt(attributeName *string) awscdk
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -650,6 +695,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) GetMetadata(key *string) interface{}
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -666,6 +714,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -687,6 +738,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -703,6 +757,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) Prepare() {
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -729,6 +786,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -763,6 +823,9 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

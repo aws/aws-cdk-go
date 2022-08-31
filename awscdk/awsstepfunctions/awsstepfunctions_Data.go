@@ -20,6 +20,9 @@ type jsiiProxy_Data struct {
 func Data_IsJsonPathString(value *string) *bool {
 	_init_.Initialize()
 
+	if err := validateData_IsJsonPathStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -37,6 +40,9 @@ func Data_IsJsonPathString(value *string) *bool {
 func Data_ListAt(path *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateData_ListAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -54,6 +60,9 @@ func Data_ListAt(path *string) *[]*string {
 func Data_NumberAt(path *string) *float64 {
 	_init_.Initialize()
 
+	if err := validateData_NumberAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -71,6 +80,9 @@ func Data_NumberAt(path *string) *float64 {
 func Data_StringAt(path *string) *string {
 	_init_.Initialize()
 
+	if err := validateData_StringAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

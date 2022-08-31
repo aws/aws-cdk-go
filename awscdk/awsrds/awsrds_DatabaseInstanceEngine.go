@@ -70,6 +70,9 @@ func NewDatabaseInstanceEngine_Override(d DatabaseInstanceEngine) {
 func DatabaseInstanceEngine_MariaDb(props *MariaDbInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_MariaDbParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -87,6 +90,9 @@ func DatabaseInstanceEngine_MariaDb(props *MariaDbInstanceEngineProps) IInstance
 func DatabaseInstanceEngine_Mysql(props *MySqlInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_MysqlParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -104,6 +110,9 @@ func DatabaseInstanceEngine_Mysql(props *MySqlInstanceEngineProps) IInstanceEngi
 func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_OracleEeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -121,6 +130,9 @@ func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstan
 func DatabaseInstanceEngine_OracleSe(props *OracleSeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_OracleSeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -138,6 +150,9 @@ func DatabaseInstanceEngine_OracleSe(props *OracleSeInstanceEngineProps) IInstan
 func DatabaseInstanceEngine_OracleSe1(props *OracleSe1InstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_OracleSe1Parameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -155,6 +170,9 @@ func DatabaseInstanceEngine_OracleSe1(props *OracleSe1InstanceEngineProps) IInst
 func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_OracleSe2Parameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -172,6 +190,9 @@ func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInst
 func DatabaseInstanceEngine_Postgres(props *PostgresInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_PostgresParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -189,6 +210,9 @@ func DatabaseInstanceEngine_Postgres(props *PostgresInstanceEngineProps) IInstan
 func DatabaseInstanceEngine_SqlServerEe(props *SqlServerEeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_SqlServerEeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -206,6 +230,9 @@ func DatabaseInstanceEngine_SqlServerEe(props *SqlServerEeInstanceEngineProps) I
 func DatabaseInstanceEngine_SqlServerEx(props *SqlServerExInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_SqlServerExParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -223,6 +250,9 @@ func DatabaseInstanceEngine_SqlServerEx(props *SqlServerExInstanceEngineProps) I
 func DatabaseInstanceEngine_SqlServerSe(props *SqlServerSeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_SqlServerSeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
@@ -240,6 +270,9 @@ func DatabaseInstanceEngine_SqlServerSe(props *SqlServerSeInstanceEngineProps) I
 func DatabaseInstanceEngine_SqlServerWeb(props *SqlServerWebInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstanceEngine_SqlServerWebParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(

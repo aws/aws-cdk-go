@@ -729,6 +729,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) UpdatedProperites() *map[string]interf
 func NewCfnEventSourceMapping(scope awscdk.Construct, id *string, props *CfnEventSourceMappingProps) CfnEventSourceMapping {
 	_init_.Initialize()
 
+	if err := validateNewCfnEventSourceMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnEventSourceMapping{}
 
 	_jsii_.Create(
@@ -751,7 +754,10 @@ func NewCfnEventSourceMapping_Override(c CfnEventSourceMapping, scope awscdk.Con
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetAmazonManagedKafkaEventSourceConfig(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetAmazonManagedKafkaEventSourceConfig(val interface{}) {
+	if err := j.validateSetAmazonManagedKafkaEventSourceConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"amazonManagedKafkaEventSourceConfig",
@@ -759,7 +765,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetAmazonManagedKafkaEventSourceConfig
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetBatchSize(val *float64) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetBatchSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"batchSize",
@@ -767,7 +773,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetBatchSize(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetBisectBatchOnFunctionError(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetBisectBatchOnFunctionError(val interface{}) {
+	if err := j.validateSetBisectBatchOnFunctionErrorParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"bisectBatchOnFunctionError",
@@ -775,7 +784,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetBisectBatchOnFunctionError(val inte
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetDestinationConfig(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetDestinationConfig(val interface{}) {
+	if err := j.validateSetDestinationConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"destinationConfig",
@@ -783,7 +795,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetDestinationConfig(val interface{}) 
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetEnabled(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetEnabled(val interface{}) {
+	if err := j.validateSetEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"enabled",
@@ -791,7 +806,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetEnabled(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetEventSourceArn(val *string) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetEventSourceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"eventSourceArn",
@@ -799,7 +814,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetEventSourceArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetFilterCriteria(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetFilterCriteria(val interface{}) {
+	if err := j.validateSetFilterCriteriaParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"filterCriteria",
@@ -807,7 +825,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetFilterCriteria(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetFunctionName(val *string) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetFunctionName(val *string) {
+	if err := j.validateSetFunctionNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"functionName",
@@ -815,7 +836,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetFunctionName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetFunctionResponseTypes(val *[]*string) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetFunctionResponseTypes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"functionResponseTypes",
@@ -823,7 +844,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetFunctionResponseTypes(val *[]*strin
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetMaximumBatchingWindowInSeconds(val *float64) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetMaximumBatchingWindowInSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"maximumBatchingWindowInSeconds",
@@ -831,7 +852,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetMaximumBatchingWindowInSeconds(val 
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetMaximumRecordAgeInSeconds(val *float64) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetMaximumRecordAgeInSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"maximumRecordAgeInSeconds",
@@ -839,7 +860,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetMaximumRecordAgeInSeconds(val *floa
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetMaximumRetryAttempts(val *float64) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetMaximumRetryAttempts(val *float64) {
 	_jsii_.Set(
 		j,
 		"maximumRetryAttempts",
@@ -847,7 +868,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetMaximumRetryAttempts(val *float64) 
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetParallelizationFactor(val *float64) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetParallelizationFactor(val *float64) {
 	_jsii_.Set(
 		j,
 		"parallelizationFactor",
@@ -855,7 +876,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetParallelizationFactor(val *float64)
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetQueues(val *[]*string) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetQueues(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"queues",
@@ -863,7 +884,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetQueues(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetSelfManagedEventSource(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetSelfManagedEventSource(val interface{}) {
+	if err := j.validateSetSelfManagedEventSourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"selfManagedEventSource",
@@ -871,7 +895,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetSelfManagedEventSource(val interfac
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetSelfManagedKafkaEventSourceConfig(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetSelfManagedKafkaEventSourceConfig(val interface{}) {
+	if err := j.validateSetSelfManagedKafkaEventSourceConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"selfManagedKafkaEventSourceConfig",
@@ -879,7 +906,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetSelfManagedKafkaEventSourceConfig(v
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetSourceAccessConfigurations(val interface{}) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetSourceAccessConfigurations(val interface{}) {
+	if err := j.validateSetSourceAccessConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sourceAccessConfigurations",
@@ -887,7 +917,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetSourceAccessConfigurations(val inte
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetStartingPosition(val *string) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetStartingPosition(val *string) {
 	_jsii_.Set(
 		j,
 		"startingPosition",
@@ -895,7 +925,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetStartingPosition(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetStartingPositionTimestamp(val *float64) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetStartingPositionTimestamp(val *float64) {
 	_jsii_.Set(
 		j,
 		"startingPositionTimestamp",
@@ -903,7 +933,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetStartingPositionTimestamp(val *floa
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetTopics(val *[]*string) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetTopics(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"topics",
@@ -911,7 +941,7 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetTopics(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) SetTumblingWindowInSeconds(val *float64) {
+func (j *jsiiProxy_CfnEventSourceMapping)SetTumblingWindowInSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"tumblingWindowInSeconds",
@@ -929,6 +959,9 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetTumblingWindowInSeconds(val *float6
 func CfnEventSourceMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnEventSourceMapping_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -946,6 +979,9 @@ func CfnEventSourceMapping_IsCfnElement(x interface{}) *bool {
 func CfnEventSourceMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnEventSourceMapping_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -963,6 +999,9 @@ func CfnEventSourceMapping_IsCfnResource(construct constructs.IConstruct) *bool 
 func CfnEventSourceMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnEventSourceMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -987,6 +1026,9 @@ func CfnEventSourceMapping_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -995,6 +1037,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1003,6 +1048,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddDependsOn(target awscdk.CfnResource
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1011,6 +1059,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddMetadata(key *string, value interfa
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1019,6 +1070,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddOverride(path *string, value interf
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1027,6 +1081,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyDeletionOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1035,6 +1092,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1043,6 +1103,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1056,6 +1119,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) GetAtt(attributeName *string) awscdk.R
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1069,6 +1135,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1085,6 +1154,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1106,6 +1178,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1122,6 +1197,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) Prepare() {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1148,6 +1226,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1182,6 +1263,9 @@ func (c *jsiiProxy_CfnEventSourceMapping) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnEventSourceMapping) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

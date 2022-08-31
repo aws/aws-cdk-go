@@ -431,6 +431,9 @@ func (j *jsiiProxy_Ec2Service) TaskDefinition() TaskDefinition {
 func NewEc2Service(scope constructs.Construct, id *string, props *Ec2ServiceProps) Ec2Service {
 	_init_.Initialize()
 
+	if err := validateNewEc2ServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Ec2Service{}
 
 	_jsii_.Create(
@@ -454,7 +457,7 @@ func NewEc2Service_Override(e Ec2Service, scope constructs.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_Ec2Service) SetCloudmapService(val awsservicediscovery.Service) {
+func (j *jsiiProxy_Ec2Service)SetCloudmapService(val awsservicediscovery.Service) {
 	_jsii_.Set(
 		j,
 		"cloudmapService",
@@ -462,7 +465,10 @@ func (j *jsiiProxy_Ec2Service) SetCloudmapService(val awsservicediscovery.Servic
 	)
 }
 
-func (j *jsiiProxy_Ec2Service) SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty) {
+func (j *jsiiProxy_Ec2Service)SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty) {
+	if err := j.validateSetLoadBalancersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"loadBalancers",
@@ -470,7 +476,10 @@ func (j *jsiiProxy_Ec2Service) SetLoadBalancers(val *[]*CfnService_LoadBalancerP
 	)
 }
 
-func (j *jsiiProxy_Ec2Service) SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty) {
+func (j *jsiiProxy_Ec2Service)SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty) {
+	if err := j.validateSetNetworkConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkConfiguration",
@@ -478,7 +487,10 @@ func (j *jsiiProxy_Ec2Service) SetNetworkConfiguration(val *CfnService_NetworkCo
 	)
 }
 
-func (j *jsiiProxy_Ec2Service) SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty) {
+func (j *jsiiProxy_Ec2Service)SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty) {
+	if err := j.validateSetServiceRegistriesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"serviceRegistries",
@@ -491,6 +503,9 @@ func (j *jsiiProxy_Ec2Service) SetServiceRegistries(val *[]*CfnService_ServiceRe
 func Ec2Service_FromEc2ServiceArn(scope constructs.Construct, id *string, ec2ServiceArn *string) IEc2Service {
 	_init_.Initialize()
 
+	if err := validateEc2Service_FromEc2ServiceArnParameters(scope, id, ec2ServiceArn); err != nil {
+		panic(err)
+	}
 	var returns IEc2Service
 
 	_jsii_.StaticInvoke(
@@ -508,6 +523,9 @@ func Ec2Service_FromEc2ServiceArn(scope constructs.Construct, id *string, ec2Ser
 func Ec2Service_FromEc2ServiceAttributes(scope constructs.Construct, id *string, attrs *Ec2ServiceAttributes) IBaseService {
 	_init_.Initialize()
 
+	if err := validateEc2Service_FromEc2ServiceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
@@ -529,6 +547,9 @@ func Ec2Service_FromEc2ServiceAttributes(scope constructs.Construct, id *string,
 func Ec2Service_FromServiceArnWithCluster(scope constructs.Construct, id *string, serviceArn *string) IBaseService {
 	_init_.Initialize()
 
+	if err := validateEc2Service_FromServiceArnWithClusterParameters(scope, id, serviceArn); err != nil {
+		panic(err)
+	}
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
@@ -546,6 +567,9 @@ func Ec2Service_FromServiceArnWithCluster(scope constructs.Construct, id *string
 func Ec2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEc2Service_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -563,6 +587,9 @@ func Ec2Service_IsConstruct(x interface{}) *bool {
 func Ec2Service_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateEc2Service_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -602,6 +629,9 @@ func (e *jsiiProxy_Ec2Service) AddPlacementStrategies(strategies ...PlacementStr
 }
 
 func (e *jsiiProxy_Ec2Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -610,6 +640,9 @@ func (e *jsiiProxy_Ec2Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (e *jsiiProxy_Ec2Service) AssociateCloudMapService(options *AssociateCloudMapServiceOptions) {
+	if err := e.validateAssociateCloudMapServiceParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"associateCloudMapService",
@@ -618,6 +651,9 @@ func (e *jsiiProxy_Ec2Service) AssociateCloudMapService(options *AssociateCloudM
 }
 
 func (e *jsiiProxy_Ec2Service) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := e.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -631,6 +667,9 @@ func (e *jsiiProxy_Ec2Service) AttachToApplicationTargetGroup(targetGroup awsela
 }
 
 func (e *jsiiProxy_Ec2Service) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
+	if err := e.validateAttachToClassicLBParameters(loadBalancer); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"attachToClassicLB",
@@ -639,6 +678,9 @@ func (e *jsiiProxy_Ec2Service) AttachToClassicLB(loadBalancer awselasticloadbala
 }
 
 func (e *jsiiProxy_Ec2Service) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := e.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -652,6 +694,9 @@ func (e *jsiiProxy_Ec2Service) AttachToNetworkTargetGroup(targetGroup awselastic
 }
 
 func (e *jsiiProxy_Ec2Service) AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
+	if err := e.validateAutoScaleTaskCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ScalableTaskCount
 
 	_jsii_.Invoke(
@@ -665,6 +710,9 @@ func (e *jsiiProxy_Ec2Service) AutoScaleTaskCount(props *awsapplicationautoscali
 }
 
 func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	if err := e.validateConfigureAwsVpcNetworkingParameters(vpc, vpcSubnets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"configureAwsVpcNetworking",
@@ -673,6 +721,9 @@ func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assign
 }
 
 func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
+	if err := e.validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc, vpcSubnets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"configureAwsVpcNetworkingWithSecurityGroups",
@@ -681,6 +732,9 @@ func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc a
 }
 
 func (e *jsiiProxy_Ec2Service) EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service {
+	if err := e.validateEnableCloudMapParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awsservicediscovery.Service
 
 	_jsii_.Invoke(
@@ -707,6 +761,9 @@ func (e *jsiiProxy_Ec2Service) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_Ec2Service) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -720,6 +777,9 @@ func (e *jsiiProxy_Ec2Service) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (e *jsiiProxy_Ec2Service) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -733,6 +793,9 @@ func (e *jsiiProxy_Ec2Service) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 func (e *jsiiProxy_Ec2Service) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+	if err := e.validateLoadBalancerTargetParameters(options); err != nil {
+		panic(err)
+	}
 	var returns IEcsLoadBalancerTarget
 
 	_jsii_.Invoke(
@@ -746,6 +809,9 @@ func (e *jsiiProxy_Ec2Service) LoadBalancerTarget(options *LoadBalancerTargetOpt
 }
 
 func (e *jsiiProxy_Ec2Service) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -759,6 +825,9 @@ func (e *jsiiProxy_Ec2Service) Metric(metricName *string, props *awscloudwatch.M
 }
 
 func (e *jsiiProxy_Ec2Service) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricCpuUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -772,6 +841,9 @@ func (e *jsiiProxy_Ec2Service) MetricCpuUtilization(props *awscloudwatch.MetricO
 }
 
 func (e *jsiiProxy_Ec2Service) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricMemoryUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -793,6 +865,9 @@ func (e *jsiiProxy_Ec2Service) OnPrepare() {
 }
 
 func (e *jsiiProxy_Ec2Service) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -822,6 +897,9 @@ func (e *jsiiProxy_Ec2Service) Prepare() {
 }
 
 func (e *jsiiProxy_Ec2Service) RegisterLoadBalancerTargets(targets ...*EcsTarget) {
+	if err := e.validateRegisterLoadBalancerTargetsParameters(&targets); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range targets {
 		args = append(args, a)
@@ -835,6 +913,9 @@ func (e *jsiiProxy_Ec2Service) RegisterLoadBalancerTargets(targets ...*EcsTarget
 }
 
 func (e *jsiiProxy_Ec2Service) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

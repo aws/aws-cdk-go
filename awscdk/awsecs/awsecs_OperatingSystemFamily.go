@@ -46,6 +46,9 @@ type jsiiProxy_OperatingSystemFamily struct {
 func OperatingSystemFamily_Of(family *string) OperatingSystemFamily {
 	_init_.Initialize()
 
+	if err := validateOperatingSystemFamily_OfParameters(family); err != nil {
+		panic(err)
+	}
 	var returns OperatingSystemFamily
 
 	_jsii_.StaticInvoke(

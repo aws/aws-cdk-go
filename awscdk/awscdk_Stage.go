@@ -232,6 +232,9 @@ func (j *jsiiProxy_Stage) StageName() *string {
 func NewStage(scope constructs.Construct, id *string, props *StageProps) Stage {
 	_init_.Initialize()
 
+	if err := validateNewStageParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Stage{}
 
 	_jsii_.Create(
@@ -259,6 +262,9 @@ func NewStage_Override(s Stage, scope constructs.Construct, id *string, props *S
 func Stage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStage_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -276,6 +282,9 @@ func Stage_IsConstruct(x interface{}) *bool {
 func Stage_IsStage(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStage_IsStageParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -296,6 +305,9 @@ func Stage_IsStage(x interface{}) *bool {
 func Stage_Of(construct constructs.IConstruct) Stage {
 	_init_.Initialize()
 
+	if err := validateStage_OfParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns Stage
 
 	_jsii_.StaticInvoke(
@@ -317,6 +329,9 @@ func (s *jsiiProxy_Stage) OnPrepare() {
 }
 
 func (s *jsiiProxy_Stage) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -346,6 +361,9 @@ func (s *jsiiProxy_Stage) Prepare() {
 }
 
 func (s *jsiiProxy_Stage) Synth(options *StageSynthesisOptions) cxapi.CloudAssembly {
+	if err := s.validateSynthParameters(options); err != nil {
+		panic(err)
+	}
 	var returns cxapi.CloudAssembly
 
 	_jsii_.Invoke(
@@ -359,6 +377,9 @@ func (s *jsiiProxy_Stage) Synth(options *StageSynthesisOptions) cxapi.CloudAssem
 }
 
 func (s *jsiiProxy_Stage) Synthesize(session ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

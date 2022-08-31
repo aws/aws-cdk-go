@@ -44,6 +44,9 @@ type jsiiProxy_IIntermediateType struct {
 }
 
 func (i *jsiiProxy_IIntermediateType) AddField(options *AddFieldOptions) {
+	if err := i.validateAddFieldParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addField",
@@ -52,6 +55,9 @@ func (i *jsiiProxy_IIntermediateType) AddField(options *AddFieldOptions) {
 }
 
 func (i *jsiiProxy_IIntermediateType) Attribute(options *BaseTypeOptions) GraphqlType {
+	if err := i.validateAttributeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.Invoke(
@@ -137,7 +143,7 @@ func (j *jsiiProxy_IIntermediateType) Resolvers() *[]Resolver {
 	return returns
 }
 
-func (j *jsiiProxy_IIntermediateType) SetResolvers(val *[]Resolver) {
+func (j *jsiiProxy_IIntermediateType)SetResolvers(val *[]Resolver) {
 	_jsii_.Set(
 		j,
 		"resolvers",

@@ -83,6 +83,9 @@ func NewBuildSpec_Override(b BuildSpec) {
 func BuildSpec_FromObject(value *map[string]interface{}) BuildSpec {
 	_init_.Initialize()
 
+	if err := validateBuildSpec_FromObjectParameters(value); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
@@ -100,6 +103,9 @@ func BuildSpec_FromObject(value *map[string]interface{}) BuildSpec {
 func BuildSpec_FromObjectToYaml(value *map[string]interface{}) BuildSpec {
 	_init_.Initialize()
 
+	if err := validateBuildSpec_FromObjectToYamlParameters(value); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
@@ -119,6 +125,9 @@ func BuildSpec_FromObjectToYaml(value *map[string]interface{}) BuildSpec {
 func BuildSpec_FromSourceFilename(filename *string) BuildSpec {
 	_init_.Initialize()
 
+	if err := validateBuildSpec_FromSourceFilenameParameters(filename); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(

@@ -104,6 +104,9 @@ func Peer_AnyIpv6() IPeer {
 func Peer_Ipv4(cidrIp *string) IPeer {
 	_init_.Initialize()
 
+	if err := validatePeer_Ipv4Parameters(cidrIp); err != nil {
+		panic(err)
+	}
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
@@ -121,6 +124,9 @@ func Peer_Ipv4(cidrIp *string) IPeer {
 func Peer_Ipv6(cidrIp *string) IPeer {
 	_init_.Initialize()
 
+	if err := validatePeer_Ipv6Parameters(cidrIp); err != nil {
+		panic(err)
+	}
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
@@ -138,6 +144,9 @@ func Peer_Ipv6(cidrIp *string) IPeer {
 func Peer_PrefixList(prefixListId *string) IPeer {
 	_init_.Initialize()
 
+	if err := validatePeer_PrefixListParameters(prefixListId); err != nil {
+		panic(err)
+	}
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
@@ -155,6 +164,9 @@ func Peer_PrefixList(prefixListId *string) IPeer {
 func Peer_SecurityGroupId(securityGroupId *string, sourceSecurityGroupOwnerId *string) IPeer {
 	_init_.Initialize()
 
+	if err := validatePeer_SecurityGroupIdParameters(securityGroupId); err != nil {
+		panic(err)
+	}
 	var returns IPeer
 
 	_jsii_.StaticInvoke(

@@ -52,6 +52,9 @@ type jsiiProxy_FluentdLogDriver struct {
 func NewFluentdLogDriver(props *FluentdLogDriverProps) FluentdLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewFluentdLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FluentdLogDriver{}
 
 	_jsii_.Create(
@@ -80,6 +83,9 @@ func NewFluentdLogDriver_Override(f FluentdLogDriver, props *FluentdLogDriverPro
 func FluentdLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateFluentdLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -93,6 +99,9 @@ func FluentdLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (f *jsiiProxy_FluentdLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := f.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

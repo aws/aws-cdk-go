@@ -214,6 +214,9 @@ func (j *jsiiProxy_Branch) Stack() awscdk.Stack {
 func NewBranch(scope constructs.Construct, id *string, props *BranchProps) Branch {
 	_init_.Initialize()
 
+	if err := validateNewBranchParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Branch{}
 
 	_jsii_.Create(
@@ -241,6 +244,9 @@ func NewBranch_Override(b Branch, scope constructs.Construct, id *string, props 
 func Branch_FromBranchName(scope constructs.Construct, id *string, branchName *string) IBranch {
 	_init_.Initialize()
 
+	if err := validateBranch_FromBranchNameParameters(scope, id, branchName); err != nil {
+		panic(err)
+	}
 	var returns IBranch
 
 	_jsii_.StaticInvoke(
@@ -258,6 +264,9 @@ func Branch_FromBranchName(scope constructs.Construct, id *string, branchName *s
 func Branch_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBranch_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -275,6 +284,9 @@ func Branch_IsConstruct(x interface{}) *bool {
 func Branch_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBranch_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -288,6 +300,9 @@ func Branch_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_Branch) AddEnvironment(name *string, value *string) Branch {
+	if err := b.validateAddEnvironmentParameters(name, value); err != nil {
+		panic(err)
+	}
 	var returns Branch
 
 	_jsii_.Invoke(
@@ -301,6 +316,9 @@ func (b *jsiiProxy_Branch) AddEnvironment(name *string, value *string) Branch {
 }
 
 func (b *jsiiProxy_Branch) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -322,6 +340,9 @@ func (b *jsiiProxy_Branch) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_Branch) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -335,6 +356,9 @@ func (b *jsiiProxy_Branch) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (b *jsiiProxy_Branch) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -356,6 +380,9 @@ func (b *jsiiProxy_Branch) OnPrepare() {
 }
 
 func (b *jsiiProxy_Branch) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -385,6 +412,9 @@ func (b *jsiiProxy_Branch) Prepare() {
 }
 
 func (b *jsiiProxy_Branch) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

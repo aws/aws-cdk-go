@@ -324,6 +324,9 @@ func (j *jsiiProxy_DatabaseCluster) Stack() awscdk.Stack {
 func NewDatabaseCluster(scope constructs.Construct, id *string, props *DatabaseClusterProps) DatabaseCluster {
 	_init_.Initialize()
 
+	if err := validateNewDatabaseClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DatabaseCluster{}
 
 	_jsii_.Create(
@@ -351,6 +354,9 @@ func NewDatabaseCluster_Override(d DatabaseCluster, scope constructs.Construct, 
 func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, id *string, attrs *DatabaseClusterAttributes) IDatabaseCluster {
 	_init_.Initialize()
 
+	if err := validateDatabaseCluster_FromDatabaseClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDatabaseCluster
 
 	_jsii_.StaticInvoke(
@@ -368,6 +374,9 @@ func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, i
 func DatabaseCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -385,6 +394,9 @@ func DatabaseCluster_IsConstruct(x interface{}) *bool {
 func DatabaseCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseCluster_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -420,6 +432,9 @@ func DatabaseCluster_DEFAULT_PORT() *float64 {
 }
 
 func (d *jsiiProxy_DatabaseCluster) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
+	if err := d.validateAddRotationMultiUserParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -459,6 +474,9 @@ func (d *jsiiProxy_DatabaseCluster) AddSecurityGroups(securityGroups ...awsec2.I
 }
 
 func (d *jsiiProxy_DatabaseCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -493,6 +511,9 @@ func (d *jsiiProxy_DatabaseCluster) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DatabaseCluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -506,6 +527,9 @@ func (d *jsiiProxy_DatabaseCluster) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (d *jsiiProxy_DatabaseCluster) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -527,6 +551,9 @@ func (d *jsiiProxy_DatabaseCluster) OnPrepare() {
 }
 
 func (d *jsiiProxy_DatabaseCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -556,6 +583,9 @@ func (d *jsiiProxy_DatabaseCluster) Prepare() {
 }
 
 func (d *jsiiProxy_DatabaseCluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

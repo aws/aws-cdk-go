@@ -48,6 +48,9 @@ type jsiiProxy_HttpJwtAuthorizer struct {
 func NewHttpJwtAuthorizer(id *string, jwtIssuer *string, props *HttpJwtAuthorizerProps) HttpJwtAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewHttpJwtAuthorizerParameters(id, jwtIssuer, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpJwtAuthorizer{}
 
 	_jsii_.Create(
@@ -72,6 +75,9 @@ func NewHttpJwtAuthorizer_Override(h HttpJwtAuthorizer, id *string, jwtIssuer *s
 }
 
 func (h *jsiiProxy_HttpJwtAuthorizer) Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig {
+	if err := h.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteAuthorizerConfig
 
 	_jsii_.Invoke(

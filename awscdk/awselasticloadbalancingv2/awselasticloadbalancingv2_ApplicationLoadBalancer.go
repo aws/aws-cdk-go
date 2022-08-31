@@ -446,6 +446,9 @@ func (j *jsiiProxy_ApplicationLoadBalancer) Vpc() awsec2.IVpc {
 func NewApplicationLoadBalancer(scope constructs.Construct, id *string, props *ApplicationLoadBalancerProps) ApplicationLoadBalancer {
 	_init_.Initialize()
 
+	if err := validateNewApplicationLoadBalancerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationLoadBalancer{}
 
 	_jsii_.Create(
@@ -473,6 +476,9 @@ func NewApplicationLoadBalancer_Override(a ApplicationLoadBalancer, scope constr
 func ApplicationLoadBalancer_FromApplicationLoadBalancerAttributes(scope constructs.Construct, id *string, attrs *ApplicationLoadBalancerAttributes) IApplicationLoadBalancer {
 	_init_.Initialize()
 
+	if err := validateApplicationLoadBalancer_FromApplicationLoadBalancerAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IApplicationLoadBalancer
 
 	_jsii_.StaticInvoke(
@@ -490,6 +496,9 @@ func ApplicationLoadBalancer_FromApplicationLoadBalancerAttributes(scope constru
 func ApplicationLoadBalancer_FromLookup(scope constructs.Construct, id *string, options *ApplicationLoadBalancerLookupOptions) IApplicationLoadBalancer {
 	_init_.Initialize()
 
+	if err := validateApplicationLoadBalancer_FromLookupParameters(scope, id, options); err != nil {
+		panic(err)
+	}
 	var returns IApplicationLoadBalancer
 
 	_jsii_.StaticInvoke(
@@ -507,6 +516,9 @@ func ApplicationLoadBalancer_FromLookup(scope constructs.Construct, id *string, 
 func ApplicationLoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationLoadBalancer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -524,6 +536,9 @@ func ApplicationLoadBalancer_IsConstruct(x interface{}) *bool {
 func ApplicationLoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationLoadBalancer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -537,6 +552,9 @@ func ApplicationLoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) AddListener(id *string, props *BaseApplicationListenerProps) ApplicationListener {
+	if err := a.validateAddListenerParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ApplicationListener
 
 	_jsii_.Invoke(
@@ -550,6 +568,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) AddListener(id *string, props *BaseA
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) AddRedirect(props *ApplicationLoadBalancerRedirectConfig) ApplicationListener {
+	if err := a.validateAddRedirectParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ApplicationListener
 
 	_jsii_.Invoke(
@@ -563,6 +584,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) AddRedirect(props *ApplicationLoadBa
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) AddSecurityGroup(securityGroup awsec2.ISecurityGroup) {
+	if err := a.validateAddSecurityGroupParameters(securityGroup); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addSecurityGroup",
@@ -571,6 +595,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) AddSecurityGroup(securityGroup awsec
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -592,6 +619,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -605,6 +635,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceArnAttribute(arnAttr *str
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -618,6 +651,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) GetResourceNameAttribute(nameAttr *s
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) LogAccessLogs(bucket awss3.IBucket, prefix *string) {
+	if err := a.validateLogAccessLogsParameters(bucket); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"logAccessLogs",
@@ -626,6 +662,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) LogAccessLogs(bucket awss3.IBucket, 
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -639,6 +678,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) Metric(metricName *string, props *aw
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricActiveConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricActiveConnectionCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -652,6 +694,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricActiveConnectionCount(props *a
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricClientTlsNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricClientTlsNegotiationErrorCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -665,6 +710,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricClientTlsNegotiationErrorCount
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricConsumedLCUs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricConsumedLCUsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -678,6 +726,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricConsumedLCUs(props *awscloudwa
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricElbAuthErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -691,6 +742,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthError(props *awscloudwa
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricElbAuthFailureParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -704,6 +758,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthFailure(props *awscloud
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricElbAuthLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -717,6 +774,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthLatency(props *awscloud
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricElbAuthSuccessParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -730,6 +790,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricElbAuthSuccess(props *awscloud
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeElb(code HttpCodeElb, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHttpCodeElbParameters(code, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -743,6 +806,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeElb(code HttpCodeElb, 
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeTarget(code HttpCodeTarget, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHttpCodeTargetParameters(code, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -756,6 +822,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpCodeTarget(code HttpCodeTa
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpFixedResponseCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHttpFixedResponseCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -769,6 +838,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpFixedResponseCount(props *
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHttpRedirectCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -782,6 +854,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectCount(props *awscl
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectUrlLimitExceededCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHttpRedirectUrlLimitExceededCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -795,6 +870,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricHttpRedirectUrlLimitExceededCo
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6ProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricIpv6ProcessedBytesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -808,6 +886,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6ProcessedBytes(props *awsc
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6RequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricIpv6RequestCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -821,6 +902,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricIpv6RequestCount(props *awsclo
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricNewConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricNewConnectionCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -834,6 +918,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricNewConnectionCount(props *awsc
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricProcessedBytesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -847,6 +934,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricProcessedBytes(props *awscloud
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricRejectedConnectionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricRejectedConnectionCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -860,6 +950,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricRejectedConnectionCount(props 
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricRequestCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricRequestCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -873,6 +966,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricRequestCount(props *awscloudwa
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricRuleEvaluations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricRuleEvaluationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -886,6 +982,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricRuleEvaluations(props *awsclou
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetConnectionErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTargetConnectionErrorCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -899,6 +998,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetConnectionErrorCount(pro
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetResponseTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTargetResponseTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -912,6 +1014,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetResponseTime(props *awsc
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) MetricTargetTLSNegotiationErrorCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTargetTLSNegotiationErrorCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -933,6 +1038,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -962,6 +1070,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) RemoveAttribute(key *string) {
+	if err := a.validateRemoveAttributeParameters(key); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"removeAttribute",
@@ -970,6 +1081,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) RemoveAttribute(key *string) {
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) SetAttribute(key *string, value *string) {
+	if err := a.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"setAttribute",
@@ -978,6 +1092,9 @@ func (a *jsiiProxy_ApplicationLoadBalancer) SetAttribute(key *string, value *str
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

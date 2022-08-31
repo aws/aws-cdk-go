@@ -113,6 +113,9 @@ func VirtualRouterListener_Tcp(port *float64) VirtualRouterListener {
 }
 
 func (v *jsiiProxy_VirtualRouterListener) Bind(scope awscdk.Construct) *VirtualRouterListenerConfig {
+	if err := v.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *VirtualRouterListenerConfig
 
 	_jsii_.Invoke(

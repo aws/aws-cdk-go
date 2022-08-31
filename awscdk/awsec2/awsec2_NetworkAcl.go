@@ -238,6 +238,9 @@ func (j *jsiiProxy_NetworkAcl) Stack() awscdk.Stack {
 func NewNetworkAcl(scope constructs.Construct, id *string, props *NetworkAclProps) NetworkAcl {
 	_init_.Initialize()
 
+	if err := validateNewNetworkAclParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NetworkAcl{}
 
 	_jsii_.Create(
@@ -265,6 +268,9 @@ func NewNetworkAcl_Override(n NetworkAcl, scope constructs.Construct, id *string
 func NetworkAcl_FromNetworkAclId(scope constructs.Construct, id *string, networkAclId *string) INetworkAcl {
 	_init_.Initialize()
 
+	if err := validateNetworkAcl_FromNetworkAclIdParameters(scope, id, networkAclId); err != nil {
+		panic(err)
+	}
 	var returns INetworkAcl
 
 	_jsii_.StaticInvoke(
@@ -282,6 +288,9 @@ func NetworkAcl_FromNetworkAclId(scope constructs.Construct, id *string, network
 func NetworkAcl_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkAcl_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -299,6 +308,9 @@ func NetworkAcl_IsConstruct(x interface{}) *bool {
 func NetworkAcl_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkAcl_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -312,6 +324,9 @@ func NetworkAcl_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (n *jsiiProxy_NetworkAcl) AddEntry(id *string, options *CommonNetworkAclEntryOptions) NetworkAclEntry {
+	if err := n.validateAddEntryParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns NetworkAclEntry
 
 	_jsii_.Invoke(
@@ -325,6 +340,9 @@ func (n *jsiiProxy_NetworkAcl) AddEntry(id *string, options *CommonNetworkAclEnt
 }
 
 func (n *jsiiProxy_NetworkAcl) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := n.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"applyRemovalPolicy",
@@ -333,6 +351,9 @@ func (n *jsiiProxy_NetworkAcl) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (n *jsiiProxy_NetworkAcl) AssociateWithSubnet(id *string, selection *SubnetSelection) {
+	if err := n.validateAssociateWithSubnetParameters(id, selection); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"associateWithSubnet",
@@ -354,6 +375,9 @@ func (n *jsiiProxy_NetworkAcl) GeneratePhysicalName() *string {
 }
 
 func (n *jsiiProxy_NetworkAcl) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := n.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -367,6 +391,9 @@ func (n *jsiiProxy_NetworkAcl) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (n *jsiiProxy_NetworkAcl) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := n.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -388,6 +415,9 @@ func (n *jsiiProxy_NetworkAcl) OnPrepare() {
 }
 
 func (n *jsiiProxy_NetworkAcl) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -417,6 +447,9 @@ func (n *jsiiProxy_NetworkAcl) Prepare() {
 }
 
 func (n *jsiiProxy_NetworkAcl) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

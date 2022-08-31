@@ -204,6 +204,9 @@ func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Stack() awscdk.Stack {
 func NewUserPoolIdentityProviderAmazon(scope constructs.Construct, id *string, props *UserPoolIdentityProviderAmazonProps) UserPoolIdentityProviderAmazon {
 	_init_.Initialize()
 
+	if err := validateNewUserPoolIdentityProviderAmazonParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UserPoolIdentityProviderAmazon{}
 
 	_jsii_.Create(
@@ -231,6 +234,9 @@ func NewUserPoolIdentityProviderAmazon_Override(u UserPoolIdentityProviderAmazon
 func UserPoolIdentityProviderAmazon_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolIdentityProviderAmazon_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -248,6 +254,9 @@ func UserPoolIdentityProviderAmazon_IsConstruct(x interface{}) *bool {
 func UserPoolIdentityProviderAmazon_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolIdentityProviderAmazon_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -261,6 +270,9 @@ func UserPoolIdentityProviderAmazon_IsResource(construct awscdk.IConstruct) *boo
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderAmazon) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -295,6 +307,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) GeneratePhysicalName() *strin
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderAmazon) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -308,6 +323,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) GetResourceArnAttribute(arnAt
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderAmazon) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -329,6 +347,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnPrepare() {
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -358,6 +379,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Prepare() {
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

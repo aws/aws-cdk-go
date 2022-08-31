@@ -672,6 +672,9 @@ func (j *jsiiProxy_FargateCluster) Vpc() awsec2.IVpc {
 func NewFargateCluster(scope constructs.Construct, id *string, props *FargateClusterProps) FargateCluster {
 	_init_.Initialize()
 
+	if err := validateNewFargateClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FargateCluster{}
 
 	_jsii_.Create(
@@ -699,6 +702,9 @@ func NewFargateCluster_Override(f FargateCluster, scope constructs.Construct, id
 func FargateCluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
+	if err := validateFargateCluster_FromClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
@@ -716,6 +722,9 @@ func FargateCluster_FromClusterAttributes(scope constructs.Construct, id *string
 func FargateCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFargateCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -733,6 +742,9 @@ func FargateCluster_IsConstruct(x interface{}) *bool {
 func FargateCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFargateCluster_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -746,6 +758,9 @@ func FargateCluster_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (f *jsiiProxy_FargateCluster) AddAutoScalingGroupCapacity(id *string, options *AutoScalingGroupCapacityOptions) awsautoscaling.AutoScalingGroup {
+	if err := f.validateAddAutoScalingGroupCapacityParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsautoscaling.AutoScalingGroup
 
 	_jsii_.Invoke(
@@ -759,6 +774,9 @@ func (f *jsiiProxy_FargateCluster) AddAutoScalingGroupCapacity(id *string, optio
 }
 
 func (f *jsiiProxy_FargateCluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
+	if err := f.validateAddCdk8sChartParameters(id, chart, options); err != nil {
+		panic(err)
+	}
 	var returns KubernetesManifest
 
 	_jsii_.Invoke(
@@ -772,6 +790,9 @@ func (f *jsiiProxy_FargateCluster) AddCdk8sChart(id *string, chart constructs.Co
 }
 
 func (f *jsiiProxy_FargateCluster) AddFargateProfile(id *string, options *FargateProfileOptions) FargateProfile {
+	if err := f.validateAddFargateProfileParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns FargateProfile
 
 	_jsii_.Invoke(
@@ -785,6 +806,9 @@ func (f *jsiiProxy_FargateCluster) AddFargateProfile(id *string, options *Fargat
 }
 
 func (f *jsiiProxy_FargateCluster) AddHelmChart(id *string, options *HelmChartOptions) HelmChart {
+	if err := f.validateAddHelmChartParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns HelmChart
 
 	_jsii_.Invoke(
@@ -798,6 +822,9 @@ func (f *jsiiProxy_FargateCluster) AddHelmChart(id *string, options *HelmChartOp
 }
 
 func (f *jsiiProxy_FargateCluster) AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest {
+	if err := f.validateAddManifestParameters(id); err != nil {
+		panic(err)
+	}
 	args := []interface{}{id}
 	for _, a := range manifest {
 		args = append(args, a)
@@ -816,6 +843,9 @@ func (f *jsiiProxy_FargateCluster) AddManifest(id *string, manifest ...*map[stri
 }
 
 func (f *jsiiProxy_FargateCluster) AddNodegroupCapacity(id *string, options *NodegroupOptions) Nodegroup {
+	if err := f.validateAddNodegroupCapacityParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns Nodegroup
 
 	_jsii_.Invoke(
@@ -829,6 +859,9 @@ func (f *jsiiProxy_FargateCluster) AddNodegroupCapacity(id *string, options *Nod
 }
 
 func (f *jsiiProxy_FargateCluster) AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount {
+	if err := f.validateAddServiceAccountParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns ServiceAccount
 
 	_jsii_.Invoke(
@@ -842,6 +875,9 @@ func (f *jsiiProxy_FargateCluster) AddServiceAccount(id *string, options *Servic
 }
 
 func (f *jsiiProxy_FargateCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -850,6 +886,9 @@ func (f *jsiiProxy_FargateCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (f *jsiiProxy_FargateCluster) ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions) {
+	if err := f.validateConnectAutoScalingGroupCapacityParameters(autoScalingGroup, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"connectAutoScalingGroupCapacity",
@@ -871,6 +910,9 @@ func (f *jsiiProxy_FargateCluster) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FargateCluster) GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string {
+	if err := f.validateGetIngressLoadBalancerAddressParameters(ingressName, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -884,6 +926,9 @@ func (f *jsiiProxy_FargateCluster) GetIngressLoadBalancerAddress(ingressName *st
 }
 
 func (f *jsiiProxy_FargateCluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -897,6 +942,9 @@ func (f *jsiiProxy_FargateCluster) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (f *jsiiProxy_FargateCluster) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -910,6 +958,9 @@ func (f *jsiiProxy_FargateCluster) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 func (f *jsiiProxy_FargateCluster) GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string {
+	if err := f.validateGetServiceLoadBalancerAddressParameters(serviceName, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -931,6 +982,9 @@ func (f *jsiiProxy_FargateCluster) OnPrepare() {
 }
 
 func (f *jsiiProxy_FargateCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -960,6 +1014,9 @@ func (f *jsiiProxy_FargateCluster) Prepare() {
 }
 
 func (f *jsiiProxy_FargateCluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

@@ -203,6 +203,9 @@ func (j *jsiiProxy_ReceiptRuleSet) Stack() awscdk.Stack {
 func NewReceiptRuleSet(scope constructs.Construct, id *string, props *ReceiptRuleSetProps) ReceiptRuleSet {
 	_init_.Initialize()
 
+	if err := validateNewReceiptRuleSetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ReceiptRuleSet{}
 
 	_jsii_.Create(
@@ -230,6 +233,9 @@ func NewReceiptRuleSet_Override(r ReceiptRuleSet, scope constructs.Construct, id
 func ReceiptRuleSet_FromReceiptRuleSetName(scope constructs.Construct, id *string, receiptRuleSetName *string) IReceiptRuleSet {
 	_init_.Initialize()
 
+	if err := validateReceiptRuleSet_FromReceiptRuleSetNameParameters(scope, id, receiptRuleSetName); err != nil {
+		panic(err)
+	}
 	var returns IReceiptRuleSet
 
 	_jsii_.StaticInvoke(
@@ -247,6 +253,9 @@ func ReceiptRuleSet_FromReceiptRuleSetName(scope constructs.Construct, id *strin
 func ReceiptRuleSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateReceiptRuleSet_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -264,6 +273,9 @@ func ReceiptRuleSet_IsConstruct(x interface{}) *bool {
 func ReceiptRuleSet_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateReceiptRuleSet_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -285,6 +297,9 @@ func (r *jsiiProxy_ReceiptRuleSet) AddDropSpamRule() {
 }
 
 func (r *jsiiProxy_ReceiptRuleSet) AddRule(id *string, options *ReceiptRuleOptions) ReceiptRule {
+	if err := r.validateAddRuleParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns ReceiptRule
 
 	_jsii_.Invoke(
@@ -298,6 +313,9 @@ func (r *jsiiProxy_ReceiptRuleSet) AddRule(id *string, options *ReceiptRuleOptio
 }
 
 func (r *jsiiProxy_ReceiptRuleSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -319,6 +337,9 @@ func (r *jsiiProxy_ReceiptRuleSet) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_ReceiptRuleSet) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -332,6 +353,9 @@ func (r *jsiiProxy_ReceiptRuleSet) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (r *jsiiProxy_ReceiptRuleSet) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -353,6 +377,9 @@ func (r *jsiiProxy_ReceiptRuleSet) OnPrepare() {
 }
 
 func (r *jsiiProxy_ReceiptRuleSet) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -382,6 +409,9 @@ func (r *jsiiProxy_ReceiptRuleSet) Prepare() {
 }
 
 func (r *jsiiProxy_ReceiptRuleSet) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

@@ -110,6 +110,9 @@ func (j *jsiiProxy_BootstraplessSynthesizer) Stack() Stack {
 func NewBootstraplessSynthesizer(props *BootstraplessSynthesizerProps) BootstraplessSynthesizer {
 	_init_.Initialize()
 
+	if err := validateNewBootstraplessSynthesizerParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BootstraplessSynthesizer{}
 
 	_jsii_.Create(
@@ -265,6 +268,9 @@ func BootstraplessSynthesizer_DEFAULT_QUALIFIER() *string {
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) AddDockerImageAsset(_asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := b.validateAddDockerImageAssetParameters(_asset); err != nil {
+		panic(err)
+	}
 	var returns *DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -278,6 +284,9 @@ func (b *jsiiProxy_BootstraplessSynthesizer) AddDockerImageAsset(_asset *DockerI
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) AddFileAsset(_asset *FileAssetSource) *FileAssetLocation {
+	if err := b.validateAddFileAssetParameters(_asset); err != nil {
+		panic(err)
+	}
 	var returns *FileAssetLocation
 
 	_jsii_.Invoke(
@@ -291,6 +300,9 @@ func (b *jsiiProxy_BootstraplessSynthesizer) AddFileAsset(_asset *FileAssetSourc
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) Bind(stack Stack) {
+	if err := b.validateBindParameters(stack); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"bind",
@@ -299,6 +311,9 @@ func (b *jsiiProxy_BootstraplessSynthesizer) Bind(stack Stack) {
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions) {
+	if err := b.validateEmitStackArtifactParameters(stack, session, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"emitStackArtifact",
@@ -307,6 +322,9 @@ func (b *jsiiProxy_BootstraplessSynthesizer) EmitStackArtifact(stack Stack, sess
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) Synthesize(session ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",
@@ -315,6 +333,9 @@ func (b *jsiiProxy_BootstraplessSynthesizer) Synthesize(session ISynthesisSessio
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) SynthesizeStackTemplate(stack Stack, session ISynthesisSession) {
+	if err := b.validateSynthesizeStackTemplateParameters(stack, session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesizeStackTemplate",

@@ -19,6 +19,9 @@ type jsiiProxy_IListProducer struct {
 }
 
 func (i *jsiiProxy_IListProducer) Produce(context IResolveContext) *[]*string {
+	if err := i.validateProduceParameters(context); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

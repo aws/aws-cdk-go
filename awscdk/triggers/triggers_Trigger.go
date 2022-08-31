@@ -127,6 +127,9 @@ func (j *jsiiProxy_Trigger) Node() awscdk.ConstructNode {
 func NewTrigger(scope constructs.Construct, id *string, props *TriggerProps) Trigger {
 	_init_.Initialize()
 
+	if err := validateNewTriggerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Trigger{}
 
 	_jsii_.Create(
@@ -154,6 +157,9 @@ func NewTrigger_Override(t Trigger, scope constructs.Construct, id *string, prop
 func Trigger_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTrigger_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +207,9 @@ func (t *jsiiProxy_Trigger) OnPrepare() {
 }
 
 func (t *jsiiProxy_Trigger) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -230,6 +239,9 @@ func (t *jsiiProxy_Trigger) Prepare() {
 }
 
 func (t *jsiiProxy_Trigger) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

@@ -36,6 +36,9 @@ type jsiiProxy_Route53RecordTarget struct {
 func NewRoute53RecordTarget(record awsroute53.IRecordSet) Route53RecordTarget {
 	_init_.Initialize()
 
+	if err := validateNewRoute53RecordTargetParameters(record); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Route53RecordTarget{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewRoute53RecordTarget_Override(r Route53RecordTarget, record awsroute53.IR
 }
 
 func (r *jsiiProxy_Route53RecordTarget) Bind(_record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := r.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

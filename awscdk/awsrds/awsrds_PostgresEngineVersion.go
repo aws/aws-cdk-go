@@ -74,6 +74,9 @@ func (j *jsiiProxy_PostgresEngineVersion) PostgresMajorVersion() *string {
 func PostgresEngineVersion_Of(postgresFullVersion *string, postgresMajorVersion *string, postgresFeatures *PostgresEngineFeatures) PostgresEngineVersion {
 	_init_.Initialize()
 
+	if err := validatePostgresEngineVersion_OfParameters(postgresFullVersion, postgresMajorVersion, postgresFeatures); err != nil {
+		panic(err)
+	}
 	var returns PostgresEngineVersion
 
 	_jsii_.StaticInvoke(

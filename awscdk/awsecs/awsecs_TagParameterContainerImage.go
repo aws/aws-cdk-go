@@ -265,6 +265,9 @@ func (j *jsiiProxy_TagParameterContainerImage) TagParameterValue() *string {
 func NewTagParameterContainerImage(repository awsecr.IRepository) TagParameterContainerImage {
 	_init_.Initialize()
 
+	if err := validateNewTagParameterContainerImageParameters(repository); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TagParameterContainerImage{}
 
 	_jsii_.Create(
@@ -295,6 +298,9 @@ func NewTagParameterContainerImage_Override(t TagParameterContainerImage, reposi
 func TagParameterContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
+	if err := validateTagParameterContainerImage_FromAssetParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
@@ -312,6 +318,9 @@ func TagParameterContainerImage_FromAsset(directory *string, props *AssetImagePr
 func TagParameterContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
+	if err := validateTagParameterContainerImage_FromDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
@@ -329,6 +338,9 @@ func TagParameterContainerImage_FromDockerImageAsset(asset awsecrassets.DockerIm
 func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
+	if err := validateTagParameterContainerImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
@@ -346,6 +358,9 @@ func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository,
 func TagParameterContainerImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
+	if err := validateTagParameterContainerImage_FromRegistryParameters(name, props); err != nil {
+		panic(err)
+	}
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
@@ -366,6 +381,9 @@ func TagParameterContainerImage_FromRegistry(name *string, props *RepositoryImag
 func TagParameterContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
+	if err := validateTagParameterContainerImage_FromTarballParameters(tarballFile); err != nil {
+		panic(err)
+	}
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
@@ -379,6 +397,9 @@ func TagParameterContainerImage_FromTarball(tarballFile *string) ContainerImage 
 }
 
 func (t *jsiiProxy_TagParameterContainerImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+	if err := t.validateBindParameters(scope, containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(

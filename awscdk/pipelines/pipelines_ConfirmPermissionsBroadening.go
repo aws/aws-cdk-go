@@ -135,6 +135,9 @@ func (j *jsiiProxy_ConfirmPermissionsBroadening) PrimaryOutput() FileSet {
 func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningCheckProps) ConfirmPermissionsBroadening {
 	_init_.Initialize()
 
+	if err := validateNewConfirmPermissionsBroadeningParameters(id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ConfirmPermissionsBroadening{}
 
 	_jsii_.Create(
@@ -166,6 +169,9 @@ func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id
 func ConfirmPermissionsBroadening_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
+	if err := validateConfirmPermissionsBroadening_SequenceParameters(steps); err != nil {
+		panic(err)
+	}
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
@@ -179,6 +185,9 @@ func ConfirmPermissionsBroadening_Sequence(steps *[]Step) *[]Step {
 }
 
 func (c *jsiiProxy_ConfirmPermissionsBroadening) AddDependencyFileSet(fs FileSet) {
+	if err := c.validateAddDependencyFileSetParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependencyFileSet",
@@ -187,6 +196,9 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) AddDependencyFileSet(fs FileSet
 }
 
 func (c *jsiiProxy_ConfirmPermissionsBroadening) AddStepDependency(step Step) {
+	if err := c.validateAddStepDependencyParameters(step); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addStepDependency",
@@ -195,6 +207,9 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) AddStepDependency(step Step) {
 }
 
 func (c *jsiiProxy_ConfirmPermissionsBroadening) ConfigurePrimaryOutput(fs FileSet) {
+	if err := c.validateConfigurePrimaryOutputParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"configurePrimaryOutput",
@@ -203,6 +218,9 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) ConfigurePrimaryOutput(fs FileS
 }
 
 func (c *jsiiProxy_ConfirmPermissionsBroadening) DiscoverReferencedOutputs(structure interface{}) {
+	if err := c.validateDiscoverReferencedOutputsParameters(structure); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"discoverReferencedOutputs",
@@ -211,6 +229,9 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) DiscoverReferencedOutputs(struc
 }
 
 func (c *jsiiProxy_ConfirmPermissionsBroadening) ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult {
+	if err := c.validateProduceActionParameters(stage, options); err != nil {
+		panic(err)
+	}
 	var returns *CodePipelineActionFactoryResult
 
 	_jsii_.Invoke(

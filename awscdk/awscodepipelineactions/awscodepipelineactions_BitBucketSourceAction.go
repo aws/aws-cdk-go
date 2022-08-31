@@ -74,6 +74,9 @@ func (j *jsiiProxy_BitBucketSourceAction) ActionProperties() *awscodepipeline.Ac
 func NewBitBucketSourceAction(props *BitBucketSourceActionProps) BitBucketSourceAction {
 	_init_.Initialize()
 
+	if err := validateNewBitBucketSourceActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BitBucketSourceAction{}
 
 	_jsii_.Create(
@@ -97,6 +100,9 @@ func NewBitBucketSourceAction_Override(b BitBucketSourceAction, props *BitBucket
 }
 
 func (b *jsiiProxy_BitBucketSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := b.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -110,6 +116,9 @@ func (b *jsiiProxy_BitBucketSourceAction) Bind(scope awscdk.Construct, stage aws
 }
 
 func (b *jsiiProxy_BitBucketSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := b.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

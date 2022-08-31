@@ -174,7 +174,10 @@ func NewBackedDataSource_Override(b BackedDataSource, scope constructs.Construct
 	)
 }
 
-func (j *jsiiProxy_BackedDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_BackedDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -182,7 +185,7 @@ func (j *jsiiProxy_BackedDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_BackedDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_BackedDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -195,6 +198,9 @@ func (j *jsiiProxy_BackedDataSource) SetServiceRole(val awsiam.IRole) {
 func BackedDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBackedDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -208,6 +214,9 @@ func BackedDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (b *jsiiProxy_BackedDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := b.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -221,6 +230,9 @@ func (b *jsiiProxy_BackedDataSource) CreateFunction(props *BaseAppsyncFunctionPr
 }
 
 func (b *jsiiProxy_BackedDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := b.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -242,6 +254,9 @@ func (b *jsiiProxy_BackedDataSource) OnPrepare() {
 }
 
 func (b *jsiiProxy_BackedDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -271,6 +286,9 @@ func (b *jsiiProxy_BackedDataSource) Prepare() {
 }
 
 func (b *jsiiProxy_BackedDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

@@ -67,6 +67,9 @@ func (j *jsiiProxy_SelfManagedKafkaEventSource) Props() *StreamEventSourceProps 
 func NewSelfManagedKafkaEventSource(props *SelfManagedKafkaEventSourceProps) SelfManagedKafkaEventSource {
 	_init_.Initialize()
 
+	if err := validateNewSelfManagedKafkaEventSourceParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SelfManagedKafkaEventSource{}
 
 	_jsii_.Create(
@@ -90,6 +93,9 @@ func NewSelfManagedKafkaEventSource_Override(s SelfManagedKafkaEventSource, prop
 }
 
 func (s *jsiiProxy_SelfManagedKafkaEventSource) Bind(target awslambda.IFunction) {
+	if err := s.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bind",
@@ -98,6 +104,9 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) Bind(target awslambda.IFunction)
 }
 
 func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
+	if err := s.validateEnrichMappingOptionsParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.EventSourceMappingOptions
 
 	_jsii_.Invoke(

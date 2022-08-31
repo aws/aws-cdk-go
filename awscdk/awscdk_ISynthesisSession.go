@@ -44,7 +44,10 @@ func (j *jsiiProxy_ISynthesisSession) Assembly() cxapi.CloudAssemblyBuilder {
 	return returns
 }
 
-func (j *jsiiProxy_ISynthesisSession) SetAssembly(val cxapi.CloudAssemblyBuilder) {
+func (j *jsiiProxy_ISynthesisSession)SetAssembly(val cxapi.CloudAssemblyBuilder) {
+	if err := j.validateSetAssemblyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"assembly",
@@ -62,7 +65,10 @@ func (j *jsiiProxy_ISynthesisSession) Outdir() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ISynthesisSession) SetOutdir(val *string) {
+func (j *jsiiProxy_ISynthesisSession)SetOutdir(val *string) {
+	if err := j.validateSetOutdirParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"outdir",
@@ -80,7 +86,7 @@ func (j *jsiiProxy_ISynthesisSession) ValidateOnSynth() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_ISynthesisSession) SetValidateOnSynth(val *bool) {
+func (j *jsiiProxy_ISynthesisSession)SetValidateOnSynth(val *bool) {
 	_jsii_.Set(
 		j,
 		"validateOnSynth",

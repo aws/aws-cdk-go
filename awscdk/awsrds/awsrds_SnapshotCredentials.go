@@ -180,6 +180,9 @@ func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 func SnapshotCredentials_FromGeneratedPassword(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()
 
+	if err := validateSnapshotCredentials_FromGeneratedPasswordParameters(username, options); err != nil {
+		panic(err)
+	}
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
@@ -201,6 +204,9 @@ func SnapshotCredentials_FromGeneratedPassword(username *string, options *Snapsh
 func SnapshotCredentials_FromGeneratedSecret(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()
 
+	if err := validateSnapshotCredentials_FromGeneratedSecretParameters(username, options); err != nil {
+		panic(err)
+	}
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
@@ -218,6 +224,9 @@ func SnapshotCredentials_FromGeneratedSecret(username *string, options *Snapshot
 func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCredentials {
 	_init_.Initialize()
 
+	if err := validateSnapshotCredentials_FromPasswordParameters(password); err != nil {
+		panic(err)
+	}
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
@@ -243,6 +252,9 @@ func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCrede
 func SnapshotCredentials_FromSecret(secret awssecretsmanager.ISecret) SnapshotCredentials {
 	_init_.Initialize()
 
+	if err := validateSnapshotCredentials_FromSecretParameters(secret); err != nil {
+		panic(err)
+	}
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(

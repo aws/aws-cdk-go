@@ -56,6 +56,9 @@ func NewNatInstanceImage_Override(n NatInstanceImage) {
 }
 
 func (n *jsiiProxy_NatInstanceImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := n.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

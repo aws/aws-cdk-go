@@ -111,6 +111,9 @@ func NewRow_Override(r Row, widgets ...IWidget) {
 }
 
 func (r *jsiiProxy_Row) Position(x *float64, y *float64) {
+	if err := r.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"position",

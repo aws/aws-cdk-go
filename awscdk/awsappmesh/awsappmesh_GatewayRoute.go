@@ -229,6 +229,9 @@ func (j *jsiiProxy_GatewayRoute) VirtualGateway() IVirtualGateway {
 func NewGatewayRoute(scope constructs.Construct, id *string, props *GatewayRouteProps) GatewayRoute {
 	_init_.Initialize()
 
+	if err := validateNewGatewayRouteParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GatewayRoute{}
 
 	_jsii_.Create(
@@ -256,6 +259,9 @@ func NewGatewayRoute_Override(g GatewayRoute, scope constructs.Construct, id *st
 func GatewayRoute_FromGatewayRouteArn(scope constructs.Construct, id *string, gatewayRouteArn *string) IGatewayRoute {
 	_init_.Initialize()
 
+	if err := validateGatewayRoute_FromGatewayRouteArnParameters(scope, id, gatewayRouteArn); err != nil {
+		panic(err)
+	}
 	var returns IGatewayRoute
 
 	_jsii_.StaticInvoke(
@@ -273,6 +279,9 @@ func GatewayRoute_FromGatewayRouteArn(scope constructs.Construct, id *string, ga
 func GatewayRoute_FromGatewayRouteAttributes(scope constructs.Construct, id *string, attrs *GatewayRouteAttributes) IGatewayRoute {
 	_init_.Initialize()
 
+	if err := validateGatewayRoute_FromGatewayRouteAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IGatewayRoute
 
 	_jsii_.StaticInvoke(
@@ -290,6 +299,9 @@ func GatewayRoute_FromGatewayRouteAttributes(scope constructs.Construct, id *str
 func GatewayRoute_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGatewayRoute_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -307,6 +319,9 @@ func GatewayRoute_IsConstruct(x interface{}) *bool {
 func GatewayRoute_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateGatewayRoute_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -320,6 +335,9 @@ func GatewayRoute_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (g *jsiiProxy_GatewayRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := g.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"applyRemovalPolicy",
@@ -341,6 +359,9 @@ func (g *jsiiProxy_GatewayRoute) GeneratePhysicalName() *string {
 }
 
 func (g *jsiiProxy_GatewayRoute) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := g.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -354,6 +375,9 @@ func (g *jsiiProxy_GatewayRoute) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (g *jsiiProxy_GatewayRoute) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := g.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -375,6 +399,9 @@ func (g *jsiiProxy_GatewayRoute) OnPrepare() {
 }
 
 func (g *jsiiProxy_GatewayRoute) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -404,6 +431,9 @@ func (g *jsiiProxy_GatewayRoute) Prepare() {
 }
 
 func (g *jsiiProxy_GatewayRoute) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",

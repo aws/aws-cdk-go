@@ -115,6 +115,9 @@ func NewTokenizedStringFragments_Override(t TokenizedStringFragments) {
 }
 
 func (t *jsiiProxy_TokenizedStringFragments) AddIntrinsic(value interface{}) {
+	if err := t.validateAddIntrinsicParameters(value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addIntrinsic",
@@ -123,6 +126,9 @@ func (t *jsiiProxy_TokenizedStringFragments) AddIntrinsic(value interface{}) {
 }
 
 func (t *jsiiProxy_TokenizedStringFragments) AddLiteral(lit interface{}) {
+	if err := t.validateAddLiteralParameters(lit); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addLiteral",
@@ -131,6 +137,9 @@ func (t *jsiiProxy_TokenizedStringFragments) AddLiteral(lit interface{}) {
 }
 
 func (t *jsiiProxy_TokenizedStringFragments) AddToken(token IResolvable) {
+	if err := t.validateAddTokenParameters(token); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addToken",
@@ -139,6 +148,9 @@ func (t *jsiiProxy_TokenizedStringFragments) AddToken(token IResolvable) {
 }
 
 func (t *jsiiProxy_TokenizedStringFragments) Join(concat IFragmentConcatenator) interface{} {
+	if err := t.validateJoinParameters(concat); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -152,6 +164,9 @@ func (t *jsiiProxy_TokenizedStringFragments) Join(concat IFragmentConcatenator) 
 }
 
 func (t *jsiiProxy_TokenizedStringFragments) MapTokens(mapper ITokenMapper) TokenizedStringFragments {
+	if err := t.validateMapTokensParameters(mapper); err != nil {
+		panic(err)
+	}
 	var returns TokenizedStringFragments
 
 	_jsii_.Invoke(

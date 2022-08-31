@@ -64,6 +64,9 @@ func NewHeaderMatch_Override(h HeaderMatch) {
 func HeaderMatch_ValueDoesNotEndWith(headerName *string, suffix *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueDoesNotEndWithParameters(headerName, suffix); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -81,6 +84,9 @@ func HeaderMatch_ValueDoesNotEndWith(headerName *string, suffix *string) HeaderM
 func HeaderMatch_ValueDoesNotMatchRegex(headerName *string, regex *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueDoesNotMatchRegexParameters(headerName, regex); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -98,6 +104,9 @@ func HeaderMatch_ValueDoesNotMatchRegex(headerName *string, regex *string) Heade
 func HeaderMatch_ValueDoesNotStartWith(headerName *string, prefix *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueDoesNotStartWithParameters(headerName, prefix); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -115,6 +124,9 @@ func HeaderMatch_ValueDoesNotStartWith(headerName *string, prefix *string) Heade
 func HeaderMatch_ValueEndsWith(headerName *string, suffix *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueEndsWithParameters(headerName, suffix); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -132,6 +144,9 @@ func HeaderMatch_ValueEndsWith(headerName *string, suffix *string) HeaderMatch {
 func HeaderMatch_ValueIs(headerName *string, headerValue *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueIsParameters(headerName, headerValue); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -149,6 +164,9 @@ func HeaderMatch_ValueIs(headerName *string, headerValue *string) HeaderMatch {
 func HeaderMatch_ValueIsNot(headerName *string, headerValue *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueIsNotParameters(headerName, headerValue); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -166,6 +184,9 @@ func HeaderMatch_ValueIsNot(headerName *string, headerValue *string) HeaderMatch
 func HeaderMatch_ValueMatchesRegex(headerName *string, regex *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueMatchesRegexParameters(headerName, regex); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -183,6 +204,9 @@ func HeaderMatch_ValueMatchesRegex(headerName *string, regex *string) HeaderMatc
 func HeaderMatch_ValuesIsInRange(headerName *string, start *float64, end *float64) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValuesIsInRangeParameters(headerName, start, end); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -200,6 +224,9 @@ func HeaderMatch_ValuesIsInRange(headerName *string, start *float64, end *float6
 func HeaderMatch_ValuesIsNotInRange(headerName *string, start *float64, end *float64) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValuesIsNotInRangeParameters(headerName, start, end); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -217,6 +244,9 @@ func HeaderMatch_ValuesIsNotInRange(headerName *string, start *float64, end *flo
 func HeaderMatch_ValueStartsWith(headerName *string, prefix *string) HeaderMatch {
 	_init_.Initialize()
 
+	if err := validateHeaderMatch_ValueStartsWithParameters(headerName, prefix); err != nil {
+		panic(err)
+	}
 	var returns HeaderMatch
 
 	_jsii_.StaticInvoke(
@@ -230,6 +260,9 @@ func HeaderMatch_ValueStartsWith(headerName *string, prefix *string) HeaderMatch
 }
 
 func (h *jsiiProxy_HeaderMatch) Bind(scope awscdk.Construct) *HeaderMatchConfig {
+	if err := h.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *HeaderMatchConfig
 
 	_jsii_.Invoke(

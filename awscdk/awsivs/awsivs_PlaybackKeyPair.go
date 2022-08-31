@@ -207,6 +207,9 @@ func (j *jsiiProxy_PlaybackKeyPair) Stack() awscdk.Stack {
 func NewPlaybackKeyPair(scope constructs.Construct, id *string, props *PlaybackKeyPairProps) PlaybackKeyPair {
 	_init_.Initialize()
 
+	if err := validateNewPlaybackKeyPairParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PlaybackKeyPair{}
 
 	_jsii_.Create(
@@ -234,6 +237,9 @@ func NewPlaybackKeyPair_Override(p PlaybackKeyPair, scope constructs.Construct, 
 func PlaybackKeyPair_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePlaybackKeyPair_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -251,6 +257,9 @@ func PlaybackKeyPair_IsConstruct(x interface{}) *bool {
 func PlaybackKeyPair_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePlaybackKeyPair_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -264,6 +273,9 @@ func PlaybackKeyPair_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_PlaybackKeyPair) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -285,6 +297,9 @@ func (p *jsiiProxy_PlaybackKeyPair) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_PlaybackKeyPair) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -298,6 +313,9 @@ func (p *jsiiProxy_PlaybackKeyPair) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (p *jsiiProxy_PlaybackKeyPair) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -319,6 +337,9 @@ func (p *jsiiProxy_PlaybackKeyPair) OnPrepare() {
 }
 
 func (p *jsiiProxy_PlaybackKeyPair) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -348,6 +369,9 @@ func (p *jsiiProxy_PlaybackKeyPair) Prepare() {
 }
 
 func (p *jsiiProxy_PlaybackKeyPair) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

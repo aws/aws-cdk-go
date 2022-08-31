@@ -32,6 +32,9 @@ type jsiiProxy_SmsSubscription struct {
 func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSubscription {
 	_init_.Initialize()
 
+	if err := validateNewSmsSubscriptionParameters(phoneNumber, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SmsSubscription{}
 
 	_jsii_.Create(
@@ -55,6 +58,9 @@ func NewSmsSubscription_Override(s SmsSubscription, phoneNumber *string, props *
 }
 
 func (s *jsiiProxy_SmsSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := s.validateBindParameters(_topic); err != nil {
+		panic(err)
+	}
 	var returns *awssns.TopicSubscriptionConfig
 
 	_jsii_.Invoke(

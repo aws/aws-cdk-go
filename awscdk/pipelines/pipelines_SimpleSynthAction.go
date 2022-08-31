@@ -90,6 +90,9 @@ func (j *jsiiProxy_SimpleSynthAction) Project() awscodebuild.IProject {
 func NewSimpleSynthAction(props *SimpleSynthActionProps) SimpleSynthAction {
 	_init_.Initialize()
 
+	if err := validateNewSimpleSynthActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SimpleSynthAction{}
 
 	_jsii_.Create(
@@ -121,6 +124,9 @@ func NewSimpleSynthAction_Override(s SimpleSynthAction, props *SimpleSynthAction
 func SimpleSynthAction_StandardNpmSynth(options *StandardNpmSynthOptions) SimpleSynthAction {
 	_init_.Initialize()
 
+	if err := validateSimpleSynthAction_StandardNpmSynthParameters(options); err != nil {
+		panic(err)
+	}
 	var returns SimpleSynthAction
 
 	_jsii_.StaticInvoke(
@@ -142,6 +148,9 @@ func SimpleSynthAction_StandardNpmSynth(options *StandardNpmSynthOptions) Simple
 func SimpleSynthAction_StandardYarnSynth(options *StandardYarnSynthOptions) SimpleSynthAction {
 	_init_.Initialize()
 
+	if err := validateSimpleSynthAction_StandardYarnSynthParameters(options); err != nil {
+		panic(err)
+	}
 	var returns SimpleSynthAction
 
 	_jsii_.StaticInvoke(
@@ -155,6 +164,9 @@ func SimpleSynthAction_StandardYarnSynth(options *StandardYarnSynthOptions) Simp
 }
 
 func (s *jsiiProxy_SimpleSynthAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -168,6 +180,9 @@ func (s *jsiiProxy_SimpleSynthAction) Bind(scope awscdk.Construct, stage awscode
 }
 
 func (s *jsiiProxy_SimpleSynthAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := s.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

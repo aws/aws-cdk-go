@@ -53,6 +53,9 @@ type jsiiProxy_SendToQueue struct {
 func NewSendToQueue(queue awssqs.IQueue, props *SendToQueueProps) SendToQueue {
 	_init_.Initialize()
 
+	if err := validateNewSendToQueueParameters(queue, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SendToQueue{}
 
 	_jsii_.Create(
@@ -76,6 +79,9 @@ func NewSendToQueue_Override(s SendToQueue, queue awssqs.IQueue, props *SendToQu
 }
 
 func (s *jsiiProxy_SendToQueue) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := s.validateBindParameters(_task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

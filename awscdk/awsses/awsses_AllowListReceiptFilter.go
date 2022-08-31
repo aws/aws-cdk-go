@@ -98,6 +98,9 @@ func (j *jsiiProxy_AllowListReceiptFilter) Node() awscdk.ConstructNode {
 func NewAllowListReceiptFilter(scope constructs.Construct, id *string, props *AllowListReceiptFilterProps) AllowListReceiptFilter {
 	_init_.Initialize()
 
+	if err := validateNewAllowListReceiptFilterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AllowListReceiptFilter{}
 
 	_jsii_.Create(
@@ -125,6 +128,9 @@ func NewAllowListReceiptFilter_Override(a AllowListReceiptFilter, scope construc
 func AllowListReceiptFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAllowListReceiptFilter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -146,6 +152,9 @@ func (a *jsiiProxy_AllowListReceiptFilter) OnPrepare() {
 }
 
 func (a *jsiiProxy_AllowListReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -175,6 +184,9 @@ func (a *jsiiProxy_AllowListReceiptFilter) Prepare() {
 }
 
 func (a *jsiiProxy_AllowListReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

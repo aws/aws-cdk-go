@@ -570,6 +570,9 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) UpdatedProperites() *map
 func NewCfnModelExplainabilityJobDefinition(scope awscdk.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) CfnModelExplainabilityJobDefinition {
 	_init_.Initialize()
 
+	if err := validateNewCfnModelExplainabilityJobDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnModelExplainabilityJobDefinition{}
 
 	_jsii_.Create(
@@ -592,7 +595,7 @@ func NewCfnModelExplainabilityJobDefinition_Override(c CfnModelExplainabilityJob
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetJobDefinitionName(val *string) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetJobDefinitionName(val *string) {
 	_jsii_.Set(
 		j,
 		"jobDefinitionName",
@@ -600,7 +603,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetJobDefinitionName(val
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetJobResources(val interface{}) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetJobResources(val interface{}) {
+	if err := j.validateSetJobResourcesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"jobResources",
@@ -608,7 +614,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetJobResources(val inte
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityAppSpecification(val interface{}) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetModelExplainabilityAppSpecification(val interface{}) {
+	if err := j.validateSetModelExplainabilityAppSpecificationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"modelExplainabilityAppSpecification",
@@ -616,7 +625,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityAp
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityBaselineConfig(val interface{}) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetModelExplainabilityBaselineConfig(val interface{}) {
+	if err := j.validateSetModelExplainabilityBaselineConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"modelExplainabilityBaselineConfig",
@@ -624,7 +636,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityBa
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityJobInput(val interface{}) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetModelExplainabilityJobInput(val interface{}) {
+	if err := j.validateSetModelExplainabilityJobInputParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"modelExplainabilityJobInput",
@@ -632,7 +647,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityJo
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityJobOutputConfig(val interface{}) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetModelExplainabilityJobOutputConfig(val interface{}) {
+	if err := j.validateSetModelExplainabilityJobOutputConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"modelExplainabilityJobOutputConfig",
@@ -640,7 +658,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetModelExplainabilityJo
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetNetworkConfig(val interface{}) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetNetworkConfig(val interface{}) {
+	if err := j.validateSetNetworkConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkConfig",
@@ -648,7 +669,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetNetworkConfig(val int
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetRoleArn(val *string) {
+	if err := j.validateSetRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -656,7 +680,10 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetRoleArn(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetStoppingCondition(val interface{}) {
+func (j *jsiiProxy_CfnModelExplainabilityJobDefinition)SetStoppingCondition(val interface{}) {
+	if err := j.validateSetStoppingConditionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"stoppingCondition",
@@ -674,6 +701,9 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) SetStoppingCondition(val
 func CfnModelExplainabilityJobDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnModelExplainabilityJobDefinition_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -691,6 +721,9 @@ func CfnModelExplainabilityJobDefinition_IsCfnElement(x interface{}) *bool {
 func CfnModelExplainabilityJobDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnModelExplainabilityJobDefinition_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -708,6 +741,9 @@ func CfnModelExplainabilityJobDefinition_IsCfnResource(construct constructs.ICon
 func CfnModelExplainabilityJobDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnModelExplainabilityJobDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -732,6 +768,9 @@ func CfnModelExplainabilityJobDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -740,6 +779,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddDeletionOverride(path
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -748,6 +790,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddDependsOn(target awsc
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -756,6 +801,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddMetadata(key *string,
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -764,6 +812,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddOverride(path *string
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -772,6 +823,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddPropertyDeletionOverr
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -780,6 +834,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) AddPropertyOverride(prop
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -788,6 +845,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) ApplyRemovalPolicy(polic
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -801,6 +861,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) GetAtt(attributeName *st
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -814,6 +877,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) GetMetadata(key *string)
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -830,6 +896,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -851,6 +920,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) OnValidate() *[]*string 
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -867,6 +939,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) Prepare() {
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -893,6 +968,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) ShouldSynthesize() *bool
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -927,6 +1005,9 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

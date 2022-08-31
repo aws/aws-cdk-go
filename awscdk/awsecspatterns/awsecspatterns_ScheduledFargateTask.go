@@ -201,6 +201,9 @@ func (j *jsiiProxy_ScheduledFargateTask) TaskDefinition() awsecs.FargateTaskDefi
 func NewScheduledFargateTask(scope constructs.Construct, id *string, props *ScheduledFargateTaskProps) ScheduledFargateTask {
 	_init_.Initialize()
 
+	if err := validateNewScheduledFargateTaskParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ScheduledFargateTask{}
 
 	_jsii_.Create(
@@ -229,6 +232,9 @@ func NewScheduledFargateTask_Override(s ScheduledFargateTask, scope constructs.C
 func ScheduledFargateTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateScheduledFargateTask_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -242,6 +248,9 @@ func ScheduledFargateTask_IsConstruct(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_ScheduledFargateTask) AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask) {
+	if err := s.validateAddTaskAsTargetParameters(ecsTaskTarget); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addTaskAsTarget",
@@ -250,6 +259,9 @@ func (s *jsiiProxy_ScheduledFargateTask) AddTaskAsTarget(ecsTaskTarget awsevents
 }
 
 func (s *jsiiProxy_ScheduledFargateTask) AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask {
+	if err := s.validateAddTaskDefinitionToEventTargetParameters(taskDefinition); err != nil {
+		panic(err)
+	}
 	var returns awseventstargets.EcsTask
 
 	_jsii_.Invoke(
@@ -263,6 +275,9 @@ func (s *jsiiProxy_ScheduledFargateTask) AddTaskDefinitionToEventTarget(taskDefi
 }
 
 func (s *jsiiProxy_ScheduledFargateTask) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := s.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -276,6 +291,9 @@ func (s *jsiiProxy_ScheduledFargateTask) CreateAWSLogDriver(prefix *string) awse
 }
 
 func (s *jsiiProxy_ScheduledFargateTask) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := s.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -297,6 +315,9 @@ func (s *jsiiProxy_ScheduledFargateTask) OnPrepare() {
 }
 
 func (s *jsiiProxy_ScheduledFargateTask) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -326,6 +347,9 @@ func (s *jsiiProxy_ScheduledFargateTask) Prepare() {
 }
 
 func (s *jsiiProxy_ScheduledFargateTask) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

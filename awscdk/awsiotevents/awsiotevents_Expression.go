@@ -61,6 +61,9 @@ func NewExpression_Override(e Expression) {
 func Expression_And(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_AndParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -80,6 +83,9 @@ func Expression_And(left Expression, right Expression) Expression {
 func Expression_CurrentInput(input IInput) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_CurrentInputParameters(input); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -97,6 +103,9 @@ func Expression_CurrentInput(input IInput) Expression {
 func Expression_Eq(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_EqParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -114,6 +123,9 @@ func Expression_Eq(left Expression, right Expression) Expression {
 func Expression_FromString(value *string) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -131,6 +143,9 @@ func Expression_FromString(value *string) Expression {
 func Expression_Gt(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_GtParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -148,6 +163,9 @@ func Expression_Gt(left Expression, right Expression) Expression {
 func Expression_Gte(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_GteParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -165,6 +183,9 @@ func Expression_Gte(left Expression, right Expression) Expression {
 func Expression_InputAttribute(input IInput, path *string) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_InputAttributeParameters(input, path); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -182,6 +203,9 @@ func Expression_InputAttribute(input IInput, path *string) Expression {
 func Expression_Lt(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_LtParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -199,6 +223,9 @@ func Expression_Lt(left Expression, right Expression) Expression {
 func Expression_Lte(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_LteParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -216,6 +243,9 @@ func Expression_Lte(left Expression, right Expression) Expression {
 func Expression_Neq(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_NeqParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(
@@ -233,6 +263,9 @@ func Expression_Neq(left Expression, right Expression) Expression {
 func Expression_Or(left Expression, right Expression) Expression {
 	_init_.Initialize()
 
+	if err := validateExpression_OrParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns Expression
 
 	_jsii_.StaticInvoke(

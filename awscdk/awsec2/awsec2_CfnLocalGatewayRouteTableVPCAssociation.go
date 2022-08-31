@@ -418,6 +418,9 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) VpcId() *string {
 func NewCfnLocalGatewayRouteTableVPCAssociation(scope awscdk.Construct, id *string, props *CfnLocalGatewayRouteTableVPCAssociationProps) CfnLocalGatewayRouteTableVPCAssociation {
 	_init_.Initialize()
 
+	if err := validateNewCfnLocalGatewayRouteTableVPCAssociationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation{}
 
 	_jsii_.Create(
@@ -440,7 +443,10 @@ func NewCfnLocalGatewayRouteTableVPCAssociation_Override(c CfnLocalGatewayRouteT
 	)
 }
 
-func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) SetLocalGatewayRouteTableId(val *string) {
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation)SetLocalGatewayRouteTableId(val *string) {
+	if err := j.validateSetLocalGatewayRouteTableIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"localGatewayRouteTableId",
@@ -448,7 +454,10 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) SetLocalGatewayRoute
 	)
 }
 
-func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) SetVpcId(val *string) {
+func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation)SetVpcId(val *string) {
+	if err := j.validateSetVpcIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"vpcId",
@@ -466,6 +475,9 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) SetVpcId(val *string
 func CfnLocalGatewayRouteTableVPCAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLocalGatewayRouteTableVPCAssociation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -483,6 +495,9 @@ func CfnLocalGatewayRouteTableVPCAssociation_IsCfnElement(x interface{}) *bool {
 func CfnLocalGatewayRouteTableVPCAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLocalGatewayRouteTableVPCAssociation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -500,6 +515,9 @@ func CfnLocalGatewayRouteTableVPCAssociation_IsCfnResource(construct constructs.
 func CfnLocalGatewayRouteTableVPCAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLocalGatewayRouteTableVPCAssociation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -524,6 +542,9 @@ func CfnLocalGatewayRouteTableVPCAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -532,6 +553,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddDeletionOverride(
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -540,6 +564,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddDependsOn(target 
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -548,6 +575,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddMetadata(key *str
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -556,6 +586,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddOverride(path *st
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -564,6 +597,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddPropertyDeletionO
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -572,6 +608,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) AddPropertyOverride(
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -580,6 +619,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) ApplyRemovalPolicy(p
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -593,6 +635,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) GetAtt(attributeName
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -606,6 +651,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) GetMetadata(key *str
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -622,6 +670,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -643,6 +694,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) OnValidate() *[]*str
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -659,6 +713,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -685,6 +742,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) ShouldSynthesize() *
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -719,6 +779,9 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) Validate() *[]*strin
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

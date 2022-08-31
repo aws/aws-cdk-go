@@ -224,6 +224,9 @@ func (j *jsiiProxy_HttpIntegration) Stack() awscdk.Stack {
 func NewHttpIntegration(scope constructs.Construct, id *string, props *HttpIntegrationProps) HttpIntegration {
 	_init_.Initialize()
 
+	if err := validateNewHttpIntegrationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpIntegration{}
 
 	_jsii_.Create(
@@ -251,6 +254,9 @@ func NewHttpIntegration_Override(h HttpIntegration, scope constructs.Construct, 
 func HttpIntegration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpIntegration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -268,6 +274,9 @@ func HttpIntegration_IsConstruct(x interface{}) *bool {
 func HttpIntegration_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpIntegration_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -281,6 +290,9 @@ func HttpIntegration_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (h *jsiiProxy_HttpIntegration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := h.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"applyRemovalPolicy",
@@ -302,6 +314,9 @@ func (h *jsiiProxy_HttpIntegration) GeneratePhysicalName() *string {
 }
 
 func (h *jsiiProxy_HttpIntegration) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := h.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -315,6 +330,9 @@ func (h *jsiiProxy_HttpIntegration) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (h *jsiiProxy_HttpIntegration) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := h.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -336,6 +354,9 @@ func (h *jsiiProxy_HttpIntegration) OnPrepare() {
 }
 
 func (h *jsiiProxy_HttpIntegration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -365,6 +386,9 @@ func (h *jsiiProxy_HttpIntegration) Prepare() {
 }
 
 func (h *jsiiProxy_HttpIntegration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

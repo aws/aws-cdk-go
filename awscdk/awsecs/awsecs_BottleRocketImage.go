@@ -39,6 +39,9 @@ type jsiiProxy_BottleRocketImage struct {
 func NewBottleRocketImage(props *BottleRocketImageProps) BottleRocketImage {
 	_init_.Initialize()
 
+	if err := validateNewBottleRocketImageParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BottleRocketImage{}
 
 	_jsii_.Create(
@@ -63,6 +66,9 @@ func NewBottleRocketImage_Override(b BottleRocketImage, props *BottleRocketImage
 }
 
 func (b *jsiiProxy_BottleRocketImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
+	if err := b.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awsec2.MachineImageConfig
 
 	_jsii_.Invoke(

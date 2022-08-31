@@ -68,6 +68,9 @@ type jsiiProxy_IStateMachine struct {
 }
 
 func (i *jsiiProxy_IStateMachine) Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(identity); err != nil {
+		panic(err)
+	}
 	args := []interface{}{identity}
 	for _, a := range actions {
 		args = append(args, a)
@@ -86,6 +89,9 @@ func (i *jsiiProxy_IStateMachine) Grant(identity awsiam.IGrantable, actions ...*
 }
 
 func (i *jsiiProxy_IStateMachine) GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantExecutionParameters(identity); err != nil {
+		panic(err)
+	}
 	args := []interface{}{identity}
 	for _, a := range actions {
 		args = append(args, a)
@@ -104,6 +110,9 @@ func (i *jsiiProxy_IStateMachine) GrantExecution(identity awsiam.IGrantable, act
 }
 
 func (i *jsiiProxy_IStateMachine) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -117,6 +126,9 @@ func (i *jsiiProxy_IStateMachine) GrantRead(identity awsiam.IGrantable) awsiam.G
 }
 
 func (i *jsiiProxy_IStateMachine) GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantStartExecutionParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -130,6 +142,9 @@ func (i *jsiiProxy_IStateMachine) GrantStartExecution(identity awsiam.IGrantable
 }
 
 func (i *jsiiProxy_IStateMachine) GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantStartSyncExecutionParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -143,6 +158,9 @@ func (i *jsiiProxy_IStateMachine) GrantStartSyncExecution(identity awsiam.IGrant
 }
 
 func (i *jsiiProxy_IStateMachine) GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantTaskResponseParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -156,6 +174,9 @@ func (i *jsiiProxy_IStateMachine) GrantTaskResponse(identity awsiam.IGrantable) 
 }
 
 func (i *jsiiProxy_IStateMachine) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -169,6 +190,9 @@ func (i *jsiiProxy_IStateMachine) Metric(metricName *string, props *awscloudwatc
 }
 
 func (i *jsiiProxy_IStateMachine) MetricAborted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricAbortedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -182,6 +206,9 @@ func (i *jsiiProxy_IStateMachine) MetricAborted(props *awscloudwatch.MetricOptio
 }
 
 func (i *jsiiProxy_IStateMachine) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -195,6 +222,9 @@ func (i *jsiiProxy_IStateMachine) MetricFailed(props *awscloudwatch.MetricOption
 }
 
 func (i *jsiiProxy_IStateMachine) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -208,6 +238,9 @@ func (i *jsiiProxy_IStateMachine) MetricStarted(props *awscloudwatch.MetricOptio
 }
 
 func (i *jsiiProxy_IStateMachine) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -221,6 +254,9 @@ func (i *jsiiProxy_IStateMachine) MetricSucceeded(props *awscloudwatch.MetricOpt
 }
 
 func (i *jsiiProxy_IStateMachine) MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricThrottledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -234,6 +270,9 @@ func (i *jsiiProxy_IStateMachine) MetricThrottled(props *awscloudwatch.MetricOpt
 }
 
 func (i *jsiiProxy_IStateMachine) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -247,6 +286,9 @@ func (i *jsiiProxy_IStateMachine) MetricTime(props *awscloudwatch.MetricOptions)
 }
 
 func (i *jsiiProxy_IStateMachine) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -260,6 +302,9 @@ func (i *jsiiProxy_IStateMachine) MetricTimedOut(props *awscloudwatch.MetricOpti
 }
 
 func (i *jsiiProxy_IStateMachine) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

@@ -19,6 +19,9 @@ type jsiiProxy_INumberProducer struct {
 }
 
 func (i *jsiiProxy_INumberProducer) Produce(context IResolveContext) *float64 {
+	if err := i.validateProduceParameters(context); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(

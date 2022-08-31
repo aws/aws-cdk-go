@@ -84,6 +84,9 @@ type jsiiProxy_AssetCode struct {
 func NewAssetCode(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateNewAssetCodeParameters(path, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AssetCode{}
 
 	_jsii_.Create(
@@ -111,6 +114,9 @@ func NewAssetCode_Override(a AssetCode, path *string, options *awss3assets.Asset
 func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateAssetCode_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -128,6 +134,9 @@ func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetC
 func AssetCode_FromBucket(bucket awss3.IBucket, key *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateAssetCode_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -141,6 +150,9 @@ func AssetCode_FromBucket(bucket awss3.IBucket, key *string) S3Code {
 }
 
 func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig {
+	if err := a.validateBindParameters(scope, grantable); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(

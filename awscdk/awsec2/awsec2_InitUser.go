@@ -94,6 +94,9 @@ func (j *jsiiProxy_InitUser) ElementType() *string {
 func NewInitUser(userName *string, userOptions *InitUserOptions) InitUser {
 	_init_.Initialize()
 
+	if err := validateNewInitUserParameters(userName, userOptions); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InitUser{}
 
 	_jsii_.Create(
@@ -121,6 +124,9 @@ func NewInitUser_Override(i InitUser, userName *string, userOptions *InitUserOpt
 func InitUser_FromName(userName *string, options *InitUserOptions) InitUser {
 	_init_.Initialize()
 
+	if err := validateInitUser_FromNameParameters(userName, options); err != nil {
+		panic(err)
+	}
 	var returns InitUser
 
 	_jsii_.StaticInvoke(

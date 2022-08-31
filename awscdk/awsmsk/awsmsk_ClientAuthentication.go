@@ -63,6 +63,9 @@ func (j *jsiiProxy_ClientAuthentication) TlsProps() *TlsAuthProps {
 func ClientAuthentication_Sasl(props *SaslAuthProps) ClientAuthentication {
 	_init_.Initialize()
 
+	if err := validateClientAuthentication_SaslParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ClientAuthentication
 
 	_jsii_.StaticInvoke(
@@ -80,6 +83,9 @@ func ClientAuthentication_Sasl(props *SaslAuthProps) ClientAuthentication {
 func ClientAuthentication_Tls(props *TlsAuthProps) ClientAuthentication {
 	_init_.Initialize()
 
+	if err := validateClientAuthentication_TlsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ClientAuthentication
 
 	_jsii_.StaticInvoke(

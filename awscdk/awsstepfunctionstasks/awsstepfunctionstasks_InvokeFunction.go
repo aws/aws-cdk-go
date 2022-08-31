@@ -47,6 +47,9 @@ type jsiiProxy_InvokeFunction struct {
 func NewInvokeFunction(lambdaFunction awslambda.IFunction, props *InvokeFunctionProps) InvokeFunction {
 	_init_.Initialize()
 
+	if err := validateNewInvokeFunctionParameters(lambdaFunction, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InvokeFunction{}
 
 	_jsii_.Create(
@@ -70,6 +73,9 @@ func NewInvokeFunction_Override(i InvokeFunction, lambdaFunction awslambda.IFunc
 }
 
 func (i *jsiiProxy_InvokeFunction) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := i.validateBindParameters(_task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

@@ -60,6 +60,9 @@ func (j *jsiiProxy_S3EventSource) Bucket() awss3.Bucket {
 func NewS3EventSource(bucket awss3.Bucket, props *S3EventSourceProps) S3EventSource {
 	_init_.Initialize()
 
+	if err := validateNewS3EventSourceParameters(bucket, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3EventSource{}
 
 	_jsii_.Create(
@@ -83,6 +86,9 @@ func NewS3EventSource_Override(s S3EventSource, bucket awss3.Bucket, props *S3Ev
 }
 
 func (s *jsiiProxy_S3EventSource) Bind(target awslambda.IFunction) {
+	if err := s.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bind",

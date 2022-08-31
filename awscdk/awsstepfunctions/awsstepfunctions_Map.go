@@ -336,6 +336,9 @@ func (j *jsiiProxy_Map) StateId() *string {
 func NewMap(scope constructs.Construct, id *string, props *MapProps) Map {
 	_init_.Initialize()
 
+	if err := validateNewMapParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Map{}
 
 	_jsii_.Create(
@@ -358,7 +361,7 @@ func NewMap_Override(m Map, scope constructs.Construct, id *string, props *MapPr
 	)
 }
 
-func (j *jsiiProxy_Map) SetDefaultChoice(val State) {
+func (j *jsiiProxy_Map)SetDefaultChoice(val State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -366,7 +369,7 @@ func (j *jsiiProxy_Map) SetDefaultChoice(val State) {
 	)
 }
 
-func (j *jsiiProxy_Map) SetIteration(val StateGraph) {
+func (j *jsiiProxy_Map)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -379,6 +382,9 @@ func (j *jsiiProxy_Map) SetIteration(val StateGraph) {
 func Map_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
+	if err := validateMap_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
@@ -396,6 +402,9 @@ func Map_FilterNextables(states *[]State) *[]INextable {
 func Map_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateMap_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -415,6 +424,9 @@ func Map_FindReachableEndStates(start State, options *FindStateOptions) *[]State
 func Map_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateMap_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -432,6 +444,9 @@ func Map_FindReachableStates(start State, options *FindStateOptions) *[]State {
 func Map_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateMap_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -449,6 +464,9 @@ func Map_IsConstruct(x interface{}) *bool {
 func Map_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateMap_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions.Map",
 		"prefixStates",
@@ -457,6 +475,9 @@ func Map_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (m *jsiiProxy_Map) AddBranch(branch StateGraph) {
+	if err := m.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addBranch",
@@ -465,6 +486,9 @@ func (m *jsiiProxy_Map) AddBranch(branch StateGraph) {
 }
 
 func (m *jsiiProxy_Map) AddCatch(handler IChainable, props *CatchProps) Map {
+	if err := m.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns Map
 
 	_jsii_.Invoke(
@@ -478,6 +502,9 @@ func (m *jsiiProxy_Map) AddCatch(handler IChainable, props *CatchProps) Map {
 }
 
 func (m *jsiiProxy_Map) AddChoice(condition Condition, next State) {
+	if err := m.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addChoice",
@@ -486,6 +513,9 @@ func (m *jsiiProxy_Map) AddChoice(condition Condition, next State) {
 }
 
 func (m *jsiiProxy_Map) AddIterator(iteration StateGraph) {
+	if err := m.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addIterator",
@@ -494,6 +524,9 @@ func (m *jsiiProxy_Map) AddIterator(iteration StateGraph) {
 }
 
 func (m *jsiiProxy_Map) AddPrefix(x *string) {
+	if err := m.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addPrefix",
@@ -502,6 +535,9 @@ func (m *jsiiProxy_Map) AddPrefix(x *string) {
 }
 
 func (m *jsiiProxy_Map) AddRetry(props *RetryProps) Map {
+	if err := m.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Map
 
 	_jsii_.Invoke(
@@ -515,6 +551,9 @@ func (m *jsiiProxy_Map) AddRetry(props *RetryProps) Map {
 }
 
 func (m *jsiiProxy_Map) BindToGraph(graph StateGraph) {
+	if err := m.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"bindToGraph",
@@ -523,6 +562,9 @@ func (m *jsiiProxy_Map) BindToGraph(graph StateGraph) {
 }
 
 func (m *jsiiProxy_Map) Iterator(iterator IChainable) Map {
+	if err := m.validateIteratorParameters(iterator); err != nil {
+		panic(err)
+	}
 	var returns Map
 
 	_jsii_.Invoke(
@@ -536,6 +578,9 @@ func (m *jsiiProxy_Map) Iterator(iterator IChainable) Map {
 }
 
 func (m *jsiiProxy_Map) MakeDefault(def State) {
+	if err := m.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"makeDefault",
@@ -544,6 +589,9 @@ func (m *jsiiProxy_Map) MakeDefault(def State) {
 }
 
 func (m *jsiiProxy_Map) MakeNext(next State) {
+	if err := m.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"makeNext",
@@ -552,6 +600,9 @@ func (m *jsiiProxy_Map) MakeNext(next State) {
 }
 
 func (m *jsiiProxy_Map) Next(next IChainable) Chain {
+	if err := m.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.Invoke(
@@ -573,6 +624,9 @@ func (m *jsiiProxy_Map) OnPrepare() {
 }
 
 func (m *jsiiProxy_Map) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := m.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"onSynthesize",
@@ -693,6 +747,9 @@ func (m *jsiiProxy_Map) RenderRetryCatch() interface{} {
 }
 
 func (m *jsiiProxy_Map) Synthesize(session awscdk.ISynthesisSession) {
+	if err := m.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"synthesize",
@@ -740,6 +797,9 @@ func (m *jsiiProxy_Map) Validate() *[]*string {
 }
 
 func (m *jsiiProxy_Map) WhenBoundToGraph(graph StateGraph) {
+	if err := m.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"whenBoundToGraph",

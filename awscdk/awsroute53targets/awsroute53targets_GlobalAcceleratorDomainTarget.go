@@ -35,6 +35,9 @@ type jsiiProxy_GlobalAcceleratorDomainTarget struct {
 func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string) GlobalAcceleratorDomainTarget {
 	_init_.Initialize()
 
+	if err := validateNewGlobalAcceleratorDomainTargetParameters(acceleratorDomainName); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GlobalAcceleratorDomainTarget{}
 
 	_jsii_.Create(
@@ -70,6 +73,9 @@ func GlobalAcceleratorDomainTarget_GLOBAL_ACCELERATOR_ZONE_ID() *string {
 }
 
 func (g *jsiiProxy_GlobalAcceleratorDomainTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := g.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

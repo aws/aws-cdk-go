@@ -72,6 +72,9 @@ func (j *jsiiProxy_BlockDeviceVolume) VirtualName() *string {
 func NewBlockDeviceVolume(ebsDevice *EbsDeviceProps, virtualName *string) BlockDeviceVolume {
 	_init_.Initialize()
 
+	if err := validateNewBlockDeviceVolumeParameters(ebsDevice); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BlockDeviceVolume{}
 
 	_jsii_.Create(
@@ -99,6 +102,9 @@ func NewBlockDeviceVolume_Override(b BlockDeviceVolume, ebsDevice *EbsDeviceProp
 func BlockDeviceVolume_Ebs(volumeSize *float64, options *EbsDeviceOptions) BlockDeviceVolume {
 	_init_.Initialize()
 
+	if err := validateBlockDeviceVolume_EbsParameters(volumeSize, options); err != nil {
+		panic(err)
+	}
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
@@ -116,6 +122,9 @@ func BlockDeviceVolume_Ebs(volumeSize *float64, options *EbsDeviceOptions) Block
 func BlockDeviceVolume_EbsFromSnapshot(snapshotId *string, options *EbsDeviceSnapshotOptions) BlockDeviceVolume {
 	_init_.Initialize()
 
+	if err := validateBlockDeviceVolume_EbsFromSnapshotParameters(snapshotId, options); err != nil {
+		panic(err)
+	}
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
@@ -135,6 +144,9 @@ func BlockDeviceVolume_EbsFromSnapshot(snapshotId *string, options *EbsDeviceSna
 func BlockDeviceVolume_Ephemeral(volumeIndex *float64) BlockDeviceVolume {
 	_init_.Initialize()
 
+	if err := validateBlockDeviceVolume_EphemeralParameters(volumeIndex); err != nil {
+		panic(err)
+	}
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(

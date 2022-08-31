@@ -450,6 +450,9 @@ func (j *jsiiProxy_CfnPhoneNumber) UpdatedProperites() *map[string]interface{} {
 func NewCfnPhoneNumber(scope awscdk.Construct, id *string, props *CfnPhoneNumberProps) CfnPhoneNumber {
 	_init_.Initialize()
 
+	if err := validateNewCfnPhoneNumberParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnPhoneNumber{}
 
 	_jsii_.Create(
@@ -472,7 +475,10 @@ func NewCfnPhoneNumber_Override(c CfnPhoneNumber, scope awscdk.Construct, id *st
 	)
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) SetCountryCode(val *string) {
+func (j *jsiiProxy_CfnPhoneNumber)SetCountryCode(val *string) {
+	if err := j.validateSetCountryCodeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"countryCode",
@@ -480,7 +486,7 @@ func (j *jsiiProxy_CfnPhoneNumber) SetCountryCode(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) SetDescription(val *string) {
+func (j *jsiiProxy_CfnPhoneNumber)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -488,7 +494,7 @@ func (j *jsiiProxy_CfnPhoneNumber) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) SetPrefix(val *string) {
+func (j *jsiiProxy_CfnPhoneNumber)SetPrefix(val *string) {
 	_jsii_.Set(
 		j,
 		"prefix",
@@ -496,7 +502,10 @@ func (j *jsiiProxy_CfnPhoneNumber) SetPrefix(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) SetTargetArn(val *string) {
+func (j *jsiiProxy_CfnPhoneNumber)SetTargetArn(val *string) {
+	if err := j.validateSetTargetArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetArn",
@@ -504,7 +513,10 @@ func (j *jsiiProxy_CfnPhoneNumber) SetTargetArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) SetType(val *string) {
+func (j *jsiiProxy_CfnPhoneNumber)SetType(val *string) {
+	if err := j.validateSetTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"type",
@@ -522,6 +534,9 @@ func (j *jsiiProxy_CfnPhoneNumber) SetType(val *string) {
 func CfnPhoneNumber_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPhoneNumber_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -539,6 +554,9 @@ func CfnPhoneNumber_IsCfnElement(x interface{}) *bool {
 func CfnPhoneNumber_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPhoneNumber_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -556,6 +574,9 @@ func CfnPhoneNumber_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnPhoneNumber_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPhoneNumber_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -580,6 +601,9 @@ func CfnPhoneNumber_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -588,6 +612,9 @@ func (c *jsiiProxy_CfnPhoneNumber) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -596,6 +623,9 @@ func (c *jsiiProxy_CfnPhoneNumber) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -604,6 +634,9 @@ func (c *jsiiProxy_CfnPhoneNumber) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -612,6 +645,9 @@ func (c *jsiiProxy_CfnPhoneNumber) AddOverride(path *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -620,6 +656,9 @@ func (c *jsiiProxy_CfnPhoneNumber) AddPropertyDeletionOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -628,6 +667,9 @@ func (c *jsiiProxy_CfnPhoneNumber) AddPropertyOverride(propertyPath *string, val
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -636,6 +678,9 @@ func (c *jsiiProxy_CfnPhoneNumber) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -649,6 +694,9 @@ func (c *jsiiProxy_CfnPhoneNumber) GetAtt(attributeName *string) awscdk.Referenc
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -662,6 +710,9 @@ func (c *jsiiProxy_CfnPhoneNumber) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -678,6 +729,9 @@ func (c *jsiiProxy_CfnPhoneNumber) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -699,6 +753,9 @@ func (c *jsiiProxy_CfnPhoneNumber) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -715,6 +772,9 @@ func (c *jsiiProxy_CfnPhoneNumber) Prepare() {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -741,6 +801,9 @@ func (c *jsiiProxy_CfnPhoneNumber) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -775,6 +838,9 @@ func (c *jsiiProxy_CfnPhoneNumber) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPhoneNumber) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

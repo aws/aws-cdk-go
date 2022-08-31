@@ -201,6 +201,9 @@ func (j *jsiiProxy_LogStream) Stack() awscdk.Stack {
 func NewLogStream(scope constructs.Construct, id *string, props *LogStreamProps) LogStream {
 	_init_.Initialize()
 
+	if err := validateNewLogStreamParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LogStream{}
 
 	_jsii_.Create(
@@ -228,6 +231,9 @@ func NewLogStream_Override(l LogStream, scope constructs.Construct, id *string, 
 func LogStream_FromLogStreamName(scope constructs.Construct, id *string, logStreamName *string) ILogStream {
 	_init_.Initialize()
 
+	if err := validateLogStream_FromLogStreamNameParameters(scope, id, logStreamName); err != nil {
+		panic(err)
+	}
 	var returns ILogStream
 
 	_jsii_.StaticInvoke(
@@ -245,6 +251,9 @@ func LogStream_FromLogStreamName(scope constructs.Construct, id *string, logStre
 func LogStream_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLogStream_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -262,6 +271,9 @@ func LogStream_IsConstruct(x interface{}) *bool {
 func LogStream_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLogStream_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -275,6 +287,9 @@ func LogStream_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LogStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -296,6 +311,9 @@ func (l *jsiiProxy_LogStream) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LogStream) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -309,6 +327,9 @@ func (l *jsiiProxy_LogStream) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (l *jsiiProxy_LogStream) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -330,6 +351,9 @@ func (l *jsiiProxy_LogStream) OnPrepare() {
 }
 
 func (l *jsiiProxy_LogStream) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -359,6 +383,9 @@ func (l *jsiiProxy_LogStream) Prepare() {
 }
 
 func (l *jsiiProxy_LogStream) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

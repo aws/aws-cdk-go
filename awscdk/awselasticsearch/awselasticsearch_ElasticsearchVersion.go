@@ -48,6 +48,9 @@ func (j *jsiiProxy_ElasticsearchVersion) Version() *string {
 func ElasticsearchVersion_Of(version *string) ElasticsearchVersion {
 	_init_.Initialize()
 
+	if err := validateElasticsearchVersion_OfParameters(version); err != nil {
+		panic(err)
+	}
 	var returns ElasticsearchVersion
 
 	_jsii_.StaticInvoke(

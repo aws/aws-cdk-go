@@ -71,6 +71,9 @@ type jsiiProxy_ApiEventSource struct {
 func NewApiEventSource(method *string, path *string, options *awsapigateway.MethodOptions) ApiEventSource {
 	_init_.Initialize()
 
+	if err := validateNewApiEventSourceParameters(method, path, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiEventSource{}
 
 	_jsii_.Create(
@@ -94,6 +97,9 @@ func NewApiEventSource_Override(a ApiEventSource, method *string, path *string, 
 }
 
 func (a *jsiiProxy_ApiEventSource) Bind(target awslambda.IFunction) {
+	if err := a.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"bind",

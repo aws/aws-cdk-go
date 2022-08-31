@@ -176,6 +176,9 @@ func (j *jsiiProxy_MathExpression) Warnings() *[]*string {
 func NewMathExpression(props *MathExpressionProps) MathExpression {
 	_init_.Initialize()
 
+	if err := validateNewMathExpressionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MathExpression{}
 
 	_jsii_.Create(
@@ -199,6 +202,9 @@ func NewMathExpression_Override(m MathExpression, props *MathExpressionProps) {
 }
 
 func (m *jsiiProxy_MathExpression) CreateAlarm(scope awscdk.Construct, id *string, props *CreateAlarmOptions) Alarm {
+	if err := m.validateCreateAlarmParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	var returns Alarm
 
 	_jsii_.Invoke(
@@ -264,6 +270,9 @@ func (m *jsiiProxy_MathExpression) ToString() *string {
 }
 
 func (m *jsiiProxy_MathExpression) With(props *MathExpressionOptions) MathExpression {
+	if err := m.validateWithParameters(props); err != nil {
+		panic(err)
+	}
 	var returns MathExpression
 
 	_jsii_.Invoke(

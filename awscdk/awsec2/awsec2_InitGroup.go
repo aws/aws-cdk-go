@@ -91,6 +91,9 @@ func (j *jsiiProxy_InitGroup) ElementType() *string {
 func NewInitGroup(groupName *string, groupId *float64) InitGroup {
 	_init_.Initialize()
 
+	if err := validateNewInitGroupParameters(groupName); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InitGroup{}
 
 	_jsii_.Create(
@@ -118,6 +121,9 @@ func NewInitGroup_Override(i InitGroup, groupName *string, groupId *float64) {
 func InitGroup_FromName(groupName *string, groupId *float64) InitGroup {
 	_init_.Initialize()
 
+	if err := validateInitGroup_FromNameParameters(groupName); err != nil {
+		panic(err)
+	}
 	var returns InitGroup
 
 	_jsii_.StaticInvoke(

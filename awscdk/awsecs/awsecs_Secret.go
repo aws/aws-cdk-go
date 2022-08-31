@@ -99,6 +99,9 @@ func NewSecret_Override(s Secret) {
 func Secret_FromSecretsManager(secret awssecretsmanager.ISecret, field *string) Secret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretsManagerParameters(secret); err != nil {
+		panic(err)
+	}
 	var returns Secret
 
 	_jsii_.StaticInvoke(
@@ -116,6 +119,9 @@ func Secret_FromSecretsManager(secret awssecretsmanager.ISecret, field *string) 
 func Secret_FromSecretsManagerVersion(secret awssecretsmanager.ISecret, versionInfo *SecretVersionInfo, field *string) Secret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretsManagerVersionParameters(secret, versionInfo); err != nil {
+		panic(err)
+	}
 	var returns Secret
 
 	_jsii_.StaticInvoke(
@@ -133,6 +139,9 @@ func Secret_FromSecretsManagerVersion(secret awssecretsmanager.ISecret, versionI
 func Secret_FromSsmParameter(parameter awsssm.IParameter) Secret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSsmParameterParameters(parameter); err != nil {
+		panic(err)
+	}
 	var returns Secret
 
 	_jsii_.StaticInvoke(
@@ -146,6 +155,9 @@ func Secret_FromSsmParameter(parameter awsssm.IParameter) Secret {
 }
 
 func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

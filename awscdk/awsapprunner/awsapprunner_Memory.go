@@ -44,6 +44,9 @@ func (j *jsiiProxy_Memory) Unit() *string {
 func Memory_Of(unit *string) Memory {
 	_init_.Initialize()
 
+	if err := validateMemory_OfParameters(unit); err != nil {
+		panic(err)
+	}
 	var returns Memory
 
 	_jsii_.StaticInvoke(

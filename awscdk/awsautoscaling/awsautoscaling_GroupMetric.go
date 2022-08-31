@@ -68,6 +68,9 @@ func (j *jsiiProxy_GroupMetric) Name() *string {
 func NewGroupMetric(name *string) GroupMetric {
 	_init_.Initialize()
 
+	if err := validateNewGroupMetricParameters(name); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GroupMetric{}
 
 	_jsii_.Create(

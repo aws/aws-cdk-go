@@ -44,6 +44,9 @@ func (j *jsiiProxy_ListenerCertificate) CertificateArn() *string {
 func NewListenerCertificate(certificateArn *string) ListenerCertificate {
 	_init_.Initialize()
 
+	if err := validateNewListenerCertificateParameters(certificateArn); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ListenerCertificate{}
 
 	_jsii_.Create(
@@ -71,6 +74,9 @@ func NewListenerCertificate_Override(l ListenerCertificate, certificateArn *stri
 func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 	_init_.Initialize()
 
+	if err := validateListenerCertificate_FromArnParameters(certificateArn); err != nil {
+		panic(err)
+	}
 	var returns ListenerCertificate
 
 	_jsii_.StaticInvoke(
@@ -88,6 +94,9 @@ func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 func ListenerCertificate_FromCertificateManager(acmCertificate awscertificatemanager.ICertificate) ListenerCertificate {
 	_init_.Initialize()
 
+	if err := validateListenerCertificate_FromCertificateManagerParameters(acmCertificate); err != nil {
+		panic(err)
+	}
 	var returns ListenerCertificate
 
 	_jsii_.StaticInvoke(

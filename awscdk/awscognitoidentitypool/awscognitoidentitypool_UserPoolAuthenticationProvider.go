@@ -35,6 +35,9 @@ type jsiiProxy_UserPoolAuthenticationProvider struct {
 func NewUserPoolAuthenticationProvider(props *UserPoolAuthenticationProviderProps) UserPoolAuthenticationProvider {
 	_init_.Initialize()
 
+	if err := validateNewUserPoolAuthenticationProviderParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UserPoolAuthenticationProvider{}
 
 	_jsii_.Create(
@@ -58,6 +61,9 @@ func NewUserPoolAuthenticationProvider_Override(u UserPoolAuthenticationProvider
 }
 
 func (u *jsiiProxy_UserPoolAuthenticationProvider) Bind(scope constructs.Construct, identityPool IIdentityPool, _options *UserPoolAuthenticationProviderBindOptions) *UserPoolAuthenticationProviderBindConfig {
+	if err := u.validateBindParameters(scope, identityPool, _options); err != nil {
+		panic(err)
+	}
 	var returns *UserPoolAuthenticationProviderBindConfig
 
 	_jsii_.Invoke(

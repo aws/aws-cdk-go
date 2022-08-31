@@ -39,6 +39,9 @@ func NewDockerImageCode_Override(d DockerImageCode) {
 func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
+	if err := validateDockerImageCode_FromEcrParameters(repository, props); err != nil {
+		panic(err)
+	}
 	var returns DockerImageCode
 
 	_jsii_.StaticInvoke(
@@ -56,6 +59,9 @@ func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeP
 func DockerImageCode_FromImageAsset(directory *string, props *AssetImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
+	if err := validateDockerImageCode_FromImageAssetParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns DockerImageCode
 
 	_jsii_.StaticInvoke(

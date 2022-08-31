@@ -32,6 +32,9 @@ type jsiiProxy_IInput struct {
 }
 
 func (i *jsiiProxy_IInput) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -50,6 +53,9 @@ func (i *jsiiProxy_IInput) Grant(grantee awsiam.IGrantable, actions ...*string) 
 }
 
 func (i *jsiiProxy_IInput) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

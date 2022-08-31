@@ -612,6 +612,9 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 func NewCfnCluster(scope awscdk.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
+	if err := validateNewCfnClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCluster{}
 
 	_jsii_.Create(
@@ -634,7 +637,7 @@ func NewCfnCluster_Override(c CfnCluster, scope awscdk.Construct, id *string, pr
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetAvailabilityZones(val *[]*string) {
+func (j *jsiiProxy_CfnCluster)SetAvailabilityZones(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"availabilityZones",
@@ -642,7 +645,7 @@ func (j *jsiiProxy_CfnCluster) SetAvailabilityZones(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetClusterEndpointEncryptionType(val *string) {
+func (j *jsiiProxy_CfnCluster)SetClusterEndpointEncryptionType(val *string) {
 	_jsii_.Set(
 		j,
 		"clusterEndpointEncryptionType",
@@ -650,7 +653,7 @@ func (j *jsiiProxy_CfnCluster) SetClusterEndpointEncryptionType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetClusterName(val *string) {
+func (j *jsiiProxy_CfnCluster)SetClusterName(val *string) {
 	_jsii_.Set(
 		j,
 		"clusterName",
@@ -658,7 +661,7 @@ func (j *jsiiProxy_CfnCluster) SetClusterName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetDescription(val *string) {
+func (j *jsiiProxy_CfnCluster)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -666,7 +669,10 @@ func (j *jsiiProxy_CfnCluster) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetIamRoleArn(val *string) {
+func (j *jsiiProxy_CfnCluster)SetIamRoleArn(val *string) {
+	if err := j.validateSetIamRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"iamRoleArn",
@@ -674,7 +680,10 @@ func (j *jsiiProxy_CfnCluster) SetIamRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetNodeType(val *string) {
+func (j *jsiiProxy_CfnCluster)SetNodeType(val *string) {
+	if err := j.validateSetNodeTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"nodeType",
@@ -682,7 +691,7 @@ func (j *jsiiProxy_CfnCluster) SetNodeType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetNotificationTopicArn(val *string) {
+func (j *jsiiProxy_CfnCluster)SetNotificationTopicArn(val *string) {
 	_jsii_.Set(
 		j,
 		"notificationTopicArn",
@@ -690,7 +699,7 @@ func (j *jsiiProxy_CfnCluster) SetNotificationTopicArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetParameterGroupName(val *string) {
+func (j *jsiiProxy_CfnCluster)SetParameterGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"parameterGroupName",
@@ -698,7 +707,7 @@ func (j *jsiiProxy_CfnCluster) SetParameterGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetPreferredMaintenanceWindow(val *string) {
+func (j *jsiiProxy_CfnCluster)SetPreferredMaintenanceWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredMaintenanceWindow",
@@ -706,7 +715,10 @@ func (j *jsiiProxy_CfnCluster) SetPreferredMaintenanceWindow(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetReplicationFactor(val *float64) {
+func (j *jsiiProxy_CfnCluster)SetReplicationFactor(val *float64) {
+	if err := j.validateSetReplicationFactorParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"replicationFactor",
@@ -714,7 +726,7 @@ func (j *jsiiProxy_CfnCluster) SetReplicationFactor(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetSecurityGroupIds(val *[]*string) {
+func (j *jsiiProxy_CfnCluster)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
@@ -722,7 +734,10 @@ func (j *jsiiProxy_CfnCluster) SetSecurityGroupIds(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetSseSpecification(val interface{}) {
+func (j *jsiiProxy_CfnCluster)SetSseSpecification(val interface{}) {
+	if err := j.validateSetSseSpecificationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sseSpecification",
@@ -730,7 +745,7 @@ func (j *jsiiProxy_CfnCluster) SetSseSpecification(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnCluster) SetSubnetGroupName(val *string) {
+func (j *jsiiProxy_CfnCluster)SetSubnetGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetGroupName",
@@ -748,6 +763,9 @@ func (j *jsiiProxy_CfnCluster) SetSubnetGroupName(val *string) {
 func CfnCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCluster_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -765,6 +783,9 @@ func CfnCluster_IsCfnElement(x interface{}) *bool {
 func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCluster_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -782,6 +803,9 @@ func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -806,6 +830,9 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -814,6 +841,9 @@ func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -822,6 +852,9 @@ func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -830,6 +863,9 @@ func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -838,6 +874,9 @@ func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -846,6 +885,9 @@ func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string)
 }
 
 func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -854,6 +896,9 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 }
 
 func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -862,6 +907,9 @@ func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 }
 
 func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -875,6 +923,9 @@ func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -888,6 +939,9 @@ func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -904,6 +958,9 @@ func (c *jsiiProxy_CfnCluster) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -925,6 +982,9 @@ func (c *jsiiProxy_CfnCluster) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCluster) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -941,6 +1001,9 @@ func (c *jsiiProxy_CfnCluster) Prepare() {
 }
 
 func (c *jsiiProxy_CfnCluster) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -967,6 +1030,9 @@ func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnCluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1001,6 +1067,9 @@ func (c *jsiiProxy_CfnCluster) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

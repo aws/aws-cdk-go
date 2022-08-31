@@ -175,6 +175,9 @@ func (j *jsiiProxy_PublishAssetsAction) Node() awscdk.ConstructNode {
 func NewPublishAssetsAction(scope constructs.Construct, id *string, props *PublishAssetsActionProps) PublishAssetsAction {
 	_init_.Initialize()
 
+	if err := validateNewPublishAssetsActionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PublishAssetsAction{}
 
 	_jsii_.Create(
@@ -202,6 +205,9 @@ func NewPublishAssetsAction_Override(p PublishAssetsAction, scope constructs.Con
 func PublishAssetsAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePublishAssetsAction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -215,6 +221,9 @@ func PublishAssetsAction_IsConstruct(x interface{}) *bool {
 }
 
 func (p *jsiiProxy_PublishAssetsAction) AddPublishCommand(relativeManifestPath *string, assetSelector *string) {
+	if err := p.validateAddPublishCommandParameters(relativeManifestPath, assetSelector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addPublishCommand",
@@ -223,6 +232,9 @@ func (p *jsiiProxy_PublishAssetsAction) AddPublishCommand(relativeManifestPath *
 }
 
 func (p *jsiiProxy_PublishAssetsAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := p.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -244,6 +256,9 @@ func (p *jsiiProxy_PublishAssetsAction) OnPrepare() {
 }
 
 func (p *jsiiProxy_PublishAssetsAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := p.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -257,6 +272,9 @@ func (p *jsiiProxy_PublishAssetsAction) OnStateChange(name *string, target awsev
 }
 
 func (p *jsiiProxy_PublishAssetsAction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -286,6 +304,9 @@ func (p *jsiiProxy_PublishAssetsAction) Prepare() {
 }
 
 func (p *jsiiProxy_PublishAssetsAction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

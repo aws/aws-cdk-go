@@ -78,6 +78,9 @@ func (j *jsiiProxy_EventField) Path() *string {
 func EventField_FromPath(path *string) *string {
 	_init_.Initialize()
 
+	if err := validateEventField_FromPathParameters(path); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -157,6 +160,9 @@ func EventField_Time() *string {
 }
 
 func (e *jsiiProxy_EventField) Resolve(_ctx awscdk.IResolveContext) interface{} {
+	if err := e.validateResolveParameters(_ctx); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

@@ -54,6 +54,9 @@ func NewComparablePrincipal_Override(c ComparablePrincipal) {
 func ComparablePrincipal_DedupeStringFor(x IPrincipal) *string {
 	_init_.Initialize()
 
+	if err := validateComparablePrincipal_DedupeStringForParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -71,6 +74,9 @@ func ComparablePrincipal_DedupeStringFor(x IPrincipal) *string {
 func ComparablePrincipal_IsComparablePrincipal(x IPrincipal) *bool {
 	_init_.Initialize()
 
+	if err := validateComparablePrincipal_IsComparablePrincipalParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(

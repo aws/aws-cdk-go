@@ -18,6 +18,9 @@ type jsiiProxy_ITopicSubscription struct {
 }
 
 func (i *jsiiProxy_ITopicSubscription) Bind(topic ITopic) *TopicSubscriptionConfig {
+	if err := i.validateBindParameters(topic); err != nil {
+		panic(err)
+	}
 	var returns *TopicSubscriptionConfig
 
 	_jsii_.Invoke(

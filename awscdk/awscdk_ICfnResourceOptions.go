@@ -90,7 +90,7 @@ func (j *jsiiProxy_ICfnResourceOptions) Condition() CfnCondition {
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetCondition(val CfnCondition) {
+func (j *jsiiProxy_ICfnResourceOptions)SetCondition(val CfnCondition) {
 	_jsii_.Set(
 		j,
 		"condition",
@@ -108,7 +108,10 @@ func (j *jsiiProxy_ICfnResourceOptions) CreationPolicy() *CfnCreationPolicy {
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetCreationPolicy(val *CfnCreationPolicy) {
+func (j *jsiiProxy_ICfnResourceOptions)SetCreationPolicy(val *CfnCreationPolicy) {
+	if err := j.validateSetCreationPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"creationPolicy",
@@ -126,7 +129,7 @@ func (j *jsiiProxy_ICfnResourceOptions) DeletionPolicy() CfnDeletionPolicy {
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetDeletionPolicy(val CfnDeletionPolicy) {
+func (j *jsiiProxy_ICfnResourceOptions)SetDeletionPolicy(val CfnDeletionPolicy) {
 	_jsii_.Set(
 		j,
 		"deletionPolicy",
@@ -144,7 +147,7 @@ func (j *jsiiProxy_ICfnResourceOptions) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetDescription(val *string) {
+func (j *jsiiProxy_ICfnResourceOptions)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -162,7 +165,7 @@ func (j *jsiiProxy_ICfnResourceOptions) Metadata() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetMetadata(val *map[string]interface{}) {
+func (j *jsiiProxy_ICfnResourceOptions)SetMetadata(val *map[string]interface{}) {
 	_jsii_.Set(
 		j,
 		"metadata",
@@ -180,7 +183,10 @@ func (j *jsiiProxy_ICfnResourceOptions) UpdatePolicy() *CfnUpdatePolicy {
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetUpdatePolicy(val *CfnUpdatePolicy) {
+func (j *jsiiProxy_ICfnResourceOptions)SetUpdatePolicy(val *CfnUpdatePolicy) {
+	if err := j.validateSetUpdatePolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"updatePolicy",
@@ -198,7 +204,7 @@ func (j *jsiiProxy_ICfnResourceOptions) UpdateReplacePolicy() CfnDeletionPolicy 
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetUpdateReplacePolicy(val CfnDeletionPolicy) {
+func (j *jsiiProxy_ICfnResourceOptions)SetUpdateReplacePolicy(val CfnDeletionPolicy) {
 	_jsii_.Set(
 		j,
 		"updateReplacePolicy",
@@ -216,7 +222,7 @@ func (j *jsiiProxy_ICfnResourceOptions) Version() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ICfnResourceOptions) SetVersion(val *string) {
+func (j *jsiiProxy_ICfnResourceOptions)SetVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"version",

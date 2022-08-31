@@ -64,6 +64,9 @@ func NewQueryParameterMatch_Override(q QueryParameterMatch) {
 func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue *string) QueryParameterMatch {
 	_init_.Initialize()
 
+	if err := validateQueryParameterMatch_ValueIsParameters(queryParameterName, queryParameterValue); err != nil {
+		panic(err)
+	}
 	var returns QueryParameterMatch
 
 	_jsii_.StaticInvoke(
@@ -77,6 +80,9 @@ func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue
 }
 
 func (q *jsiiProxy_QueryParameterMatch) Bind(scope awscdk.Construct) *QueryParameterMatchConfig {
+	if err := q.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *QueryParameterMatchConfig
 
 	_jsii_.Invoke(

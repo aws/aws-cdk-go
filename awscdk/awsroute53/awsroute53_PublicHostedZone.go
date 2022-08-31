@@ -268,6 +268,9 @@ func (j *jsiiProxy_PublicHostedZone) ZoneName() *string {
 func NewPublicHostedZone(scope constructs.Construct, id *string, props *PublicHostedZoneProps) PublicHostedZone {
 	_init_.Initialize()
 
+	if err := validateNewPublicHostedZoneParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PublicHostedZone{}
 
 	_jsii_.Create(
@@ -297,6 +300,9 @@ func NewPublicHostedZone_Override(p PublicHostedZone, scope constructs.Construct
 func PublicHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
+	if err := validatePublicHostedZone_FromHostedZoneAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -316,6 +322,9 @@ func PublicHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *s
 func PublicHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
+	if err := validatePublicHostedZone_FromHostedZoneIdParameters(scope, id, hostedZoneId); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -339,6 +348,9 @@ func PublicHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, h
 func PublicHostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
+	if err := validatePublicHostedZone_FromLookupParameters(scope, id, query); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -358,6 +370,9 @@ func PublicHostedZone_FromLookup(scope constructs.Construct, id *string, query *
 func PublicHostedZone_FromPublicHostedZoneAttributes(scope constructs.Construct, id *string, attrs *PublicHostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
+	if err := validatePublicHostedZone_FromPublicHostedZoneAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -375,6 +390,9 @@ func PublicHostedZone_FromPublicHostedZoneAttributes(scope constructs.Construct,
 func PublicHostedZone_FromPublicHostedZoneId(scope constructs.Construct, id *string, publicHostedZoneId *string) IPublicHostedZone {
 	_init_.Initialize()
 
+	if err := validatePublicHostedZone_FromPublicHostedZoneIdParameters(scope, id, publicHostedZoneId); err != nil {
+		panic(err)
+	}
 	var returns IPublicHostedZone
 
 	_jsii_.StaticInvoke(
@@ -392,6 +410,9 @@ func PublicHostedZone_FromPublicHostedZoneId(scope constructs.Construct, id *str
 func PublicHostedZone_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePublicHostedZone_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -409,6 +430,9 @@ func PublicHostedZone_IsConstruct(x interface{}) *bool {
 func PublicHostedZone_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePublicHostedZone_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -422,6 +446,9 @@ func PublicHostedZone_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_PublicHostedZone) AddDelegation(delegate IPublicHostedZone, opts *ZoneDelegationOptions) {
+	if err := p.validateAddDelegationParameters(delegate, opts); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addDelegation",
@@ -430,6 +457,9 @@ func (p *jsiiProxy_PublicHostedZone) AddDelegation(delegate IPublicHostedZone, o
 }
 
 func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
+	if err := p.validateAddVpcParameters(_vpc); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addVpc",
@@ -438,6 +468,9 @@ func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
 }
 
 func (p *jsiiProxy_PublicHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -459,6 +492,9 @@ func (p *jsiiProxy_PublicHostedZone) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_PublicHostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -472,6 +508,9 @@ func (p *jsiiProxy_PublicHostedZone) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (p *jsiiProxy_PublicHostedZone) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -493,6 +532,9 @@ func (p *jsiiProxy_PublicHostedZone) OnPrepare() {
 }
 
 func (p *jsiiProxy_PublicHostedZone) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -522,6 +564,9 @@ func (p *jsiiProxy_PublicHostedZone) Prepare() {
 }
 
 func (p *jsiiProxy_PublicHostedZone) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

@@ -312,6 +312,9 @@ func (j *jsiiProxy_Alarm) Stack() awscdk.Stack {
 func NewAlarm(scope constructs.Construct, id *string, props *AlarmProps) Alarm {
 	_init_.Initialize()
 
+	if err := validateNewAlarmParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Alarm{}
 
 	_jsii_.Create(
@@ -334,7 +337,7 @@ func NewAlarm_Override(a Alarm, scope constructs.Construct, id *string, props *A
 	)
 }
 
-func (j *jsiiProxy_Alarm) SetAlarmActionArns(val *[]*string) {
+func (j *jsiiProxy_Alarm)SetAlarmActionArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"alarmActionArns",
@@ -342,7 +345,7 @@ func (j *jsiiProxy_Alarm) SetAlarmActionArns(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_Alarm) SetInsufficientDataActionArns(val *[]*string) {
+func (j *jsiiProxy_Alarm)SetInsufficientDataActionArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"insufficientDataActionArns",
@@ -350,7 +353,7 @@ func (j *jsiiProxy_Alarm) SetInsufficientDataActionArns(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_Alarm) SetOkActionArns(val *[]*string) {
+func (j *jsiiProxy_Alarm)SetOkActionArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"okActionArns",
@@ -363,6 +366,9 @@ func (j *jsiiProxy_Alarm) SetOkActionArns(val *[]*string) {
 func Alarm_FromAlarmArn(scope constructs.Construct, id *string, alarmArn *string) IAlarm {
 	_init_.Initialize()
 
+	if err := validateAlarm_FromAlarmArnParameters(scope, id, alarmArn); err != nil {
+		panic(err)
+	}
 	var returns IAlarm
 
 	_jsii_.StaticInvoke(
@@ -380,6 +386,9 @@ func Alarm_FromAlarmArn(scope constructs.Construct, id *string, alarmArn *string
 func Alarm_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAlarm_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -397,6 +406,9 @@ func Alarm_IsConstruct(x interface{}) *bool {
 func Alarm_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAlarm_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -449,6 +461,9 @@ func (a *jsiiProxy_Alarm) AddOkAction(actions ...IAlarmAction) {
 }
 
 func (a *jsiiProxy_Alarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -470,6 +485,9 @@ func (a *jsiiProxy_Alarm) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_Alarm) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -483,6 +501,9 @@ func (a *jsiiProxy_Alarm) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (a *jsiiProxy_Alarm) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -504,6 +525,9 @@ func (a *jsiiProxy_Alarm) OnPrepare() {
 }
 
 func (a *jsiiProxy_Alarm) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -546,6 +570,9 @@ func (a *jsiiProxy_Alarm) RenderAlarmRule() *string {
 }
 
 func (a *jsiiProxy_Alarm) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

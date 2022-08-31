@@ -65,6 +65,9 @@ func (j *jsiiProxy_IdentityPoolProviderUrl) Value() *string {
 func NewIdentityPoolProviderUrl(type_ IdentityPoolProviderType, value *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
 
+	if err := validateNewIdentityPoolProviderUrlParameters(type_, value); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IdentityPoolProviderUrl{}
 
 	_jsii_.Create(
@@ -92,6 +95,9 @@ func NewIdentityPoolProviderUrl_Override(i IdentityPoolProviderUrl, type_ Identi
 func IdentityPoolProviderUrl_Custom(url *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
 
+	if err := validateIdentityPoolProviderUrl_CustomParameters(url); err != nil {
+		panic(err)
+	}
 	var returns IdentityPoolProviderUrl
 
 	_jsii_.StaticInvoke(
@@ -109,6 +115,9 @@ func IdentityPoolProviderUrl_Custom(url *string) IdentityPoolProviderUrl {
 func IdentityPoolProviderUrl_OpenId(url *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
 
+	if err := validateIdentityPoolProviderUrl_OpenIdParameters(url); err != nil {
+		panic(err)
+	}
 	var returns IdentityPoolProviderUrl
 
 	_jsii_.StaticInvoke(
@@ -126,6 +135,9 @@ func IdentityPoolProviderUrl_OpenId(url *string) IdentityPoolProviderUrl {
 func IdentityPoolProviderUrl_Saml(url *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
 
+	if err := validateIdentityPoolProviderUrl_SamlParameters(url); err != nil {
+		panic(err)
+	}
 	var returns IdentityPoolProviderUrl
 
 	_jsii_.StaticInvoke(
@@ -143,6 +155,9 @@ func IdentityPoolProviderUrl_Saml(url *string) IdentityPoolProviderUrl {
 func IdentityPoolProviderUrl_UserPool(url *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
 
+	if err := validateIdentityPoolProviderUrl_UserPoolParameters(url); err != nil {
+		panic(err)
+	}
 	var returns IdentityPoolProviderUrl
 
 	_jsii_.StaticInvoke(

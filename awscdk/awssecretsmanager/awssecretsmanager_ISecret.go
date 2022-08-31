@@ -74,6 +74,9 @@ type jsiiProxy_ISecret struct {
 }
 
 func (i *jsiiProxy_ISecret) AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule {
+	if err := i.validateAddRotationScheduleParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns RotationSchedule
 
 	_jsii_.Invoke(
@@ -87,6 +90,9 @@ func (i *jsiiProxy_ISecret) AddRotationSchedule(id *string, options *RotationSch
 }
 
 func (i *jsiiProxy_ISecret) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -100,6 +106,9 @@ func (i *jsiiProxy_ISecret) AddToResourcePolicy(statement awsiam.PolicyStatement
 }
 
 func (i *jsiiProxy_ISecret) Attach(target ISecretAttachmentTarget) ISecret {
+	if err := i.validateAttachParameters(target); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.Invoke(
@@ -121,6 +130,9 @@ func (i *jsiiProxy_ISecret) DenyAccountRootDelete() {
 }
 
 func (i *jsiiProxy_ISecret) GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant {
+	if err := i.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -134,6 +146,9 @@ func (i *jsiiProxy_ISecret) GrantRead(grantee awsiam.IGrantable, versionStages *
 }
 
 func (i *jsiiProxy_ISecret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -147,6 +162,9 @@ func (i *jsiiProxy_ISecret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (i *jsiiProxy_ISecret) SecretValueFromJson(key *string) awscdk.SecretValue {
+	if err := i.validateSecretValueFromJsonParameters(key); err != nil {
+		panic(err)
+	}
 	var returns awscdk.SecretValue
 
 	_jsii_.Invoke(

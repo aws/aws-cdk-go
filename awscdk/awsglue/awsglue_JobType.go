@@ -45,6 +45,9 @@ func (j *jsiiProxy_JobType) Name() *string {
 func JobType_Of(name *string) JobType {
 	_init_.Initialize()
 
+	if err := validateJobType_OfParameters(name); err != nil {
+		panic(err)
+	}
 	var returns JobType
 
 	_jsii_.StaticInvoke(

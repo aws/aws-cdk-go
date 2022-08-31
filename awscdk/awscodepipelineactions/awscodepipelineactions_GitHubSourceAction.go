@@ -106,6 +106,9 @@ func (j *jsiiProxy_GitHubSourceAction) Variables() *GitHubSourceVariables {
 func NewGitHubSourceAction(props *GitHubSourceActionProps) GitHubSourceAction {
 	_init_.Initialize()
 
+	if err := validateNewGitHubSourceActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GitHubSourceAction{}
 
 	_jsii_.Create(
@@ -129,6 +132,9 @@ func NewGitHubSourceAction_Override(g GitHubSourceAction, props *GitHubSourceAct
 }
 
 func (g *jsiiProxy_GitHubSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := g.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -142,6 +148,9 @@ func (g *jsiiProxy_GitHubSourceAction) Bind(scope awscdk.Construct, stage awscod
 }
 
 func (g *jsiiProxy_GitHubSourceAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := g.validateBoundParameters(scope, stage, _options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -155,6 +164,9 @@ func (g *jsiiProxy_GitHubSourceAction) Bound(scope awscdk.Construct, stage awsco
 }
 
 func (g *jsiiProxy_GitHubSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := g.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -168,6 +180,9 @@ func (g *jsiiProxy_GitHubSourceAction) OnStateChange(name *string, target awseve
 }
 
 func (g *jsiiProxy_GitHubSourceAction) VariableExpression(variableName *string) *string {
+	if err := g.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

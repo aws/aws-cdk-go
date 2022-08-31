@@ -41,6 +41,9 @@ type jsiiProxy_IEventBus struct {
 }
 
 func (i *jsiiProxy_IEventBus) Archive(id *string, props *BaseArchiveProps) Archive {
+	if err := i.validateArchiveParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns Archive
 
 	_jsii_.Invoke(
@@ -54,6 +57,9 @@ func (i *jsiiProxy_IEventBus) Archive(id *string, props *BaseArchiveProps) Archi
 }
 
 func (i *jsiiProxy_IEventBus) GrantPutEventsTo(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPutEventsToParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

@@ -368,6 +368,9 @@ func (j *jsiiProxy_CfnDataLakeSettings) UpdatedProperites() *map[string]interfac
 func NewCfnDataLakeSettings(scope awscdk.Construct, id *string, props *CfnDataLakeSettingsProps) CfnDataLakeSettings {
 	_init_.Initialize()
 
+	if err := validateNewCfnDataLakeSettingsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnDataLakeSettings{}
 
 	_jsii_.Create(
@@ -390,7 +393,10 @@ func NewCfnDataLakeSettings_Override(c CfnDataLakeSettings, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnDataLakeSettings) SetAdmins(val interface{}) {
+func (j *jsiiProxy_CfnDataLakeSettings)SetAdmins(val interface{}) {
+	if err := j.validateSetAdminsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"admins",
@@ -398,7 +404,7 @@ func (j *jsiiProxy_CfnDataLakeSettings) SetAdmins(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataLakeSettings) SetTrustedResourceOwners(val *[]*string) {
+func (j *jsiiProxy_CfnDataLakeSettings)SetTrustedResourceOwners(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"trustedResourceOwners",
@@ -416,6 +422,9 @@ func (j *jsiiProxy_CfnDataLakeSettings) SetTrustedResourceOwners(val *[]*string)
 func CfnDataLakeSettings_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataLakeSettings_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -433,6 +442,9 @@ func CfnDataLakeSettings_IsCfnElement(x interface{}) *bool {
 func CfnDataLakeSettings_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataLakeSettings_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -450,6 +462,9 @@ func CfnDataLakeSettings_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnDataLakeSettings_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataLakeSettings_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -474,6 +489,9 @@ func CfnDataLakeSettings_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -482,6 +500,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -490,6 +511,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -498,6 +522,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -506,6 +533,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -514,6 +544,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -522,6 +555,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -530,6 +566,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -543,6 +582,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -556,6 +598,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -572,6 +617,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -593,6 +641,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -609,6 +660,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) Prepare() {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -635,6 +689,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -669,6 +726,9 @@ func (c *jsiiProxy_CfnDataLakeSettings) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

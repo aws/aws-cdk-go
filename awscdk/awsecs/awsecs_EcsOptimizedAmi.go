@@ -41,6 +41,9 @@ type jsiiProxy_EcsOptimizedAmi struct {
 func NewEcsOptimizedAmi(props *EcsOptimizedAmiProps) EcsOptimizedAmi {
 	_init_.Initialize()
 
+	if err := validateNewEcsOptimizedAmiParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcsOptimizedAmi{}
 
 	_jsii_.Create(
@@ -65,6 +68,9 @@ func NewEcsOptimizedAmi_Override(e EcsOptimizedAmi, props *EcsOptimizedAmiProps)
 }
 
 func (e *jsiiProxy_EcsOptimizedAmi) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
+	if err := e.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awsec2.MachineImageConfig
 
 	_jsii_.Invoke(

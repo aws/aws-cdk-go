@@ -57,6 +57,9 @@ type jsiiProxy_BucketWebsiteTarget struct {
 func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
 	_init_.Initialize()
 
+	if err := validateNewBucketWebsiteTargetParameters(bucket); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BucketWebsiteTarget{}
 
 	_jsii_.Create(
@@ -80,6 +83,9 @@ func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket
 }
 
 func (b *jsiiProxy_BucketWebsiteTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := b.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

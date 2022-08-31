@@ -49,6 +49,9 @@ type jsiiProxy_InstanceIdTarget struct {
 func NewInstanceIdTarget(instanceId *string, port *float64) InstanceIdTarget {
 	_init_.Initialize()
 
+	if err := validateNewInstanceIdTargetParameters(instanceId); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InstanceIdTarget{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewInstanceIdTarget_Override(i InstanceIdTarget, instanceId *string, port *
 }
 
 func (i *jsiiProxy_InstanceIdTarget) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := i.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -86,6 +92,9 @@ func (i *jsiiProxy_InstanceIdTarget) AttachToApplicationTargetGroup(targetGroup 
 }
 
 func (i *jsiiProxy_InstanceIdTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := i.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(

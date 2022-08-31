@@ -597,6 +597,9 @@ func (j *jsiiProxy_CfnGameServerGroup) VpcSubnets() *[]*string {
 func NewCfnGameServerGroup(scope awscdk.Construct, id *string, props *CfnGameServerGroupProps) CfnGameServerGroup {
 	_init_.Initialize()
 
+	if err := validateNewCfnGameServerGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnGameServerGroup{}
 
 	_jsii_.Create(
@@ -619,7 +622,10 @@ func NewCfnGameServerGroup_Override(c CfnGameServerGroup, scope awscdk.Construct
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetAutoScalingPolicy(val interface{}) {
+func (j *jsiiProxy_CfnGameServerGroup)SetAutoScalingPolicy(val interface{}) {
+	if err := j.validateSetAutoScalingPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"autoScalingPolicy",
@@ -627,7 +633,7 @@ func (j *jsiiProxy_CfnGameServerGroup) SetAutoScalingPolicy(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetBalancingStrategy(val *string) {
+func (j *jsiiProxy_CfnGameServerGroup)SetBalancingStrategy(val *string) {
 	_jsii_.Set(
 		j,
 		"balancingStrategy",
@@ -635,7 +641,7 @@ func (j *jsiiProxy_CfnGameServerGroup) SetBalancingStrategy(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetDeleteOption(val *string) {
+func (j *jsiiProxy_CfnGameServerGroup)SetDeleteOption(val *string) {
 	_jsii_.Set(
 		j,
 		"deleteOption",
@@ -643,7 +649,10 @@ func (j *jsiiProxy_CfnGameServerGroup) SetDeleteOption(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetGameServerGroupName(val *string) {
+func (j *jsiiProxy_CfnGameServerGroup)SetGameServerGroupName(val *string) {
+	if err := j.validateSetGameServerGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"gameServerGroupName",
@@ -651,7 +660,7 @@ func (j *jsiiProxy_CfnGameServerGroup) SetGameServerGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetGameServerProtectionPolicy(val *string) {
+func (j *jsiiProxy_CfnGameServerGroup)SetGameServerProtectionPolicy(val *string) {
 	_jsii_.Set(
 		j,
 		"gameServerProtectionPolicy",
@@ -659,7 +668,10 @@ func (j *jsiiProxy_CfnGameServerGroup) SetGameServerProtectionPolicy(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetInstanceDefinitions(val interface{}) {
+func (j *jsiiProxy_CfnGameServerGroup)SetInstanceDefinitions(val interface{}) {
+	if err := j.validateSetInstanceDefinitionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceDefinitions",
@@ -667,7 +679,10 @@ func (j *jsiiProxy_CfnGameServerGroup) SetInstanceDefinitions(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetLaunchTemplate(val interface{}) {
+func (j *jsiiProxy_CfnGameServerGroup)SetLaunchTemplate(val interface{}) {
+	if err := j.validateSetLaunchTemplateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"launchTemplate",
@@ -675,7 +690,7 @@ func (j *jsiiProxy_CfnGameServerGroup) SetLaunchTemplate(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetMaxSize(val *float64) {
+func (j *jsiiProxy_CfnGameServerGroup)SetMaxSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxSize",
@@ -683,7 +698,7 @@ func (j *jsiiProxy_CfnGameServerGroup) SetMaxSize(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetMinSize(val *float64) {
+func (j *jsiiProxy_CfnGameServerGroup)SetMinSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"minSize",
@@ -691,7 +706,10 @@ func (j *jsiiProxy_CfnGameServerGroup) SetMinSize(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnGameServerGroup)SetRoleArn(val *string) {
+	if err := j.validateSetRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -699,7 +717,7 @@ func (j *jsiiProxy_CfnGameServerGroup) SetRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameServerGroup) SetVpcSubnets(val *[]*string) {
+func (j *jsiiProxy_CfnGameServerGroup)SetVpcSubnets(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"vpcSubnets",
@@ -717,6 +735,9 @@ func (j *jsiiProxy_CfnGameServerGroup) SetVpcSubnets(val *[]*string) {
 func CfnGameServerGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGameServerGroup_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -734,6 +755,9 @@ func CfnGameServerGroup_IsCfnElement(x interface{}) *bool {
 func CfnGameServerGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGameServerGroup_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -751,6 +775,9 @@ func CfnGameServerGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnGameServerGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGameServerGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -775,6 +802,9 @@ func CfnGameServerGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -783,6 +813,9 @@ func (c *jsiiProxy_CfnGameServerGroup) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -791,6 +824,9 @@ func (c *jsiiProxy_CfnGameServerGroup) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -799,6 +835,9 @@ func (c *jsiiProxy_CfnGameServerGroup) AddMetadata(key *string, value interface{
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -807,6 +846,9 @@ func (c *jsiiProxy_CfnGameServerGroup) AddOverride(path *string, value interface
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -815,6 +857,9 @@ func (c *jsiiProxy_CfnGameServerGroup) AddPropertyDeletionOverride(propertyPath 
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -823,6 +868,9 @@ func (c *jsiiProxy_CfnGameServerGroup) AddPropertyOverride(propertyPath *string,
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -831,6 +879,9 @@ func (c *jsiiProxy_CfnGameServerGroup) ApplyRemovalPolicy(policy awscdk.RemovalP
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -844,6 +895,9 @@ func (c *jsiiProxy_CfnGameServerGroup) GetAtt(attributeName *string) awscdk.Refe
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -857,6 +911,9 @@ func (c *jsiiProxy_CfnGameServerGroup) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -873,6 +930,9 @@ func (c *jsiiProxy_CfnGameServerGroup) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -894,6 +954,9 @@ func (c *jsiiProxy_CfnGameServerGroup) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -910,6 +973,9 @@ func (c *jsiiProxy_CfnGameServerGroup) Prepare() {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -936,6 +1002,9 @@ func (c *jsiiProxy_CfnGameServerGroup) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -970,6 +1039,9 @@ func (c *jsiiProxy_CfnGameServerGroup) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

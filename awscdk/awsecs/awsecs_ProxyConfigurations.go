@@ -54,6 +54,9 @@ func NewProxyConfigurations_Override(p ProxyConfigurations) {
 func ProxyConfigurations_AppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) ProxyConfiguration {
 	_init_.Initialize()
 
+	if err := validateProxyConfigurations_AppMeshProxyConfigurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ProxyConfiguration
 
 	_jsii_.StaticInvoke(

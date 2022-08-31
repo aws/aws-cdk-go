@@ -40,6 +40,9 @@ type jsiiProxy_ClassicLoadBalancerTarget struct {
 func NewClassicLoadBalancerTarget(loadBalancer awselasticloadbalancing.LoadBalancer) ClassicLoadBalancerTarget {
 	_init_.Initialize()
 
+	if err := validateNewClassicLoadBalancerTargetParameters(loadBalancer); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ClassicLoadBalancerTarget{}
 
 	_jsii_.Create(
@@ -63,6 +66,9 @@ func NewClassicLoadBalancerTarget_Override(c ClassicLoadBalancerTarget, loadBala
 }
 
 func (c *jsiiProxy_ClassicLoadBalancerTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := c.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

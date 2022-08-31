@@ -75,6 +75,9 @@ func AclCidr_AnyIpv6() AclCidr {
 func AclCidr_Ipv4(ipv4Cidr *string) AclCidr {
 	_init_.Initialize()
 
+	if err := validateAclCidr_Ipv4Parameters(ipv4Cidr); err != nil {
+		panic(err)
+	}
 	var returns AclCidr
 
 	_jsii_.StaticInvoke(
@@ -92,6 +95,9 @@ func AclCidr_Ipv4(ipv4Cidr *string) AclCidr {
 func AclCidr_Ipv6(ipv6Cidr *string) AclCidr {
 	_init_.Initialize()
 
+	if err := validateAclCidr_Ipv6Parameters(ipv6Cidr); err != nil {
+		panic(err)
+	}
 	var returns AclCidr
 
 	_jsii_.StaticInvoke(

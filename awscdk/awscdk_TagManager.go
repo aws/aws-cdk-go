@@ -108,6 +108,9 @@ func (j *jsiiProxy_TagManager) TagPropertyName() *string {
 func NewTagManager(tagType TagType, resourceTypeName *string, tagStructure interface{}, options *TagManagerOptions) TagManager {
 	_init_.Initialize()
 
+	if err := validateNewTagManagerParameters(tagType, resourceTypeName, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TagManager{}
 
 	_jsii_.Create(
@@ -135,6 +138,9 @@ func NewTagManager_Override(t TagManager, tagType TagType, resourceTypeName *str
 func TagManager_IsTaggable(construct interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTagManager_IsTaggableParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -174,6 +180,9 @@ func (t *jsiiProxy_TagManager) HasTags() *bool {
 }
 
 func (t *jsiiProxy_TagManager) RemoveTag(key *string, priority *float64) {
+	if err := t.validateRemoveTagParameters(key, priority); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"removeTag",
@@ -195,6 +204,9 @@ func (t *jsiiProxy_TagManager) RenderTags() interface{} {
 }
 
 func (t *jsiiProxy_TagManager) SetTag(key *string, value *string, priority *float64, applyToLaunchedInstances *bool) {
+	if err := t.validateSetTagParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"setTag",

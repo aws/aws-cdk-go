@@ -44,6 +44,9 @@ type jsiiProxy_EcrPublicSource struct {
 func NewEcrPublicSource(props *EcrPublicProps) EcrPublicSource {
 	_init_.Initialize()
 
+	if err := validateNewEcrPublicSourceParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcrPublicSource{}
 
 	_jsii_.Create(
@@ -71,6 +74,9 @@ func NewEcrPublicSource_Override(e EcrPublicSource, props *EcrPublicProps) {
 func EcrPublicSource_FromAsset(props *AssetProps) AssetSource {
 	_init_.Initialize()
 
+	if err := validateEcrPublicSource_FromAssetParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AssetSource
 
 	_jsii_.StaticInvoke(
@@ -88,6 +94,9 @@ func EcrPublicSource_FromAsset(props *AssetProps) AssetSource {
 func EcrPublicSource_FromEcr(props *EcrProps) EcrSource {
 	_init_.Initialize()
 
+	if err := validateEcrPublicSource_FromEcrParameters(props); err != nil {
+		panic(err)
+	}
 	var returns EcrSource
 
 	_jsii_.StaticInvoke(
@@ -105,6 +114,9 @@ func EcrPublicSource_FromEcr(props *EcrProps) EcrSource {
 func EcrPublicSource_FromEcrPublic(props *EcrPublicProps) EcrPublicSource {
 	_init_.Initialize()
 
+	if err := validateEcrPublicSource_FromEcrPublicParameters(props); err != nil {
+		panic(err)
+	}
 	var returns EcrPublicSource
 
 	_jsii_.StaticInvoke(
@@ -122,6 +134,9 @@ func EcrPublicSource_FromEcrPublic(props *EcrPublicProps) EcrPublicSource {
 func EcrPublicSource_FromGitHub(props *GithubRepositoryProps) GithubSource {
 	_init_.Initialize()
 
+	if err := validateEcrPublicSource_FromGitHubParameters(props); err != nil {
+		panic(err)
+	}
 	var returns GithubSource
 
 	_jsii_.StaticInvoke(
@@ -135,6 +150,9 @@ func EcrPublicSource_FromGitHub(props *GithubRepositoryProps) GithubSource {
 }
 
 func (e *jsiiProxy_EcrPublicSource) Bind(_scope constructs.Construct) *SourceConfig {
+	if err := e.validateBindParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *SourceConfig
 
 	_jsii_.Invoke(

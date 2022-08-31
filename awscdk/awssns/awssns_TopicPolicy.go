@@ -215,6 +215,9 @@ func (j *jsiiProxy_TopicPolicy) Stack() awscdk.Stack {
 func NewTopicPolicy(scope constructs.Construct, id *string, props *TopicPolicyProps) TopicPolicy {
 	_init_.Initialize()
 
+	if err := validateNewTopicPolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TopicPolicy{}
 
 	_jsii_.Create(
@@ -242,6 +245,9 @@ func NewTopicPolicy_Override(t TopicPolicy, scope constructs.Construct, id *stri
 func TopicPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTopicPolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -259,6 +265,9 @@ func TopicPolicy_IsConstruct(x interface{}) *bool {
 func TopicPolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateTopicPolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -272,6 +281,9 @@ func TopicPolicy_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (t *jsiiProxy_TopicPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := t.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyRemovalPolicy",
@@ -293,6 +305,9 @@ func (t *jsiiProxy_TopicPolicy) GeneratePhysicalName() *string {
 }
 
 func (t *jsiiProxy_TopicPolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := t.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -306,6 +321,9 @@ func (t *jsiiProxy_TopicPolicy) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (t *jsiiProxy_TopicPolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := t.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -327,6 +345,9 @@ func (t *jsiiProxy_TopicPolicy) OnPrepare() {
 }
 
 func (t *jsiiProxy_TopicPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -356,6 +377,9 @@ func (t *jsiiProxy_TopicPolicy) Prepare() {
 }
 
 func (t *jsiiProxy_TopicPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

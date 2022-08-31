@@ -69,6 +69,9 @@ func NewStackSetParameters_Override(s StackSetParameters) {
 func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetParameters {
 	_init_.Initialize()
 
+	if err := validateStackSetParameters_FromArtifactPathParameters(artifactPath); err != nil {
+		panic(err)
+	}
 	var returns StackSetParameters
 
 	_jsii_.StaticInvoke(
@@ -102,6 +105,9 @@ func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPa
 func StackSetParameters_FromLiteral(parameters *map[string]*string, usePreviousValues *[]*string) StackSetParameters {
 	_init_.Initialize()
 
+	if err := validateStackSetParameters_FromLiteralParameters(parameters); err != nil {
+		panic(err)
+	}
 	var returns StackSetParameters
 
 	_jsii_.StaticInvoke(

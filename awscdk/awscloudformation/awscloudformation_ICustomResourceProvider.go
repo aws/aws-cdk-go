@@ -22,6 +22,9 @@ type jsiiProxy_ICustomResourceProvider struct {
 }
 
 func (i *jsiiProxy_ICustomResourceProvider) Bind(scope awscdk.Construct) *CustomResourceProviderConfig {
+	if err := i.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *CustomResourceProviderConfig
 
 	_jsii_.Invoke(

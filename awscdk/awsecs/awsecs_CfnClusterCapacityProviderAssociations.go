@@ -386,6 +386,9 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) UpdatedProperites() *
 func NewCfnClusterCapacityProviderAssociations(scope awscdk.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) CfnClusterCapacityProviderAssociations {
 	_init_.Initialize()
 
+	if err := validateNewCfnClusterCapacityProviderAssociationsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnClusterCapacityProviderAssociations{}
 
 	_jsii_.Create(
@@ -408,7 +411,10 @@ func NewCfnClusterCapacityProviderAssociations_Override(c CfnClusterCapacityProv
 	)
 }
 
-func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) SetCapacityProviders(val *[]*string) {
+func (j *jsiiProxy_CfnClusterCapacityProviderAssociations)SetCapacityProviders(val *[]*string) {
+	if err := j.validateSetCapacityProvidersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"capacityProviders",
@@ -416,7 +422,10 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) SetCapacityProviders(
 	)
 }
 
-func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) SetCluster(val *string) {
+func (j *jsiiProxy_CfnClusterCapacityProviderAssociations)SetCluster(val *string) {
+	if err := j.validateSetClusterParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cluster",
@@ -424,7 +433,10 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) SetCluster(val *strin
 	)
 }
 
-func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) SetDefaultCapacityProviderStrategy(val interface{}) {
+func (j *jsiiProxy_CfnClusterCapacityProviderAssociations)SetDefaultCapacityProviderStrategy(val interface{}) {
+	if err := j.validateSetDefaultCapacityProviderStrategyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"defaultCapacityProviderStrategy",
@@ -442,6 +454,9 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) SetDefaultCapacityPro
 func CfnClusterCapacityProviderAssociations_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClusterCapacityProviderAssociations_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -459,6 +474,9 @@ func CfnClusterCapacityProviderAssociations_IsCfnElement(x interface{}) *bool {
 func CfnClusterCapacityProviderAssociations_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClusterCapacityProviderAssociations_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -476,6 +494,9 @@ func CfnClusterCapacityProviderAssociations_IsCfnResource(construct constructs.I
 func CfnClusterCapacityProviderAssociations_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClusterCapacityProviderAssociations_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -500,6 +521,9 @@ func CfnClusterCapacityProviderAssociations_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -508,6 +532,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDeletionOverride(p
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -516,6 +543,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddDependsOn(target a
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -524,6 +554,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddMetadata(key *stri
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -532,6 +565,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddOverride(path *str
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -540,6 +576,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyDeletionOv
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -548,6 +587,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) AddPropertyOverride(p
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -556,6 +598,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ApplyRemovalPolicy(po
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -569,6 +614,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetAtt(attributeName 
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -582,6 +630,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetMetadata(key *stri
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -598,6 +649,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -619,6 +673,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OnValidate() *[]*stri
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -635,6 +692,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Prepare() {
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -661,6 +721,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ShouldSynthesize() *b
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -695,6 +758,9 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Validate() *[]*string
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

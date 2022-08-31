@@ -99,6 +99,9 @@ func SubjectAlternativeNames_MatchingExactly(names ...*string) SubjectAlternativ
 }
 
 func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope awscdk.Construct) *SubjectAlternativeNamesMatcherConfig {
+	if err := s.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *SubjectAlternativeNamesMatcherConfig
 
 	_jsii_.Invoke(

@@ -61,6 +61,9 @@ func NewApplicationCode_Override(a ApplicationCode) {
 func ApplicationCode_FromAsset(path *string, options *awss3assets.AssetOptions) ApplicationCode {
 	_init_.Initialize()
 
+	if err := validateApplicationCode_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns ApplicationCode
 
 	_jsii_.StaticInvoke(
@@ -78,6 +81,9 @@ func ApplicationCode_FromAsset(path *string, options *awss3assets.AssetOptions) 
 func ApplicationCode_FromBucket(bucket awss3.IBucket, fileKey *string, objectVersion *string) ApplicationCode {
 	_init_.Initialize()
 
+	if err := validateApplicationCode_FromBucketParameters(bucket, fileKey); err != nil {
+		panic(err)
+	}
 	var returns ApplicationCode
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func ApplicationCode_FromBucket(bucket awss3.IBucket, fileKey *string, objectVer
 }
 
 func (a *jsiiProxy_ApplicationCode) Bind(scope awscdk.Construct) *ApplicationCodeConfig {
+	if err := a.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *ApplicationCodeConfig
 
 	_jsii_.Invoke(

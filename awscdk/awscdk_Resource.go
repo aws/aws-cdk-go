@@ -182,6 +182,9 @@ func NewResource_Override(r Resource, scope constructs.Construct, id *string, pr
 func Resource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateResource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -199,6 +202,9 @@ func Resource_IsConstruct(x interface{}) *bool {
 func Resource_IsResource(construct IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateResource_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -212,6 +218,9 @@ func Resource_IsResource(construct IConstruct) *bool {
 }
 
 func (r *jsiiProxy_Resource) ApplyRemovalPolicy(policy RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -233,6 +242,9 @@ func (r *jsiiProxy_Resource) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_Resource) GetResourceArnAttribute(arnAttr *string, arnComponents *ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -246,6 +258,9 @@ func (r *jsiiProxy_Resource) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (r *jsiiProxy_Resource) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -267,6 +282,9 @@ func (r *jsiiProxy_Resource) OnPrepare() {
 }
 
 func (r *jsiiProxy_Resource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -296,6 +314,9 @@ func (r *jsiiProxy_Resource) Prepare() {
 }
 
 func (r *jsiiProxy_Resource) Synthesize(session ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

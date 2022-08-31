@@ -87,6 +87,9 @@ type jsiiProxy_MultipartUserData struct {
 func NewMultipartUserData(opts *MultipartUserDataOptions) MultipartUserData {
 	_init_.Initialize()
 
+	if err := validateNewMultipartUserDataParameters(opts); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MultipartUserData{}
 
 	_jsii_.Create(
@@ -114,6 +117,9 @@ func NewMultipartUserData_Override(m MultipartUserData, opts *MultipartUserDataO
 func MultipartUserData_Custom(content *string) UserData {
 	_init_.Initialize()
 
+	if err := validateMultipartUserData_CustomParameters(content); err != nil {
+		panic(err)
+	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
@@ -131,6 +137,9 @@ func MultipartUserData_Custom(content *string) UserData {
 func MultipartUserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	_init_.Initialize()
 
+	if err := validateMultipartUserData_ForLinuxParameters(options); err != nil {
+		panic(err)
+	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
@@ -147,6 +156,9 @@ func MultipartUserData_ForLinux(options *LinuxUserDataOptions) UserData {
 func MultipartUserData_ForOperatingSystem(os OperatingSystemType) UserData {
 	_init_.Initialize()
 
+	if err := validateMultipartUserData_ForOperatingSystemParameters(os); err != nil {
+		panic(err)
+	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
@@ -190,6 +202,9 @@ func (m *jsiiProxy_MultipartUserData) AddCommands(commands ...*string) {
 }
 
 func (m *jsiiProxy_MultipartUserData) AddExecuteFileCommand(params *ExecuteFileOptions) {
+	if err := m.validateAddExecuteFileCommandParameters(params); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addExecuteFileCommand",
@@ -211,6 +226,9 @@ func (m *jsiiProxy_MultipartUserData) AddOnExitCommands(commands ...*string) {
 }
 
 func (m *jsiiProxy_MultipartUserData) AddPart(part MultipartBody) {
+	if err := m.validateAddPartParameters(part); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addPart",
@@ -219,6 +237,9 @@ func (m *jsiiProxy_MultipartUserData) AddPart(part MultipartBody) {
 }
 
 func (m *jsiiProxy_MultipartUserData) AddS3DownloadCommand(params *S3DownloadOptions) *string {
+	if err := m.validateAddS3DownloadCommandParameters(params); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -232,6 +253,9 @@ func (m *jsiiProxy_MultipartUserData) AddS3DownloadCommand(params *S3DownloadOpt
 }
 
 func (m *jsiiProxy_MultipartUserData) AddSignalOnExitCommand(resource awscdk.Resource) {
+	if err := m.validateAddSignalOnExitCommandParameters(resource); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addSignalOnExitCommand",
@@ -240,6 +264,9 @@ func (m *jsiiProxy_MultipartUserData) AddSignalOnExitCommand(resource awscdk.Res
 }
 
 func (m *jsiiProxy_MultipartUserData) AddUserDataPart(userData UserData, contentType *string, makeDefault *bool) {
+	if err := m.validateAddUserDataPartParameters(userData); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addUserDataPart",

@@ -65,6 +65,9 @@ func NewServiceDiscovery_Override(s ServiceDiscovery) {
 func ServiceDiscovery_CloudMap(service awsservicediscovery.IService, instanceAttributes *map[string]*string) ServiceDiscovery {
 	_init_.Initialize()
 
+	if err := validateServiceDiscovery_CloudMapParameters(service); err != nil {
+		panic(err)
+	}
 	var returns ServiceDiscovery
 
 	_jsii_.StaticInvoke(
@@ -82,6 +85,9 @@ func ServiceDiscovery_CloudMap(service awsservicediscovery.IService, instanceAtt
 func ServiceDiscovery_Dns(hostname *string, responseType DnsResponseType) ServiceDiscovery {
 	_init_.Initialize()
 
+	if err := validateServiceDiscovery_DnsParameters(hostname); err != nil {
+		panic(err)
+	}
 	var returns ServiceDiscovery
 
 	_jsii_.StaticInvoke(
@@ -95,6 +101,9 @@ func ServiceDiscovery_Dns(hostname *string, responseType DnsResponseType) Servic
 }
 
 func (s *jsiiProxy_ServiceDiscovery) Bind(scope awscdk.Construct) *ServiceDiscoveryConfig {
+	if err := s.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *ServiceDiscoveryConfig
 
 	_jsii_.Invoke(

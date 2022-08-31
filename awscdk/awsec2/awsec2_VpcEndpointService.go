@@ -267,6 +267,9 @@ func (j *jsiiProxy_VpcEndpointService) WhitelistedPrincipals() *[]awsiam.ArnPrin
 func NewVpcEndpointService(scope constructs.Construct, id *string, props *VpcEndpointServiceProps) VpcEndpointService {
 	_init_.Initialize()
 
+	if err := validateNewVpcEndpointServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_VpcEndpointService{}
 
 	_jsii_.Create(
@@ -294,6 +297,9 @@ func NewVpcEndpointService_Override(v VpcEndpointService, scope constructs.Const
 func VpcEndpointService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVpcEndpointService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -311,6 +317,9 @@ func VpcEndpointService_IsConstruct(x interface{}) *bool {
 func VpcEndpointService_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVpcEndpointService_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -324,6 +333,9 @@ func VpcEndpointService_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (v *jsiiProxy_VpcEndpointService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -345,6 +357,9 @@ func (v *jsiiProxy_VpcEndpointService) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_VpcEndpointService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -358,6 +373,9 @@ func (v *jsiiProxy_VpcEndpointService) GetResourceArnAttribute(arnAttr *string, 
 }
 
 func (v *jsiiProxy_VpcEndpointService) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -379,6 +397,9 @@ func (v *jsiiProxy_VpcEndpointService) OnPrepare() {
 }
 
 func (v *jsiiProxy_VpcEndpointService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -408,6 +429,9 @@ func (v *jsiiProxy_VpcEndpointService) Prepare() {
 }
 
 func (v *jsiiProxy_VpcEndpointService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

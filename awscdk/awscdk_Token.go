@@ -28,6 +28,9 @@ type jsiiProxy_Token struct {
 func Token_AsAny(value interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateToken_AsAnyParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -45,6 +48,9 @@ func Token_AsAny(value interface{}) IResolvable {
 func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 	_init_.Initialize()
 
+	if err := validateToken_AsListParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -62,6 +68,9 @@ func Token_AsList(value interface{}, options *EncodingOptions) *[]*string {
 func Token_AsNumber(value interface{}) *float64 {
 	_init_.Initialize()
 
+	if err := validateToken_AsNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -87,6 +96,9 @@ func Token_AsNumber(value interface{}) *float64 {
 func Token_AsString(value interface{}, options *EncodingOptions) *string {
 	_init_.Initialize()
 
+	if err := validateToken_AsStringParameters(value, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -104,6 +116,9 @@ func Token_AsString(value interface{}, options *EncodingOptions) *string {
 func Token_CompareStrings(possibleToken1 *string, possibleToken2 *string) TokenComparison {
 	_init_.Initialize()
 
+	if err := validateToken_CompareStringsParameters(possibleToken1, possibleToken2); err != nil {
+		panic(err)
+	}
 	var returns TokenComparison
 
 	_jsii_.StaticInvoke(
@@ -130,6 +145,9 @@ func Token_CompareStrings(possibleToken1 *string, possibleToken2 *string) TokenC
 func Token_IsUnresolved(obj interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateToken_IsUnresolvedParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(

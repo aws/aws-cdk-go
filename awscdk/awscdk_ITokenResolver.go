@@ -27,6 +27,9 @@ type jsiiProxy_ITokenResolver struct {
 }
 
 func (i *jsiiProxy_ITokenResolver) ResolveList(l *[]*string, context IResolveContext) interface{} {
+	if err := i.validateResolveListParameters(l, context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -40,6 +43,9 @@ func (i *jsiiProxy_ITokenResolver) ResolveList(l *[]*string, context IResolveCon
 }
 
 func (i *jsiiProxy_ITokenResolver) ResolveString(s TokenizedStringFragments, context IResolveContext) interface{} {
+	if err := i.validateResolveStringParameters(s, context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -53,6 +59,9 @@ func (i *jsiiProxy_ITokenResolver) ResolveString(s TokenizedStringFragments, con
 }
 
 func (i *jsiiProxy_ITokenResolver) ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{} {
+	if err := i.validateResolveTokenParameters(t, context, postProcessor); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

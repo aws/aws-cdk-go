@@ -151,6 +151,9 @@ func (j *jsiiProxy_DeployCdkStackAction) StackName() *string {
 func NewDeployCdkStackAction(props *DeployCdkStackActionProps) DeployCdkStackAction {
 	_init_.Initialize()
 
+	if err := validateNewDeployCdkStackActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DeployCdkStackAction{}
 
 	_jsii_.Create(
@@ -178,6 +181,9 @@ func NewDeployCdkStackAction_Override(d DeployCdkStackAction, props *DeployCdkSt
 func DeployCdkStackAction_FromStackArtifact(scope constructs.Construct, artifact cxapi.CloudFormationStackArtifact, options *CdkStackActionFromArtifactOptions) DeployCdkStackAction {
 	_init_.Initialize()
 
+	if err := validateDeployCdkStackAction_FromStackArtifactParameters(scope, artifact, options); err != nil {
+		panic(err)
+	}
 	var returns DeployCdkStackAction
 
 	_jsii_.StaticInvoke(
@@ -191,6 +197,9 @@ func DeployCdkStackAction_FromStackArtifact(scope constructs.Construct, artifact
 }
 
 func (d *jsiiProxy_DeployCdkStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := d.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -204,6 +213,9 @@ func (d *jsiiProxy_DeployCdkStackAction) Bind(scope awscdk.Construct, stage awsc
 }
 
 func (d *jsiiProxy_DeployCdkStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := d.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

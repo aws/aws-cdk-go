@@ -57,6 +57,9 @@ func (j *jsiiProxy_CfnEipEndpoint) Region() *string {
 func NewCfnEipEndpoint(eip awsec2.CfnEIP, options *CfnEipEndpointProps) CfnEipEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewCfnEipEndpointParameters(eip, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnEipEndpoint{}
 
 	_jsii_.Create(

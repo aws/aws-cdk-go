@@ -224,6 +224,9 @@ func (j *jsiiProxy_CognitoUserPoolsAuthorizer) Stack() awscdk.Stack {
 func NewCognitoUserPoolsAuthorizer(scope constructs.Construct, id *string, props *CognitoUserPoolsAuthorizerProps) CognitoUserPoolsAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewCognitoUserPoolsAuthorizerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CognitoUserPoolsAuthorizer{}
 
 	_jsii_.Create(
@@ -251,6 +254,9 @@ func NewCognitoUserPoolsAuthorizer_Override(c CognitoUserPoolsAuthorizer, scope 
 func CognitoUserPoolsAuthorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCognitoUserPoolsAuthorizer_IsAuthorizerParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -268,6 +274,9 @@ func CognitoUserPoolsAuthorizer_IsAuthorizer(x interface{}) *bool {
 func CognitoUserPoolsAuthorizer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCognitoUserPoolsAuthorizer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -285,6 +294,9 @@ func CognitoUserPoolsAuthorizer_IsConstruct(x interface{}) *bool {
 func CognitoUserPoolsAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCognitoUserPoolsAuthorizer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -298,6 +310,9 @@ func CognitoUserPoolsAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -319,6 +334,9 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -332,6 +350,9 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GetResourceArnAttribute(arnAttr *
 }
 
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -353,6 +374,9 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) OnPrepare() {
 }
 
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -382,6 +406,9 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) Prepare() {
 }
 
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

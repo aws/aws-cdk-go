@@ -36,6 +36,9 @@ type jsiiProxy_LogGroupLogDestination struct {
 func NewLogGroupLogDestination(logGroup awslogs.ILogGroup) LogGroupLogDestination {
 	_init_.Initialize()
 
+	if err := validateNewLogGroupLogDestinationParameters(logGroup); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LogGroupLogDestination{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup awslo
 }
 
 func (l *jsiiProxy_LogGroupLogDestination) Bind(_stage IStage) *AccessLogDestinationConfig {
+	if err := l.validateBindParameters(_stage); err != nil {
+		panic(err)
+	}
 	var returns *AccessLogDestinationConfig
 
 	_jsii_.Invoke(

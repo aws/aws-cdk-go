@@ -205,6 +205,9 @@ func (j *jsiiProxy_AssetManifestArtifact) RequiresBootstrapStackVersion() *float
 func NewAssetManifestArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) AssetManifestArtifact {
 	_init_.Initialize()
 
+	if err := validateNewAssetManifestArtifactParameters(assembly, name, artifact); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AssetManifestArtifact{}
 
 	_jsii_.Create(
@@ -234,6 +237,9 @@ func NewAssetManifestArtifact_Override(a AssetManifestArtifact, assembly CloudAs
 func AssetManifestArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
+	if err := validateAssetManifestArtifact_FromManifestParameters(assembly, id, artifact); err != nil {
+		panic(err)
+	}
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
@@ -265,6 +271,9 @@ func AssetManifestArtifact_FromManifest(assembly CloudAssembly, id *string, arti
 func AssetManifestArtifact_IsAssetManifestArtifact(art interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAssetManifestArtifact_IsAssetManifestArtifactParameters(art); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -278,6 +287,9 @@ func AssetManifestArtifact_IsAssetManifestArtifact(art interface{}) *bool {
 }
 
 func (a *jsiiProxy_AssetManifestArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
+	if err := a.validateFindMetadataByTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *[]*MetadataEntryResult
 
 	_jsii_.Invoke(

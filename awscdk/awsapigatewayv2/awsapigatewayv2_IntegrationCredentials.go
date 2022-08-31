@@ -58,6 +58,9 @@ func NewIntegrationCredentials_Override(i IntegrationCredentials) {
 func IntegrationCredentials_FromRole(role awsiam.IRole) IntegrationCredentials {
 	_init_.Initialize()
 
+	if err := validateIntegrationCredentials_FromRoleParameters(role); err != nil {
+		panic(err)
+	}
 	var returns IntegrationCredentials
 
 	_jsii_.StaticInvoke(

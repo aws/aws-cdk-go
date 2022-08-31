@@ -87,6 +87,9 @@ func (j *jsiiProxy_CodePipelineFileSet) Producer() Step {
 func CodePipelineFileSet_FromArtifact(artifact awscodepipeline.Artifact) CodePipelineFileSet {
 	_init_.Initialize()
 
+	if err := validateCodePipelineFileSet_FromArtifactParameters(artifact); err != nil {
+		panic(err)
+	}
 	var returns CodePipelineFileSet
 
 	_jsii_.StaticInvoke(

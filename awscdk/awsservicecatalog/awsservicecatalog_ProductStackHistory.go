@@ -127,6 +127,9 @@ func (j *jsiiProxy_ProductStackHistory) Node() awscdk.ConstructNode {
 func NewProductStackHistory(scope constructs.Construct, id *string, props *ProductStackHistoryProps) ProductStackHistory {
 	_init_.Initialize()
 
+	if err := validateNewProductStackHistoryParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ProductStackHistory{}
 
 	_jsii_.Create(
@@ -154,6 +157,9 @@ func NewProductStackHistory_Override(p ProductStackHistory, scope constructs.Con
 func ProductStackHistory_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateProductStackHistory_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func (p *jsiiProxy_ProductStackHistory) OnPrepare() {
 }
 
 func (p *jsiiProxy_ProductStackHistory) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -217,6 +226,9 @@ func (p *jsiiProxy_ProductStackHistory) Prepare() {
 }
 
 func (p *jsiiProxy_ProductStackHistory) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",
@@ -251,6 +263,9 @@ func (p *jsiiProxy_ProductStackHistory) Validate() *[]*string {
 }
 
 func (p *jsiiProxy_ProductStackHistory) VersionFromSnapshot(productVersionName *string) *CloudFormationProductVersion {
+	if err := p.validateVersionFromSnapshotParameters(productVersionName); err != nil {
+		panic(err)
+	}
 	var returns *CloudFormationProductVersion
 
 	_jsii_.Invoke(

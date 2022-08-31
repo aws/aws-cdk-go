@@ -323,6 +323,9 @@ func (j *jsiiProxy_Secret) Stack() awscdk.Stack {
 func NewSecret(scope constructs.Construct, id *string, props *SecretProps) Secret {
 	_init_.Initialize()
 
+	if err := validateNewSecretParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Secret{}
 
 	_jsii_.Create(
@@ -349,6 +352,9 @@ func NewSecret_Override(s Secret, scope constructs.Construct, id *string, props 
 func Secret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) ISecret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretArnParameters(scope, id, secretArn); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
@@ -366,6 +372,9 @@ func Secret_FromSecretArn(scope constructs.Construct, id *string, secretArn *str
 func Secret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *SecretAttributes) ISecret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
@@ -385,6 +394,9 @@ func Secret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *
 func Secret_FromSecretCompleteArn(scope constructs.Construct, id *string, secretCompleteArn *string) ISecret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretCompleteArnParameters(scope, id, secretCompleteArn); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
@@ -405,6 +417,9 @@ func Secret_FromSecretCompleteArn(scope constructs.Construct, id *string, secret
 func Secret_FromSecretName(scope constructs.Construct, id *string, secretName *string) ISecret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretNameParameters(scope, id, secretName); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
@@ -425,6 +440,9 @@ func Secret_FromSecretName(scope constructs.Construct, id *string, secretName *s
 func Secret_FromSecretNameV2(scope constructs.Construct, id *string, secretName *string) ISecret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretNameV2Parameters(scope, id, secretName); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
@@ -444,6 +462,9 @@ func Secret_FromSecretNameV2(scope constructs.Construct, id *string, secretName 
 func Secret_FromSecretPartialArn(scope constructs.Construct, id *string, secretPartialArn *string) ISecret {
 	_init_.Initialize()
 
+	if err := validateSecret_FromSecretPartialArnParameters(scope, id, secretPartialArn); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
@@ -461,6 +482,9 @@ func Secret_FromSecretPartialArn(scope constructs.Construct, id *string, secretP
 func Secret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSecret_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -478,6 +502,9 @@ func Secret_IsConstruct(x interface{}) *bool {
 func Secret_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSecret_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -491,6 +518,9 @@ func Secret_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
+	if err := s.validateAddReplicaRegionParameters(region); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addReplicaRegion",
@@ -499,6 +529,9 @@ func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms
 }
 
 func (s *jsiiProxy_Secret) AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule {
+	if err := s.validateAddRotationScheduleParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns RotationSchedule
 
 	_jsii_.Invoke(
@@ -512,6 +545,9 @@ func (s *jsiiProxy_Secret) AddRotationSchedule(id *string, options *RotationSche
 }
 
 func (s *jsiiProxy_Secret) AddTargetAttachment(id *string, options *AttachedSecretOptions) SecretTargetAttachment {
+	if err := s.validateAddTargetAttachmentParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns SecretTargetAttachment
 
 	_jsii_.Invoke(
@@ -525,6 +561,9 @@ func (s *jsiiProxy_Secret) AddTargetAttachment(id *string, options *AttachedSecr
 }
 
 func (s *jsiiProxy_Secret) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := s.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -538,6 +577,9 @@ func (s *jsiiProxy_Secret) AddToResourcePolicy(statement awsiam.PolicyStatement)
 }
 
 func (s *jsiiProxy_Secret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -546,6 +588,9 @@ func (s *jsiiProxy_Secret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (s *jsiiProxy_Secret) Attach(target ISecretAttachmentTarget) ISecret {
+	if err := s.validateAttachParameters(target); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.Invoke(
@@ -580,6 +625,9 @@ func (s *jsiiProxy_Secret) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_Secret) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -593,6 +641,9 @@ func (s *jsiiProxy_Secret) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (s *jsiiProxy_Secret) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -606,6 +657,9 @@ func (s *jsiiProxy_Secret) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant {
+	if err := s.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -619,6 +673,9 @@ func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable, versionStages *[
 }
 
 func (s *jsiiProxy_Secret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -640,6 +697,9 @@ func (s *jsiiProxy_Secret) OnPrepare() {
 }
 
 func (s *jsiiProxy_Secret) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -669,6 +729,9 @@ func (s *jsiiProxy_Secret) Prepare() {
 }
 
 func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
+	if err := s.validateSecretValueFromJsonParameters(jsonField); err != nil {
+		panic(err)
+	}
 	var returns awscdk.SecretValue
 
 	_jsii_.Invoke(
@@ -682,6 +745,9 @@ func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretV
 }
 
 func (s *jsiiProxy_Secret) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

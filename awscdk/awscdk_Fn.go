@@ -52,6 +52,9 @@ type jsiiProxy_Fn struct {
 func Fn_Base64(data *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_Base64Parameters(data); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -71,6 +74,9 @@ func Fn_Base64(data *string) *string {
 func Fn_Cidr(ipBlock *string, count *float64, sizeMask *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_CidrParameters(ipBlock, count); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -118,6 +124,9 @@ func Fn_ConditionAnd(conditions ...ICfnConditionExpression) ICfnRuleConditionExp
 func Fn_ConditionContains(listOfStrings *[]*string, value *string) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
+	if err := validateFn_ConditionContainsParameters(listOfStrings, value); err != nil {
+		panic(err)
+	}
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
@@ -137,6 +146,9 @@ func Fn_ConditionContains(listOfStrings *[]*string, value *string) ICfnRuleCondi
 func Fn_ConditionEachMemberEquals(listOfStrings *[]*string, value *string) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
+	if err := validateFn_ConditionEachMemberEqualsParameters(listOfStrings, value); err != nil {
+		panic(err)
+	}
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
@@ -156,6 +168,9 @@ func Fn_ConditionEachMemberEquals(listOfStrings *[]*string, value *string) ICfnR
 func Fn_ConditionEachMemberIn(stringsToCheck *[]*string, stringsToMatch *[]*string) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
+	if err := validateFn_ConditionEachMemberInParameters(stringsToCheck, stringsToMatch); err != nil {
+		panic(err)
+	}
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
@@ -178,6 +193,9 @@ func Fn_ConditionEachMemberIn(stringsToCheck *[]*string, stringsToMatch *[]*stri
 func Fn_ConditionEquals(lhs interface{}, rhs interface{}) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
+	if err := validateFn_ConditionEqualsParameters(lhs, rhs); err != nil {
+		panic(err)
+	}
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
@@ -203,6 +221,9 @@ func Fn_ConditionEquals(lhs interface{}, rhs interface{}) ICfnRuleConditionExpre
 func Fn_ConditionIf(conditionId *string, valueIfTrue interface{}, valueIfFalse interface{}) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
+	if err := validateFn_ConditionIfParameters(conditionId, valueIfTrue, valueIfFalse); err != nil {
+		panic(err)
+	}
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
@@ -224,6 +245,9 @@ func Fn_ConditionIf(conditionId *string, valueIfTrue interface{}, valueIfFalse i
 func Fn_ConditionNot(condition ICfnConditionExpression) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
+	if err := validateFn_ConditionNotParameters(condition); err != nil {
+		panic(err)
+	}
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
@@ -271,6 +295,9 @@ func Fn_ConditionOr(conditions ...ICfnConditionExpression) ICfnRuleConditionExpr
 func Fn_FindInMap(mapName *string, topLevelKey *string, secondLevelKey *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_FindInMapParameters(mapName, topLevelKey, secondLevelKey); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -290,6 +317,9 @@ func Fn_FindInMap(mapName *string, topLevelKey *string, secondLevelKey *string) 
 func Fn_GetAtt(logicalNameOfResource *string, attributeName *string) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_GetAttParameters(logicalNameOfResource, attributeName); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -340,6 +370,9 @@ func Fn_GetAzs(region *string) *[]*string {
 func Fn_ImportListValue(sharedValueToImport *string, assumedLength *float64, delimiter *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_ImportListValueParameters(sharedValueToImport, assumedLength); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -363,6 +396,9 @@ func Fn_ImportListValue(sharedValueToImport *string, assumedLength *float64, del
 func Fn_ImportValue(sharedValueToImport *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_ImportValueParameters(sharedValueToImport); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -385,6 +421,9 @@ func Fn_ImportValue(sharedValueToImport *string) *string {
 func Fn_Join(delimiter *string, listOfValues *[]*string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_JoinParameters(delimiter, listOfValues); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -402,6 +441,9 @@ func Fn_Join(delimiter *string, listOfValues *[]*string) *string {
 func Fn_ParseDomainName(url *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_ParseDomainNameParameters(url); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -421,6 +463,9 @@ func Fn_ParseDomainName(url *string) *string {
 func Fn_Ref(logicalName *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_RefParameters(logicalName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -440,6 +485,9 @@ func Fn_Ref(logicalName *string) *string {
 func Fn_RefAll(parameterType *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_RefAllParameters(parameterType); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -459,6 +507,9 @@ func Fn_RefAll(parameterType *string) *[]*string {
 func Fn_Select(index *float64, array *[]*string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_SelectParameters(index, array); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -513,6 +564,9 @@ func Fn_Select(index *float64, array *[]*string) *string {
 func Fn_Split(delimiter *string, source *string, assumedLength *float64) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_SplitParameters(delimiter, source); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -536,6 +590,9 @@ func Fn_Split(delimiter *string, source *string, assumedLength *float64) *[]*str
 func Fn_Sub(body *string, variables *map[string]*string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_SubParameters(body); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -557,6 +614,9 @@ func Fn_Sub(body *string, variables *map[string]*string) *string {
 func Fn_Transform(macroName *string, parameters *map[string]interface{}) IResolvable {
 	_init_.Initialize()
 
+	if err := validateFn_TransformParameters(macroName, parameters); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -576,6 +636,9 @@ func Fn_Transform(macroName *string, parameters *map[string]interface{}) IResolv
 func Fn_ValueOf(parameterOrLogicalId *string, attribute *string) *string {
 	_init_.Initialize()
 
+	if err := validateFn_ValueOfParameters(parameterOrLogicalId, attribute); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -595,6 +658,9 @@ func Fn_ValueOf(parameterOrLogicalId *string, attribute *string) *string {
 func Fn_ValueOfAll(parameterType *string, attribute *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateFn_ValueOfAllParameters(parameterType, attribute); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(

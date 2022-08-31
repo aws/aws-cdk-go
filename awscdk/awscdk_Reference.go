@@ -91,6 +91,9 @@ func NewReference_Override(r Reference, value interface{}, target IConstruct, di
 func Reference_IsReference(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateReference_IsReferenceParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -104,6 +107,9 @@ func Reference_IsReference(x interface{}) *bool {
 }
 
 func (r *jsiiProxy_Reference) NewError(message *string) interface{} {
+	if err := r.validateNewErrorParameters(message); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -117,6 +123,9 @@ func (r *jsiiProxy_Reference) NewError(message *string) interface{} {
 }
 
 func (r *jsiiProxy_Reference) Resolve(_context IResolveContext) interface{} {
+	if err := r.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

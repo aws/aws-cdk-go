@@ -134,6 +134,9 @@ func (j *jsiiProxy_JenkinsProvider) Version() *string {
 func NewJenkinsProvider(scope constructs.Construct, id *string, props *JenkinsProviderProps) JenkinsProvider {
 	_init_.Initialize()
 
+	if err := validateNewJenkinsProviderParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_JenkinsProvider{}
 
 	_jsii_.Create(
@@ -163,6 +166,9 @@ func NewJenkinsProvider_Override(j JenkinsProvider, scope constructs.Construct, 
 func JenkinsProvider_FromJenkinsProviderAttributes(scope constructs.Construct, id *string, attrs *JenkinsProviderAttributes) IJenkinsProvider {
 	_init_.Initialize()
 
+	if err := validateJenkinsProvider_FromJenkinsProviderAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IJenkinsProvider
 
 	_jsii_.StaticInvoke(
@@ -180,6 +186,9 @@ func JenkinsProvider_FromJenkinsProviderAttributes(scope constructs.Construct, i
 func JenkinsProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateJenkinsProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -201,6 +210,9 @@ func (j *jsiiProxy_JenkinsProvider) OnPrepare() {
 }
 
 func (j *jsiiProxy_JenkinsProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := j.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"onSynthesize",
@@ -230,6 +242,9 @@ func (j *jsiiProxy_JenkinsProvider) Prepare() {
 }
 
 func (j *jsiiProxy_JenkinsProvider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := j.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"synthesize",

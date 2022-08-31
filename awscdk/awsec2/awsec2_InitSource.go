@@ -68,6 +68,9 @@ func NewInitSource_Override(i InitSource, targetDirectory *string, serviceHandle
 func InitSource_FromAsset(targetDirectory *string, path *string, options *InitSourceAssetOptions) InitSource {
 	_init_.Initialize()
 
+	if err := validateInitSource_FromAssetParameters(targetDirectory, path, options); err != nil {
+		panic(err)
+	}
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
@@ -85,6 +88,9 @@ func InitSource_FromAsset(targetDirectory *string, path *string, options *InitSo
 func InitSource_FromExistingAsset(targetDirectory *string, asset awss3assets.Asset, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
+	if err := validateInitSource_FromExistingAssetParameters(targetDirectory, asset, options); err != nil {
+		panic(err)
+	}
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
@@ -102,6 +108,9 @@ func InitSource_FromExistingAsset(targetDirectory *string, asset awss3assets.Ass
 func InitSource_FromGitHub(targetDirectory *string, owner *string, repo *string, refSpec *string, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
+	if err := validateInitSource_FromGitHubParameters(targetDirectory, owner, repo, options); err != nil {
+		panic(err)
+	}
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
@@ -119,6 +128,9 @@ func InitSource_FromGitHub(targetDirectory *string, owner *string, repo *string,
 func InitSource_FromS3Object(targetDirectory *string, bucket awss3.IBucket, key *string, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
+	if err := validateInitSource_FromS3ObjectParameters(targetDirectory, bucket, key, options); err != nil {
+		panic(err)
+	}
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
@@ -136,6 +148,9 @@ func InitSource_FromS3Object(targetDirectory *string, bucket awss3.IBucket, key 
 func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
+	if err := validateInitSource_FromUrlParameters(targetDirectory, url, options); err != nil {
+		panic(err)
+	}
 	var returns InitSource
 
 	_jsii_.StaticInvoke(

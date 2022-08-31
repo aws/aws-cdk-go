@@ -48,6 +48,9 @@ func NewWebSocketRouteIntegration_Override(w WebSocketRouteIntegration, id *stri
 }
 
 func (w *jsiiProxy_WebSocketRouteIntegration) Bind(options *WebSocketRouteIntegrationBindOptions) *WebSocketRouteIntegrationConfig {
+	if err := w.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *WebSocketRouteIntegrationConfig
 
 	_jsii_.Invoke(

@@ -35,6 +35,9 @@ type jsiiProxy_SsmAction struct {
 func NewSsmAction(severity OpsItemSeverity, category OpsItemCategory) SsmAction {
 	_init_.Initialize()
 
+	if err := validateNewSsmActionParameters(severity); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SsmAction{}
 
 	_jsii_.Create(
@@ -58,6 +61,9 @@ func NewSsmAction_Override(s SsmAction, severity OpsItemSeverity, category OpsIt
 }
 
 func (s *jsiiProxy_SsmAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := s.validateBindParameters(_scope, _alarm); err != nil {
+		panic(err)
+	}
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(

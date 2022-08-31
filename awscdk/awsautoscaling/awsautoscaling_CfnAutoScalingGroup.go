@@ -953,6 +953,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) VpcZoneIdentifier() *[]*string {
 func NewCfnAutoScalingGroup(scope awscdk.Construct, id *string, props *CfnAutoScalingGroupProps) CfnAutoScalingGroup {
 	_init_.Initialize()
 
+	if err := validateNewCfnAutoScalingGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnAutoScalingGroup{}
 
 	_jsii_.Create(
@@ -975,7 +978,7 @@ func NewCfnAutoScalingGroup_Override(c CfnAutoScalingGroup, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetAutoScalingGroupName(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetAutoScalingGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"autoScalingGroupName",
@@ -983,7 +986,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetAutoScalingGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetAvailabilityZones(val *[]*string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetAvailabilityZones(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"availabilityZones",
@@ -991,7 +994,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetAvailabilityZones(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetCapacityRebalance(val interface{}) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetCapacityRebalance(val interface{}) {
+	if err := j.validateSetCapacityRebalanceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"capacityRebalance",
@@ -999,7 +1005,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetCapacityRebalance(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetContext(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetContext(val *string) {
 	_jsii_.Set(
 		j,
 		"context",
@@ -1007,7 +1013,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetContext(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetCooldown(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetCooldown(val *string) {
 	_jsii_.Set(
 		j,
 		"cooldown",
@@ -1015,7 +1021,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetCooldown(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetDefaultInstanceWarmup(val *float64) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetDefaultInstanceWarmup(val *float64) {
 	_jsii_.Set(
 		j,
 		"defaultInstanceWarmup",
@@ -1023,7 +1029,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetDefaultInstanceWarmup(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetDesiredCapacity(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetDesiredCapacity(val *string) {
 	_jsii_.Set(
 		j,
 		"desiredCapacity",
@@ -1031,7 +1037,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetDesiredCapacity(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetDesiredCapacityType(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetDesiredCapacityType(val *string) {
 	_jsii_.Set(
 		j,
 		"desiredCapacityType",
@@ -1039,7 +1045,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetDesiredCapacityType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetHealthCheckGracePeriod(val *float64) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetHealthCheckGracePeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"healthCheckGracePeriod",
@@ -1047,7 +1053,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetHealthCheckGracePeriod(val *float64) 
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetHealthCheckType(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetHealthCheckType(val *string) {
 	_jsii_.Set(
 		j,
 		"healthCheckType",
@@ -1055,7 +1061,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetHealthCheckType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetInstanceId(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetInstanceId(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceId",
@@ -1063,7 +1069,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetInstanceId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetLaunchConfigurationName(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetLaunchConfigurationName(val *string) {
 	_jsii_.Set(
 		j,
 		"launchConfigurationName",
@@ -1071,7 +1077,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetLaunchConfigurationName(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetLaunchTemplate(val interface{}) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetLaunchTemplate(val interface{}) {
+	if err := j.validateSetLaunchTemplateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"launchTemplate",
@@ -1079,7 +1088,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetLaunchTemplate(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetLifecycleHookSpecificationList(val interface{}) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetLifecycleHookSpecificationList(val interface{}) {
+	if err := j.validateSetLifecycleHookSpecificationListParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"lifecycleHookSpecificationList",
@@ -1087,7 +1099,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetLifecycleHookSpecificationList(val in
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetLoadBalancerNames(val *[]*string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetLoadBalancerNames(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"loadBalancerNames",
@@ -1095,7 +1107,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetLoadBalancerNames(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetMaxInstanceLifetime(val *float64) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetMaxInstanceLifetime(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxInstanceLifetime",
@@ -1103,7 +1115,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetMaxInstanceLifetime(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetMaxSize(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetMaxSize(val *string) {
+	if err := j.validateSetMaxSizeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"maxSize",
@@ -1111,7 +1126,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetMaxSize(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetMetricsCollection(val interface{}) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetMetricsCollection(val interface{}) {
+	if err := j.validateSetMetricsCollectionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"metricsCollection",
@@ -1119,7 +1137,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetMetricsCollection(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetMinSize(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetMinSize(val *string) {
+	if err := j.validateSetMinSizeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"minSize",
@@ -1127,7 +1148,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetMinSize(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetMixedInstancesPolicy(val interface{}) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetMixedInstancesPolicy(val interface{}) {
+	if err := j.validateSetMixedInstancesPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"mixedInstancesPolicy",
@@ -1135,7 +1159,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetMixedInstancesPolicy(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetNewInstancesProtectedFromScaleIn(val interface{}) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetNewInstancesProtectedFromScaleIn(val interface{}) {
+	if err := j.validateSetNewInstancesProtectedFromScaleInParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"newInstancesProtectedFromScaleIn",
@@ -1143,7 +1170,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetNewInstancesProtectedFromScaleIn(val 
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetNotificationConfigurations(val interface{}) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetNotificationConfigurations(val interface{}) {
+	if err := j.validateSetNotificationConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"notificationConfigurations",
@@ -1151,7 +1181,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetNotificationConfigurations(val interf
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetPlacementGroup(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetPlacementGroup(val *string) {
 	_jsii_.Set(
 		j,
 		"placementGroup",
@@ -1159,7 +1189,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetPlacementGroup(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetServiceLinkedRoleArn(val *string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetServiceLinkedRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceLinkedRoleArn",
@@ -1167,7 +1197,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetServiceLinkedRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetTargetGroupArns(val *[]*string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetTargetGroupArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"targetGroupArns",
@@ -1175,7 +1205,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetTargetGroupArns(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetTerminationPolicies(val *[]*string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetTerminationPolicies(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"terminationPolicies",
@@ -1183,7 +1213,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetTerminationPolicies(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) SetVpcZoneIdentifier(val *[]*string) {
+func (j *jsiiProxy_CfnAutoScalingGroup)SetVpcZoneIdentifier(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"vpcZoneIdentifier",
@@ -1201,6 +1231,9 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetVpcZoneIdentifier(val *[]*string) {
 func CfnAutoScalingGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAutoScalingGroup_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1218,6 +1251,9 @@ func CfnAutoScalingGroup_IsCfnElement(x interface{}) *bool {
 func CfnAutoScalingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAutoScalingGroup_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1235,6 +1271,9 @@ func CfnAutoScalingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnAutoScalingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAutoScalingGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1259,6 +1298,9 @@ func CfnAutoScalingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -1267,6 +1309,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1275,6 +1320,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1283,6 +1331,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1291,6 +1342,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1299,6 +1353,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1307,6 +1364,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1315,6 +1375,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1328,6 +1391,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1341,6 +1407,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1357,6 +1426,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1378,6 +1450,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1394,6 +1469,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) Prepare() {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1420,6 +1498,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1454,6 +1535,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

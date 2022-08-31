@@ -393,6 +393,9 @@ func (j *jsiiProxy_BatchSubmitJob) TaskPolicies() *[]awsiam.PolicyStatement {
 func NewBatchSubmitJob(scope constructs.Construct, id *string, props *BatchSubmitJobProps) BatchSubmitJob {
 	_init_.Initialize()
 
+	if err := validateNewBatchSubmitJobParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BatchSubmitJob{}
 
 	_jsii_.Create(
@@ -415,7 +418,7 @@ func NewBatchSubmitJob_Override(b BatchSubmitJob, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_BatchSubmitJob) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_BatchSubmitJob)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -423,7 +426,7 @@ func (j *jsiiProxy_BatchSubmitJob) SetDefaultChoice(val awsstepfunctions.State) 
 	)
 }
 
-func (j *jsiiProxy_BatchSubmitJob) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_BatchSubmitJob)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -436,6 +439,9 @@ func (j *jsiiProxy_BatchSubmitJob) SetIteration(val awsstepfunctions.StateGraph)
 func BatchSubmitJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateBatchSubmitJob_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -453,6 +459,9 @@ func BatchSubmitJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstep
 func BatchSubmitJob_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateBatchSubmitJob_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -472,6 +481,9 @@ func BatchSubmitJob_FindReachableEndStates(start awsstepfunctions.State, options
 func BatchSubmitJob_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateBatchSubmitJob_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -489,6 +501,9 @@ func BatchSubmitJob_FindReachableStates(start awsstepfunctions.State, options *a
 func BatchSubmitJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBatchSubmitJob_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -506,6 +521,9 @@ func BatchSubmitJob_IsConstruct(x interface{}) *bool {
 func BatchSubmitJob_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateBatchSubmitJob_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		"prefixStates",
@@ -514,6 +532,9 @@ func BatchSubmitJob_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (b *jsiiProxy_BatchSubmitJob) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := b.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addBranch",
@@ -522,6 +543,9 @@ func (b *jsiiProxy_BatchSubmitJob) AddBranch(branch awsstepfunctions.StateGraph)
 }
 
 func (b *jsiiProxy_BatchSubmitJob) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := b.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -535,6 +559,9 @@ func (b *jsiiProxy_BatchSubmitJob) AddCatch(handler awsstepfunctions.IChainable,
 }
 
 func (b *jsiiProxy_BatchSubmitJob) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := b.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addChoice",
@@ -543,6 +570,9 @@ func (b *jsiiProxy_BatchSubmitJob) AddChoice(condition awsstepfunctions.Conditio
 }
 
 func (b *jsiiProxy_BatchSubmitJob) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := b.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addIterator",
@@ -551,6 +581,9 @@ func (b *jsiiProxy_BatchSubmitJob) AddIterator(iteration awsstepfunctions.StateG
 }
 
 func (b *jsiiProxy_BatchSubmitJob) AddPrefix(x *string) {
+	if err := b.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addPrefix",
@@ -559,6 +592,9 @@ func (b *jsiiProxy_BatchSubmitJob) AddPrefix(x *string) {
 }
 
 func (b *jsiiProxy_BatchSubmitJob) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := b.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -572,6 +608,9 @@ func (b *jsiiProxy_BatchSubmitJob) AddRetry(props *awsstepfunctions.RetryProps) 
 }
 
 func (b *jsiiProxy_BatchSubmitJob) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := b.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"bindToGraph",
@@ -580,6 +619,9 @@ func (b *jsiiProxy_BatchSubmitJob) BindToGraph(graph awsstepfunctions.StateGraph
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MakeDefault(def awsstepfunctions.State) {
+	if err := b.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"makeDefault",
@@ -588,6 +630,9 @@ func (b *jsiiProxy_BatchSubmitJob) MakeDefault(def awsstepfunctions.State) {
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MakeNext(next awsstepfunctions.State) {
+	if err := b.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"makeNext",
@@ -596,6 +641,9 @@ func (b *jsiiProxy_BatchSubmitJob) MakeNext(next awsstepfunctions.State) {
 }
 
 func (b *jsiiProxy_BatchSubmitJob) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -609,6 +657,9 @@ func (b *jsiiProxy_BatchSubmitJob) Metric(metricName *string, props *awscloudwat
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -622,6 +673,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricFailed(props *awscloudwatch.MetricOptio
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -635,6 +689,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricHeartbeatTimedOut(props *awscloudwatch.
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -648,6 +705,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricRunTime(props *awscloudwatch.MetricOpti
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -661,6 +721,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricScheduled(props *awscloudwatch.MetricOp
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -674,6 +737,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricScheduleTime(props *awscloudwatch.Metri
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -687,6 +753,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricStarted(props *awscloudwatch.MetricOpti
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -700,6 +769,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricSucceeded(props *awscloudwatch.MetricOp
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -713,6 +785,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricTime(props *awscloudwatch.MetricOptions
 }
 
 func (b *jsiiProxy_BatchSubmitJob) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -726,6 +801,9 @@ func (b *jsiiProxy_BatchSubmitJob) MetricTimedOut(props *awscloudwatch.MetricOpt
 }
 
 func (b *jsiiProxy_BatchSubmitJob) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := b.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -747,6 +825,9 @@ func (b *jsiiProxy_BatchSubmitJob) OnPrepare() {
 }
 
 func (b *jsiiProxy_BatchSubmitJob) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -867,6 +948,9 @@ func (b *jsiiProxy_BatchSubmitJob) RenderRetryCatch() interface{} {
 }
 
 func (b *jsiiProxy_BatchSubmitJob) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",
@@ -914,6 +998,9 @@ func (b *jsiiProxy_BatchSubmitJob) Validate() *[]*string {
 }
 
 func (b *jsiiProxy_BatchSubmitJob) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := b.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"whenBoundToGraph",

@@ -398,6 +398,9 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) UpdatedProperites() *map[st
 func NewCfnPortfolioPrincipalAssociation(scope awscdk.Construct, id *string, props *CfnPortfolioPrincipalAssociationProps) CfnPortfolioPrincipalAssociation {
 	_init_.Initialize()
 
+	if err := validateNewCfnPortfolioPrincipalAssociationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnPortfolioPrincipalAssociation{}
 
 	_jsii_.Create(
@@ -420,7 +423,7 @@ func NewCfnPortfolioPrincipalAssociation_Override(c CfnPortfolioPrincipalAssocia
 	)
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetAcceptLanguage(val *string) {
+func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetAcceptLanguage(val *string) {
 	_jsii_.Set(
 		j,
 		"acceptLanguage",
@@ -428,7 +431,10 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetAcceptLanguage(val *stri
 	)
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetPortfolioId(val *string) {
+func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetPortfolioId(val *string) {
+	if err := j.validateSetPortfolioIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"portfolioId",
@@ -436,7 +442,10 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetPortfolioId(val *string)
 	)
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetPrincipalArn(val *string) {
+func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetPrincipalArn(val *string) {
+	if err := j.validateSetPrincipalArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"principalArn",
@@ -444,7 +453,10 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetPrincipalArn(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetPrincipalType(val *string) {
+func (j *jsiiProxy_CfnPortfolioPrincipalAssociation)SetPrincipalType(val *string) {
+	if err := j.validateSetPrincipalTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"principalType",
@@ -462,6 +474,9 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) SetPrincipalType(val *strin
 func CfnPortfolioPrincipalAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPortfolioPrincipalAssociation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -479,6 +494,9 @@ func CfnPortfolioPrincipalAssociation_IsCfnElement(x interface{}) *bool {
 func CfnPortfolioPrincipalAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPortfolioPrincipalAssociation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -496,6 +514,9 @@ func CfnPortfolioPrincipalAssociation_IsCfnResource(construct constructs.IConstr
 func CfnPortfolioPrincipalAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPortfolioPrincipalAssociation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -520,6 +541,9 @@ func CfnPortfolioPrincipalAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -528,6 +552,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddDeletionOverride(path *s
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -536,6 +563,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddDependsOn(target awscdk.
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -544,6 +574,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddMetadata(key *string, va
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -552,6 +585,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddOverride(path *string, v
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -560,6 +596,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddPropertyDeletionOverride
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -568,6 +607,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) AddPropertyOverride(propert
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -576,6 +618,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ApplyRemovalPolicy(policy a
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -589,6 +634,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) GetAtt(attributeName *strin
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -602,6 +650,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) GetMetadata(key *string) in
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -618,6 +669,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -639,6 +693,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -655,6 +712,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -681,6 +741,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -715,6 +778,9 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

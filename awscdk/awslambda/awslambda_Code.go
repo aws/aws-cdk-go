@@ -82,6 +82,9 @@ func NewCode_Override(c Code) {
 func Code_Asset(path *string) AssetCode {
 	_init_.Initialize()
 
+	if err := validateCode_AssetParameters(path); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -99,6 +102,9 @@ func Code_Asset(path *string) AssetCode {
 func Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateCode_BucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -116,6 +122,9 @@ func Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Cod
 func Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateCode_CfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -133,6 +142,9 @@ func Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateCode_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -150,6 +162,9 @@ func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 func Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
+	if err := validateCode_FromAssetImageParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
@@ -167,6 +182,9 @@ func Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetIma
 func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateCode_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -186,6 +204,9 @@ func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S
 func Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateCode_FromCfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -206,6 +227,9 @@ func Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 func Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateCode_FromDockerBuildParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -223,6 +247,9 @@ func Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetC
 func Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
+	if err := validateCode_FromEcrImageParameters(repository, props); err != nil {
+		panic(err)
+	}
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
@@ -242,6 +269,9 @@ func Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) 
 func Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateCode_FromInlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -259,6 +289,9 @@ func Code_FromInline(code *string) InlineCode {
 func Code_Inline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateCode_InlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -272,6 +305,9 @@ func Code_Inline(code *string) InlineCode {
 }
 
 func (c *jsiiProxy_Code) Bind(scope awscdk.Construct) *CodeConfig {
+	if err := c.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -285,6 +321,9 @@ func (c *jsiiProxy_Code) Bind(scope awscdk.Construct) *CodeConfig {
 }
 
 func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
+	if err := c.validateBindToResourceParameters(_resource, _options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"bindToResource",

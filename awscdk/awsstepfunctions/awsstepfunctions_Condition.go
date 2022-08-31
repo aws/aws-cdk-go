@@ -101,6 +101,9 @@ func Condition_And(conditions ...Condition) Condition {
 func Condition_BooleanEquals(variable *string, value *bool) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_BooleanEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -118,6 +121,9 @@ func Condition_BooleanEquals(variable *string, value *bool) Condition {
 func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_BooleanEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -135,6 +141,9 @@ func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition 
 func Condition_IsBoolean(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsBooleanParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -152,6 +161,9 @@ func Condition_IsBoolean(variable *string) Condition {
 func Condition_IsNotBoolean(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNotBooleanParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -169,6 +181,9 @@ func Condition_IsNotBoolean(variable *string) Condition {
 func Condition_IsNotNull(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNotNullParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -186,6 +201,9 @@ func Condition_IsNotNull(variable *string) Condition {
 func Condition_IsNotNumeric(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNotNumericParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -203,6 +221,9 @@ func Condition_IsNotNumeric(variable *string) Condition {
 func Condition_IsNotPresent(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNotPresentParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -220,6 +241,9 @@ func Condition_IsNotPresent(variable *string) Condition {
 func Condition_IsNotString(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNotStringParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -237,6 +261,9 @@ func Condition_IsNotString(variable *string) Condition {
 func Condition_IsNotTimestamp(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNotTimestampParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -254,6 +281,9 @@ func Condition_IsNotTimestamp(variable *string) Condition {
 func Condition_IsNull(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNullParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -271,6 +301,9 @@ func Condition_IsNull(variable *string) Condition {
 func Condition_IsNumeric(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsNumericParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -288,6 +321,9 @@ func Condition_IsNumeric(variable *string) Condition {
 func Condition_IsPresent(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsPresentParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -305,6 +341,9 @@ func Condition_IsPresent(variable *string) Condition {
 func Condition_IsString(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsStringParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -322,6 +361,9 @@ func Condition_IsString(variable *string) Condition {
 func Condition_IsTimestamp(variable *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_IsTimestampParameters(variable); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -339,6 +381,9 @@ func Condition_IsTimestamp(variable *string) Condition {
 func Condition_Not(condition Condition) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NotParameters(condition); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -356,6 +401,9 @@ func Condition_Not(condition Condition) Condition {
 func Condition_NumberEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -373,6 +421,9 @@ func Condition_NumberEquals(variable *string, value *float64) Condition {
 func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -390,6 +441,9 @@ func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberGreaterThanParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -407,6 +461,9 @@ func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 func Condition_NumberGreaterThanEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberGreaterThanEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -424,6 +481,9 @@ func Condition_NumberGreaterThanEquals(variable *string, value *float64) Conditi
 func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberGreaterThanEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -441,6 +501,9 @@ func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) 
 func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberGreaterThanJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -458,6 +521,9 @@ func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condit
 func Condition_NumberLessThan(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberLessThanParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -475,6 +541,9 @@ func Condition_NumberLessThan(variable *string, value *float64) Condition {
 func Condition_NumberLessThanEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberLessThanEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -492,6 +561,9 @@ func Condition_NumberLessThanEquals(variable *string, value *float64) Condition 
 func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberLessThanEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -509,6 +581,9 @@ func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Con
 func Condition_NumberLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_NumberLessThanJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -548,6 +623,9 @@ func Condition_Or(conditions ...Condition) Condition {
 func Condition_StringEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -565,6 +643,9 @@ func Condition_StringEquals(variable *string, value *string) Condition {
 func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -582,6 +663,9 @@ func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 func Condition_StringGreaterThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringGreaterThanParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -599,6 +683,9 @@ func Condition_StringGreaterThan(variable *string, value *string) Condition {
 func Condition_StringGreaterThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringGreaterThanEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -616,6 +703,9 @@ func Condition_StringGreaterThanEquals(variable *string, value *string) Conditio
 func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringGreaterThanEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -633,6 +723,9 @@ func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) 
 func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringGreaterThanJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -650,6 +743,9 @@ func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condit
 func Condition_StringLessThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringLessThanParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -667,6 +763,9 @@ func Condition_StringLessThan(variable *string, value *string) Condition {
 func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringLessThanEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -684,6 +783,9 @@ func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringLessThanEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -701,6 +803,9 @@ func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Con
 func Condition_StringLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringLessThanJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -718,6 +823,9 @@ func Condition_StringLessThanJsonPath(variable *string, value *string) Condition
 func Condition_StringMatches(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_StringMatchesParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -735,6 +843,9 @@ func Condition_StringMatches(variable *string, value *string) Condition {
 func Condition_TimestampEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -752,6 +863,9 @@ func Condition_TimestampEquals(variable *string, value *string) Condition {
 func Condition_TimestampEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -769,6 +883,9 @@ func Condition_TimestampEqualsJsonPath(variable *string, value *string) Conditio
 func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampGreaterThanParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -786,6 +903,9 @@ func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampGreaterThanEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -803,6 +923,9 @@ func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condi
 func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampGreaterThanEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -820,6 +943,9 @@ func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *strin
 func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampGreaterThanJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -837,6 +963,9 @@ func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Con
 func Condition_TimestampLessThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampLessThanParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -854,6 +983,9 @@ func Condition_TimestampLessThan(variable *string, value *string) Condition {
 func Condition_TimestampLessThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampLessThanEqualsParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -871,6 +1003,9 @@ func Condition_TimestampLessThanEquals(variable *string, value *string) Conditio
 func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampLessThanEqualsJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(
@@ -888,6 +1023,9 @@ func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) 
 func Condition_TimestampLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
+	if err := validateCondition_TimestampLessThanJsonPathParameters(variable, value); err != nil {
+		panic(err)
+	}
 	var returns Condition
 
 	_jsii_.StaticInvoke(

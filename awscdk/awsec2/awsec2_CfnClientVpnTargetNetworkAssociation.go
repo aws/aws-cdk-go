@@ -362,6 +362,9 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) UpdatedProperites() *ma
 func NewCfnClientVpnTargetNetworkAssociation(scope awscdk.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) CfnClientVpnTargetNetworkAssociation {
 	_init_.Initialize()
 
+	if err := validateNewCfnClientVpnTargetNetworkAssociationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnClientVpnTargetNetworkAssociation{}
 
 	_jsii_.Create(
@@ -384,7 +387,10 @@ func NewCfnClientVpnTargetNetworkAssociation_Override(c CfnClientVpnTargetNetwor
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) SetClientVpnEndpointId(val *string) {
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation)SetClientVpnEndpointId(val *string) {
+	if err := j.validateSetClientVpnEndpointIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clientVpnEndpointId",
@@ -392,7 +398,10 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) SetClientVpnEndpointId(
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) SetSubnetId(val *string) {
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation)SetSubnetId(val *string) {
+	if err := j.validateSetSubnetIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"subnetId",
@@ -410,6 +419,9 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) SetSubnetId(val *string
 func CfnClientVpnTargetNetworkAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClientVpnTargetNetworkAssociation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -427,6 +439,9 @@ func CfnClientVpnTargetNetworkAssociation_IsCfnElement(x interface{}) *bool {
 func CfnClientVpnTargetNetworkAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClientVpnTargetNetworkAssociation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -444,6 +459,9 @@ func CfnClientVpnTargetNetworkAssociation_IsCfnResource(construct constructs.ICo
 func CfnClientVpnTargetNetworkAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClientVpnTargetNetworkAssociation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -468,6 +486,9 @@ func CfnClientVpnTargetNetworkAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -476,6 +497,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddDeletionOverride(pat
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -484,6 +508,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddDependsOn(target aws
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -492,6 +519,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddMetadata(key *string
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -500,6 +530,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddOverride(path *strin
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -508,6 +541,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddPropertyDeletionOver
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -516,6 +552,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AddPropertyOverride(pro
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -524,6 +563,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ApplyRemovalPolicy(poli
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -537,6 +579,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) GetAtt(attributeName *s
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -550,6 +595,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) GetMetadata(key *string
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -566,6 +614,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -587,6 +638,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) OnValidate() *[]*string
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -603,6 +657,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -629,6 +686,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ShouldSynthesize() *boo
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -663,6 +723,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

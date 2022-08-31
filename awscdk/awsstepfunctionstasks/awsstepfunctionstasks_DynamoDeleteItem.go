@@ -390,6 +390,9 @@ func (j *jsiiProxy_DynamoDeleteItem) TaskPolicies() *[]awsiam.PolicyStatement {
 func NewDynamoDeleteItem(scope constructs.Construct, id *string, props *DynamoDeleteItemProps) DynamoDeleteItem {
 	_init_.Initialize()
 
+	if err := validateNewDynamoDeleteItemParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DynamoDeleteItem{}
 
 	_jsii_.Create(
@@ -412,7 +415,7 @@ func NewDynamoDeleteItem_Override(d DynamoDeleteItem, scope constructs.Construct
 	)
 }
 
-func (j *jsiiProxy_DynamoDeleteItem) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_DynamoDeleteItem)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -420,7 +423,7 @@ func (j *jsiiProxy_DynamoDeleteItem) SetDefaultChoice(val awsstepfunctions.State
 	)
 }
 
-func (j *jsiiProxy_DynamoDeleteItem) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_DynamoDeleteItem)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -433,6 +436,9 @@ func (j *jsiiProxy_DynamoDeleteItem) SetIteration(val awsstepfunctions.StateGrap
 func DynamoDeleteItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateDynamoDeleteItem_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -450,6 +456,9 @@ func DynamoDeleteItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsst
 func DynamoDeleteItem_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateDynamoDeleteItem_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -469,6 +478,9 @@ func DynamoDeleteItem_FindReachableEndStates(start awsstepfunctions.State, optio
 func DynamoDeleteItem_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateDynamoDeleteItem_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -486,6 +498,9 @@ func DynamoDeleteItem_FindReachableStates(start awsstepfunctions.State, options 
 func DynamoDeleteItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDynamoDeleteItem_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -503,6 +518,9 @@ func DynamoDeleteItem_IsConstruct(x interface{}) *bool {
 func DynamoDeleteItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateDynamoDeleteItem_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"prefixStates",
@@ -511,6 +529,9 @@ func DynamoDeleteItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := d.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addBranch",
@@ -519,6 +540,9 @@ func (d *jsiiProxy_DynamoDeleteItem) AddBranch(branch awsstepfunctions.StateGrap
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := d.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -532,6 +556,9 @@ func (d *jsiiProxy_DynamoDeleteItem) AddCatch(handler awsstepfunctions.IChainabl
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := d.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addChoice",
@@ -540,6 +567,9 @@ func (d *jsiiProxy_DynamoDeleteItem) AddChoice(condition awsstepfunctions.Condit
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := d.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addIterator",
@@ -548,6 +578,9 @@ func (d *jsiiProxy_DynamoDeleteItem) AddIterator(iteration awsstepfunctions.Stat
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) AddPrefix(x *string) {
+	if err := d.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addPrefix",
@@ -556,6 +589,9 @@ func (d *jsiiProxy_DynamoDeleteItem) AddPrefix(x *string) {
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := d.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -569,6 +605,9 @@ func (d *jsiiProxy_DynamoDeleteItem) AddRetry(props *awsstepfunctions.RetryProps
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := d.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"bindToGraph",
@@ -577,6 +616,9 @@ func (d *jsiiProxy_DynamoDeleteItem) BindToGraph(graph awsstepfunctions.StateGra
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MakeDefault(def awsstepfunctions.State) {
+	if err := d.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"makeDefault",
@@ -585,6 +627,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MakeDefault(def awsstepfunctions.State) {
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MakeNext(next awsstepfunctions.State) {
+	if err := d.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"makeNext",
@@ -593,6 +638,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MakeNext(next awsstepfunctions.State) {
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -606,6 +654,9 @@ func (d *jsiiProxy_DynamoDeleteItem) Metric(metricName *string, props *awscloudw
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -619,6 +670,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricFailed(props *awscloudwatch.MetricOpt
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -632,6 +686,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricHeartbeatTimedOut(props *awscloudwatc
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -645,6 +702,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricRunTime(props *awscloudwatch.MetricOp
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -658,6 +718,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricScheduled(props *awscloudwatch.Metric
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -671,6 +734,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricScheduleTime(props *awscloudwatch.Met
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -684,6 +750,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricStarted(props *awscloudwatch.MetricOp
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -697,6 +766,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricSucceeded(props *awscloudwatch.Metric
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -710,6 +782,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricTime(props *awscloudwatch.MetricOptio
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -723,6 +798,9 @@ func (d *jsiiProxy_DynamoDeleteItem) MetricTimedOut(props *awscloudwatch.MetricO
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := d.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -744,6 +822,9 @@ func (d *jsiiProxy_DynamoDeleteItem) OnPrepare() {
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -864,6 +945,9 @@ func (d *jsiiProxy_DynamoDeleteItem) RenderRetryCatch() interface{} {
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",
@@ -911,6 +995,9 @@ func (d *jsiiProxy_DynamoDeleteItem) Validate() *[]*string {
 }
 
 func (d *jsiiProxy_DynamoDeleteItem) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := d.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"whenBoundToGraph",

@@ -34,6 +34,9 @@ type jsiiProxy_IClusterEngine struct {
 }
 
 func (i *jsiiProxy_IClusterEngine) BindToCluster(scope awscdk.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig {
+	if err := i.validateBindToClusterParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *ClusterEngineConfig
 
 	_jsii_.Invoke(

@@ -47,6 +47,9 @@ func (j *jsiiProxy_Result) Value() interface{} {
 func NewResult(value interface{}) Result {
 	_init_.Initialize()
 
+	if err := validateNewResultParameters(value); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Result{}
 
 	_jsii_.Create(
@@ -74,6 +77,9 @@ func NewResult_Override(r Result, value interface{}) {
 func Result_FromArray(value *[]interface{}) Result {
 	_init_.Initialize()
 
+	if err := validateResult_FromArrayParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Result
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func Result_FromArray(value *[]interface{}) Result {
 func Result_FromBoolean(value *bool) Result {
 	_init_.Initialize()
 
+	if err := validateResult_FromBooleanParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Result
 
 	_jsii_.StaticInvoke(
@@ -108,6 +117,9 @@ func Result_FromBoolean(value *bool) Result {
 func Result_FromNumber(value *float64) Result {
 	_init_.Initialize()
 
+	if err := validateResult_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Result
 
 	_jsii_.StaticInvoke(
@@ -125,6 +137,9 @@ func Result_FromNumber(value *float64) Result {
 func Result_FromObject(value *map[string]interface{}) Result {
 	_init_.Initialize()
 
+	if err := validateResult_FromObjectParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Result
 
 	_jsii_.StaticInvoke(
@@ -142,6 +157,9 @@ func Result_FromObject(value *map[string]interface{}) Result {
 func Result_FromString(value *string) Result {
 	_init_.Initialize()
 
+	if err := validateResult_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Result
 
 	_jsii_.StaticInvoke(

@@ -281,6 +281,9 @@ func (j *jsiiProxy_QueueProcessingEc2Service) TaskDefinition() awsecs.Ec2TaskDef
 func NewQueueProcessingEc2Service(scope constructs.Construct, id *string, props *QueueProcessingEc2ServiceProps) QueueProcessingEc2Service {
 	_init_.Initialize()
 
+	if err := validateNewQueueProcessingEc2ServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_QueueProcessingEc2Service{}
 
 	_jsii_.Create(
@@ -309,6 +312,9 @@ func NewQueueProcessingEc2Service_Override(q QueueProcessingEc2Service, scope co
 func QueueProcessingEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQueueProcessingEc2Service_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -322,6 +328,9 @@ func QueueProcessingEc2Service_IsConstruct(x interface{}) *bool {
 }
 
 func (q *jsiiProxy_QueueProcessingEc2Service) ConfigureAutoscalingForService(service awsecs.BaseService) {
+	if err := q.validateConfigureAutoscalingForServiceParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"configureAutoscalingForService",
@@ -330,6 +339,9 @@ func (q *jsiiProxy_QueueProcessingEc2Service) ConfigureAutoscalingForService(ser
 }
 
 func (q *jsiiProxy_QueueProcessingEc2Service) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := q.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -343,6 +355,9 @@ func (q *jsiiProxy_QueueProcessingEc2Service) GetDefaultCluster(scope constructs
 }
 
 func (q *jsiiProxy_QueueProcessingEc2Service) GrantPermissionsToService(service awsecs.BaseService) {
+	if err := q.validateGrantPermissionsToServiceParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"grantPermissionsToService",
@@ -359,6 +374,9 @@ func (q *jsiiProxy_QueueProcessingEc2Service) OnPrepare() {
 }
 
 func (q *jsiiProxy_QueueProcessingEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -388,6 +406,9 @@ func (q *jsiiProxy_QueueProcessingEc2Service) Prepare() {
 }
 
 func (q *jsiiProxy_QueueProcessingEc2Service) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",

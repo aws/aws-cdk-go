@@ -20,6 +20,9 @@ type jsiiProxy_IContainerDefinition struct {
 }
 
 func (i *jsiiProxy_IContainerDefinition) Bind(task ISageMakerTask) *ContainerDefinitionConfig {
+	if err := i.validateBindParameters(task); err != nil {
+		panic(err)
+	}
 	var returns *ContainerDefinitionConfig
 
 	_jsii_.Invoke(

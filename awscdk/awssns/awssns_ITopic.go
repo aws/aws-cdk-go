@@ -97,6 +97,9 @@ type jsiiProxy_ITopic struct {
 }
 
 func (i *jsiiProxy_ITopic) AddSubscription(subscription ITopicSubscription) {
+	if err := i.validateAddSubscriptionParameters(subscription); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addSubscription",
@@ -105,6 +108,9 @@ func (i *jsiiProxy_ITopic) AddSubscription(subscription ITopicSubscription) {
 }
 
 func (i *jsiiProxy_ITopic) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -118,6 +124,9 @@ func (i *jsiiProxy_ITopic) AddToResourcePolicy(statement awsiam.PolicyStatement)
 }
 
 func (i *jsiiProxy_ITopic) GrantPublish(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPublishParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -131,6 +140,9 @@ func (i *jsiiProxy_ITopic) GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 }
 
 func (i *jsiiProxy_ITopic) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -144,6 +156,9 @@ func (i *jsiiProxy_ITopic) Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 func (i *jsiiProxy_ITopic) MetricNumberOfMessagesPublished(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfMessagesPublishedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -157,6 +172,9 @@ func (i *jsiiProxy_ITopic) MetricNumberOfMessagesPublished(props *awscloudwatch.
 }
 
 func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsDelivered(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfNotificationsDeliveredParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -170,6 +188,9 @@ func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsDelivered(props *awscloudw
 }
 
 func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfNotificationsFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -183,6 +204,9 @@ func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFailed(props *awscloudwatc
 }
 
 func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFilteredOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfNotificationsFilteredOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -196,6 +220,9 @@ func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFilteredOut(props *awsclou
 }
 
 func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFilteredOutInvalidAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfNotificationsFilteredOutInvalidAttributesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -209,6 +236,9 @@ func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFilteredOutInvalidAttribut
 }
 
 func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFilteredOutNoMessageAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfNotificationsFilteredOutNoMessageAttributesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -222,6 +252,9 @@ func (i *jsiiProxy_ITopic) MetricNumberOfNotificationsFilteredOutNoMessageAttrib
 }
 
 func (i *jsiiProxy_ITopic) MetricPublishSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricPublishSizeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -235,6 +268,9 @@ func (i *jsiiProxy_ITopic) MetricPublishSize(props *awscloudwatch.MetricOptions)
 }
 
 func (i *jsiiProxy_ITopic) MetricSMSMonthToDateSpentUSD(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSMSMonthToDateSpentUSDParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -248,6 +284,9 @@ func (i *jsiiProxy_ITopic) MetricSMSMonthToDateSpentUSD(props *awscloudwatch.Met
 }
 
 func (i *jsiiProxy_ITopic) MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSMSSuccessRateParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -261,6 +300,9 @@ func (i *jsiiProxy_ITopic) MetricSMSSuccessRate(props *awscloudwatch.MetricOptio
 }
 
 func (i *jsiiProxy_ITopic) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -269,6 +311,9 @@ func (i *jsiiProxy_ITopic) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (i *jsiiProxy_ITopic) BindAsNotificationRuleTarget(scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig {
+	if err := i.validateBindAsNotificationRuleTargetParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awscodestarnotifications.NotificationRuleTargetConfig
 
 	_jsii_.Invoke(

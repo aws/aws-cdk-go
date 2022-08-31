@@ -244,6 +244,9 @@ func (j *jsiiProxy_Activity) Stack() awscdk.Stack {
 func NewActivity(scope constructs.Construct, id *string, props *ActivityProps) Activity {
 	_init_.Initialize()
 
+	if err := validateNewActivityParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Activity{}
 
 	_jsii_.Create(
@@ -271,6 +274,9 @@ func NewActivity_Override(a Activity, scope constructs.Construct, id *string, pr
 func Activity_FromActivityArn(scope constructs.Construct, id *string, activityArn *string) IActivity {
 	_init_.Initialize()
 
+	if err := validateActivity_FromActivityArnParameters(scope, id, activityArn); err != nil {
+		panic(err)
+	}
 	var returns IActivity
 
 	_jsii_.StaticInvoke(
@@ -288,6 +294,9 @@ func Activity_FromActivityArn(scope constructs.Construct, id *string, activityAr
 func Activity_FromActivityName(scope constructs.Construct, id *string, activityName *string) IActivity {
 	_init_.Initialize()
 
+	if err := validateActivity_FromActivityNameParameters(scope, id, activityName); err != nil {
+		panic(err)
+	}
 	var returns IActivity
 
 	_jsii_.StaticInvoke(
@@ -305,6 +314,9 @@ func Activity_FromActivityName(scope constructs.Construct, id *string, activityN
 func Activity_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateActivity_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -322,6 +334,9 @@ func Activity_IsConstruct(x interface{}) *bool {
 func Activity_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateActivity_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -335,6 +350,9 @@ func Activity_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_Activity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -356,6 +374,9 @@ func (a *jsiiProxy_Activity) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_Activity) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -369,6 +390,9 @@ func (a *jsiiProxy_Activity) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (a *jsiiProxy_Activity) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -382,6 +406,9 @@ func (a *jsiiProxy_Activity) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 func (a *jsiiProxy_Activity) Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := a.validateGrantParameters(identity); err != nil {
+		panic(err)
+	}
 	args := []interface{}{identity}
 	for _, a := range actions {
 		args = append(args, a)
@@ -400,6 +427,9 @@ func (a *jsiiProxy_Activity) Grant(identity awsiam.IGrantable, actions ...*strin
 }
 
 func (a *jsiiProxy_Activity) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -413,6 +443,9 @@ func (a *jsiiProxy_Activity) Metric(metricName *string, props *awscloudwatch.Met
 }
 
 func (a *jsiiProxy_Activity) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -426,6 +459,9 @@ func (a *jsiiProxy_Activity) MetricFailed(props *awscloudwatch.MetricOptions) aw
 }
 
 func (a *jsiiProxy_Activity) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -439,6 +475,9 @@ func (a *jsiiProxy_Activity) MetricHeartbeatTimedOut(props *awscloudwatch.Metric
 }
 
 func (a *jsiiProxy_Activity) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -452,6 +491,9 @@ func (a *jsiiProxy_Activity) MetricRunTime(props *awscloudwatch.MetricOptions) a
 }
 
 func (a *jsiiProxy_Activity) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -465,6 +507,9 @@ func (a *jsiiProxy_Activity) MetricScheduled(props *awscloudwatch.MetricOptions)
 }
 
 func (a *jsiiProxy_Activity) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -478,6 +523,9 @@ func (a *jsiiProxy_Activity) MetricScheduleTime(props *awscloudwatch.MetricOptio
 }
 
 func (a *jsiiProxy_Activity) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -491,6 +539,9 @@ func (a *jsiiProxy_Activity) MetricStarted(props *awscloudwatch.MetricOptions) a
 }
 
 func (a *jsiiProxy_Activity) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -504,6 +555,9 @@ func (a *jsiiProxy_Activity) MetricSucceeded(props *awscloudwatch.MetricOptions)
 }
 
 func (a *jsiiProxy_Activity) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -517,6 +571,9 @@ func (a *jsiiProxy_Activity) MetricTime(props *awscloudwatch.MetricOptions) awsc
 }
 
 func (a *jsiiProxy_Activity) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -538,6 +595,9 @@ func (a *jsiiProxy_Activity) OnPrepare() {
 }
 
 func (a *jsiiProxy_Activity) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -567,6 +627,9 @@ func (a *jsiiProxy_Activity) Prepare() {
 }
 
 func (a *jsiiProxy_Activity) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

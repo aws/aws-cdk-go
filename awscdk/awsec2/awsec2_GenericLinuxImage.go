@@ -50,6 +50,9 @@ type jsiiProxy_GenericLinuxImage struct {
 func NewGenericLinuxImage(amiMap *map[string]*string, props *GenericLinuxImageProps) GenericLinuxImage {
 	_init_.Initialize()
 
+	if err := validateNewGenericLinuxImageParameters(amiMap, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GenericLinuxImage{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewGenericLinuxImage_Override(g GenericLinuxImage, amiMap *map[string]*stri
 }
 
 func (g *jsiiProxy_GenericLinuxImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := g.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

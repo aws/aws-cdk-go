@@ -1070,6 +1070,9 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 func NewCfnDBCluster(scope awscdk.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
+	if err := validateNewCfnDBClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnDBCluster{}
 
 	_jsii_.Create(
@@ -1092,7 +1095,10 @@ func NewCfnDBCluster_Override(c CfnDBCluster, scope awscdk.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetAssociatedRoles(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetAssociatedRoles(val interface{}) {
+	if err := j.validateSetAssociatedRolesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"associatedRoles",
@@ -1100,7 +1106,7 @@ func (j *jsiiProxy_CfnDBCluster) SetAssociatedRoles(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetAvailabilityZones(val *[]*string) {
+func (j *jsiiProxy_CfnDBCluster)SetAvailabilityZones(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"availabilityZones",
@@ -1108,7 +1114,7 @@ func (j *jsiiProxy_CfnDBCluster) SetAvailabilityZones(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetBacktrackWindow(val *float64) {
+func (j *jsiiProxy_CfnDBCluster)SetBacktrackWindow(val *float64) {
 	_jsii_.Set(
 		j,
 		"backtrackWindow",
@@ -1116,7 +1122,7 @@ func (j *jsiiProxy_CfnDBCluster) SetBacktrackWindow(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetBackupRetentionPeriod(val *float64) {
+func (j *jsiiProxy_CfnDBCluster)SetBackupRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"backupRetentionPeriod",
@@ -1124,7 +1130,10 @@ func (j *jsiiProxy_CfnDBCluster) SetBackupRetentionPeriod(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetCopyTagsToSnapshot(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetCopyTagsToSnapshot(val interface{}) {
+	if err := j.validateSetCopyTagsToSnapshotParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"copyTagsToSnapshot",
@@ -1132,7 +1141,7 @@ func (j *jsiiProxy_CfnDBCluster) SetCopyTagsToSnapshot(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetDatabaseName(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetDatabaseName(val *string) {
 	_jsii_.Set(
 		j,
 		"databaseName",
@@ -1140,7 +1149,7 @@ func (j *jsiiProxy_CfnDBCluster) SetDatabaseName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetDbClusterIdentifier(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetDbClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"dbClusterIdentifier",
@@ -1148,7 +1157,7 @@ func (j *jsiiProxy_CfnDBCluster) SetDbClusterIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetDbClusterParameterGroupName(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetDbClusterParameterGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"dbClusterParameterGroupName",
@@ -1156,7 +1165,7 @@ func (j *jsiiProxy_CfnDBCluster) SetDbClusterParameterGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetDbSubnetGroupName(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetDbSubnetGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"dbSubnetGroupName",
@@ -1164,7 +1173,10 @@ func (j *jsiiProxy_CfnDBCluster) SetDbSubnetGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetDeletionProtection(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetDeletionProtection(val interface{}) {
+	if err := j.validateSetDeletionProtectionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"deletionProtection",
@@ -1172,7 +1184,7 @@ func (j *jsiiProxy_CfnDBCluster) SetDeletionProtection(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetEnableCloudwatchLogsExports(val *[]*string) {
+func (j *jsiiProxy_CfnDBCluster)SetEnableCloudwatchLogsExports(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"enableCloudwatchLogsExports",
@@ -1180,7 +1192,10 @@ func (j *jsiiProxy_CfnDBCluster) SetEnableCloudwatchLogsExports(val *[]*string) 
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetEnableHttpEndpoint(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetEnableHttpEndpoint(val interface{}) {
+	if err := j.validateSetEnableHttpEndpointParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"enableHttpEndpoint",
@@ -1188,7 +1203,10 @@ func (j *jsiiProxy_CfnDBCluster) SetEnableHttpEndpoint(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetEnableIamDatabaseAuthentication(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetEnableIamDatabaseAuthentication(val interface{}) {
+	if err := j.validateSetEnableIamDatabaseAuthenticationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"enableIamDatabaseAuthentication",
@@ -1196,7 +1214,10 @@ func (j *jsiiProxy_CfnDBCluster) SetEnableIamDatabaseAuthentication(val interfac
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetEngine(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetEngine(val *string) {
+	if err := j.validateSetEngineParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"engine",
@@ -1204,7 +1225,7 @@ func (j *jsiiProxy_CfnDBCluster) SetEngine(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetEngineMode(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetEngineMode(val *string) {
 	_jsii_.Set(
 		j,
 		"engineMode",
@@ -1212,7 +1233,7 @@ func (j *jsiiProxy_CfnDBCluster) SetEngineMode(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetEngineVersion(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetEngineVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"engineVersion",
@@ -1220,7 +1241,7 @@ func (j *jsiiProxy_CfnDBCluster) SetEngineVersion(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetGlobalClusterIdentifier(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetGlobalClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"globalClusterIdentifier",
@@ -1228,7 +1249,7 @@ func (j *jsiiProxy_CfnDBCluster) SetGlobalClusterIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetKmsKeyId(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
@@ -1236,7 +1257,7 @@ func (j *jsiiProxy_CfnDBCluster) SetKmsKeyId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetMasterUsername(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetMasterUsername(val *string) {
 	_jsii_.Set(
 		j,
 		"masterUsername",
@@ -1244,7 +1265,7 @@ func (j *jsiiProxy_CfnDBCluster) SetMasterUsername(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetMasterUserPassword(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetMasterUserPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"masterUserPassword",
@@ -1252,7 +1273,7 @@ func (j *jsiiProxy_CfnDBCluster) SetMasterUserPassword(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetPort(val *float64) {
+func (j *jsiiProxy_CfnDBCluster)SetPort(val *float64) {
 	_jsii_.Set(
 		j,
 		"port",
@@ -1260,7 +1281,7 @@ func (j *jsiiProxy_CfnDBCluster) SetPort(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetPreferredBackupWindow(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetPreferredBackupWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredBackupWindow",
@@ -1268,7 +1289,7 @@ func (j *jsiiProxy_CfnDBCluster) SetPreferredBackupWindow(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetPreferredMaintenanceWindow(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetPreferredMaintenanceWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredMaintenanceWindow",
@@ -1276,7 +1297,7 @@ func (j *jsiiProxy_CfnDBCluster) SetPreferredMaintenanceWindow(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetReplicationSourceIdentifier(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetReplicationSourceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"replicationSourceIdentifier",
@@ -1284,7 +1305,7 @@ func (j *jsiiProxy_CfnDBCluster) SetReplicationSourceIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetRestoreType(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetRestoreType(val *string) {
 	_jsii_.Set(
 		j,
 		"restoreType",
@@ -1292,7 +1313,10 @@ func (j *jsiiProxy_CfnDBCluster) SetRestoreType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetScalingConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetScalingConfiguration(val interface{}) {
+	if err := j.validateSetScalingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"scalingConfiguration",
@@ -1300,7 +1324,7 @@ func (j *jsiiProxy_CfnDBCluster) SetScalingConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetSnapshotIdentifier(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetSnapshotIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"snapshotIdentifier",
@@ -1308,7 +1332,7 @@ func (j *jsiiProxy_CfnDBCluster) SetSnapshotIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetSourceDbClusterIdentifier(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetSourceDbClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceDbClusterIdentifier",
@@ -1316,7 +1340,7 @@ func (j *jsiiProxy_CfnDBCluster) SetSourceDbClusterIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetSourceRegion(val *string) {
+func (j *jsiiProxy_CfnDBCluster)SetSourceRegion(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceRegion",
@@ -1324,7 +1348,10 @@ func (j *jsiiProxy_CfnDBCluster) SetSourceRegion(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetStorageEncrypted(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetStorageEncrypted(val interface{}) {
+	if err := j.validateSetStorageEncryptedParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"storageEncrypted",
@@ -1332,7 +1359,10 @@ func (j *jsiiProxy_CfnDBCluster) SetStorageEncrypted(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetUseLatestRestorableTime(val interface{}) {
+func (j *jsiiProxy_CfnDBCluster)SetUseLatestRestorableTime(val interface{}) {
+	if err := j.validateSetUseLatestRestorableTimeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"useLatestRestorableTime",
@@ -1340,7 +1370,7 @@ func (j *jsiiProxy_CfnDBCluster) SetUseLatestRestorableTime(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDBCluster) SetVpcSecurityGroupIds(val *[]*string) {
+func (j *jsiiProxy_CfnDBCluster)SetVpcSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"vpcSecurityGroupIds",
@@ -1358,6 +1388,9 @@ func (j *jsiiProxy_CfnDBCluster) SetVpcSecurityGroupIds(val *[]*string) {
 func CfnDBCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDBCluster_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1375,6 +1408,9 @@ func CfnDBCluster_IsCfnElement(x interface{}) *bool {
 func CfnDBCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDBCluster_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1392,6 +1428,9 @@ func CfnDBCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnDBCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDBCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1416,6 +1455,9 @@ func CfnDBCluster_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnDBCluster) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -1424,6 +1466,9 @@ func (c *jsiiProxy_CfnDBCluster) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnDBCluster) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1432,6 +1477,9 @@ func (c *jsiiProxy_CfnDBCluster) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnDBCluster) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1440,6 +1488,9 @@ func (c *jsiiProxy_CfnDBCluster) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnDBCluster) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1448,6 +1499,9 @@ func (c *jsiiProxy_CfnDBCluster) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnDBCluster) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1456,6 +1510,9 @@ func (c *jsiiProxy_CfnDBCluster) AddPropertyDeletionOverride(propertyPath *strin
 }
 
 func (c *jsiiProxy_CfnDBCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1464,6 +1521,9 @@ func (c *jsiiProxy_CfnDBCluster) AddPropertyOverride(propertyPath *string, value
 }
 
 func (c *jsiiProxy_CfnDBCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1472,6 +1532,9 @@ func (c *jsiiProxy_CfnDBCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 }
 
 func (c *jsiiProxy_CfnDBCluster) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1485,6 +1548,9 @@ func (c *jsiiProxy_CfnDBCluster) GetAtt(attributeName *string) awscdk.Reference 
 }
 
 func (c *jsiiProxy_CfnDBCluster) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1498,6 +1564,9 @@ func (c *jsiiProxy_CfnDBCluster) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnDBCluster) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1514,6 +1583,9 @@ func (c *jsiiProxy_CfnDBCluster) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnDBCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1535,6 +1607,9 @@ func (c *jsiiProxy_CfnDBCluster) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDBCluster) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1551,6 +1626,9 @@ func (c *jsiiProxy_CfnDBCluster) Prepare() {
 }
 
 func (c *jsiiProxy_CfnDBCluster) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1577,6 +1655,9 @@ func (c *jsiiProxy_CfnDBCluster) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnDBCluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1611,6 +1692,9 @@ func (c *jsiiProxy_CfnDBCluster) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

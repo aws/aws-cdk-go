@@ -49,6 +49,9 @@ type jsiiProxy_HttpIntegration struct {
 func NewHttpIntegration(url *string, props *HttpIntegrationProps) HttpIntegration {
 	_init_.Initialize()
 
+	if err := validateNewHttpIntegrationParameters(url, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpIntegration{}
 
 	_jsii_.Create(
@@ -72,6 +75,9 @@ func NewHttpIntegration_Override(h HttpIntegration, url *string, props *HttpInte
 }
 
 func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
+	if err := h.validateBindParameters(_method); err != nil {
+		panic(err)
+	}
 	var returns *IntegrationConfig
 
 	_jsii_.Invoke(

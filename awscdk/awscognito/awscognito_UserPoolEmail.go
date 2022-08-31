@@ -58,6 +58,9 @@ func UserPoolEmail_WithCognito(replyTo *string) UserPoolEmail {
 func UserPoolEmail_WithSES(options *UserPoolSESOptions) UserPoolEmail {
 	_init_.Initialize()
 
+	if err := validateUserPoolEmail_WithSESParameters(options); err != nil {
+		panic(err)
+	}
 	var returns UserPoolEmail
 
 	_jsii_.StaticInvoke(

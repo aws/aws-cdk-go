@@ -133,6 +133,9 @@ func NewCapture_Override(c Capture, pattern interface{}) {
 func Capture_IsMatcher(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCapture_IsMatcherParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -224,6 +227,9 @@ func (c *jsiiProxy_Capture) Next() *bool {
 }
 
 func (c *jsiiProxy_Capture) Test(actual interface{}) MatchResult {
+	if err := c.validateTestParameters(actual); err != nil {
+		panic(err)
+	}
 	var returns MatchResult
 
 	_jsii_.Invoke(

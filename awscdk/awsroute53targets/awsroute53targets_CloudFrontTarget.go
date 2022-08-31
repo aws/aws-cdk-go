@@ -40,6 +40,9 @@ type jsiiProxy_CloudFrontTarget struct {
 func NewCloudFrontTarget(distribution awscloudfront.IDistribution) CloudFrontTarget {
 	_init_.Initialize()
 
+	if err := validateNewCloudFrontTargetParameters(distribution); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFrontTarget{}
 
 	_jsii_.Create(
@@ -67,6 +70,9 @@ func NewCloudFrontTarget_Override(c CloudFrontTarget, distribution awscloudfront
 func CloudFrontTarget_GetHostedZoneId(scope awscdk.IConstruct) *string {
 	_init_.Initialize()
 
+	if err := validateCloudFrontTarget_GetHostedZoneIdParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func CloudFrontTarget_CLOUDFRONT_ZONE_ID() *string {
 }
 
 func (c *jsiiProxy_CloudFrontTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := c.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

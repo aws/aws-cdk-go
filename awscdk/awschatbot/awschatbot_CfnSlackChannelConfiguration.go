@@ -475,6 +475,9 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) UserRoleRequired() interface{} 
 func NewCfnSlackChannelConfiguration(scope awscdk.Construct, id *string, props *CfnSlackChannelConfigurationProps) CfnSlackChannelConfiguration {
 	_init_.Initialize()
 
+	if err := validateNewCfnSlackChannelConfigurationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnSlackChannelConfiguration{}
 
 	_jsii_.Create(
@@ -497,7 +500,10 @@ func NewCfnSlackChannelConfiguration_Override(c CfnSlackChannelConfiguration, sc
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetConfigurationName(val *string) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetConfigurationName(val *string) {
+	if err := j.validateSetConfigurationNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"configurationName",
@@ -505,7 +511,7 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetConfigurationName(val *strin
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetGuardrailPolicies(val *[]*string) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetGuardrailPolicies(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"guardrailPolicies",
@@ -513,7 +519,10 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetGuardrailPolicies(val *[]*st
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetIamRoleArn(val *string) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetIamRoleArn(val *string) {
+	if err := j.validateSetIamRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"iamRoleArn",
@@ -521,7 +530,7 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetIamRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetLoggingLevel(val *string) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetLoggingLevel(val *string) {
 	_jsii_.Set(
 		j,
 		"loggingLevel",
@@ -529,7 +538,10 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetLoggingLevel(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetSlackChannelId(val *string) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetSlackChannelId(val *string) {
+	if err := j.validateSetSlackChannelIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"slackChannelId",
@@ -537,7 +549,10 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetSlackChannelId(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetSlackWorkspaceId(val *string) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetSlackWorkspaceId(val *string) {
+	if err := j.validateSetSlackWorkspaceIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"slackWorkspaceId",
@@ -545,7 +560,7 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetSlackWorkspaceId(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetSnsTopicArns(val *[]*string) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetSnsTopicArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"snsTopicArns",
@@ -553,7 +568,10 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetSnsTopicArns(val *[]*string)
 	)
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) SetUserRoleRequired(val interface{}) {
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetUserRoleRequired(val interface{}) {
+	if err := j.validateSetUserRoleRequiredParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"userRoleRequired",
@@ -571,6 +589,9 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetUserRoleRequired(val interfa
 func CfnSlackChannelConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSlackChannelConfiguration_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -588,6 +609,9 @@ func CfnSlackChannelConfiguration_IsCfnElement(x interface{}) *bool {
 func CfnSlackChannelConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSlackChannelConfiguration_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -605,6 +629,9 @@ func CfnSlackChannelConfiguration_IsCfnResource(construct constructs.IConstruct)
 func CfnSlackChannelConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSlackChannelConfiguration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -629,6 +656,9 @@ func CfnSlackChannelConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -637,6 +667,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDeletionOverride(path *strin
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -645,6 +678,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDependsOn(target awscdk.CfnR
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -653,6 +689,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddMetadata(key *string, value 
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -661,6 +700,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddOverride(path *string, value
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -669,6 +711,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyDeletionOverride(pro
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -677,6 +722,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyOverride(propertyPat
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -685,6 +733,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ApplyRemovalPolicy(policy awscd
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -698,6 +749,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) GetAtt(attributeName *string) a
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -711,6 +765,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) GetMetadata(key *string) interf
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -727,6 +784,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -748,6 +808,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -764,6 +827,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) Prepare() {
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -790,6 +856,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -824,6 +893,9 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

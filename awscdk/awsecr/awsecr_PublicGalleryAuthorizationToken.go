@@ -29,6 +29,9 @@ type jsiiProxy_PublicGalleryAuthorizationToken struct {
 func PublicGalleryAuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 	_init_.Initialize()
 
+	if err := validatePublicGalleryAuthorizationToken_GrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_ecr.PublicGalleryAuthorizationToken",
 		"grantRead",

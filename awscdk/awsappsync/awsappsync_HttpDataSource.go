@@ -185,6 +185,9 @@ func (j *jsiiProxy_HttpDataSource) ServiceRole() awsiam.IRole {
 func NewHttpDataSource(scope constructs.Construct, id *string, props *HttpDataSourceProps) HttpDataSource {
 	_init_.Initialize()
 
+	if err := validateNewHttpDataSourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpDataSource{}
 
 	_jsii_.Create(
@@ -207,7 +210,10 @@ func NewHttpDataSource_Override(h HttpDataSource, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_HttpDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_HttpDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -215,7 +221,7 @@ func (j *jsiiProxy_HttpDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_HttpDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_HttpDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -228,6 +234,9 @@ func (j *jsiiProxy_HttpDataSource) SetServiceRole(val awsiam.IRole) {
 func HttpDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -241,6 +250,9 @@ func HttpDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (h *jsiiProxy_HttpDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := h.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -254,6 +266,9 @@ func (h *jsiiProxy_HttpDataSource) CreateFunction(props *BaseAppsyncFunctionProp
 }
 
 func (h *jsiiProxy_HttpDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := h.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -275,6 +290,9 @@ func (h *jsiiProxy_HttpDataSource) OnPrepare() {
 }
 
 func (h *jsiiProxy_HttpDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -304,6 +322,9 @@ func (h *jsiiProxy_HttpDataSource) Prepare() {
 }
 
 func (h *jsiiProxy_HttpDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

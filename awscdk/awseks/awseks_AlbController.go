@@ -112,6 +112,9 @@ func (j *jsiiProxy_AlbController) Node() awscdk.ConstructNode {
 func NewAlbController(scope constructs.Construct, id *string, props *AlbControllerProps) AlbController {
 	_init_.Initialize()
 
+	if err := validateNewAlbControllerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AlbController{}
 
 	_jsii_.Create(
@@ -141,6 +144,9 @@ func NewAlbController_Override(a AlbController, scope constructs.Construct, id *
 func AlbController_Create(scope constructs.Construct, props *AlbControllerProps) AlbController {
 	_init_.Initialize()
 
+	if err := validateAlbController_CreateParameters(scope, props); err != nil {
+		panic(err)
+	}
 	var returns AlbController
 
 	_jsii_.StaticInvoke(
@@ -158,6 +164,9 @@ func AlbController_Create(scope constructs.Construct, props *AlbControllerProps)
 func AlbController_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAlbController_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -179,6 +188,9 @@ func (a *jsiiProxy_AlbController) OnPrepare() {
 }
 
 func (a *jsiiProxy_AlbController) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -208,6 +220,9 @@ func (a *jsiiProxy_AlbController) Prepare() {
 }
 
 func (a *jsiiProxy_AlbController) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

@@ -76,6 +76,9 @@ func NewLoadBalancer_Override(l LoadBalancer) {
 func LoadBalancer_Application(albTargetGroup awselasticloadbalancingv2.IApplicationTargetGroup) LoadBalancer {
 	_init_.Initialize()
 
+	if err := validateLoadBalancer_ApplicationParameters(albTargetGroup); err != nil {
+		panic(err)
+	}
 	var returns LoadBalancer
 
 	_jsii_.StaticInvoke(
@@ -93,6 +96,9 @@ func LoadBalancer_Application(albTargetGroup awselasticloadbalancingv2.IApplicat
 func LoadBalancer_Classic(loadBalancer awselasticloadbalancing.LoadBalancer) LoadBalancer {
 	_init_.Initialize()
 
+	if err := validateLoadBalancer_ClassicParameters(loadBalancer); err != nil {
+		panic(err)
+	}
 	var returns LoadBalancer
 
 	_jsii_.StaticInvoke(
@@ -110,6 +116,9 @@ func LoadBalancer_Classic(loadBalancer awselasticloadbalancing.LoadBalancer) Loa
 func LoadBalancer_Network(nlbTargetGroup awselasticloadbalancingv2.INetworkTargetGroup) LoadBalancer {
 	_init_.Initialize()
 
+	if err := validateLoadBalancer_NetworkParameters(nlbTargetGroup); err != nil {
+		panic(err)
+	}
 	var returns LoadBalancer
 
 	_jsii_.StaticInvoke(

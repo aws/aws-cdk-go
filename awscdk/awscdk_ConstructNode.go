@@ -317,6 +317,9 @@ func (j *jsiiProxy_ConstructNode) UniqueId() *string {
 func NewConstructNode(host Construct, scope IConstruct, id *string) ConstructNode {
 	_init_.Initialize()
 
+	if err := validateNewConstructNodeParameters(host, scope, id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ConstructNode{}
 
 	_jsii_.Create(
@@ -339,7 +342,7 @@ func NewConstructNode_Override(c ConstructNode, host Construct, scope IConstruct
 	)
 }
 
-func (j *jsiiProxy_ConstructNode) SetDefaultChild(val IConstruct) {
+func (j *jsiiProxy_ConstructNode)SetDefaultChild(val IConstruct) {
 	_jsii_.Set(
 		j,
 		"defaultChild",
@@ -352,6 +355,9 @@ func (j *jsiiProxy_ConstructNode) SetDefaultChild(val IConstruct) {
 func ConstructNode_Prepare(node ConstructNode) {
 	_init_.Initialize()
 
+	if err := validateConstructNode_PrepareParameters(node); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.ConstructNode",
 		"prepare",
@@ -364,6 +370,9 @@ func ConstructNode_Prepare(node ConstructNode) {
 func ConstructNode_Synth(node ConstructNode, options *SynthesisOptions) cxapi.CloudAssembly {
 	_init_.Initialize()
 
+	if err := validateConstructNode_SynthParameters(node, options); err != nil {
+		panic(err)
+	}
 	var returns cxapi.CloudAssembly
 
 	_jsii_.StaticInvoke(
@@ -383,6 +392,9 @@ func ConstructNode_Synth(node ConstructNode, options *SynthesisOptions) cxapi.Cl
 func ConstructNode_Validate(node ConstructNode) *[]*ValidationError {
 	_init_.Initialize()
 
+	if err := validateConstructNode_ValidateParameters(node); err != nil {
+		panic(err)
+	}
 	var returns *[]*ValidationError
 
 	_jsii_.StaticInvoke(
@@ -420,6 +432,9 @@ func (c *jsiiProxy_ConstructNode) AddDependency(dependencies ...IDependable) {
 }
 
 func (c *jsiiProxy_ConstructNode) AddError(message *string) {
+	if err := c.validateAddErrorParameters(message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addError",
@@ -428,6 +443,9 @@ func (c *jsiiProxy_ConstructNode) AddError(message *string) {
 }
 
 func (c *jsiiProxy_ConstructNode) AddInfo(message *string) {
+	if err := c.validateAddInfoParameters(message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addInfo",
@@ -436,6 +454,9 @@ func (c *jsiiProxy_ConstructNode) AddInfo(message *string) {
 }
 
 func (c *jsiiProxy_ConstructNode) AddMetadata(type_ *string, data interface{}, fromFunction interface{}) {
+	if err := c.validateAddMetadataParameters(type_, data); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -444,6 +465,9 @@ func (c *jsiiProxy_ConstructNode) AddMetadata(type_ *string, data interface{}, f
 }
 
 func (c *jsiiProxy_ConstructNode) AddValidation(validation constructs.IValidation) {
+	if err := c.validateAddValidationParameters(validation); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addValidation",
@@ -452,6 +476,9 @@ func (c *jsiiProxy_ConstructNode) AddValidation(validation constructs.IValidatio
 }
 
 func (c *jsiiProxy_ConstructNode) AddWarning(message *string) {
+	if err := c.validateAddWarningParameters(message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addWarning",
@@ -460,6 +487,9 @@ func (c *jsiiProxy_ConstructNode) AddWarning(message *string) {
 }
 
 func (c *jsiiProxy_ConstructNode) ApplyAspect(aspect IAspect) {
+	if err := c.validateApplyAspectParameters(aspect); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyAspect",
@@ -481,6 +511,9 @@ func (c *jsiiProxy_ConstructNode) FindAll(order ConstructOrder) *[]IConstruct {
 }
 
 func (c *jsiiProxy_ConstructNode) FindChild(id *string) IConstruct {
+	if err := c.validateFindChildParameters(id); err != nil {
+		panic(err)
+	}
 	var returns IConstruct
 
 	_jsii_.Invoke(
@@ -494,6 +527,9 @@ func (c *jsiiProxy_ConstructNode) FindChild(id *string) IConstruct {
 }
 
 func (c *jsiiProxy_ConstructNode) SetContext(key *string, value interface{}) {
+	if err := c.validateSetContextParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"setContext",
@@ -502,6 +538,9 @@ func (c *jsiiProxy_ConstructNode) SetContext(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_ConstructNode) TryFindChild(id *string) IConstruct {
+	if err := c.validateTryFindChildParameters(id); err != nil {
+		panic(err)
+	}
 	var returns IConstruct
 
 	_jsii_.Invoke(
@@ -515,6 +554,9 @@ func (c *jsiiProxy_ConstructNode) TryFindChild(id *string) IConstruct {
 }
 
 func (c *jsiiProxy_ConstructNode) TryGetContext(key *string) interface{} {
+	if err := c.validateTryGetContextParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -528,6 +570,9 @@ func (c *jsiiProxy_ConstructNode) TryGetContext(key *string) interface{} {
 }
 
 func (c *jsiiProxy_ConstructNode) TryRemoveChild(childName *string) *bool {
+	if err := c.validateTryRemoveChildParameters(childName); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

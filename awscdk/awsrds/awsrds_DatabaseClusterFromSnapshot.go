@@ -464,6 +464,9 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) VpcSubnets() *awsec2.SubnetSelec
 func NewDatabaseClusterFromSnapshot(scope constructs.Construct, id *string, props *DatabaseClusterFromSnapshotProps) DatabaseClusterFromSnapshot {
 	_init_.Initialize()
 
+	if err := validateNewDatabaseClusterFromSnapshotParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DatabaseClusterFromSnapshot{}
 
 	_jsii_.Create(
@@ -491,6 +494,9 @@ func NewDatabaseClusterFromSnapshot_Override(d DatabaseClusterFromSnapshot, scop
 func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterFromSnapshot_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -508,6 +514,9 @@ func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 func DatabaseClusterFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterFromSnapshot_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -521,6 +530,9 @@ func DatabaseClusterFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
+	if err := d.validateAddProxyParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns DatabaseProxy
 
 	_jsii_.Invoke(
@@ -534,6 +546,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddProxy(id *string, options *Da
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
+	if err := d.validateAddRotationMultiUserParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -547,6 +562,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddRotationMultiUser(id *string,
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
+	if err := d.validateAddRotationSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -560,6 +578,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddRotationSingleUser(options *R
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -594,6 +615,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -607,6 +631,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceArnAttribute(arnAttr 
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -620,6 +647,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceNameAttribute(nameAtt
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -633,6 +663,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) Metric(metricName *string, props
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricCPUUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -646,6 +679,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricCPUUtilization(props *awsc
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricDatabaseConnectionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -659,6 +695,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDatabaseConnections(props 
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricDeadlocksParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -672,6 +711,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDeadlocks(props *awscloudw
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricEngineUptimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -685,6 +727,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricEngineUptime(props *awsclo
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFreeableMemoryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -698,6 +743,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeableMemory(props *awsc
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFreeLocalStorageParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -711,6 +759,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeLocalStorage(props *aw
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricNetworkReceiveThroughputParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -724,6 +775,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkReceiveThroughput(p
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricNetworkThroughputParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -737,6 +791,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkThroughput(props *a
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricNetworkTransmitThroughputParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -750,6 +807,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkTransmitThroughput(
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricSnapshotStorageUsedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -763,6 +823,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricSnapshotStorageUsed(props 
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricTotalBackupStorageBilledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -776,6 +839,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricTotalBackupStorageBilled(p
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricVolumeBytesUsedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -789,6 +855,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeBytesUsed(props *aws
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricVolumeReadIOPsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -802,6 +871,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeReadIOPs(props *awsc
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricVolumeWriteIOPsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -823,6 +895,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnPrepare() {
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -852,6 +927,9 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) Prepare() {
 }
 
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

@@ -219,6 +219,9 @@ func (j *jsiiProxy_ClusterSubnetGroup) Stack() awscdk.Stack {
 func NewClusterSubnetGroup(scope constructs.Construct, id *string, props *ClusterSubnetGroupProps) ClusterSubnetGroup {
 	_init_.Initialize()
 
+	if err := validateNewClusterSubnetGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ClusterSubnetGroup{}
 
 	_jsii_.Create(
@@ -246,6 +249,9 @@ func NewClusterSubnetGroup_Override(c ClusterSubnetGroup, scope constructs.Const
 func ClusterSubnetGroup_FromClusterSubnetGroupName(scope constructs.Construct, id *string, clusterSubnetGroupName *string) IClusterSubnetGroup {
 	_init_.Initialize()
 
+	if err := validateClusterSubnetGroup_FromClusterSubnetGroupNameParameters(scope, id, clusterSubnetGroupName); err != nil {
+		panic(err)
+	}
 	var returns IClusterSubnetGroup
 
 	_jsii_.StaticInvoke(
@@ -263,6 +269,9 @@ func ClusterSubnetGroup_FromClusterSubnetGroupName(scope constructs.Construct, i
 func ClusterSubnetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateClusterSubnetGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -280,6 +289,9 @@ func ClusterSubnetGroup_IsConstruct(x interface{}) *bool {
 func ClusterSubnetGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateClusterSubnetGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -293,6 +305,9 @@ func ClusterSubnetGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_ClusterSubnetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -314,6 +329,9 @@ func (c *jsiiProxy_ClusterSubnetGroup) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_ClusterSubnetGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -327,6 +345,9 @@ func (c *jsiiProxy_ClusterSubnetGroup) GetResourceArnAttribute(arnAttr *string, 
 }
 
 func (c *jsiiProxy_ClusterSubnetGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -348,6 +369,9 @@ func (c *jsiiProxy_ClusterSubnetGroup) OnPrepare() {
 }
 
 func (c *jsiiProxy_ClusterSubnetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -377,6 +401,9 @@ func (c *jsiiProxy_ClusterSubnetGroup) Prepare() {
 }
 
 func (c *jsiiProxy_ClusterSubnetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

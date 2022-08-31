@@ -68,6 +68,9 @@ func NewIdentitySource_Override(i IdentitySource) {
 func IdentitySource_Context(context *string) *string {
 	_init_.Initialize()
 
+	if err := validateIdentitySource_ContextParameters(context); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -87,6 +90,9 @@ func IdentitySource_Context(context *string) *string {
 func IdentitySource_Header(headerName *string) *string {
 	_init_.Initialize()
 
+	if err := validateIdentitySource_HeaderParameters(headerName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -106,6 +112,9 @@ func IdentitySource_Header(headerName *string) *string {
 func IdentitySource_QueryString(queryString *string) *string {
 	_init_.Initialize()
 
+	if err := validateIdentitySource_QueryStringParameters(queryString); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -125,6 +134,9 @@ func IdentitySource_QueryString(queryString *string) *string {
 func IdentitySource_StageVariable(stageVariable *string) *string {
 	_init_.Initialize()
 
+	if err := validateIdentitySource_StageVariableParameters(stageVariable); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

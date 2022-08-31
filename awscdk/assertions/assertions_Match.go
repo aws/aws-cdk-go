@@ -67,6 +67,9 @@ func Match_AnyValue() Matcher {
 func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_ArrayEqualsParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
@@ -86,6 +89,9 @@ func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 func Match_ArrayWith(pattern *[]interface{}) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_ArrayWithParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
@@ -103,6 +109,9 @@ func Match_ArrayWith(pattern *[]interface{}) Matcher {
 func Match_Exact(pattern interface{}) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_ExactParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
@@ -120,6 +129,9 @@ func Match_Exact(pattern interface{}) Matcher {
 func Match_Not(pattern interface{}) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_NotParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
@@ -139,6 +151,9 @@ func Match_Not(pattern interface{}) Matcher {
 func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_ObjectEqualsParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
@@ -158,6 +173,9 @@ func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_ObjectLikeParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
@@ -175,6 +193,9 @@ func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 func Match_SerializedJson(pattern interface{}) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_SerializedJsonParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
@@ -192,6 +213,9 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 func Match_StringLikeRegexp(pattern *string) Matcher {
 	_init_.Initialize()
 
+	if err := validateMatch_StringLikeRegexpParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns Matcher
 
 	_jsii_.StaticInvoke(

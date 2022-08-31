@@ -103,6 +103,9 @@ func (j *jsiiProxy_EcrSourceAction) Variables() *EcrSourceVariables {
 func NewEcrSourceAction(props *EcrSourceActionProps) EcrSourceAction {
 	_init_.Initialize()
 
+	if err := validateNewEcrSourceActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcrSourceAction{}
 
 	_jsii_.Create(
@@ -126,6 +129,9 @@ func NewEcrSourceAction_Override(e EcrSourceAction, props *EcrSourceActionProps)
 }
 
 func (e *jsiiProxy_EcrSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := e.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -139,6 +145,9 @@ func (e *jsiiProxy_EcrSourceAction) Bind(scope awscdk.Construct, stage awscodepi
 }
 
 func (e *jsiiProxy_EcrSourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := e.validateBoundParameters(_scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -152,6 +161,9 @@ func (e *jsiiProxy_EcrSourceAction) Bound(_scope awscdk.Construct, stage awscode
 }
 
 func (e *jsiiProxy_EcrSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := e.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -165,6 +177,9 @@ func (e *jsiiProxy_EcrSourceAction) OnStateChange(name *string, target awsevents
 }
 
 func (e *jsiiProxy_EcrSourceAction) VariableExpression(variableName *string) *string {
+	if err := e.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

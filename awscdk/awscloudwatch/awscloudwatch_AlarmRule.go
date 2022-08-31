@@ -104,6 +104,9 @@ func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
 	_init_.Initialize()
 
+	if err := validateAlarmRule_FromAlarmParameters(alarm, alarmState); err != nil {
+		panic(err)
+	}
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
@@ -121,6 +124,9 @@ func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
 func AlarmRule_FromBoolean(value *bool) IAlarmRule {
 	_init_.Initialize()
 
+	if err := validateAlarmRule_FromBooleanParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
@@ -138,6 +144,9 @@ func AlarmRule_FromBoolean(value *bool) IAlarmRule {
 func AlarmRule_FromString(alarmRule *string) IAlarmRule {
 	_init_.Initialize()
 
+	if err := validateAlarmRule_FromStringParameters(alarmRule); err != nil {
+		panic(err)
+	}
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(
@@ -155,6 +164,9 @@ func AlarmRule_FromString(alarmRule *string) IAlarmRule {
 func AlarmRule_Not(operand IAlarmRule) IAlarmRule {
 	_init_.Initialize()
 
+	if err := validateAlarmRule_NotParameters(operand); err != nil {
+		panic(err)
+	}
 	var returns IAlarmRule
 
 	_jsii_.StaticInvoke(

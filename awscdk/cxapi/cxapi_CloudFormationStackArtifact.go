@@ -429,6 +429,9 @@ func (j *jsiiProxy_CloudFormationStackArtifact) ValidateOnSynth() *bool {
 func NewCloudFormationStackArtifact(assembly CloudAssembly, artifactId *string, artifact *cloudassemblyschema.ArtifactManifest) CloudFormationStackArtifact {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationStackArtifactParameters(assembly, artifactId, artifact); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationStackArtifact{}
 
 	_jsii_.Create(
@@ -458,6 +461,9 @@ func NewCloudFormationStackArtifact_Override(c CloudFormationStackArtifact, asse
 func CloudFormationStackArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
+	if err := validateCloudFormationStackArtifact_FromManifestParameters(assembly, id, artifact); err != nil {
+		panic(err)
+	}
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
@@ -471,6 +477,9 @@ func CloudFormationStackArtifact_FromManifest(assembly CloudAssembly, id *string
 }
 
 func (c *jsiiProxy_CloudFormationStackArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
+	if err := c.validateFindMetadataByTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *[]*MetadataEntryResult
 
 	_jsii_.Invoke(

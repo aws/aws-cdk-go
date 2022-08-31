@@ -67,6 +67,9 @@ func NewDatabaseClusterEngine_Override(d DatabaseClusterEngine) {
 func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterEngine_AuroraParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
@@ -84,6 +87,9 @@ func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngin
 func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterEngine_AuroraMysqlParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
@@ -101,6 +107,9 @@ func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) ICl
 func DatabaseClusterEngine_AuroraPostgres(props *AuroraPostgresClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterEngine_AuroraPostgresParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(

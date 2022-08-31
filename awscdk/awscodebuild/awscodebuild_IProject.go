@@ -139,6 +139,9 @@ type jsiiProxy_IProject struct {
 }
 
 func (i *jsiiProxy_IProject) AddToRolePolicy(policyStatement awsiam.PolicyStatement) {
+	if err := i.validateAddToRolePolicyParameters(policyStatement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addToRolePolicy",
@@ -160,6 +163,9 @@ func (i *jsiiProxy_IProject) EnableBatchBuilds() *BatchBuildConfig {
 }
 
 func (i *jsiiProxy_IProject) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -173,6 +179,9 @@ func (i *jsiiProxy_IProject) Metric(metricName *string, props *awscloudwatch.Met
 }
 
 func (i *jsiiProxy_IProject) MetricBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricBuildsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -186,6 +195,9 @@ func (i *jsiiProxy_IProject) MetricBuilds(props *awscloudwatch.MetricOptions) aw
 }
 
 func (i *jsiiProxy_IProject) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -199,6 +211,9 @@ func (i *jsiiProxy_IProject) MetricDuration(props *awscloudwatch.MetricOptions) 
 }
 
 func (i *jsiiProxy_IProject) MetricFailedBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricFailedBuildsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -212,6 +227,9 @@ func (i *jsiiProxy_IProject) MetricFailedBuilds(props *awscloudwatch.MetricOptio
 }
 
 func (i *jsiiProxy_IProject) MetricSucceededBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSucceededBuildsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -225,6 +243,9 @@ func (i *jsiiProxy_IProject) MetricSucceededBuilds(props *awscloudwatch.MetricOp
 }
 
 func (i *jsiiProxy_IProject) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *ProjectNotifyOnOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -238,6 +259,9 @@ func (i *jsiiProxy_IProject) NotifyOn(id *string, target awscodestarnotification
 }
 
 func (i *jsiiProxy_IProject) NotifyOnBuildFailed(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnBuildFailedParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -251,6 +275,9 @@ func (i *jsiiProxy_IProject) NotifyOnBuildFailed(id *string, target awscodestarn
 }
 
 func (i *jsiiProxy_IProject) NotifyOnBuildSucceeded(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnBuildSucceededParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -264,6 +291,9 @@ func (i *jsiiProxy_IProject) NotifyOnBuildSucceeded(id *string, target awscodest
 }
 
 func (i *jsiiProxy_IProject) OnBuildFailed(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnBuildFailedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -277,6 +307,9 @@ func (i *jsiiProxy_IProject) OnBuildFailed(id *string, options *awsevents.OnEven
 }
 
 func (i *jsiiProxy_IProject) OnBuildStarted(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnBuildStartedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -290,6 +323,9 @@ func (i *jsiiProxy_IProject) OnBuildStarted(id *string, options *awsevents.OnEve
 }
 
 func (i *jsiiProxy_IProject) OnBuildSucceeded(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnBuildSucceededParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -303,6 +339,9 @@ func (i *jsiiProxy_IProject) OnBuildSucceeded(id *string, options *awsevents.OnE
 }
 
 func (i *jsiiProxy_IProject) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -316,6 +355,9 @@ func (i *jsiiProxy_IProject) OnEvent(id *string, options *awsevents.OnEventOptio
 }
 
 func (i *jsiiProxy_IProject) OnPhaseChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnPhaseChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -329,6 +371,9 @@ func (i *jsiiProxy_IProject) OnPhaseChange(id *string, options *awsevents.OnEven
 }
 
 func (i *jsiiProxy_IProject) OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnStateChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -342,6 +387,9 @@ func (i *jsiiProxy_IProject) OnStateChange(id *string, options *awsevents.OnEven
 }
 
 func (i *jsiiProxy_IProject) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -350,6 +398,9 @@ func (i *jsiiProxy_IProject) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (i *jsiiProxy_IProject) BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
+	if err := i.validateBindAsNotificationRuleSourceParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
 
 	_jsii_.Invoke(

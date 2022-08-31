@@ -69,6 +69,9 @@ func (j *jsiiProxy_RemoveTag) Props() *TagProps {
 func NewRemoveTag(key *string, props *TagProps) RemoveTag {
 	_init_.Initialize()
 
+	if err := validateNewRemoveTagParameters(key, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RemoveTag{}
 
 	_jsii_.Create(
@@ -92,6 +95,9 @@ func NewRemoveTag_Override(r RemoveTag, key *string, props *TagProps) {
 }
 
 func (r *jsiiProxy_RemoveTag) ApplyTag(resource ITaggable) {
+	if err := r.validateApplyTagParameters(resource); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyTag",
@@ -100,6 +106,9 @@ func (r *jsiiProxy_RemoveTag) ApplyTag(resource ITaggable) {
 }
 
 func (r *jsiiProxy_RemoveTag) Visit(construct IConstruct) {
+	if err := r.validateVisitParameters(construct); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"visit",

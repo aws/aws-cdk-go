@@ -278,6 +278,9 @@ func (j *jsiiProxy_App) Stack() awscdk.Stack {
 func NewApp(scope constructs.Construct, id *string, props *AppProps) App {
 	_init_.Initialize()
 
+	if err := validateNewAppParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_App{}
 
 	_jsii_.Create(
@@ -305,6 +308,9 @@ func NewApp_Override(a App, scope constructs.Construct, id *string, props *AppPr
 func App_FromAppId(scope constructs.Construct, id *string, appId *string) IApp {
 	_init_.Initialize()
 
+	if err := validateApp_FromAppIdParameters(scope, id, appId); err != nil {
+		panic(err)
+	}
 	var returns IApp
 
 	_jsii_.StaticInvoke(
@@ -322,6 +328,9 @@ func App_FromAppId(scope constructs.Construct, id *string, appId *string) IApp {
 func App_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApp_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -339,6 +348,9 @@ func App_IsConstruct(x interface{}) *bool {
 func App_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateApp_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -352,6 +364,9 @@ func App_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_App) AddAutoBranchEnvironment(name *string, value *string) App {
+	if err := a.validateAddAutoBranchEnvironmentParameters(name, value); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.Invoke(
@@ -365,6 +380,9 @@ func (a *jsiiProxy_App) AddAutoBranchEnvironment(name *string, value *string) Ap
 }
 
 func (a *jsiiProxy_App) AddBranch(id *string, options *BranchOptions) Branch {
+	if err := a.validateAddBranchParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns Branch
 
 	_jsii_.Invoke(
@@ -378,6 +396,9 @@ func (a *jsiiProxy_App) AddBranch(id *string, options *BranchOptions) Branch {
 }
 
 func (a *jsiiProxy_App) AddCustomRule(rule CustomRule) App {
+	if err := a.validateAddCustomRuleParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.Invoke(
@@ -391,6 +412,9 @@ func (a *jsiiProxy_App) AddCustomRule(rule CustomRule) App {
 }
 
 func (a *jsiiProxy_App) AddDomain(id *string, options *DomainOptions) Domain {
+	if err := a.validateAddDomainParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns Domain
 
 	_jsii_.Invoke(
@@ -404,6 +428,9 @@ func (a *jsiiProxy_App) AddDomain(id *string, options *DomainOptions) Domain {
 }
 
 func (a *jsiiProxy_App) AddEnvironment(name *string, value *string) App {
+	if err := a.validateAddEnvironmentParameters(name, value); err != nil {
+		panic(err)
+	}
 	var returns App
 
 	_jsii_.Invoke(
@@ -417,6 +444,9 @@ func (a *jsiiProxy_App) AddEnvironment(name *string, value *string) App {
 }
 
 func (a *jsiiProxy_App) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -438,6 +468,9 @@ func (a *jsiiProxy_App) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_App) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -451,6 +484,9 @@ func (a *jsiiProxy_App) GetResourceArnAttribute(arnAttr *string, arnComponents *
 }
 
 func (a *jsiiProxy_App) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -472,6 +508,9 @@ func (a *jsiiProxy_App) OnPrepare() {
 }
 
 func (a *jsiiProxy_App) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -501,6 +540,9 @@ func (a *jsiiProxy_App) Prepare() {
 }
 
 func (a *jsiiProxy_App) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

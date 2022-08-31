@@ -225,6 +225,9 @@ func (j *jsiiProxy_Metric) Warnings() *[]*string {
 func NewMetric(props *MetricProps) Metric {
 	_init_.Initialize()
 
+	if err := validateNewMetricParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Metric{}
 
 	_jsii_.Create(
@@ -252,6 +255,9 @@ func NewMetric_Override(m Metric, props *MetricProps) {
 func Metric_GrantPutMetricData(grantee awsiam.IGrantable) awsiam.Grant {
 	_init_.Initialize()
 
+	if err := validateMetric_GrantPutMetricDataParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.StaticInvoke(
@@ -265,6 +271,9 @@ func Metric_GrantPutMetricData(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (m *jsiiProxy_Metric) AttachTo(scope constructs.IConstruct) Metric {
+	if err := m.validateAttachToParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns Metric
 
 	_jsii_.Invoke(
@@ -278,6 +287,9 @@ func (m *jsiiProxy_Metric) AttachTo(scope constructs.IConstruct) Metric {
 }
 
 func (m *jsiiProxy_Metric) CreateAlarm(scope awscdk.Construct, id *string, props *CreateAlarmOptions) Alarm {
+	if err := m.validateCreateAlarmParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	var returns Alarm
 
 	_jsii_.Invoke(
@@ -343,6 +355,9 @@ func (m *jsiiProxy_Metric) ToString() *string {
 }
 
 func (m *jsiiProxy_Metric) With(props *MetricOptions) Metric {
+	if err := m.validateWithParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Metric
 
 	_jsii_.Invoke(

@@ -83,6 +83,9 @@ func (j *jsiiProxy_AwsLogDriver) LogGroup() awslogs.ILogGroup {
 func NewAwsLogDriver(props *AwsLogDriverProps) AwsLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewAwsLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AwsLogDriver{}
 
 	_jsii_.Create(
@@ -106,7 +109,7 @@ func NewAwsLogDriver_Override(a AwsLogDriver, props *AwsLogDriverProps) {
 	)
 }
 
-func (j *jsiiProxy_AwsLogDriver) SetLogGroup(val awslogs.ILogGroup) {
+func (j *jsiiProxy_AwsLogDriver)SetLogGroup(val awslogs.ILogGroup) {
 	_jsii_.Set(
 		j,
 		"logGroup",
@@ -119,6 +122,9 @@ func (j *jsiiProxy_AwsLogDriver) SetLogGroup(val awslogs.ILogGroup) {
 func AwsLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateAwsLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -132,6 +138,9 @@ func AwsLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (a *jsiiProxy_AwsLogDriver) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := a.validateBindParameters(scope, containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

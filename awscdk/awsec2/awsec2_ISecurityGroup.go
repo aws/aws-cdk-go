@@ -45,6 +45,9 @@ type jsiiProxy_ISecurityGroup struct {
 }
 
 func (i *jsiiProxy_ISecurityGroup) AddEgressRule(peer IPeer, connection Port, description *string, remoteRule *bool) {
+	if err := i.validateAddEgressRuleParameters(peer, connection); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addEgressRule",
@@ -53,6 +56,9 @@ func (i *jsiiProxy_ISecurityGroup) AddEgressRule(peer IPeer, connection Port, de
 }
 
 func (i *jsiiProxy_ISecurityGroup) AddIngressRule(peer IPeer, connection Port, description *string, remoteRule *bool) {
+	if err := i.validateAddIngressRuleParameters(peer, connection); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addIngressRule",
@@ -61,6 +67,9 @@ func (i *jsiiProxy_ISecurityGroup) AddIngressRule(peer IPeer, connection Port, d
 }
 
 func (i *jsiiProxy_ISecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

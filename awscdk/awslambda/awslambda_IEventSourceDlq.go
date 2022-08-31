@@ -18,6 +18,9 @@ type jsiiProxy_IEventSourceDlq struct {
 }
 
 func (i *jsiiProxy_IEventSourceDlq) Bind(target IEventSourceMapping, targetHandler IFunction) *DlqDestinationConfig {
+	if err := i.validateBindParameters(target, targetHandler); err != nil {
+		panic(err)
+	}
 	var returns *DlqDestinationConfig
 
 	_jsii_.Invoke(

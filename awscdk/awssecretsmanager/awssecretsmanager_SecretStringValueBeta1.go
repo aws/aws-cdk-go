@@ -70,6 +70,9 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 func SecretStringValueBeta1_FromToken(secretValueFromToken *string) SecretStringValueBeta1 {
 	_init_.Initialize()
 
+	if err := validateSecretStringValueBeta1_FromTokenParameters(secretValueFromToken); err != nil {
+		panic(err)
+	}
 	var returns SecretStringValueBeta1
 
 	_jsii_.StaticInvoke(
@@ -91,6 +94,9 @@ func SecretStringValueBeta1_FromToken(secretValueFromToken *string) SecretString
 func SecretStringValueBeta1_FromUnsafePlaintext(secretValue *string) SecretStringValueBeta1 {
 	_init_.Initialize()
 
+	if err := validateSecretStringValueBeta1_FromUnsafePlaintextParameters(secretValue); err != nil {
+		panic(err)
+	}
 	var returns SecretStringValueBeta1
 
 	_jsii_.StaticInvoke(

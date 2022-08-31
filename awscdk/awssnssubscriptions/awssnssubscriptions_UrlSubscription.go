@@ -36,6 +36,9 @@ type jsiiProxy_UrlSubscription struct {
 func NewUrlSubscription(url *string, props *UrlSubscriptionProps) UrlSubscription {
 	_init_.Initialize()
 
+	if err := validateNewUrlSubscriptionParameters(url, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UrlSubscription{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewUrlSubscription_Override(u UrlSubscription, url *string, props *UrlSubsc
 }
 
 func (u *jsiiProxy_UrlSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := u.validateBindParameters(_topic); err != nil {
+		panic(err)
+	}
 	var returns *awssns.TopicSubscriptionConfig
 
 	_jsii_.Invoke(

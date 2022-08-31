@@ -61,6 +61,9 @@ func NewStackSynthesizer_Override(s StackSynthesizer) {
 }
 
 func (s *jsiiProxy_StackSynthesizer) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := s.validateAddDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -74,6 +77,9 @@ func (s *jsiiProxy_StackSynthesizer) AddDockerImageAsset(asset *DockerImageAsset
 }
 
 func (s *jsiiProxy_StackSynthesizer) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	if err := s.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *FileAssetLocation
 
 	_jsii_.Invoke(
@@ -87,6 +93,9 @@ func (s *jsiiProxy_StackSynthesizer) AddFileAsset(asset *FileAssetSource) *FileA
 }
 
 func (s *jsiiProxy_StackSynthesizer) Bind(stack Stack) {
+	if err := s.validateBindParameters(stack); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bind",
@@ -95,6 +104,9 @@ func (s *jsiiProxy_StackSynthesizer) Bind(stack Stack) {
 }
 
 func (s *jsiiProxy_StackSynthesizer) EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions) {
+	if err := s.validateEmitStackArtifactParameters(stack, session, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"emitStackArtifact",
@@ -103,6 +115,9 @@ func (s *jsiiProxy_StackSynthesizer) EmitStackArtifact(stack Stack, session ISyn
 }
 
 func (s *jsiiProxy_StackSynthesizer) Synthesize(session ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",
@@ -111,6 +126,9 @@ func (s *jsiiProxy_StackSynthesizer) Synthesize(session ISynthesisSession) {
 }
 
 func (s *jsiiProxy_StackSynthesizer) SynthesizeStackTemplate(stack Stack, session ISynthesisSession) {
+	if err := s.validateSynthesizeStackTemplateParameters(stack, session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesizeStackTemplate",

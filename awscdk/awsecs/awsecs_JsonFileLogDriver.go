@@ -46,6 +46,9 @@ type jsiiProxy_JsonFileLogDriver struct {
 func NewJsonFileLogDriver(props *JsonFileLogDriverProps) JsonFileLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewJsonFileLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_JsonFileLogDriver{}
 
 	_jsii_.Create(
@@ -74,6 +77,9 @@ func NewJsonFileLogDriver_Override(j JsonFileLogDriver, props *JsonFileLogDriver
 func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateJsonFileLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -87,6 +93,9 @@ func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := j.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

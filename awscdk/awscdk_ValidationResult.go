@@ -123,6 +123,9 @@ func (v *jsiiProxy_ValidationResult) ErrorTree() *string {
 }
 
 func (v *jsiiProxy_ValidationResult) Prefix(message *string) ValidationResult {
+	if err := v.validatePrefixParameters(message); err != nil {
+		panic(err)
+	}
 	var returns ValidationResult
 
 	_jsii_.Invoke(

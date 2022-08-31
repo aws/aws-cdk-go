@@ -641,6 +641,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) VpnPort() *float64 {
 func NewCfnClientVpnEndpoint(scope awscdk.Construct, id *string, props *CfnClientVpnEndpointProps) CfnClientVpnEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewCfnClientVpnEndpointParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnClientVpnEndpoint{}
 
 	_jsii_.Create(
@@ -663,7 +666,10 @@ func NewCfnClientVpnEndpoint_Override(c CfnClientVpnEndpoint, scope awscdk.Const
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetAuthenticationOptions(val interface{}) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetAuthenticationOptions(val interface{}) {
+	if err := j.validateSetAuthenticationOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"authenticationOptions",
@@ -671,7 +677,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetAuthenticationOptions(val interface{
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetClientCidrBlock(val *string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetClientCidrBlock(val *string) {
+	if err := j.validateSetClientCidrBlockParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clientCidrBlock",
@@ -679,7 +688,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetClientCidrBlock(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetClientConnectOptions(val interface{}) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetClientConnectOptions(val interface{}) {
+	if err := j.validateSetClientConnectOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clientConnectOptions",
@@ -687,7 +699,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetClientConnectOptions(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetClientLoginBannerOptions(val interface{}) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetClientLoginBannerOptions(val interface{}) {
+	if err := j.validateSetClientLoginBannerOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clientLoginBannerOptions",
@@ -695,7 +710,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetClientLoginBannerOptions(val interfa
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetConnectionLogOptions(val interface{}) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetConnectionLogOptions(val interface{}) {
+	if err := j.validateSetConnectionLogOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectionLogOptions",
@@ -703,7 +721,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetConnectionLogOptions(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetDescription(val *string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -711,7 +729,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetDnsServers(val *[]*string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetDnsServers(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dnsServers",
@@ -719,7 +737,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetDnsServers(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetSecurityGroupIds(val *[]*string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
@@ -727,7 +745,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetSecurityGroupIds(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetSelfServicePortal(val *string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetSelfServicePortal(val *string) {
 	_jsii_.Set(
 		j,
 		"selfServicePortal",
@@ -735,7 +753,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetSelfServicePortal(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetServerCertificateArn(val *string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetServerCertificateArn(val *string) {
+	if err := j.validateSetServerCertificateArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"serverCertificateArn",
@@ -743,7 +764,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetServerCertificateArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetSessionTimeoutHours(val *float64) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetSessionTimeoutHours(val *float64) {
 	_jsii_.Set(
 		j,
 		"sessionTimeoutHours",
@@ -751,7 +772,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetSessionTimeoutHours(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetSplitTunnel(val interface{}) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetSplitTunnel(val interface{}) {
+	if err := j.validateSetSplitTunnelParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"splitTunnel",
@@ -759,7 +783,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetSplitTunnel(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetTagSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetTagSpecifications(val interface{}) {
+	if err := j.validateSetTagSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagSpecifications",
@@ -767,7 +794,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetTagSpecifications(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetTransportProtocol(val *string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetTransportProtocol(val *string) {
 	_jsii_.Set(
 		j,
 		"transportProtocol",
@@ -775,7 +802,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetTransportProtocol(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetVpcId(val *string) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetVpcId(val *string) {
 	_jsii_.Set(
 		j,
 		"vpcId",
@@ -783,7 +810,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetVpcId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) SetVpnPort(val *float64) {
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetVpnPort(val *float64) {
 	_jsii_.Set(
 		j,
 		"vpnPort",
@@ -801,6 +828,9 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) SetVpnPort(val *float64) {
 func CfnClientVpnEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClientVpnEndpoint_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -818,6 +848,9 @@ func CfnClientVpnEndpoint_IsCfnElement(x interface{}) *bool {
 func CfnClientVpnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClientVpnEndpoint_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -835,6 +868,9 @@ func CfnClientVpnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnClientVpnEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClientVpnEndpoint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -859,6 +895,9 @@ func CfnClientVpnEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -867,6 +906,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -875,6 +917,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) AddDependsOn(target awscdk.CfnResource)
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -883,6 +928,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) AddMetadata(key *string, value interfac
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -891,6 +939,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) AddOverride(path *string, value interfa
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -899,6 +950,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) AddPropertyDeletionOverride(propertyPat
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -907,6 +961,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) AddPropertyOverride(propertyPath *strin
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -915,6 +972,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) ApplyRemovalPolicy(policy awscdk.Remova
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -928,6 +988,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) GetAtt(attributeName *string) awscdk.Re
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -941,6 +1004,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -957,6 +1023,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -978,6 +1047,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -994,6 +1066,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) Prepare() {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1020,6 +1095,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1054,6 +1132,9 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnClientVpnEndpoint) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

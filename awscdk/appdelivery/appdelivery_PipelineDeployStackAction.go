@@ -185,6 +185,9 @@ func (j *jsiiProxy_PipelineDeployStackAction) DeploymentRole() awsiam.IRole {
 func NewPipelineDeployStackAction(props *PipelineDeployStackActionProps) PipelineDeployStackAction {
 	_init_.Initialize()
 
+	if err := validateNewPipelineDeployStackActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PipelineDeployStackAction{}
 
 	_jsii_.Create(
@@ -208,6 +211,9 @@ func NewPipelineDeployStackAction_Override(p PipelineDeployStackAction, props *P
 }
 
 func (p *jsiiProxy_PipelineDeployStackAction) AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) {
+	if err := p.validateAddToDeploymentRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addToDeploymentRolePolicy",
@@ -216,6 +222,9 @@ func (p *jsiiProxy_PipelineDeployStackAction) AddToDeploymentRolePolicy(statemen
 }
 
 func (p *jsiiProxy_PipelineDeployStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := p.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -229,6 +238,9 @@ func (p *jsiiProxy_PipelineDeployStackAction) Bind(scope awscdk.Construct, stage
 }
 
 func (p *jsiiProxy_PipelineDeployStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := p.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

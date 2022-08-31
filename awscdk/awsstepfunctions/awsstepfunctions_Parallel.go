@@ -373,6 +373,9 @@ func (j *jsiiProxy_Parallel) StateId() *string {
 func NewParallel(scope constructs.Construct, id *string, props *ParallelProps) Parallel {
 	_init_.Initialize()
 
+	if err := validateNewParallelParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Parallel{}
 
 	_jsii_.Create(
@@ -395,7 +398,7 @@ func NewParallel_Override(p Parallel, scope constructs.Construct, id *string, pr
 	)
 }
 
-func (j *jsiiProxy_Parallel) SetDefaultChoice(val State) {
+func (j *jsiiProxy_Parallel)SetDefaultChoice(val State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -403,7 +406,7 @@ func (j *jsiiProxy_Parallel) SetDefaultChoice(val State) {
 	)
 }
 
-func (j *jsiiProxy_Parallel) SetIteration(val StateGraph) {
+func (j *jsiiProxy_Parallel)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -416,6 +419,9 @@ func (j *jsiiProxy_Parallel) SetIteration(val StateGraph) {
 func Parallel_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
+	if err := validateParallel_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
@@ -433,6 +439,9 @@ func Parallel_FilterNextables(states *[]State) *[]INextable {
 func Parallel_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateParallel_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -452,6 +461,9 @@ func Parallel_FindReachableEndStates(start State, options *FindStateOptions) *[]
 func Parallel_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateParallel_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -469,6 +481,9 @@ func Parallel_FindReachableStates(start State, options *FindStateOptions) *[]Sta
 func Parallel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateParallel_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -486,6 +501,9 @@ func Parallel_IsConstruct(x interface{}) *bool {
 func Parallel_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateParallel_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions.Parallel",
 		"prefixStates",
@@ -494,6 +512,9 @@ func Parallel_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (p *jsiiProxy_Parallel) AddBranch(branch StateGraph) {
+	if err := p.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addBranch",
@@ -502,6 +523,9 @@ func (p *jsiiProxy_Parallel) AddBranch(branch StateGraph) {
 }
 
 func (p *jsiiProxy_Parallel) AddCatch(handler IChainable, props *CatchProps) Parallel {
+	if err := p.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns Parallel
 
 	_jsii_.Invoke(
@@ -515,6 +539,9 @@ func (p *jsiiProxy_Parallel) AddCatch(handler IChainable, props *CatchProps) Par
 }
 
 func (p *jsiiProxy_Parallel) AddChoice(condition Condition, next State) {
+	if err := p.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addChoice",
@@ -523,6 +550,9 @@ func (p *jsiiProxy_Parallel) AddChoice(condition Condition, next State) {
 }
 
 func (p *jsiiProxy_Parallel) AddIterator(iteration StateGraph) {
+	if err := p.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addIterator",
@@ -531,6 +561,9 @@ func (p *jsiiProxy_Parallel) AddIterator(iteration StateGraph) {
 }
 
 func (p *jsiiProxy_Parallel) AddPrefix(x *string) {
+	if err := p.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addPrefix",
@@ -539,6 +572,9 @@ func (p *jsiiProxy_Parallel) AddPrefix(x *string) {
 }
 
 func (p *jsiiProxy_Parallel) AddRetry(props *RetryProps) Parallel {
+	if err := p.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Parallel
 
 	_jsii_.Invoke(
@@ -552,6 +588,9 @@ func (p *jsiiProxy_Parallel) AddRetry(props *RetryProps) Parallel {
 }
 
 func (p *jsiiProxy_Parallel) BindToGraph(graph StateGraph) {
+	if err := p.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"bindToGraph",
@@ -578,6 +617,9 @@ func (p *jsiiProxy_Parallel) Branch(branches ...IChainable) Parallel {
 }
 
 func (p *jsiiProxy_Parallel) MakeDefault(def State) {
+	if err := p.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"makeDefault",
@@ -586,6 +628,9 @@ func (p *jsiiProxy_Parallel) MakeDefault(def State) {
 }
 
 func (p *jsiiProxy_Parallel) MakeNext(next State) {
+	if err := p.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"makeNext",
@@ -594,6 +639,9 @@ func (p *jsiiProxy_Parallel) MakeNext(next State) {
 }
 
 func (p *jsiiProxy_Parallel) Next(next IChainable) Chain {
+	if err := p.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.Invoke(
@@ -615,6 +663,9 @@ func (p *jsiiProxy_Parallel) OnPrepare() {
 }
 
 func (p *jsiiProxy_Parallel) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -735,6 +786,9 @@ func (p *jsiiProxy_Parallel) RenderRetryCatch() interface{} {
 }
 
 func (p *jsiiProxy_Parallel) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",
@@ -782,6 +836,9 @@ func (p *jsiiProxy_Parallel) Validate() *[]*string {
 }
 
 func (p *jsiiProxy_Parallel) WhenBoundToGraph(graph StateGraph) {
+	if err := p.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"whenBoundToGraph",

@@ -50,6 +50,9 @@ type jsiiProxy_KinesisDestination struct {
 func NewKinesisDestination(stream awskinesis.IStream, props *KinesisDestinationProps) KinesisDestination {
 	_init_.Initialize()
 
+	if err := validateNewKinesisDestinationParameters(stream, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KinesisDestination{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewKinesisDestination_Override(k KinesisDestination, stream awskinesis.IStr
 }
 
 func (k *jsiiProxy_KinesisDestination) Bind(scope awscdk.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+	if err := k.validateBindParameters(scope, _sourceLogGroup); err != nil {
+		panic(err)
+	}
 	var returns *awslogs.LogSubscriptionDestinationConfig
 
 	_jsii_.Invoke(

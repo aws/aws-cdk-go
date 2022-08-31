@@ -53,6 +53,9 @@ type jsiiProxy_GelfLogDriver struct {
 func NewGelfLogDriver(props *GelfLogDriverProps) GelfLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewGelfLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GelfLogDriver{}
 
 	_jsii_.Create(
@@ -81,6 +84,9 @@ func NewGelfLogDriver_Override(g GelfLogDriver, props *GelfLogDriverProps) {
 func GelfLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateGelfLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -94,6 +100,9 @@ func GelfLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (g *jsiiProxy_GelfLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := g.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

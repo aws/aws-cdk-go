@@ -81,6 +81,9 @@ func NewDockerCredential_Override(d DockerCredential, usages *[]DockerCredential
 func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
+	if err := validateDockerCredential_CustomRegistryParameters(registryDomain, secret, opts); err != nil {
+		panic(err)
+	}
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
@@ -100,6 +103,9 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
+	if err := validateDockerCredential_DockerHubParameters(secret, opts); err != nil {
+		panic(err)
+	}
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
@@ -123,6 +129,9 @@ func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *External
 func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
+	if err := validateDockerCredential_EcrParameters(repositories, opts); err != nil {
+		panic(err)
+	}
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
@@ -136,6 +145,9 @@ func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCre
 }
 
 func (d *jsiiProxy_DockerCredential) GrantRead(grantee awsiam.IGrantable, usage DockerCredentialUsage) {
+	if err := d.validateGrantReadParameters(grantee, usage); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"grantRead",

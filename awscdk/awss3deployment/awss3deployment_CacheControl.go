@@ -73,6 +73,9 @@ func (j *jsiiProxy_CacheControl) Value() interface{} {
 func CacheControl_FromString(s *string) CacheControl {
 	_init_.Initialize()
 
+	if err := validateCacheControl_FromStringParameters(s); err != nil {
+		panic(err)
+	}
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
@@ -90,6 +93,9 @@ func CacheControl_FromString(s *string) CacheControl {
 func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
+	if err := validateCacheControl_MaxAgeParameters(t); err != nil {
+		panic(err)
+	}
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
@@ -209,6 +215,9 @@ func CacheControl_SetPublic() CacheControl {
 func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
+	if err := validateCacheControl_SMaxAgeParameters(t); err != nil {
+		panic(err)
+	}
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(

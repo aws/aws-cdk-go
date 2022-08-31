@@ -228,6 +228,9 @@ func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Stack() awscdk.Stack {
 func NewUserPoolIdentityProviderGoogle(scope constructs.Construct, id *string, props *UserPoolIdentityProviderGoogleProps) UserPoolIdentityProviderGoogle {
 	_init_.Initialize()
 
+	if err := validateNewUserPoolIdentityProviderGoogleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UserPoolIdentityProviderGoogle{}
 
 	_jsii_.Create(
@@ -255,6 +258,9 @@ func NewUserPoolIdentityProviderGoogle_Override(u UserPoolIdentityProviderGoogle
 func UserPoolIdentityProviderGoogle_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolIdentityProviderGoogle_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -272,6 +278,9 @@ func UserPoolIdentityProviderGoogle_IsConstruct(x interface{}) *bool {
 func UserPoolIdentityProviderGoogle_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolIdentityProviderGoogle_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -285,6 +294,9 @@ func UserPoolIdentityProviderGoogle_IsResource(construct awscdk.IConstruct) *boo
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderGoogle) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -319,6 +331,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) GeneratePhysicalName() *strin
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderGoogle) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -332,6 +347,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) GetResourceArnAttribute(arnAt
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderGoogle) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -353,6 +371,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnPrepare() {
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -382,6 +403,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Prepare() {
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

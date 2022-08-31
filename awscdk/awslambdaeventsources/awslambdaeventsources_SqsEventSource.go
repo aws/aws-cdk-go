@@ -65,6 +65,9 @@ func (j *jsiiProxy_SqsEventSource) Queue() awssqs.IQueue {
 func NewSqsEventSource(queue awssqs.IQueue, props *SqsEventSourceProps) SqsEventSource {
 	_init_.Initialize()
 
+	if err := validateNewSqsEventSourceParameters(queue, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SqsEventSource{}
 
 	_jsii_.Create(
@@ -88,6 +91,9 @@ func NewSqsEventSource_Override(s SqsEventSource, queue awssqs.IQueue, props *Sq
 }
 
 func (s *jsiiProxy_SqsEventSource) Bind(target awslambda.IFunction) {
+	if err := s.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bind",

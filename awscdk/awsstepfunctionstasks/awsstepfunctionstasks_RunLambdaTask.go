@@ -52,6 +52,9 @@ type jsiiProxy_RunLambdaTask struct {
 func NewRunLambdaTask(lambdaFunction awslambda.IFunction, props *RunLambdaTaskProps) RunLambdaTask {
 	_init_.Initialize()
 
+	if err := validateNewRunLambdaTaskParameters(lambdaFunction, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RunLambdaTask{}
 
 	_jsii_.Create(
@@ -75,6 +78,9 @@ func NewRunLambdaTask_Override(r RunLambdaTask, lambdaFunction awslambda.IFuncti
 }
 
 func (r *jsiiProxy_RunLambdaTask) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := r.validateBindParameters(_task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

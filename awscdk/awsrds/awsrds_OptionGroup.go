@@ -296,6 +296,9 @@ func (j *jsiiProxy_OptionGroup) Stack() awscdk.Stack {
 func NewOptionGroup(scope constructs.Construct, id *string, props *OptionGroupProps) OptionGroup {
 	_init_.Initialize()
 
+	if err := validateNewOptionGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_OptionGroup{}
 
 	_jsii_.Create(
@@ -323,6 +326,9 @@ func NewOptionGroup_Override(o OptionGroup, scope constructs.Construct, id *stri
 func OptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, optionGroupName *string) IOptionGroup {
 	_init_.Initialize()
 
+	if err := validateOptionGroup_FromOptionGroupNameParameters(scope, id, optionGroupName); err != nil {
+		panic(err)
+	}
 	var returns IOptionGroup
 
 	_jsii_.StaticInvoke(
@@ -340,6 +346,9 @@ func OptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, opt
 func OptionGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateOptionGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -357,6 +366,9 @@ func OptionGroup_IsConstruct(x interface{}) *bool {
 func OptionGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateOptionGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -370,6 +382,9 @@ func OptionGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (o *jsiiProxy_OptionGroup) AddConfiguration(configuration *OptionConfiguration) *bool {
+	if err := o.validateAddConfigurationParameters(configuration); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -383,6 +398,9 @@ func (o *jsiiProxy_OptionGroup) AddConfiguration(configuration *OptionConfigurat
 }
 
 func (o *jsiiProxy_OptionGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := o.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"applyRemovalPolicy",
@@ -404,6 +422,9 @@ func (o *jsiiProxy_OptionGroup) GeneratePhysicalName() *string {
 }
 
 func (o *jsiiProxy_OptionGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := o.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -417,6 +438,9 @@ func (o *jsiiProxy_OptionGroup) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (o *jsiiProxy_OptionGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := o.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -438,6 +462,9 @@ func (o *jsiiProxy_OptionGroup) OnPrepare() {
 }
 
 func (o *jsiiProxy_OptionGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := o.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"onSynthesize",
@@ -467,6 +494,9 @@ func (o *jsiiProxy_OptionGroup) Prepare() {
 }
 
 func (o *jsiiProxy_OptionGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := o.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"synthesize",

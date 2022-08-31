@@ -52,6 +52,9 @@ type jsiiProxy_WaitTime struct {
 func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 	_init_.Initialize()
 
+	if err := validateWaitTime_DurationParameters(duration); err != nil {
+		panic(err)
+	}
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
@@ -71,6 +74,9 @@ func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 func WaitTime_SecondsPath(path *string) WaitTime {
 	_init_.Initialize()
 
+	if err := validateWaitTime_SecondsPathParameters(path); err != nil {
+		panic(err)
+	}
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
@@ -90,6 +96,9 @@ func WaitTime_SecondsPath(path *string) WaitTime {
 func WaitTime_Timestamp(timestamp *string) WaitTime {
 	_init_.Initialize()
 
+	if err := validateWaitTime_TimestampParameters(timestamp); err != nil {
+		panic(err)
+	}
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
@@ -109,6 +118,9 @@ func WaitTime_Timestamp(timestamp *string) WaitTime {
 func WaitTime_TimestampPath(path *string) WaitTime {
 	_init_.Initialize()
 
+	if err := validateWaitTime_TimestampPathParameters(path); err != nil {
+		panic(err)
+	}
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(

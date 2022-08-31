@@ -27,6 +27,9 @@ type jsiiProxy_EcsDeploymentGroup struct {
 func EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(scope constructs.Construct, id *string, attrs *EcsDeploymentGroupAttributes) IEcsDeploymentGroup {
 	_init_.Initialize()
 
+	if err := validateEcsDeploymentGroup_FromEcsDeploymentGroupAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IEcsDeploymentGroup
 
 	_jsii_.StaticInvoke(

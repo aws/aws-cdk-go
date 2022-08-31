@@ -63,6 +63,9 @@ func NewUserData_Override(u UserData) {
 func UserData_Custom(content *string) UserData {
 	_init_.Initialize()
 
+	if err := validateUserData_CustomParameters(content); err != nil {
+		panic(err)
+	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
@@ -80,6 +83,9 @@ func UserData_Custom(content *string) UserData {
 func UserData_ForLinux(options *LinuxUserDataOptions) UserData {
 	_init_.Initialize()
 
+	if err := validateUserData_ForLinuxParameters(options); err != nil {
+		panic(err)
+	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
@@ -96,6 +102,9 @@ func UserData_ForLinux(options *LinuxUserDataOptions) UserData {
 func UserData_ForOperatingSystem(os OperatingSystemType) UserData {
 	_init_.Initialize()
 
+	if err := validateUserData_ForOperatingSystemParameters(os); err != nil {
+		panic(err)
+	}
 	var returns UserData
 
 	_jsii_.StaticInvoke(
@@ -139,6 +148,9 @@ func (u *jsiiProxy_UserData) AddCommands(commands ...*string) {
 }
 
 func (u *jsiiProxy_UserData) AddExecuteFileCommand(params *ExecuteFileOptions) {
+	if err := u.validateAddExecuteFileCommandParameters(params); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addExecuteFileCommand",
@@ -160,6 +172,9 @@ func (u *jsiiProxy_UserData) AddOnExitCommands(commands ...*string) {
 }
 
 func (u *jsiiProxy_UserData) AddS3DownloadCommand(params *S3DownloadOptions) *string {
+	if err := u.validateAddS3DownloadCommandParameters(params); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -173,6 +188,9 @@ func (u *jsiiProxy_UserData) AddS3DownloadCommand(params *S3DownloadOptions) *st
 }
 
 func (u *jsiiProxy_UserData) AddSignalOnExitCommand(resource awscdk.Resource) {
+	if err := u.validateAddSignalOnExitCommandParameters(resource); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addSignalOnExitCommand",

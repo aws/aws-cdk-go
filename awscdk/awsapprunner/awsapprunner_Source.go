@@ -53,6 +53,9 @@ func NewSource_Override(s Source) {
 func Source_FromAsset(props *AssetProps) AssetSource {
 	_init_.Initialize()
 
+	if err := validateSource_FromAssetParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AssetSource
 
 	_jsii_.StaticInvoke(
@@ -70,6 +73,9 @@ func Source_FromAsset(props *AssetProps) AssetSource {
 func Source_FromEcr(props *EcrProps) EcrSource {
 	_init_.Initialize()
 
+	if err := validateSource_FromEcrParameters(props); err != nil {
+		panic(err)
+	}
 	var returns EcrSource
 
 	_jsii_.StaticInvoke(
@@ -87,6 +93,9 @@ func Source_FromEcr(props *EcrProps) EcrSource {
 func Source_FromEcrPublic(props *EcrPublicProps) EcrPublicSource {
 	_init_.Initialize()
 
+	if err := validateSource_FromEcrPublicParameters(props); err != nil {
+		panic(err)
+	}
 	var returns EcrPublicSource
 
 	_jsii_.StaticInvoke(
@@ -104,6 +113,9 @@ func Source_FromEcrPublic(props *EcrPublicProps) EcrPublicSource {
 func Source_FromGitHub(props *GithubRepositoryProps) GithubSource {
 	_init_.Initialize()
 
+	if err := validateSource_FromGitHubParameters(props); err != nil {
+		panic(err)
+	}
 	var returns GithubSource
 
 	_jsii_.StaticInvoke(
@@ -117,6 +129,9 @@ func Source_FromGitHub(props *GithubRepositoryProps) GithubSource {
 }
 
 func (s *jsiiProxy_Source) Bind(scope constructs.Construct) *SourceConfig {
+	if err := s.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *SourceConfig
 
 	_jsii_.Invoke(

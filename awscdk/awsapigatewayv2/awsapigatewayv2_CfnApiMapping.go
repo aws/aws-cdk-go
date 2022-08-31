@@ -392,6 +392,9 @@ func (j *jsiiProxy_CfnApiMapping) UpdatedProperites() *map[string]interface{} {
 func NewCfnApiMapping(scope awscdk.Construct, id *string, props *CfnApiMappingProps) CfnApiMapping {
 	_init_.Initialize()
 
+	if err := validateNewCfnApiMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnApiMapping{}
 
 	_jsii_.Create(
@@ -414,7 +417,10 @@ func NewCfnApiMapping_Override(c CfnApiMapping, scope awscdk.Construct, id *stri
 	)
 }
 
-func (j *jsiiProxy_CfnApiMapping) SetApiId(val *string) {
+func (j *jsiiProxy_CfnApiMapping)SetApiId(val *string) {
+	if err := j.validateSetApiIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"apiId",
@@ -422,7 +428,7 @@ func (j *jsiiProxy_CfnApiMapping) SetApiId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnApiMapping) SetApiMappingKey(val *string) {
+func (j *jsiiProxy_CfnApiMapping)SetApiMappingKey(val *string) {
 	_jsii_.Set(
 		j,
 		"apiMappingKey",
@@ -430,7 +436,10 @@ func (j *jsiiProxy_CfnApiMapping) SetApiMappingKey(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnApiMapping) SetDomainName(val *string) {
+func (j *jsiiProxy_CfnApiMapping)SetDomainName(val *string) {
+	if err := j.validateSetDomainNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"domainName",
@@ -438,7 +447,10 @@ func (j *jsiiProxy_CfnApiMapping) SetDomainName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnApiMapping) SetStage(val *string) {
+func (j *jsiiProxy_CfnApiMapping)SetStage(val *string) {
+	if err := j.validateSetStageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"stage",
@@ -456,6 +468,9 @@ func (j *jsiiProxy_CfnApiMapping) SetStage(val *string) {
 func CfnApiMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnApiMapping_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -473,6 +488,9 @@ func CfnApiMapping_IsCfnElement(x interface{}) *bool {
 func CfnApiMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnApiMapping_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -490,6 +508,9 @@ func CfnApiMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnApiMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnApiMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -514,6 +535,9 @@ func CfnApiMapping_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnApiMapping) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -522,6 +546,9 @@ func (c *jsiiProxy_CfnApiMapping) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnApiMapping) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -530,6 +557,9 @@ func (c *jsiiProxy_CfnApiMapping) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnApiMapping) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -538,6 +568,9 @@ func (c *jsiiProxy_CfnApiMapping) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnApiMapping) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -546,6 +579,9 @@ func (c *jsiiProxy_CfnApiMapping) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnApiMapping) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -554,6 +590,9 @@ func (c *jsiiProxy_CfnApiMapping) AddPropertyDeletionOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnApiMapping) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -562,6 +601,9 @@ func (c *jsiiProxy_CfnApiMapping) AddPropertyOverride(propertyPath *string, valu
 }
 
 func (c *jsiiProxy_CfnApiMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -570,6 +612,9 @@ func (c *jsiiProxy_CfnApiMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (c *jsiiProxy_CfnApiMapping) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -583,6 +628,9 @@ func (c *jsiiProxy_CfnApiMapping) GetAtt(attributeName *string) awscdk.Reference
 }
 
 func (c *jsiiProxy_CfnApiMapping) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -596,6 +644,9 @@ func (c *jsiiProxy_CfnApiMapping) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnApiMapping) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -612,6 +663,9 @@ func (c *jsiiProxy_CfnApiMapping) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnApiMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -633,6 +687,9 @@ func (c *jsiiProxy_CfnApiMapping) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnApiMapping) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -649,6 +706,9 @@ func (c *jsiiProxy_CfnApiMapping) Prepare() {
 }
 
 func (c *jsiiProxy_CfnApiMapping) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -675,6 +735,9 @@ func (c *jsiiProxy_CfnApiMapping) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnApiMapping) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -709,6 +772,9 @@ func (c *jsiiProxy_CfnApiMapping) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnApiMapping) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

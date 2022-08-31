@@ -510,6 +510,9 @@ func (j *jsiiProxy_CfnAuthorizerV2) UpdatedProperites() *map[string]interface{} 
 func NewCfnAuthorizerV2(scope awscdk.Construct, id *string, props *CfnAuthorizerV2Props) CfnAuthorizerV2 {
 	_init_.Initialize()
 
+	if err := validateNewCfnAuthorizerV2Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnAuthorizerV2{}
 
 	_jsii_.Create(
@@ -533,7 +536,10 @@ func NewCfnAuthorizerV2_Override(c CfnAuthorizerV2, scope awscdk.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetApiId(val *string) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetApiId(val *string) {
+	if err := j.validateSetApiIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"apiId",
@@ -541,7 +547,7 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetApiId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerCredentialsArn(val *string) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetAuthorizerCredentialsArn(val *string) {
 	_jsii_.Set(
 		j,
 		"authorizerCredentialsArn",
@@ -549,7 +555,7 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerCredentialsArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerResultTtlInSeconds(val *float64) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetAuthorizerResultTtlInSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"authorizerResultTtlInSeconds",
@@ -557,7 +563,10 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerResultTtlInSeconds(val *float64
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerType(val *string) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetAuthorizerType(val *string) {
+	if err := j.validateSetAuthorizerTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"authorizerType",
@@ -565,7 +574,7 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerUri(val *string) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetAuthorizerUri(val *string) {
 	_jsii_.Set(
 		j,
 		"authorizerUri",
@@ -573,7 +582,10 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetAuthorizerUri(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetIdentitySource(val *[]*string) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetIdentitySource(val *[]*string) {
+	if err := j.validateSetIdentitySourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"identitySource",
@@ -581,7 +593,7 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetIdentitySource(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetIdentityValidationExpression(val *string) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetIdentityValidationExpression(val *string) {
 	_jsii_.Set(
 		j,
 		"identityValidationExpression",
@@ -589,7 +601,10 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetIdentityValidationExpression(val *string)
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetJwtConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetJwtConfiguration(val interface{}) {
+	if err := j.validateSetJwtConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"jwtConfiguration",
@@ -597,7 +612,10 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetJwtConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAuthorizerV2) SetName(val *string) {
+func (j *jsiiProxy_CfnAuthorizerV2)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -615,6 +633,9 @@ func (j *jsiiProxy_CfnAuthorizerV2) SetName(val *string) {
 func CfnAuthorizerV2_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAuthorizerV2_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -632,6 +653,9 @@ func CfnAuthorizerV2_IsCfnElement(x interface{}) *bool {
 func CfnAuthorizerV2_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAuthorizerV2_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -649,6 +673,9 @@ func CfnAuthorizerV2_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnAuthorizerV2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAuthorizerV2_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -673,6 +700,9 @@ func CfnAuthorizerV2_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -681,6 +711,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -689,6 +722,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -697,6 +733,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) AddMetadata(key *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -705,6 +744,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) AddOverride(path *string, value interface{})
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -713,6 +755,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) AddPropertyDeletionOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -721,6 +766,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) AddPropertyOverride(propertyPath *string, va
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -729,6 +777,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -742,6 +793,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) GetAtt(attributeName *string) awscdk.Referen
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -755,6 +809,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -771,6 +828,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -792,6 +852,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -808,6 +871,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) Prepare() {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -834,6 +900,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -868,6 +937,9 @@ func (c *jsiiProxy_CfnAuthorizerV2) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAuthorizerV2) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -196,6 +196,9 @@ func (j *jsiiProxy_QueryDefinition) Stack() awscdk.Stack {
 func NewQueryDefinition(scope constructs.Construct, id *string, props *QueryDefinitionProps) QueryDefinition {
 	_init_.Initialize()
 
+	if err := validateNewQueryDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_QueryDefinition{}
 
 	_jsii_.Create(
@@ -223,6 +226,9 @@ func NewQueryDefinition_Override(q QueryDefinition, scope constructs.Construct, 
 func QueryDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQueryDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -240,6 +246,9 @@ func QueryDefinition_IsConstruct(x interface{}) *bool {
 func QueryDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateQueryDefinition_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -253,6 +262,9 @@ func QueryDefinition_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (q *jsiiProxy_QueryDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := q.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"applyRemovalPolicy",
@@ -274,6 +286,9 @@ func (q *jsiiProxy_QueryDefinition) GeneratePhysicalName() *string {
 }
 
 func (q *jsiiProxy_QueryDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := q.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -287,6 +302,9 @@ func (q *jsiiProxy_QueryDefinition) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (q *jsiiProxy_QueryDefinition) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := q.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -308,6 +326,9 @@ func (q *jsiiProxy_QueryDefinition) OnPrepare() {
 }
 
 func (q *jsiiProxy_QueryDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -337,6 +358,9 @@ func (q *jsiiProxy_QueryDefinition) Prepare() {
 }
 
 func (q *jsiiProxy_QueryDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",

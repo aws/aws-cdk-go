@@ -179,6 +179,9 @@ func (j *jsiiProxy_GitHubSourceCredentials) Stack() awscdk.Stack {
 func NewGitHubSourceCredentials(scope constructs.Construct, id *string, props *GitHubSourceCredentialsProps) GitHubSourceCredentials {
 	_init_.Initialize()
 
+	if err := validateNewGitHubSourceCredentialsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GitHubSourceCredentials{}
 
 	_jsii_.Create(
@@ -206,6 +209,9 @@ func NewGitHubSourceCredentials_Override(g GitHubSourceCredentials, scope constr
 func GitHubSourceCredentials_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGitHubSourceCredentials_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -223,6 +229,9 @@ func GitHubSourceCredentials_IsConstruct(x interface{}) *bool {
 func GitHubSourceCredentials_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateGitHubSourceCredentials_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -236,6 +245,9 @@ func GitHubSourceCredentials_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (g *jsiiProxy_GitHubSourceCredentials) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := g.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"applyRemovalPolicy",
@@ -257,6 +269,9 @@ func (g *jsiiProxy_GitHubSourceCredentials) GeneratePhysicalName() *string {
 }
 
 func (g *jsiiProxy_GitHubSourceCredentials) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := g.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -270,6 +285,9 @@ func (g *jsiiProxy_GitHubSourceCredentials) GetResourceArnAttribute(arnAttr *str
 }
 
 func (g *jsiiProxy_GitHubSourceCredentials) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := g.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -291,6 +309,9 @@ func (g *jsiiProxy_GitHubSourceCredentials) OnPrepare() {
 }
 
 func (g *jsiiProxy_GitHubSourceCredentials) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -320,6 +341,9 @@ func (g *jsiiProxy_GitHubSourceCredentials) Prepare() {
 }
 
 func (g *jsiiProxy_GitHubSourceCredentials) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",

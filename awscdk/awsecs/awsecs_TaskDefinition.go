@@ -420,6 +420,9 @@ func (j *jsiiProxy_TaskDefinition) TaskRole() awsiam.IRole {
 func NewTaskDefinition(scope constructs.Construct, id *string, props *TaskDefinitionProps) TaskDefinition {
 	_init_.Initialize()
 
+	if err := validateNewTaskDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TaskDefinition{}
 
 	_jsii_.Create(
@@ -443,7 +446,7 @@ func NewTaskDefinition_Override(t TaskDefinition, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_TaskDefinition) SetDefaultContainer(val ContainerDefinition) {
+func (j *jsiiProxy_TaskDefinition)SetDefaultContainer(val ContainerDefinition) {
 	_jsii_.Set(
 		j,
 		"defaultContainer",
@@ -458,6 +461,9 @@ func (j *jsiiProxy_TaskDefinition) SetDefaultContainer(val ContainerDefinition) 
 func TaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
 	_init_.Initialize()
 
+	if err := validateTaskDefinition_FromTaskDefinitionArnParameters(scope, id, taskDefinitionArn); err != nil {
+		panic(err)
+	}
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -475,6 +481,9 @@ func TaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string
 func TaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
 	_init_.Initialize()
 
+	if err := validateTaskDefinition_FromTaskDefinitionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -492,6 +501,9 @@ func TaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id 
 func TaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTaskDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -509,6 +521,9 @@ func TaskDefinition_IsConstruct(x interface{}) *bool {
 func TaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateTaskDefinition_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -522,6 +537,9 @@ func TaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (t *jsiiProxy_TaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
+	if err := t.validateAddContainerParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ContainerDefinition
 
 	_jsii_.Invoke(
@@ -535,6 +553,9 @@ func (t *jsiiProxy_TaskDefinition) AddContainer(id *string, props *ContainerDefi
 }
 
 func (t *jsiiProxy_TaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
+	if err := t.validateAddExtensionParameters(extension); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addExtension",
@@ -543,6 +564,9 @@ func (t *jsiiProxy_TaskDefinition) AddExtension(extension ITaskDefinitionExtensi
 }
 
 func (t *jsiiProxy_TaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
+	if err := t.validateAddFirelensLogRouterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns FirelensLogRouter
 
 	_jsii_.Invoke(
@@ -556,6 +580,9 @@ func (t *jsiiProxy_TaskDefinition) AddFirelensLogRouter(id *string, props *Firel
 }
 
 func (t *jsiiProxy_TaskDefinition) AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator) {
+	if err := t.validateAddInferenceAcceleratorParameters(inferenceAccelerator); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addInferenceAccelerator",
@@ -564,6 +591,9 @@ func (t *jsiiProxy_TaskDefinition) AddInferenceAccelerator(inferenceAccelerator 
 }
 
 func (t *jsiiProxy_TaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
+	if err := t.validateAddPlacementConstraintParameters(constraint); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addPlacementConstraint",
@@ -572,6 +602,9 @@ func (t *jsiiProxy_TaskDefinition) AddPlacementConstraint(constraint PlacementCo
 }
 
 func (t *jsiiProxy_TaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
+	if err := t.validateAddToExecutionRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addToExecutionRolePolicy",
@@ -580,6 +613,9 @@ func (t *jsiiProxy_TaskDefinition) AddToExecutionRolePolicy(statement awsiam.Pol
 }
 
 func (t *jsiiProxy_TaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
+	if err := t.validateAddToTaskRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addToTaskRolePolicy",
@@ -588,6 +624,9 @@ func (t *jsiiProxy_TaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicySt
 }
 
 func (t *jsiiProxy_TaskDefinition) AddVolume(volume *Volume) {
+	if err := t.validateAddVolumeParameters(volume); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addVolume",
@@ -596,6 +635,9 @@ func (t *jsiiProxy_TaskDefinition) AddVolume(volume *Volume) {
 }
 
 func (t *jsiiProxy_TaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := t.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyRemovalPolicy",
@@ -604,6 +646,9 @@ func (t *jsiiProxy_TaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (t *jsiiProxy_TaskDefinition) FindContainer(containerName *string) ContainerDefinition {
+	if err := t.validateFindContainerParameters(containerName); err != nil {
+		panic(err)
+	}
 	var returns ContainerDefinition
 
 	_jsii_.Invoke(
@@ -630,6 +675,9 @@ func (t *jsiiProxy_TaskDefinition) GeneratePhysicalName() *string {
 }
 
 func (t *jsiiProxy_TaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := t.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -643,6 +691,9 @@ func (t *jsiiProxy_TaskDefinition) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (t *jsiiProxy_TaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := t.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -677,6 +728,9 @@ func (t *jsiiProxy_TaskDefinition) OnPrepare() {
 }
 
 func (t *jsiiProxy_TaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -706,6 +760,9 @@ func (t *jsiiProxy_TaskDefinition) Prepare() {
 }
 
 func (t *jsiiProxy_TaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

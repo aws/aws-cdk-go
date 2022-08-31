@@ -213,6 +213,9 @@ func NewStateMachineFragment_Override(s StateMachineFragment, scope constructs.C
 func StateMachineFragment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStateMachineFragment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -226,6 +229,9 @@ func StateMachineFragment_IsConstruct(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_StateMachineFragment) Next(next IChainable) Chain {
+	if err := s.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns Chain
 
 	_jsii_.Invoke(
@@ -247,6 +253,9 @@ func (s *jsiiProxy_StateMachineFragment) OnPrepare() {
 }
 
 func (s *jsiiProxy_StateMachineFragment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -289,6 +298,9 @@ func (s *jsiiProxy_StateMachineFragment) Prepare() {
 }
 
 func (s *jsiiProxy_StateMachineFragment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",
@@ -297,6 +309,9 @@ func (s *jsiiProxy_StateMachineFragment) Synthesize(session awscdk.ISynthesisSes
 }
 
 func (s *jsiiProxy_StateMachineFragment) ToSingleState(options *SingleStateOptions) Parallel {
+	if err := s.validateToSingleStateParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Parallel
 
 	_jsii_.Invoke(

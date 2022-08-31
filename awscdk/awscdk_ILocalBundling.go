@@ -22,6 +22,9 @@ type jsiiProxy_ILocalBundling struct {
 }
 
 func (i *jsiiProxy_ILocalBundling) TryBundle(outputDir *string, options *BundlingOptions) *bool {
+	if err := i.validateTryBundleParameters(outputDir, options); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

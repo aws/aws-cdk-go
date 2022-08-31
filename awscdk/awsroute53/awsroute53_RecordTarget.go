@@ -85,6 +85,9 @@ func NewRecordTarget_Override(r RecordTarget, values *[]*string, aliasTarget IAl
 func RecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
 	_init_.Initialize()
 
+	if err := validateRecordTarget_FromAliasParameters(aliasTarget); err != nil {
+		panic(err)
+	}
 	var returns RecordTarget
 
 	_jsii_.StaticInvoke(

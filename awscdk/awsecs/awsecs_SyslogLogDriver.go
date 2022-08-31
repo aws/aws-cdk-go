@@ -50,6 +50,9 @@ type jsiiProxy_SyslogLogDriver struct {
 func NewSyslogLogDriver(props *SyslogLogDriverProps) SyslogLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewSyslogLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SyslogLogDriver{}
 
 	_jsii_.Create(
@@ -78,6 +81,9 @@ func NewSyslogLogDriver_Override(s SyslogLogDriver, props *SyslogLogDriverProps)
 func SyslogLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateSyslogLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func SyslogLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (s *jsiiProxy_SyslogLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := s.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

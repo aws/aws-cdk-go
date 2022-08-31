@@ -245,6 +245,9 @@ func NewGraphqlApiBase_Override(g GraphqlApiBase, scope constructs.Construct, id
 func GraphqlApiBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGraphqlApiBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -262,6 +265,9 @@ func GraphqlApiBase_IsConstruct(x interface{}) *bool {
 func GraphqlApiBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateGraphqlApiBase_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -275,6 +281,9 @@ func GraphqlApiBase_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource {
+	if err := g.validateAddDynamoDbDataSourceParameters(id, table, options); err != nil {
+		panic(err)
+	}
 	var returns DynamoDbDataSource
 
 	_jsii_.Invoke(
@@ -288,6 +297,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddDynamoDbDataSource(id *string, table awsdy
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource {
+	if err := g.validateAddElasticsearchDataSourceParameters(id, domain, options); err != nil {
+		panic(err)
+	}
 	var returns ElasticsearchDataSource
 
 	_jsii_.Invoke(
@@ -301,6 +313,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddElasticsearchDataSource(id *string, domain
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddHttpDataSource(id *string, endpoint *string, options *HttpDataSourceOptions) HttpDataSource {
+	if err := g.validateAddHttpDataSourceParameters(id, endpoint, options); err != nil {
+		panic(err)
+	}
 	var returns HttpDataSource
 
 	_jsii_.Invoke(
@@ -314,6 +329,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddHttpDataSource(id *string, endpoint *strin
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *DataSourceOptions) LambdaDataSource {
+	if err := g.validateAddLambdaDataSourceParameters(id, lambdaFunction, options); err != nil {
+		panic(err)
+	}
 	var returns LambdaDataSource
 
 	_jsii_.Invoke(
@@ -327,6 +345,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddLambdaDataSource(id *string, lambdaFunctio
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddNoneDataSource(id *string, options *DataSourceOptions) NoneDataSource {
+	if err := g.validateAddNoneDataSourceParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns NoneDataSource
 
 	_jsii_.Invoke(
@@ -340,6 +361,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddNoneDataSource(id *string, options *DataSo
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource {
+	if err := g.validateAddOpenSearchDataSourceParameters(id, domain, options); err != nil {
+		panic(err)
+	}
 	var returns OpenSearchDataSource
 
 	_jsii_.Invoke(
@@ -353,6 +377,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddOpenSearchDataSource(id *string, domain aw
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource {
+	if err := g.validateAddRdsDataSourceParameters(id, serverlessCluster, secretStore, options); err != nil {
+		panic(err)
+	}
 	var returns RdsDataSource
 
 	_jsii_.Invoke(
@@ -366,6 +393,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddRdsDataSource(id *string, serverlessCluste
 }
 
 func (g *jsiiProxy_GraphqlApiBase) AddSchemaDependency(construct awscdk.CfnResource) *bool {
+	if err := g.validateAddSchemaDependencyParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -379,6 +409,9 @@ func (g *jsiiProxy_GraphqlApiBase) AddSchemaDependency(construct awscdk.CfnResou
 }
 
 func (g *jsiiProxy_GraphqlApiBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := g.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"applyRemovalPolicy",
@@ -387,6 +420,9 @@ func (g *jsiiProxy_GraphqlApiBase) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (g *jsiiProxy_GraphqlApiBase) CreateResolver(props *ExtendedResolverProps) Resolver {
+	if err := g.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -413,6 +449,9 @@ func (g *jsiiProxy_GraphqlApiBase) GeneratePhysicalName() *string {
 }
 
 func (g *jsiiProxy_GraphqlApiBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := g.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -426,6 +465,9 @@ func (g *jsiiProxy_GraphqlApiBase) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (g *jsiiProxy_GraphqlApiBase) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := g.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -447,6 +489,9 @@ func (g *jsiiProxy_GraphqlApiBase) OnPrepare() {
 }
 
 func (g *jsiiProxy_GraphqlApiBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -476,6 +521,9 @@ func (g *jsiiProxy_GraphqlApiBase) Prepare() {
 }
 
 func (g *jsiiProxy_GraphqlApiBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",

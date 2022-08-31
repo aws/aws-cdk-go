@@ -221,7 +221,10 @@ func NewNetworkMultipleTargetGroupsServiceBase_Override(n NetworkMultipleTargetG
 	)
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetListeners(val *[]awselasticloadbalancingv2.NetworkListener) {
+func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase)SetListeners(val *[]awselasticloadbalancingv2.NetworkListener) {
+	if err := j.validateSetListenersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"listeners",
@@ -229,7 +232,7 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetListeners(val *[]a
 	)
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetLogDriver(val awsecs.LogDriver) {
+func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase)SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
@@ -237,7 +240,10 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetLogDriver(val awse
 	)
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup) {
+func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase)SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup) {
+	if err := j.validateSetTargetGroupsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetGroups",
@@ -250,6 +256,9 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetTargetGroups(val *
 func NetworkMultipleTargetGroupsServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkMultipleTargetGroupsServiceBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -263,6 +272,9 @@ func NetworkMultipleTargetGroupsServiceBase_IsConstruct(x interface{}) *bool {
 }
 
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) {
+	if err := n.validateAddPortMappingForTargetsParameters(container, targets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"addPortMappingForTargets",
@@ -271,6 +283,9 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) AddPortMappingForTarg
 }
 
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := n.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -297,6 +312,9 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) FindListener(name *st
 }
 
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := n.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -318,6 +336,9 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) OnPrepare() {
 }
 
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -347,6 +368,9 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Prepare() {
 }
 
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) awselasticloadbalancingv2.NetworkTargetGroup {
+	if err := n.validateRegisterECSTargetsParameters(service, container, targets); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.NetworkTargetGroup
 
 	_jsii_.Invoke(
@@ -360,6 +384,9 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) RegisterECSTargets(se
 }
 
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

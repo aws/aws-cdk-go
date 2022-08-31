@@ -19,6 +19,9 @@ type jsiiProxy_IPostProcessor struct {
 }
 
 func (i *jsiiProxy_IPostProcessor) PostProcess(input interface{}, context IResolveContext) interface{} {
+	if err := i.validatePostProcessParameters(input, context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

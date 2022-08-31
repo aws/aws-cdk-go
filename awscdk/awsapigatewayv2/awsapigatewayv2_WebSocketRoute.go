@@ -243,6 +243,9 @@ func (j *jsiiProxy_WebSocketRoute) WebSocketApi() IWebSocketApi {
 func NewWebSocketRoute(scope constructs.Construct, id *string, props *WebSocketRouteProps) WebSocketRoute {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketRouteParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketRoute{}
 
 	_jsii_.Create(
@@ -270,6 +273,9 @@ func NewWebSocketRoute_Override(w WebSocketRoute, scope constructs.Construct, id
 func WebSocketRoute_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketRoute_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -287,6 +293,9 @@ func WebSocketRoute_IsConstruct(x interface{}) *bool {
 func WebSocketRoute_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketRoute_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -300,6 +309,9 @@ func WebSocketRoute_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (w *jsiiProxy_WebSocketRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := w.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"applyRemovalPolicy",
@@ -321,6 +333,9 @@ func (w *jsiiProxy_WebSocketRoute) GeneratePhysicalName() *string {
 }
 
 func (w *jsiiProxy_WebSocketRoute) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := w.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -334,6 +349,9 @@ func (w *jsiiProxy_WebSocketRoute) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (w *jsiiProxy_WebSocketRoute) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := w.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -355,6 +373,9 @@ func (w *jsiiProxy_WebSocketRoute) OnPrepare() {
 }
 
 func (w *jsiiProxy_WebSocketRoute) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := w.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"onSynthesize",
@@ -384,6 +405,9 @@ func (w *jsiiProxy_WebSocketRoute) Prepare() {
 }
 
 func (w *jsiiProxy_WebSocketRoute) Synthesize(session awscdk.ISynthesisSession) {
+	if err := w.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"synthesize",

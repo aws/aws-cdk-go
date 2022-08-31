@@ -344,6 +344,9 @@ func (j *jsiiProxy_ProxyResource) Url() *string {
 func NewProxyResource(scope constructs.Construct, id *string, props *ProxyResourceProps) ProxyResource {
 	_init_.Initialize()
 
+	if err := validateNewProxyResourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ProxyResource{}
 
 	_jsii_.Create(
@@ -371,6 +374,9 @@ func NewProxyResource_Override(p ProxyResource, scope constructs.Construct, id *
 func ProxyResource_FromResourceAttributes(scope constructs.Construct, id *string, attrs *ResourceAttributes) IResource {
 	_init_.Initialize()
 
+	if err := validateProxyResource_FromResourceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IResource
 
 	_jsii_.StaticInvoke(
@@ -388,6 +394,9 @@ func ProxyResource_FromResourceAttributes(scope constructs.Construct, id *string
 func ProxyResource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateProxyResource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -405,6 +414,9 @@ func ProxyResource_IsConstruct(x interface{}) *bool {
 func ProxyResource_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateProxyResource_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -418,6 +430,9 @@ func ProxyResource_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_ProxyResource) AddCorsPreflight(options *CorsOptions) Method {
+	if err := p.validateAddCorsPreflightParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Method
 
 	_jsii_.Invoke(
@@ -431,6 +446,9 @@ func (p *jsiiProxy_ProxyResource) AddCorsPreflight(options *CorsOptions) Method 
 }
 
 func (p *jsiiProxy_ProxyResource) AddMethod(httpMethod *string, integration Integration, options *MethodOptions) Method {
+	if err := p.validateAddMethodParameters(httpMethod, options); err != nil {
+		panic(err)
+	}
 	var returns Method
 
 	_jsii_.Invoke(
@@ -444,6 +462,9 @@ func (p *jsiiProxy_ProxyResource) AddMethod(httpMethod *string, integration Inte
 }
 
 func (p *jsiiProxy_ProxyResource) AddProxy(options *ProxyResourceOptions) ProxyResource {
+	if err := p.validateAddProxyParameters(options); err != nil {
+		panic(err)
+	}
 	var returns ProxyResource
 
 	_jsii_.Invoke(
@@ -457,6 +478,9 @@ func (p *jsiiProxy_ProxyResource) AddProxy(options *ProxyResourceOptions) ProxyR
 }
 
 func (p *jsiiProxy_ProxyResource) AddResource(pathPart *string, options *ResourceOptions) Resource {
+	if err := p.validateAddResourceParameters(pathPart, options); err != nil {
+		panic(err)
+	}
 	var returns Resource
 
 	_jsii_.Invoke(
@@ -470,6 +494,9 @@ func (p *jsiiProxy_ProxyResource) AddResource(pathPart *string, options *Resourc
 }
 
 func (p *jsiiProxy_ProxyResource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -491,6 +518,9 @@ func (p *jsiiProxy_ProxyResource) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_ProxyResource) GetResource(pathPart *string) IResource {
+	if err := p.validateGetResourceParameters(pathPart); err != nil {
+		panic(err)
+	}
 	var returns IResource
 
 	_jsii_.Invoke(
@@ -504,6 +534,9 @@ func (p *jsiiProxy_ProxyResource) GetResource(pathPart *string) IResource {
 }
 
 func (p *jsiiProxy_ProxyResource) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -517,6 +550,9 @@ func (p *jsiiProxy_ProxyResource) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (p *jsiiProxy_ProxyResource) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -538,6 +574,9 @@ func (p *jsiiProxy_ProxyResource) OnPrepare() {
 }
 
 func (p *jsiiProxy_ProxyResource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -567,6 +606,9 @@ func (p *jsiiProxy_ProxyResource) Prepare() {
 }
 
 func (p *jsiiProxy_ProxyResource) ResourceForPath(path *string) Resource {
+	if err := p.validateResourceForPathParameters(path); err != nil {
+		panic(err)
+	}
 	var returns Resource
 
 	_jsii_.Invoke(
@@ -580,6 +622,9 @@ func (p *jsiiProxy_ProxyResource) ResourceForPath(path *string) Resource {
 }
 
 func (p *jsiiProxy_ProxyResource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

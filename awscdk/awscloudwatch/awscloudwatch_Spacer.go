@@ -64,6 +64,9 @@ func (j *jsiiProxy_Spacer) Width() *float64 {
 func NewSpacer(props *SpacerProps) Spacer {
 	_init_.Initialize()
 
+	if err := validateNewSpacerParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Spacer{}
 
 	_jsii_.Create(
@@ -87,6 +90,9 @@ func NewSpacer_Override(s Spacer, props *SpacerProps) {
 }
 
 func (s *jsiiProxy_Spacer) Position(_x *float64, _y *float64) {
+	if err := s.validatePositionParameters(_x, _y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"position",

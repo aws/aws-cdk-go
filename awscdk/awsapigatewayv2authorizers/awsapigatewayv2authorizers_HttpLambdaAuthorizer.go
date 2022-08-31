@@ -51,6 +51,9 @@ type jsiiProxy_HttpLambdaAuthorizer struct {
 func NewHttpLambdaAuthorizer(id *string, handler awslambda.IFunction, props *HttpLambdaAuthorizerProps) HttpLambdaAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewHttpLambdaAuthorizerParameters(id, handler, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpLambdaAuthorizer{}
 
 	_jsii_.Create(
@@ -75,6 +78,9 @@ func NewHttpLambdaAuthorizer_Override(h HttpLambdaAuthorizer, id *string, handle
 }
 
 func (h *jsiiProxy_HttpLambdaAuthorizer) Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig {
+	if err := h.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteAuthorizerConfig
 
 	_jsii_.Invoke(

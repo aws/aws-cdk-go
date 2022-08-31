@@ -118,6 +118,9 @@ func (j *jsiiProxy_FileSet) Producer() Step {
 func NewFileSet(id *string, producer Step) FileSet {
 	_init_.Initialize()
 
+	if err := validateNewFileSetParameters(id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FileSet{}
 
 	_jsii_.Create(

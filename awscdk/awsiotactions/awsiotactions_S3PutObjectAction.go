@@ -40,6 +40,9 @@ type jsiiProxy_S3PutObjectAction struct {
 func NewS3PutObjectAction(bucket awss3.IBucket, props *S3PutObjectActionProps) S3PutObjectAction {
 	_init_.Initialize()
 
+	if err := validateNewS3PutObjectActionParameters(bucket, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3PutObjectAction{}
 
 	_jsii_.Create(
@@ -63,6 +66,9 @@ func NewS3PutObjectAction_Override(s S3PutObjectAction, bucket awss3.IBucket, pr
 }
 
 func (s *jsiiProxy_S3PutObjectAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := s.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

@@ -30,6 +30,9 @@ type jsiiProxy_Lazy struct {
 func Lazy_Any(producer IStableAnyProducer, options *LazyAnyValueOptions) IResolvable {
 	_init_.Initialize()
 
+	if err := validateLazy_AnyParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -50,6 +53,9 @@ func Lazy_Any(producer IStableAnyProducer, options *LazyAnyValueOptions) IResolv
 func Lazy_AnyValue(producer IAnyProducer, options *LazyAnyValueOptions) IResolvable {
 	_init_.Initialize()
 
+	if err := validateLazy_AnyValueParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -76,6 +82,9 @@ func Lazy_AnyValue(producer IAnyProducer, options *LazyAnyValueOptions) IResolva
 func Lazy_List(producer IStableListProducer, options *LazyListValueOptions) *[]*string {
 	_init_.Initialize()
 
+	if err := validateLazy_ListParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -99,6 +108,9 @@ func Lazy_List(producer IStableListProducer, options *LazyListValueOptions) *[]*
 func Lazy_ListValue(producer IListProducer, options *LazyListValueOptions) *[]*string {
 	_init_.Initialize()
 
+	if err := validateLazy_ListValueParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -125,6 +137,9 @@ func Lazy_ListValue(producer IListProducer, options *LazyListValueOptions) *[]*s
 func Lazy_Number(producer IStableNumberProducer) *float64 {
 	_init_.Initialize()
 
+	if err := validateLazy_NumberParameters(producer); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -148,6 +163,9 @@ func Lazy_Number(producer IStableNumberProducer) *float64 {
 func Lazy_NumberValue(producer INumberProducer) *float64 {
 	_init_.Initialize()
 
+	if err := validateLazy_NumberValueParameters(producer); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -174,6 +192,9 @@ func Lazy_NumberValue(producer INumberProducer) *float64 {
 func Lazy_String(producer IStableStringProducer, options *LazyStringValueOptions) *string {
 	_init_.Initialize()
 
+	if err := validateLazy_StringParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -197,6 +218,9 @@ func Lazy_String(producer IStableStringProducer, options *LazyStringValueOptions
 func Lazy_StringValue(producer IStringProducer, options *LazyStringValueOptions) *string {
 	_init_.Initialize()
 
+	if err := validateLazy_StringValueParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -223,6 +247,9 @@ func Lazy_StringValue(producer IStringProducer, options *LazyStringValueOptions)
 func Lazy_UncachedAny(producer IAnyProducer, options *LazyAnyValueOptions) IResolvable {
 	_init_.Initialize()
 
+	if err := validateLazy_UncachedAnyParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
@@ -249,6 +276,9 @@ func Lazy_UncachedAny(producer IAnyProducer, options *LazyAnyValueOptions) IReso
 func Lazy_UncachedList(producer IListProducer, options *LazyListValueOptions) *[]*string {
 	_init_.Initialize()
 
+	if err := validateLazy_UncachedListParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -275,6 +305,9 @@ func Lazy_UncachedList(producer IListProducer, options *LazyListValueOptions) *[
 func Lazy_UncachedNumber(producer INumberProducer) *float64 {
 	_init_.Initialize()
 
+	if err := validateLazy_UncachedNumberParameters(producer); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -301,6 +334,9 @@ func Lazy_UncachedNumber(producer INumberProducer) *float64 {
 func Lazy_UncachedString(producer IStringProducer, options *LazyStringValueOptions) *string {
 	_init_.Initialize()
 
+	if err := validateLazy_UncachedStringParameters(producer, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

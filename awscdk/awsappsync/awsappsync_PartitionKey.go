@@ -52,6 +52,9 @@ func (j *jsiiProxy_PartitionKey) Pkey() Assign {
 func NewPartitionKey(pkey Assign) PartitionKey {
 	_init_.Initialize()
 
+	if err := validateNewPartitionKeyParameters(pkey); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PartitionKey{}
 
 	_jsii_.Create(
@@ -79,6 +82,9 @@ func NewPartitionKey_Override(p PartitionKey, pkey Assign) {
 func PartitionKey_Partition(key *string) PartitionKeyStep {
 	_init_.Initialize()
 
+	if err := validatePartitionKey_PartitionParameters(key); err != nil {
+		panic(err)
+	}
 	var returns PartitionKeyStep
 
 	_jsii_.StaticInvoke(
@@ -105,6 +111,9 @@ func (p *jsiiProxy_PartitionKey) RenderTemplate() *string {
 }
 
 func (p *jsiiProxy_PartitionKey) Sort(key *string) SortKeyStep {
+	if err := p.validateSortParameters(key); err != nil {
+		panic(err)
+	}
 	var returns SortKeyStep
 
 	_jsii_.Invoke(

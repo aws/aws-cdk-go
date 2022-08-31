@@ -391,6 +391,9 @@ func (j *jsiiProxy_StepFunctionsRestApi) Url() *string {
 func NewStepFunctionsRestApi(scope constructs.Construct, id *string, props *StepFunctionsRestApiProps) StepFunctionsRestApi {
 	_init_.Initialize()
 
+	if err := validateNewStepFunctionsRestApiParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StepFunctionsRestApi{}
 
 	_jsii_.Create(
@@ -413,7 +416,7 @@ func NewStepFunctionsRestApi_Override(s StepFunctionsRestApi, scope constructs.C
 	)
 }
 
-func (j *jsiiProxy_StepFunctionsRestApi) SetCloudWatchAccount(val CfnAccount) {
+func (j *jsiiProxy_StepFunctionsRestApi)SetCloudWatchAccount(val CfnAccount) {
 	_jsii_.Set(
 		j,
 		"cloudWatchAccount",
@@ -421,7 +424,10 @@ func (j *jsiiProxy_StepFunctionsRestApi) SetCloudWatchAccount(val CfnAccount) {
 	)
 }
 
-func (j *jsiiProxy_StepFunctionsRestApi) SetDeploymentStage(val Stage) {
+func (j *jsiiProxy_StepFunctionsRestApi)SetDeploymentStage(val Stage) {
+	if err := j.validateSetDeploymentStageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"deploymentStage",
@@ -434,6 +440,9 @@ func (j *jsiiProxy_StepFunctionsRestApi) SetDeploymentStage(val Stage) {
 func StepFunctionsRestApi_FromRestApiAttributes(scope constructs.Construct, id *string, attrs *RestApiAttributes) IRestApi {
 	_init_.Initialize()
 
+	if err := validateStepFunctionsRestApi_FromRestApiAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IRestApi
 
 	_jsii_.StaticInvoke(
@@ -451,6 +460,9 @@ func StepFunctionsRestApi_FromRestApiAttributes(scope constructs.Construct, id *
 func StepFunctionsRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) IRestApi {
 	_init_.Initialize()
 
+	if err := validateStepFunctionsRestApi_FromRestApiIdParameters(scope, id, restApiId); err != nil {
+		panic(err)
+	}
 	var returns IRestApi
 
 	_jsii_.StaticInvoke(
@@ -468,6 +480,9 @@ func StepFunctionsRestApi_FromRestApiId(scope constructs.Construct, id *string, 
 func StepFunctionsRestApi_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStepFunctionsRestApi_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -485,6 +500,9 @@ func StepFunctionsRestApi_IsConstruct(x interface{}) *bool {
 func StepFunctionsRestApi_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateStepFunctionsRestApi_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -498,6 +516,9 @@ func StepFunctionsRestApi_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
+	if err := s.validateAddApiKeyParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns IApiKey
 
 	_jsii_.Invoke(
@@ -511,6 +532,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) AddApiKey(id *string, options *ApiKeyOp
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) AddDomainName(id *string, options *DomainNameOptions) DomainName {
+	if err := s.validateAddDomainNameParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns DomainName
 
 	_jsii_.Invoke(
@@ -524,6 +548,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) AddDomainName(id *string, options *Doma
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse {
+	if err := s.validateAddGatewayResponseParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns GatewayResponse
 
 	_jsii_.Invoke(
@@ -537,6 +564,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) AddGatewayResponse(id *string, options 
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) AddModel(id *string, props *ModelOptions) Model {
+	if err := s.validateAddModelParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns Model
 
 	_jsii_.Invoke(
@@ -550,6 +580,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) AddModel(id *string, props *ModelOption
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) AddRequestValidator(id *string, props *RequestValidatorOptions) RequestValidator {
+	if err := s.validateAddRequestValidatorParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns RequestValidator
 
 	_jsii_.Invoke(
@@ -563,6 +596,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) AddRequestValidator(id *string, props *
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
+	if err := s.validateAddUsagePlanParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns UsagePlan
 
 	_jsii_.Invoke(
@@ -576,6 +612,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) AddUsagePlan(id *string, props *UsagePl
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -597,6 +636,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) ArnForExecuteApi(method *string, path *
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) ConfigureCloudWatchRole(apiResource CfnRestApi) {
+	if err := s.validateConfigureCloudWatchRoleParameters(apiResource); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"configureCloudWatchRole",
@@ -605,6 +647,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) ConfigureCloudWatchRole(apiResource Cfn
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) ConfigureDeployment(props *RestApiBaseProps) {
+	if err := s.validateConfigureDeploymentParameters(props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"configureDeployment",
@@ -626,6 +671,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -639,6 +687,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) GetResourceArnAttribute(arnAttr *string
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -652,6 +703,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) GetResourceNameAttribute(nameAttr *stri
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -665,6 +719,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) Metric(metricName *string, props *awscl
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) MetricCacheHitCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricCacheHitCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -678,6 +735,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) MetricCacheHitCount(props *awscloudwatc
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) MetricCacheMissCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricCacheMissCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -691,6 +751,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) MetricCacheMissCount(props *awscloudwat
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricClientErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -704,6 +767,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) MetricClientError(props *awscloudwatch.
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -717,6 +783,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) MetricCount(props *awscloudwatch.Metric
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricIntegrationLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -730,6 +799,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) MetricIntegrationLatency(props *awsclou
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -743,6 +815,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) MetricLatency(props *awscloudwatch.Metr
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricServerErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -764,6 +839,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) OnPrepare() {
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -793,6 +871,9 @@ func (s *jsiiProxy_StepFunctionsRestApi) Prepare() {
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

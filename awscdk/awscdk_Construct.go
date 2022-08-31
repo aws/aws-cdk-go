@@ -110,6 +110,9 @@ func (j *jsiiProxy_Construct) Node() ConstructNode {
 func NewConstruct(scope constructs.Construct, id *string) Construct {
 	_init_.Initialize()
 
+	if err := validateNewConstructParameters(scope, id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Construct{}
 
 	_jsii_.Create(
@@ -137,6 +140,9 @@ func NewConstruct_Override(c Construct, scope constructs.Construct, id *string) 
 func Construct_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateConstruct_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -158,6 +164,9 @@ func (c *jsiiProxy_Construct) OnPrepare() {
 }
 
 func (c *jsiiProxy_Construct) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -187,6 +196,9 @@ func (c *jsiiProxy_Construct) Prepare() {
 }
 
 func (c *jsiiProxy_Construct) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

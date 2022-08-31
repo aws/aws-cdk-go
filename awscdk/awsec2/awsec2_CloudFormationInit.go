@@ -65,6 +65,9 @@ type jsiiProxy_CloudFormationInit struct {
 func CloudFormationInit_FromConfig(config InitConfig) CloudFormationInit {
 	_init_.Initialize()
 
+	if err := validateCloudFormationInit_FromConfigParameters(config); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationInit
 
 	_jsii_.StaticInvoke(
@@ -82,6 +85,9 @@ func CloudFormationInit_FromConfig(config InitConfig) CloudFormationInit {
 func CloudFormationInit_FromConfigSets(props *ConfigSetProps) CloudFormationInit {
 	_init_.Initialize()
 
+	if err := validateCloudFormationInit_FromConfigSetsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationInit
 
 	_jsii_.StaticInvoke(
@@ -117,6 +123,9 @@ func CloudFormationInit_FromElements(elements ...InitElement) CloudFormationInit
 }
 
 func (c *jsiiProxy_CloudFormationInit) AddConfig(configName *string, config InitConfig) {
+	if err := c.validateAddConfigParameters(configName, config); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addConfig",
@@ -125,6 +134,9 @@ func (c *jsiiProxy_CloudFormationInit) AddConfig(configName *string, config Init
 }
 
 func (c *jsiiProxy_CloudFormationInit) AddConfigSet(configSetName *string, configNames *[]*string) {
+	if err := c.validateAddConfigSetParameters(configSetName); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addConfigSet",
@@ -133,6 +145,9 @@ func (c *jsiiProxy_CloudFormationInit) AddConfigSet(configSetName *string, confi
 }
 
 func (c *jsiiProxy_CloudFormationInit) Attach(attachedResource awscdk.CfnResource, attachOptions *AttachInitOptions) {
+	if err := c.validateAttachParameters(attachedResource, attachOptions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"attach",

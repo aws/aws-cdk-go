@@ -51,6 +51,9 @@ func NewGatewayRouteHostnameMatch_Override(g GatewayRouteHostnameMatch) {
 func GatewayRouteHostnameMatch_EndsWith(suffix *string) GatewayRouteHostnameMatch {
 	_init_.Initialize()
 
+	if err := validateGatewayRouteHostnameMatch_EndsWithParameters(suffix); err != nil {
+		panic(err)
+	}
 	var returns GatewayRouteHostnameMatch
 
 	_jsii_.StaticInvoke(
@@ -68,6 +71,9 @@ func GatewayRouteHostnameMatch_EndsWith(suffix *string) GatewayRouteHostnameMatc
 func GatewayRouteHostnameMatch_Exactly(name *string) GatewayRouteHostnameMatch {
 	_init_.Initialize()
 
+	if err := validateGatewayRouteHostnameMatch_ExactlyParameters(name); err != nil {
+		panic(err)
+	}
 	var returns GatewayRouteHostnameMatch
 
 	_jsii_.StaticInvoke(
@@ -81,6 +87,9 @@ func GatewayRouteHostnameMatch_Exactly(name *string) GatewayRouteHostnameMatch {
 }
 
 func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope awscdk.Construct) *GatewayRouteHostnameMatchConfig {
+	if err := g.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *GatewayRouteHostnameMatchConfig
 
 	_jsii_.Invoke(

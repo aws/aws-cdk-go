@@ -255,6 +255,9 @@ func (j *jsiiProxy_FlowLog) Stack() awscdk.Stack {
 func NewFlowLog(scope constructs.Construct, id *string, props *FlowLogProps) FlowLog {
 	_init_.Initialize()
 
+	if err := validateNewFlowLogParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FlowLog{}
 
 	_jsii_.Create(
@@ -282,6 +285,9 @@ func NewFlowLog_Override(f FlowLog, scope constructs.Construct, id *string, prop
 func FlowLog_FromFlowLogId(scope constructs.Construct, id *string, flowLogId *string) IFlowLog {
 	_init_.Initialize()
 
+	if err := validateFlowLog_FromFlowLogIdParameters(scope, id, flowLogId); err != nil {
+		panic(err)
+	}
 	var returns IFlowLog
 
 	_jsii_.StaticInvoke(
@@ -299,6 +305,9 @@ func FlowLog_FromFlowLogId(scope constructs.Construct, id *string, flowLogId *st
 func FlowLog_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFlowLog_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -316,6 +325,9 @@ func FlowLog_IsConstruct(x interface{}) *bool {
 func FlowLog_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFlowLog_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -329,6 +341,9 @@ func FlowLog_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (f *jsiiProxy_FlowLog) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -350,6 +365,9 @@ func (f *jsiiProxy_FlowLog) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FlowLog) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -363,6 +381,9 @@ func (f *jsiiProxy_FlowLog) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (f *jsiiProxy_FlowLog) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -384,6 +405,9 @@ func (f *jsiiProxy_FlowLog) OnPrepare() {
 }
 
 func (f *jsiiProxy_FlowLog) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -413,6 +437,9 @@ func (f *jsiiProxy_FlowLog) Prepare() {
 }
 
 func (f *jsiiProxy_FlowLog) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

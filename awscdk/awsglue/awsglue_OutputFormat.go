@@ -40,6 +40,9 @@ func (j *jsiiProxy_OutputFormat) ClassName() *string {
 func NewOutputFormat(className *string) OutputFormat {
 	_init_.Initialize()
 
+	if err := validateNewOutputFormatParameters(className); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_OutputFormat{}
 
 	_jsii_.Create(

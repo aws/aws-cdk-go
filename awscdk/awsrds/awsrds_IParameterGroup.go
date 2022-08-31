@@ -38,6 +38,9 @@ type jsiiProxy_IParameterGroup struct {
 }
 
 func (i *jsiiProxy_IParameterGroup) AddParameter(key *string, value *string) *bool {
+	if err := i.validateAddParameterParameters(key, value); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -51,6 +54,9 @@ func (i *jsiiProxy_IParameterGroup) AddParameter(key *string, value *string) *bo
 }
 
 func (i *jsiiProxy_IParameterGroup) BindToCluster(options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig {
+	if err := i.validateBindToClusterParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *ParameterGroupClusterConfig
 
 	_jsii_.Invoke(
@@ -64,6 +70,9 @@ func (i *jsiiProxy_IParameterGroup) BindToCluster(options *ParameterGroupCluster
 }
 
 func (i *jsiiProxy_IParameterGroup) BindToInstance(options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig {
+	if err := i.validateBindToInstanceParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *ParameterGroupInstanceConfig
 
 	_jsii_.Invoke(

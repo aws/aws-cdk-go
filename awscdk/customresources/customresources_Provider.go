@@ -149,6 +149,9 @@ func (j *jsiiProxy_Provider) ServiceToken() *string {
 func NewProvider(scope constructs.Construct, id *string, props *ProviderProps) Provider {
 	_init_.Initialize()
 
+	if err := validateNewProviderParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Provider{}
 
 	_jsii_.Create(
@@ -176,6 +179,9 @@ func NewProvider_Override(p Provider, scope constructs.Construct, id *string, pr
 func Provider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -189,6 +195,9 @@ func Provider_IsConstruct(x interface{}) *bool {
 }
 
 func (p *jsiiProxy_Provider) Bind(_scope awscdk.Construct) *awscloudformation.CustomResourceProviderConfig {
+	if err := p.validateBindParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *awscloudformation.CustomResourceProviderConfig
 
 	_jsii_.Invoke(
@@ -210,6 +219,9 @@ func (p *jsiiProxy_Provider) OnPrepare() {
 }
 
 func (p *jsiiProxy_Provider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -239,6 +251,9 @@ func (p *jsiiProxy_Provider) Prepare() {
 }
 
 func (p *jsiiProxy_Provider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

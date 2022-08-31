@@ -400,6 +400,9 @@ func (j *jsiiProxy_EventBridgePutEvents) TaskPolicies() *[]awsiam.PolicyStatemen
 func NewEventBridgePutEvents(scope constructs.Construct, id *string, props *EventBridgePutEventsProps) EventBridgePutEvents {
 	_init_.Initialize()
 
+	if err := validateNewEventBridgePutEventsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EventBridgePutEvents{}
 
 	_jsii_.Create(
@@ -422,7 +425,7 @@ func NewEventBridgePutEvents_Override(e EventBridgePutEvents, scope constructs.C
 	)
 }
 
-func (j *jsiiProxy_EventBridgePutEvents) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_EventBridgePutEvents)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -430,7 +433,7 @@ func (j *jsiiProxy_EventBridgePutEvents) SetDefaultChoice(val awsstepfunctions.S
 	)
 }
 
-func (j *jsiiProxy_EventBridgePutEvents) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_EventBridgePutEvents)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -443,6 +446,9 @@ func (j *jsiiProxy_EventBridgePutEvents) SetIteration(val awsstepfunctions.State
 func EventBridgePutEvents_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateEventBridgePutEvents_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -460,6 +466,9 @@ func EventBridgePutEvents_FilterNextables(states *[]awsstepfunctions.State) *[]a
 func EventBridgePutEvents_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEventBridgePutEvents_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -479,6 +488,9 @@ func EventBridgePutEvents_FindReachableEndStates(start awsstepfunctions.State, o
 func EventBridgePutEvents_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEventBridgePutEvents_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -496,6 +508,9 @@ func EventBridgePutEvents_FindReachableStates(start awsstepfunctions.State, opti
 func EventBridgePutEvents_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEventBridgePutEvents_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -513,6 +528,9 @@ func EventBridgePutEvents_IsConstruct(x interface{}) *bool {
 func EventBridgePutEvents_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateEventBridgePutEvents_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
 		"prefixStates",
@@ -521,6 +539,9 @@ func EventBridgePutEvents_PrefixStates(root constructs.IConstruct, prefix *strin
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := e.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addBranch",
@@ -529,6 +550,9 @@ func (e *jsiiProxy_EventBridgePutEvents) AddBranch(branch awsstepfunctions.State
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -542,6 +566,9 @@ func (e *jsiiProxy_EventBridgePutEvents) AddCatch(handler awsstepfunctions.IChai
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := e.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addChoice",
@@ -550,6 +577,9 @@ func (e *jsiiProxy_EventBridgePutEvents) AddChoice(condition awsstepfunctions.Co
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := e.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addIterator",
@@ -558,6 +588,9 @@ func (e *jsiiProxy_EventBridgePutEvents) AddIterator(iteration awsstepfunctions.
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) AddPrefix(x *string) {
+	if err := e.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPrefix",
@@ -566,6 +599,9 @@ func (e *jsiiProxy_EventBridgePutEvents) AddPrefix(x *string) {
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -579,6 +615,9 @@ func (e *jsiiProxy_EventBridgePutEvents) AddRetry(props *awsstepfunctions.RetryP
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"bindToGraph",
@@ -587,6 +626,9 @@ func (e *jsiiProxy_EventBridgePutEvents) BindToGraph(graph awsstepfunctions.Stat
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MakeDefault(def awsstepfunctions.State) {
+	if err := e.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeDefault",
@@ -595,6 +637,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MakeDefault(def awsstepfunctions.State)
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MakeNext(next awsstepfunctions.State) {
+	if err := e.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeNext",
@@ -603,6 +648,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MakeNext(next awsstepfunctions.State) {
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -616,6 +664,9 @@ func (e *jsiiProxy_EventBridgePutEvents) Metric(metricName *string, props *awscl
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -629,6 +680,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricFailed(props *awscloudwatch.Metri
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -642,6 +696,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricHeartbeatTimedOut(props *awscloud
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -655,6 +712,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricRunTime(props *awscloudwatch.Metr
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -668,6 +728,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricScheduled(props *awscloudwatch.Me
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -681,6 +744,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricScheduleTime(props *awscloudwatch
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -694,6 +760,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricStarted(props *awscloudwatch.Metr
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -707,6 +776,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricSucceeded(props *awscloudwatch.Me
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -720,6 +792,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricTime(props *awscloudwatch.MetricO
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -733,6 +808,9 @@ func (e *jsiiProxy_EventBridgePutEvents) MetricTimedOut(props *awscloudwatch.Met
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := e.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -754,6 +832,9 @@ func (e *jsiiProxy_EventBridgePutEvents) OnPrepare() {
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -874,6 +955,9 @@ func (e *jsiiProxy_EventBridgePutEvents) RenderRetryCatch() interface{} {
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",
@@ -921,6 +1005,9 @@ func (e *jsiiProxy_EventBridgePutEvents) Validate() *[]*string {
 }
 
 func (e *jsiiProxy_EventBridgePutEvents) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"whenBoundToGraph",

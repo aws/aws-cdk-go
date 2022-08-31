@@ -42,6 +42,9 @@ type jsiiProxy_CertificateAuthority struct {
 func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct, id *string, certificateAuthorityArn *string) ICertificateAuthority {
 	_init_.Initialize()
 
+	if err := validateCertificateAuthority_FromCertificateAuthorityArnParameters(scope, id, certificateAuthorityArn); err != nil {
+		panic(err)
+	}
 	var returns ICertificateAuthority
 
 	_jsii_.StaticInvoke(

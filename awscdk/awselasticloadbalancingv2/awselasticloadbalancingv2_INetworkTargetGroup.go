@@ -37,6 +37,9 @@ func (i *jsiiProxy_INetworkTargetGroup) AddTarget(targets ...INetworkLoadBalance
 }
 
 func (i *jsiiProxy_INetworkTargetGroup) RegisterListener(listener INetworkListener) {
+	if err := i.validateRegisterListenerParameters(listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"registerListener",

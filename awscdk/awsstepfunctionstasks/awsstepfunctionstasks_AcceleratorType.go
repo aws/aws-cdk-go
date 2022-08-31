@@ -36,6 +36,9 @@ type jsiiProxy_AcceleratorType struct {
 func NewAcceleratorType(instanceTypeIdentifier *string) AcceleratorType {
 	_init_.Initialize()
 
+	if err := validateNewAcceleratorTypeParameters(instanceTypeIdentifier); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AcceleratorType{}
 
 	_jsii_.Create(
@@ -65,6 +68,9 @@ func NewAcceleratorType_Override(a AcceleratorType, instanceTypeIdentifier *stri
 func AcceleratorType_Of(acceleratorClass AcceleratorClass, instanceSize awsec2.InstanceSize) AcceleratorType {
 	_init_.Initialize()
 
+	if err := validateAcceleratorType_OfParameters(acceleratorClass, instanceSize); err != nil {
+		panic(err)
+	}
 	var returns AcceleratorType
 
 	_jsii_.StaticInvoke(

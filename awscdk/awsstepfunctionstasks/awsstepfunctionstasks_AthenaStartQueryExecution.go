@@ -399,6 +399,9 @@ func (j *jsiiProxy_AthenaStartQueryExecution) TaskPolicies() *[]awsiam.PolicySta
 func NewAthenaStartQueryExecution(scope constructs.Construct, id *string, props *AthenaStartQueryExecutionProps) AthenaStartQueryExecution {
 	_init_.Initialize()
 
+	if err := validateNewAthenaStartQueryExecutionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AthenaStartQueryExecution{}
 
 	_jsii_.Create(
@@ -421,7 +424,7 @@ func NewAthenaStartQueryExecution_Override(a AthenaStartQueryExecution, scope co
 	)
 }
 
-func (j *jsiiProxy_AthenaStartQueryExecution) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_AthenaStartQueryExecution)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -429,7 +432,7 @@ func (j *jsiiProxy_AthenaStartQueryExecution) SetDefaultChoice(val awsstepfuncti
 	)
 }
 
-func (j *jsiiProxy_AthenaStartQueryExecution) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_AthenaStartQueryExecution)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -442,6 +445,9 @@ func (j *jsiiProxy_AthenaStartQueryExecution) SetIteration(val awsstepfunctions.
 func AthenaStartQueryExecution_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateAthenaStartQueryExecution_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -459,6 +465,9 @@ func AthenaStartQueryExecution_FilterNextables(states *[]awsstepfunctions.State)
 func AthenaStartQueryExecution_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateAthenaStartQueryExecution_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -478,6 +487,9 @@ func AthenaStartQueryExecution_FindReachableEndStates(start awsstepfunctions.Sta
 func AthenaStartQueryExecution_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateAthenaStartQueryExecution_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -495,6 +507,9 @@ func AthenaStartQueryExecution_FindReachableStates(start awsstepfunctions.State,
 func AthenaStartQueryExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAthenaStartQueryExecution_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -512,6 +527,9 @@ func AthenaStartQueryExecution_IsConstruct(x interface{}) *bool {
 func AthenaStartQueryExecution_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateAthenaStartQueryExecution_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"prefixStates",
@@ -520,6 +538,9 @@ func AthenaStartQueryExecution_PrefixStates(root constructs.IConstruct, prefix *
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := a.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addBranch",
@@ -528,6 +549,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) AddBranch(branch awsstepfunctions.
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := a.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -541,6 +565,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) AddCatch(handler awsstepfunctions.
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := a.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addChoice",
@@ -549,6 +576,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) AddChoice(condition awsstepfunctio
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := a.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addIterator",
@@ -557,6 +587,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) AddIterator(iteration awsstepfunct
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) AddPrefix(x *string) {
+	if err := a.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addPrefix",
@@ -565,6 +598,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) AddPrefix(x *string) {
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := a.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -578,6 +614,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) AddRetry(props *awsstepfunctions.R
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := a.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"bindToGraph",
@@ -586,6 +625,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) BindToGraph(graph awsstepfunctions
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MakeDefault(def awsstepfunctions.State) {
+	if err := a.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"makeDefault",
@@ -594,6 +636,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MakeDefault(def awsstepfunctions.S
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MakeNext(next awsstepfunctions.State) {
+	if err := a.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"makeNext",
@@ -602,6 +647,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MakeNext(next awsstepfunctions.Sta
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -615,6 +663,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) Metric(metricName *string, props *
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -628,6 +679,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricFailed(props *awscloudwatch.
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -641,6 +695,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricHeartbeatTimedOut(props *aws
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -654,6 +711,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricRunTime(props *awscloudwatch
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -667,6 +727,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricScheduled(props *awscloudwat
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -680,6 +743,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricScheduleTime(props *awscloud
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -693,6 +759,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricStarted(props *awscloudwatch
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -706,6 +775,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricSucceeded(props *awscloudwat
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -719,6 +791,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricTime(props *awscloudwatch.Me
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -732,6 +807,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) MetricTimedOut(props *awscloudwatc
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := a.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -753,6 +831,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) OnPrepare() {
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -873,6 +954,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderRetryCatch() interface{} {
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",
@@ -920,6 +1004,9 @@ func (a *jsiiProxy_AthenaStartQueryExecution) Validate() *[]*string {
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := a.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"whenBoundToGraph",

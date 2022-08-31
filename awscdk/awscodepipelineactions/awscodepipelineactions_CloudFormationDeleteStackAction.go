@@ -127,6 +127,9 @@ func (j *jsiiProxy_CloudFormationDeleteStackAction) ProvidedActionProperties() *
 func NewCloudFormationDeleteStackAction(props *CloudFormationDeleteStackActionProps) CloudFormationDeleteStackAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationDeleteStackActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationDeleteStackAction{}
 
 	_jsii_.Create(
@@ -150,6 +153,9 @@ func NewCloudFormationDeleteStackAction_Override(c CloudFormationDeleteStackActi
 }
 
 func (c *jsiiProxy_CloudFormationDeleteStackAction) AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool {
+	if err := c.validateAddToDeploymentRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -163,6 +169,9 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) AddToDeploymentRolePolicy(st
 }
 
 func (c *jsiiProxy_CloudFormationDeleteStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -176,6 +185,9 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) Bind(scope awscdk.Construct,
 }
 
 func (c *jsiiProxy_CloudFormationDeleteStackAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -189,6 +201,9 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) Bound(scope awscdk.Construct
 }
 
 func (c *jsiiProxy_CloudFormationDeleteStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -202,6 +217,9 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) OnStateChange(name *string, 
 }
 
 func (c *jsiiProxy_CloudFormationDeleteStackAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

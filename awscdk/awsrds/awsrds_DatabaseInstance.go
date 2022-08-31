@@ -441,6 +441,9 @@ func (j *jsiiProxy_DatabaseInstance) VpcPlacement() *awsec2.SubnetSelection {
 func NewDatabaseInstance(scope constructs.Construct, id *string, props *DatabaseInstanceProps) DatabaseInstance {
 	_init_.Initialize()
 
+	if err := validateNewDatabaseInstanceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DatabaseInstance{}
 
 	_jsii_.Create(
@@ -463,7 +466,7 @@ func NewDatabaseInstance_Override(d DatabaseInstance, scope constructs.Construct
 	)
 }
 
-func (j *jsiiProxy_DatabaseInstance) SetEnableIamAuthentication(val *bool) {
+func (j *jsiiProxy_DatabaseInstance)SetEnableIamAuthentication(val *bool) {
 	_jsii_.Set(
 		j,
 		"enableIamAuthentication",
@@ -476,6 +479,9 @@ func (j *jsiiProxy_DatabaseInstance) SetEnableIamAuthentication(val *bool) {
 func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstance_FromDatabaseInstanceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
@@ -493,6 +499,9 @@ func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct,
 func DatabaseInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstance_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -510,6 +519,9 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 func DatabaseInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseInstance_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -523,6 +535,9 @@ func DatabaseInstance_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DatabaseInstance) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
+	if err := d.validateAddProxyParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns DatabaseProxy
 
 	_jsii_.Invoke(
@@ -536,6 +551,9 @@ func (d *jsiiProxy_DatabaseInstance) AddProxy(id *string, options *DatabaseProxy
 }
 
 func (d *jsiiProxy_DatabaseInstance) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
+	if err := d.validateAddRotationMultiUserParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -549,6 +567,9 @@ func (d *jsiiProxy_DatabaseInstance) AddRotationMultiUser(id *string, options *R
 }
 
 func (d *jsiiProxy_DatabaseInstance) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
+	if err := d.validateAddRotationSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -562,6 +583,9 @@ func (d *jsiiProxy_DatabaseInstance) AddRotationSingleUser(options *RotationSing
 }
 
 func (d *jsiiProxy_DatabaseInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -596,6 +620,9 @@ func (d *jsiiProxy_DatabaseInstance) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DatabaseInstance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -609,6 +636,9 @@ func (d *jsiiProxy_DatabaseInstance) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (d *jsiiProxy_DatabaseInstance) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -622,6 +652,9 @@ func (d *jsiiProxy_DatabaseInstance) GetResourceNameAttribute(nameAttr *string) 
 }
 
 func (d *jsiiProxy_DatabaseInstance) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantConnectParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -635,6 +668,9 @@ func (d *jsiiProxy_DatabaseInstance) GrantConnect(grantee awsiam.IGrantable) aws
 }
 
 func (d *jsiiProxy_DatabaseInstance) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -648,6 +684,9 @@ func (d *jsiiProxy_DatabaseInstance) Metric(metricName *string, props *awscloudw
 }
 
 func (d *jsiiProxy_DatabaseInstance) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricCPUUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -661,6 +700,9 @@ func (d *jsiiProxy_DatabaseInstance) MetricCPUUtilization(props *awscloudwatch.M
 }
 
 func (d *jsiiProxy_DatabaseInstance) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricDatabaseConnectionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -674,6 +716,9 @@ func (d *jsiiProxy_DatabaseInstance) MetricDatabaseConnections(props *awscloudwa
 }
 
 func (d *jsiiProxy_DatabaseInstance) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFreeableMemoryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -687,6 +732,9 @@ func (d *jsiiProxy_DatabaseInstance) MetricFreeableMemory(props *awscloudwatch.M
 }
 
 func (d *jsiiProxy_DatabaseInstance) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFreeStorageSpaceParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -700,6 +748,9 @@ func (d *jsiiProxy_DatabaseInstance) MetricFreeStorageSpace(props *awscloudwatch
 }
 
 func (d *jsiiProxy_DatabaseInstance) MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricReadIOPSParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -713,6 +764,9 @@ func (d *jsiiProxy_DatabaseInstance) MetricReadIOPS(props *awscloudwatch.MetricO
 }
 
 func (d *jsiiProxy_DatabaseInstance) MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricWriteIOPSParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -726,6 +780,9 @@ func (d *jsiiProxy_DatabaseInstance) MetricWriteIOPS(props *awscloudwatch.Metric
 }
 
 func (d *jsiiProxy_DatabaseInstance) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := d.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -747,6 +804,9 @@ func (d *jsiiProxy_DatabaseInstance) OnPrepare() {
 }
 
 func (d *jsiiProxy_DatabaseInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -784,6 +844,9 @@ func (d *jsiiProxy_DatabaseInstance) SetLogRetention() {
 }
 
 func (d *jsiiProxy_DatabaseInstance) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

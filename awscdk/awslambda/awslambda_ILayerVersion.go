@@ -34,6 +34,9 @@ type jsiiProxy_ILayerVersion struct {
 }
 
 func (i *jsiiProxy_ILayerVersion) AddPermission(id *string, permission *LayerVersionPermission) {
+	if err := i.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addPermission",

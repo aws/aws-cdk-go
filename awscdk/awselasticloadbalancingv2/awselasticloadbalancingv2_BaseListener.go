@@ -188,6 +188,9 @@ func NewBaseListener_Override(b BaseListener, scope constructs.Construct, id *st
 func BaseListener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseListener_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -205,6 +208,9 @@ func BaseListener_IsConstruct(x interface{}) *bool {
 func BaseListener_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseListener_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -218,6 +224,9 @@ func BaseListener_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BaseListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -239,6 +248,9 @@ func (b *jsiiProxy_BaseListener) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BaseListener) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -252,6 +264,9 @@ func (b *jsiiProxy_BaseListener) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (b *jsiiProxy_BaseListener) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -273,6 +288,9 @@ func (b *jsiiProxy_BaseListener) OnPrepare() {
 }
 
 func (b *jsiiProxy_BaseListener) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -302,6 +320,9 @@ func (b *jsiiProxy_BaseListener) Prepare() {
 }
 
 func (b *jsiiProxy_BaseListener) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

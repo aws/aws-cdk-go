@@ -441,6 +441,9 @@ func (j *jsiiProxy_CfnKeyPair) UpdatedProperites() *map[string]interface{} {
 func NewCfnKeyPair(scope awscdk.Construct, id *string, props *CfnKeyPairProps) CfnKeyPair {
 	_init_.Initialize()
 
+	if err := validateNewCfnKeyPairParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnKeyPair{}
 
 	_jsii_.Create(
@@ -463,7 +466,10 @@ func NewCfnKeyPair_Override(c CfnKeyPair, scope awscdk.Construct, id *string, pr
 	)
 }
 
-func (j *jsiiProxy_CfnKeyPair) SetKeyName(val *string) {
+func (j *jsiiProxy_CfnKeyPair)SetKeyName(val *string) {
+	if err := j.validateSetKeyNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"keyName",
@@ -471,7 +477,7 @@ func (j *jsiiProxy_CfnKeyPair) SetKeyName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnKeyPair) SetKeyType(val *string) {
+func (j *jsiiProxy_CfnKeyPair)SetKeyType(val *string) {
 	_jsii_.Set(
 		j,
 		"keyType",
@@ -479,7 +485,7 @@ func (j *jsiiProxy_CfnKeyPair) SetKeyType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnKeyPair) SetPublicKeyMaterial(val *string) {
+func (j *jsiiProxy_CfnKeyPair)SetPublicKeyMaterial(val *string) {
 	_jsii_.Set(
 		j,
 		"publicKeyMaterial",
@@ -497,6 +503,9 @@ func (j *jsiiProxy_CfnKeyPair) SetPublicKeyMaterial(val *string) {
 func CfnKeyPair_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnKeyPair_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -514,6 +523,9 @@ func CfnKeyPair_IsCfnElement(x interface{}) *bool {
 func CfnKeyPair_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnKeyPair_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -531,6 +543,9 @@ func CfnKeyPair_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnKeyPair_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnKeyPair_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -555,6 +570,9 @@ func CfnKeyPair_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnKeyPair) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -563,6 +581,9 @@ func (c *jsiiProxy_CfnKeyPair) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnKeyPair) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -571,6 +592,9 @@ func (c *jsiiProxy_CfnKeyPair) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnKeyPair) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -579,6 +603,9 @@ func (c *jsiiProxy_CfnKeyPair) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnKeyPair) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -587,6 +614,9 @@ func (c *jsiiProxy_CfnKeyPair) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnKeyPair) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -595,6 +625,9 @@ func (c *jsiiProxy_CfnKeyPair) AddPropertyDeletionOverride(propertyPath *string)
 }
 
 func (c *jsiiProxy_CfnKeyPair) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -603,6 +636,9 @@ func (c *jsiiProxy_CfnKeyPair) AddPropertyOverride(propertyPath *string, value i
 }
 
 func (c *jsiiProxy_CfnKeyPair) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -611,6 +647,9 @@ func (c *jsiiProxy_CfnKeyPair) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 }
 
 func (c *jsiiProxy_CfnKeyPair) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -624,6 +663,9 @@ func (c *jsiiProxy_CfnKeyPair) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnKeyPair) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -637,6 +679,9 @@ func (c *jsiiProxy_CfnKeyPair) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnKeyPair) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -653,6 +698,9 @@ func (c *jsiiProxy_CfnKeyPair) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnKeyPair) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -674,6 +722,9 @@ func (c *jsiiProxy_CfnKeyPair) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnKeyPair) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -690,6 +741,9 @@ func (c *jsiiProxy_CfnKeyPair) Prepare() {
 }
 
 func (c *jsiiProxy_CfnKeyPair) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -716,6 +770,9 @@ func (c *jsiiProxy_CfnKeyPair) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnKeyPair) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -750,6 +807,9 @@ func (c *jsiiProxy_CfnKeyPair) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnKeyPair) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

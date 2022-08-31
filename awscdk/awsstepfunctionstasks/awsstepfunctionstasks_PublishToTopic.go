@@ -50,6 +50,9 @@ type jsiiProxy_PublishToTopic struct {
 func NewPublishToTopic(topic awssns.ITopic, props *PublishToTopicProps) PublishToTopic {
 	_init_.Initialize()
 
+	if err := validateNewPublishToTopicParameters(topic, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PublishToTopic{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewPublishToTopic_Override(p PublishToTopic, topic awssns.ITopic, props *Pu
 }
 
 func (p *jsiiProxy_PublishToTopic) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := p.validateBindParameters(_task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

@@ -69,6 +69,9 @@ func (j *jsiiProxy_Endpoint) SocketAddress() *string {
 func NewEndpoint(address *string, port *float64) Endpoint {
 	_init_.Initialize()
 
+	if err := validateNewEndpointParameters(address, port); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Endpoint{}
 
 	_jsii_.Create(

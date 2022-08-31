@@ -83,6 +83,9 @@ func NewArtifacts_Override(a Artifacts, props *ArtifactsProps) {
 func Artifacts_S3(props *S3ArtifactsProps) IArtifacts {
 	_init_.Initialize()
 
+	if err := validateArtifacts_S3Parameters(props); err != nil {
+		panic(err)
+	}
 	var returns IArtifacts
 
 	_jsii_.StaticInvoke(
@@ -96,6 +99,9 @@ func Artifacts_S3(props *S3ArtifactsProps) IArtifacts {
 }
 
 func (a *jsiiProxy_Artifacts) Bind(_scope awscdk.Construct, _project IProject) *ArtifactsConfig {
+	if err := a.validateBindParameters(_scope, _project); err != nil {
+		panic(err)
+	}
 	var returns *ArtifactsConfig
 
 	_jsii_.Invoke(

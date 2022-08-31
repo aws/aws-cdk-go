@@ -420,6 +420,9 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) TaskPolicies() *[]awsiam.PolicyS
 func NewSageMakerCreateTransformJob(scope constructs.Construct, id *string, props *SageMakerCreateTransformJobProps) SageMakerCreateTransformJob {
 	_init_.Initialize()
 
+	if err := validateNewSageMakerCreateTransformJobParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SageMakerCreateTransformJob{}
 
 	_jsii_.Create(
@@ -442,7 +445,7 @@ func NewSageMakerCreateTransformJob_Override(s SageMakerCreateTransformJob, scop
 	)
 }
 
-func (j *jsiiProxy_SageMakerCreateTransformJob) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_SageMakerCreateTransformJob)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -450,7 +453,7 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) SetDefaultChoice(val awsstepfunc
 	)
 }
 
-func (j *jsiiProxy_SageMakerCreateTransformJob) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_SageMakerCreateTransformJob)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -463,6 +466,9 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) SetIteration(val awsstepfunction
 func SageMakerCreateTransformJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateTransformJob_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -480,6 +486,9 @@ func SageMakerCreateTransformJob_FilterNextables(states *[]awsstepfunctions.Stat
 func SageMakerCreateTransformJob_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateTransformJob_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -499,6 +508,9 @@ func SageMakerCreateTransformJob_FindReachableEndStates(start awsstepfunctions.S
 func SageMakerCreateTransformJob_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateTransformJob_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -516,6 +528,9 @@ func SageMakerCreateTransformJob_FindReachableStates(start awsstepfunctions.Stat
 func SageMakerCreateTransformJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateTransformJob_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -533,6 +548,9 @@ func SageMakerCreateTransformJob_IsConstruct(x interface{}) *bool {
 func SageMakerCreateTransformJob_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateSageMakerCreateTransformJob_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"prefixStates",
@@ -541,6 +559,9 @@ func SageMakerCreateTransformJob_PrefixStates(root constructs.IConstruct, prefix
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := s.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addBranch",
@@ -549,6 +570,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) AddBranch(branch awsstepfunction
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := s.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -562,6 +586,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) AddCatch(handler awsstepfunction
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := s.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addChoice",
@@ -570,6 +597,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) AddChoice(condition awsstepfunct
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := s.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addIterator",
@@ -578,6 +608,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) AddIterator(iteration awsstepfun
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) AddPrefix(x *string) {
+	if err := s.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addPrefix",
@@ -586,6 +619,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) AddPrefix(x *string) {
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := s.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -599,6 +635,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) AddRetry(props *awsstepfunctions
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := s.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bindToGraph",
@@ -607,6 +646,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) BindToGraph(graph awsstepfunctio
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MakeDefault(def awsstepfunctions.State) {
+	if err := s.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"makeDefault",
@@ -615,6 +657,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MakeDefault(def awsstepfunctions
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MakeNext(next awsstepfunctions.State) {
+	if err := s.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"makeNext",
@@ -623,6 +668,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MakeNext(next awsstepfunctions.S
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -636,6 +684,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) Metric(metricName *string, props
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -649,6 +700,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricFailed(props *awscloudwatc
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -662,6 +716,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricHeartbeatTimedOut(props *a
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -675,6 +732,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricRunTime(props *awscloudwat
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -688,6 +748,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricScheduled(props *awscloudw
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -701,6 +764,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricScheduleTime(props *awsclo
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -714,6 +780,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricStarted(props *awscloudwat
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -727,6 +796,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricSucceeded(props *awscloudw
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -740,6 +812,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricTime(props *awscloudwatch.
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -753,6 +828,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) MetricTimedOut(props *awscloudwa
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := s.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -774,6 +852,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) OnPrepare() {
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -894,6 +975,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderRetryCatch() interface{} {
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",
@@ -941,6 +1025,9 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) Validate() *[]*string {
 }
 
 func (s *jsiiProxy_SageMakerCreateTransformJob) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := s.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"whenBoundToGraph",

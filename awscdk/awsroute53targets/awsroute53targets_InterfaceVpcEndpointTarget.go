@@ -40,6 +40,9 @@ type jsiiProxy_InterfaceVpcEndpointTarget struct {
 func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) InterfaceVpcEndpointTarget {
 	_init_.Initialize()
 
+	if err := validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InterfaceVpcEndpointTarget{}
 
 	_jsii_.Create(
@@ -63,6 +66,9 @@ func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEnd
 }
 
 func (i *jsiiProxy_InterfaceVpcEndpointTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := i.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

@@ -248,6 +248,9 @@ func (j *jsiiProxy_Stage) StageName() *string {
 func NewStage(scope constructs.Construct, id *string, props *StageProps) Stage {
 	_init_.Initialize()
 
+	if err := validateNewStageParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Stage{}
 
 	_jsii_.Create(
@@ -275,6 +278,9 @@ func NewStage_Override(s Stage, scope constructs.Construct, id *string, props *S
 func Stage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStage_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -292,6 +298,9 @@ func Stage_IsConstruct(x interface{}) *bool {
 func Stage_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateStage_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -305,6 +314,9 @@ func Stage_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_Stage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -326,6 +338,9 @@ func (s *jsiiProxy_Stage) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_Stage) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -339,6 +354,9 @@ func (s *jsiiProxy_Stage) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (s *jsiiProxy_Stage) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -360,6 +378,9 @@ func (s *jsiiProxy_Stage) OnPrepare() {
 }
 
 func (s *jsiiProxy_Stage) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -389,6 +410,9 @@ func (s *jsiiProxy_Stage) Prepare() {
 }
 
 func (s *jsiiProxy_Stage) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

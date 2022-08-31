@@ -46,6 +46,9 @@ func (j *jsiiProxy_GitHubConnection) ConnectionArn() *string {
 func NewGitHubConnection(arn *string) GitHubConnection {
 	_init_.Initialize()
 
+	if err := validateNewGitHubConnectionParameters(arn); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GitHubConnection{}
 
 	_jsii_.Create(
@@ -75,6 +78,9 @@ func NewGitHubConnection_Override(g GitHubConnection, arn *string) {
 func GitHubConnection_FromConnectionArn(arn *string) GitHubConnection {
 	_init_.Initialize()
 
+	if err := validateGitHubConnection_FromConnectionArnParameters(arn); err != nil {
+		panic(err)
+	}
 	var returns GitHubConnection
 
 	_jsii_.StaticInvoke(

@@ -91,6 +91,9 @@ func (j *jsiiProxy_ListenerAction) Next() ListenerAction {
 func NewListenerAction(actionJson *CfnListener_ActionProperty, next ListenerAction) ListenerAction {
 	_init_.Initialize()
 
+	if err := validateNewListenerActionParameters(actionJson); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ListenerAction{}
 
 	_jsii_.Create(
@@ -125,6 +128,9 @@ func NewListenerAction_Override(l ListenerAction, actionJson *CfnListener_Action
 func ListenerAction_AuthenticateOidc(options *AuthenticateOidcOptions) ListenerAction {
 	_init_.Initialize()
 
+	if err := validateListenerAction_AuthenticateOidcParameters(options); err != nil {
+		panic(err)
+	}
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -144,6 +150,9 @@ func ListenerAction_AuthenticateOidc(options *AuthenticateOidcOptions) ListenerA
 func ListenerAction_FixedResponse(statusCode *float64, options *FixedResponseOptions) ListenerAction {
 	_init_.Initialize()
 
+	if err := validateListenerAction_FixedResponseParameters(statusCode, options); err != nil {
+		panic(err)
+	}
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -163,6 +172,9 @@ func ListenerAction_FixedResponse(statusCode *float64, options *FixedResponseOpt
 func ListenerAction_Forward(targetGroups *[]IApplicationTargetGroup, options *ForwardOptions) ListenerAction {
 	_init_.Initialize()
 
+	if err := validateListenerAction_ForwardParameters(targetGroups, options); err != nil {
+		panic(err)
+	}
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -198,6 +210,9 @@ func ListenerAction_Forward(targetGroups *[]IApplicationTargetGroup, options *Fo
 func ListenerAction_Redirect(options *RedirectOptions) ListenerAction {
 	_init_.Initialize()
 
+	if err := validateListenerAction_RedirectParameters(options); err != nil {
+		panic(err)
+	}
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -217,6 +232,9 @@ func ListenerAction_Redirect(options *RedirectOptions) ListenerAction {
 func ListenerAction_WeightedForward(targetGroups *[]*WeightedTargetGroup, options *ForwardOptions) ListenerAction {
 	_init_.Initialize()
 
+	if err := validateListenerAction_WeightedForwardParameters(targetGroups, options); err != nil {
+		panic(err)
+	}
 	var returns ListenerAction
 
 	_jsii_.StaticInvoke(
@@ -230,6 +248,9 @@ func ListenerAction_WeightedForward(targetGroups *[]*WeightedTargetGroup, option
 }
 
 func (l *jsiiProxy_ListenerAction) Bind(scope awscdk.Construct, listener IApplicationListener, associatingConstruct awscdk.IConstruct) {
+	if err := l.validateBindParameters(scope, listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"bind",
@@ -251,6 +272,9 @@ func (l *jsiiProxy_ListenerAction) RenderActions() *[]*CfnListener_ActionPropert
 }
 
 func (l *jsiiProxy_ListenerAction) Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty {
+	if err := l.validateRenumberParameters(actions); err != nil {
+		panic(err)
+	}
 	var returns *[]*CfnListener_ActionProperty
 
 	_jsii_.Invoke(

@@ -262,6 +262,9 @@ func (j *jsiiProxy_Portfolio) Stack() awscdk.Stack {
 func NewPortfolio(scope constructs.Construct, id *string, props *PortfolioProps) Portfolio {
 	_init_.Initialize()
 
+	if err := validateNewPortfolioParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Portfolio{}
 
 	_jsii_.Create(
@@ -289,6 +292,9 @@ func NewPortfolio_Override(p Portfolio, scope constructs.Construct, id *string, 
 func Portfolio_FromPortfolioArn(scope constructs.Construct, id *string, portfolioArn *string) IPortfolio {
 	_init_.Initialize()
 
+	if err := validatePortfolio_FromPortfolioArnParameters(scope, id, portfolioArn); err != nil {
+		panic(err)
+	}
 	var returns IPortfolio
 
 	_jsii_.StaticInvoke(
@@ -306,6 +312,9 @@ func Portfolio_FromPortfolioArn(scope constructs.Construct, id *string, portfoli
 func Portfolio_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePortfolio_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -323,6 +332,9 @@ func Portfolio_IsConstruct(x interface{}) *bool {
 func Portfolio_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePortfolio_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -336,6 +348,9 @@ func Portfolio_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_Portfolio) AddProduct(product IProduct) {
+	if err := p.validateAddProductParameters(product); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addProduct",
@@ -344,6 +359,9 @@ func (p *jsiiProxy_Portfolio) AddProduct(product IProduct) {
 }
 
 func (p *jsiiProxy_Portfolio) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -352,6 +370,9 @@ func (p *jsiiProxy_Portfolio) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (p *jsiiProxy_Portfolio) AssociateTagOptions(tagOptions TagOptions) {
+	if err := p.validateAssociateTagOptionsParameters(tagOptions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"associateTagOptions",
@@ -360,6 +381,9 @@ func (p *jsiiProxy_Portfolio) AssociateTagOptions(tagOptions TagOptions) {
 }
 
 func (p *jsiiProxy_Portfolio) ConstrainCloudFormationParameters(product IProduct, options *CloudFormationRuleConstraintOptions) {
+	if err := p.validateConstrainCloudFormationParametersParameters(product, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"constrainCloudFormationParameters",
@@ -368,6 +392,9 @@ func (p *jsiiProxy_Portfolio) ConstrainCloudFormationParameters(product IProduct
 }
 
 func (p *jsiiProxy_Portfolio) ConstrainTagUpdates(product IProduct, options *TagUpdateConstraintOptions) {
+	if err := p.validateConstrainTagUpdatesParameters(product, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"constrainTagUpdates",
@@ -376,6 +403,9 @@ func (p *jsiiProxy_Portfolio) ConstrainTagUpdates(product IProduct, options *Tag
 }
 
 func (p *jsiiProxy_Portfolio) DeployWithStackSets(product IProduct, options *StackSetsConstraintOptions) {
+	if err := p.validateDeployWithStackSetsParameters(product, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"deployWithStackSets",
@@ -397,6 +427,9 @@ func (p *jsiiProxy_Portfolio) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_Portfolio) GenerateUniqueHash(value *string) *string {
+	if err := p.validateGenerateUniqueHashParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -410,6 +443,9 @@ func (p *jsiiProxy_Portfolio) GenerateUniqueHash(value *string) *string {
 }
 
 func (p *jsiiProxy_Portfolio) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -423,6 +459,9 @@ func (p *jsiiProxy_Portfolio) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (p *jsiiProxy_Portfolio) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -436,6 +475,9 @@ func (p *jsiiProxy_Portfolio) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 func (p *jsiiProxy_Portfolio) GiveAccessToGroup(group awsiam.IGroup) {
+	if err := p.validateGiveAccessToGroupParameters(group); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"giveAccessToGroup",
@@ -444,6 +486,9 @@ func (p *jsiiProxy_Portfolio) GiveAccessToGroup(group awsiam.IGroup) {
 }
 
 func (p *jsiiProxy_Portfolio) GiveAccessToRole(role awsiam.IRole) {
+	if err := p.validateGiveAccessToRoleParameters(role); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"giveAccessToRole",
@@ -452,6 +497,9 @@ func (p *jsiiProxy_Portfolio) GiveAccessToRole(role awsiam.IRole) {
 }
 
 func (p *jsiiProxy_Portfolio) GiveAccessToUser(user awsiam.IUser) {
+	if err := p.validateGiveAccessToUserParameters(user); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"giveAccessToUser",
@@ -460,6 +508,9 @@ func (p *jsiiProxy_Portfolio) GiveAccessToUser(user awsiam.IUser) {
 }
 
 func (p *jsiiProxy_Portfolio) NotifyOnStackEvents(product IProduct, topic awssns.ITopic, options *CommonConstraintOptions) {
+	if err := p.validateNotifyOnStackEventsParameters(product, topic, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"notifyOnStackEvents",
@@ -476,6 +527,9 @@ func (p *jsiiProxy_Portfolio) OnPrepare() {
 }
 
 func (p *jsiiProxy_Portfolio) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -505,6 +559,9 @@ func (p *jsiiProxy_Portfolio) Prepare() {
 }
 
 func (p *jsiiProxy_Portfolio) SetLaunchRole(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions) {
+	if err := p.validateSetLaunchRoleParameters(product, launchRole, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"setLaunchRole",
@@ -513,6 +570,9 @@ func (p *jsiiProxy_Portfolio) SetLaunchRole(product IProduct, launchRole awsiam.
 }
 
 func (p *jsiiProxy_Portfolio) SetLocalLaunchRole(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions) {
+	if err := p.validateSetLocalLaunchRoleParameters(product, launchRole, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"setLocalLaunchRole",
@@ -521,6 +581,9 @@ func (p *jsiiProxy_Portfolio) SetLocalLaunchRole(product IProduct, launchRole aw
 }
 
 func (p *jsiiProxy_Portfolio) SetLocalLaunchRoleName(product IProduct, launchRoleName *string, options *CommonConstraintOptions) awsiam.IRole {
+	if err := p.validateSetLocalLaunchRoleNameParameters(product, launchRoleName, options); err != nil {
+		panic(err)
+	}
 	var returns awsiam.IRole
 
 	_jsii_.Invoke(
@@ -534,6 +597,9 @@ func (p *jsiiProxy_Portfolio) SetLocalLaunchRoleName(product IProduct, launchRol
 }
 
 func (p *jsiiProxy_Portfolio) ShareWithAccount(accountId *string, options *PortfolioShareOptions) {
+	if err := p.validateShareWithAccountParameters(accountId, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"shareWithAccount",
@@ -542,6 +608,9 @@ func (p *jsiiProxy_Portfolio) ShareWithAccount(accountId *string, options *Portf
 }
 
 func (p *jsiiProxy_Portfolio) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

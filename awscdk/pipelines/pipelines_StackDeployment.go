@@ -261,6 +261,9 @@ func (j *jsiiProxy_StackDeployment) TemplateUrl() *string {
 func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifact) StackDeployment {
 	_init_.Initialize()
 
+	if err := validateStackDeployment_FromArtifactParameters(stackArtifact); err != nil {
+		panic(err)
+	}
 	var returns StackDeployment
 
 	_jsii_.StaticInvoke(
@@ -274,6 +277,9 @@ func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifac
 }
 
 func (s *jsiiProxy_StackDeployment) AddStackDependency(stackDeployment StackDeployment) {
+	if err := s.validateAddStackDependencyParameters(stackDeployment); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addStackDependency",
@@ -282,6 +288,9 @@ func (s *jsiiProxy_StackDeployment) AddStackDependency(stackDeployment StackDepl
 }
 
 func (s *jsiiProxy_StackDeployment) AddStackSteps(pre *[]Step, changeSet *[]Step, post *[]Step) {
+	if err := s.validateAddStackStepsParameters(pre, changeSet, post); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addStackSteps",

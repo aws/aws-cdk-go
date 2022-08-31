@@ -138,6 +138,9 @@ func (j *jsiiProxy_AwsApiCall) Provider() AssertionsProvider {
 func NewAwsApiCall(scope constructs.Construct, id *string, props *AwsApiCallProps) AwsApiCall {
 	_init_.Initialize()
 
+	if err := validateNewAwsApiCallParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AwsApiCall{}
 
 	_jsii_.Create(
@@ -160,7 +163,10 @@ func NewAwsApiCall_Override(a AwsApiCall, scope constructs.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_AwsApiCall) SetProvider(val AssertionsProvider) {
+func (j *jsiiProxy_AwsApiCall)SetProvider(val AssertionsProvider) {
+	if err := j.validateSetProviderParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"provider",
@@ -173,6 +179,9 @@ func (j *jsiiProxy_AwsApiCall) SetProvider(val AssertionsProvider) {
 func AwsApiCall_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAwsApiCall_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -186,6 +195,9 @@ func AwsApiCall_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_AwsApiCall) AssertAtPath(path *string, expected ExpectedResult) {
+	if err := a.validateAssertAtPathParameters(path, expected); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"assertAtPath",
@@ -194,6 +206,9 @@ func (a *jsiiProxy_AwsApiCall) AssertAtPath(path *string, expected ExpectedResul
 }
 
 func (a *jsiiProxy_AwsApiCall) Expect(expected ExpectedResult) {
+	if err := a.validateExpectParameters(expected); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"expect",
@@ -202,6 +217,9 @@ func (a *jsiiProxy_AwsApiCall) Expect(expected ExpectedResult) {
 }
 
 func (a *jsiiProxy_AwsApiCall) GetAtt(attributeName *string) awscdk.Reference {
+	if err := a.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -215,6 +233,9 @@ func (a *jsiiProxy_AwsApiCall) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (a *jsiiProxy_AwsApiCall) GetAttString(attributeName *string) *string {
+	if err := a.validateGetAttStringParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -236,6 +257,9 @@ func (a *jsiiProxy_AwsApiCall) OnPrepare() {
 }
 
 func (a *jsiiProxy_AwsApiCall) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -265,6 +289,9 @@ func (a *jsiiProxy_AwsApiCall) Prepare() {
 }
 
 func (a *jsiiProxy_AwsApiCall) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

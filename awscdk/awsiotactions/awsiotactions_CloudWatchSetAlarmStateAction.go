@@ -56,6 +56,9 @@ type jsiiProxy_CloudWatchSetAlarmStateAction struct {
 func NewCloudWatchSetAlarmStateAction(alarm awscloudwatch.IAlarm, props *CloudWatchSetAlarmStateActionProps) CloudWatchSetAlarmStateAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudWatchSetAlarmStateActionParameters(alarm, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudWatchSetAlarmStateAction{}
 
 	_jsii_.Create(
@@ -79,6 +82,9 @@ func NewCloudWatchSetAlarmStateAction_Override(c CloudWatchSetAlarmStateAction, 
 }
 
 func (c *jsiiProxy_CloudWatchSetAlarmStateAction) Bind(topicRule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := c.validateBindParameters(topicRule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

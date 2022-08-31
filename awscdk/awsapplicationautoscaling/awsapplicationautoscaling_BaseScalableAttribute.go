@@ -133,6 +133,9 @@ func NewBaseScalableAttribute_Override(b BaseScalableAttribute, scope constructs
 func BaseScalableAttribute_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseScalableAttribute_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -146,6 +149,9 @@ func BaseScalableAttribute_IsConstruct(x interface{}) *bool {
 }
 
 func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) {
+	if err := b.validateDoScaleOnMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"doScaleOnMetric",
@@ -154,6 +160,9 @@ func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnMetric(id *string, props *Bas
 }
 
 func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnSchedule(id *string, props *ScalingSchedule) {
+	if err := b.validateDoScaleOnScheduleParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"doScaleOnSchedule",
@@ -162,6 +171,9 @@ func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnSchedule(id *string, props *S
 }
 
 func (b *jsiiProxy_BaseScalableAttribute) DoScaleToTrackMetric(id *string, props *BasicTargetTrackingScalingPolicyProps) {
+	if err := b.validateDoScaleToTrackMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"doScaleToTrackMetric",
@@ -178,6 +190,9 @@ func (b *jsiiProxy_BaseScalableAttribute) OnPrepare() {
 }
 
 func (b *jsiiProxy_BaseScalableAttribute) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -207,6 +222,9 @@ func (b *jsiiProxy_BaseScalableAttribute) Prepare() {
 }
 
 func (b *jsiiProxy_BaseScalableAttribute) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

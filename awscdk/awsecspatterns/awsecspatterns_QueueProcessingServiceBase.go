@@ -245,6 +245,9 @@ func NewQueueProcessingServiceBase_Override(q QueueProcessingServiceBase, scope 
 func QueueProcessingServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQueueProcessingServiceBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -258,6 +261,9 @@ func QueueProcessingServiceBase_IsConstruct(x interface{}) *bool {
 }
 
 func (q *jsiiProxy_QueueProcessingServiceBase) ConfigureAutoscalingForService(service awsecs.BaseService) {
+	if err := q.validateConfigureAutoscalingForServiceParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"configureAutoscalingForService",
@@ -266,6 +272,9 @@ func (q *jsiiProxy_QueueProcessingServiceBase) ConfigureAutoscalingForService(se
 }
 
 func (q *jsiiProxy_QueueProcessingServiceBase) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := q.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -279,6 +288,9 @@ func (q *jsiiProxy_QueueProcessingServiceBase) GetDefaultCluster(scope construct
 }
 
 func (q *jsiiProxy_QueueProcessingServiceBase) GrantPermissionsToService(service awsecs.BaseService) {
+	if err := q.validateGrantPermissionsToServiceParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"grantPermissionsToService",
@@ -295,6 +307,9 @@ func (q *jsiiProxy_QueueProcessingServiceBase) OnPrepare() {
 }
 
 func (q *jsiiProxy_QueueProcessingServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -324,6 +339,9 @@ func (q *jsiiProxy_QueueProcessingServiceBase) Prepare() {
 }
 
 func (q *jsiiProxy_QueueProcessingServiceBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",

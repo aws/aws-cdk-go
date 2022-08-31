@@ -47,6 +47,9 @@ type jsiiProxy_HttpUserPoolAuthorizer struct {
 func NewHttpUserPoolAuthorizer(id *string, pool awscognito.IUserPool, props *HttpUserPoolAuthorizerProps) HttpUserPoolAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewHttpUserPoolAuthorizerParameters(id, pool, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpUserPoolAuthorizer{}
 
 	_jsii_.Create(
@@ -71,6 +74,9 @@ func NewHttpUserPoolAuthorizer_Override(h HttpUserPoolAuthorizer, id *string, po
 }
 
 func (h *jsiiProxy_HttpUserPoolAuthorizer) Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig {
+	if err := h.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteAuthorizerConfig
 
 	_jsii_.Invoke(

@@ -98,6 +98,9 @@ type jsiiProxy_IDatabaseInstance struct {
 }
 
 func (i *jsiiProxy_IDatabaseInstance) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
+	if err := i.validateAddProxyParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns DatabaseProxy
 
 	_jsii_.Invoke(
@@ -111,6 +114,9 @@ func (i *jsiiProxy_IDatabaseInstance) AddProxy(id *string, options *DatabaseProx
 }
 
 func (i *jsiiProxy_IDatabaseInstance) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantConnectParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -124,6 +130,9 @@ func (i *jsiiProxy_IDatabaseInstance) GrantConnect(grantee awsiam.IGrantable) aw
 }
 
 func (i *jsiiProxy_IDatabaseInstance) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -137,6 +146,9 @@ func (i *jsiiProxy_IDatabaseInstance) Metric(metricName *string, props *awscloud
 }
 
 func (i *jsiiProxy_IDatabaseInstance) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricCPUUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -150,6 +162,9 @@ func (i *jsiiProxy_IDatabaseInstance) MetricCPUUtilization(props *awscloudwatch.
 }
 
 func (i *jsiiProxy_IDatabaseInstance) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricDatabaseConnectionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -163,6 +178,9 @@ func (i *jsiiProxy_IDatabaseInstance) MetricDatabaseConnections(props *awscloudw
 }
 
 func (i *jsiiProxy_IDatabaseInstance) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricFreeableMemoryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -176,6 +194,9 @@ func (i *jsiiProxy_IDatabaseInstance) MetricFreeableMemory(props *awscloudwatch.
 }
 
 func (i *jsiiProxy_IDatabaseInstance) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricFreeStorageSpaceParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -189,6 +210,9 @@ func (i *jsiiProxy_IDatabaseInstance) MetricFreeStorageSpace(props *awscloudwatc
 }
 
 func (i *jsiiProxy_IDatabaseInstance) MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricReadIOPSParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -202,6 +226,9 @@ func (i *jsiiProxy_IDatabaseInstance) MetricReadIOPS(props *awscloudwatch.Metric
 }
 
 func (i *jsiiProxy_IDatabaseInstance) MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricWriteIOPSParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -215,6 +242,9 @@ func (i *jsiiProxy_IDatabaseInstance) MetricWriteIOPS(props *awscloudwatch.Metri
 }
 
 func (i *jsiiProxy_IDatabaseInstance) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -228,6 +258,9 @@ func (i *jsiiProxy_IDatabaseInstance) OnEvent(id *string, options *awsevents.OnE
 }
 
 func (i *jsiiProxy_IDatabaseInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

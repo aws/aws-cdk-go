@@ -165,6 +165,9 @@ func (j *jsiiProxy_CloudArtifact) Messages() *[]*SynthesisMessage {
 func NewCloudArtifact(assembly CloudAssembly, id *string, manifest *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
+	if err := validateNewCloudArtifactParameters(assembly, id, manifest); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudArtifact{}
 
 	_jsii_.Create(
@@ -194,6 +197,9 @@ func NewCloudArtifact_Override(c CloudArtifact, assembly CloudAssembly, id *stri
 func CloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
+	if err := validateCloudArtifact_FromManifestParameters(assembly, id, artifact); err != nil {
+		panic(err)
+	}
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
@@ -207,6 +213,9 @@ func CloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cl
 }
 
 func (c *jsiiProxy_CloudArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
+	if err := c.validateFindMetadataByTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *[]*MetadataEntryResult
 
 	_jsii_.Invoke(

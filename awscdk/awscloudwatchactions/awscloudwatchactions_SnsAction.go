@@ -37,6 +37,9 @@ type jsiiProxy_SnsAction struct {
 func NewSnsAction(topic awssns.ITopic) SnsAction {
 	_init_.Initialize()
 
+	if err := validateNewSnsActionParameters(topic); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsAction{}
 
 	_jsii_.Create(
@@ -60,6 +63,9 @@ func NewSnsAction_Override(s SnsAction, topic awssns.ITopic) {
 }
 
 func (s *jsiiProxy_SnsAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := s.validateBindParameters(_scope, _alarm); err != nil {
+		panic(err)
+	}
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(

@@ -69,6 +69,9 @@ func NewRouteSpec_Override(r RouteSpec) {
 func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
+	if err := validateRouteSpec_GrpcParameters(options); err != nil {
+		panic(err)
+	}
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
@@ -86,6 +89,9 @@ func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
+	if err := validateRouteSpec_HttpParameters(options); err != nil {
+		panic(err)
+	}
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
@@ -103,6 +109,9 @@ func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
+	if err := validateRouteSpec_Http2Parameters(options); err != nil {
+		panic(err)
+	}
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
@@ -120,6 +129,9 @@ func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
+	if err := validateRouteSpec_TcpParameters(options); err != nil {
+		panic(err)
+	}
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
@@ -133,6 +145,9 @@ func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 }
 
 func (r *jsiiProxy_RouteSpec) Bind(scope awscdk.Construct) *RouteSpecConfig {
+	if err := r.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *RouteSpecConfig
 
 	_jsii_.Invoke(

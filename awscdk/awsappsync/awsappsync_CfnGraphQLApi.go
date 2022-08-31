@@ -546,6 +546,9 @@ func (j *jsiiProxy_CfnGraphQLApi) XrayEnabled() interface{} {
 func NewCfnGraphQLApi(scope awscdk.Construct, id *string, props *CfnGraphQLApiProps) CfnGraphQLApi {
 	_init_.Initialize()
 
+	if err := validateNewCfnGraphQLApiParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnGraphQLApi{}
 
 	_jsii_.Create(
@@ -568,7 +571,10 @@ func NewCfnGraphQLApi_Override(c CfnGraphQLApi, scope awscdk.Construct, id *stri
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetAdditionalAuthenticationProviders(val interface{}) {
+func (j *jsiiProxy_CfnGraphQLApi)SetAdditionalAuthenticationProviders(val interface{}) {
+	if err := j.validateSetAdditionalAuthenticationProvidersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"additionalAuthenticationProviders",
@@ -576,7 +582,10 @@ func (j *jsiiProxy_CfnGraphQLApi) SetAdditionalAuthenticationProviders(val inter
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetAuthenticationType(val *string) {
+func (j *jsiiProxy_CfnGraphQLApi)SetAuthenticationType(val *string) {
+	if err := j.validateSetAuthenticationTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"authenticationType",
@@ -584,7 +593,10 @@ func (j *jsiiProxy_CfnGraphQLApi) SetAuthenticationType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetLambdaAuthorizerConfig(val interface{}) {
+func (j *jsiiProxy_CfnGraphQLApi)SetLambdaAuthorizerConfig(val interface{}) {
+	if err := j.validateSetLambdaAuthorizerConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"lambdaAuthorizerConfig",
@@ -592,7 +604,10 @@ func (j *jsiiProxy_CfnGraphQLApi) SetLambdaAuthorizerConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetLogConfig(val interface{}) {
+func (j *jsiiProxy_CfnGraphQLApi)SetLogConfig(val interface{}) {
+	if err := j.validateSetLogConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"logConfig",
@@ -600,7 +615,10 @@ func (j *jsiiProxy_CfnGraphQLApi) SetLogConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetName(val *string) {
+func (j *jsiiProxy_CfnGraphQLApi)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -608,7 +626,10 @@ func (j *jsiiProxy_CfnGraphQLApi) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetOpenIdConnectConfig(val interface{}) {
+func (j *jsiiProxy_CfnGraphQLApi)SetOpenIdConnectConfig(val interface{}) {
+	if err := j.validateSetOpenIdConnectConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"openIdConnectConfig",
@@ -616,7 +637,10 @@ func (j *jsiiProxy_CfnGraphQLApi) SetOpenIdConnectConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetUserPoolConfig(val interface{}) {
+func (j *jsiiProxy_CfnGraphQLApi)SetUserPoolConfig(val interface{}) {
+	if err := j.validateSetUserPoolConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"userPoolConfig",
@@ -624,7 +648,10 @@ func (j *jsiiProxy_CfnGraphQLApi) SetUserPoolConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGraphQLApi) SetXrayEnabled(val interface{}) {
+func (j *jsiiProxy_CfnGraphQLApi)SetXrayEnabled(val interface{}) {
+	if err := j.validateSetXrayEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"xrayEnabled",
@@ -642,6 +669,9 @@ func (j *jsiiProxy_CfnGraphQLApi) SetXrayEnabled(val interface{}) {
 func CfnGraphQLApi_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGraphQLApi_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -659,6 +689,9 @@ func CfnGraphQLApi_IsCfnElement(x interface{}) *bool {
 func CfnGraphQLApi_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGraphQLApi_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -676,6 +709,9 @@ func CfnGraphQLApi_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnGraphQLApi_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGraphQLApi_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -700,6 +736,9 @@ func CfnGraphQLApi_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -708,6 +747,9 @@ func (c *jsiiProxy_CfnGraphQLApi) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -716,6 +758,9 @@ func (c *jsiiProxy_CfnGraphQLApi) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -724,6 +769,9 @@ func (c *jsiiProxy_CfnGraphQLApi) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -732,6 +780,9 @@ func (c *jsiiProxy_CfnGraphQLApi) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -740,6 +791,9 @@ func (c *jsiiProxy_CfnGraphQLApi) AddPropertyDeletionOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -748,6 +802,9 @@ func (c *jsiiProxy_CfnGraphQLApi) AddPropertyOverride(propertyPath *string, valu
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -756,6 +813,9 @@ func (c *jsiiProxy_CfnGraphQLApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -769,6 +829,9 @@ func (c *jsiiProxy_CfnGraphQLApi) GetAtt(attributeName *string) awscdk.Reference
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -782,6 +845,9 @@ func (c *jsiiProxy_CfnGraphQLApi) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -798,6 +864,9 @@ func (c *jsiiProxy_CfnGraphQLApi) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -819,6 +888,9 @@ func (c *jsiiProxy_CfnGraphQLApi) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -835,6 +907,9 @@ func (c *jsiiProxy_CfnGraphQLApi) Prepare() {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -861,6 +936,9 @@ func (c *jsiiProxy_CfnGraphQLApi) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -895,6 +973,9 @@ func (c *jsiiProxy_CfnGraphQLApi) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

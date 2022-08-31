@@ -111,6 +111,9 @@ func (j *jsiiProxy_SingleValueWidget) Y() *float64 {
 func NewSingleValueWidget(props *SingleValueWidgetProps) SingleValueWidget {
 	_init_.Initialize()
 
+	if err := validateNewSingleValueWidgetParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SingleValueWidget{}
 
 	_jsii_.Create(
@@ -133,7 +136,7 @@ func NewSingleValueWidget_Override(s SingleValueWidget, props *SingleValueWidget
 	)
 }
 
-func (j *jsiiProxy_SingleValueWidget) SetX(val *float64) {
+func (j *jsiiProxy_SingleValueWidget)SetX(val *float64) {
 	_jsii_.Set(
 		j,
 		"x",
@@ -141,7 +144,7 @@ func (j *jsiiProxy_SingleValueWidget) SetX(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_SingleValueWidget) SetY(val *float64) {
+func (j *jsiiProxy_SingleValueWidget)SetY(val *float64) {
 	_jsii_.Set(
 		j,
 		"y",
@@ -163,6 +166,9 @@ func (s *jsiiProxy_SingleValueWidget) CopyMetricWarnings(ms ...IMetric) {
 }
 
 func (s *jsiiProxy_SingleValueWidget) Position(x *float64, y *float64) {
+	if err := s.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"position",

@@ -77,6 +77,9 @@ func (j *jsiiProxy_PrincipalPolicyFragment) PrincipalJson() *map[string]*[]*stri
 func NewPrincipalPolicyFragment(principalJson *map[string]*[]*string, conditions *map[string]interface{}) PrincipalPolicyFragment {
 	_init_.Initialize()
 
+	if err := validateNewPrincipalPolicyFragmentParameters(principalJson); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PrincipalPolicyFragment{}
 
 	_jsii_.Create(

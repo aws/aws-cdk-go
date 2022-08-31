@@ -577,6 +577,9 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) UpdatedProperites() *map[string]
 func NewCfnDataQualityJobDefinition(scope awscdk.Construct, id *string, props *CfnDataQualityJobDefinitionProps) CfnDataQualityJobDefinition {
 	_init_.Initialize()
 
+	if err := validateNewCfnDataQualityJobDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnDataQualityJobDefinition{}
 
 	_jsii_.Create(
@@ -599,7 +602,10 @@ func NewCfnDataQualityJobDefinition_Override(c CfnDataQualityJobDefinition, scop
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityAppSpecification(val interface{}) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetDataQualityAppSpecification(val interface{}) {
+	if err := j.validateSetDataQualityAppSpecificationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataQualityAppSpecification",
@@ -607,7 +613,10 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityAppSpecification(v
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityBaselineConfig(val interface{}) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetDataQualityBaselineConfig(val interface{}) {
+	if err := j.validateSetDataQualityBaselineConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataQualityBaselineConfig",
@@ -615,7 +624,10 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityBaselineConfig(val
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityJobInput(val interface{}) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetDataQualityJobInput(val interface{}) {
+	if err := j.validateSetDataQualityJobInputParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataQualityJobInput",
@@ -623,7 +635,10 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityJobInput(val inter
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityJobOutputConfig(val interface{}) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetDataQualityJobOutputConfig(val interface{}) {
+	if err := j.validateSetDataQualityJobOutputConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataQualityJobOutputConfig",
@@ -631,7 +646,7 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetDataQualityJobOutputConfig(va
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetJobDefinitionName(val *string) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetJobDefinitionName(val *string) {
 	_jsii_.Set(
 		j,
 		"jobDefinitionName",
@@ -639,7 +654,10 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetJobDefinitionName(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetJobResources(val interface{}) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetJobResources(val interface{}) {
+	if err := j.validateSetJobResourcesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"jobResources",
@@ -647,7 +665,10 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetJobResources(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetNetworkConfig(val interface{}) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetNetworkConfig(val interface{}) {
+	if err := j.validateSetNetworkConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkConfig",
@@ -655,7 +676,10 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetNetworkConfig(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetRoleArn(val *string) {
+	if err := j.validateSetRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -663,7 +687,10 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityJobDefinition) SetStoppingCondition(val interface{}) {
+func (j *jsiiProxy_CfnDataQualityJobDefinition)SetStoppingCondition(val interface{}) {
+	if err := j.validateSetStoppingConditionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"stoppingCondition",
@@ -681,6 +708,9 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) SetStoppingCondition(val interfa
 func CfnDataQualityJobDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataQualityJobDefinition_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -698,6 +728,9 @@ func CfnDataQualityJobDefinition_IsCfnElement(x interface{}) *bool {
 func CfnDataQualityJobDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataQualityJobDefinition_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -715,6 +748,9 @@ func CfnDataQualityJobDefinition_IsCfnResource(construct constructs.IConstruct) 
 func CfnDataQualityJobDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataQualityJobDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -739,6 +775,9 @@ func CfnDataQualityJobDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -747,6 +786,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) AddDeletionOverride(path *string
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -755,6 +797,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) AddDependsOn(target awscdk.CfnRe
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -763,6 +808,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) AddMetadata(key *string, value i
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -771,6 +819,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) AddOverride(path *string, value 
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -779,6 +830,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) AddPropertyDeletionOverride(prop
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -787,6 +841,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) AddPropertyOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -795,6 +852,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) ApplyRemovalPolicy(policy awscdk
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -808,6 +868,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) GetAtt(attributeName *string) aw
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -821,6 +884,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) GetMetadata(key *string) interfa
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -837,6 +903,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -858,6 +927,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -874,6 +946,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) Prepare() {
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -900,6 +975,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -934,6 +1012,9 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataQualityJobDefinition) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

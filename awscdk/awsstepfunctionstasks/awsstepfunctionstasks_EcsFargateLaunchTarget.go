@@ -65,6 +65,9 @@ type jsiiProxy_EcsFargateLaunchTarget struct {
 func NewEcsFargateLaunchTarget(options *EcsFargateLaunchTargetOptions) EcsFargateLaunchTarget {
 	_init_.Initialize()
 
+	if err := validateNewEcsFargateLaunchTargetParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcsFargateLaunchTarget{}
 
 	_jsii_.Create(
@@ -88,6 +91,9 @@ func NewEcsFargateLaunchTarget_Override(e EcsFargateLaunchTarget, options *EcsFa
 }
 
 func (e *jsiiProxy_EcsFargateLaunchTarget) Bind(_task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig {
+	if err := e.validateBindParameters(_task, launchTargetOptions); err != nil {
+		panic(err)
+	}
 	var returns *EcsLaunchTargetConfig
 
 	_jsii_.Invoke(

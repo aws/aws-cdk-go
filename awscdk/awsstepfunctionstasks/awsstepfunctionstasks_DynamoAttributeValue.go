@@ -59,6 +59,9 @@ func (j *jsiiProxy_DynamoAttributeValue) AttributeValue() interface{} {
 func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_BooleanFromJsonPathParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -78,6 +81,9 @@ func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValu
 func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromBinaryParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -97,6 +103,9 @@ func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromBinarySetParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -116,6 +125,9 @@ func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromBooleanParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -135,6 +147,9 @@ func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromListParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -154,6 +169,9 @@ func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttribut
 func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromMapParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -173,6 +191,9 @@ func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) Dynamo
 func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromNullParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -195,6 +216,9 @@ func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -217,6 +241,9 @@ func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromNumberSetParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -240,6 +267,9 @@ func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue 
 func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -259,6 +289,9 @@ func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_FromStringSetParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -278,6 +311,9 @@ func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_ListFromJsonPathParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -297,6 +333,9 @@ func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_MapFromJsonPathParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -321,6 +360,9 @@ func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_NumberFromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
@@ -345,6 +387,9 @@ func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 func DynamoAttributeValue_NumberSetFromStrings(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
+	if err := validateDynamoAttributeValue_NumberSetFromStringsParameters(value); err != nil {
+		panic(err)
+	}
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(

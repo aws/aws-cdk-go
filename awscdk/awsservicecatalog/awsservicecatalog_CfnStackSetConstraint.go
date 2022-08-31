@@ -478,6 +478,9 @@ func (j *jsiiProxy_CfnStackSetConstraint) UpdatedProperites() *map[string]interf
 func NewCfnStackSetConstraint(scope awscdk.Construct, id *string, props *CfnStackSetConstraintProps) CfnStackSetConstraint {
 	_init_.Initialize()
 
+	if err := validateNewCfnStackSetConstraintParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnStackSetConstraint{}
 
 	_jsii_.Create(
@@ -500,7 +503,7 @@ func NewCfnStackSetConstraint_Override(c CfnStackSetConstraint, scope awscdk.Con
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetAcceptLanguage(val *string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetAcceptLanguage(val *string) {
 	_jsii_.Set(
 		j,
 		"acceptLanguage",
@@ -508,7 +511,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetAcceptLanguage(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetAccountList(val *[]*string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetAccountList(val *[]*string) {
+	if err := j.validateSetAccountListParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"accountList",
@@ -516,7 +522,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetAccountList(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetAdminRole(val *string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetAdminRole(val *string) {
+	if err := j.validateSetAdminRoleParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"adminRole",
@@ -524,7 +533,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetAdminRole(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetDescription(val *string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetDescription(val *string) {
+	if err := j.validateSetDescriptionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"description",
@@ -532,7 +544,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetExecutionRole(val *string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetExecutionRole(val *string) {
+	if err := j.validateSetExecutionRoleParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"executionRole",
@@ -540,7 +555,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetExecutionRole(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetPortfolioId(val *string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetPortfolioId(val *string) {
+	if err := j.validateSetPortfolioIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"portfolioId",
@@ -548,7 +566,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetPortfolioId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetProductId(val *string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetProductId(val *string) {
+	if err := j.validateSetProductIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"productId",
@@ -556,7 +577,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetProductId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetRegionList(val *[]*string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetRegionList(val *[]*string) {
+	if err := j.validateSetRegionListParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"regionList",
@@ -564,7 +588,10 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetRegionList(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStackSetConstraint) SetStackInstanceControl(val *string) {
+func (j *jsiiProxy_CfnStackSetConstraint)SetStackInstanceControl(val *string) {
+	if err := j.validateSetStackInstanceControlParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"stackInstanceControl",
@@ -582,6 +609,9 @@ func (j *jsiiProxy_CfnStackSetConstraint) SetStackInstanceControl(val *string) {
 func CfnStackSetConstraint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnStackSetConstraint_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -599,6 +629,9 @@ func CfnStackSetConstraint_IsCfnElement(x interface{}) *bool {
 func CfnStackSetConstraint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnStackSetConstraint_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -616,6 +649,9 @@ func CfnStackSetConstraint_IsCfnResource(construct constructs.IConstruct) *bool 
 func CfnStackSetConstraint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnStackSetConstraint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -640,6 +676,9 @@ func CfnStackSetConstraint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -648,6 +687,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -656,6 +698,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) AddDependsOn(target awscdk.CfnResource
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -664,6 +709,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) AddMetadata(key *string, value interfa
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -672,6 +720,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) AddOverride(path *string, value interf
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -680,6 +731,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) AddPropertyDeletionOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -688,6 +742,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) AddPropertyOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -696,6 +753,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -709,6 +769,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) GetAtt(attributeName *string) awscdk.R
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -722,6 +785,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -738,6 +804,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -759,6 +828,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -775,6 +847,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) Prepare() {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -801,6 +876,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -835,6 +913,9 @@ func (c *jsiiProxy_CfnStackSetConstraint) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

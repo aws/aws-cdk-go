@@ -63,6 +63,9 @@ type jsiiProxy_Annotations struct {
 func Annotations_FromStack(stack awscdk.Stack) Annotations {
 	_init_.Initialize()
 
+	if err := validateAnnotations_FromStackParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns Annotations
 
 	_jsii_.StaticInvoke(
@@ -76,6 +79,9 @@ func Annotations_FromStack(stack awscdk.Stack) Annotations {
 }
 
 func (a *jsiiProxy_Annotations) FindError(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage {
+	if err := a.validateFindErrorParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	var returns *[]*cxapi.SynthesisMessage
 
 	_jsii_.Invoke(
@@ -89,6 +95,9 @@ func (a *jsiiProxy_Annotations) FindError(constructPath *string, message interfa
 }
 
 func (a *jsiiProxy_Annotations) FindInfo(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage {
+	if err := a.validateFindInfoParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	var returns *[]*cxapi.SynthesisMessage
 
 	_jsii_.Invoke(
@@ -102,6 +111,9 @@ func (a *jsiiProxy_Annotations) FindInfo(constructPath *string, message interfac
 }
 
 func (a *jsiiProxy_Annotations) FindWarning(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage {
+	if err := a.validateFindWarningParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	var returns *[]*cxapi.SynthesisMessage
 
 	_jsii_.Invoke(
@@ -115,6 +127,9 @@ func (a *jsiiProxy_Annotations) FindWarning(constructPath *string, message inter
 }
 
 func (a *jsiiProxy_Annotations) HasError(constructPath *string, message interface{}) {
+	if err := a.validateHasErrorParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"hasError",
@@ -123,6 +138,9 @@ func (a *jsiiProxy_Annotations) HasError(constructPath *string, message interfac
 }
 
 func (a *jsiiProxy_Annotations) HasInfo(constructPath *string, message interface{}) {
+	if err := a.validateHasInfoParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"hasInfo",
@@ -131,6 +149,9 @@ func (a *jsiiProxy_Annotations) HasInfo(constructPath *string, message interface
 }
 
 func (a *jsiiProxy_Annotations) HasNoError(constructPath *string, message interface{}) {
+	if err := a.validateHasNoErrorParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"hasNoError",
@@ -139,6 +160,9 @@ func (a *jsiiProxy_Annotations) HasNoError(constructPath *string, message interf
 }
 
 func (a *jsiiProxy_Annotations) HasNoInfo(constructPath *string, message interface{}) {
+	if err := a.validateHasNoInfoParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"hasNoInfo",
@@ -147,6 +171,9 @@ func (a *jsiiProxy_Annotations) HasNoInfo(constructPath *string, message interfa
 }
 
 func (a *jsiiProxy_Annotations) HasNoWarning(constructPath *string, message interface{}) {
+	if err := a.validateHasNoWarningParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"hasNoWarning",
@@ -155,6 +182,9 @@ func (a *jsiiProxy_Annotations) HasNoWarning(constructPath *string, message inte
 }
 
 func (a *jsiiProxy_Annotations) HasWarning(constructPath *string, message interface{}) {
+	if err := a.validateHasWarningParameters(constructPath, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"hasWarning",

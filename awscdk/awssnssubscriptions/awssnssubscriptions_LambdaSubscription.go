@@ -68,6 +68,9 @@ type jsiiProxy_LambdaSubscription struct {
 func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProps) LambdaSubscription {
 	_init_.Initialize()
 
+	if err := validateNewLambdaSubscriptionParameters(fn, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaSubscription{}
 
 	_jsii_.Create(
@@ -91,6 +94,9 @@ func NewLambdaSubscription_Override(l LambdaSubscription, fn awslambda.IFunction
 }
 
 func (l *jsiiProxy_LambdaSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := l.validateBindParameters(topic); err != nil {
+		panic(err)
+	}
 	var returns *awssns.TopicSubscriptionConfig
 
 	_jsii_.Invoke(

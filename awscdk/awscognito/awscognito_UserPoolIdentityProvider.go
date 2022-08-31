@@ -22,6 +22,9 @@ type jsiiProxy_UserPoolIdentityProvider struct {
 func UserPoolIdentityProvider_FromProviderName(scope constructs.Construct, id *string, providerName *string) IUserPoolIdentityProvider {
 	_init_.Initialize()
 
+	if err := validateUserPoolIdentityProvider_FromProviderNameParameters(scope, id, providerName); err != nil {
+		panic(err)
+	}
 	var returns IUserPoolIdentityProvider
 
 	_jsii_.StaticInvoke(

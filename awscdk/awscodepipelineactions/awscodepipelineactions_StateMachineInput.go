@@ -95,6 +95,9 @@ func (j *jsiiProxy_StateMachineInput) InputType() *string {
 func StateMachineInput_FilePath(inputFile awscodepipeline.ArtifactPath) StateMachineInput {
 	_init_.Initialize()
 
+	if err := validateStateMachineInput_FilePathParameters(inputFile); err != nil {
+		panic(err)
+	}
 	var returns StateMachineInput
 
 	_jsii_.StaticInvoke(
@@ -112,6 +115,9 @@ func StateMachineInput_FilePath(inputFile awscodepipeline.ArtifactPath) StateMac
 func StateMachineInput_Literal(object *map[string]interface{}) StateMachineInput {
 	_init_.Initialize()
 
+	if err := validateStateMachineInput_LiteralParameters(object); err != nil {
+		panic(err)
+	}
 	var returns StateMachineInput
 
 	_jsii_.StaticInvoke(

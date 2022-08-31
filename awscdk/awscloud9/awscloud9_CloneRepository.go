@@ -70,6 +70,9 @@ func (j *jsiiProxy_CloneRepository) RepositoryUrl() *string {
 func CloneRepository_FromCodeCommit(repository awscodecommit.IRepository, path *string) CloneRepository {
 	_init_.Initialize()
 
+	if err := validateCloneRepository_FromCodeCommitParameters(repository, path); err != nil {
+		panic(err)
+	}
 	var returns CloneRepository
 
 	_jsii_.StaticInvoke(

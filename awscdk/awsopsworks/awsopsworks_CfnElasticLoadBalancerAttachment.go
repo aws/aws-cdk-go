@@ -362,6 +362,9 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) UpdatedProperites() *map[st
 func NewCfnElasticLoadBalancerAttachment(scope awscdk.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) CfnElasticLoadBalancerAttachment {
 	_init_.Initialize()
 
+	if err := validateNewCfnElasticLoadBalancerAttachmentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnElasticLoadBalancerAttachment{}
 
 	_jsii_.Create(
@@ -384,7 +387,10 @@ func NewCfnElasticLoadBalancerAttachment_Override(c CfnElasticLoadBalancerAttach
 	)
 }
 
-func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) SetElasticLoadBalancerName(val *string) {
+func (j *jsiiProxy_CfnElasticLoadBalancerAttachment)SetElasticLoadBalancerName(val *string) {
+	if err := j.validateSetElasticLoadBalancerNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"elasticLoadBalancerName",
@@ -392,7 +398,10 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) SetElasticLoadBalancerName(
 	)
 }
 
-func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) SetLayerId(val *string) {
+func (j *jsiiProxy_CfnElasticLoadBalancerAttachment)SetLayerId(val *string) {
+	if err := j.validateSetLayerIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"layerId",
@@ -410,6 +419,9 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) SetLayerId(val *string) {
 func CfnElasticLoadBalancerAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnElasticLoadBalancerAttachment_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -427,6 +439,9 @@ func CfnElasticLoadBalancerAttachment_IsCfnElement(x interface{}) *bool {
 func CfnElasticLoadBalancerAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnElasticLoadBalancerAttachment_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -444,6 +459,9 @@ func CfnElasticLoadBalancerAttachment_IsCfnResource(construct constructs.IConstr
 func CfnElasticLoadBalancerAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnElasticLoadBalancerAttachment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -468,6 +486,9 @@ func CfnElasticLoadBalancerAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -476,6 +497,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddDeletionOverride(path *s
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -484,6 +508,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddDependsOn(target awscdk.
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -492,6 +519,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddMetadata(key *string, va
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -500,6 +530,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddOverride(path *string, v
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -508,6 +541,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddPropertyDeletionOverride
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -516,6 +552,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) AddPropertyOverride(propert
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -524,6 +563,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) ApplyRemovalPolicy(policy a
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -537,6 +579,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) GetAtt(attributeName *strin
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -550,6 +595,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) GetMetadata(key *string) in
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -566,6 +614,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -587,6 +638,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -603,6 +657,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) Prepare() {
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -629,6 +686,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -663,6 +723,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

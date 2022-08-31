@@ -229,6 +229,9 @@ func (j *jsiiProxy_ApiMapping) Stack() awscdk.Stack {
 func NewApiMapping(scope constructs.Construct, id *string, props *ApiMappingProps) ApiMapping {
 	_init_.Initialize()
 
+	if err := validateNewApiMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiMapping{}
 
 	_jsii_.Create(
@@ -256,6 +259,9 @@ func NewApiMapping_Override(a ApiMapping, scope constructs.Construct, id *string
 func ApiMapping_FromApiMappingAttributes(scope constructs.Construct, id *string, attrs *ApiMappingAttributes) IApiMapping {
 	_init_.Initialize()
 
+	if err := validateApiMapping_FromApiMappingAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IApiMapping
 
 	_jsii_.StaticInvoke(
@@ -273,6 +279,9 @@ func ApiMapping_FromApiMappingAttributes(scope constructs.Construct, id *string,
 func ApiMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApiMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -290,6 +299,9 @@ func ApiMapping_IsConstruct(x interface{}) *bool {
 func ApiMapping_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateApiMapping_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -303,6 +315,9 @@ func ApiMapping_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_ApiMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -324,6 +339,9 @@ func (a *jsiiProxy_ApiMapping) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_ApiMapping) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -337,6 +355,9 @@ func (a *jsiiProxy_ApiMapping) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (a *jsiiProxy_ApiMapping) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -358,6 +379,9 @@ func (a *jsiiProxy_ApiMapping) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApiMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -387,6 +411,9 @@ func (a *jsiiProxy_ApiMapping) Prepare() {
 }
 
 func (a *jsiiProxy_ApiMapping) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

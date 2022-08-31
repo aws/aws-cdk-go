@@ -391,6 +391,9 @@ func (j *jsiiProxy_EmrAddStep) TaskPolicies() *[]awsiam.PolicyStatement {
 func NewEmrAddStep(scope constructs.Construct, id *string, props *EmrAddStepProps) EmrAddStep {
 	_init_.Initialize()
 
+	if err := validateNewEmrAddStepParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EmrAddStep{}
 
 	_jsii_.Create(
@@ -413,7 +416,7 @@ func NewEmrAddStep_Override(e EmrAddStep, scope constructs.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_EmrAddStep) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_EmrAddStep)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -421,7 +424,7 @@ func (j *jsiiProxy_EmrAddStep) SetDefaultChoice(val awsstepfunctions.State) {
 	)
 }
 
-func (j *jsiiProxy_EmrAddStep) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_EmrAddStep)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -434,6 +437,9 @@ func (j *jsiiProxy_EmrAddStep) SetIteration(val awsstepfunctions.StateGraph) {
 func EmrAddStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateEmrAddStep_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -451,6 +457,9 @@ func EmrAddStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 func EmrAddStep_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrAddStep_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -470,6 +479,9 @@ func EmrAddStep_FindReachableEndStates(start awsstepfunctions.State, options *aw
 func EmrAddStep_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrAddStep_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -487,6 +499,9 @@ func EmrAddStep_FindReachableStates(start awsstepfunctions.State, options *awsst
 func EmrAddStep_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEmrAddStep_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -504,6 +519,9 @@ func EmrAddStep_IsConstruct(x interface{}) *bool {
 func EmrAddStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateEmrAddStep_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		"prefixStates",
@@ -512,6 +530,9 @@ func EmrAddStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (e *jsiiProxy_EmrAddStep) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := e.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addBranch",
@@ -520,6 +541,9 @@ func (e *jsiiProxy_EmrAddStep) AddBranch(branch awsstepfunctions.StateGraph) {
 }
 
 func (e *jsiiProxy_EmrAddStep) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -533,6 +557,9 @@ func (e *jsiiProxy_EmrAddStep) AddCatch(handler awsstepfunctions.IChainable, pro
 }
 
 func (e *jsiiProxy_EmrAddStep) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := e.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addChoice",
@@ -541,6 +568,9 @@ func (e *jsiiProxy_EmrAddStep) AddChoice(condition awsstepfunctions.Condition, n
 }
 
 func (e *jsiiProxy_EmrAddStep) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := e.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addIterator",
@@ -549,6 +579,9 @@ func (e *jsiiProxy_EmrAddStep) AddIterator(iteration awsstepfunctions.StateGraph
 }
 
 func (e *jsiiProxy_EmrAddStep) AddPrefix(x *string) {
+	if err := e.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPrefix",
@@ -557,6 +590,9 @@ func (e *jsiiProxy_EmrAddStep) AddPrefix(x *string) {
 }
 
 func (e *jsiiProxy_EmrAddStep) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -570,6 +606,9 @@ func (e *jsiiProxy_EmrAddStep) AddRetry(props *awsstepfunctions.RetryProps) awss
 }
 
 func (e *jsiiProxy_EmrAddStep) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"bindToGraph",
@@ -578,6 +617,9 @@ func (e *jsiiProxy_EmrAddStep) BindToGraph(graph awsstepfunctions.StateGraph) {
 }
 
 func (e *jsiiProxy_EmrAddStep) MakeDefault(def awsstepfunctions.State) {
+	if err := e.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeDefault",
@@ -586,6 +628,9 @@ func (e *jsiiProxy_EmrAddStep) MakeDefault(def awsstepfunctions.State) {
 }
 
 func (e *jsiiProxy_EmrAddStep) MakeNext(next awsstepfunctions.State) {
+	if err := e.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeNext",
@@ -594,6 +639,9 @@ func (e *jsiiProxy_EmrAddStep) MakeNext(next awsstepfunctions.State) {
 }
 
 func (e *jsiiProxy_EmrAddStep) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -607,6 +655,9 @@ func (e *jsiiProxy_EmrAddStep) Metric(metricName *string, props *awscloudwatch.M
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -620,6 +671,9 @@ func (e *jsiiProxy_EmrAddStep) MetricFailed(props *awscloudwatch.MetricOptions) 
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -633,6 +687,9 @@ func (e *jsiiProxy_EmrAddStep) MetricHeartbeatTimedOut(props *awscloudwatch.Metr
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -646,6 +703,9 @@ func (e *jsiiProxy_EmrAddStep) MetricRunTime(props *awscloudwatch.MetricOptions)
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -659,6 +719,9 @@ func (e *jsiiProxy_EmrAddStep) MetricScheduled(props *awscloudwatch.MetricOption
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -672,6 +735,9 @@ func (e *jsiiProxy_EmrAddStep) MetricScheduleTime(props *awscloudwatch.MetricOpt
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -685,6 +751,9 @@ func (e *jsiiProxy_EmrAddStep) MetricStarted(props *awscloudwatch.MetricOptions)
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -698,6 +767,9 @@ func (e *jsiiProxy_EmrAddStep) MetricSucceeded(props *awscloudwatch.MetricOption
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -711,6 +783,9 @@ func (e *jsiiProxy_EmrAddStep) MetricTime(props *awscloudwatch.MetricOptions) aw
 }
 
 func (e *jsiiProxy_EmrAddStep) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -724,6 +799,9 @@ func (e *jsiiProxy_EmrAddStep) MetricTimedOut(props *awscloudwatch.MetricOptions
 }
 
 func (e *jsiiProxy_EmrAddStep) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := e.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -745,6 +823,9 @@ func (e *jsiiProxy_EmrAddStep) OnPrepare() {
 }
 
 func (e *jsiiProxy_EmrAddStep) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -865,6 +946,9 @@ func (e *jsiiProxy_EmrAddStep) RenderRetryCatch() interface{} {
 }
 
 func (e *jsiiProxy_EmrAddStep) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",
@@ -912,6 +996,9 @@ func (e *jsiiProxy_EmrAddStep) Validate() *[]*string {
 }
 
 func (e *jsiiProxy_EmrAddStep) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"whenBoundToGraph",

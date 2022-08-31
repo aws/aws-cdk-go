@@ -76,6 +76,9 @@ func NewNatProvider_Override(n NatProvider) {
 func NatProvider_Gateway(props *NatGatewayProps) NatProvider {
 	_init_.Initialize()
 
+	if err := validateNatProvider_GatewayParameters(props); err != nil {
+		panic(err)
+	}
 	var returns NatProvider
 
 	_jsii_.StaticInvoke(
@@ -101,6 +104,9 @@ func NatProvider_Gateway(props *NatGatewayProps) NatProvider {
 func NatProvider_Instance(props *NatInstanceProps) NatInstanceProvider {
 	_init_.Initialize()
 
+	if err := validateNatProvider_InstanceParameters(props); err != nil {
+		panic(err)
+	}
 	var returns NatInstanceProvider
 
 	_jsii_.StaticInvoke(
@@ -114,6 +120,9 @@ func NatProvider_Instance(props *NatInstanceProps) NatInstanceProvider {
 }
 
 func (n *jsiiProxy_NatProvider) ConfigureNat(options *ConfigureNatOptions) {
+	if err := n.validateConfigureNatParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"configureNat",
@@ -122,6 +131,9 @@ func (n *jsiiProxy_NatProvider) ConfigureNat(options *ConfigureNatOptions) {
 }
 
 func (n *jsiiProxy_NatProvider) ConfigureSubnet(subnet PrivateSubnet) {
+	if err := n.validateConfigureSubnetParameters(subnet); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"configureSubnet",

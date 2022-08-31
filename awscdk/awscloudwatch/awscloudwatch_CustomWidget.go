@@ -110,6 +110,9 @@ func (j *jsiiProxy_CustomWidget) Y() *float64 {
 func NewCustomWidget(props *CustomWidgetProps) CustomWidget {
 	_init_.Initialize()
 
+	if err := validateNewCustomWidgetParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CustomWidget{}
 
 	_jsii_.Create(
@@ -132,7 +135,7 @@ func NewCustomWidget_Override(c CustomWidget, props *CustomWidgetProps) {
 	)
 }
 
-func (j *jsiiProxy_CustomWidget) SetX(val *float64) {
+func (j *jsiiProxy_CustomWidget)SetX(val *float64) {
 	_jsii_.Set(
 		j,
 		"x",
@@ -140,7 +143,7 @@ func (j *jsiiProxy_CustomWidget) SetX(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CustomWidget) SetY(val *float64) {
+func (j *jsiiProxy_CustomWidget)SetY(val *float64) {
 	_jsii_.Set(
 		j,
 		"y",
@@ -162,6 +165,9 @@ func (c *jsiiProxy_CustomWidget) CopyMetricWarnings(ms ...IMetric) {
 }
 
 func (c *jsiiProxy_CustomWidget) Position(x *float64, y *float64) {
+	if err := c.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"position",

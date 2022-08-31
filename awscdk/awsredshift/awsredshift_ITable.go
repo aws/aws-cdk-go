@@ -34,6 +34,9 @@ type jsiiProxy_ITable struct {
 }
 
 func (i *jsiiProxy_ITable) Grant(user IUser, actions ...TableAction) {
+	if err := i.validateGrantParameters(user); err != nil {
+		panic(err)
+	}
 	args := []interface{}{user}
 	for _, a := range actions {
 		args = append(args, a)

@@ -745,6 +745,9 @@ func (j *jsiiProxy_CfnAlarm) UpdatedProperites() *map[string]interface{} {
 func NewCfnAlarm(scope awscdk.Construct, id *string, props *CfnAlarmProps) CfnAlarm {
 	_init_.Initialize()
 
+	if err := validateNewCfnAlarmParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnAlarm{}
 
 	_jsii_.Create(
@@ -767,7 +770,10 @@ func NewCfnAlarm_Override(c CfnAlarm, scope awscdk.Construct, id *string, props 
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetActionsEnabled(val interface{}) {
+func (j *jsiiProxy_CfnAlarm)SetActionsEnabled(val interface{}) {
+	if err := j.validateSetActionsEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"actionsEnabled",
@@ -775,7 +781,7 @@ func (j *jsiiProxy_CfnAlarm) SetActionsEnabled(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetAlarmActions(val *[]*string) {
+func (j *jsiiProxy_CfnAlarm)SetAlarmActions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"alarmActions",
@@ -783,7 +789,7 @@ func (j *jsiiProxy_CfnAlarm) SetAlarmActions(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetAlarmDescription(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetAlarmDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"alarmDescription",
@@ -791,7 +797,7 @@ func (j *jsiiProxy_CfnAlarm) SetAlarmDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetAlarmName(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetAlarmName(val *string) {
 	_jsii_.Set(
 		j,
 		"alarmName",
@@ -799,7 +805,10 @@ func (j *jsiiProxy_CfnAlarm) SetAlarmName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetComparisonOperator(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetComparisonOperator(val *string) {
+	if err := j.validateSetComparisonOperatorParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"comparisonOperator",
@@ -807,7 +816,7 @@ func (j *jsiiProxy_CfnAlarm) SetComparisonOperator(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetDatapointsToAlarm(val *float64) {
+func (j *jsiiProxy_CfnAlarm)SetDatapointsToAlarm(val *float64) {
 	_jsii_.Set(
 		j,
 		"datapointsToAlarm",
@@ -815,7 +824,10 @@ func (j *jsiiProxy_CfnAlarm) SetDatapointsToAlarm(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetDimensions(val interface{}) {
+func (j *jsiiProxy_CfnAlarm)SetDimensions(val interface{}) {
+	if err := j.validateSetDimensionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dimensions",
@@ -823,7 +835,7 @@ func (j *jsiiProxy_CfnAlarm) SetDimensions(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetEvaluateLowSampleCountPercentile(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetEvaluateLowSampleCountPercentile(val *string) {
 	_jsii_.Set(
 		j,
 		"evaluateLowSampleCountPercentile",
@@ -831,7 +843,10 @@ func (j *jsiiProxy_CfnAlarm) SetEvaluateLowSampleCountPercentile(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetEvaluationPeriods(val *float64) {
+func (j *jsiiProxy_CfnAlarm)SetEvaluationPeriods(val *float64) {
+	if err := j.validateSetEvaluationPeriodsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"evaluationPeriods",
@@ -839,7 +854,7 @@ func (j *jsiiProxy_CfnAlarm) SetEvaluationPeriods(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetExtendedStatistic(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetExtendedStatistic(val *string) {
 	_jsii_.Set(
 		j,
 		"extendedStatistic",
@@ -847,7 +862,7 @@ func (j *jsiiProxy_CfnAlarm) SetExtendedStatistic(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetInsufficientDataActions(val *[]*string) {
+func (j *jsiiProxy_CfnAlarm)SetInsufficientDataActions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"insufficientDataActions",
@@ -855,7 +870,7 @@ func (j *jsiiProxy_CfnAlarm) SetInsufficientDataActions(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetMetricName(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetMetricName(val *string) {
 	_jsii_.Set(
 		j,
 		"metricName",
@@ -863,7 +878,10 @@ func (j *jsiiProxy_CfnAlarm) SetMetricName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetMetrics(val interface{}) {
+func (j *jsiiProxy_CfnAlarm)SetMetrics(val interface{}) {
+	if err := j.validateSetMetricsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"metrics",
@@ -871,7 +889,7 @@ func (j *jsiiProxy_CfnAlarm) SetMetrics(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetNamespace(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetNamespace(val *string) {
 	_jsii_.Set(
 		j,
 		"namespace",
@@ -879,7 +897,7 @@ func (j *jsiiProxy_CfnAlarm) SetNamespace(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetOkActions(val *[]*string) {
+func (j *jsiiProxy_CfnAlarm)SetOkActions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"okActions",
@@ -887,7 +905,7 @@ func (j *jsiiProxy_CfnAlarm) SetOkActions(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetPeriod(val *float64) {
+func (j *jsiiProxy_CfnAlarm)SetPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"period",
@@ -895,7 +913,7 @@ func (j *jsiiProxy_CfnAlarm) SetPeriod(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetStatistic(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetStatistic(val *string) {
 	_jsii_.Set(
 		j,
 		"statistic",
@@ -903,7 +921,7 @@ func (j *jsiiProxy_CfnAlarm) SetStatistic(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetThreshold(val *float64) {
+func (j *jsiiProxy_CfnAlarm)SetThreshold(val *float64) {
 	_jsii_.Set(
 		j,
 		"threshold",
@@ -911,7 +929,7 @@ func (j *jsiiProxy_CfnAlarm) SetThreshold(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetThresholdMetricId(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetThresholdMetricId(val *string) {
 	_jsii_.Set(
 		j,
 		"thresholdMetricId",
@@ -919,7 +937,7 @@ func (j *jsiiProxy_CfnAlarm) SetThresholdMetricId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetTreatMissingData(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetTreatMissingData(val *string) {
 	_jsii_.Set(
 		j,
 		"treatMissingData",
@@ -927,7 +945,7 @@ func (j *jsiiProxy_CfnAlarm) SetTreatMissingData(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAlarm) SetUnit(val *string) {
+func (j *jsiiProxy_CfnAlarm)SetUnit(val *string) {
 	_jsii_.Set(
 		j,
 		"unit",
@@ -945,6 +963,9 @@ func (j *jsiiProxy_CfnAlarm) SetUnit(val *string) {
 func CfnAlarm_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAlarm_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -962,6 +983,9 @@ func CfnAlarm_IsCfnElement(x interface{}) *bool {
 func CfnAlarm_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAlarm_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -979,6 +1003,9 @@ func CfnAlarm_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnAlarm_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAlarm_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1003,6 +1030,9 @@ func CfnAlarm_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnAlarm) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -1011,6 +1041,9 @@ func (c *jsiiProxy_CfnAlarm) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnAlarm) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1019,6 +1052,9 @@ func (c *jsiiProxy_CfnAlarm) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnAlarm) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1027,6 +1063,9 @@ func (c *jsiiProxy_CfnAlarm) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnAlarm) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1035,6 +1074,9 @@ func (c *jsiiProxy_CfnAlarm) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnAlarm) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1043,6 +1085,9 @@ func (c *jsiiProxy_CfnAlarm) AddPropertyDeletionOverride(propertyPath *string) {
 }
 
 func (c *jsiiProxy_CfnAlarm) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1051,6 +1096,9 @@ func (c *jsiiProxy_CfnAlarm) AddPropertyOverride(propertyPath *string, value int
 }
 
 func (c *jsiiProxy_CfnAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1059,6 +1107,9 @@ func (c *jsiiProxy_CfnAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 }
 
 func (c *jsiiProxy_CfnAlarm) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1072,6 +1123,9 @@ func (c *jsiiProxy_CfnAlarm) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnAlarm) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1085,6 +1139,9 @@ func (c *jsiiProxy_CfnAlarm) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnAlarm) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1101,6 +1158,9 @@ func (c *jsiiProxy_CfnAlarm) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnAlarm) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1122,6 +1182,9 @@ func (c *jsiiProxy_CfnAlarm) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAlarm) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1138,6 +1201,9 @@ func (c *jsiiProxy_CfnAlarm) Prepare() {
 }
 
 func (c *jsiiProxy_CfnAlarm) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1164,6 +1230,9 @@ func (c *jsiiProxy_CfnAlarm) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnAlarm) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1198,6 +1267,9 @@ func (c *jsiiProxy_CfnAlarm) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAlarm) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

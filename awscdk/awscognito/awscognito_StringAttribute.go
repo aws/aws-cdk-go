@@ -55,6 +55,9 @@ type jsiiProxy_StringAttribute struct {
 func NewStringAttribute(props *StringAttributeProps) StringAttribute {
 	_init_.Initialize()
 
+	if err := validateNewStringAttributeParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StringAttribute{}
 
 	_jsii_.Create(

@@ -224,6 +224,9 @@ func (j *jsiiProxy_OriginAccessIdentity) Stack() awscdk.Stack {
 func NewOriginAccessIdentity(scope constructs.Construct, id *string, props *OriginAccessIdentityProps) OriginAccessIdentity {
 	_init_.Initialize()
 
+	if err := validateNewOriginAccessIdentityParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_OriginAccessIdentity{}
 
 	_jsii_.Create(
@@ -251,6 +254,9 @@ func NewOriginAccessIdentity_Override(o OriginAccessIdentity, scope constructs.C
 func OriginAccessIdentity_FromOriginAccessIdentityName(scope constructs.Construct, id *string, originAccessIdentityName *string) IOriginAccessIdentity {
 	_init_.Initialize()
 
+	if err := validateOriginAccessIdentity_FromOriginAccessIdentityNameParameters(scope, id, originAccessIdentityName); err != nil {
+		panic(err)
+	}
 	var returns IOriginAccessIdentity
 
 	_jsii_.StaticInvoke(
@@ -268,6 +274,9 @@ func OriginAccessIdentity_FromOriginAccessIdentityName(scope constructs.Construc
 func OriginAccessIdentity_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateOriginAccessIdentity_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -285,6 +294,9 @@ func OriginAccessIdentity_IsConstruct(x interface{}) *bool {
 func OriginAccessIdentity_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateOriginAccessIdentity_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -298,6 +310,9 @@ func OriginAccessIdentity_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (o *jsiiProxy_OriginAccessIdentity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := o.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"applyRemovalPolicy",
@@ -332,6 +347,9 @@ func (o *jsiiProxy_OriginAccessIdentity) GeneratePhysicalName() *string {
 }
 
 func (o *jsiiProxy_OriginAccessIdentity) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := o.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -345,6 +363,9 @@ func (o *jsiiProxy_OriginAccessIdentity) GetResourceArnAttribute(arnAttr *string
 }
 
 func (o *jsiiProxy_OriginAccessIdentity) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := o.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -366,6 +387,9 @@ func (o *jsiiProxy_OriginAccessIdentity) OnPrepare() {
 }
 
 func (o *jsiiProxy_OriginAccessIdentity) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := o.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"onSynthesize",
@@ -395,6 +419,9 @@ func (o *jsiiProxy_OriginAccessIdentity) Prepare() {
 }
 
 func (o *jsiiProxy_OriginAccessIdentity) Synthesize(session awscdk.ISynthesisSession) {
+	if err := o.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"synthesize",

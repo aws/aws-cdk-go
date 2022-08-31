@@ -206,6 +206,9 @@ func (j *jsiiProxy_TagOptions) Stack() awscdk.Stack {
 func NewTagOptions(scope constructs.Construct, id *string, props *TagOptionsProps) TagOptions {
 	_init_.Initialize()
 
+	if err := validateNewTagOptionsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TagOptions{}
 
 	_jsii_.Create(
@@ -233,6 +236,9 @@ func NewTagOptions_Override(t TagOptions, scope constructs.Construct, id *string
 func TagOptions_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTagOptions_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -250,6 +256,9 @@ func TagOptions_IsConstruct(x interface{}) *bool {
 func TagOptions_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateTagOptions_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -263,6 +272,9 @@ func TagOptions_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (t *jsiiProxy_TagOptions) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := t.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyRemovalPolicy",
@@ -284,6 +296,9 @@ func (t *jsiiProxy_TagOptions) GeneratePhysicalName() *string {
 }
 
 func (t *jsiiProxy_TagOptions) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := t.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -297,6 +312,9 @@ func (t *jsiiProxy_TagOptions) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (t *jsiiProxy_TagOptions) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := t.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -318,6 +336,9 @@ func (t *jsiiProxy_TagOptions) OnPrepare() {
 }
 
 func (t *jsiiProxy_TagOptions) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -347,6 +368,9 @@ func (t *jsiiProxy_TagOptions) Prepare() {
 }
 
 func (t *jsiiProxy_TagOptions) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

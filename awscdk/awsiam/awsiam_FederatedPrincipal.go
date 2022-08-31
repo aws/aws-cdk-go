@@ -159,6 +159,9 @@ func (j *jsiiProxy_FederatedPrincipal) PrincipalAccount() *string {
 func NewFederatedPrincipal(federated *string, conditions *map[string]interface{}, assumeRoleAction *string) FederatedPrincipal {
 	_init_.Initialize()
 
+	if err := validateNewFederatedPrincipalParameters(federated, conditions); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FederatedPrincipal{}
 
 	_jsii_.Create(
@@ -182,6 +185,9 @@ func NewFederatedPrincipal_Override(f FederatedPrincipal, federated *string, con
 }
 
 func (f *jsiiProxy_FederatedPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := f.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addToAssumeRolePolicy",
@@ -190,6 +196,9 @@ func (f *jsiiProxy_FederatedPrincipal) AddToAssumeRolePolicy(document PolicyDocu
 }
 
 func (f *jsiiProxy_FederatedPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := f.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -203,6 +212,9 @@ func (f *jsiiProxy_FederatedPrincipal) AddToPolicy(statement PolicyStatement) *b
 }
 
 func (f *jsiiProxy_FederatedPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := f.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -255,6 +267,9 @@ func (f *jsiiProxy_FederatedPrincipal) ToString() *string {
 }
 
 func (f *jsiiProxy_FederatedPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := f.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

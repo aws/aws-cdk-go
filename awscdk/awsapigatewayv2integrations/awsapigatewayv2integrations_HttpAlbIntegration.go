@@ -113,6 +113,9 @@ func (j *jsiiProxy_HttpAlbIntegration) PayloadFormatVersion() awsapigatewayv2.Pa
 func NewHttpAlbIntegration(id *string, listener awselasticloadbalancingv2.IApplicationListener, props *HttpAlbIntegrationProps) HttpAlbIntegration {
 	_init_.Initialize()
 
+	if err := validateNewHttpAlbIntegrationParameters(id, listener, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpAlbIntegration{}
 
 	_jsii_.Create(
@@ -135,7 +138,10 @@ func NewHttpAlbIntegration_Override(h HttpAlbIntegration, id *string, listener a
 	)
 }
 
-func (j *jsiiProxy_HttpAlbIntegration) SetConnectionType(val awsapigatewayv2.HttpConnectionType) {
+func (j *jsiiProxy_HttpAlbIntegration)SetConnectionType(val awsapigatewayv2.HttpConnectionType) {
+	if err := j.validateSetConnectionTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectionType",
@@ -143,7 +149,10 @@ func (j *jsiiProxy_HttpAlbIntegration) SetConnectionType(val awsapigatewayv2.Htt
 	)
 }
 
-func (j *jsiiProxy_HttpAlbIntegration) SetHttpMethod(val awsapigatewayv2.HttpMethod) {
+func (j *jsiiProxy_HttpAlbIntegration)SetHttpMethod(val awsapigatewayv2.HttpMethod) {
+	if err := j.validateSetHttpMethodParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"httpMethod",
@@ -151,7 +160,10 @@ func (j *jsiiProxy_HttpAlbIntegration) SetHttpMethod(val awsapigatewayv2.HttpMet
 	)
 }
 
-func (j *jsiiProxy_HttpAlbIntegration) SetIntegrationType(val awsapigatewayv2.HttpIntegrationType) {
+func (j *jsiiProxy_HttpAlbIntegration)SetIntegrationType(val awsapigatewayv2.HttpIntegrationType) {
+	if err := j.validateSetIntegrationTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"integrationType",
@@ -159,7 +171,10 @@ func (j *jsiiProxy_HttpAlbIntegration) SetIntegrationType(val awsapigatewayv2.Ht
 	)
 }
 
-func (j *jsiiProxy_HttpAlbIntegration) SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion) {
+func (j *jsiiProxy_HttpAlbIntegration)SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion) {
+	if err := j.validateSetPayloadFormatVersionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"payloadFormatVersion",
@@ -168,6 +183,9 @@ func (j *jsiiProxy_HttpAlbIntegration) SetPayloadFormatVersion(val awsapigateway
 }
 
 func (h *jsiiProxy_HttpAlbIntegration) Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteIntegrationConfig
 
 	_jsii_.Invoke(
@@ -181,6 +199,9 @@ func (h *jsiiProxy_HttpAlbIntegration) Bind(options *awsapigatewayv2.HttpRouteIn
 }
 
 func (h *jsiiProxy_HttpAlbIntegration) CompleteBind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) {
+	if err := h.validateCompleteBindParameters(_options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"completeBind",

@@ -211,6 +211,9 @@ func (j *jsiiProxy_WebSocketIntegration) WebSocketApi() IWebSocketApi {
 func NewWebSocketIntegration(scope constructs.Construct, id *string, props *WebSocketIntegrationProps) WebSocketIntegration {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketIntegrationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketIntegration{}
 
 	_jsii_.Create(
@@ -238,6 +241,9 @@ func NewWebSocketIntegration_Override(w WebSocketIntegration, scope constructs.C
 func WebSocketIntegration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketIntegration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -255,6 +261,9 @@ func WebSocketIntegration_IsConstruct(x interface{}) *bool {
 func WebSocketIntegration_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketIntegration_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -268,6 +277,9 @@ func WebSocketIntegration_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (w *jsiiProxy_WebSocketIntegration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := w.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"applyRemovalPolicy",
@@ -289,6 +301,9 @@ func (w *jsiiProxy_WebSocketIntegration) GeneratePhysicalName() *string {
 }
 
 func (w *jsiiProxy_WebSocketIntegration) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := w.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -302,6 +317,9 @@ func (w *jsiiProxy_WebSocketIntegration) GetResourceArnAttribute(arnAttr *string
 }
 
 func (w *jsiiProxy_WebSocketIntegration) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := w.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -323,6 +341,9 @@ func (w *jsiiProxy_WebSocketIntegration) OnPrepare() {
 }
 
 func (w *jsiiProxy_WebSocketIntegration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := w.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"onSynthesize",
@@ -352,6 +373,9 @@ func (w *jsiiProxy_WebSocketIntegration) Prepare() {
 }
 
 func (w *jsiiProxy_WebSocketIntegration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := w.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"synthesize",

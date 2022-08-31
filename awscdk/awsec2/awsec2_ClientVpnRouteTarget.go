@@ -79,6 +79,9 @@ func ClientVpnRouteTarget_Local() ClientVpnRouteTarget {
 func ClientVpnRouteTarget_Subnet(subnet ISubnet) ClientVpnRouteTarget {
 	_init_.Initialize()
 
+	if err := validateClientVpnRouteTarget_SubnetParameters(subnet); err != nil {
+		panic(err)
+	}
 	var returns ClientVpnRouteTarget
 
 	_jsii_.StaticInvoke(

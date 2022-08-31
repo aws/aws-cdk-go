@@ -387,6 +387,9 @@ func (j *jsiiProxy_EmrContainersCreateVirtualCluster) TaskPolicies() *[]awsiam.P
 func NewEmrContainersCreateVirtualCluster(scope constructs.Construct, id *string, props *EmrContainersCreateVirtualClusterProps) EmrContainersCreateVirtualCluster {
 	_init_.Initialize()
 
+	if err := validateNewEmrContainersCreateVirtualClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EmrContainersCreateVirtualCluster{}
 
 	_jsii_.Create(
@@ -409,7 +412,7 @@ func NewEmrContainersCreateVirtualCluster_Override(e EmrContainersCreateVirtualC
 	)
 }
 
-func (j *jsiiProxy_EmrContainersCreateVirtualCluster) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -417,7 +420,7 @@ func (j *jsiiProxy_EmrContainersCreateVirtualCluster) SetDefaultChoice(val awsst
 	)
 }
 
-func (j *jsiiProxy_EmrContainersCreateVirtualCluster) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -430,6 +433,9 @@ func (j *jsiiProxy_EmrContainersCreateVirtualCluster) SetIteration(val awsstepfu
 func EmrContainersCreateVirtualCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateEmrContainersCreateVirtualCluster_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -447,6 +453,9 @@ func EmrContainersCreateVirtualCluster_FilterNextables(states *[]awsstepfunction
 func EmrContainersCreateVirtualCluster_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrContainersCreateVirtualCluster_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -466,6 +475,9 @@ func EmrContainersCreateVirtualCluster_FindReachableEndStates(start awsstepfunct
 func EmrContainersCreateVirtualCluster_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrContainersCreateVirtualCluster_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -483,6 +495,9 @@ func EmrContainersCreateVirtualCluster_FindReachableStates(start awsstepfunction
 func EmrContainersCreateVirtualCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEmrContainersCreateVirtualCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -500,6 +515,9 @@ func EmrContainersCreateVirtualCluster_IsConstruct(x interface{}) *bool {
 func EmrContainersCreateVirtualCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateEmrContainersCreateVirtualCluster_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
 		"prefixStates",
@@ -508,6 +526,9 @@ func EmrContainersCreateVirtualCluster_PrefixStates(root constructs.IConstruct, 
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := e.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addBranch",
@@ -516,6 +537,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddBranch(branch awsstepfu
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -529,6 +553,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddCatch(handler awsstepfu
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := e.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addChoice",
@@ -537,6 +564,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddChoice(condition awsste
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := e.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addIterator",
@@ -545,6 +575,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddIterator(iteration awss
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddPrefix(x *string) {
+	if err := e.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPrefix",
@@ -553,6 +586,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddPrefix(x *string) {
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -566,6 +602,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddRetry(props *awsstepfun
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"bindToGraph",
@@ -574,6 +613,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) BindToGraph(graph awsstepf
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MakeDefault(def awsstepfunctions.State) {
+	if err := e.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeDefault",
@@ -582,6 +624,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MakeDefault(def awsstepfun
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MakeNext(next awsstepfunctions.State) {
+	if err := e.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeNext",
@@ -590,6 +635,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MakeNext(next awsstepfunct
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -603,6 +651,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Metric(metricName *string,
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -616,6 +667,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricFailed(props *awsclo
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -629,6 +683,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricHeartbeatTimedOut(pr
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -642,6 +699,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricRunTime(props *awscl
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -655,6 +715,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricScheduled(props *aws
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -668,6 +731,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricScheduleTime(props *
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -681,6 +747,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricStarted(props *awscl
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -694,6 +763,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricSucceeded(props *aws
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -707,6 +779,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricTime(props *awscloud
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -720,6 +795,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricTimedOut(props *awsc
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := e.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -741,6 +819,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) OnPrepare() {
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -861,6 +942,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderRetryCatch() interfa
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",
@@ -908,6 +992,9 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Validate() *[]*string {
 }
 
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"whenBoundToGraph",

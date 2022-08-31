@@ -528,6 +528,9 @@ func (j *jsiiProxy_CfnGameSessionQueue) UpdatedProperites() *map[string]interfac
 func NewCfnGameSessionQueue(scope awscdk.Construct, id *string, props *CfnGameSessionQueueProps) CfnGameSessionQueue {
 	_init_.Initialize()
 
+	if err := validateNewCfnGameSessionQueueParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnGameSessionQueue{}
 
 	_jsii_.Create(
@@ -550,7 +553,7 @@ func NewCfnGameSessionQueue_Override(c CfnGameSessionQueue, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetCustomEventData(val *string) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetCustomEventData(val *string) {
 	_jsii_.Set(
 		j,
 		"customEventData",
@@ -558,7 +561,10 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetCustomEventData(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetDestinations(val interface{}) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetDestinations(val interface{}) {
+	if err := j.validateSetDestinationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"destinations",
@@ -566,7 +572,10 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetDestinations(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetFilterConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetFilterConfiguration(val interface{}) {
+	if err := j.validateSetFilterConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"filterConfiguration",
@@ -574,7 +583,10 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetFilterConfiguration(val interface{}) 
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetName(val *string) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -582,7 +594,7 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetNotificationTarget(val *string) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetNotificationTarget(val *string) {
 	_jsii_.Set(
 		j,
 		"notificationTarget",
@@ -590,7 +602,10 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetNotificationTarget(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetPlayerLatencyPolicies(val interface{}) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetPlayerLatencyPolicies(val interface{}) {
+	if err := j.validateSetPlayerLatencyPoliciesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"playerLatencyPolicies",
@@ -598,7 +613,10 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetPlayerLatencyPolicies(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetPriorityConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetPriorityConfiguration(val interface{}) {
+	if err := j.validateSetPriorityConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"priorityConfiguration",
@@ -606,7 +624,7 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetPriorityConfiguration(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnGameSessionQueue) SetTimeoutInSeconds(val *float64) {
+func (j *jsiiProxy_CfnGameSessionQueue)SetTimeoutInSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"timeoutInSeconds",
@@ -624,6 +642,9 @@ func (j *jsiiProxy_CfnGameSessionQueue) SetTimeoutInSeconds(val *float64) {
 func CfnGameSessionQueue_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGameSessionQueue_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -641,6 +662,9 @@ func CfnGameSessionQueue_IsCfnElement(x interface{}) *bool {
 func CfnGameSessionQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGameSessionQueue_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -658,6 +682,9 @@ func CfnGameSessionQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnGameSessionQueue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGameSessionQueue_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -682,6 +709,9 @@ func CfnGameSessionQueue_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -690,6 +720,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -698,6 +731,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -706,6 +742,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -714,6 +753,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -722,6 +764,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -730,6 +775,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -738,6 +786,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -751,6 +802,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -764,6 +818,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -780,6 +837,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -801,6 +861,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -817,6 +880,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) Prepare() {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -843,6 +909,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -877,6 +946,9 @@ func (c *jsiiProxy_CfnGameSessionQueue) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -67,6 +67,9 @@ func NewSchedule_Override(s Schedule) {
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
+	if err := validateSchedule_CronParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
@@ -84,6 +87,9 @@ func Schedule_Cron(options *CronOptions) Schedule {
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
+	if err := validateSchedule_ExpressionParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
@@ -101,6 +107,9 @@ func Schedule_Expression(expression *string) Schedule {
 func Schedule_Rate(duration awscdk.Duration) Schedule {
 	_init_.Initialize()
 
+	if err := validateSchedule_RateParameters(duration); err != nil {
+		panic(err)
+	}
 	var returns Schedule
 
 	_jsii_.StaticInvoke(

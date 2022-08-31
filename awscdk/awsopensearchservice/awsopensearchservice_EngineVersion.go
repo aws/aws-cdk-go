@@ -48,6 +48,9 @@ func (j *jsiiProxy_EngineVersion) Version() *string {
 func EngineVersion_Elasticsearch(version *string) EngineVersion {
 	_init_.Initialize()
 
+	if err := validateEngineVersion_ElasticsearchParameters(version); err != nil {
+		panic(err)
+	}
 	var returns EngineVersion
 
 	_jsii_.StaticInvoke(
@@ -65,6 +68,9 @@ func EngineVersion_Elasticsearch(version *string) EngineVersion {
 func EngineVersion_OpenSearch(version *string) EngineVersion {
 	_init_.Initialize()
 
+	if err := validateEngineVersion_OpenSearchParameters(version); err != nil {
+		panic(err)
+	}
 	var returns EngineVersion
 
 	_jsii_.StaticInvoke(

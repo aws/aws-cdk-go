@@ -585,6 +585,9 @@ func (j *jsiiProxy_SingletonFunction) Stack() awscdk.Stack {
 func NewSingletonFunction(scope constructs.Construct, id *string, props *SingletonFunctionProps) SingletonFunction {
 	_init_.Initialize()
 
+	if err := validateNewSingletonFunctionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SingletonFunction{}
 
 	_jsii_.Create(
@@ -612,6 +615,9 @@ func NewSingletonFunction_Override(s SingletonFunction, scope constructs.Constru
 func SingletonFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSingletonFunction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -629,6 +635,9 @@ func SingletonFunction_IsConstruct(x interface{}) *bool {
 func SingletonFunction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSingletonFunction_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -655,6 +664,9 @@ func (s *jsiiProxy_SingletonFunction) AddDependency(up ...awscdk.IDependable) {
 }
 
 func (s *jsiiProxy_SingletonFunction) AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function {
+	if err := s.validateAddEnvironmentParameters(key, value, options); err != nil {
+		panic(err)
+	}
 	var returns Function
 
 	_jsii_.Invoke(
@@ -668,6 +680,9 @@ func (s *jsiiProxy_SingletonFunction) AddEnvironment(key *string, value *string,
 }
 
 func (s *jsiiProxy_SingletonFunction) AddEventSource(source IEventSource) {
+	if err := s.validateAddEventSourceParameters(source); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addEventSource",
@@ -676,6 +691,9 @@ func (s *jsiiProxy_SingletonFunction) AddEventSource(source IEventSource) {
 }
 
 func (s *jsiiProxy_SingletonFunction) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
+	if err := s.validateAddEventSourceMappingParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns EventSourceMapping
 
 	_jsii_.Invoke(
@@ -689,6 +707,9 @@ func (s *jsiiProxy_SingletonFunction) AddEventSourceMapping(id *string, options 
 }
 
 func (s *jsiiProxy_SingletonFunction) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	if err := s.validateAddFunctionUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns FunctionUrl
 
 	_jsii_.Invoke(
@@ -715,6 +736,9 @@ func (s *jsiiProxy_SingletonFunction) AddLayers(layers ...ILayerVersion) {
 }
 
 func (s *jsiiProxy_SingletonFunction) AddPermission(name *string, permission *Permission) {
+	if err := s.validateAddPermissionParameters(name, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addPermission",
@@ -723,6 +747,9 @@ func (s *jsiiProxy_SingletonFunction) AddPermission(name *string, permission *Pe
 }
 
 func (s *jsiiProxy_SingletonFunction) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := s.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToRolePolicy",
@@ -731,6 +758,9 @@ func (s *jsiiProxy_SingletonFunction) AddToRolePolicy(statement awsiam.PolicySta
 }
 
 func (s *jsiiProxy_SingletonFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -739,6 +769,9 @@ func (s *jsiiProxy_SingletonFunction) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 func (s *jsiiProxy_SingletonFunction) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
+	if err := s.validateConfigureAsyncInvokeParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"configureAsyncInvoke",
@@ -747,6 +780,9 @@ func (s *jsiiProxy_SingletonFunction) ConfigureAsyncInvoke(options *EventInvokeC
 }
 
 func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
+	if err := s.validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope, action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -755,6 +791,9 @@ func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions
 }
 
 func (s *jsiiProxy_SingletonFunction) DependOn(down awscdk.IConstruct) {
+	if err := s.validateDependOnParameters(down); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"dependOn",
@@ -776,6 +815,9 @@ func (s *jsiiProxy_SingletonFunction) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_SingletonFunction) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -789,6 +831,9 @@ func (s *jsiiProxy_SingletonFunction) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (s *jsiiProxy_SingletonFunction) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -802,6 +847,9 @@ func (s *jsiiProxy_SingletonFunction) GetResourceNameAttribute(nameAttr *string)
 }
 
 func (s *jsiiProxy_SingletonFunction) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantInvokeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -815,6 +863,9 @@ func (s *jsiiProxy_SingletonFunction) GrantInvoke(grantee awsiam.IGrantable) aws
 }
 
 func (s *jsiiProxy_SingletonFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantInvokeUrlParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -828,6 +879,9 @@ func (s *jsiiProxy_SingletonFunction) GrantInvokeUrl(grantee awsiam.IGrantable) 
 }
 
 func (s *jsiiProxy_SingletonFunction) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -841,6 +895,9 @@ func (s *jsiiProxy_SingletonFunction) Metric(metricName *string, props *awscloud
 }
 
 func (s *jsiiProxy_SingletonFunction) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -854,6 +911,9 @@ func (s *jsiiProxy_SingletonFunction) MetricDuration(props *awscloudwatch.Metric
 }
 
 func (s *jsiiProxy_SingletonFunction) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -867,6 +927,9 @@ func (s *jsiiProxy_SingletonFunction) MetricErrors(props *awscloudwatch.MetricOp
 }
 
 func (s *jsiiProxy_SingletonFunction) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -880,6 +943,9 @@ func (s *jsiiProxy_SingletonFunction) MetricInvocations(props *awscloudwatch.Met
 }
 
 func (s *jsiiProxy_SingletonFunction) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -901,6 +967,9 @@ func (s *jsiiProxy_SingletonFunction) OnPrepare() {
 }
 
 func (s *jsiiProxy_SingletonFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -930,6 +999,9 @@ func (s *jsiiProxy_SingletonFunction) Prepare() {
 }
 
 func (s *jsiiProxy_SingletonFunction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",
@@ -964,6 +1036,9 @@ func (s *jsiiProxy_SingletonFunction) Validate() *[]*string {
 }
 
 func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+	if err := s.validateWarnInvokeFunctionPermissionsParameters(scope); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"warnInvokeFunctionPermissions",

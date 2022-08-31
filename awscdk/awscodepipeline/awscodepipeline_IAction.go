@@ -33,6 +33,9 @@ type jsiiProxy_IAction struct {
 }
 
 func (i *jsiiProxy_IAction) Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+	if err := i.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *ActionConfig
 
 	_jsii_.Invoke(
@@ -46,6 +49,9 @@ func (i *jsiiProxy_IAction) Bind(scope awscdk.Construct, stage IStage, options *
 }
 
 func (i *jsiiProxy_IAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := i.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

@@ -60,6 +60,9 @@ func (j *jsiiProxy_Runtime) Name() *string {
 func NewRuntime(name *string, family RuntimeFamily) Runtime {
 	_init_.Initialize()
 
+	if err := validateNewRuntimeParameters(name, family); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Runtime{}
 
 	_jsii_.Create(

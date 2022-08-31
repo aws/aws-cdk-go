@@ -60,6 +60,9 @@ func NewHttpRouteIntegration_Override(h HttpRouteIntegration, id *string) {
 }
 
 func (h *jsiiProxy_HttpRouteIntegration) Bind(options *HttpRouteIntegrationBindOptions) *HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *HttpRouteIntegrationConfig
 
 	_jsii_.Invoke(
@@ -73,6 +76,9 @@ func (h *jsiiProxy_HttpRouteIntegration) Bind(options *HttpRouteIntegrationBindO
 }
 
 func (h *jsiiProxy_HttpRouteIntegration) CompleteBind(_options *HttpRouteIntegrationBindOptions) {
+	if err := h.validateCompleteBindParameters(_options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"completeBind",

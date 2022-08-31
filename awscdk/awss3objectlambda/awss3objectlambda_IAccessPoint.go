@@ -39,6 +39,9 @@ type jsiiProxy_IAccessPoint struct {
 }
 
 func (i *jsiiProxy_IAccessPoint) VirtualHostedUrlForObject(key *string, options *awss3.VirtualHostedStyleUrlOptions) *string {
+	if err := i.validateVirtualHostedUrlForObjectParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

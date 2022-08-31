@@ -137,6 +137,9 @@ func (j *jsiiProxy_StageDeployment) StageName() *string {
 func StageDeployment_FromStage(stage awscdk.Stage, props *StageDeploymentProps) StageDeployment {
 	_init_.Initialize()
 
+	if err := validateStageDeployment_FromStageParameters(stage, props); err != nil {
+		panic(err)
+	}
 	var returns StageDeployment
 
 	_jsii_.StaticInvoke(

@@ -58,6 +58,9 @@ func AclTraffic_AllTraffic() AclTraffic {
 func AclTraffic_Icmp(props *AclIcmp) AclTraffic {
 	_init_.Initialize()
 
+	if err := validateAclTraffic_IcmpParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
@@ -77,6 +80,9 @@ func AclTraffic_Icmp(props *AclIcmp) AclTraffic {
 func AclTraffic_Icmpv6(props *AclIcmp) AclTraffic {
 	_init_.Initialize()
 
+	if err := validateAclTraffic_Icmpv6Parameters(props); err != nil {
+		panic(err)
+	}
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
@@ -94,6 +100,9 @@ func AclTraffic_Icmpv6(props *AclIcmp) AclTraffic {
 func AclTraffic_TcpPort(port *float64) AclTraffic {
 	_init_.Initialize()
 
+	if err := validateAclTraffic_TcpPortParameters(port); err != nil {
+		panic(err)
+	}
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
@@ -111,6 +120,9 @@ func AclTraffic_TcpPort(port *float64) AclTraffic {
 func AclTraffic_TcpPortRange(startPort *float64, endPort *float64) AclTraffic {
 	_init_.Initialize()
 
+	if err := validateAclTraffic_TcpPortRangeParameters(startPort, endPort); err != nil {
+		panic(err)
+	}
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
@@ -128,6 +140,9 @@ func AclTraffic_TcpPortRange(startPort *float64, endPort *float64) AclTraffic {
 func AclTraffic_UdpPort(port *float64) AclTraffic {
 	_init_.Initialize()
 
+	if err := validateAclTraffic_UdpPortParameters(port); err != nil {
+		panic(err)
+	}
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(
@@ -145,6 +160,9 @@ func AclTraffic_UdpPort(port *float64) AclTraffic {
 func AclTraffic_UdpPortRange(startPort *float64, endPort *float64) AclTraffic {
 	_init_.Initialize()
 
+	if err := validateAclTraffic_UdpPortRangeParameters(startPort, endPort); err != nil {
+		panic(err)
+	}
 	var returns AclTraffic
 
 	_jsii_.StaticInvoke(

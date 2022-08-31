@@ -332,6 +332,9 @@ func (j *jsiiProxy_BastionHostLinux) Stack() awscdk.Stack {
 func NewBastionHostLinux(scope constructs.Construct, id *string, props *BastionHostLinuxProps) BastionHostLinux {
 	_init_.Initialize()
 
+	if err := validateNewBastionHostLinuxParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BastionHostLinux{}
 
 	_jsii_.Create(
@@ -359,6 +362,9 @@ func NewBastionHostLinux_Override(b BastionHostLinux, scope constructs.Construct
 func BastionHostLinux_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBastionHostLinux_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -376,6 +382,9 @@ func BastionHostLinux_IsConstruct(x interface{}) *bool {
 func BastionHostLinux_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBastionHostLinux_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -402,6 +411,9 @@ func (b *jsiiProxy_BastionHostLinux) AllowSshAccessFrom(peer ...IPeer) {
 }
 
 func (b *jsiiProxy_BastionHostLinux) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -423,6 +435,9 @@ func (b *jsiiProxy_BastionHostLinux) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BastionHostLinux) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -436,6 +451,9 @@ func (b *jsiiProxy_BastionHostLinux) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (b *jsiiProxy_BastionHostLinux) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -457,6 +475,9 @@ func (b *jsiiProxy_BastionHostLinux) OnPrepare() {
 }
 
 func (b *jsiiProxy_BastionHostLinux) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -486,6 +507,9 @@ func (b *jsiiProxy_BastionHostLinux) Prepare() {
 }
 
 func (b *jsiiProxy_BastionHostLinux) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

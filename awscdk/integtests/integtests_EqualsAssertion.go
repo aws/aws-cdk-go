@@ -119,6 +119,9 @@ func (j *jsiiProxy_EqualsAssertion) Result() *string {
 func NewEqualsAssertion(scope constructs.Construct, id *string, props *EqualsAssertionProps) EqualsAssertion {
 	_init_.Initialize()
 
+	if err := validateNewEqualsAssertionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EqualsAssertion{}
 
 	_jsii_.Create(
@@ -146,6 +149,9 @@ func NewEqualsAssertion_Override(e EqualsAssertion, scope constructs.Construct, 
 func EqualsAssertion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEqualsAssertion_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -167,6 +173,9 @@ func (e *jsiiProxy_EqualsAssertion) OnPrepare() {
 }
 
 func (e *jsiiProxy_EqualsAssertion) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -196,6 +205,9 @@ func (e *jsiiProxy_EqualsAssertion) Prepare() {
 }
 
 func (e *jsiiProxy_EqualsAssertion) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

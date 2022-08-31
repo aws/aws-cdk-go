@@ -215,6 +215,9 @@ func (j *jsiiProxy_KubectlLayer) Stack() awscdk.Stack {
 func NewKubectlLayer(scope constructs.Construct, id *string) KubectlLayer {
 	_init_.Initialize()
 
+	if err := validateNewKubectlLayerParameters(scope, id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubectlLayer{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewKubectlLayer_Override(k KubectlLayer, scope constructs.Construct, id *st
 func KubectlLayer_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) awslambda.ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateKubectlLayer_FromLayerVersionArnParameters(scope, id, layerVersionArn); err != nil {
+		panic(err)
+	}
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func KubectlLayer_FromLayerVersionArn(scope constructs.Construct, id *string, la
 func KubectlLayer_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *awslambda.LayerVersionAttributes) awslambda.ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateKubectlLayer_FromLayerVersionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -278,6 +287,9 @@ func KubectlLayer_FromLayerVersionAttributes(scope constructs.Construct, id *str
 func KubectlLayer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubectlLayer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -295,6 +307,9 @@ func KubectlLayer_IsConstruct(x interface{}) *bool {
 func KubectlLayer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateKubectlLayer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -308,6 +323,9 @@ func KubectlLayer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (k *jsiiProxy_KubectlLayer) AddPermission(id *string, permission *awslambda.LayerVersionPermission) {
+	if err := k.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"addPermission",
@@ -316,6 +334,9 @@ func (k *jsiiProxy_KubectlLayer) AddPermission(id *string, permission *awslambda
 }
 
 func (k *jsiiProxy_KubectlLayer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := k.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"applyRemovalPolicy",
@@ -337,6 +358,9 @@ func (k *jsiiProxy_KubectlLayer) GeneratePhysicalName() *string {
 }
 
 func (k *jsiiProxy_KubectlLayer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := k.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -350,6 +374,9 @@ func (k *jsiiProxy_KubectlLayer) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (k *jsiiProxy_KubectlLayer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := k.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -371,6 +398,9 @@ func (k *jsiiProxy_KubectlLayer) OnPrepare() {
 }
 
 func (k *jsiiProxy_KubectlLayer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"onSynthesize",
@@ -400,6 +430,9 @@ func (k *jsiiProxy_KubectlLayer) Prepare() {
 }
 
 func (k *jsiiProxy_KubectlLayer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"synthesize",

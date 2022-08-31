@@ -132,6 +132,9 @@ func (j *jsiiProxy_StepScalingAction) ScalingPolicyArn() *string {
 func NewStepScalingAction(scope constructs.Construct, id *string, props *StepScalingActionProps) StepScalingAction {
 	_init_.Initialize()
 
+	if err := validateNewStepScalingActionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StepScalingAction{}
 
 	_jsii_.Create(
@@ -159,6 +162,9 @@ func NewStepScalingAction_Override(s StepScalingAction, scope constructs.Constru
 func StepScalingAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStepScalingAction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -172,6 +178,9 @@ func StepScalingAction_IsConstruct(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_StepScalingAction) AddAdjustment(adjustment *AdjustmentTier) {
+	if err := s.validateAddAdjustmentParameters(adjustment); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addAdjustment",
@@ -188,6 +197,9 @@ func (s *jsiiProxy_StepScalingAction) OnPrepare() {
 }
 
 func (s *jsiiProxy_StepScalingAction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -217,6 +229,9 @@ func (s *jsiiProxy_StepScalingAction) Prepare() {
 }
 
 func (s *jsiiProxy_StepScalingAction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

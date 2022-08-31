@@ -106,7 +106,7 @@ func NewConcreteWidget_Override(c ConcreteWidget, width *float64, height *float6
 	)
 }
 
-func (j *jsiiProxy_ConcreteWidget) SetX(val *float64) {
+func (j *jsiiProxy_ConcreteWidget)SetX(val *float64) {
 	_jsii_.Set(
 		j,
 		"x",
@@ -114,7 +114,7 @@ func (j *jsiiProxy_ConcreteWidget) SetX(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_ConcreteWidget) SetY(val *float64) {
+func (j *jsiiProxy_ConcreteWidget)SetY(val *float64) {
 	_jsii_.Set(
 		j,
 		"y",
@@ -136,6 +136,9 @@ func (c *jsiiProxy_ConcreteWidget) CopyMetricWarnings(ms ...IMetric) {
 }
 
 func (c *jsiiProxy_ConcreteWidget) Position(x *float64, y *float64) {
+	if err := c.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"position",

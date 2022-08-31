@@ -46,6 +46,9 @@ func (j *jsiiProxy_PayloadFormatVersion) Version() *string {
 func PayloadFormatVersion_Custom(version *string) PayloadFormatVersion {
 	_init_.Initialize()
 
+	if err := validatePayloadFormatVersion_CustomParameters(version); err != nil {
+		panic(err)
+	}
 	var returns PayloadFormatVersion
 
 	_jsii_.StaticInvoke(

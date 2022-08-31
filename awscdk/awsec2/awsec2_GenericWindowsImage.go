@@ -41,6 +41,9 @@ type jsiiProxy_GenericWindowsImage struct {
 func NewGenericWindowsImage(amiMap *map[string]*string, props *GenericWindowsImageProps) GenericWindowsImage {
 	_init_.Initialize()
 
+	if err := validateNewGenericWindowsImageParameters(amiMap, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GenericWindowsImage{}
 
 	_jsii_.Create(
@@ -64,6 +67,9 @@ func NewGenericWindowsImage_Override(g GenericWindowsImage, amiMap *map[string]*
 }
 
 func (g *jsiiProxy_GenericWindowsImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := g.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

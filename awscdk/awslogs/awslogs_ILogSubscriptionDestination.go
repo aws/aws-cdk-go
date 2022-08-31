@@ -27,6 +27,9 @@ type jsiiProxy_ILogSubscriptionDestination struct {
 }
 
 func (i *jsiiProxy_ILogSubscriptionDestination) Bind(scope awscdk.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+	if err := i.validateBindParameters(scope, sourceLogGroup); err != nil {
+		panic(err)
+	}
 	var returns *LogSubscriptionDestinationConfig
 
 	_jsii_.Invoke(

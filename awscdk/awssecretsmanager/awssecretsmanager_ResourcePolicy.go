@@ -206,6 +206,9 @@ func (j *jsiiProxy_ResourcePolicy) Stack() awscdk.Stack {
 func NewResourcePolicy(scope constructs.Construct, id *string, props *ResourcePolicyProps) ResourcePolicy {
 	_init_.Initialize()
 
+	if err := validateNewResourcePolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ResourcePolicy{}
 
 	_jsii_.Create(
@@ -233,6 +236,9 @@ func NewResourcePolicy_Override(r ResourcePolicy, scope constructs.Construct, id
 func ResourcePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateResourcePolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -250,6 +256,9 @@ func ResourcePolicy_IsConstruct(x interface{}) *bool {
 func ResourcePolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateResourcePolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -263,6 +272,9 @@ func ResourcePolicy_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_ResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -284,6 +296,9 @@ func (r *jsiiProxy_ResourcePolicy) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_ResourcePolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -297,6 +312,9 @@ func (r *jsiiProxy_ResourcePolicy) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (r *jsiiProxy_ResourcePolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -318,6 +336,9 @@ func (r *jsiiProxy_ResourcePolicy) OnPrepare() {
 }
 
 func (r *jsiiProxy_ResourcePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -347,6 +368,9 @@ func (r *jsiiProxy_ResourcePolicy) Prepare() {
 }
 
 func (r *jsiiProxy_ResourcePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

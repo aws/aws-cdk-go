@@ -388,6 +388,9 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) TaskPolicies() *[]awsiam.Policy
 func NewEmrModifyInstanceGroupByName(scope constructs.Construct, id *string, props *EmrModifyInstanceGroupByNameProps) EmrModifyInstanceGroupByName {
 	_init_.Initialize()
 
+	if err := validateNewEmrModifyInstanceGroupByNameParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EmrModifyInstanceGroupByName{}
 
 	_jsii_.Create(
@@ -410,7 +413,7 @@ func NewEmrModifyInstanceGroupByName_Override(e EmrModifyInstanceGroupByName, sc
 	)
 }
 
-func (j *jsiiProxy_EmrModifyInstanceGroupByName) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_EmrModifyInstanceGroupByName)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -418,7 +421,7 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) SetDefaultChoice(val awsstepfun
 	)
 }
 
-func (j *jsiiProxy_EmrModifyInstanceGroupByName) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_EmrModifyInstanceGroupByName)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -431,6 +434,9 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) SetIteration(val awsstepfunctio
 func EmrModifyInstanceGroupByName_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateEmrModifyInstanceGroupByName_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -448,6 +454,9 @@ func EmrModifyInstanceGroupByName_FilterNextables(states *[]awsstepfunctions.Sta
 func EmrModifyInstanceGroupByName_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrModifyInstanceGroupByName_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -467,6 +476,9 @@ func EmrModifyInstanceGroupByName_FindReachableEndStates(start awsstepfunctions.
 func EmrModifyInstanceGroupByName_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrModifyInstanceGroupByName_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -484,6 +496,9 @@ func EmrModifyInstanceGroupByName_FindReachableStates(start awsstepfunctions.Sta
 func EmrModifyInstanceGroupByName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEmrModifyInstanceGroupByName_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -501,6 +516,9 @@ func EmrModifyInstanceGroupByName_IsConstruct(x interface{}) *bool {
 func EmrModifyInstanceGroupByName_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateEmrModifyInstanceGroupByName_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"prefixStates",
@@ -509,6 +527,9 @@ func EmrModifyInstanceGroupByName_PrefixStates(root constructs.IConstruct, prefi
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := e.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addBranch",
@@ -517,6 +538,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddBranch(branch awsstepfunctio
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -530,6 +554,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddCatch(handler awsstepfunctio
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := e.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addChoice",
@@ -538,6 +565,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddChoice(condition awsstepfunc
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := e.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addIterator",
@@ -546,6 +576,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddIterator(iteration awsstepfu
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddPrefix(x *string) {
+	if err := e.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPrefix",
@@ -554,6 +587,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddPrefix(x *string) {
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -567,6 +603,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) AddRetry(props *awsstepfunction
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"bindToGraph",
@@ -575,6 +614,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) BindToGraph(graph awsstepfuncti
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MakeDefault(def awsstepfunctions.State) {
+	if err := e.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeDefault",
@@ -583,6 +625,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MakeDefault(def awsstepfunction
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MakeNext(next awsstepfunctions.State) {
+	if err := e.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeNext",
@@ -591,6 +636,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MakeNext(next awsstepfunctions.
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -604,6 +652,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) Metric(metricName *string, prop
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -617,6 +668,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricFailed(props *awscloudwat
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -630,6 +684,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricHeartbeatTimedOut(props *
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -643,6 +700,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricRunTime(props *awscloudwa
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -656,6 +716,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricScheduled(props *awscloud
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -669,6 +732,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricScheduleTime(props *awscl
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -682,6 +748,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricStarted(props *awscloudwa
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -695,6 +764,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricSucceeded(props *awscloud
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -708,6 +780,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricTime(props *awscloudwatch
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -721,6 +796,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) MetricTimedOut(props *awscloudw
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := e.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -742,6 +820,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnPrepare() {
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -862,6 +943,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderRetryCatch() interface{} 
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",
@@ -909,6 +993,9 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) Validate() *[]*string {
 }
 
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"whenBoundToGraph",

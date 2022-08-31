@@ -604,6 +604,9 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) UpdatedProperites() *map[string]
 func NewCfnMatchmakingConfiguration(scope awscdk.Construct, id *string, props *CfnMatchmakingConfigurationProps) CfnMatchmakingConfiguration {
 	_init_.Initialize()
 
+	if err := validateNewCfnMatchmakingConfigurationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnMatchmakingConfiguration{}
 
 	_jsii_.Create(
@@ -626,7 +629,10 @@ func NewCfnMatchmakingConfiguration_Override(c CfnMatchmakingConfiguration, scop
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetAcceptanceRequired(val interface{}) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetAcceptanceRequired(val interface{}) {
+	if err := j.validateSetAcceptanceRequiredParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"acceptanceRequired",
@@ -634,7 +640,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetAcceptanceRequired(val interf
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetAcceptanceTimeoutSeconds(val *float64) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetAcceptanceTimeoutSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"acceptanceTimeoutSeconds",
@@ -642,7 +648,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetAcceptanceTimeoutSeconds(val 
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetAdditionalPlayerCount(val *float64) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetAdditionalPlayerCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"additionalPlayerCount",
@@ -650,7 +656,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetAdditionalPlayerCount(val *fl
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetBackfillMode(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetBackfillMode(val *string) {
 	_jsii_.Set(
 		j,
 		"backfillMode",
@@ -658,7 +664,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetBackfillMode(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetCustomEventData(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetCustomEventData(val *string) {
 	_jsii_.Set(
 		j,
 		"customEventData",
@@ -666,7 +672,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetCustomEventData(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetDescription(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -674,7 +680,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetFlexMatchMode(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetFlexMatchMode(val *string) {
 	_jsii_.Set(
 		j,
 		"flexMatchMode",
@@ -682,7 +688,10 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetFlexMatchMode(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetGameProperties(val interface{}) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetGameProperties(val interface{}) {
+	if err := j.validateSetGamePropertiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"gameProperties",
@@ -690,7 +699,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetGameProperties(val interface{
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetGameSessionData(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetGameSessionData(val *string) {
 	_jsii_.Set(
 		j,
 		"gameSessionData",
@@ -698,7 +707,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetGameSessionData(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetGameSessionQueueArns(val *[]*string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetGameSessionQueueArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"gameSessionQueueArns",
@@ -706,7 +715,10 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetGameSessionQueueArns(val *[]*
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetName(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -714,7 +726,7 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetNotificationTarget(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetNotificationTarget(val *string) {
 	_jsii_.Set(
 		j,
 		"notificationTarget",
@@ -722,7 +734,10 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetNotificationTarget(val *strin
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetRequestTimeoutSeconds(val *float64) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetRequestTimeoutSeconds(val *float64) {
+	if err := j.validateSetRequestTimeoutSecondsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"requestTimeoutSeconds",
@@ -730,7 +745,10 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetRequestTimeoutSeconds(val *fl
 	)
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) SetRuleSetName(val *string) {
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetRuleSetName(val *string) {
+	if err := j.validateSetRuleSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleSetName",
@@ -748,6 +766,9 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) SetRuleSetName(val *string) {
 func CfnMatchmakingConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMatchmakingConfiguration_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -765,6 +786,9 @@ func CfnMatchmakingConfiguration_IsCfnElement(x interface{}) *bool {
 func CfnMatchmakingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMatchmakingConfiguration_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -782,6 +806,9 @@ func CfnMatchmakingConfiguration_IsCfnResource(construct constructs.IConstruct) 
 func CfnMatchmakingConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMatchmakingConfiguration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -806,6 +833,9 @@ func CfnMatchmakingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -814,6 +844,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDeletionOverride(path *string
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -822,6 +855,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddDependsOn(target awscdk.CfnRe
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -830,6 +866,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddMetadata(key *string, value i
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -838,6 +877,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddOverride(path *string, value 
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -846,6 +888,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyDeletionOverride(prop
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -854,6 +899,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) AddPropertyOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -862,6 +910,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) ApplyRemovalPolicy(policy awscdk
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -875,6 +926,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) GetAtt(attributeName *string) aw
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -888,6 +942,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) GetMetadata(key *string) interfa
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -904,6 +961,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -925,6 +985,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -941,6 +1004,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) Prepare() {
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -967,6 +1033,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1001,6 +1070,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMatchmakingConfiguration) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

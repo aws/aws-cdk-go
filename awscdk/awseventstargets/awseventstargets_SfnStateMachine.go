@@ -71,6 +71,9 @@ func (j *jsiiProxy_SfnStateMachine) Machine() awsstepfunctions.IStateMachine {
 func NewSfnStateMachine(machine awsstepfunctions.IStateMachine, props *SfnStateMachineProps) SfnStateMachine {
 	_init_.Initialize()
 
+	if err := validateNewSfnStateMachineParameters(machine, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SfnStateMachine{}
 
 	_jsii_.Create(
@@ -94,6 +97,9 @@ func NewSfnStateMachine_Override(s SfnStateMachine, machine awsstepfunctions.ISt
 }
 
 func (s *jsiiProxy_SfnStateMachine) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := s.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

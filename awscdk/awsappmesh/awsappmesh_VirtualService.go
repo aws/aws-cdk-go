@@ -231,6 +231,9 @@ func (j *jsiiProxy_VirtualService) VirtualServiceName() *string {
 func NewVirtualService(scope constructs.Construct, id *string, props *VirtualServiceProps) VirtualService {
 	_init_.Initialize()
 
+	if err := validateNewVirtualServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_VirtualService{}
 
 	_jsii_.Create(
@@ -258,6 +261,9 @@ func NewVirtualService_Override(v VirtualService, scope constructs.Construct, id
 func VirtualService_FromVirtualServiceArn(scope constructs.Construct, id *string, virtualServiceArn *string) IVirtualService {
 	_init_.Initialize()
 
+	if err := validateVirtualService_FromVirtualServiceArnParameters(scope, id, virtualServiceArn); err != nil {
+		panic(err)
+	}
 	var returns IVirtualService
 
 	_jsii_.StaticInvoke(
@@ -275,6 +281,9 @@ func VirtualService_FromVirtualServiceArn(scope constructs.Construct, id *string
 func VirtualService_FromVirtualServiceAttributes(scope constructs.Construct, id *string, attrs *VirtualServiceAttributes) IVirtualService {
 	_init_.Initialize()
 
+	if err := validateVirtualService_FromVirtualServiceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IVirtualService
 
 	_jsii_.StaticInvoke(
@@ -292,6 +301,9 @@ func VirtualService_FromVirtualServiceAttributes(scope constructs.Construct, id 
 func VirtualService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVirtualService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -309,6 +321,9 @@ func VirtualService_IsConstruct(x interface{}) *bool {
 func VirtualService_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVirtualService_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -322,6 +337,9 @@ func VirtualService_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (v *jsiiProxy_VirtualService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -343,6 +361,9 @@ func (v *jsiiProxy_VirtualService) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_VirtualService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -356,6 +377,9 @@ func (v *jsiiProxy_VirtualService) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (v *jsiiProxy_VirtualService) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -377,6 +401,9 @@ func (v *jsiiProxy_VirtualService) OnPrepare() {
 }
 
 func (v *jsiiProxy_VirtualService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -406,6 +433,9 @@ func (v *jsiiProxy_VirtualService) Prepare() {
 }
 
 func (v *jsiiProxy_VirtualService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

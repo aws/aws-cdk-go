@@ -62,6 +62,9 @@ func (j *jsiiProxy_ReleaseLabel) Label() *string {
 func NewReleaseLabel(label *string) ReleaseLabel {
 	_init_.Initialize()
 
+	if err := validateNewReleaseLabelParameters(label); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ReleaseLabel{}
 
 	_jsii_.Create(

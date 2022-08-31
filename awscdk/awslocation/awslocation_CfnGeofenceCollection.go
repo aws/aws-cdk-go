@@ -464,6 +464,9 @@ func (j *jsiiProxy_CfnGeofenceCollection) UpdatedProperites() *map[string]interf
 func NewCfnGeofenceCollection(scope awscdk.Construct, id *string, props *CfnGeofenceCollectionProps) CfnGeofenceCollection {
 	_init_.Initialize()
 
+	if err := validateNewCfnGeofenceCollectionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnGeofenceCollection{}
 
 	_jsii_.Create(
@@ -486,7 +489,10 @@ func NewCfnGeofenceCollection_Override(c CfnGeofenceCollection, scope awscdk.Con
 	)
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) SetCollectionName(val *string) {
+func (j *jsiiProxy_CfnGeofenceCollection)SetCollectionName(val *string) {
+	if err := j.validateSetCollectionNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"collectionName",
@@ -494,7 +500,7 @@ func (j *jsiiProxy_CfnGeofenceCollection) SetCollectionName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) SetDescription(val *string) {
+func (j *jsiiProxy_CfnGeofenceCollection)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -502,7 +508,7 @@ func (j *jsiiProxy_CfnGeofenceCollection) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) SetKmsKeyId(val *string) {
+func (j *jsiiProxy_CfnGeofenceCollection)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
@@ -510,7 +516,7 @@ func (j *jsiiProxy_CfnGeofenceCollection) SetKmsKeyId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) SetPricingPlan(val *string) {
+func (j *jsiiProxy_CfnGeofenceCollection)SetPricingPlan(val *string) {
 	_jsii_.Set(
 		j,
 		"pricingPlan",
@@ -518,7 +524,7 @@ func (j *jsiiProxy_CfnGeofenceCollection) SetPricingPlan(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) SetPricingPlanDataSource(val *string) {
+func (j *jsiiProxy_CfnGeofenceCollection)SetPricingPlanDataSource(val *string) {
 	_jsii_.Set(
 		j,
 		"pricingPlanDataSource",
@@ -536,6 +542,9 @@ func (j *jsiiProxy_CfnGeofenceCollection) SetPricingPlanDataSource(val *string) 
 func CfnGeofenceCollection_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGeofenceCollection_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -553,6 +562,9 @@ func CfnGeofenceCollection_IsCfnElement(x interface{}) *bool {
 func CfnGeofenceCollection_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGeofenceCollection_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -570,6 +582,9 @@ func CfnGeofenceCollection_IsCfnResource(construct constructs.IConstruct) *bool 
 func CfnGeofenceCollection_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnGeofenceCollection_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -594,6 +609,9 @@ func CfnGeofenceCollection_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -602,6 +620,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -610,6 +631,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) AddDependsOn(target awscdk.CfnResource
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -618,6 +642,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) AddMetadata(key *string, value interfa
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -626,6 +653,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) AddOverride(path *string, value interf
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -634,6 +664,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) AddPropertyDeletionOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -642,6 +675,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) AddPropertyOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -650,6 +686,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -663,6 +702,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) GetAtt(attributeName *string) awscdk.R
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -676,6 +718,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -692,6 +737,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -713,6 +761,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -729,6 +780,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) Prepare() {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -755,6 +809,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -789,6 +846,9 @@ func (c *jsiiProxy_CfnGeofenceCollection) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

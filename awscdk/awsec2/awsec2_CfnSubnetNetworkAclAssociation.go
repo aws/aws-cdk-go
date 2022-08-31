@@ -376,6 +376,9 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) UpdatedProperites() *map[stri
 func NewCfnSubnetNetworkAclAssociation(scope awscdk.Construct, id *string, props *CfnSubnetNetworkAclAssociationProps) CfnSubnetNetworkAclAssociation {
 	_init_.Initialize()
 
+	if err := validateNewCfnSubnetNetworkAclAssociationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnSubnetNetworkAclAssociation{}
 
 	_jsii_.Create(
@@ -398,7 +401,10 @@ func NewCfnSubnetNetworkAclAssociation_Override(c CfnSubnetNetworkAclAssociation
 	)
 }
 
-func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) SetNetworkAclId(val *string) {
+func (j *jsiiProxy_CfnSubnetNetworkAclAssociation)SetNetworkAclId(val *string) {
+	if err := j.validateSetNetworkAclIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkAclId",
@@ -406,7 +412,10 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) SetNetworkAclId(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) SetSubnetId(val *string) {
+func (j *jsiiProxy_CfnSubnetNetworkAclAssociation)SetSubnetId(val *string) {
+	if err := j.validateSetSubnetIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"subnetId",
@@ -424,6 +433,9 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) SetSubnetId(val *string) {
 func CfnSubnetNetworkAclAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSubnetNetworkAclAssociation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -441,6 +453,9 @@ func CfnSubnetNetworkAclAssociation_IsCfnElement(x interface{}) *bool {
 func CfnSubnetNetworkAclAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSubnetNetworkAclAssociation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -458,6 +473,9 @@ func CfnSubnetNetworkAclAssociation_IsCfnResource(construct constructs.IConstruc
 func CfnSubnetNetworkAclAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSubnetNetworkAclAssociation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -482,6 +500,9 @@ func CfnSubnetNetworkAclAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -490,6 +511,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddDeletionOverride(path *str
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -498,6 +522,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddDependsOn(target awscdk.Cf
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -506,6 +533,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddMetadata(key *string, valu
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -514,6 +544,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddOverride(path *string, val
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -522,6 +555,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddPropertyDeletionOverride(p
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -530,6 +566,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) AddPropertyOverride(propertyP
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -538,6 +577,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) ApplyRemovalPolicy(policy aws
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -551,6 +593,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) GetAtt(attributeName *string)
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -564,6 +609,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) GetMetadata(key *string) inte
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -580,6 +628,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -601,6 +652,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -617,6 +671,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -643,6 +700,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -677,6 +737,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

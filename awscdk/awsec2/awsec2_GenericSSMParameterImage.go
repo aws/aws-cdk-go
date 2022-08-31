@@ -56,6 +56,9 @@ func (j *jsiiProxy_GenericSSMParameterImage) ParameterName() *string {
 func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, userData UserData) GenericSSMParameterImage {
 	_init_.Initialize()
 
+	if err := validateNewGenericSSMParameterImageParameters(parameterName, os); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GenericSSMParameterImage{}
 
 	_jsii_.Create(
@@ -79,6 +82,9 @@ func NewGenericSSMParameterImage_Override(g GenericSSMParameterImage, parameterN
 }
 
 func (g *jsiiProxy_GenericSSMParameterImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := g.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

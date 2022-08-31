@@ -1180,6 +1180,9 @@ func (j *jsiiProxy_CfnInstance) Volumes() interface{} {
 func NewCfnInstance(scope awscdk.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
+	if err := validateNewCfnInstanceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnInstance{}
 
 	_jsii_.Create(
@@ -1202,7 +1205,7 @@ func NewCfnInstance_Override(c CfnInstance, scope awscdk.Construct, id *string, 
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetAdditionalInfo(val *string) {
+func (j *jsiiProxy_CfnInstance)SetAdditionalInfo(val *string) {
 	_jsii_.Set(
 		j,
 		"additionalInfo",
@@ -1210,7 +1213,7 @@ func (j *jsiiProxy_CfnInstance) SetAdditionalInfo(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetAffinity(val *string) {
+func (j *jsiiProxy_CfnInstance)SetAffinity(val *string) {
 	_jsii_.Set(
 		j,
 		"affinity",
@@ -1218,7 +1221,7 @@ func (j *jsiiProxy_CfnInstance) SetAffinity(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetAvailabilityZone(val *string) {
+func (j *jsiiProxy_CfnInstance)SetAvailabilityZone(val *string) {
 	_jsii_.Set(
 		j,
 		"availabilityZone",
@@ -1226,7 +1229,10 @@ func (j *jsiiProxy_CfnInstance) SetAvailabilityZone(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetBlockDeviceMappings(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetBlockDeviceMappings(val interface{}) {
+	if err := j.validateSetBlockDeviceMappingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"blockDeviceMappings",
@@ -1234,7 +1240,10 @@ func (j *jsiiProxy_CfnInstance) SetBlockDeviceMappings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetCpuOptions(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetCpuOptions(val interface{}) {
+	if err := j.validateSetCpuOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cpuOptions",
@@ -1242,7 +1251,10 @@ func (j *jsiiProxy_CfnInstance) SetCpuOptions(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetCreditSpecification(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetCreditSpecification(val interface{}) {
+	if err := j.validateSetCreditSpecificationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"creditSpecification",
@@ -1250,7 +1262,10 @@ func (j *jsiiProxy_CfnInstance) SetCreditSpecification(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetDisableApiTermination(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetDisableApiTermination(val interface{}) {
+	if err := j.validateSetDisableApiTerminationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"disableApiTermination",
@@ -1258,7 +1273,10 @@ func (j *jsiiProxy_CfnInstance) SetDisableApiTermination(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetEbsOptimized(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetEbsOptimized(val interface{}) {
+	if err := j.validateSetEbsOptimizedParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ebsOptimized",
@@ -1266,7 +1284,10 @@ func (j *jsiiProxy_CfnInstance) SetEbsOptimized(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetElasticGpuSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetElasticGpuSpecifications(val interface{}) {
+	if err := j.validateSetElasticGpuSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"elasticGpuSpecifications",
@@ -1274,7 +1295,10 @@ func (j *jsiiProxy_CfnInstance) SetElasticGpuSpecifications(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetElasticInferenceAccelerators(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetElasticInferenceAccelerators(val interface{}) {
+	if err := j.validateSetElasticInferenceAcceleratorsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"elasticInferenceAccelerators",
@@ -1282,7 +1306,10 @@ func (j *jsiiProxy_CfnInstance) SetElasticInferenceAccelerators(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetEnclaveOptions(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetEnclaveOptions(val interface{}) {
+	if err := j.validateSetEnclaveOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"enclaveOptions",
@@ -1290,7 +1317,10 @@ func (j *jsiiProxy_CfnInstance) SetEnclaveOptions(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetHibernationOptions(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetHibernationOptions(val interface{}) {
+	if err := j.validateSetHibernationOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"hibernationOptions",
@@ -1298,7 +1328,7 @@ func (j *jsiiProxy_CfnInstance) SetHibernationOptions(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetHostId(val *string) {
+func (j *jsiiProxy_CfnInstance)SetHostId(val *string) {
 	_jsii_.Set(
 		j,
 		"hostId",
@@ -1306,7 +1336,7 @@ func (j *jsiiProxy_CfnInstance) SetHostId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetHostResourceGroupArn(val *string) {
+func (j *jsiiProxy_CfnInstance)SetHostResourceGroupArn(val *string) {
 	_jsii_.Set(
 		j,
 		"hostResourceGroupArn",
@@ -1314,7 +1344,7 @@ func (j *jsiiProxy_CfnInstance) SetHostResourceGroupArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetIamInstanceProfile(val *string) {
+func (j *jsiiProxy_CfnInstance)SetIamInstanceProfile(val *string) {
 	_jsii_.Set(
 		j,
 		"iamInstanceProfile",
@@ -1322,7 +1352,7 @@ func (j *jsiiProxy_CfnInstance) SetIamInstanceProfile(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetImageId(val *string) {
+func (j *jsiiProxy_CfnInstance)SetImageId(val *string) {
 	_jsii_.Set(
 		j,
 		"imageId",
@@ -1330,7 +1360,7 @@ func (j *jsiiProxy_CfnInstance) SetImageId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetInstanceInitiatedShutdownBehavior(val *string) {
+func (j *jsiiProxy_CfnInstance)SetInstanceInitiatedShutdownBehavior(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceInitiatedShutdownBehavior",
@@ -1338,7 +1368,7 @@ func (j *jsiiProxy_CfnInstance) SetInstanceInitiatedShutdownBehavior(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetInstanceType(val *string) {
+func (j *jsiiProxy_CfnInstance)SetInstanceType(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceType",
@@ -1346,7 +1376,7 @@ func (j *jsiiProxy_CfnInstance) SetInstanceType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetIpv6AddressCount(val *float64) {
+func (j *jsiiProxy_CfnInstance)SetIpv6AddressCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"ipv6AddressCount",
@@ -1354,7 +1384,10 @@ func (j *jsiiProxy_CfnInstance) SetIpv6AddressCount(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetIpv6Addresses(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetIpv6Addresses(val interface{}) {
+	if err := j.validateSetIpv6AddressesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ipv6Addresses",
@@ -1362,7 +1395,7 @@ func (j *jsiiProxy_CfnInstance) SetIpv6Addresses(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetKernelId(val *string) {
+func (j *jsiiProxy_CfnInstance)SetKernelId(val *string) {
 	_jsii_.Set(
 		j,
 		"kernelId",
@@ -1370,7 +1403,7 @@ func (j *jsiiProxy_CfnInstance) SetKernelId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetKeyName(val *string) {
+func (j *jsiiProxy_CfnInstance)SetKeyName(val *string) {
 	_jsii_.Set(
 		j,
 		"keyName",
@@ -1378,7 +1411,10 @@ func (j *jsiiProxy_CfnInstance) SetKeyName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetLaunchTemplate(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetLaunchTemplate(val interface{}) {
+	if err := j.validateSetLaunchTemplateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"launchTemplate",
@@ -1386,7 +1422,10 @@ func (j *jsiiProxy_CfnInstance) SetLaunchTemplate(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetLicenseSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetLicenseSpecifications(val interface{}) {
+	if err := j.validateSetLicenseSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"licenseSpecifications",
@@ -1394,7 +1433,10 @@ func (j *jsiiProxy_CfnInstance) SetLicenseSpecifications(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetMonitoring(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetMonitoring(val interface{}) {
+	if err := j.validateSetMonitoringParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"monitoring",
@@ -1402,7 +1444,10 @@ func (j *jsiiProxy_CfnInstance) SetMonitoring(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetNetworkInterfaces(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetNetworkInterfaces(val interface{}) {
+	if err := j.validateSetNetworkInterfacesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkInterfaces",
@@ -1410,7 +1455,7 @@ func (j *jsiiProxy_CfnInstance) SetNetworkInterfaces(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetPlacementGroupName(val *string) {
+func (j *jsiiProxy_CfnInstance)SetPlacementGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"placementGroupName",
@@ -1418,7 +1463,10 @@ func (j *jsiiProxy_CfnInstance) SetPlacementGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetPrivateDnsNameOptions(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetPrivateDnsNameOptions(val interface{}) {
+	if err := j.validateSetPrivateDnsNameOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"privateDnsNameOptions",
@@ -1426,7 +1474,7 @@ func (j *jsiiProxy_CfnInstance) SetPrivateDnsNameOptions(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetPrivateIpAddress(val *string) {
+func (j *jsiiProxy_CfnInstance)SetPrivateIpAddress(val *string) {
 	_jsii_.Set(
 		j,
 		"privateIpAddress",
@@ -1434,7 +1482,10 @@ func (j *jsiiProxy_CfnInstance) SetPrivateIpAddress(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetPropagateTagsToVolumeOnCreation(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetPropagateTagsToVolumeOnCreation(val interface{}) {
+	if err := j.validateSetPropagateTagsToVolumeOnCreationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"propagateTagsToVolumeOnCreation",
@@ -1442,7 +1493,7 @@ func (j *jsiiProxy_CfnInstance) SetPropagateTagsToVolumeOnCreation(val interface
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetRamdiskId(val *string) {
+func (j *jsiiProxy_CfnInstance)SetRamdiskId(val *string) {
 	_jsii_.Set(
 		j,
 		"ramdiskId",
@@ -1450,7 +1501,7 @@ func (j *jsiiProxy_CfnInstance) SetRamdiskId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetSecurityGroupIds(val *[]*string) {
+func (j *jsiiProxy_CfnInstance)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroupIds",
@@ -1458,7 +1509,7 @@ func (j *jsiiProxy_CfnInstance) SetSecurityGroupIds(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetSecurityGroups(val *[]*string) {
+func (j *jsiiProxy_CfnInstance)SetSecurityGroups(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroups",
@@ -1466,7 +1517,10 @@ func (j *jsiiProxy_CfnInstance) SetSecurityGroups(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetSourceDestCheck(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetSourceDestCheck(val interface{}) {
+	if err := j.validateSetSourceDestCheckParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sourceDestCheck",
@@ -1474,7 +1528,10 @@ func (j *jsiiProxy_CfnInstance) SetSourceDestCheck(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetSsmAssociations(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetSsmAssociations(val interface{}) {
+	if err := j.validateSetSsmAssociationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ssmAssociations",
@@ -1482,7 +1539,7 @@ func (j *jsiiProxy_CfnInstance) SetSsmAssociations(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetSubnetId(val *string) {
+func (j *jsiiProxy_CfnInstance)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
@@ -1490,7 +1547,7 @@ func (j *jsiiProxy_CfnInstance) SetSubnetId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetTenancy(val *string) {
+func (j *jsiiProxy_CfnInstance)SetTenancy(val *string) {
 	_jsii_.Set(
 		j,
 		"tenancy",
@@ -1498,7 +1555,7 @@ func (j *jsiiProxy_CfnInstance) SetTenancy(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetUserData(val *string) {
+func (j *jsiiProxy_CfnInstance)SetUserData(val *string) {
 	_jsii_.Set(
 		j,
 		"userData",
@@ -1506,7 +1563,10 @@ func (j *jsiiProxy_CfnInstance) SetUserData(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInstance) SetVolumes(val interface{}) {
+func (j *jsiiProxy_CfnInstance)SetVolumes(val interface{}) {
+	if err := j.validateSetVolumesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"volumes",
@@ -1524,6 +1584,9 @@ func (j *jsiiProxy_CfnInstance) SetVolumes(val interface{}) {
 func CfnInstance_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInstance_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1541,6 +1604,9 @@ func CfnInstance_IsCfnElement(x interface{}) *bool {
 func CfnInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInstance_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1558,6 +1624,9 @@ func CfnInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInstance_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1582,6 +1651,9 @@ func CfnInstance_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnInstance) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -1590,6 +1662,9 @@ func (c *jsiiProxy_CfnInstance) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnInstance) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1598,6 +1673,9 @@ func (c *jsiiProxy_CfnInstance) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnInstance) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1606,6 +1684,9 @@ func (c *jsiiProxy_CfnInstance) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnInstance) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1614,6 +1695,9 @@ func (c *jsiiProxy_CfnInstance) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnInstance) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1622,6 +1706,9 @@ func (c *jsiiProxy_CfnInstance) AddPropertyDeletionOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnInstance) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1630,6 +1717,9 @@ func (c *jsiiProxy_CfnInstance) AddPropertyOverride(propertyPath *string, value 
 }
 
 func (c *jsiiProxy_CfnInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1638,6 +1728,9 @@ func (c *jsiiProxy_CfnInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 }
 
 func (c *jsiiProxy_CfnInstance) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1651,6 +1744,9 @@ func (c *jsiiProxy_CfnInstance) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnInstance) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1664,6 +1760,9 @@ func (c *jsiiProxy_CfnInstance) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnInstance) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1680,6 +1779,9 @@ func (c *jsiiProxy_CfnInstance) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1701,6 +1803,9 @@ func (c *jsiiProxy_CfnInstance) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnInstance) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1717,6 +1822,9 @@ func (c *jsiiProxy_CfnInstance) Prepare() {
 }
 
 func (c *jsiiProxy_CfnInstance) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1743,6 +1851,9 @@ func (c *jsiiProxy_CfnInstance) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnInstance) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1777,6 +1888,9 @@ func (c *jsiiProxy_CfnInstance) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

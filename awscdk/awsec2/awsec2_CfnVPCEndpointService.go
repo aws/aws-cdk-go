@@ -417,6 +417,9 @@ func (j *jsiiProxy_CfnVPCEndpointService) UpdatedProperites() *map[string]interf
 func NewCfnVPCEndpointService(scope awscdk.Construct, id *string, props *CfnVPCEndpointServiceProps) CfnVPCEndpointService {
 	_init_.Initialize()
 
+	if err := validateNewCfnVPCEndpointServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnVPCEndpointService{}
 
 	_jsii_.Create(
@@ -439,7 +442,10 @@ func NewCfnVPCEndpointService_Override(c CfnVPCEndpointService, scope awscdk.Con
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointService) SetAcceptanceRequired(val interface{}) {
+func (j *jsiiProxy_CfnVPCEndpointService)SetAcceptanceRequired(val interface{}) {
+	if err := j.validateSetAcceptanceRequiredParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"acceptanceRequired",
@@ -447,7 +453,10 @@ func (j *jsiiProxy_CfnVPCEndpointService) SetAcceptanceRequired(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointService) SetContributorInsightsEnabled(val interface{}) {
+func (j *jsiiProxy_CfnVPCEndpointService)SetContributorInsightsEnabled(val interface{}) {
+	if err := j.validateSetContributorInsightsEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"contributorInsightsEnabled",
@@ -455,7 +464,7 @@ func (j *jsiiProxy_CfnVPCEndpointService) SetContributorInsightsEnabled(val inte
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointService) SetGatewayLoadBalancerArns(val *[]*string) {
+func (j *jsiiProxy_CfnVPCEndpointService)SetGatewayLoadBalancerArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"gatewayLoadBalancerArns",
@@ -463,7 +472,7 @@ func (j *jsiiProxy_CfnVPCEndpointService) SetGatewayLoadBalancerArns(val *[]*str
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointService) SetNetworkLoadBalancerArns(val *[]*string) {
+func (j *jsiiProxy_CfnVPCEndpointService)SetNetworkLoadBalancerArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"networkLoadBalancerArns",
@@ -471,7 +480,7 @@ func (j *jsiiProxy_CfnVPCEndpointService) SetNetworkLoadBalancerArns(val *[]*str
 	)
 }
 
-func (j *jsiiProxy_CfnVPCEndpointService) SetPayerResponsibility(val *string) {
+func (j *jsiiProxy_CfnVPCEndpointService)SetPayerResponsibility(val *string) {
 	_jsii_.Set(
 		j,
 		"payerResponsibility",
@@ -489,6 +498,9 @@ func (j *jsiiProxy_CfnVPCEndpointService) SetPayerResponsibility(val *string) {
 func CfnVPCEndpointService_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCEndpointService_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -506,6 +518,9 @@ func CfnVPCEndpointService_IsCfnElement(x interface{}) *bool {
 func CfnVPCEndpointService_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCEndpointService_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -523,6 +538,9 @@ func CfnVPCEndpointService_IsCfnResource(construct constructs.IConstruct) *bool 
 func CfnVPCEndpointService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCEndpointService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -547,6 +565,9 @@ func CfnVPCEndpointService_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -555,6 +576,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -563,6 +587,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) AddDependsOn(target awscdk.CfnResource
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -571,6 +598,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) AddMetadata(key *string, value interfa
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -579,6 +609,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) AddOverride(path *string, value interf
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -587,6 +620,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) AddPropertyDeletionOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -595,6 +631,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) AddPropertyOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -603,6 +642,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -616,6 +658,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) GetAtt(attributeName *string) awscdk.R
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -629,6 +674,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -645,6 +693,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -666,6 +717,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -682,6 +736,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) Prepare() {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -708,6 +765,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -742,6 +802,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVPCEndpointService) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

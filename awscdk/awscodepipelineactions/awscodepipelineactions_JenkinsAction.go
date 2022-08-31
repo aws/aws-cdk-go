@@ -77,6 +77,9 @@ func (j *jsiiProxy_JenkinsAction) ProvidedActionProperties() *awscodepipeline.Ac
 func NewJenkinsAction(props *JenkinsActionProps) JenkinsAction {
 	_init_.Initialize()
 
+	if err := validateNewJenkinsActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_JenkinsAction{}
 
 	_jsii_.Create(
@@ -100,6 +103,9 @@ func NewJenkinsAction_Override(j JenkinsAction, props *JenkinsActionProps) {
 }
 
 func (j *jsiiProxy_JenkinsAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := j.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -113,6 +119,9 @@ func (j *jsiiProxy_JenkinsAction) Bind(scope awscdk.Construct, stage awscodepipe
 }
 
 func (j *jsiiProxy_JenkinsAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := j.validateBoundParameters(_scope, _stage, _options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -126,6 +135,9 @@ func (j *jsiiProxy_JenkinsAction) Bound(_scope awscdk.Construct, _stage awscodep
 }
 
 func (j *jsiiProxy_JenkinsAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := j.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -139,6 +151,9 @@ func (j *jsiiProxy_JenkinsAction) OnStateChange(name *string, target awsevents.I
 }
 
 func (j *jsiiProxy_JenkinsAction) VariableExpression(variableName *string) *string {
+	if err := j.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

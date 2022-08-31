@@ -196,6 +196,9 @@ func (j *jsiiProxy_CachePolicy) Stack() awscdk.Stack {
 func NewCachePolicy(scope constructs.Construct, id *string, props *CachePolicyProps) CachePolicy {
 	_init_.Initialize()
 
+	if err := validateNewCachePolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CachePolicy{}
 
 	_jsii_.Create(
@@ -223,6 +226,9 @@ func NewCachePolicy_Override(c CachePolicy, scope constructs.Construct, id *stri
 func CachePolicy_FromCachePolicyId(scope constructs.Construct, id *string, cachePolicyId *string) ICachePolicy {
 	_init_.Initialize()
 
+	if err := validateCachePolicy_FromCachePolicyIdParameters(scope, id, cachePolicyId); err != nil {
+		panic(err)
+	}
 	var returns ICachePolicy
 
 	_jsii_.StaticInvoke(
@@ -240,6 +246,9 @@ func CachePolicy_FromCachePolicyId(scope constructs.Construct, id *string, cache
 func CachePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCachePolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -257,6 +266,9 @@ func CachePolicy_IsConstruct(x interface{}) *bool {
 func CachePolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCachePolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -325,6 +337,9 @@ func CachePolicy_ELEMENTAL_MEDIA_PACKAGE() ICachePolicy {
 }
 
 func (c *jsiiProxy_CachePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -346,6 +361,9 @@ func (c *jsiiProxy_CachePolicy) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CachePolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -359,6 +377,9 @@ func (c *jsiiProxy_CachePolicy) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (c *jsiiProxy_CachePolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -380,6 +401,9 @@ func (c *jsiiProxy_CachePolicy) OnPrepare() {
 }
 
 func (c *jsiiProxy_CachePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -409,6 +433,9 @@ func (c *jsiiProxy_CachePolicy) Prepare() {
 }
 
 func (c *jsiiProxy_CachePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

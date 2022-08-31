@@ -73,7 +73,10 @@ func NewFlowLogResourceType_Override(f FlowLogResourceType) {
 	)
 }
 
-func (j *jsiiProxy_FlowLogResourceType) SetResourceId(val *string) {
+func (j *jsiiProxy_FlowLogResourceType)SetResourceId(val *string) {
+	if err := j.validateSetResourceIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"resourceId",
@@ -81,7 +84,10 @@ func (j *jsiiProxy_FlowLogResourceType) SetResourceId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_FlowLogResourceType) SetResourceType(val *string) {
+func (j *jsiiProxy_FlowLogResourceType)SetResourceType(val *string) {
+	if err := j.validateSetResourceTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"resourceType",
@@ -94,6 +100,9 @@ func (j *jsiiProxy_FlowLogResourceType) SetResourceType(val *string) {
 func FlowLogResourceType_FromNetworkInterfaceId(id *string) FlowLogResourceType {
 	_init_.Initialize()
 
+	if err := validateFlowLogResourceType_FromNetworkInterfaceIdParameters(id); err != nil {
+		panic(err)
+	}
 	var returns FlowLogResourceType
 
 	_jsii_.StaticInvoke(
@@ -111,6 +120,9 @@ func FlowLogResourceType_FromNetworkInterfaceId(id *string) FlowLogResourceType 
 func FlowLogResourceType_FromSubnet(subnet ISubnet) FlowLogResourceType {
 	_init_.Initialize()
 
+	if err := validateFlowLogResourceType_FromSubnetParameters(subnet); err != nil {
+		panic(err)
+	}
 	var returns FlowLogResourceType
 
 	_jsii_.StaticInvoke(
@@ -128,6 +140,9 @@ func FlowLogResourceType_FromSubnet(subnet ISubnet) FlowLogResourceType {
 func FlowLogResourceType_FromVpc(vpc IVpc) FlowLogResourceType {
 	_init_.Initialize()
 
+	if err := validateFlowLogResourceType_FromVpcParameters(vpc); err != nil {
+		panic(err)
+	}
 	var returns FlowLogResourceType
 
 	_jsii_.StaticInvoke(

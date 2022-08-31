@@ -81,6 +81,9 @@ func (j *jsiiProxy_BackupResource) TagCondition() *TagCondition {
 func NewBackupResource(resource *string, tagCondition *TagCondition, construct constructs.Construct) BackupResource {
 	_init_.Initialize()
 
+	if err := validateNewBackupResourceParameters(tagCondition); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BackupResource{}
 
 	_jsii_.Create(
@@ -108,6 +111,9 @@ func NewBackupResource_Override(b BackupResource, resource *string, tagCondition
 func BackupResource_FromArn(arn *string) BackupResource {
 	_init_.Initialize()
 
+	if err := validateBackupResource_FromArnParameters(arn); err != nil {
+		panic(err)
+	}
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
@@ -125,6 +131,9 @@ func BackupResource_FromArn(arn *string) BackupResource {
 func BackupResource_FromConstruct(construct constructs.Construct) BackupResource {
 	_init_.Initialize()
 
+	if err := validateBackupResource_FromConstructParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
@@ -142,6 +151,9 @@ func BackupResource_FromConstruct(construct constructs.Construct) BackupResource
 func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 	_init_.Initialize()
 
+	if err := validateBackupResource_FromDynamoDbTableParameters(table); err != nil {
+		panic(err)
+	}
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
@@ -159,6 +171,9 @@ func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
 	_init_.Initialize()
 
+	if err := validateBackupResource_FromEc2InstanceParameters(instance); err != nil {
+		panic(err)
+	}
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
@@ -176,6 +191,9 @@ func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
 func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResource {
 	_init_.Initialize()
 
+	if err := validateBackupResource_FromEfsFileSystemParameters(fileSystem); err != nil {
+		panic(err)
+	}
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
@@ -193,6 +211,9 @@ func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResou
 func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) BackupResource {
 	_init_.Initialize()
 
+	if err := validateBackupResource_FromRdsDatabaseInstanceParameters(instance); err != nil {
+		panic(err)
+	}
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(
@@ -210,6 +231,9 @@ func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) B
 func BackupResource_FromTag(key *string, value *string, operation TagOperation) BackupResource {
 	_init_.Initialize()
 
+	if err := validateBackupResource_FromTagParameters(key, value); err != nil {
+		panic(err)
+	}
 	var returns BackupResource
 
 	_jsii_.StaticInvoke(

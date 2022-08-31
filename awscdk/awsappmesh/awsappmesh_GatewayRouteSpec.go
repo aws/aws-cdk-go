@@ -56,6 +56,9 @@ func NewGatewayRouteSpec_Override(g GatewayRouteSpec) {
 func GatewayRouteSpec_Grpc(options *GrpcGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
+	if err := validateGatewayRouteSpec_GrpcParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GatewayRouteSpec
 
 	_jsii_.StaticInvoke(
@@ -73,6 +76,9 @@ func GatewayRouteSpec_Grpc(options *GrpcGatewayRouteSpecOptions) GatewayRouteSpe
 func GatewayRouteSpec_Http(options *HttpGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
+	if err := validateGatewayRouteSpec_HttpParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GatewayRouteSpec
 
 	_jsii_.StaticInvoke(
@@ -90,6 +96,9 @@ func GatewayRouteSpec_Http(options *HttpGatewayRouteSpecOptions) GatewayRouteSpe
 func GatewayRouteSpec_Http2(options *HttpGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
+	if err := validateGatewayRouteSpec_Http2Parameters(options); err != nil {
+		panic(err)
+	}
 	var returns GatewayRouteSpec
 
 	_jsii_.StaticInvoke(
@@ -103,6 +112,9 @@ func GatewayRouteSpec_Http2(options *HttpGatewayRouteSpecOptions) GatewayRouteSp
 }
 
 func (g *jsiiProxy_GatewayRouteSpec) Bind(scope awscdk.Construct) *GatewayRouteSpecConfig {
+	if err := g.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *GatewayRouteSpecConfig
 
 	_jsii_.Invoke(

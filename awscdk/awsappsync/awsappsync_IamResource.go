@@ -71,6 +71,9 @@ func IamResource_Custom(arns ...*string) IamResource {
 func IamResource_OfType(type_ *string, fields ...*string) IamResource {
 	_init_.Initialize()
 
+	if err := validateIamResource_OfTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	args := []interface{}{type_}
 	for _, a := range fields {
 		args = append(args, a)
@@ -89,6 +92,9 @@ func IamResource_OfType(type_ *string, fields ...*string) IamResource {
 }
 
 func (i *jsiiProxy_IamResource) ResourceArns(api GraphqlApi) *[]*string {
+	if err := i.validateResourceArnsParameters(api); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

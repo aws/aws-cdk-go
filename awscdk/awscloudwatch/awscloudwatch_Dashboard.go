@@ -224,6 +224,9 @@ func (j *jsiiProxy_Dashboard) Stack() awscdk.Stack {
 func NewDashboard(scope constructs.Construct, id *string, props *DashboardProps) Dashboard {
 	_init_.Initialize()
 
+	if err := validateNewDashboardParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Dashboard{}
 
 	_jsii_.Create(
@@ -251,6 +254,9 @@ func NewDashboard_Override(d Dashboard, scope constructs.Construct, id *string, 
 func Dashboard_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDashboard_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -268,6 +274,9 @@ func Dashboard_IsConstruct(x interface{}) *bool {
 func Dashboard_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDashboard_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -294,6 +303,9 @@ func (d *jsiiProxy_Dashboard) AddWidgets(widgets ...IWidget) {
 }
 
 func (d *jsiiProxy_Dashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -315,6 +327,9 @@ func (d *jsiiProxy_Dashboard) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_Dashboard) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -328,6 +343,9 @@ func (d *jsiiProxy_Dashboard) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (d *jsiiProxy_Dashboard) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -349,6 +367,9 @@ func (d *jsiiProxy_Dashboard) OnPrepare() {
 }
 
 func (d *jsiiProxy_Dashboard) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -378,6 +399,9 @@ func (d *jsiiProxy_Dashboard) Prepare() {
 }
 
 func (d *jsiiProxy_Dashboard) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

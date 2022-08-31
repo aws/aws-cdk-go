@@ -281,6 +281,9 @@ func (j *jsiiProxy_ApplicationListener) Stack() awscdk.Stack {
 func NewApplicationListener(scope constructs.Construct, id *string, props *ApplicationListenerProps) ApplicationListener {
 	_init_.Initialize()
 
+	if err := validateNewApplicationListenerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationListener{}
 
 	_jsii_.Create(
@@ -308,6 +311,9 @@ func NewApplicationListener_Override(a ApplicationListener, scope constructs.Con
 func ApplicationListener_FromApplicationListenerAttributes(scope constructs.Construct, id *string, attrs *ApplicationListenerAttributes) IApplicationListener {
 	_init_.Initialize()
 
+	if err := validateApplicationListener_FromApplicationListenerAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IApplicationListener
 
 	_jsii_.StaticInvoke(
@@ -325,6 +331,9 @@ func ApplicationListener_FromApplicationListenerAttributes(scope constructs.Cons
 func ApplicationListener_FromLookup(scope constructs.Construct, id *string, options *ApplicationListenerLookupOptions) IApplicationListener {
 	_init_.Initialize()
 
+	if err := validateApplicationListener_FromLookupParameters(scope, id, options); err != nil {
+		panic(err)
+	}
 	var returns IApplicationListener
 
 	_jsii_.StaticInvoke(
@@ -342,6 +351,9 @@ func ApplicationListener_FromLookup(scope constructs.Construct, id *string, opti
 func ApplicationListener_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationListener_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -359,6 +371,9 @@ func ApplicationListener_IsConstruct(x interface{}) *bool {
 func ApplicationListener_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationListener_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -372,6 +387,9 @@ func ApplicationListener_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_ApplicationListener) AddAction(id *string, props *AddApplicationActionProps) {
+	if err := a.validateAddActionParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addAction",
@@ -380,6 +398,9 @@ func (a *jsiiProxy_ApplicationListener) AddAction(id *string, props *AddApplicat
 }
 
 func (a *jsiiProxy_ApplicationListener) AddCertificateArns(id *string, arns *[]*string) {
+	if err := a.validateAddCertificateArnsParameters(id, arns); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addCertificateArns",
@@ -388,6 +409,9 @@ func (a *jsiiProxy_ApplicationListener) AddCertificateArns(id *string, arns *[]*
 }
 
 func (a *jsiiProxy_ApplicationListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
+	if err := a.validateAddCertificatesParameters(id, certificates); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addCertificates",
@@ -396,6 +420,9 @@ func (a *jsiiProxy_ApplicationListener) AddCertificates(id *string, certificates
 }
 
 func (a *jsiiProxy_ApplicationListener) AddFixedResponse(id *string, props *AddFixedResponseProps) {
+	if err := a.validateAddFixedResponseParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addFixedResponse",
@@ -404,6 +431,9 @@ func (a *jsiiProxy_ApplicationListener) AddFixedResponse(id *string, props *AddF
 }
 
 func (a *jsiiProxy_ApplicationListener) AddRedirectResponse(id *string, props *AddRedirectResponseProps) {
+	if err := a.validateAddRedirectResponseParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addRedirectResponse",
@@ -412,6 +442,9 @@ func (a *jsiiProxy_ApplicationListener) AddRedirectResponse(id *string, props *A
 }
 
 func (a *jsiiProxy_ApplicationListener) AddTargetGroups(id *string, props *AddApplicationTargetGroupsProps) {
+	if err := a.validateAddTargetGroupsParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addTargetGroups",
@@ -420,6 +453,9 @@ func (a *jsiiProxy_ApplicationListener) AddTargetGroups(id *string, props *AddAp
 }
 
 func (a *jsiiProxy_ApplicationListener) AddTargets(id *string, props *AddApplicationTargetsProps) ApplicationTargetGroup {
+	if err := a.validateAddTargetsParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ApplicationTargetGroup
 
 	_jsii_.Invoke(
@@ -433,6 +469,9 @@ func (a *jsiiProxy_ApplicationListener) AddTargets(id *string, props *AddApplica
 }
 
 func (a *jsiiProxy_ApplicationListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -454,6 +493,9 @@ func (a *jsiiProxy_ApplicationListener) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_ApplicationListener) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -467,6 +509,9 @@ func (a *jsiiProxy_ApplicationListener) GetResourceArnAttribute(arnAttr *string,
 }
 
 func (a *jsiiProxy_ApplicationListener) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -488,6 +533,9 @@ func (a *jsiiProxy_ApplicationListener) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationListener) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -517,6 +565,9 @@ func (a *jsiiProxy_ApplicationListener) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationListener) RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port) {
+	if err := a.validateRegisterConnectableParameters(connectable, portRange); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"registerConnectable",
@@ -525,6 +576,9 @@ func (a *jsiiProxy_ApplicationListener) RegisterConnectable(connectable awsec2.I
 }
 
 func (a *jsiiProxy_ApplicationListener) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

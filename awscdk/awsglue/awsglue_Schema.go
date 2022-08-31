@@ -72,6 +72,9 @@ func NewSchema_Override(s Schema) {
 func Schema_Array(itemType *Type) *Type {
 	_init_.Initialize()
 
+	if err := validateSchema_ArrayParameters(itemType); err != nil {
+		panic(err)
+	}
 	var returns *Type
 
 	_jsii_.StaticInvoke(
@@ -89,6 +92,9 @@ func Schema_Array(itemType *Type) *Type {
 func Schema_Char(length *float64) *Type {
 	_init_.Initialize()
 
+	if err := validateSchema_CharParameters(length); err != nil {
+		panic(err)
+	}
 	var returns *Type
 
 	_jsii_.StaticInvoke(
@@ -108,6 +114,9 @@ func Schema_Char(length *float64) *Type {
 func Schema_Decimal(precision *float64, scale *float64) *Type {
 	_init_.Initialize()
 
+	if err := validateSchema_DecimalParameters(precision); err != nil {
+		panic(err)
+	}
 	var returns *Type
 
 	_jsii_.StaticInvoke(
@@ -125,6 +134,9 @@ func Schema_Decimal(precision *float64, scale *float64) *Type {
 func Schema_Map(keyType *Type, valueType *Type) *Type {
 	_init_.Initialize()
 
+	if err := validateSchema_MapParameters(keyType, valueType); err != nil {
+		panic(err)
+	}
 	var returns *Type
 
 	_jsii_.StaticInvoke(
@@ -142,6 +154,9 @@ func Schema_Map(keyType *Type, valueType *Type) *Type {
 func Schema_Struct(columns *[]*Column) *Type {
 	_init_.Initialize()
 
+	if err := validateSchema_StructParameters(columns); err != nil {
+		panic(err)
+	}
 	var returns *Type
 
 	_jsii_.StaticInvoke(
@@ -159,6 +174,9 @@ func Schema_Struct(columns *[]*Column) *Type {
 func Schema_Varchar(length *float64) *Type {
 	_init_.Initialize()
 
+	if err := validateSchema_VarcharParameters(length); err != nil {
+		panic(err)
+	}
 	var returns *Type
 
 	_jsii_.StaticInvoke(

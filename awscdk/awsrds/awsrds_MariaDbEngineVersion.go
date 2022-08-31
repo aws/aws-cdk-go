@@ -55,6 +55,9 @@ func (j *jsiiProxy_MariaDbEngineVersion) MariaDbMajorVersion() *string {
 func MariaDbEngineVersion_Of(mariaDbFullVersion *string, mariaDbMajorVersion *string) MariaDbEngineVersion {
 	_init_.Initialize()
 
+	if err := validateMariaDbEngineVersion_OfParameters(mariaDbFullVersion, mariaDbMajorVersion); err != nil {
+		panic(err)
+	}
 	var returns MariaDbEngineVersion
 
 	_jsii_.StaticInvoke(

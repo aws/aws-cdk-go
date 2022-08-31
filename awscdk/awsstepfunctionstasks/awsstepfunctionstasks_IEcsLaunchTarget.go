@@ -20,6 +20,9 @@ type jsiiProxy_IEcsLaunchTarget struct {
 }
 
 func (i *jsiiProxy_IEcsLaunchTarget) Bind(task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig {
+	if err := i.validateBindParameters(task, launchTargetOptions); err != nil {
+		panic(err)
+	}
 	var returns *EcsLaunchTargetConfig
 
 	_jsii_.Invoke(

@@ -44,6 +44,9 @@ func NewSubnetFilter_Override(s SubnetFilter) {
 func SubnetFilter_AvailabilityZones(availabilityZones *[]*string) SubnetFilter {
 	_init_.Initialize()
 
+	if err := validateSubnetFilter_AvailabilityZonesParameters(availabilityZones); err != nil {
+		panic(err)
+	}
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
@@ -61,6 +64,9 @@ func SubnetFilter_AvailabilityZones(availabilityZones *[]*string) SubnetFilter {
 func SubnetFilter_ByCidrMask(mask *float64) SubnetFilter {
 	_init_.Initialize()
 
+	if err := validateSubnetFilter_ByCidrMaskParameters(mask); err != nil {
+		panic(err)
+	}
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
@@ -78,6 +84,9 @@ func SubnetFilter_ByCidrMask(mask *float64) SubnetFilter {
 func SubnetFilter_ByIds(subnetIds *[]*string) SubnetFilter {
 	_init_.Initialize()
 
+	if err := validateSubnetFilter_ByIdsParameters(subnetIds); err != nil {
+		panic(err)
+	}
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
@@ -95,6 +104,9 @@ func SubnetFilter_ByIds(subnetIds *[]*string) SubnetFilter {
 func SubnetFilter_ContainsIpAddresses(ipv4addrs *[]*string) SubnetFilter {
 	_init_.Initialize()
 
+	if err := validateSubnetFilter_ContainsIpAddressesParameters(ipv4addrs); err != nil {
+		panic(err)
+	}
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
@@ -125,6 +137,9 @@ func SubnetFilter_OnePerAz() SubnetFilter {
 }
 
 func (s *jsiiProxy_SubnetFilter) SelectSubnets(_subnets *[]ISubnet) *[]ISubnet {
+	if err := s.validateSelectSubnetsParameters(_subnets); err != nil {
+		panic(err)
+	}
 	var returns *[]ISubnet
 
 	_jsii_.Invoke(

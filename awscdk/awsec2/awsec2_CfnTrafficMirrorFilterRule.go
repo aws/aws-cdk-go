@@ -490,6 +490,9 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) UpdatedProperites() *map[string]i
 func NewCfnTrafficMirrorFilterRule(scope awscdk.Construct, id *string, props *CfnTrafficMirrorFilterRuleProps) CfnTrafficMirrorFilterRule {
 	_init_.Initialize()
 
+	if err := validateNewCfnTrafficMirrorFilterRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnTrafficMirrorFilterRule{}
 
 	_jsii_.Create(
@@ -512,7 +515,7 @@ func NewCfnTrafficMirrorFilterRule_Override(c CfnTrafficMirrorFilterRule, scope 
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetDescription(val *string) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -520,7 +523,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetDestinationCidrBlock(val *string) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetDestinationCidrBlock(val *string) {
+	if err := j.validateSetDestinationCidrBlockParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"destinationCidrBlock",
@@ -528,7 +534,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetDestinationCidrBlock(val *stri
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetDestinationPortRange(val interface{}) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetDestinationPortRange(val interface{}) {
+	if err := j.validateSetDestinationPortRangeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"destinationPortRange",
@@ -536,7 +545,7 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetDestinationPortRange(val inter
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetProtocol(val *float64) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetProtocol(val *float64) {
 	_jsii_.Set(
 		j,
 		"protocol",
@@ -544,7 +553,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetProtocol(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetRuleAction(val *string) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetRuleAction(val *string) {
+	if err := j.validateSetRuleActionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleAction",
@@ -552,7 +564,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetRuleAction(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetRuleNumber(val *float64) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetRuleNumber(val *float64) {
+	if err := j.validateSetRuleNumberParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleNumber",
@@ -560,7 +575,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetRuleNumber(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetSourceCidrBlock(val *string) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetSourceCidrBlock(val *string) {
+	if err := j.validateSetSourceCidrBlockParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sourceCidrBlock",
@@ -568,7 +586,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetSourceCidrBlock(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetSourcePortRange(val interface{}) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetSourcePortRange(val interface{}) {
+	if err := j.validateSetSourcePortRangeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sourcePortRange",
@@ -576,7 +597,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetSourcePortRange(val interface{
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetTrafficDirection(val *string) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetTrafficDirection(val *string) {
+	if err := j.validateSetTrafficDirectionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"trafficDirection",
@@ -584,7 +608,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetTrafficDirection(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetTrafficMirrorFilterId(val *string) {
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetTrafficMirrorFilterId(val *string) {
+	if err := j.validateSetTrafficMirrorFilterIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"trafficMirrorFilterId",
@@ -602,6 +629,9 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) SetTrafficMirrorFilterId(val *str
 func CfnTrafficMirrorFilterRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTrafficMirrorFilterRule_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -619,6 +649,9 @@ func CfnTrafficMirrorFilterRule_IsCfnElement(x interface{}) *bool {
 func CfnTrafficMirrorFilterRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTrafficMirrorFilterRule_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -636,6 +669,9 @@ func CfnTrafficMirrorFilterRule_IsCfnResource(construct constructs.IConstruct) *
 func CfnTrafficMirrorFilterRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTrafficMirrorFilterRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -660,6 +696,9 @@ func CfnTrafficMirrorFilterRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -668,6 +707,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddDeletionOverride(path *string)
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -676,6 +718,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddDependsOn(target awscdk.CfnRes
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -684,6 +729,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddMetadata(key *string, value in
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -692,6 +740,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddOverride(path *string, value i
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -700,6 +751,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddPropertyDeletionOverride(prope
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -708,6 +762,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) AddPropertyOverride(propertyPath 
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -716,6 +773,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) ApplyRemovalPolicy(policy awscdk.
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -729,6 +789,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) GetAtt(attributeName *string) aws
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -742,6 +805,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) GetMetadata(key *string) interfac
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -758,6 +824,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -779,6 +848,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -795,6 +867,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) Prepare() {
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -821,6 +896,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -855,6 +933,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

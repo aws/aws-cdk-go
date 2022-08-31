@@ -404,6 +404,9 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) UpdatedProperites() *map[stri
 func NewCfnClusterSecurityGroupIngress(scope awscdk.Construct, id *string, props *CfnClusterSecurityGroupIngressProps) CfnClusterSecurityGroupIngress {
 	_init_.Initialize()
 
+	if err := validateNewCfnClusterSecurityGroupIngressParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnClusterSecurityGroupIngress{}
 
 	_jsii_.Create(
@@ -426,7 +429,7 @@ func NewCfnClusterSecurityGroupIngress_Override(c CfnClusterSecurityGroupIngress
 	)
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetCidrip(val *string) {
+func (j *jsiiProxy_CfnClusterSecurityGroupIngress)SetCidrip(val *string) {
 	_jsii_.Set(
 		j,
 		"cidrip",
@@ -434,7 +437,10 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetCidrip(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetClusterSecurityGroupName(val *string) {
+func (j *jsiiProxy_CfnClusterSecurityGroupIngress)SetClusterSecurityGroupName(val *string) {
+	if err := j.validateSetClusterSecurityGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clusterSecurityGroupName",
@@ -442,7 +448,7 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetClusterSecurityGroupName(v
 	)
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetEc2SecurityGroupName(val *string) {
+func (j *jsiiProxy_CfnClusterSecurityGroupIngress)SetEc2SecurityGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"ec2SecurityGroupName",
@@ -450,7 +456,7 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetEc2SecurityGroupName(val *
 	)
 }
 
-func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetEc2SecurityGroupOwnerId(val *string) {
+func (j *jsiiProxy_CfnClusterSecurityGroupIngress)SetEc2SecurityGroupOwnerId(val *string) {
 	_jsii_.Set(
 		j,
 		"ec2SecurityGroupOwnerId",
@@ -468,6 +474,9 @@ func (j *jsiiProxy_CfnClusterSecurityGroupIngress) SetEc2SecurityGroupOwnerId(va
 func CfnClusterSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClusterSecurityGroupIngress_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -485,6 +494,9 @@ func CfnClusterSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 func CfnClusterSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClusterSecurityGroupIngress_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -502,6 +514,9 @@ func CfnClusterSecurityGroupIngress_IsCfnResource(construct constructs.IConstruc
 func CfnClusterSecurityGroupIngress_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClusterSecurityGroupIngress_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -526,6 +541,9 @@ func CfnClusterSecurityGroupIngress_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -534,6 +552,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddDeletionOverride(path *str
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -542,6 +563,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddDependsOn(target awscdk.Cf
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -550,6 +574,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddMetadata(key *string, valu
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -558,6 +585,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddOverride(path *string, val
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -566,6 +596,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddPropertyDeletionOverride(p
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -574,6 +607,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) AddPropertyOverride(propertyP
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -582,6 +618,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) ApplyRemovalPolicy(policy aws
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -595,6 +634,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) GetAtt(attributeName *string)
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -608,6 +650,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) GetMetadata(key *string) inte
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -624,6 +669,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -645,6 +693,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -661,6 +712,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) Prepare() {
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -687,6 +741,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -721,6 +778,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

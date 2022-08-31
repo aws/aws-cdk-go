@@ -68,7 +68,10 @@ func (j *jsiiProxy_IRestApi) DeploymentStage() Stage {
 	return returns
 }
 
-func (j *jsiiProxy_IRestApi) SetDeploymentStage(val Stage) {
+func (j *jsiiProxy_IRestApi)SetDeploymentStage(val Stage) {
+	if err := j.validateSetDeploymentStageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"deploymentStage",

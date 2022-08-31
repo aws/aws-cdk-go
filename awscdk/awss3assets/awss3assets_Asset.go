@@ -282,6 +282,9 @@ func (j *jsiiProxy_Asset) SourceHash() *string {
 func NewAsset(scope constructs.Construct, id *string, props *AssetProps) Asset {
 	_init_.Initialize()
 
+	if err := validateNewAssetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Asset{}
 
 	_jsii_.Create(
@@ -309,6 +312,9 @@ func NewAsset_Override(a Asset, scope constructs.Construct, id *string, props *A
 func Asset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAsset_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -322,6 +328,9 @@ func Asset_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_Asset) AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string) {
+	if err := a.validateAddResourceMetadataParameters(resource, resourceProperty); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addResourceMetadata",
@@ -330,6 +339,9 @@ func (a *jsiiProxy_Asset) AddResourceMetadata(resource awscdk.CfnResource, resou
 }
 
 func (a *jsiiProxy_Asset) GrantRead(grantee awsiam.IGrantable) {
+	if err := a.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"grantRead",
@@ -346,6 +358,9 @@ func (a *jsiiProxy_Asset) OnPrepare() {
 }
 
 func (a *jsiiProxy_Asset) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -375,6 +390,9 @@ func (a *jsiiProxy_Asset) Prepare() {
 }
 
 func (a *jsiiProxy_Asset) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

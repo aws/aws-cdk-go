@@ -476,6 +476,9 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) UpdatedProperites() *map[string]inter
 func NewCfnNetworkInsightsPath(scope awscdk.Construct, id *string, props *CfnNetworkInsightsPathProps) CfnNetworkInsightsPath {
 	_init_.Initialize()
 
+	if err := validateNewCfnNetworkInsightsPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnNetworkInsightsPath{}
 
 	_jsii_.Create(
@@ -498,7 +501,10 @@ func NewCfnNetworkInsightsPath_Override(c CfnNetworkInsightsPath, scope awscdk.C
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) SetDestination(val *string) {
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetDestination(val *string) {
+	if err := j.validateSetDestinationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"destination",
@@ -506,7 +512,7 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) SetDestination(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) SetDestinationIp(val *string) {
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetDestinationIp(val *string) {
 	_jsii_.Set(
 		j,
 		"destinationIp",
@@ -514,7 +520,7 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) SetDestinationIp(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) SetDestinationPort(val *float64) {
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetDestinationPort(val *float64) {
 	_jsii_.Set(
 		j,
 		"destinationPort",
@@ -522,7 +528,10 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) SetDestinationPort(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) SetProtocol(val *string) {
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetProtocol(val *string) {
+	if err := j.validateSetProtocolParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"protocol",
@@ -530,7 +539,10 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) SetProtocol(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) SetSource(val *string) {
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetSource(val *string) {
+	if err := j.validateSetSourceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"source",
@@ -538,7 +550,7 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) SetSource(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkInsightsPath) SetSourceIp(val *string) {
+func (j *jsiiProxy_CfnNetworkInsightsPath)SetSourceIp(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceIp",
@@ -556,6 +568,9 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) SetSourceIp(val *string) {
 func CfnNetworkInsightsPath_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNetworkInsightsPath_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -573,6 +588,9 @@ func CfnNetworkInsightsPath_IsCfnElement(x interface{}) *bool {
 func CfnNetworkInsightsPath_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNetworkInsightsPath_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -590,6 +608,9 @@ func CfnNetworkInsightsPath_IsCfnResource(construct constructs.IConstruct) *bool
 func CfnNetworkInsightsPath_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNetworkInsightsPath_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -614,6 +635,9 @@ func CfnNetworkInsightsPath_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -622,6 +646,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -630,6 +657,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) AddDependsOn(target awscdk.CfnResourc
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -638,6 +668,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) AddMetadata(key *string, value interf
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -646,6 +679,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) AddOverride(path *string, value inter
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -654,6 +690,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) AddPropertyDeletionOverride(propertyP
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -662,6 +701,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) AddPropertyOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -670,6 +712,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) ApplyRemovalPolicy(policy awscdk.Remo
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -683,6 +728,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) GetAtt(attributeName *string) awscdk.
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -696,6 +744,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) GetMetadata(key *string) interface{} 
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -712,6 +763,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -733,6 +787,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -749,6 +806,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) Prepare() {
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -775,6 +835,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -809,6 +872,9 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

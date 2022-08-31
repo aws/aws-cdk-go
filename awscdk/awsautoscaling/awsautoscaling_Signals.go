@@ -70,6 +70,9 @@ func NewSignals_Override(s Signals) {
 func Signals_WaitForAll(options *SignalsOptions) Signals {
 	_init_.Initialize()
 
+	if err := validateSignals_WaitForAllParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Signals
 
 	_jsii_.StaticInvoke(
@@ -93,6 +96,9 @@ func Signals_WaitForAll(options *SignalsOptions) Signals {
 func Signals_WaitForCount(count *float64, options *SignalsOptions) Signals {
 	_init_.Initialize()
 
+	if err := validateSignals_WaitForCountParameters(count, options); err != nil {
+		panic(err)
+	}
 	var returns Signals
 
 	_jsii_.StaticInvoke(
@@ -113,6 +119,9 @@ func Signals_WaitForCount(count *float64, options *SignalsOptions) Signals {
 func Signals_WaitForMinCapacity(options *SignalsOptions) Signals {
 	_init_.Initialize()
 
+	if err := validateSignals_WaitForMinCapacityParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Signals
 
 	_jsii_.StaticInvoke(
@@ -126,6 +135,9 @@ func Signals_WaitForMinCapacity(options *SignalsOptions) Signals {
 }
 
 func (s *jsiiProxy_Signals) DoRender(options *SignalsOptions, count *float64) *awscdk.CfnCreationPolicy {
+	if err := s.validateDoRenderParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.CfnCreationPolicy
 
 	_jsii_.Invoke(
@@ -139,6 +151,9 @@ func (s *jsiiProxy_Signals) DoRender(options *SignalsOptions, count *float64) *a
 }
 
 func (s *jsiiProxy_Signals) RenderCreationPolicy(renderOptions *RenderSignalsOptions) *awscdk.CfnCreationPolicy {
+	if err := s.validateRenderCreationPolicyParameters(renderOptions); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.CfnCreationPolicy
 
 	_jsii_.Invoke(

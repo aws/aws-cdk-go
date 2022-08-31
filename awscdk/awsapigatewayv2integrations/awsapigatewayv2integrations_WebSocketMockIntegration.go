@@ -34,6 +34,9 @@ type jsiiProxy_WebSocketMockIntegration struct {
 func NewWebSocketMockIntegration(id *string) WebSocketMockIntegration {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketMockIntegrationParameters(id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketMockIntegration{}
 
 	_jsii_.Create(
@@ -57,6 +60,9 @@ func NewWebSocketMockIntegration_Override(w WebSocketMockIntegration, id *string
 }
 
 func (w *jsiiProxy_WebSocketMockIntegration) Bind(options *awsapigatewayv2.WebSocketRouteIntegrationBindOptions) *awsapigatewayv2.WebSocketRouteIntegrationConfig {
+	if err := w.validateBindParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.WebSocketRouteIntegrationConfig
 
 	_jsii_.Invoke(

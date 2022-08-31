@@ -46,6 +46,9 @@ type jsiiProxy_CpuArchitecture struct {
 func CpuArchitecture_Of(cpuArchitecture *string) CpuArchitecture {
 	_init_.Initialize()
 
+	if err := validateCpuArchitecture_OfParameters(cpuArchitecture); err != nil {
+		panic(err)
+	}
 	var returns CpuArchitecture
 
 	_jsii_.StaticInvoke(

@@ -31,6 +31,9 @@ type jsiiProxy_IApplication struct {
 }
 
 func (i *jsiiProxy_IApplication) AssociateAttributeGroup(attributeGroup IAttributeGroup) {
+	if err := i.validateAssociateAttributeGroupParameters(attributeGroup); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"associateAttributeGroup",
@@ -39,6 +42,9 @@ func (i *jsiiProxy_IApplication) AssociateAttributeGroup(attributeGroup IAttribu
 }
 
 func (i *jsiiProxy_IApplication) AssociateStack(stack awscdk.Stack) {
+	if err := i.validateAssociateStackParameters(stack); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"associateStack",

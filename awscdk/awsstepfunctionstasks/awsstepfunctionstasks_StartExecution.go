@@ -46,6 +46,9 @@ type jsiiProxy_StartExecution struct {
 func NewStartExecution(stateMachine awsstepfunctions.IStateMachine, props *StartExecutionProps) StartExecution {
 	_init_.Initialize()
 
+	if err := validateNewStartExecutionParameters(stateMachine, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StartExecution{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func NewStartExecution_Override(s StartExecution, stateMachine awsstepfunctions.
 }
 
 func (s *jsiiProxy_StartExecution) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := s.validateBindParameters(task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

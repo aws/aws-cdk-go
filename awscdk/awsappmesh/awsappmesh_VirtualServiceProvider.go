@@ -56,6 +56,9 @@ func NewVirtualServiceProvider_Override(v VirtualServiceProvider) {
 func VirtualServiceProvider_None(mesh IMesh) VirtualServiceProvider {
 	_init_.Initialize()
 
+	if err := validateVirtualServiceProvider_NoneParameters(mesh); err != nil {
+		panic(err)
+	}
 	var returns VirtualServiceProvider
 
 	_jsii_.StaticInvoke(
@@ -73,6 +76,9 @@ func VirtualServiceProvider_None(mesh IMesh) VirtualServiceProvider {
 func VirtualServiceProvider_VirtualNode(virtualNode IVirtualNode) VirtualServiceProvider {
 	_init_.Initialize()
 
+	if err := validateVirtualServiceProvider_VirtualNodeParameters(virtualNode); err != nil {
+		panic(err)
+	}
 	var returns VirtualServiceProvider
 
 	_jsii_.StaticInvoke(
@@ -90,6 +96,9 @@ func VirtualServiceProvider_VirtualNode(virtualNode IVirtualNode) VirtualService
 func VirtualServiceProvider_VirtualRouter(virtualRouter IVirtualRouter) VirtualServiceProvider {
 	_init_.Initialize()
 
+	if err := validateVirtualServiceProvider_VirtualRouterParameters(virtualRouter); err != nil {
+		panic(err)
+	}
 	var returns VirtualServiceProvider
 
 	_jsii_.StaticInvoke(
@@ -103,6 +112,9 @@ func VirtualServiceProvider_VirtualRouter(virtualRouter IVirtualRouter) VirtualS
 }
 
 func (v *jsiiProxy_VirtualServiceProvider) Bind(_construct constructs.Construct) *VirtualServiceProviderConfig {
+	if err := v.validateBindParameters(_construct); err != nil {
+		panic(err)
+	}
 	var returns *VirtualServiceProviderConfig
 
 	_jsii_.Invoke(

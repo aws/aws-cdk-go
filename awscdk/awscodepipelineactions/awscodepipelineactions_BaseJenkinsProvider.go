@@ -138,6 +138,9 @@ func NewBaseJenkinsProvider_Override(b BaseJenkinsProvider, scope constructs.Con
 func BaseJenkinsProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseJenkinsProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -159,6 +162,9 @@ func (b *jsiiProxy_BaseJenkinsProvider) OnPrepare() {
 }
 
 func (b *jsiiProxy_BaseJenkinsProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -188,6 +194,9 @@ func (b *jsiiProxy_BaseJenkinsProvider) Prepare() {
 }
 
 func (b *jsiiProxy_BaseJenkinsProvider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

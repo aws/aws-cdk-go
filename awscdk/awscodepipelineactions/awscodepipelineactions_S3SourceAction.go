@@ -105,6 +105,9 @@ func (j *jsiiProxy_S3SourceAction) Variables() *S3SourceVariables {
 func NewS3SourceAction(props *S3SourceActionProps) S3SourceAction {
 	_init_.Initialize()
 
+	if err := validateNewS3SourceActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3SourceAction{}
 
 	_jsii_.Create(
@@ -128,6 +131,9 @@ func NewS3SourceAction_Override(s S3SourceAction, props *S3SourceActionProps) {
 }
 
 func (s *jsiiProxy_S3SourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -141,6 +147,9 @@ func (s *jsiiProxy_S3SourceAction) Bind(scope awscdk.Construct, stage awscodepip
 }
 
 func (s *jsiiProxy_S3SourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBoundParameters(_scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -154,6 +163,9 @@ func (s *jsiiProxy_S3SourceAction) Bound(_scope awscdk.Construct, stage awscodep
 }
 
 func (s *jsiiProxy_S3SourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := s.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -167,6 +179,9 @@ func (s *jsiiProxy_S3SourceAction) OnStateChange(name *string, target awsevents.
 }
 
 func (s *jsiiProxy_S3SourceAction) VariableExpression(variableName *string) *string {
+	if err := s.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

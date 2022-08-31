@@ -385,6 +385,9 @@ func (j *jsiiProxy_EmrCancelStep) TaskPolicies() *[]awsiam.PolicyStatement {
 func NewEmrCancelStep(scope constructs.Construct, id *string, props *EmrCancelStepProps) EmrCancelStep {
 	_init_.Initialize()
 
+	if err := validateNewEmrCancelStepParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EmrCancelStep{}
 
 	_jsii_.Create(
@@ -407,7 +410,7 @@ func NewEmrCancelStep_Override(e EmrCancelStep, scope constructs.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_EmrCancelStep) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_EmrCancelStep)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -415,7 +418,7 @@ func (j *jsiiProxy_EmrCancelStep) SetDefaultChoice(val awsstepfunctions.State) {
 	)
 }
 
-func (j *jsiiProxy_EmrCancelStep) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_EmrCancelStep)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -428,6 +431,9 @@ func (j *jsiiProxy_EmrCancelStep) SetIteration(val awsstepfunctions.StateGraph) 
 func EmrCancelStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateEmrCancelStep_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -445,6 +451,9 @@ func EmrCancelStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 func EmrCancelStep_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrCancelStep_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -464,6 +473,9 @@ func EmrCancelStep_FindReachableEndStates(start awsstepfunctions.State, options 
 func EmrCancelStep_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrCancelStep_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -481,6 +493,9 @@ func EmrCancelStep_FindReachableStates(start awsstepfunctions.State, options *aw
 func EmrCancelStep_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEmrCancelStep_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -498,6 +513,9 @@ func EmrCancelStep_IsConstruct(x interface{}) *bool {
 func EmrCancelStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateEmrCancelStep_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		"prefixStates",
@@ -506,6 +524,9 @@ func EmrCancelStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (e *jsiiProxy_EmrCancelStep) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := e.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addBranch",
@@ -514,6 +535,9 @@ func (e *jsiiProxy_EmrCancelStep) AddBranch(branch awsstepfunctions.StateGraph) 
 }
 
 func (e *jsiiProxy_EmrCancelStep) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -527,6 +551,9 @@ func (e *jsiiProxy_EmrCancelStep) AddCatch(handler awsstepfunctions.IChainable, 
 }
 
 func (e *jsiiProxy_EmrCancelStep) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := e.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addChoice",
@@ -535,6 +562,9 @@ func (e *jsiiProxy_EmrCancelStep) AddChoice(condition awsstepfunctions.Condition
 }
 
 func (e *jsiiProxy_EmrCancelStep) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := e.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addIterator",
@@ -543,6 +573,9 @@ func (e *jsiiProxy_EmrCancelStep) AddIterator(iteration awsstepfunctions.StateGr
 }
 
 func (e *jsiiProxy_EmrCancelStep) AddPrefix(x *string) {
+	if err := e.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPrefix",
@@ -551,6 +584,9 @@ func (e *jsiiProxy_EmrCancelStep) AddPrefix(x *string) {
 }
 
 func (e *jsiiProxy_EmrCancelStep) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -564,6 +600,9 @@ func (e *jsiiProxy_EmrCancelStep) AddRetry(props *awsstepfunctions.RetryProps) a
 }
 
 func (e *jsiiProxy_EmrCancelStep) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"bindToGraph",
@@ -572,6 +611,9 @@ func (e *jsiiProxy_EmrCancelStep) BindToGraph(graph awsstepfunctions.StateGraph)
 }
 
 func (e *jsiiProxy_EmrCancelStep) MakeDefault(def awsstepfunctions.State) {
+	if err := e.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeDefault",
@@ -580,6 +622,9 @@ func (e *jsiiProxy_EmrCancelStep) MakeDefault(def awsstepfunctions.State) {
 }
 
 func (e *jsiiProxy_EmrCancelStep) MakeNext(next awsstepfunctions.State) {
+	if err := e.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeNext",
@@ -588,6 +633,9 @@ func (e *jsiiProxy_EmrCancelStep) MakeNext(next awsstepfunctions.State) {
 }
 
 func (e *jsiiProxy_EmrCancelStep) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -601,6 +649,9 @@ func (e *jsiiProxy_EmrCancelStep) Metric(metricName *string, props *awscloudwatc
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -614,6 +665,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricFailed(props *awscloudwatch.MetricOption
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -627,6 +681,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricHeartbeatTimedOut(props *awscloudwatch.M
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -640,6 +697,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricRunTime(props *awscloudwatch.MetricOptio
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -653,6 +713,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricScheduled(props *awscloudwatch.MetricOpt
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -666,6 +729,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricScheduleTime(props *awscloudwatch.Metric
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -679,6 +745,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricStarted(props *awscloudwatch.MetricOptio
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -692,6 +761,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricSucceeded(props *awscloudwatch.MetricOpt
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -705,6 +777,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricTime(props *awscloudwatch.MetricOptions)
 }
 
 func (e *jsiiProxy_EmrCancelStep) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -718,6 +793,9 @@ func (e *jsiiProxy_EmrCancelStep) MetricTimedOut(props *awscloudwatch.MetricOpti
 }
 
 func (e *jsiiProxy_EmrCancelStep) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := e.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -739,6 +817,9 @@ func (e *jsiiProxy_EmrCancelStep) OnPrepare() {
 }
 
 func (e *jsiiProxy_EmrCancelStep) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -859,6 +940,9 @@ func (e *jsiiProxy_EmrCancelStep) RenderRetryCatch() interface{} {
 }
 
 func (e *jsiiProxy_EmrCancelStep) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",
@@ -906,6 +990,9 @@ func (e *jsiiProxy_EmrCancelStep) Validate() *[]*string {
 }
 
 func (e *jsiiProxy_EmrCancelStep) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"whenBoundToGraph",

@@ -223,6 +223,9 @@ func NewProduct_Override(p Product, scope constructs.Construct, id *string, prop
 func Product_FromProductArn(scope constructs.Construct, id *string, productArn *string) IProduct {
 	_init_.Initialize()
 
+	if err := validateProduct_FromProductArnParameters(scope, id, productArn); err != nil {
+		panic(err)
+	}
 	var returns IProduct
 
 	_jsii_.StaticInvoke(
@@ -240,6 +243,9 @@ func Product_FromProductArn(scope constructs.Construct, id *string, productArn *
 func Product_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateProduct_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -257,6 +263,9 @@ func Product_IsConstruct(x interface{}) *bool {
 func Product_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateProduct_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -270,6 +279,9 @@ func Product_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_Product) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -278,6 +290,9 @@ func (p *jsiiProxy_Product) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (p *jsiiProxy_Product) AssociateTagOptions(tagOptions TagOptions) {
+	if err := p.validateAssociateTagOptionsParameters(tagOptions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"associateTagOptions",
@@ -299,6 +314,9 @@ func (p *jsiiProxy_Product) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_Product) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -312,6 +330,9 @@ func (p *jsiiProxy_Product) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (p *jsiiProxy_Product) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -333,6 +354,9 @@ func (p *jsiiProxy_Product) OnPrepare() {
 }
 
 func (p *jsiiProxy_Product) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -362,6 +386,9 @@ func (p *jsiiProxy_Product) Prepare() {
 }
 
 func (p *jsiiProxy_Product) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

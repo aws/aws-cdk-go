@@ -108,6 +108,9 @@ func (j *jsiiProxy_AlarmWidget) Y() *float64 {
 func NewAlarmWidget(props *AlarmWidgetProps) AlarmWidget {
 	_init_.Initialize()
 
+	if err := validateNewAlarmWidgetParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AlarmWidget{}
 
 	_jsii_.Create(
@@ -130,7 +133,7 @@ func NewAlarmWidget_Override(a AlarmWidget, props *AlarmWidgetProps) {
 	)
 }
 
-func (j *jsiiProxy_AlarmWidget) SetX(val *float64) {
+func (j *jsiiProxy_AlarmWidget)SetX(val *float64) {
 	_jsii_.Set(
 		j,
 		"x",
@@ -138,7 +141,7 @@ func (j *jsiiProxy_AlarmWidget) SetX(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_AlarmWidget) SetY(val *float64) {
+func (j *jsiiProxy_AlarmWidget)SetY(val *float64) {
 	_jsii_.Set(
 		j,
 		"y",
@@ -160,6 +163,9 @@ func (a *jsiiProxy_AlarmWidget) CopyMetricWarnings(ms ...IMetric) {
 }
 
 func (a *jsiiProxy_AlarmWidget) Position(x *float64, y *float64) {
+	if err := a.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"position",

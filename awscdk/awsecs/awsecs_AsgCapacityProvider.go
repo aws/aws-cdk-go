@@ -201,6 +201,9 @@ func (j *jsiiProxy_AsgCapacityProvider) Node() awscdk.ConstructNode {
 func NewAsgCapacityProvider(scope constructs.Construct, id *string, props *AsgCapacityProviderProps) AsgCapacityProvider {
 	_init_.Initialize()
 
+	if err := validateNewAsgCapacityProviderParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AsgCapacityProvider{}
 
 	_jsii_.Create(
@@ -228,6 +231,9 @@ func NewAsgCapacityProvider_Override(a AsgCapacityProvider, scope constructs.Con
 func AsgCapacityProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAsgCapacityProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -249,6 +255,9 @@ func (a *jsiiProxy_AsgCapacityProvider) OnPrepare() {
 }
 
 func (a *jsiiProxy_AsgCapacityProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -278,6 +287,9 @@ func (a *jsiiProxy_AsgCapacityProvider) Prepare() {
 }
 
 func (a *jsiiProxy_AsgCapacityProvider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

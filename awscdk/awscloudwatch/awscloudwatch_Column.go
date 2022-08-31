@@ -111,6 +111,9 @@ func NewColumn_Override(c Column, widgets ...IWidget) {
 }
 
 func (c *jsiiProxy_Column) Position(x *float64, y *float64) {
+	if err := c.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"position",

@@ -67,6 +67,9 @@ func (j *jsiiProxy_SqlServerEngineVersion) SqlServerMajorVersion() *string {
 func SqlServerEngineVersion_Of(sqlServerFullVersion *string, sqlServerMajorVersion *string) SqlServerEngineVersion {
 	_init_.Initialize()
 
+	if err := validateSqlServerEngineVersion_OfParameters(sqlServerFullVersion, sqlServerMajorVersion); err != nil {
+		panic(err)
+	}
 	var returns SqlServerEngineVersion
 
 	_jsii_.StaticInvoke(

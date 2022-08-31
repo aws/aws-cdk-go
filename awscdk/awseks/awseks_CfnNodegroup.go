@@ -691,6 +691,9 @@ func (j *jsiiProxy_CfnNodegroup) Version() *string {
 func NewCfnNodegroup(scope awscdk.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
 	_init_.Initialize()
 
+	if err := validateNewCfnNodegroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnNodegroup{}
 
 	_jsii_.Create(
@@ -713,7 +716,7 @@ func NewCfnNodegroup_Override(c CfnNodegroup, scope awscdk.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetAmiType(val *string) {
+func (j *jsiiProxy_CfnNodegroup)SetAmiType(val *string) {
 	_jsii_.Set(
 		j,
 		"amiType",
@@ -721,7 +724,7 @@ func (j *jsiiProxy_CfnNodegroup) SetAmiType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetCapacityType(val *string) {
+func (j *jsiiProxy_CfnNodegroup)SetCapacityType(val *string) {
 	_jsii_.Set(
 		j,
 		"capacityType",
@@ -729,7 +732,10 @@ func (j *jsiiProxy_CfnNodegroup) SetCapacityType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetClusterName(val *string) {
+func (j *jsiiProxy_CfnNodegroup)SetClusterName(val *string) {
+	if err := j.validateSetClusterNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clusterName",
@@ -737,7 +743,7 @@ func (j *jsiiProxy_CfnNodegroup) SetClusterName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetDiskSize(val *float64) {
+func (j *jsiiProxy_CfnNodegroup)SetDiskSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"diskSize",
@@ -745,7 +751,10 @@ func (j *jsiiProxy_CfnNodegroup) SetDiskSize(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetForceUpdateEnabled(val interface{}) {
+func (j *jsiiProxy_CfnNodegroup)SetForceUpdateEnabled(val interface{}) {
+	if err := j.validateSetForceUpdateEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"forceUpdateEnabled",
@@ -753,7 +762,7 @@ func (j *jsiiProxy_CfnNodegroup) SetForceUpdateEnabled(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetInstanceTypes(val *[]*string) {
+func (j *jsiiProxy_CfnNodegroup)SetInstanceTypes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"instanceTypes",
@@ -761,7 +770,10 @@ func (j *jsiiProxy_CfnNodegroup) SetInstanceTypes(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetLabels(val interface{}) {
+func (j *jsiiProxy_CfnNodegroup)SetLabels(val interface{}) {
+	if err := j.validateSetLabelsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"labels",
@@ -769,7 +781,10 @@ func (j *jsiiProxy_CfnNodegroup) SetLabels(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetLaunchTemplate(val interface{}) {
+func (j *jsiiProxy_CfnNodegroup)SetLaunchTemplate(val interface{}) {
+	if err := j.validateSetLaunchTemplateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"launchTemplate",
@@ -777,7 +792,7 @@ func (j *jsiiProxy_CfnNodegroup) SetLaunchTemplate(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetNodegroupName(val *string) {
+func (j *jsiiProxy_CfnNodegroup)SetNodegroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"nodegroupName",
@@ -785,7 +800,10 @@ func (j *jsiiProxy_CfnNodegroup) SetNodegroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetNodeRole(val *string) {
+func (j *jsiiProxy_CfnNodegroup)SetNodeRole(val *string) {
+	if err := j.validateSetNodeRoleParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"nodeRole",
@@ -793,7 +811,7 @@ func (j *jsiiProxy_CfnNodegroup) SetNodeRole(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetReleaseVersion(val *string) {
+func (j *jsiiProxy_CfnNodegroup)SetReleaseVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"releaseVersion",
@@ -801,7 +819,10 @@ func (j *jsiiProxy_CfnNodegroup) SetReleaseVersion(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetRemoteAccess(val interface{}) {
+func (j *jsiiProxy_CfnNodegroup)SetRemoteAccess(val interface{}) {
+	if err := j.validateSetRemoteAccessParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"remoteAccess",
@@ -809,7 +830,10 @@ func (j *jsiiProxy_CfnNodegroup) SetRemoteAccess(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetScalingConfig(val interface{}) {
+func (j *jsiiProxy_CfnNodegroup)SetScalingConfig(val interface{}) {
+	if err := j.validateSetScalingConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"scalingConfig",
@@ -817,7 +841,10 @@ func (j *jsiiProxy_CfnNodegroup) SetScalingConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetSubnets(val *[]*string) {
+func (j *jsiiProxy_CfnNodegroup)SetSubnets(val *[]*string) {
+	if err := j.validateSetSubnetsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"subnets",
@@ -825,7 +852,10 @@ func (j *jsiiProxy_CfnNodegroup) SetSubnets(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetTaints(val interface{}) {
+func (j *jsiiProxy_CfnNodegroup)SetTaints(val interface{}) {
+	if err := j.validateSetTaintsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"taints",
@@ -833,7 +863,10 @@ func (j *jsiiProxy_CfnNodegroup) SetTaints(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetUpdateConfig(val interface{}) {
+func (j *jsiiProxy_CfnNodegroup)SetUpdateConfig(val interface{}) {
+	if err := j.validateSetUpdateConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"updateConfig",
@@ -841,7 +874,7 @@ func (j *jsiiProxy_CfnNodegroup) SetUpdateConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnNodegroup) SetVersion(val *string) {
+func (j *jsiiProxy_CfnNodegroup)SetVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"version",
@@ -859,6 +892,9 @@ func (j *jsiiProxy_CfnNodegroup) SetVersion(val *string) {
 func CfnNodegroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNodegroup_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -876,6 +912,9 @@ func CfnNodegroup_IsCfnElement(x interface{}) *bool {
 func CfnNodegroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNodegroup_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -893,6 +932,9 @@ func CfnNodegroup_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnNodegroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNodegroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -917,6 +959,9 @@ func CfnNodegroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnNodegroup) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -925,6 +970,9 @@ func (c *jsiiProxy_CfnNodegroup) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnNodegroup) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -933,6 +981,9 @@ func (c *jsiiProxy_CfnNodegroup) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnNodegroup) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -941,6 +992,9 @@ func (c *jsiiProxy_CfnNodegroup) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnNodegroup) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -949,6 +1003,9 @@ func (c *jsiiProxy_CfnNodegroup) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnNodegroup) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -957,6 +1014,9 @@ func (c *jsiiProxy_CfnNodegroup) AddPropertyDeletionOverride(propertyPath *strin
 }
 
 func (c *jsiiProxy_CfnNodegroup) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -965,6 +1025,9 @@ func (c *jsiiProxy_CfnNodegroup) AddPropertyOverride(propertyPath *string, value
 }
 
 func (c *jsiiProxy_CfnNodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -973,6 +1036,9 @@ func (c *jsiiProxy_CfnNodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 }
 
 func (c *jsiiProxy_CfnNodegroup) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -986,6 +1052,9 @@ func (c *jsiiProxy_CfnNodegroup) GetAtt(attributeName *string) awscdk.Reference 
 }
 
 func (c *jsiiProxy_CfnNodegroup) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -999,6 +1068,9 @@ func (c *jsiiProxy_CfnNodegroup) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnNodegroup) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1015,6 +1087,9 @@ func (c *jsiiProxy_CfnNodegroup) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnNodegroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1036,6 +1111,9 @@ func (c *jsiiProxy_CfnNodegroup) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNodegroup) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1052,6 +1130,9 @@ func (c *jsiiProxy_CfnNodegroup) Prepare() {
 }
 
 func (c *jsiiProxy_CfnNodegroup) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1078,6 +1159,9 @@ func (c *jsiiProxy_CfnNodegroup) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnNodegroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1112,6 +1196,9 @@ func (c *jsiiProxy_CfnNodegroup) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNodegroup) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

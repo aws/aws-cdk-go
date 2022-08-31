@@ -439,6 +439,9 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) WirelessGateways() *[]*strin
 func NewCfnNetworkAnalyzerConfiguration(scope awscdk.Construct, id *string, props *CfnNetworkAnalyzerConfigurationProps) CfnNetworkAnalyzerConfiguration {
 	_init_.Initialize()
 
+	if err := validateNewCfnNetworkAnalyzerConfigurationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnNetworkAnalyzerConfiguration{}
 
 	_jsii_.Create(
@@ -461,7 +464,7 @@ func NewCfnNetworkAnalyzerConfiguration_Override(c CfnNetworkAnalyzerConfigurati
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetDescription(val *string) {
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -469,7 +472,10 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetDescription(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetName(val *string) {
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -477,7 +483,10 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetTraceContent(val interface{}) {
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetTraceContent(val interface{}) {
+	if err := j.validateSetTraceContentParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"traceContent",
@@ -485,7 +494,7 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetTraceContent(val interfac
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetWirelessDevices(val *[]*string) {
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetWirelessDevices(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"wirelessDevices",
@@ -493,7 +502,7 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetWirelessDevices(val *[]*s
 	)
 }
 
-func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetWirelessGateways(val *[]*string) {
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetWirelessGateways(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"wirelessGateways",
@@ -511,6 +520,9 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) SetWirelessGateways(val *[]*
 func CfnNetworkAnalyzerConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNetworkAnalyzerConfiguration_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -528,6 +540,9 @@ func CfnNetworkAnalyzerConfiguration_IsCfnElement(x interface{}) *bool {
 func CfnNetworkAnalyzerConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNetworkAnalyzerConfiguration_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -545,6 +560,9 @@ func CfnNetworkAnalyzerConfiguration_IsCfnResource(construct constructs.IConstru
 func CfnNetworkAnalyzerConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnNetworkAnalyzerConfiguration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -569,6 +587,9 @@ func CfnNetworkAnalyzerConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -577,6 +598,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddDeletionOverride(path *st
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -585,6 +609,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddDependsOn(target awscdk.C
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -593,6 +620,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddMetadata(key *string, val
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -601,6 +631,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddOverride(path *string, va
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -609,6 +642,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddPropertyDeletionOverride(
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -617,6 +653,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) AddPropertyOverride(property
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -625,6 +664,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) ApplyRemovalPolicy(policy aw
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -638,6 +680,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) GetAtt(attributeName *string
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -651,6 +696,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) GetMetadata(key *string) int
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -667,6 +715,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -688,6 +739,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -704,6 +758,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) Prepare() {
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -730,6 +787,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -764,6 +824,9 @@ func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnNetworkAnalyzerConfiguration) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

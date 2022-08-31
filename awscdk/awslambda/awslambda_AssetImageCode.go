@@ -94,6 +94,9 @@ func (j *jsiiProxy_AssetImageCode) IsInline() *bool {
 func NewAssetImageCode(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
+	if err := validateNewAssetImageCodeParameters(directory, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AssetImageCode{}
 
 	_jsii_.Create(
@@ -121,6 +124,9 @@ func NewAssetImageCode_Override(a AssetImageCode, directory *string, props *Asse
 func AssetImageCode_Asset(path *string) AssetCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_AssetParameters(path); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -138,6 +144,9 @@ func AssetImageCode_Asset(path *string) AssetCode {
 func AssetImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_BucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -155,6 +164,9 @@ func AssetImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *str
 func AssetImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_CfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -172,6 +184,9 @@ func AssetImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCo
 func AssetImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -189,6 +204,9 @@ func AssetImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) A
 func AssetImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_FromAssetImageParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
@@ -206,6 +224,9 @@ func AssetImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps
 func AssetImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -225,6 +246,9 @@ func AssetImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion 
 func AssetImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_FromCfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -245,6 +269,9 @@ func AssetImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParamete
 func AssetImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_FromDockerBuildParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -262,6 +289,9 @@ func AssetImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptio
 func AssetImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_FromEcrImageParameters(repository, props); err != nil {
+		panic(err)
+	}
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
@@ -281,6 +311,9 @@ func AssetImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageC
 func AssetImageCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_FromInlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -298,6 +331,9 @@ func AssetImageCode_FromInline(code *string) InlineCode {
 func AssetImageCode_Inline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateAssetImageCode_InlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -311,6 +347,9 @@ func AssetImageCode_Inline(code *string) InlineCode {
 }
 
 func (a *jsiiProxy_AssetImageCode) Bind(scope awscdk.Construct) *CodeConfig {
+	if err := a.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -324,6 +363,9 @@ func (a *jsiiProxy_AssetImageCode) Bind(scope awscdk.Construct) *CodeConfig {
 }
 
 func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, options *ResourceBindOptions) {
+	if err := a.validateBindToResourceParameters(resource, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"bindToResource",

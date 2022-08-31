@@ -82,6 +82,9 @@ func JsonPath_Array(values ...*string) *string {
 func JsonPath_Format(formatString *string, values ...*string) *string {
 	_init_.Initialize()
 
+	if err := validateJsonPath_FormatParameters(formatString); err != nil {
+		panic(err)
+	}
 	args := []interface{}{formatString}
 	for _, a := range values {
 		args = append(args, a)
@@ -104,6 +107,9 @@ func JsonPath_Format(formatString *string, values ...*string) *string {
 func JsonPath_IsEncodedJsonPath(value *string) *bool {
 	_init_.Initialize()
 
+	if err := validateJsonPath_IsEncodedJsonPathParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -132,6 +138,9 @@ func JsonPath_IsEncodedJsonPath(value *string) *bool {
 func JsonPath_JsonToString(value interface{}) *string {
 	_init_.Initialize()
 
+	if err := validateJsonPath_JsonToStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -149,6 +158,9 @@ func JsonPath_JsonToString(value interface{}) *string {
 func JsonPath_ListAt(path *string) *[]*string {
 	_init_.Initialize()
 
+	if err := validateJsonPath_ListAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
@@ -166,6 +178,9 @@ func JsonPath_ListAt(path *string) *[]*string {
 func JsonPath_NumberAt(path *string) *float64 {
 	_init_.Initialize()
 
+	if err := validateJsonPath_NumberAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.StaticInvoke(
@@ -183,6 +198,9 @@ func JsonPath_NumberAt(path *string) *float64 {
 func JsonPath_ObjectAt(path *string) awscdk.IResolvable {
 	_init_.Initialize()
 
+	if err := validateJsonPath_ObjectAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns awscdk.IResolvable
 
 	_jsii_.StaticInvoke(
@@ -200,6 +218,9 @@ func JsonPath_ObjectAt(path *string) awscdk.IResolvable {
 func JsonPath_StringAt(path *string) *string {
 	_init_.Initialize()
 
+	if err := validateJsonPath_StringAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -228,6 +249,9 @@ func JsonPath_StringAt(path *string) *string {
 func JsonPath_StringToJson(jsonString *string) awscdk.IResolvable {
 	_init_.Initialize()
 
+	if err := validateJsonPath_StringToJsonParameters(jsonString); err != nil {
+		panic(err)
+	}
 	var returns awscdk.IResolvable
 
 	_jsii_.StaticInvoke(

@@ -220,6 +220,9 @@ func (j *jsiiProxy_AccessPoint) Stack() awscdk.Stack {
 func NewAccessPoint(scope constructs.Construct, id *string, props *AccessPointProps) AccessPoint {
 	_init_.Initialize()
 
+	if err := validateNewAccessPointParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AccessPoint{}
 
 	_jsii_.Create(
@@ -247,6 +250,9 @@ func NewAccessPoint_Override(a AccessPoint, scope constructs.Construct, id *stri
 func AccessPoint_FromAccessPointAttributes(scope constructs.Construct, id *string, attrs *AccessPointAttributes) IAccessPoint {
 	_init_.Initialize()
 
+	if err := validateAccessPoint_FromAccessPointAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IAccessPoint
 
 	_jsii_.StaticInvoke(
@@ -264,6 +270,9 @@ func AccessPoint_FromAccessPointAttributes(scope constructs.Construct, id *strin
 func AccessPoint_FromAccessPointId(scope constructs.Construct, id *string, accessPointId *string) IAccessPoint {
 	_init_.Initialize()
 
+	if err := validateAccessPoint_FromAccessPointIdParameters(scope, id, accessPointId); err != nil {
+		panic(err)
+	}
 	var returns IAccessPoint
 
 	_jsii_.StaticInvoke(
@@ -281,6 +290,9 @@ func AccessPoint_FromAccessPointId(scope constructs.Construct, id *string, acces
 func AccessPoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAccessPoint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -298,6 +310,9 @@ func AccessPoint_IsConstruct(x interface{}) *bool {
 func AccessPoint_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAccessPoint_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -311,6 +326,9 @@ func AccessPoint_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_AccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -332,6 +350,9 @@ func (a *jsiiProxy_AccessPoint) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_AccessPoint) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -345,6 +366,9 @@ func (a *jsiiProxy_AccessPoint) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (a *jsiiProxy_AccessPoint) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -366,6 +390,9 @@ func (a *jsiiProxy_AccessPoint) OnPrepare() {
 }
 
 func (a *jsiiProxy_AccessPoint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -395,6 +422,9 @@ func (a *jsiiProxy_AccessPoint) Prepare() {
 }
 
 func (a *jsiiProxy_AccessPoint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

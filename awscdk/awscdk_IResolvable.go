@@ -32,6 +32,9 @@ type jsiiProxy_IResolvable struct {
 }
 
 func (i *jsiiProxy_IResolvable) Resolve(context IResolveContext) interface{} {
+	if err := i.validateResolveParameters(context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

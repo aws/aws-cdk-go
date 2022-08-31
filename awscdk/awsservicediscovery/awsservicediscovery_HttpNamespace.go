@@ -298,6 +298,9 @@ func (j *jsiiProxy_HttpNamespace) Type() NamespaceType {
 func NewHttpNamespace(scope constructs.Construct, id *string, props *HttpNamespaceProps) HttpNamespace {
 	_init_.Initialize()
 
+	if err := validateNewHttpNamespaceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpNamespace{}
 
 	_jsii_.Create(
@@ -324,6 +327,9 @@ func NewHttpNamespace_Override(h HttpNamespace, scope constructs.Construct, id *
 func HttpNamespace_FromHttpNamespaceAttributes(scope constructs.Construct, id *string, attrs *HttpNamespaceAttributes) IHttpNamespace {
 	_init_.Initialize()
 
+	if err := validateHttpNamespace_FromHttpNamespaceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IHttpNamespace
 
 	_jsii_.StaticInvoke(
@@ -341,6 +347,9 @@ func HttpNamespace_FromHttpNamespaceAttributes(scope constructs.Construct, id *s
 func HttpNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpNamespace_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -358,6 +367,9 @@ func HttpNamespace_IsConstruct(x interface{}) *bool {
 func HttpNamespace_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpNamespace_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -371,6 +383,9 @@ func HttpNamespace_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (h *jsiiProxy_HttpNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := h.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"applyRemovalPolicy",
@@ -379,6 +394,9 @@ func (h *jsiiProxy_HttpNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (h *jsiiProxy_HttpNamespace) CreateService(id *string, props *BaseServiceProps) Service {
+	if err := h.validateCreateServiceParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns Service
 
 	_jsii_.Invoke(
@@ -405,6 +423,9 @@ func (h *jsiiProxy_HttpNamespace) GeneratePhysicalName() *string {
 }
 
 func (h *jsiiProxy_HttpNamespace) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := h.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -418,6 +439,9 @@ func (h *jsiiProxy_HttpNamespace) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (h *jsiiProxy_HttpNamespace) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := h.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -439,6 +463,9 @@ func (h *jsiiProxy_HttpNamespace) OnPrepare() {
 }
 
 func (h *jsiiProxy_HttpNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -468,6 +495,9 @@ func (h *jsiiProxy_HttpNamespace) Prepare() {
 }
 
 func (h *jsiiProxy_HttpNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

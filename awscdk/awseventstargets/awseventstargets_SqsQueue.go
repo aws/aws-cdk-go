@@ -50,6 +50,9 @@ func (j *jsiiProxy_SqsQueue) Queue() awssqs.IQueue {
 func NewSqsQueue(queue awssqs.IQueue, props *SqsQueueProps) SqsQueue {
 	_init_.Initialize()
 
+	if err := validateNewSqsQueueParameters(queue, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SqsQueue{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewSqsQueue_Override(s SqsQueue, queue awssqs.IQueue, props *SqsQueueProps)
 }
 
 func (s *jsiiProxy_SqsQueue) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := s.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

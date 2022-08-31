@@ -468,6 +468,9 @@ func (j *jsiiProxy_CfnFargateProfile) UpdatedProperites() *map[string]interface{
 func NewCfnFargateProfile(scope awscdk.Construct, id *string, props *CfnFargateProfileProps) CfnFargateProfile {
 	_init_.Initialize()
 
+	if err := validateNewCfnFargateProfileParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnFargateProfile{}
 
 	_jsii_.Create(
@@ -490,7 +493,10 @@ func NewCfnFargateProfile_Override(c CfnFargateProfile, scope awscdk.Construct, 
 	)
 }
 
-func (j *jsiiProxy_CfnFargateProfile) SetClusterName(val *string) {
+func (j *jsiiProxy_CfnFargateProfile)SetClusterName(val *string) {
+	if err := j.validateSetClusterNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"clusterName",
@@ -498,7 +504,7 @@ func (j *jsiiProxy_CfnFargateProfile) SetClusterName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnFargateProfile) SetFargateProfileName(val *string) {
+func (j *jsiiProxy_CfnFargateProfile)SetFargateProfileName(val *string) {
 	_jsii_.Set(
 		j,
 		"fargateProfileName",
@@ -506,7 +512,10 @@ func (j *jsiiProxy_CfnFargateProfile) SetFargateProfileName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnFargateProfile) SetPodExecutionRoleArn(val *string) {
+func (j *jsiiProxy_CfnFargateProfile)SetPodExecutionRoleArn(val *string) {
+	if err := j.validateSetPodExecutionRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"podExecutionRoleArn",
@@ -514,7 +523,10 @@ func (j *jsiiProxy_CfnFargateProfile) SetPodExecutionRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnFargateProfile) SetSelectors(val interface{}) {
+func (j *jsiiProxy_CfnFargateProfile)SetSelectors(val interface{}) {
+	if err := j.validateSetSelectorsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"selectors",
@@ -522,7 +534,7 @@ func (j *jsiiProxy_CfnFargateProfile) SetSelectors(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnFargateProfile) SetSubnets(val *[]*string) {
+func (j *jsiiProxy_CfnFargateProfile)SetSubnets(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnets",
@@ -540,6 +552,9 @@ func (j *jsiiProxy_CfnFargateProfile) SetSubnets(val *[]*string) {
 func CfnFargateProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnFargateProfile_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -557,6 +572,9 @@ func CfnFargateProfile_IsCfnElement(x interface{}) *bool {
 func CfnFargateProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnFargateProfile_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -574,6 +592,9 @@ func CfnFargateProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnFargateProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnFargateProfile_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -598,6 +619,9 @@ func CfnFargateProfile_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -606,6 +630,9 @@ func (c *jsiiProxy_CfnFargateProfile) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -614,6 +641,9 @@ func (c *jsiiProxy_CfnFargateProfile) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -622,6 +652,9 @@ func (c *jsiiProxy_CfnFargateProfile) AddMetadata(key *string, value interface{}
 }
 
 func (c *jsiiProxy_CfnFargateProfile) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -630,6 +663,9 @@ func (c *jsiiProxy_CfnFargateProfile) AddOverride(path *string, value interface{
 }
 
 func (c *jsiiProxy_CfnFargateProfile) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -638,6 +674,9 @@ func (c *jsiiProxy_CfnFargateProfile) AddPropertyDeletionOverride(propertyPath *
 }
 
 func (c *jsiiProxy_CfnFargateProfile) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -646,6 +685,9 @@ func (c *jsiiProxy_CfnFargateProfile) AddPropertyOverride(propertyPath *string, 
 }
 
 func (c *jsiiProxy_CfnFargateProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -654,6 +696,9 @@ func (c *jsiiProxy_CfnFargateProfile) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 func (c *jsiiProxy_CfnFargateProfile) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -667,6 +712,9 @@ func (c *jsiiProxy_CfnFargateProfile) GetAtt(attributeName *string) awscdk.Refer
 }
 
 func (c *jsiiProxy_CfnFargateProfile) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -680,6 +728,9 @@ func (c *jsiiProxy_CfnFargateProfile) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -696,6 +747,9 @@ func (c *jsiiProxy_CfnFargateProfile) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -717,6 +771,9 @@ func (c *jsiiProxy_CfnFargateProfile) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -733,6 +790,9 @@ func (c *jsiiProxy_CfnFargateProfile) Prepare() {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -759,6 +819,9 @@ func (c *jsiiProxy_CfnFargateProfile) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -793,6 +856,9 @@ func (c *jsiiProxy_CfnFargateProfile) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnFargateProfile) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

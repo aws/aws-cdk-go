@@ -229,6 +229,9 @@ func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Stack() awscdk.Stack {
 func NewUserPoolIdentityProviderFacebook(scope constructs.Construct, id *string, props *UserPoolIdentityProviderFacebookProps) UserPoolIdentityProviderFacebook {
 	_init_.Initialize()
 
+	if err := validateNewUserPoolIdentityProviderFacebookParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UserPoolIdentityProviderFacebook{}
 
 	_jsii_.Create(
@@ -256,6 +259,9 @@ func NewUserPoolIdentityProviderFacebook_Override(u UserPoolIdentityProviderFace
 func UserPoolIdentityProviderFacebook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolIdentityProviderFacebook_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -273,6 +279,9 @@ func UserPoolIdentityProviderFacebook_IsConstruct(x interface{}) *bool {
 func UserPoolIdentityProviderFacebook_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolIdentityProviderFacebook_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -286,6 +295,9 @@ func UserPoolIdentityProviderFacebook_IsResource(construct awscdk.IConstruct) *b
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderFacebook) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -320,6 +332,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) GeneratePhysicalName() *str
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderFacebook) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -333,6 +348,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) GetResourceArnAttribute(arn
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderFacebook) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -354,6 +372,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnPrepare() {
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -383,6 +404,9 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Prepare() {
 }
 
 func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

@@ -58,6 +58,9 @@ func NewAutoScalingGroupRequireImdsv2Aspect_Override(a AutoScalingGroupRequireIm
 }
 
 func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) Visit(node awscdk.IConstruct) {
+	if err := a.validateVisitParameters(node); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"visit",
@@ -66,6 +69,9 @@ func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) Visit(node awscdk.IConst
 }
 
 func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) Warn(node awscdk.IConstruct, message *string) {
+	if err := a.validateWarnParameters(node, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"warn",

@@ -102,6 +102,9 @@ func NewHttpNoneAuthorizer_Override(h HttpNoneAuthorizer) {
 }
 
 func (h *jsiiProxy_HttpNoneAuthorizer) Bind(_arg *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig {
+	if err := h.validateBindParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *HttpRouteAuthorizerConfig
 
 	_jsii_.Invoke(

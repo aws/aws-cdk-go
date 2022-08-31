@@ -31,6 +31,9 @@ type jsiiProxy_IVirtualRouter struct {
 }
 
 func (i *jsiiProxy_IVirtualRouter) AddRoute(id *string, props *RouteBaseProps) Route {
+	if err := i.validateAddRouteParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns Route
 
 	_jsii_.Invoke(

@@ -403,6 +403,9 @@ func (j *jsiiProxy_FargateTaskDefinition) TaskRole() awsiam.IRole {
 func NewFargateTaskDefinition(scope constructs.Construct, id *string, props *FargateTaskDefinitionProps) FargateTaskDefinition {
 	_init_.Initialize()
 
+	if err := validateNewFargateTaskDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FargateTaskDefinition{}
 
 	_jsii_.Create(
@@ -426,7 +429,7 @@ func NewFargateTaskDefinition_Override(f FargateTaskDefinition, scope constructs
 	)
 }
 
-func (j *jsiiProxy_FargateTaskDefinition) SetDefaultContainer(val ContainerDefinition) {
+func (j *jsiiProxy_FargateTaskDefinition)SetDefaultContainer(val ContainerDefinition) {
 	_jsii_.Set(
 		j,
 		"defaultContainer",
@@ -439,6 +442,9 @@ func (j *jsiiProxy_FargateTaskDefinition) SetDefaultContainer(val ContainerDefin
 func FargateTaskDefinition_FromFargateTaskDefinitionArn(scope constructs.Construct, id *string, fargateTaskDefinitionArn *string) IFargateTaskDefinition {
 	_init_.Initialize()
 
+	if err := validateFargateTaskDefinition_FromFargateTaskDefinitionArnParameters(scope, id, fargateTaskDefinitionArn); err != nil {
+		panic(err)
+	}
 	var returns IFargateTaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -456,6 +462,9 @@ func FargateTaskDefinition_FromFargateTaskDefinitionArn(scope constructs.Constru
 func FargateTaskDefinition_FromFargateTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *FargateTaskDefinitionAttributes) IFargateTaskDefinition {
 	_init_.Initialize()
 
+	if err := validateFargateTaskDefinition_FromFargateTaskDefinitionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IFargateTaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -475,6 +484,9 @@ func FargateTaskDefinition_FromFargateTaskDefinitionAttributes(scope constructs.
 func FargateTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
 	_init_.Initialize()
 
+	if err := validateFargateTaskDefinition_FromTaskDefinitionArnParameters(scope, id, taskDefinitionArn); err != nil {
+		panic(err)
+	}
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -492,6 +504,9 @@ func FargateTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id 
 func FargateTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
 	_init_.Initialize()
 
+	if err := validateFargateTaskDefinition_FromTaskDefinitionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -509,6 +524,9 @@ func FargateTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Constru
 func FargateTaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFargateTaskDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -526,6 +544,9 @@ func FargateTaskDefinition_IsConstruct(x interface{}) *bool {
 func FargateTaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFargateTaskDefinition_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -539,6 +560,9 @@ func FargateTaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
+	if err := f.validateAddContainerParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ContainerDefinition
 
 	_jsii_.Invoke(
@@ -552,6 +576,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddContainer(id *string, props *Contai
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
+	if err := f.validateAddExtensionParameters(extension); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addExtension",
@@ -560,6 +587,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddExtension(extension ITaskDefinition
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
+	if err := f.validateAddFirelensLogRouterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns FirelensLogRouter
 
 	_jsii_.Invoke(
@@ -573,6 +603,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddFirelensLogRouter(id *string, props
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator) {
+	if err := f.validateAddInferenceAcceleratorParameters(inferenceAccelerator); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addInferenceAccelerator",
@@ -581,6 +614,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddInferenceAccelerator(inferenceAccel
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
+	if err := f.validateAddPlacementConstraintParameters(constraint); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addPlacementConstraint",
@@ -589,6 +625,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddPlacementConstraint(constraint Plac
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
+	if err := f.validateAddToExecutionRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addToExecutionRolePolicy",
@@ -597,6 +636,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddToExecutionRolePolicy(statement aws
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
+	if err := f.validateAddToTaskRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addToTaskRolePolicy",
@@ -605,6 +647,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddToTaskRolePolicy(statement awsiam.P
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) AddVolume(volume *Volume) {
+	if err := f.validateAddVolumeParameters(volume); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addVolume",
@@ -613,6 +658,9 @@ func (f *jsiiProxy_FargateTaskDefinition) AddVolume(volume *Volume) {
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -621,6 +669,9 @@ func (f *jsiiProxy_FargateTaskDefinition) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) FindContainer(containerName *string) ContainerDefinition {
+	if err := f.validateFindContainerParameters(containerName); err != nil {
+		panic(err)
+	}
 	var returns ContainerDefinition
 
 	_jsii_.Invoke(
@@ -647,6 +698,9 @@ func (f *jsiiProxy_FargateTaskDefinition) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -660,6 +714,9 @@ func (f *jsiiProxy_FargateTaskDefinition) GetResourceArnAttribute(arnAttr *strin
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -694,6 +751,9 @@ func (f *jsiiProxy_FargateTaskDefinition) OnPrepare() {
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -723,6 +783,9 @@ func (f *jsiiProxy_FargateTaskDefinition) Prepare() {
 }
 
 func (f *jsiiProxy_FargateTaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

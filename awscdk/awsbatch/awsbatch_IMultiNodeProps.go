@@ -41,7 +41,10 @@ func (j *jsiiProxy_IMultiNodeProps) Count() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_IMultiNodeProps) SetCount(val *float64) {
+func (j *jsiiProxy_IMultiNodeProps)SetCount(val *float64) {
+	if err := j.validateSetCountParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"count",
@@ -59,7 +62,10 @@ func (j *jsiiProxy_IMultiNodeProps) MainNode() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_IMultiNodeProps) SetMainNode(val *float64) {
+func (j *jsiiProxy_IMultiNodeProps)SetMainNode(val *float64) {
+	if err := j.validateSetMainNodeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"mainNode",
@@ -77,7 +83,10 @@ func (j *jsiiProxy_IMultiNodeProps) RangeProps() *[]INodeRangeProps {
 	return returns
 }
 
-func (j *jsiiProxy_IMultiNodeProps) SetRangeProps(val *[]INodeRangeProps) {
+func (j *jsiiProxy_IMultiNodeProps)SetRangeProps(val *[]INodeRangeProps) {
+	if err := j.validateSetRangePropsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"rangeProps",

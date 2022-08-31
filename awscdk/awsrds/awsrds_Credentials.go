@@ -184,6 +184,9 @@ func NewCredentials_Override(c Credentials) {
 func Credentials_FromGeneratedSecret(username *string, options *CredentialsBaseOptions) Credentials {
 	_init_.Initialize()
 
+	if err := validateCredentials_FromGeneratedSecretParameters(username, options); err != nil {
+		panic(err)
+	}
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
@@ -203,6 +206,9 @@ func Credentials_FromGeneratedSecret(username *string, options *CredentialsBaseO
 func Credentials_FromPassword(username *string, password awscdk.SecretValue) Credentials {
 	_init_.Initialize()
 
+	if err := validateCredentials_FromPasswordParameters(username, password); err != nil {
+		panic(err)
+	}
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
@@ -229,6 +235,9 @@ func Credentials_FromPassword(username *string, password awscdk.SecretValue) Cre
 func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) Credentials {
 	_init_.Initialize()
 
+	if err := validateCredentials_FromSecretParameters(secret); err != nil {
+		panic(err)
+	}
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
@@ -248,6 +257,9 @@ func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) 
 func Credentials_FromUsername(username *string, options *CredentialsFromUsernameOptions) Credentials {
 	_init_.Initialize()
 
+	if err := validateCredentials_FromUsernameParameters(username, options); err != nil {
+		panic(err)
+	}
 	var returns Credentials
 
 	_jsii_.StaticInvoke(

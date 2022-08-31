@@ -193,6 +193,9 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch *string, props *CodeCommitSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
+	if err := validateCodePipelineSource_CodeCommitParameters(repository, branch, props); err != nil {
+		panic(err)
+	}
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
@@ -232,6 +235,9 @@ func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch 
 func CodePipelineSource_Connection(repoString *string, branch *string, props *ConnectionSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
+	if err := validateCodePipelineSource_ConnectionParameters(repoString, branch, props); err != nil {
+		panic(err)
+	}
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
@@ -257,6 +263,9 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
+	if err := validateCodePipelineSource_EcrParameters(repository, props); err != nil {
+		panic(err)
+	}
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
@@ -295,6 +304,9 @@ func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptio
 func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHubSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
+	if err := validateCodePipelineSource_GitHubParameters(repoString, branch, props); err != nil {
+		panic(err)
+	}
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
@@ -318,6 +330,9 @@ func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHub
 func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3SourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
+	if err := validateCodePipelineSource_S3Parameters(bucket, objectKey, props); err != nil {
+		panic(err)
+	}
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
@@ -339,6 +354,9 @@ func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3Sou
 func CodePipelineSource_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
+	if err := validateCodePipelineSource_SequenceParameters(steps); err != nil {
+		panic(err)
+	}
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
@@ -352,6 +370,9 @@ func CodePipelineSource_Sequence(steps *[]Step) *[]Step {
 }
 
 func (c *jsiiProxy_CodePipelineSource) AddDependencyFileSet(fs FileSet) {
+	if err := c.validateAddDependencyFileSetParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependencyFileSet",
@@ -360,6 +381,9 @@ func (c *jsiiProxy_CodePipelineSource) AddDependencyFileSet(fs FileSet) {
 }
 
 func (c *jsiiProxy_CodePipelineSource) AddStepDependency(step Step) {
+	if err := c.validateAddStepDependencyParameters(step); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addStepDependency",
@@ -368,6 +392,9 @@ func (c *jsiiProxy_CodePipelineSource) AddStepDependency(step Step) {
 }
 
 func (c *jsiiProxy_CodePipelineSource) ConfigurePrimaryOutput(fs FileSet) {
+	if err := c.validateConfigurePrimaryOutputParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"configurePrimaryOutput",
@@ -376,6 +403,9 @@ func (c *jsiiProxy_CodePipelineSource) ConfigurePrimaryOutput(fs FileSet) {
 }
 
 func (c *jsiiProxy_CodePipelineSource) DiscoverReferencedOutputs(structure interface{}) {
+	if err := c.validateDiscoverReferencedOutputsParameters(structure); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"discoverReferencedOutputs",
@@ -384,6 +414,9 @@ func (c *jsiiProxy_CodePipelineSource) DiscoverReferencedOutputs(structure inter
 }
 
 func (c *jsiiProxy_CodePipelineSource) GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64, variablesNamespace *string) awscodepipelineactions.Action {
+	if err := c.validateGetActionParameters(output, actionName, runOrder); err != nil {
+		panic(err)
+	}
 	var returns awscodepipelineactions.Action
 
 	_jsii_.Invoke(
@@ -397,6 +430,9 @@ func (c *jsiiProxy_CodePipelineSource) GetAction(output awscodepipeline.Artifact
 }
 
 func (c *jsiiProxy_CodePipelineSource) ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult {
+	if err := c.validateProduceActionParameters(stage, options); err != nil {
+		panic(err)
+	}
 	var returns *CodePipelineActionFactoryResult
 
 	_jsii_.Invoke(
@@ -410,6 +446,9 @@ func (c *jsiiProxy_CodePipelineSource) ProduceAction(stage awscodepipeline.IStag
 }
 
 func (c *jsiiProxy_CodePipelineSource) SourceAttribute(name *string) *string {
+	if err := c.validateSourceAttributeParameters(name); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

@@ -141,6 +141,9 @@ func (j *jsiiProxy_ServicePrincipal) Service() *string {
 func NewServicePrincipal(service *string, opts *ServicePrincipalOpts) ServicePrincipal {
 	_init_.Initialize()
 
+	if err := validateNewServicePrincipalParameters(service, opts); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ServicePrincipal{}
 
 	_jsii_.Create(
@@ -177,6 +180,9 @@ func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *Ser
 func ServicePrincipal_ServicePrincipalName(service *string) *string {
 	_init_.Initialize()
 
+	if err := validateServicePrincipal_ServicePrincipalNameParameters(service); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func ServicePrincipal_ServicePrincipalName(service *string) *string {
 }
 
 func (s *jsiiProxy_ServicePrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := s.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToAssumeRolePolicy",
@@ -198,6 +207,9 @@ func (s *jsiiProxy_ServicePrincipal) AddToAssumeRolePolicy(document PolicyDocume
 }
 
 func (s *jsiiProxy_ServicePrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := s.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -211,6 +223,9 @@ func (s *jsiiProxy_ServicePrincipal) AddToPolicy(statement PolicyStatement) *boo
 }
 
 func (s *jsiiProxy_ServicePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -263,6 +278,9 @@ func (s *jsiiProxy_ServicePrincipal) ToString() *string {
 }
 
 func (s *jsiiProxy_ServicePrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := s.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

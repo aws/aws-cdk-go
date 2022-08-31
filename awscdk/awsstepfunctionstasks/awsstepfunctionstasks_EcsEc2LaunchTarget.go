@@ -66,6 +66,9 @@ type jsiiProxy_EcsEc2LaunchTarget struct {
 func NewEcsEc2LaunchTarget(options *EcsEc2LaunchTargetOptions) EcsEc2LaunchTarget {
 	_init_.Initialize()
 
+	if err := validateNewEcsEc2LaunchTargetParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcsEc2LaunchTarget{}
 
 	_jsii_.Create(
@@ -89,6 +92,9 @@ func NewEcsEc2LaunchTarget_Override(e EcsEc2LaunchTarget, options *EcsEc2LaunchT
 }
 
 func (e *jsiiProxy_EcsEc2LaunchTarget) Bind(_task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig {
+	if err := e.validateBindParameters(_task, launchTargetOptions); err != nil {
+		panic(err)
+	}
 	var returns *EcsLaunchTargetConfig
 
 	_jsii_.Invoke(

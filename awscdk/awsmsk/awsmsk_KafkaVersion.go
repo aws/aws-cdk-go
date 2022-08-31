@@ -50,6 +50,9 @@ func (j *jsiiProxy_KafkaVersion) Version() *string {
 func KafkaVersion_Of(version *string) KafkaVersion {
 	_init_.Initialize()
 
+	if err := validateKafkaVersion_OfParameters(version); err != nil {
+		panic(err)
+	}
 	var returns KafkaVersion
 
 	_jsii_.StaticInvoke(

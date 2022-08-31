@@ -76,6 +76,9 @@ func (j *jsiiProxy_PrimaryKey) Pkey() Assign {
 func NewPrimaryKey(pkey Assign, skey Assign) PrimaryKey {
 	_init_.Initialize()
 
+	if err := validateNewPrimaryKeyParameters(pkey); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PrimaryKey{}
 
 	_jsii_.Create(
@@ -103,6 +106,9 @@ func NewPrimaryKey_Override(p PrimaryKey, pkey Assign, skey Assign) {
 func PrimaryKey_Partition(key *string) PartitionKeyStep {
 	_init_.Initialize()
 
+	if err := validatePrimaryKey_PartitionParameters(key); err != nil {
+		panic(err)
+	}
 	var returns PartitionKeyStep
 
 	_jsii_.StaticInvoke(

@@ -42,6 +42,9 @@ type jsiiProxy_ISlackChannelConfiguration struct {
 }
 
 func (i *jsiiProxy_ISlackChannelConfiguration) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := i.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addToRolePolicy",
@@ -50,6 +53,9 @@ func (i *jsiiProxy_ISlackChannelConfiguration) AddToRolePolicy(statement awsiam.
 }
 
 func (i *jsiiProxy_ISlackChannelConfiguration) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -63,6 +69,9 @@ func (i *jsiiProxy_ISlackChannelConfiguration) Metric(metricName *string, props 
 }
 
 func (i *jsiiProxy_ISlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -71,6 +80,9 @@ func (i *jsiiProxy_ISlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.
 }
 
 func (i *jsiiProxy_ISlackChannelConfiguration) BindAsNotificationRuleTarget(scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig {
+	if err := i.validateBindAsNotificationRuleTargetParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awscodestarnotifications.NotificationRuleTargetConfig
 
 	_jsii_.Invoke(

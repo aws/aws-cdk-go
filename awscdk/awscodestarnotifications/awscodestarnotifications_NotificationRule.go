@@ -217,6 +217,9 @@ func (j *jsiiProxy_NotificationRule) Stack() awscdk.Stack {
 func NewNotificationRule(scope constructs.Construct, id *string, props *NotificationRuleProps) NotificationRule {
 	_init_.Initialize()
 
+	if err := validateNewNotificationRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NotificationRule{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewNotificationRule_Override(n NotificationRule, scope constructs.Construct
 func NotificationRule_FromNotificationRuleArn(scope constructs.Construct, id *string, notificationRuleArn *string) INotificationRule {
 	_init_.Initialize()
 
+	if err := validateNotificationRule_FromNotificationRuleArnParameters(scope, id, notificationRuleArn); err != nil {
+		panic(err)
+	}
 	var returns INotificationRule
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func NotificationRule_FromNotificationRuleArn(scope constructs.Construct, id *st
 func NotificationRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNotificationRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -278,6 +287,9 @@ func NotificationRule_IsConstruct(x interface{}) *bool {
 func NotificationRule_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateNotificationRule_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -291,6 +303,9 @@ func NotificationRule_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (n *jsiiProxy_NotificationRule) AddTarget(target INotificationRuleTarget) *bool {
+	if err := n.validateAddTargetParameters(target); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -304,6 +319,9 @@ func (n *jsiiProxy_NotificationRule) AddTarget(target INotificationRuleTarget) *
 }
 
 func (n *jsiiProxy_NotificationRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := n.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"applyRemovalPolicy",
@@ -325,6 +343,9 @@ func (n *jsiiProxy_NotificationRule) GeneratePhysicalName() *string {
 }
 
 func (n *jsiiProxy_NotificationRule) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := n.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -338,6 +359,9 @@ func (n *jsiiProxy_NotificationRule) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (n *jsiiProxy_NotificationRule) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := n.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -359,6 +383,9 @@ func (n *jsiiProxy_NotificationRule) OnPrepare() {
 }
 
 func (n *jsiiProxy_NotificationRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -388,6 +415,9 @@ func (n *jsiiProxy_NotificationRule) Prepare() {
 }
 
 func (n *jsiiProxy_NotificationRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

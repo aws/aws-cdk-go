@@ -34,6 +34,9 @@ type jsiiProxy_IStackSynthesizer struct {
 }
 
 func (i *jsiiProxy_IStackSynthesizer) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := i.validateAddDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -47,6 +50,9 @@ func (i *jsiiProxy_IStackSynthesizer) AddDockerImageAsset(asset *DockerImageAsse
 }
 
 func (i *jsiiProxy_IStackSynthesizer) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	if err := i.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *FileAssetLocation
 
 	_jsii_.Invoke(
@@ -60,6 +66,9 @@ func (i *jsiiProxy_IStackSynthesizer) AddFileAsset(asset *FileAssetSource) *File
 }
 
 func (i *jsiiProxy_IStackSynthesizer) Bind(stack Stack) {
+	if err := i.validateBindParameters(stack); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"bind",
@@ -68,6 +77,9 @@ func (i *jsiiProxy_IStackSynthesizer) Bind(stack Stack) {
 }
 
 func (i *jsiiProxy_IStackSynthesizer) Synthesize(session ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

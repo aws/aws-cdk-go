@@ -406,6 +406,9 @@ func (j *jsiiProxy_SnsPublish) TaskPolicies() *[]awsiam.PolicyStatement {
 func NewSnsPublish(scope constructs.Construct, id *string, props *SnsPublishProps) SnsPublish {
 	_init_.Initialize()
 
+	if err := validateNewSnsPublishParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsPublish{}
 
 	_jsii_.Create(
@@ -428,7 +431,7 @@ func NewSnsPublish_Override(s SnsPublish, scope constructs.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_SnsPublish) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_SnsPublish)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -436,7 +439,7 @@ func (j *jsiiProxy_SnsPublish) SetDefaultChoice(val awsstepfunctions.State) {
 	)
 }
 
-func (j *jsiiProxy_SnsPublish) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_SnsPublish)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -449,6 +452,9 @@ func (j *jsiiProxy_SnsPublish) SetIteration(val awsstepfunctions.StateGraph) {
 func SnsPublish_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateSnsPublish_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -466,6 +472,9 @@ func SnsPublish_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 func SnsPublish_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateSnsPublish_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -485,6 +494,9 @@ func SnsPublish_FindReachableEndStates(start awsstepfunctions.State, options *aw
 func SnsPublish_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateSnsPublish_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -502,6 +514,9 @@ func SnsPublish_FindReachableStates(start awsstepfunctions.State, options *awsst
 func SnsPublish_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSnsPublish_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -519,6 +534,9 @@ func SnsPublish_IsConstruct(x interface{}) *bool {
 func SnsPublish_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateSnsPublish_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		"prefixStates",
@@ -527,6 +545,9 @@ func SnsPublish_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (s *jsiiProxy_SnsPublish) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := s.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addBranch",
@@ -535,6 +556,9 @@ func (s *jsiiProxy_SnsPublish) AddBranch(branch awsstepfunctions.StateGraph) {
 }
 
 func (s *jsiiProxy_SnsPublish) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := s.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -548,6 +572,9 @@ func (s *jsiiProxy_SnsPublish) AddCatch(handler awsstepfunctions.IChainable, pro
 }
 
 func (s *jsiiProxy_SnsPublish) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := s.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addChoice",
@@ -556,6 +583,9 @@ func (s *jsiiProxy_SnsPublish) AddChoice(condition awsstepfunctions.Condition, n
 }
 
 func (s *jsiiProxy_SnsPublish) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := s.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addIterator",
@@ -564,6 +594,9 @@ func (s *jsiiProxy_SnsPublish) AddIterator(iteration awsstepfunctions.StateGraph
 }
 
 func (s *jsiiProxy_SnsPublish) AddPrefix(x *string) {
+	if err := s.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addPrefix",
@@ -572,6 +605,9 @@ func (s *jsiiProxy_SnsPublish) AddPrefix(x *string) {
 }
 
 func (s *jsiiProxy_SnsPublish) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := s.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -585,6 +621,9 @@ func (s *jsiiProxy_SnsPublish) AddRetry(props *awsstepfunctions.RetryProps) awss
 }
 
 func (s *jsiiProxy_SnsPublish) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := s.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bindToGraph",
@@ -593,6 +632,9 @@ func (s *jsiiProxy_SnsPublish) BindToGraph(graph awsstepfunctions.StateGraph) {
 }
 
 func (s *jsiiProxy_SnsPublish) MakeDefault(def awsstepfunctions.State) {
+	if err := s.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"makeDefault",
@@ -601,6 +643,9 @@ func (s *jsiiProxy_SnsPublish) MakeDefault(def awsstepfunctions.State) {
 }
 
 func (s *jsiiProxy_SnsPublish) MakeNext(next awsstepfunctions.State) {
+	if err := s.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"makeNext",
@@ -609,6 +654,9 @@ func (s *jsiiProxy_SnsPublish) MakeNext(next awsstepfunctions.State) {
 }
 
 func (s *jsiiProxy_SnsPublish) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -622,6 +670,9 @@ func (s *jsiiProxy_SnsPublish) Metric(metricName *string, props *awscloudwatch.M
 }
 
 func (s *jsiiProxy_SnsPublish) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -635,6 +686,9 @@ func (s *jsiiProxy_SnsPublish) MetricFailed(props *awscloudwatch.MetricOptions) 
 }
 
 func (s *jsiiProxy_SnsPublish) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -648,6 +702,9 @@ func (s *jsiiProxy_SnsPublish) MetricHeartbeatTimedOut(props *awscloudwatch.Metr
 }
 
 func (s *jsiiProxy_SnsPublish) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -661,6 +718,9 @@ func (s *jsiiProxy_SnsPublish) MetricRunTime(props *awscloudwatch.MetricOptions)
 }
 
 func (s *jsiiProxy_SnsPublish) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -674,6 +734,9 @@ func (s *jsiiProxy_SnsPublish) MetricScheduled(props *awscloudwatch.MetricOption
 }
 
 func (s *jsiiProxy_SnsPublish) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -687,6 +750,9 @@ func (s *jsiiProxy_SnsPublish) MetricScheduleTime(props *awscloudwatch.MetricOpt
 }
 
 func (s *jsiiProxy_SnsPublish) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -700,6 +766,9 @@ func (s *jsiiProxy_SnsPublish) MetricStarted(props *awscloudwatch.MetricOptions)
 }
 
 func (s *jsiiProxy_SnsPublish) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -713,6 +782,9 @@ func (s *jsiiProxy_SnsPublish) MetricSucceeded(props *awscloudwatch.MetricOption
 }
 
 func (s *jsiiProxy_SnsPublish) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -726,6 +798,9 @@ func (s *jsiiProxy_SnsPublish) MetricTime(props *awscloudwatch.MetricOptions) aw
 }
 
 func (s *jsiiProxy_SnsPublish) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -739,6 +814,9 @@ func (s *jsiiProxy_SnsPublish) MetricTimedOut(props *awscloudwatch.MetricOptions
 }
 
 func (s *jsiiProxy_SnsPublish) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := s.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -760,6 +838,9 @@ func (s *jsiiProxy_SnsPublish) OnPrepare() {
 }
 
 func (s *jsiiProxy_SnsPublish) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -880,6 +961,9 @@ func (s *jsiiProxy_SnsPublish) RenderRetryCatch() interface{} {
 }
 
 func (s *jsiiProxy_SnsPublish) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",
@@ -927,6 +1011,9 @@ func (s *jsiiProxy_SnsPublish) Validate() *[]*string {
 }
 
 func (s *jsiiProxy_SnsPublish) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := s.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"whenBoundToGraph",

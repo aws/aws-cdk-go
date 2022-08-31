@@ -210,6 +210,9 @@ func (j *jsiiProxy_KeyGroup) Stack() awscdk.Stack {
 func NewKeyGroup(scope constructs.Construct, id *string, props *KeyGroupProps) KeyGroup {
 	_init_.Initialize()
 
+	if err := validateNewKeyGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KeyGroup{}
 
 	_jsii_.Create(
@@ -237,6 +240,9 @@ func NewKeyGroup_Override(k KeyGroup, scope constructs.Construct, id *string, pr
 func KeyGroup_FromKeyGroupId(scope constructs.Construct, id *string, keyGroupId *string) IKeyGroup {
 	_init_.Initialize()
 
+	if err := validateKeyGroup_FromKeyGroupIdParameters(scope, id, keyGroupId); err != nil {
+		panic(err)
+	}
 	var returns IKeyGroup
 
 	_jsii_.StaticInvoke(
@@ -254,6 +260,9 @@ func KeyGroup_FromKeyGroupId(scope constructs.Construct, id *string, keyGroupId 
 func KeyGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKeyGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -271,6 +280,9 @@ func KeyGroup_IsConstruct(x interface{}) *bool {
 func KeyGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateKeyGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -284,6 +296,9 @@ func KeyGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (k *jsiiProxy_KeyGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := k.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"applyRemovalPolicy",
@@ -305,6 +320,9 @@ func (k *jsiiProxy_KeyGroup) GeneratePhysicalName() *string {
 }
 
 func (k *jsiiProxy_KeyGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := k.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -318,6 +336,9 @@ func (k *jsiiProxy_KeyGroup) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (k *jsiiProxy_KeyGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := k.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -339,6 +360,9 @@ func (k *jsiiProxy_KeyGroup) OnPrepare() {
 }
 
 func (k *jsiiProxy_KeyGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"onSynthesize",
@@ -368,6 +392,9 @@ func (k *jsiiProxy_KeyGroup) Prepare() {
 }
 
 func (k *jsiiProxy_KeyGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"synthesize",

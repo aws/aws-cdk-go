@@ -122,6 +122,9 @@ func (j *jsiiProxy_LinuxParameters) Node() awscdk.ConstructNode {
 func NewLinuxParameters(scope constructs.Construct, id *string, props *LinuxParametersProps) LinuxParameters {
 	_init_.Initialize()
 
+	if err := validateNewLinuxParametersParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LinuxParameters{}
 
 	_jsii_.Create(
@@ -150,6 +153,9 @@ func NewLinuxParameters_Override(l LinuxParameters, scope constructs.Construct, 
 func LinuxParameters_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLinuxParameters_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -176,6 +182,9 @@ func (l *jsiiProxy_LinuxParameters) AddCapabilities(cap ...Capability) {
 }
 
 func (l *jsiiProxy_LinuxParameters) AddDevices(device ...*Device) {
+	if err := l.validateAddDevicesParameters(&device); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range device {
 		args = append(args, a)
@@ -189,6 +198,9 @@ func (l *jsiiProxy_LinuxParameters) AddDevices(device ...*Device) {
 }
 
 func (l *jsiiProxy_LinuxParameters) AddTmpfs(tmpfs ...*Tmpfs) {
+	if err := l.validateAddTmpfsParameters(&tmpfs); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range tmpfs {
 		args = append(args, a)
@@ -223,6 +235,9 @@ func (l *jsiiProxy_LinuxParameters) OnPrepare() {
 }
 
 func (l *jsiiProxy_LinuxParameters) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -265,6 +280,9 @@ func (l *jsiiProxy_LinuxParameters) RenderLinuxParameters() *CfnTaskDefinition_L
 }
 
 func (l *jsiiProxy_LinuxParameters) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

@@ -41,6 +41,9 @@ type jsiiProxy_IResource struct {
 }
 
 func (i *jsiiProxy_IResource) ApplyRemovalPolicy(policy RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

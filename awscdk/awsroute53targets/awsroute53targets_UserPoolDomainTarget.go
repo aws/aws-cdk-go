@@ -39,6 +39,9 @@ type jsiiProxy_UserPoolDomainTarget struct {
 func NewUserPoolDomainTarget(domain awscognito.UserPoolDomain) UserPoolDomainTarget {
 	_init_.Initialize()
 
+	if err := validateNewUserPoolDomainTargetParameters(domain); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UserPoolDomainTarget{}
 
 	_jsii_.Create(
@@ -62,6 +65,9 @@ func NewUserPoolDomainTarget_Override(u UserPoolDomainTarget, domain awscognito.
 }
 
 func (u *jsiiProxy_UserPoolDomainTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := u.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

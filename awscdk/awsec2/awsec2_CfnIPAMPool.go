@@ -663,6 +663,9 @@ func (j *jsiiProxy_CfnIPAMPool) UpdatedProperites() *map[string]interface{} {
 func NewCfnIPAMPool(scope awscdk.Construct, id *string, props *CfnIPAMPoolProps) CfnIPAMPool {
 	_init_.Initialize()
 
+	if err := validateNewCfnIPAMPoolParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnIPAMPool{}
 
 	_jsii_.Create(
@@ -685,7 +688,10 @@ func NewCfnIPAMPool_Override(c CfnIPAMPool, scope awscdk.Construct, id *string, 
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetAddressFamily(val *string) {
+func (j *jsiiProxy_CfnIPAMPool)SetAddressFamily(val *string) {
+	if err := j.validateSetAddressFamilyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"addressFamily",
@@ -693,7 +699,7 @@ func (j *jsiiProxy_CfnIPAMPool) SetAddressFamily(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetAllocationDefaultNetmaskLength(val *float64) {
+func (j *jsiiProxy_CfnIPAMPool)SetAllocationDefaultNetmaskLength(val *float64) {
 	_jsii_.Set(
 		j,
 		"allocationDefaultNetmaskLength",
@@ -701,7 +707,7 @@ func (j *jsiiProxy_CfnIPAMPool) SetAllocationDefaultNetmaskLength(val *float64) 
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetAllocationMaxNetmaskLength(val *float64) {
+func (j *jsiiProxy_CfnIPAMPool)SetAllocationMaxNetmaskLength(val *float64) {
 	_jsii_.Set(
 		j,
 		"allocationMaxNetmaskLength",
@@ -709,7 +715,7 @@ func (j *jsiiProxy_CfnIPAMPool) SetAllocationMaxNetmaskLength(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetAllocationMinNetmaskLength(val *float64) {
+func (j *jsiiProxy_CfnIPAMPool)SetAllocationMinNetmaskLength(val *float64) {
 	_jsii_.Set(
 		j,
 		"allocationMinNetmaskLength",
@@ -717,7 +723,10 @@ func (j *jsiiProxy_CfnIPAMPool) SetAllocationMinNetmaskLength(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetAllocationResourceTags(val interface{}) {
+func (j *jsiiProxy_CfnIPAMPool)SetAllocationResourceTags(val interface{}) {
+	if err := j.validateSetAllocationResourceTagsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"allocationResourceTags",
@@ -725,7 +734,10 @@ func (j *jsiiProxy_CfnIPAMPool) SetAllocationResourceTags(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetAutoImport(val interface{}) {
+func (j *jsiiProxy_CfnIPAMPool)SetAutoImport(val interface{}) {
+	if err := j.validateSetAutoImportParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"autoImport",
@@ -733,7 +745,7 @@ func (j *jsiiProxy_CfnIPAMPool) SetAutoImport(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetAwsService(val *string) {
+func (j *jsiiProxy_CfnIPAMPool)SetAwsService(val *string) {
 	_jsii_.Set(
 		j,
 		"awsService",
@@ -741,7 +753,7 @@ func (j *jsiiProxy_CfnIPAMPool) SetAwsService(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetDescription(val *string) {
+func (j *jsiiProxy_CfnIPAMPool)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -749,7 +761,10 @@ func (j *jsiiProxy_CfnIPAMPool) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetIpamScopeId(val *string) {
+func (j *jsiiProxy_CfnIPAMPool)SetIpamScopeId(val *string) {
+	if err := j.validateSetIpamScopeIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ipamScopeId",
@@ -757,7 +772,7 @@ func (j *jsiiProxy_CfnIPAMPool) SetIpamScopeId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetLocale(val *string) {
+func (j *jsiiProxy_CfnIPAMPool)SetLocale(val *string) {
 	_jsii_.Set(
 		j,
 		"locale",
@@ -765,7 +780,10 @@ func (j *jsiiProxy_CfnIPAMPool) SetLocale(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetProvisionedCidrs(val interface{}) {
+func (j *jsiiProxy_CfnIPAMPool)SetProvisionedCidrs(val interface{}) {
+	if err := j.validateSetProvisionedCidrsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"provisionedCidrs",
@@ -773,7 +791,10 @@ func (j *jsiiProxy_CfnIPAMPool) SetProvisionedCidrs(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetPubliclyAdvertisable(val interface{}) {
+func (j *jsiiProxy_CfnIPAMPool)SetPubliclyAdvertisable(val interface{}) {
+	if err := j.validateSetPubliclyAdvertisableParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"publiclyAdvertisable",
@@ -781,7 +802,7 @@ func (j *jsiiProxy_CfnIPAMPool) SetPubliclyAdvertisable(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIPAMPool) SetSourceIpamPoolId(val *string) {
+func (j *jsiiProxy_CfnIPAMPool)SetSourceIpamPoolId(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceIpamPoolId",
@@ -799,6 +820,9 @@ func (j *jsiiProxy_CfnIPAMPool) SetSourceIpamPoolId(val *string) {
 func CfnIPAMPool_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnIPAMPool_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -816,6 +840,9 @@ func CfnIPAMPool_IsCfnElement(x interface{}) *bool {
 func CfnIPAMPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnIPAMPool_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -833,6 +860,9 @@ func CfnIPAMPool_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnIPAMPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnIPAMPool_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -857,6 +887,9 @@ func CfnIPAMPool_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -865,6 +898,9 @@ func (c *jsiiProxy_CfnIPAMPool) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -873,6 +909,9 @@ func (c *jsiiProxy_CfnIPAMPool) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -881,6 +920,9 @@ func (c *jsiiProxy_CfnIPAMPool) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -889,6 +931,9 @@ func (c *jsiiProxy_CfnIPAMPool) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -897,6 +942,9 @@ func (c *jsiiProxy_CfnIPAMPool) AddPropertyDeletionOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnIPAMPool) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -905,6 +953,9 @@ func (c *jsiiProxy_CfnIPAMPool) AddPropertyOverride(propertyPath *string, value 
 }
 
 func (c *jsiiProxy_CfnIPAMPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -913,6 +964,9 @@ func (c *jsiiProxy_CfnIPAMPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 }
 
 func (c *jsiiProxy_CfnIPAMPool) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -926,6 +980,9 @@ func (c *jsiiProxy_CfnIPAMPool) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -939,6 +996,9 @@ func (c *jsiiProxy_CfnIPAMPool) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -955,6 +1015,9 @@ func (c *jsiiProxy_CfnIPAMPool) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -976,6 +1039,9 @@ func (c *jsiiProxy_CfnIPAMPool) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -992,6 +1058,9 @@ func (c *jsiiProxy_CfnIPAMPool) Prepare() {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1018,6 +1087,9 @@ func (c *jsiiProxy_CfnIPAMPool) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1052,6 +1124,9 @@ func (c *jsiiProxy_CfnIPAMPool) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnIPAMPool) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

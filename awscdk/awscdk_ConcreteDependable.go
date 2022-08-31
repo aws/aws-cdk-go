@@ -58,6 +58,9 @@ func NewConcreteDependable_Override(c ConcreteDependable) {
 }
 
 func (c *jsiiProxy_ConcreteDependable) Add(construct IConstruct) {
+	if err := c.validateAddParameters(construct); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"add",

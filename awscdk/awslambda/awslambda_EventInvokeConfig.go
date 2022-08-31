@@ -196,6 +196,9 @@ func (j *jsiiProxy_EventInvokeConfig) Stack() awscdk.Stack {
 func NewEventInvokeConfig(scope constructs.Construct, id *string, props *EventInvokeConfigProps) EventInvokeConfig {
 	_init_.Initialize()
 
+	if err := validateNewEventInvokeConfigParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EventInvokeConfig{}
 
 	_jsii_.Create(
@@ -223,6 +226,9 @@ func NewEventInvokeConfig_Override(e EventInvokeConfig, scope constructs.Constru
 func EventInvokeConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEventInvokeConfig_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -240,6 +246,9 @@ func EventInvokeConfig_IsConstruct(x interface{}) *bool {
 func EventInvokeConfig_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateEventInvokeConfig_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -253,6 +262,9 @@ func EventInvokeConfig_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (e *jsiiProxy_EventInvokeConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -274,6 +286,9 @@ func (e *jsiiProxy_EventInvokeConfig) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_EventInvokeConfig) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -287,6 +302,9 @@ func (e *jsiiProxy_EventInvokeConfig) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (e *jsiiProxy_EventInvokeConfig) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -308,6 +326,9 @@ func (e *jsiiProxy_EventInvokeConfig) OnPrepare() {
 }
 
 func (e *jsiiProxy_EventInvokeConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -337,6 +358,9 @@ func (e *jsiiProxy_EventInvokeConfig) Prepare() {
 }
 
 func (e *jsiiProxy_EventInvokeConfig) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

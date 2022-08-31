@@ -54,6 +54,9 @@ func NewWebSocketNoneAuthorizer_Override(w WebSocketNoneAuthorizer) {
 }
 
 func (w *jsiiProxy_WebSocketNoneAuthorizer) Bind(_arg *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig {
+	if err := w.validateBindParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *WebSocketRouteAuthorizerConfig
 
 	_jsii_.Invoke(

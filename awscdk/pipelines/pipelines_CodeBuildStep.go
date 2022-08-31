@@ -456,6 +456,9 @@ func (j *jsiiProxy_CodeBuildStep) Vpc() awsec2.IVpc {
 func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	_init_.Initialize()
 
+	if err := validateNewCodeBuildStepParameters(id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodeBuildStep{}
 
 	_jsii_.Create(
@@ -487,6 +490,9 @@ func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStep
 func CodeBuildStep_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
+	if err := validateCodeBuildStep_SequenceParameters(steps); err != nil {
+		panic(err)
+	}
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
@@ -500,6 +506,9 @@ func CodeBuildStep_Sequence(steps *[]Step) *[]Step {
 }
 
 func (c *jsiiProxy_CodeBuildStep) AddDependencyFileSet(fs FileSet) {
+	if err := c.validateAddDependencyFileSetParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependencyFileSet",
@@ -508,6 +517,9 @@ func (c *jsiiProxy_CodeBuildStep) AddDependencyFileSet(fs FileSet) {
 }
 
 func (c *jsiiProxy_CodeBuildStep) AddOutputDirectory(directory *string) FileSet {
+	if err := c.validateAddOutputDirectoryParameters(directory); err != nil {
+		panic(err)
+	}
 	var returns FileSet
 
 	_jsii_.Invoke(
@@ -521,6 +533,9 @@ func (c *jsiiProxy_CodeBuildStep) AddOutputDirectory(directory *string) FileSet 
 }
 
 func (c *jsiiProxy_CodeBuildStep) AddStepDependency(step Step) {
+	if err := c.validateAddStepDependencyParameters(step); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addStepDependency",
@@ -529,6 +544,9 @@ func (c *jsiiProxy_CodeBuildStep) AddStepDependency(step Step) {
 }
 
 func (c *jsiiProxy_CodeBuildStep) ConfigurePrimaryOutput(fs FileSet) {
+	if err := c.validateConfigurePrimaryOutputParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"configurePrimaryOutput",
@@ -537,6 +555,9 @@ func (c *jsiiProxy_CodeBuildStep) ConfigurePrimaryOutput(fs FileSet) {
 }
 
 func (c *jsiiProxy_CodeBuildStep) DiscoverReferencedOutputs(structure interface{}) {
+	if err := c.validateDiscoverReferencedOutputsParameters(structure); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"discoverReferencedOutputs",
@@ -545,6 +566,9 @@ func (c *jsiiProxy_CodeBuildStep) DiscoverReferencedOutputs(structure interface{
 }
 
 func (c *jsiiProxy_CodeBuildStep) ExportedVariable(variableName *string) *string {
+	if err := c.validateExportedVariableParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -558,6 +582,9 @@ func (c *jsiiProxy_CodeBuildStep) ExportedVariable(variableName *string) *string
 }
 
 func (c *jsiiProxy_CodeBuildStep) PrimaryOutputDirectory(directory *string) FileSet {
+	if err := c.validatePrimaryOutputDirectoryParameters(directory); err != nil {
+		panic(err)
+	}
 	var returns FileSet
 
 	_jsii_.Invoke(

@@ -35,6 +35,9 @@ type jsiiProxy_IRule struct {
 }
 
 func (i *jsiiProxy_IRule) OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnComplianceChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -48,6 +51,9 @@ func (i *jsiiProxy_IRule) OnComplianceChange(id *string, options *awsevents.OnEv
 }
 
 func (i *jsiiProxy_IRule) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -61,6 +67,9 @@ func (i *jsiiProxy_IRule) OnEvent(id *string, options *awsevents.OnEventOptions)
 }
 
 func (i *jsiiProxy_IRule) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnReEvaluationStatusParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

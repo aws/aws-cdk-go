@@ -59,6 +59,9 @@ type jsiiProxy_LambdaTarget struct {
 func NewLambdaTarget(fn awslambda.IFunction) LambdaTarget {
 	_init_.Initialize()
 
+	if err := validateNewLambdaTargetParameters(fn); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaTarget{}
 
 	_jsii_.Create(
@@ -83,6 +86,9 @@ func NewLambdaTarget_Override(l LambdaTarget, fn awslambda.IFunction) {
 }
 
 func (l *jsiiProxy_LambdaTarget) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := l.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -96,6 +102,9 @@ func (l *jsiiProxy_LambdaTarget) AttachToApplicationTargetGroup(targetGroup awse
 }
 
 func (l *jsiiProxy_LambdaTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := l.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(

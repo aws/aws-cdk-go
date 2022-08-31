@@ -289,6 +289,9 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) TaskDefinition
 func NewApplicationMultipleTargetGroupsFargateService(scope constructs.Construct, id *string, props *ApplicationMultipleTargetGroupsFargateServiceProps) ApplicationMultipleTargetGroupsFargateService {
 	_init_.Initialize()
 
+	if err := validateNewApplicationMultipleTargetGroupsFargateServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationMultipleTargetGroupsFargateService{}
 
 	_jsii_.Create(
@@ -312,7 +315,10 @@ func NewApplicationMultipleTargetGroupsFargateService_Override(a ApplicationMult
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService)SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
+	if err := j.validateSetListenersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"listeners",
@@ -320,7 +326,7 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetListeners(v
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetLogDriver(val awsecs.LogDriver) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService)SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
@@ -328,7 +334,10 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetLogDriver(v
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService)SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
+	if err := j.validateSetTargetGroupsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetGroups",
@@ -341,6 +350,9 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetTargetGroup
 func ApplicationMultipleTargetGroupsFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationMultipleTargetGroupsFargateService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -354,6 +366,9 @@ func ApplicationMultipleTargetGroupsFargateService_IsConstruct(x interface{}) *b
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) {
+	if err := a.validateAddPortMappingForTargetsParameters(container, targets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addPortMappingForTargets",
@@ -362,6 +377,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) AddPortMapping
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := a.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -388,6 +406,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) FindListener(n
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := a.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -409,6 +430,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -438,6 +462,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
+	if err := a.validateRegisterECSTargetsParameters(service, container, targets); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ApplicationTargetGroup
 
 	_jsii_.Invoke(
@@ -451,6 +478,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) RegisterECSTar
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

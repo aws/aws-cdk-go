@@ -280,6 +280,9 @@ func (j *jsiiProxy_QueueProcessingFargateService) TaskDefinition() awsecs.Fargat
 func NewQueueProcessingFargateService(scope constructs.Construct, id *string, props *QueueProcessingFargateServiceProps) QueueProcessingFargateService {
 	_init_.Initialize()
 
+	if err := validateNewQueueProcessingFargateServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_QueueProcessingFargateService{}
 
 	_jsii_.Create(
@@ -308,6 +311,9 @@ func NewQueueProcessingFargateService_Override(q QueueProcessingFargateService, 
 func QueueProcessingFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQueueProcessingFargateService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -321,6 +327,9 @@ func QueueProcessingFargateService_IsConstruct(x interface{}) *bool {
 }
 
 func (q *jsiiProxy_QueueProcessingFargateService) ConfigureAutoscalingForService(service awsecs.BaseService) {
+	if err := q.validateConfigureAutoscalingForServiceParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"configureAutoscalingForService",
@@ -329,6 +338,9 @@ func (q *jsiiProxy_QueueProcessingFargateService) ConfigureAutoscalingForService
 }
 
 func (q *jsiiProxy_QueueProcessingFargateService) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := q.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -342,6 +354,9 @@ func (q *jsiiProxy_QueueProcessingFargateService) GetDefaultCluster(scope constr
 }
 
 func (q *jsiiProxy_QueueProcessingFargateService) GrantPermissionsToService(service awsecs.BaseService) {
+	if err := q.validateGrantPermissionsToServiceParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"grantPermissionsToService",
@@ -358,6 +373,9 @@ func (q *jsiiProxy_QueueProcessingFargateService) OnPrepare() {
 }
 
 func (q *jsiiProxy_QueueProcessingFargateService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -387,6 +405,9 @@ func (q *jsiiProxy_QueueProcessingFargateService) Prepare() {
 }
 
 func (q *jsiiProxy_QueueProcessingFargateService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",

@@ -161,6 +161,9 @@ func (j *jsiiProxy_ShellScriptAction) Project() awscodebuild.IProject {
 func NewShellScriptAction(props *ShellScriptActionProps) ShellScriptAction {
 	_init_.Initialize()
 
+	if err := validateNewShellScriptActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ShellScriptAction{}
 
 	_jsii_.Create(
@@ -184,6 +187,9 @@ func NewShellScriptAction_Override(s ShellScriptAction, props *ShellScriptAction
 }
 
 func (s *jsiiProxy_ShellScriptAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -197,6 +203,9 @@ func (s *jsiiProxy_ShellScriptAction) Bind(scope awscdk.Construct, stage awscode
 }
 
 func (s *jsiiProxy_ShellScriptAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := s.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

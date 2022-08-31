@@ -43,6 +43,9 @@ type jsiiProxy_JournaldLogDriver struct {
 func NewJournaldLogDriver(props *JournaldLogDriverProps) JournaldLogDriver {
 	_init_.Initialize()
 
+	if err := validateNewJournaldLogDriverParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_JournaldLogDriver{}
 
 	_jsii_.Create(
@@ -71,6 +74,9 @@ func NewJournaldLogDriver_Override(j JournaldLogDriver, props *JournaldLogDriver
 func JournaldLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateJournaldLogDriver_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -84,6 +90,9 @@ func JournaldLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 }
 
 func (j *jsiiProxy_JournaldLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+	if err := j.validateBindParameters(_scope, _containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

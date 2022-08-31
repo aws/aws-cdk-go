@@ -43,6 +43,9 @@ type jsiiProxy_TopicHook struct {
 func NewTopicHook(topic awssns.ITopic) TopicHook {
 	_init_.Initialize()
 
+	if err := validateNewTopicHookParameters(topic); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TopicHook{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewTopicHook_Override(t TopicHook, topic awssns.ITopic) {
 }
 
 func (t *jsiiProxy_TopicHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
+	if err := t.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(

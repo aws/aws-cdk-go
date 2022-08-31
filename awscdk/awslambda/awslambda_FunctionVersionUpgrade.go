@@ -36,6 +36,9 @@ type jsiiProxy_FunctionVersionUpgrade struct {
 func NewFunctionVersionUpgrade(featureFlag *string, enabled *bool) FunctionVersionUpgrade {
 	_init_.Initialize()
 
+	if err := validateNewFunctionVersionUpgradeParameters(featureFlag); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FunctionVersionUpgrade{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewFunctionVersionUpgrade_Override(f FunctionVersionUpgrade, featureFlag *s
 }
 
 func (f *jsiiProxy_FunctionVersionUpgrade) Visit(node awscdk.IConstruct) {
+	if err := f.validateVisitParameters(node); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"visit",

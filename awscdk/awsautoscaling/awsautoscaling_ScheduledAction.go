@@ -191,6 +191,9 @@ func (j *jsiiProxy_ScheduledAction) Stack() awscdk.Stack {
 func NewScheduledAction(scope constructs.Construct, id *string, props *ScheduledActionProps) ScheduledAction {
 	_init_.Initialize()
 
+	if err := validateNewScheduledActionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ScheduledAction{}
 
 	_jsii_.Create(
@@ -218,6 +221,9 @@ func NewScheduledAction_Override(s ScheduledAction, scope constructs.Construct, 
 func ScheduledAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateScheduledAction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -235,6 +241,9 @@ func ScheduledAction_IsConstruct(x interface{}) *bool {
 func ScheduledAction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateScheduledAction_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -248,6 +257,9 @@ func ScheduledAction_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_ScheduledAction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -269,6 +281,9 @@ func (s *jsiiProxy_ScheduledAction) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_ScheduledAction) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -282,6 +297,9 @@ func (s *jsiiProxy_ScheduledAction) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (s *jsiiProxy_ScheduledAction) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -303,6 +321,9 @@ func (s *jsiiProxy_ScheduledAction) OnPrepare() {
 }
 
 func (s *jsiiProxy_ScheduledAction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -332,6 +353,9 @@ func (s *jsiiProxy_ScheduledAction) Prepare() {
 }
 
 func (s *jsiiProxy_ScheduledAction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

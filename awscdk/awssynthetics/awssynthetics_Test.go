@@ -63,6 +63,9 @@ func (j *jsiiProxy_Test) Handler() *string {
 func Test_Custom(options *CustomTestOptions) Test {
 	_init_.Initialize()
 
+	if err := validateTest_CustomParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Test
 
 	_jsii_.StaticInvoke(

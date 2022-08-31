@@ -123,6 +123,9 @@ func (j *jsiiProxy_SecretValue) CreationStack() *[]*string {
 func NewSecretValue(protectedValue interface{}, options *IntrinsicProps) SecretValue {
 	_init_.Initialize()
 
+	if err := validateNewSecretValueParameters(protectedValue, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SecretValue{}
 
 	_jsii_.Create(
@@ -156,6 +159,9 @@ func NewSecretValue_Override(s SecretValue, protectedValue interface{}, options 
 func SecretValue_CfnDynamicReference(ref CfnDynamicReference) SecretValue {
 	_init_.Initialize()
 
+	if err := validateSecretValue_CfnDynamicReferenceParameters(ref); err != nil {
+		panic(err)
+	}
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
@@ -176,6 +182,9 @@ func SecretValue_CfnDynamicReference(ref CfnDynamicReference) SecretValue {
 func SecretValue_CfnParameter(param CfnParameter) SecretValue {
 	_init_.Initialize()
 
+	if err := validateSecretValue_CfnParameterParameters(param); err != nil {
+		panic(err)
+	}
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
@@ -193,6 +202,9 @@ func SecretValue_CfnParameter(param CfnParameter) SecretValue {
 func SecretValue_IsSecretValue(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSecretValue_IsSecretValueParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -216,6 +228,9 @@ func SecretValue_IsSecretValue(x interface{}) *bool {
 func SecretValue_PlainText(secret *string) SecretValue {
 	_init_.Initialize()
 
+	if err := validateSecretValue_PlainTextParameters(secret); err != nil {
+		panic(err)
+	}
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
@@ -233,6 +248,9 @@ func SecretValue_PlainText(secret *string) SecretValue {
 func SecretValue_ResourceAttribute(attr *string) SecretValue {
 	_init_.Initialize()
 
+	if err := validateSecretValue_ResourceAttributeParameters(attr); err != nil {
+		panic(err)
+	}
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
@@ -250,6 +268,9 @@ func SecretValue_ResourceAttribute(attr *string) SecretValue {
 func SecretValue_SecretsManager(secretId *string, options *SecretsManagerSecretOptions) SecretValue {
 	_init_.Initialize()
 
+	if err := validateSecretValue_SecretsManagerParameters(secretId, options); err != nil {
+		panic(err)
+	}
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
@@ -267,6 +288,9 @@ func SecretValue_SecretsManager(secretId *string, options *SecretsManagerSecretO
 func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 	_init_.Initialize()
 
+	if err := validateSecretValue_SsmSecureParameters(parameterName); err != nil {
+		panic(err)
+	}
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
@@ -290,6 +314,9 @@ func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 func SecretValue_UnsafePlainText(secret *string) SecretValue {
 	_init_.Initialize()
 
+	if err := validateSecretValue_UnsafePlainTextParameters(secret); err != nil {
+		panic(err)
+	}
 	var returns SecretValue
 
 	_jsii_.StaticInvoke(
@@ -303,6 +330,9 @@ func SecretValue_UnsafePlainText(secret *string) SecretValue {
 }
 
 func (s *jsiiProxy_SecretValue) NewError(message *string) interface{} {
+	if err := s.validateNewErrorParameters(message); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -316,6 +346,9 @@ func (s *jsiiProxy_SecretValue) NewError(message *string) interface{} {
 }
 
 func (s *jsiiProxy_SecretValue) Resolve(context IResolveContext) interface{} {
+	if err := s.validateResolveParameters(context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

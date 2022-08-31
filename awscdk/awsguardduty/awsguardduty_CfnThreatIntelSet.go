@@ -424,6 +424,9 @@ func (j *jsiiProxy_CfnThreatIntelSet) UpdatedProperites() *map[string]interface{
 func NewCfnThreatIntelSet(scope awscdk.Construct, id *string, props *CfnThreatIntelSetProps) CfnThreatIntelSet {
 	_init_.Initialize()
 
+	if err := validateNewCfnThreatIntelSetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnThreatIntelSet{}
 
 	_jsii_.Create(
@@ -446,7 +449,10 @@ func NewCfnThreatIntelSet_Override(c CfnThreatIntelSet, scope awscdk.Construct, 
 	)
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) SetActivate(val interface{}) {
+func (j *jsiiProxy_CfnThreatIntelSet)SetActivate(val interface{}) {
+	if err := j.validateSetActivateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"activate",
@@ -454,7 +460,10 @@ func (j *jsiiProxy_CfnThreatIntelSet) SetActivate(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) SetDetectorId(val *string) {
+func (j *jsiiProxy_CfnThreatIntelSet)SetDetectorId(val *string) {
+	if err := j.validateSetDetectorIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"detectorId",
@@ -462,7 +471,10 @@ func (j *jsiiProxy_CfnThreatIntelSet) SetDetectorId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) SetFormat(val *string) {
+func (j *jsiiProxy_CfnThreatIntelSet)SetFormat(val *string) {
+	if err := j.validateSetFormatParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"format",
@@ -470,7 +482,10 @@ func (j *jsiiProxy_CfnThreatIntelSet) SetFormat(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) SetLocation(val *string) {
+func (j *jsiiProxy_CfnThreatIntelSet)SetLocation(val *string) {
+	if err := j.validateSetLocationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"location",
@@ -478,7 +493,7 @@ func (j *jsiiProxy_CfnThreatIntelSet) SetLocation(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) SetName(val *string) {
+func (j *jsiiProxy_CfnThreatIntelSet)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
@@ -496,6 +511,9 @@ func (j *jsiiProxy_CfnThreatIntelSet) SetName(val *string) {
 func CfnThreatIntelSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnThreatIntelSet_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -513,6 +531,9 @@ func CfnThreatIntelSet_IsCfnElement(x interface{}) *bool {
 func CfnThreatIntelSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnThreatIntelSet_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -530,6 +551,9 @@ func CfnThreatIntelSet_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnThreatIntelSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnThreatIntelSet_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -554,6 +578,9 @@ func CfnThreatIntelSet_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -562,6 +589,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -570,6 +600,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -578,6 +611,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) AddMetadata(key *string, value interface{}
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -586,6 +622,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) AddOverride(path *string, value interface{
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -594,6 +633,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) AddPropertyDeletionOverride(propertyPath *
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -602,6 +644,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) AddPropertyOverride(propertyPath *string, 
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -610,6 +655,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -623,6 +671,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) GetAtt(attributeName *string) awscdk.Refer
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -636,6 +687,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -652,6 +706,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -673,6 +730,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -689,6 +749,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) Prepare() {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -715,6 +778,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -749,6 +815,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

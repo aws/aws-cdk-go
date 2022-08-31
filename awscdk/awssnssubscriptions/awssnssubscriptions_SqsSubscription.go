@@ -35,6 +35,9 @@ type jsiiProxy_SqsSubscription struct {
 func NewSqsSubscription(queue awssqs.IQueue, props *SqsSubscriptionProps) SqsSubscription {
 	_init_.Initialize()
 
+	if err := validateNewSqsSubscriptionParameters(queue, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SqsSubscription{}
 
 	_jsii_.Create(
@@ -58,6 +61,9 @@ func NewSqsSubscription_Override(s SqsSubscription, queue awssqs.IQueue, props *
 }
 
 func (s *jsiiProxy_SqsSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := s.validateBindParameters(topic); err != nil {
+		panic(err)
+	}
 	var returns *awssns.TopicSubscriptionConfig
 
 	_jsii_.Invoke(

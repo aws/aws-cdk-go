@@ -352,6 +352,9 @@ func (j *jsiiProxy_Fail) StateId() *string {
 func NewFail(scope constructs.Construct, id *string, props *FailProps) Fail {
 	_init_.Initialize()
 
+	if err := validateNewFailParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Fail{}
 
 	_jsii_.Create(
@@ -374,7 +377,7 @@ func NewFail_Override(f Fail, scope constructs.Construct, id *string, props *Fai
 	)
 }
 
-func (j *jsiiProxy_Fail) SetDefaultChoice(val State) {
+func (j *jsiiProxy_Fail)SetDefaultChoice(val State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -382,7 +385,7 @@ func (j *jsiiProxy_Fail) SetDefaultChoice(val State) {
 	)
 }
 
-func (j *jsiiProxy_Fail) SetIteration(val StateGraph) {
+func (j *jsiiProxy_Fail)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -395,6 +398,9 @@ func (j *jsiiProxy_Fail) SetIteration(val StateGraph) {
 func Fail_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
+	if err := validateFail_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
@@ -412,6 +418,9 @@ func Fail_FilterNextables(states *[]State) *[]INextable {
 func Fail_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateFail_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -431,6 +440,9 @@ func Fail_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 func Fail_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
+	if err := validateFail_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
@@ -448,6 +460,9 @@ func Fail_FindReachableStates(start State, options *FindStateOptions) *[]State {
 func Fail_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFail_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -465,6 +480,9 @@ func Fail_IsConstruct(x interface{}) *bool {
 func Fail_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateFail_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions.Fail",
 		"prefixStates",
@@ -473,6 +491,9 @@ func Fail_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (f *jsiiProxy_Fail) AddBranch(branch StateGraph) {
+	if err := f.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addBranch",
@@ -481,6 +502,9 @@ func (f *jsiiProxy_Fail) AddBranch(branch StateGraph) {
 }
 
 func (f *jsiiProxy_Fail) AddChoice(condition Condition, next State) {
+	if err := f.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addChoice",
@@ -489,6 +513,9 @@ func (f *jsiiProxy_Fail) AddChoice(condition Condition, next State) {
 }
 
 func (f *jsiiProxy_Fail) AddIterator(iteration StateGraph) {
+	if err := f.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addIterator",
@@ -497,6 +524,9 @@ func (f *jsiiProxy_Fail) AddIterator(iteration StateGraph) {
 }
 
 func (f *jsiiProxy_Fail) AddPrefix(x *string) {
+	if err := f.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addPrefix",
@@ -505,6 +535,9 @@ func (f *jsiiProxy_Fail) AddPrefix(x *string) {
 }
 
 func (f *jsiiProxy_Fail) BindToGraph(graph StateGraph) {
+	if err := f.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"bindToGraph",
@@ -513,6 +546,9 @@ func (f *jsiiProxy_Fail) BindToGraph(graph StateGraph) {
 }
 
 func (f *jsiiProxy_Fail) MakeDefault(def State) {
+	if err := f.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"makeDefault",
@@ -521,6 +557,9 @@ func (f *jsiiProxy_Fail) MakeDefault(def State) {
 }
 
 func (f *jsiiProxy_Fail) MakeNext(next State) {
+	if err := f.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"makeNext",
@@ -537,6 +576,9 @@ func (f *jsiiProxy_Fail) OnPrepare() {
 }
 
 func (f *jsiiProxy_Fail) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -657,6 +699,9 @@ func (f *jsiiProxy_Fail) RenderRetryCatch() interface{} {
 }
 
 func (f *jsiiProxy_Fail) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",
@@ -704,6 +749,9 @@ func (f *jsiiProxy_Fail) Validate() *[]*string {
 }
 
 func (f *jsiiProxy_Fail) WhenBoundToGraph(graph StateGraph) {
+	if err := f.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"whenBoundToGraph",

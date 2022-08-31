@@ -242,6 +242,9 @@ func (j *jsiiProxy_Database) Stack() awscdk.Stack {
 func NewDatabase(scope constructs.Construct, id *string, props *DatabaseProps) Database {
 	_init_.Initialize()
 
+	if err := validateNewDatabaseParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Database{}
 
 	_jsii_.Create(
@@ -268,6 +271,9 @@ func NewDatabase_Override(d Database, scope constructs.Construct, id *string, pr
 func Database_FromDatabaseArn(scope constructs.Construct, id *string, databaseArn *string) IDatabase {
 	_init_.Initialize()
 
+	if err := validateDatabase_FromDatabaseArnParameters(scope, id, databaseArn); err != nil {
+		panic(err)
+	}
 	var returns IDatabase
 
 	_jsii_.StaticInvoke(
@@ -285,6 +291,9 @@ func Database_FromDatabaseArn(scope constructs.Construct, id *string, databaseAr
 func Database_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -302,6 +311,9 @@ func Database_IsConstruct(x interface{}) *bool {
 func Database_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabase_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -315,6 +327,9 @@ func Database_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_Database) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -336,6 +351,9 @@ func (d *jsiiProxy_Database) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_Database) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -349,6 +367,9 @@ func (d *jsiiProxy_Database) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (d *jsiiProxy_Database) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -370,6 +391,9 @@ func (d *jsiiProxy_Database) OnPrepare() {
 }
 
 func (d *jsiiProxy_Database) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -399,6 +423,9 @@ func (d *jsiiProxy_Database) Prepare() {
 }
 
 func (d *jsiiProxy_Database) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

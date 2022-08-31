@@ -137,6 +137,9 @@ func (j *jsiiProxy_WindowsBuildImage) Type() *string {
 func WindowsBuildImage_FromAsset(scope constructs.Construct, id *string, props *awsecrassets.DockerImageAssetProps, imageType WindowsImageType) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateWindowsBuildImage_FromAssetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -154,6 +157,9 @@ func WindowsBuildImage_FromAsset(scope constructs.Construct, id *string, props *
 func WindowsBuildImage_FromDockerRegistry(name *string, options *DockerImageOptions, imageType WindowsImageType) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateWindowsBuildImage_FromDockerRegistryParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -176,6 +182,9 @@ func WindowsBuildImage_FromDockerRegistry(name *string, options *DockerImageOpti
 func WindowsBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string, imageType WindowsImageType) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateWindowsBuildImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -222,6 +231,9 @@ func WindowsBuildImage_WINDOWS_BASE_2_0() IBuildImage {
 }
 
 func (w *jsiiProxy_WindowsBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
+	if err := w.validateRunScriptBuildspecParameters(entrypoint); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.Invoke(
@@ -235,6 +247,9 @@ func (w *jsiiProxy_WindowsBuildImage) RunScriptBuildspec(entrypoint *string) Bui
 }
 
 func (w *jsiiProxy_WindowsBuildImage) Validate(buildEnvironment *BuildEnvironment) *[]*string {
+	if err := w.validateValidateParameters(buildEnvironment); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

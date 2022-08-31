@@ -49,6 +49,9 @@ func NewStreamEventSource_Override(s StreamEventSource, props *StreamEventSource
 }
 
 func (s *jsiiProxy_StreamEventSource) Bind(_target awslambda.IFunction) {
+	if err := s.validateBindParameters(_target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bind",
@@ -57,6 +60,9 @@ func (s *jsiiProxy_StreamEventSource) Bind(_target awslambda.IFunction) {
 }
 
 func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
+	if err := s.validateEnrichMappingOptionsParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.EventSourceMappingOptions
 
 	_jsii_.Invoke(

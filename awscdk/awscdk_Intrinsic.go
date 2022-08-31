@@ -70,6 +70,9 @@ func (j *jsiiProxy_Intrinsic) CreationStack() *[]*string {
 func NewIntrinsic(value interface{}, options *IntrinsicProps) Intrinsic {
 	_init_.Initialize()
 
+	if err := validateNewIntrinsicParameters(value, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Intrinsic{}
 
 	_jsii_.Create(
@@ -93,6 +96,9 @@ func NewIntrinsic_Override(i Intrinsic, value interface{}, options *IntrinsicPro
 }
 
 func (i *jsiiProxy_Intrinsic) NewError(message *string) interface{} {
+	if err := i.validateNewErrorParameters(message); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -106,6 +112,9 @@ func (i *jsiiProxy_Intrinsic) NewError(message *string) interface{} {
 }
 
 func (i *jsiiProxy_Intrinsic) Resolve(_context IResolveContext) interface{} {
+	if err := i.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

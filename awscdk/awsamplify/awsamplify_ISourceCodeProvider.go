@@ -18,6 +18,9 @@ type jsiiProxy_ISourceCodeProvider struct {
 }
 
 func (i *jsiiProxy_ISourceCodeProvider) Bind(app App) *SourceCodeProviderConfig {
+	if err := i.validateBindParameters(app); err != nil {
+		panic(err)
+	}
 	var returns *SourceCodeProviderConfig
 
 	_jsii_.Invoke(

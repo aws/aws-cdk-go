@@ -380,6 +380,9 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) UpdatedProperites() *map[strin
 func NewCfnConnectorDefinitionVersion(scope awscdk.Construct, id *string, props *CfnConnectorDefinitionVersionProps) CfnConnectorDefinitionVersion {
 	_init_.Initialize()
 
+	if err := validateNewCfnConnectorDefinitionVersionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnConnectorDefinitionVersion{}
 
 	_jsii_.Create(
@@ -402,7 +405,10 @@ func NewCfnConnectorDefinitionVersion_Override(c CfnConnectorDefinitionVersion, 
 	)
 }
 
-func (j *jsiiProxy_CfnConnectorDefinitionVersion) SetConnectorDefinitionId(val *string) {
+func (j *jsiiProxy_CfnConnectorDefinitionVersion)SetConnectorDefinitionId(val *string) {
+	if err := j.validateSetConnectorDefinitionIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectorDefinitionId",
@@ -410,7 +416,10 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) SetConnectorDefinitionId(val *
 	)
 }
 
-func (j *jsiiProxy_CfnConnectorDefinitionVersion) SetConnectors(val interface{}) {
+func (j *jsiiProxy_CfnConnectorDefinitionVersion)SetConnectors(val interface{}) {
+	if err := j.validateSetConnectorsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectors",
@@ -428,6 +437,9 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) SetConnectors(val interface{})
 func CfnConnectorDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnConnectorDefinitionVersion_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -445,6 +457,9 @@ func CfnConnectorDefinitionVersion_IsCfnElement(x interface{}) *bool {
 func CfnConnectorDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnConnectorDefinitionVersion_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -462,6 +477,9 @@ func CfnConnectorDefinitionVersion_IsCfnResource(construct constructs.IConstruct
 func CfnConnectorDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnConnectorDefinitionVersion_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -486,6 +504,9 @@ func CfnConnectorDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -494,6 +515,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDeletionOverride(path *stri
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -502,6 +526,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDependsOn(target awscdk.Cfn
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -510,6 +537,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddMetadata(key *string, value
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -518,6 +548,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddOverride(path *string, valu
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -526,6 +559,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyDeletionOverride(pr
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -534,6 +570,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -542,6 +581,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ApplyRemovalPolicy(policy awsc
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -555,6 +597,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) GetAtt(attributeName *string) 
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -568,6 +613,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) GetMetadata(key *string) inter
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -584,6 +632,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -605,6 +656,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -621,6 +675,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) Prepare() {
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -647,6 +704,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -681,6 +741,9 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -389,6 +389,9 @@ func (j *jsiiProxy_DynamoGetItem) TaskPolicies() *[]awsiam.PolicyStatement {
 func NewDynamoGetItem(scope constructs.Construct, id *string, props *DynamoGetItemProps) DynamoGetItem {
 	_init_.Initialize()
 
+	if err := validateNewDynamoGetItemParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DynamoGetItem{}
 
 	_jsii_.Create(
@@ -411,7 +414,7 @@ func NewDynamoGetItem_Override(d DynamoGetItem, scope constructs.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_DynamoGetItem) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_DynamoGetItem)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -419,7 +422,7 @@ func (j *jsiiProxy_DynamoGetItem) SetDefaultChoice(val awsstepfunctions.State) {
 	)
 }
 
-func (j *jsiiProxy_DynamoGetItem) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_DynamoGetItem)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -432,6 +435,9 @@ func (j *jsiiProxy_DynamoGetItem) SetIteration(val awsstepfunctions.StateGraph) 
 func DynamoGetItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateDynamoGetItem_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -449,6 +455,9 @@ func DynamoGetItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 func DynamoGetItem_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateDynamoGetItem_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -468,6 +477,9 @@ func DynamoGetItem_FindReachableEndStates(start awsstepfunctions.State, options 
 func DynamoGetItem_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateDynamoGetItem_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -485,6 +497,9 @@ func DynamoGetItem_FindReachableStates(start awsstepfunctions.State, options *aw
 func DynamoGetItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDynamoGetItem_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -502,6 +517,9 @@ func DynamoGetItem_IsConstruct(x interface{}) *bool {
 func DynamoGetItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateDynamoGetItem_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		"prefixStates",
@@ -510,6 +528,9 @@ func DynamoGetItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 func (d *jsiiProxy_DynamoGetItem) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := d.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addBranch",
@@ -518,6 +539,9 @@ func (d *jsiiProxy_DynamoGetItem) AddBranch(branch awsstepfunctions.StateGraph) 
 }
 
 func (d *jsiiProxy_DynamoGetItem) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := d.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -531,6 +555,9 @@ func (d *jsiiProxy_DynamoGetItem) AddCatch(handler awsstepfunctions.IChainable, 
 }
 
 func (d *jsiiProxy_DynamoGetItem) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := d.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addChoice",
@@ -539,6 +566,9 @@ func (d *jsiiProxy_DynamoGetItem) AddChoice(condition awsstepfunctions.Condition
 }
 
 func (d *jsiiProxy_DynamoGetItem) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := d.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addIterator",
@@ -547,6 +577,9 @@ func (d *jsiiProxy_DynamoGetItem) AddIterator(iteration awsstepfunctions.StateGr
 }
 
 func (d *jsiiProxy_DynamoGetItem) AddPrefix(x *string) {
+	if err := d.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addPrefix",
@@ -555,6 +588,9 @@ func (d *jsiiProxy_DynamoGetItem) AddPrefix(x *string) {
 }
 
 func (d *jsiiProxy_DynamoGetItem) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := d.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -568,6 +604,9 @@ func (d *jsiiProxy_DynamoGetItem) AddRetry(props *awsstepfunctions.RetryProps) a
 }
 
 func (d *jsiiProxy_DynamoGetItem) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := d.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"bindToGraph",
@@ -576,6 +615,9 @@ func (d *jsiiProxy_DynamoGetItem) BindToGraph(graph awsstepfunctions.StateGraph)
 }
 
 func (d *jsiiProxy_DynamoGetItem) MakeDefault(def awsstepfunctions.State) {
+	if err := d.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"makeDefault",
@@ -584,6 +626,9 @@ func (d *jsiiProxy_DynamoGetItem) MakeDefault(def awsstepfunctions.State) {
 }
 
 func (d *jsiiProxy_DynamoGetItem) MakeNext(next awsstepfunctions.State) {
+	if err := d.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"makeNext",
@@ -592,6 +637,9 @@ func (d *jsiiProxy_DynamoGetItem) MakeNext(next awsstepfunctions.State) {
 }
 
 func (d *jsiiProxy_DynamoGetItem) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -605,6 +653,9 @@ func (d *jsiiProxy_DynamoGetItem) Metric(metricName *string, props *awscloudwatc
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -618,6 +669,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricFailed(props *awscloudwatch.MetricOption
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -631,6 +685,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricHeartbeatTimedOut(props *awscloudwatch.M
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -644,6 +701,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricRunTime(props *awscloudwatch.MetricOptio
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -657,6 +717,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricScheduled(props *awscloudwatch.MetricOpt
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -670,6 +733,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricScheduleTime(props *awscloudwatch.Metric
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -683,6 +749,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricStarted(props *awscloudwatch.MetricOptio
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -696,6 +765,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricSucceeded(props *awscloudwatch.MetricOpt
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -709,6 +781,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricTime(props *awscloudwatch.MetricOptions)
 }
 
 func (d *jsiiProxy_DynamoGetItem) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -722,6 +797,9 @@ func (d *jsiiProxy_DynamoGetItem) MetricTimedOut(props *awscloudwatch.MetricOpti
 }
 
 func (d *jsiiProxy_DynamoGetItem) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := d.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -743,6 +821,9 @@ func (d *jsiiProxy_DynamoGetItem) OnPrepare() {
 }
 
 func (d *jsiiProxy_DynamoGetItem) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -863,6 +944,9 @@ func (d *jsiiProxy_DynamoGetItem) RenderRetryCatch() interface{} {
 }
 
 func (d *jsiiProxy_DynamoGetItem) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",
@@ -910,6 +994,9 @@ func (d *jsiiProxy_DynamoGetItem) Validate() *[]*string {
 }
 
 func (d *jsiiProxy_DynamoGetItem) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := d.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"whenBoundToGraph",

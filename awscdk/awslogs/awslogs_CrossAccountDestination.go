@@ -248,6 +248,9 @@ func (j *jsiiProxy_CrossAccountDestination) Stack() awscdk.Stack {
 func NewCrossAccountDestination(scope constructs.Construct, id *string, props *CrossAccountDestinationProps) CrossAccountDestination {
 	_init_.Initialize()
 
+	if err := validateNewCrossAccountDestinationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CrossAccountDestination{}
 
 	_jsii_.Create(
@@ -275,6 +278,9 @@ func NewCrossAccountDestination_Override(c CrossAccountDestination, scope constr
 func CrossAccountDestination_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCrossAccountDestination_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -292,6 +298,9 @@ func CrossAccountDestination_IsConstruct(x interface{}) *bool {
 func CrossAccountDestination_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCrossAccountDestination_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -305,6 +314,9 @@ func CrossAccountDestination_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CrossAccountDestination) AddToPolicy(statement awsiam.PolicyStatement) {
+	if err := c.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addToPolicy",
@@ -313,6 +325,9 @@ func (c *jsiiProxy_CrossAccountDestination) AddToPolicy(statement awsiam.PolicyS
 }
 
 func (c *jsiiProxy_CrossAccountDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -321,6 +336,9 @@ func (c *jsiiProxy_CrossAccountDestination) ApplyRemovalPolicy(policy awscdk.Rem
 }
 
 func (c *jsiiProxy_CrossAccountDestination) Bind(_scope awscdk.Construct, _sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+	if err := c.validateBindParameters(_scope, _sourceLogGroup); err != nil {
+		panic(err)
+	}
 	var returns *LogSubscriptionDestinationConfig
 
 	_jsii_.Invoke(
@@ -347,6 +365,9 @@ func (c *jsiiProxy_CrossAccountDestination) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CrossAccountDestination) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -360,6 +381,9 @@ func (c *jsiiProxy_CrossAccountDestination) GetResourceArnAttribute(arnAttr *str
 }
 
 func (c *jsiiProxy_CrossAccountDestination) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -381,6 +405,9 @@ func (c *jsiiProxy_CrossAccountDestination) OnPrepare() {
 }
 
 func (c *jsiiProxy_CrossAccountDestination) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -410,6 +437,9 @@ func (c *jsiiProxy_CrossAccountDestination) Prepare() {
 }
 
 func (c *jsiiProxy_CrossAccountDestination) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

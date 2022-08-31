@@ -70,6 +70,9 @@ func (j *jsiiProxy_WindowsImage) ParameterName() *string {
 func NewWindowsImage(version WindowsVersion, props *WindowsImageProps) WindowsImage {
 	_init_.Initialize()
 
+	if err := validateNewWindowsImageParameters(version, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WindowsImage{}
 
 	_jsii_.Create(
@@ -93,6 +96,9 @@ func NewWindowsImage_Override(w WindowsImage, version WindowsVersion, props *Win
 }
 
 func (w *jsiiProxy_WindowsImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := w.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

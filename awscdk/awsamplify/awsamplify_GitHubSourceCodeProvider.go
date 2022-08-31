@@ -41,6 +41,9 @@ type jsiiProxy_GitHubSourceCodeProvider struct {
 func NewGitHubSourceCodeProvider(props *GitHubSourceCodeProviderProps) GitHubSourceCodeProvider {
 	_init_.Initialize()
 
+	if err := validateNewGitHubSourceCodeProviderParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GitHubSourceCodeProvider{}
 
 	_jsii_.Create(
@@ -64,6 +67,9 @@ func NewGitHubSourceCodeProvider_Override(g GitHubSourceCodeProvider, props *Git
 }
 
 func (g *jsiiProxy_GitHubSourceCodeProvider) Bind(_app App) *SourceCodeProviderConfig {
+	if err := g.validateBindParameters(_app); err != nil {
+		panic(err)
+	}
 	var returns *SourceCodeProviderConfig
 
 	_jsii_.Invoke(

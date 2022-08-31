@@ -223,6 +223,9 @@ func (j *jsiiProxy_QueuePolicy) Stack() awscdk.Stack {
 func NewQueuePolicy(scope constructs.Construct, id *string, props *QueuePolicyProps) QueuePolicy {
 	_init_.Initialize()
 
+	if err := validateNewQueuePolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_QueuePolicy{}
 
 	_jsii_.Create(
@@ -250,6 +253,9 @@ func NewQueuePolicy_Override(q QueuePolicy, scope constructs.Construct, id *stri
 func QueuePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQueuePolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -267,6 +273,9 @@ func QueuePolicy_IsConstruct(x interface{}) *bool {
 func QueuePolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateQueuePolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -280,6 +289,9 @@ func QueuePolicy_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (q *jsiiProxy_QueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := q.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"applyRemovalPolicy",
@@ -301,6 +313,9 @@ func (q *jsiiProxy_QueuePolicy) GeneratePhysicalName() *string {
 }
 
 func (q *jsiiProxy_QueuePolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := q.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -314,6 +329,9 @@ func (q *jsiiProxy_QueuePolicy) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (q *jsiiProxy_QueuePolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := q.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -335,6 +353,9 @@ func (q *jsiiProxy_QueuePolicy) OnPrepare() {
 }
 
 func (q *jsiiProxy_QueuePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -364,6 +385,9 @@ func (q *jsiiProxy_QueuePolicy) Prepare() {
 }
 
 func (q *jsiiProxy_QueuePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",

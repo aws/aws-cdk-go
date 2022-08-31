@@ -35,6 +35,9 @@ type jsiiProxy_IVirtualGateway struct {
 }
 
 func (i *jsiiProxy_IVirtualGateway) AddGatewayRoute(id *string, route *GatewayRouteBaseProps) GatewayRoute {
+	if err := i.validateAddGatewayRouteParameters(id, route); err != nil {
+		panic(err)
+	}
 	var returns GatewayRoute
 
 	_jsii_.Invoke(
@@ -48,6 +51,9 @@ func (i *jsiiProxy_IVirtualGateway) AddGatewayRoute(id *string, route *GatewayRo
 }
 
 func (i *jsiiProxy_IVirtualGateway) GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantStreamAggregatedResourcesParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

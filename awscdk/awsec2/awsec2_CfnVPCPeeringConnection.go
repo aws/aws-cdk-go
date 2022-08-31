@@ -447,6 +447,9 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) VpcId() *string {
 func NewCfnVPCPeeringConnection(scope awscdk.Construct, id *string, props *CfnVPCPeeringConnectionProps) CfnVPCPeeringConnection {
 	_init_.Initialize()
 
+	if err := validateNewCfnVPCPeeringConnectionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnVPCPeeringConnection{}
 
 	_jsii_.Create(
@@ -469,7 +472,7 @@ func NewCfnVPCPeeringConnection_Override(c CfnVPCPeeringConnection, scope awscdk
 	)
 }
 
-func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerOwnerId(val *string) {
+func (j *jsiiProxy_CfnVPCPeeringConnection)SetPeerOwnerId(val *string) {
 	_jsii_.Set(
 		j,
 		"peerOwnerId",
@@ -477,7 +480,7 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerOwnerId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerRegion(val *string) {
+func (j *jsiiProxy_CfnVPCPeeringConnection)SetPeerRegion(val *string) {
 	_jsii_.Set(
 		j,
 		"peerRegion",
@@ -485,7 +488,7 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerRegion(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerRoleArn(val *string) {
+func (j *jsiiProxy_CfnVPCPeeringConnection)SetPeerRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"peerRoleArn",
@@ -493,7 +496,10 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerVpcId(val *string) {
+func (j *jsiiProxy_CfnVPCPeeringConnection)SetPeerVpcId(val *string) {
+	if err := j.validateSetPeerVpcIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"peerVpcId",
@@ -501,7 +507,10 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) SetPeerVpcId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVPCPeeringConnection) SetVpcId(val *string) {
+func (j *jsiiProxy_CfnVPCPeeringConnection)SetVpcId(val *string) {
+	if err := j.validateSetVpcIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"vpcId",
@@ -519,6 +528,9 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) SetVpcId(val *string) {
 func CfnVPCPeeringConnection_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCPeeringConnection_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -536,6 +548,9 @@ func CfnVPCPeeringConnection_IsCfnElement(x interface{}) *bool {
 func CfnVPCPeeringConnection_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCPeeringConnection_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -553,6 +568,9 @@ func CfnVPCPeeringConnection_IsCfnResource(construct constructs.IConstruct) *boo
 func CfnVPCPeeringConnection_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVPCPeeringConnection_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -577,6 +595,9 @@ func CfnVPCPeeringConnection_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -585,6 +606,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -593,6 +617,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) AddDependsOn(target awscdk.CfnResour
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -601,6 +628,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) AddMetadata(key *string, value inter
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -609,6 +639,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) AddOverride(path *string, value inte
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -617,6 +650,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) AddPropertyDeletionOverride(property
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -625,6 +661,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) AddPropertyOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -633,6 +672,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) ApplyRemovalPolicy(policy awscdk.Rem
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -646,6 +688,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) GetAtt(attributeName *string) awscdk
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -659,6 +704,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) GetMetadata(key *string) interface{}
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -675,6 +723,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -696,6 +747,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -712,6 +766,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) Prepare() {
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -738,6 +795,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -772,6 +832,9 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVPCPeeringConnection) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

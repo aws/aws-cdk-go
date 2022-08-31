@@ -451,6 +451,9 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) UpdatedProperites() *map[string
 func NewCfnAccountAuditConfiguration(scope awscdk.Construct, id *string, props *CfnAccountAuditConfigurationProps) CfnAccountAuditConfiguration {
 	_init_.Initialize()
 
+	if err := validateNewCfnAccountAuditConfigurationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnAccountAuditConfiguration{}
 
 	_jsii_.Create(
@@ -473,7 +476,10 @@ func NewCfnAccountAuditConfiguration_Override(c CfnAccountAuditConfiguration, sc
 	)
 }
 
-func (j *jsiiProxy_CfnAccountAuditConfiguration) SetAccountId(val *string) {
+func (j *jsiiProxy_CfnAccountAuditConfiguration)SetAccountId(val *string) {
+	if err := j.validateSetAccountIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"accountId",
@@ -481,7 +487,10 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) SetAccountId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAccountAuditConfiguration) SetAuditCheckConfigurations(val interface{}) {
+func (j *jsiiProxy_CfnAccountAuditConfiguration)SetAuditCheckConfigurations(val interface{}) {
+	if err := j.validateSetAuditCheckConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"auditCheckConfigurations",
@@ -489,7 +498,10 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) SetAuditCheckConfigurations(val
 	)
 }
 
-func (j *jsiiProxy_CfnAccountAuditConfiguration) SetAuditNotificationTargetConfigurations(val interface{}) {
+func (j *jsiiProxy_CfnAccountAuditConfiguration)SetAuditNotificationTargetConfigurations(val interface{}) {
+	if err := j.validateSetAuditNotificationTargetConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"auditNotificationTargetConfigurations",
@@ -497,7 +509,10 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) SetAuditNotificationTargetConfi
 	)
 }
 
-func (j *jsiiProxy_CfnAccountAuditConfiguration) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnAccountAuditConfiguration)SetRoleArn(val *string) {
+	if err := j.validateSetRoleArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -515,6 +530,9 @@ func (j *jsiiProxy_CfnAccountAuditConfiguration) SetRoleArn(val *string) {
 func CfnAccountAuditConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAccountAuditConfiguration_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -532,6 +550,9 @@ func CfnAccountAuditConfiguration_IsCfnElement(x interface{}) *bool {
 func CfnAccountAuditConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAccountAuditConfiguration_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -549,6 +570,9 @@ func CfnAccountAuditConfiguration_IsCfnResource(construct constructs.IConstruct)
 func CfnAccountAuditConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAccountAuditConfiguration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -573,6 +597,9 @@ func CfnAccountAuditConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -581,6 +608,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) AddDeletionOverride(path *strin
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -589,6 +619,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) AddDependsOn(target awscdk.CfnR
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -597,6 +630,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) AddMetadata(key *string, value 
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -605,6 +641,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) AddOverride(path *string, value
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -613,6 +652,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) AddPropertyDeletionOverride(pro
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -621,6 +663,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) AddPropertyOverride(propertyPat
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -629,6 +674,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) ApplyRemovalPolicy(policy awscd
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -642,6 +690,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) GetAtt(attributeName *string) a
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -655,6 +706,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) GetMetadata(key *string) interf
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -671,6 +725,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -692,6 +749,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -708,6 +768,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) Prepare() {
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -734,6 +797,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -768,6 +834,9 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAccountAuditConfiguration) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

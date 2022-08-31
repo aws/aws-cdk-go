@@ -69,6 +69,9 @@ type jsiiProxy_IpTarget struct {
 func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpTarget {
 	_init_.Initialize()
 
+	if err := validateNewIpTargetParameters(ipAddress); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IpTarget{}
 
 	_jsii_.Create(
@@ -108,6 +111,9 @@ func NewIpTarget_Override(i IpTarget, ipAddress *string, port *float64, availabi
 }
 
 func (i *jsiiProxy_IpTarget) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := i.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -121,6 +127,9 @@ func (i *jsiiProxy_IpTarget) AttachToApplicationTargetGroup(targetGroup awselast
 }
 
 func (i *jsiiProxy_IpTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := i.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(

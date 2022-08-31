@@ -262,6 +262,9 @@ func (j *jsiiProxy_DetectorModel) Stack() awscdk.Stack {
 func NewDetectorModel(scope constructs.Construct, id *string, props *DetectorModelProps) DetectorModel {
 	_init_.Initialize()
 
+	if err := validateNewDetectorModelParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DetectorModel{}
 
 	_jsii_.Create(
@@ -289,6 +292,9 @@ func NewDetectorModel_Override(d DetectorModel, scope constructs.Construct, id *
 func DetectorModel_FromDetectorModelName(scope constructs.Construct, id *string, detectorModelName *string) IDetectorModel {
 	_init_.Initialize()
 
+	if err := validateDetectorModel_FromDetectorModelNameParameters(scope, id, detectorModelName); err != nil {
+		panic(err)
+	}
 	var returns IDetectorModel
 
 	_jsii_.StaticInvoke(
@@ -306,6 +312,9 @@ func DetectorModel_FromDetectorModelName(scope constructs.Construct, id *string,
 func DetectorModel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDetectorModel_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -323,6 +332,9 @@ func DetectorModel_IsConstruct(x interface{}) *bool {
 func DetectorModel_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDetectorModel_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -336,6 +348,9 @@ func DetectorModel_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DetectorModel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -357,6 +372,9 @@ func (d *jsiiProxy_DetectorModel) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DetectorModel) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -370,6 +388,9 @@ func (d *jsiiProxy_DetectorModel) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (d *jsiiProxy_DetectorModel) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -391,6 +412,9 @@ func (d *jsiiProxy_DetectorModel) OnPrepare() {
 }
 
 func (d *jsiiProxy_DetectorModel) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -420,6 +444,9 @@ func (d *jsiiProxy_DetectorModel) Prepare() {
 }
 
 func (d *jsiiProxy_DetectorModel) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

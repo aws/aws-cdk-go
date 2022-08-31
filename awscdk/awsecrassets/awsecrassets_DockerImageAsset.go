@@ -184,6 +184,9 @@ func (j *jsiiProxy_DockerImageAsset) SourceHash() *string {
 func NewDockerImageAsset(scope constructs.Construct, id *string, props *DockerImageAssetProps) DockerImageAsset {
 	_init_.Initialize()
 
+	if err := validateNewDockerImageAssetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DockerImageAsset{}
 
 	_jsii_.Create(
@@ -206,7 +209,10 @@ func NewDockerImageAsset_Override(d DockerImageAsset, scope constructs.Construct
 	)
 }
 
-func (j *jsiiProxy_DockerImageAsset) SetImageUri(val *string) {
+func (j *jsiiProxy_DockerImageAsset)SetImageUri(val *string) {
+	if err := j.validateSetImageUriParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"imageUri",
@@ -214,7 +220,10 @@ func (j *jsiiProxy_DockerImageAsset) SetImageUri(val *string) {
 	)
 }
 
-func (j *jsiiProxy_DockerImageAsset) SetRepository(val awsecr.IRepository) {
+func (j *jsiiProxy_DockerImageAsset)SetRepository(val awsecr.IRepository) {
+	if err := j.validateSetRepositoryParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"repository",
@@ -227,6 +236,9 @@ func (j *jsiiProxy_DockerImageAsset) SetRepository(val awsecr.IRepository) {
 func DockerImageAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDockerImageAsset_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -240,6 +252,9 @@ func DockerImageAsset_IsConstruct(x interface{}) *bool {
 }
 
 func (d *jsiiProxy_DockerImageAsset) AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string) {
+	if err := d.validateAddResourceMetadataParameters(resource, resourceProperty); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addResourceMetadata",
@@ -256,6 +271,9 @@ func (d *jsiiProxy_DockerImageAsset) OnPrepare() {
 }
 
 func (d *jsiiProxy_DockerImageAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -285,6 +303,9 @@ func (d *jsiiProxy_DockerImageAsset) Prepare() {
 }
 
 func (d *jsiiProxy_DockerImageAsset) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

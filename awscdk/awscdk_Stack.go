@@ -697,6 +697,9 @@ func (j *jsiiProxy_Stack) UrlSuffix() *string {
 func NewStack(scope constructs.Construct, id *string, props *StackProps) Stack {
 	_init_.Initialize()
 
+	if err := validateNewStackParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Stack{}
 
 	_jsii_.Create(
@@ -725,6 +728,9 @@ func NewStack_Override(s Stack, scope constructs.Construct, id *string, props *S
 func Stack_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStack_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -744,6 +750,9 @@ func Stack_IsConstruct(x interface{}) *bool {
 func Stack_IsStack(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStack_IsStackParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -763,6 +772,9 @@ func Stack_IsStack(x interface{}) *bool {
 func Stack_Of(construct constructs.IConstruct) Stack {
 	_init_.Initialize()
 
+	if err := validateStack_OfParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns Stack
 
 	_jsii_.StaticInvoke(
@@ -776,6 +788,9 @@ func Stack_Of(construct constructs.IConstruct) Stack {
 }
 
 func (s *jsiiProxy_Stack) AddDependency(target Stack, reason *string) {
+	if err := s.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addDependency",
@@ -784,6 +799,9 @@ func (s *jsiiProxy_Stack) AddDependency(target Stack, reason *string) {
 }
 
 func (s *jsiiProxy_Stack) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := s.validateAddDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -797,6 +815,9 @@ func (s *jsiiProxy_Stack) AddDockerImageAsset(asset *DockerImageAssetSource) *Do
 }
 
 func (s *jsiiProxy_Stack) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	if err := s.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *FileAssetLocation
 
 	_jsii_.Invoke(
@@ -810,6 +831,9 @@ func (s *jsiiProxy_Stack) AddFileAsset(asset *FileAssetSource) *FileAssetLocatio
 }
 
 func (s *jsiiProxy_Stack) AddTransform(transform *string) {
+	if err := s.validateAddTransformParameters(transform); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addTransform",
@@ -818,6 +842,9 @@ func (s *jsiiProxy_Stack) AddTransform(transform *string) {
 }
 
 func (s *jsiiProxy_Stack) AllocateLogicalId(cfnElement CfnElement) *string {
+	if err := s.validateAllocateLogicalIdParameters(cfnElement); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -831,6 +858,9 @@ func (s *jsiiProxy_Stack) AllocateLogicalId(cfnElement CfnElement) *string {
 }
 
 func (s *jsiiProxy_Stack) ExportValue(exportedValue interface{}, options *ExportValueOptions) *string {
+	if err := s.validateExportValueParameters(exportedValue, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -844,6 +874,9 @@ func (s *jsiiProxy_Stack) ExportValue(exportedValue interface{}, options *Export
 }
 
 func (s *jsiiProxy_Stack) FormatArn(components *ArnComponents) *string {
+	if err := s.validateFormatArnParameters(components); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -857,6 +890,9 @@ func (s *jsiiProxy_Stack) FormatArn(components *ArnComponents) *string {
 }
 
 func (s *jsiiProxy_Stack) GetLogicalId(element CfnElement) *string {
+	if err := s.validateGetLogicalIdParameters(element); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -878,6 +914,9 @@ func (s *jsiiProxy_Stack) OnPrepare() {
 }
 
 func (s *jsiiProxy_Stack) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -899,6 +938,9 @@ func (s *jsiiProxy_Stack) OnValidate() *[]*string {
 }
 
 func (s *jsiiProxy_Stack) ParseArn(arn *string, sepIfToken *string, hasName *bool) *ArnComponents {
+	if err := s.validateParseArnParameters(arn); err != nil {
+		panic(err)
+	}
 	var returns *ArnComponents
 
 	_jsii_.Invoke(
@@ -920,6 +962,9 @@ func (s *jsiiProxy_Stack) Prepare() {
 }
 
 func (s *jsiiProxy_Stack) PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable {
+	if err := s.validatePrepareCrossReferenceParameters(_sourceStack, reference); err != nil {
+		panic(err)
+	}
 	var returns IResolvable
 
 	_jsii_.Invoke(
@@ -933,6 +978,9 @@ func (s *jsiiProxy_Stack) PrepareCrossReference(_sourceStack Stack, reference Re
 }
 
 func (s *jsiiProxy_Stack) RegionalFact(factName *string, defaultValue *string) *string {
+	if err := s.validateRegionalFactParameters(factName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -946,6 +994,9 @@ func (s *jsiiProxy_Stack) RegionalFact(factName *string, defaultValue *string) *
 }
 
 func (s *jsiiProxy_Stack) RenameLogicalId(oldId *string, newId *string) {
+	if err := s.validateRenameLogicalIdParameters(oldId, newId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"renameLogicalId",
@@ -954,6 +1005,9 @@ func (s *jsiiProxy_Stack) RenameLogicalId(oldId *string, newId *string) {
 }
 
 func (s *jsiiProxy_Stack) ReportMissingContext(report *cxapi.MissingContext) {
+	if err := s.validateReportMissingContextParameters(report); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"reportMissingContext",
@@ -962,6 +1016,9 @@ func (s *jsiiProxy_Stack) ReportMissingContext(report *cxapi.MissingContext) {
 }
 
 func (s *jsiiProxy_Stack) ReportMissingContextKey(report *cloudassemblyschema.MissingContext) {
+	if err := s.validateReportMissingContextKeyParameters(report); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"reportMissingContextKey",
@@ -970,6 +1027,9 @@ func (s *jsiiProxy_Stack) ReportMissingContextKey(report *cloudassemblyschema.Mi
 }
 
 func (s *jsiiProxy_Stack) Resolve(obj interface{}) interface{} {
+	if err := s.validateResolveParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -983,6 +1043,9 @@ func (s *jsiiProxy_Stack) Resolve(obj interface{}) interface{} {
 }
 
 func (s *jsiiProxy_Stack) SplitArn(arn *string, arnFormat ArnFormat) *ArnComponents {
+	if err := s.validateSplitArnParameters(arn, arnFormat); err != nil {
+		panic(err)
+	}
 	var returns *ArnComponents
 
 	_jsii_.Invoke(
@@ -996,6 +1059,9 @@ func (s *jsiiProxy_Stack) SplitArn(arn *string, arnFormat ArnFormat) *ArnCompone
 }
 
 func (s *jsiiProxy_Stack) Synthesize(session ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",
@@ -1004,6 +1070,9 @@ func (s *jsiiProxy_Stack) Synthesize(session ISynthesisSession) {
 }
 
 func (s *jsiiProxy_Stack) ToJsonString(obj interface{}, space *float64) *string {
+	if err := s.validateToJsonStringParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

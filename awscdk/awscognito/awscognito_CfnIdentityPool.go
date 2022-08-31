@@ -508,6 +508,9 @@ func (j *jsiiProxy_CfnIdentityPool) UpdatedProperites() *map[string]interface{} 
 func NewCfnIdentityPool(scope awscdk.Construct, id *string, props *CfnIdentityPoolProps) CfnIdentityPool {
 	_init_.Initialize()
 
+	if err := validateNewCfnIdentityPoolParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnIdentityPool{}
 
 	_jsii_.Create(
@@ -530,7 +533,10 @@ func NewCfnIdentityPool_Override(c CfnIdentityPool, scope awscdk.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetAllowClassicFlow(val interface{}) {
+func (j *jsiiProxy_CfnIdentityPool)SetAllowClassicFlow(val interface{}) {
+	if err := j.validateSetAllowClassicFlowParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"allowClassicFlow",
@@ -538,7 +544,10 @@ func (j *jsiiProxy_CfnIdentityPool) SetAllowClassicFlow(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetAllowUnauthenticatedIdentities(val interface{}) {
+func (j *jsiiProxy_CfnIdentityPool)SetAllowUnauthenticatedIdentities(val interface{}) {
+	if err := j.validateSetAllowUnauthenticatedIdentitiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"allowUnauthenticatedIdentities",
@@ -546,7 +555,10 @@ func (j *jsiiProxy_CfnIdentityPool) SetAllowUnauthenticatedIdentities(val interf
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetCognitoEvents(val interface{}) {
+func (j *jsiiProxy_CfnIdentityPool)SetCognitoEvents(val interface{}) {
+	if err := j.validateSetCognitoEventsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cognitoEvents",
@@ -554,7 +566,10 @@ func (j *jsiiProxy_CfnIdentityPool) SetCognitoEvents(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetCognitoIdentityProviders(val interface{}) {
+func (j *jsiiProxy_CfnIdentityPool)SetCognitoIdentityProviders(val interface{}) {
+	if err := j.validateSetCognitoIdentityProvidersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cognitoIdentityProviders",
@@ -562,7 +577,10 @@ func (j *jsiiProxy_CfnIdentityPool) SetCognitoIdentityProviders(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetCognitoStreams(val interface{}) {
+func (j *jsiiProxy_CfnIdentityPool)SetCognitoStreams(val interface{}) {
+	if err := j.validateSetCognitoStreamsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cognitoStreams",
@@ -570,7 +588,7 @@ func (j *jsiiProxy_CfnIdentityPool) SetCognitoStreams(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetDeveloperProviderName(val *string) {
+func (j *jsiiProxy_CfnIdentityPool)SetDeveloperProviderName(val *string) {
 	_jsii_.Set(
 		j,
 		"developerProviderName",
@@ -578,7 +596,7 @@ func (j *jsiiProxy_CfnIdentityPool) SetDeveloperProviderName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetIdentityPoolName(val *string) {
+func (j *jsiiProxy_CfnIdentityPool)SetIdentityPoolName(val *string) {
 	_jsii_.Set(
 		j,
 		"identityPoolName",
@@ -586,7 +604,7 @@ func (j *jsiiProxy_CfnIdentityPool) SetIdentityPoolName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetOpenIdConnectProviderArns(val *[]*string) {
+func (j *jsiiProxy_CfnIdentityPool)SetOpenIdConnectProviderArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"openIdConnectProviderArns",
@@ -594,7 +612,10 @@ func (j *jsiiProxy_CfnIdentityPool) SetOpenIdConnectProviderArns(val *[]*string)
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetPushSync(val interface{}) {
+func (j *jsiiProxy_CfnIdentityPool)SetPushSync(val interface{}) {
+	if err := j.validateSetPushSyncParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"pushSync",
@@ -602,7 +623,7 @@ func (j *jsiiProxy_CfnIdentityPool) SetPushSync(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetSamlProviderArns(val *[]*string) {
+func (j *jsiiProxy_CfnIdentityPool)SetSamlProviderArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"samlProviderArns",
@@ -610,7 +631,10 @@ func (j *jsiiProxy_CfnIdentityPool) SetSamlProviderArns(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentityPool) SetSupportedLoginProviders(val interface{}) {
+func (j *jsiiProxy_CfnIdentityPool)SetSupportedLoginProviders(val interface{}) {
+	if err := j.validateSetSupportedLoginProvidersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"supportedLoginProviders",
@@ -628,6 +652,9 @@ func (j *jsiiProxy_CfnIdentityPool) SetSupportedLoginProviders(val interface{}) 
 func CfnIdentityPool_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnIdentityPool_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -645,6 +672,9 @@ func CfnIdentityPool_IsCfnElement(x interface{}) *bool {
 func CfnIdentityPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnIdentityPool_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -662,6 +692,9 @@ func CfnIdentityPool_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnIdentityPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnIdentityPool_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -686,6 +719,9 @@ func CfnIdentityPool_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -694,6 +730,9 @@ func (c *jsiiProxy_CfnIdentityPool) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -702,6 +741,9 @@ func (c *jsiiProxy_CfnIdentityPool) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -710,6 +752,9 @@ func (c *jsiiProxy_CfnIdentityPool) AddMetadata(key *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnIdentityPool) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -718,6 +763,9 @@ func (c *jsiiProxy_CfnIdentityPool) AddOverride(path *string, value interface{})
 }
 
 func (c *jsiiProxy_CfnIdentityPool) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -726,6 +774,9 @@ func (c *jsiiProxy_CfnIdentityPool) AddPropertyDeletionOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnIdentityPool) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -734,6 +785,9 @@ func (c *jsiiProxy_CfnIdentityPool) AddPropertyOverride(propertyPath *string, va
 }
 
 func (c *jsiiProxy_CfnIdentityPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -742,6 +796,9 @@ func (c *jsiiProxy_CfnIdentityPool) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 }
 
 func (c *jsiiProxy_CfnIdentityPool) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -755,6 +812,9 @@ func (c *jsiiProxy_CfnIdentityPool) GetAtt(attributeName *string) awscdk.Referen
 }
 
 func (c *jsiiProxy_CfnIdentityPool) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -768,6 +828,9 @@ func (c *jsiiProxy_CfnIdentityPool) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -784,6 +847,9 @@ func (c *jsiiProxy_CfnIdentityPool) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -805,6 +871,9 @@ func (c *jsiiProxy_CfnIdentityPool) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -821,6 +890,9 @@ func (c *jsiiProxy_CfnIdentityPool) Prepare() {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -847,6 +919,9 @@ func (c *jsiiProxy_CfnIdentityPool) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -881,6 +956,9 @@ func (c *jsiiProxy_CfnIdentityPool) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnIdentityPool) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

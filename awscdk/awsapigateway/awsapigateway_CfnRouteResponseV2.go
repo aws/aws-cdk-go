@@ -452,6 +452,9 @@ func (j *jsiiProxy_CfnRouteResponseV2) UpdatedProperites() *map[string]interface
 func NewCfnRouteResponseV2(scope awscdk.Construct, id *string, props *CfnRouteResponseV2Props) CfnRouteResponseV2 {
 	_init_.Initialize()
 
+	if err := validateNewCfnRouteResponseV2Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnRouteResponseV2{}
 
 	_jsii_.Create(
@@ -475,7 +478,10 @@ func NewCfnRouteResponseV2_Override(c CfnRouteResponseV2, scope awscdk.Construct
 	)
 }
 
-func (j *jsiiProxy_CfnRouteResponseV2) SetApiId(val *string) {
+func (j *jsiiProxy_CfnRouteResponseV2)SetApiId(val *string) {
+	if err := j.validateSetApiIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"apiId",
@@ -483,7 +489,7 @@ func (j *jsiiProxy_CfnRouteResponseV2) SetApiId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRouteResponseV2) SetModelSelectionExpression(val *string) {
+func (j *jsiiProxy_CfnRouteResponseV2)SetModelSelectionExpression(val *string) {
 	_jsii_.Set(
 		j,
 		"modelSelectionExpression",
@@ -491,7 +497,10 @@ func (j *jsiiProxy_CfnRouteResponseV2) SetModelSelectionExpression(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnRouteResponseV2) SetResponseModels(val interface{}) {
+func (j *jsiiProxy_CfnRouteResponseV2)SetResponseModels(val interface{}) {
+	if err := j.validateSetResponseModelsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"responseModels",
@@ -499,7 +508,10 @@ func (j *jsiiProxy_CfnRouteResponseV2) SetResponseModels(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRouteResponseV2) SetResponseParameters(val interface{}) {
+func (j *jsiiProxy_CfnRouteResponseV2)SetResponseParameters(val interface{}) {
+	if err := j.validateSetResponseParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"responseParameters",
@@ -507,7 +519,10 @@ func (j *jsiiProxy_CfnRouteResponseV2) SetResponseParameters(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRouteResponseV2) SetRouteId(val *string) {
+func (j *jsiiProxy_CfnRouteResponseV2)SetRouteId(val *string) {
+	if err := j.validateSetRouteIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"routeId",
@@ -515,7 +530,10 @@ func (j *jsiiProxy_CfnRouteResponseV2) SetRouteId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRouteResponseV2) SetRouteResponseKey(val *string) {
+func (j *jsiiProxy_CfnRouteResponseV2)SetRouteResponseKey(val *string) {
+	if err := j.validateSetRouteResponseKeyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"routeResponseKey",
@@ -533,6 +551,9 @@ func (j *jsiiProxy_CfnRouteResponseV2) SetRouteResponseKey(val *string) {
 func CfnRouteResponseV2_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRouteResponseV2_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -550,6 +571,9 @@ func CfnRouteResponseV2_IsCfnElement(x interface{}) *bool {
 func CfnRouteResponseV2_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRouteResponseV2_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -567,6 +591,9 @@ func CfnRouteResponseV2_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnRouteResponseV2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRouteResponseV2_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -591,6 +618,9 @@ func CfnRouteResponseV2_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -599,6 +629,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -607,6 +640,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -615,6 +651,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) AddMetadata(key *string, value interface{
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -623,6 +662,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) AddOverride(path *string, value interface
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -631,6 +673,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) AddPropertyDeletionOverride(propertyPath 
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -639,6 +684,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) AddPropertyOverride(propertyPath *string,
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -647,6 +695,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) ApplyRemovalPolicy(policy awscdk.RemovalP
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -660,6 +711,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) GetAtt(attributeName *string) awscdk.Refe
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -673,6 +727,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -689,6 +746,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -710,6 +770,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -726,6 +789,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) Prepare() {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -752,6 +818,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -786,6 +855,9 @@ func (c *jsiiProxy_CfnRouteResponseV2) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRouteResponseV2) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

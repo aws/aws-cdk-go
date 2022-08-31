@@ -394,6 +394,9 @@ func (j *jsiiProxy_CfnBaiduChannel) UpdatedProperites() *map[string]interface{} 
 func NewCfnBaiduChannel(scope awscdk.Construct, id *string, props *CfnBaiduChannelProps) CfnBaiduChannel {
 	_init_.Initialize()
 
+	if err := validateNewCfnBaiduChannelParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnBaiduChannel{}
 
 	_jsii_.Create(
@@ -416,7 +419,10 @@ func NewCfnBaiduChannel_Override(c CfnBaiduChannel, scope awscdk.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_CfnBaiduChannel) SetApiKey(val *string) {
+func (j *jsiiProxy_CfnBaiduChannel)SetApiKey(val *string) {
+	if err := j.validateSetApiKeyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"apiKey",
@@ -424,7 +430,10 @@ func (j *jsiiProxy_CfnBaiduChannel) SetApiKey(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBaiduChannel) SetApplicationId(val *string) {
+func (j *jsiiProxy_CfnBaiduChannel)SetApplicationId(val *string) {
+	if err := j.validateSetApplicationIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"applicationId",
@@ -432,7 +441,10 @@ func (j *jsiiProxy_CfnBaiduChannel) SetApplicationId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBaiduChannel) SetEnabled(val interface{}) {
+func (j *jsiiProxy_CfnBaiduChannel)SetEnabled(val interface{}) {
+	if err := j.validateSetEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"enabled",
@@ -440,7 +452,10 @@ func (j *jsiiProxy_CfnBaiduChannel) SetEnabled(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnBaiduChannel) SetSecretKey(val *string) {
+func (j *jsiiProxy_CfnBaiduChannel)SetSecretKey(val *string) {
+	if err := j.validateSetSecretKeyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"secretKey",
@@ -458,6 +473,9 @@ func (j *jsiiProxy_CfnBaiduChannel) SetSecretKey(val *string) {
 func CfnBaiduChannel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBaiduChannel_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -475,6 +493,9 @@ func CfnBaiduChannel_IsCfnElement(x interface{}) *bool {
 func CfnBaiduChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBaiduChannel_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -492,6 +513,9 @@ func CfnBaiduChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnBaiduChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBaiduChannel_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -516,6 +540,9 @@ func CfnBaiduChannel_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -524,6 +551,9 @@ func (c *jsiiProxy_CfnBaiduChannel) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -532,6 +562,9 @@ func (c *jsiiProxy_CfnBaiduChannel) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -540,6 +573,9 @@ func (c *jsiiProxy_CfnBaiduChannel) AddMetadata(key *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -548,6 +584,9 @@ func (c *jsiiProxy_CfnBaiduChannel) AddOverride(path *string, value interface{})
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -556,6 +595,9 @@ func (c *jsiiProxy_CfnBaiduChannel) AddPropertyDeletionOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -564,6 +606,9 @@ func (c *jsiiProxy_CfnBaiduChannel) AddPropertyOverride(propertyPath *string, va
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -572,6 +617,9 @@ func (c *jsiiProxy_CfnBaiduChannel) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -585,6 +633,9 @@ func (c *jsiiProxy_CfnBaiduChannel) GetAtt(attributeName *string) awscdk.Referen
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -598,6 +649,9 @@ func (c *jsiiProxy_CfnBaiduChannel) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -614,6 +668,9 @@ func (c *jsiiProxy_CfnBaiduChannel) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -635,6 +692,9 @@ func (c *jsiiProxy_CfnBaiduChannel) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -651,6 +711,9 @@ func (c *jsiiProxy_CfnBaiduChannel) Prepare() {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -677,6 +740,9 @@ func (c *jsiiProxy_CfnBaiduChannel) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -711,6 +777,9 @@ func (c *jsiiProxy_CfnBaiduChannel) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

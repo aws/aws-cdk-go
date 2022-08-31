@@ -20,6 +20,9 @@ type jsiiProxy_ISource struct {
 }
 
 func (i *jsiiProxy_ISource) Bind(scope awscdk.Construct, context *DeploymentSourceContext) *SourceConfig {
+	if err := i.validateBindParameters(scope, context); err != nil {
+		panic(err)
+	}
 	var returns *SourceConfig
 
 	_jsii_.Invoke(

@@ -71,6 +71,9 @@ func NewBackend_Override(b Backend) {
 func Backend_VirtualService(virtualService IVirtualService, props *VirtualServiceBackendOptions) Backend {
 	_init_.Initialize()
 
+	if err := validateBackend_VirtualServiceParameters(virtualService, props); err != nil {
+		panic(err)
+	}
 	var returns Backend
 
 	_jsii_.StaticInvoke(
@@ -84,6 +87,9 @@ func Backend_VirtualService(virtualService IVirtualService, props *VirtualServic
 }
 
 func (b *jsiiProxy_Backend) Bind(_scope awscdk.Construct) *BackendConfig {
+	if err := b.validateBindParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *BackendConfig
 
 	_jsii_.Invoke(

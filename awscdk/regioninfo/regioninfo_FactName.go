@@ -56,6 +56,9 @@ func NewFactName_Override(f FactName) {
 func FactName_CloudwatchLambdaInsightsVersion(version *string, arch *string) *string {
 	_init_.Initialize()
 
+	if err := validateFactName_CloudwatchLambdaInsightsVersionParameters(version); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -73,6 +76,9 @@ func FactName_CloudwatchLambdaInsightsVersion(version *string, arch *string) *st
 func FactName_ServicePrincipal(service *string) *string {
 	_init_.Initialize()
 
+	if err := validateFactName_ServicePrincipalParameters(service); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

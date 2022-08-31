@@ -62,6 +62,9 @@ func NewHttpRoutePathMatch_Override(h HttpRoutePathMatch) {
 func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
+	if err := validateHttpRoutePathMatch_ExactlyParameters(path); err != nil {
+		panic(err)
+	}
 	var returns HttpRoutePathMatch
 
 	_jsii_.StaticInvoke(
@@ -79,6 +82,9 @@ func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
 func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
+	if err := validateHttpRoutePathMatch_RegexParameters(regex); err != nil {
+		panic(err)
+	}
 	var returns HttpRoutePathMatch
 
 	_jsii_.StaticInvoke(
@@ -96,6 +102,9 @@ func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
 func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
+	if err := validateHttpRoutePathMatch_StartsWithParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns HttpRoutePathMatch
 
 	_jsii_.StaticInvoke(
@@ -109,6 +118,9 @@ func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
 }
 
 func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope awscdk.Construct) *HttpRoutePathMatchConfig {
+	if err := h.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *HttpRoutePathMatchConfig
 
 	_jsii_.Invoke(

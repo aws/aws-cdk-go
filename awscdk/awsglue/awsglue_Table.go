@@ -384,6 +384,9 @@ func (j *jsiiProxy_Table) TableName() *string {
 func NewTable(scope constructs.Construct, id *string, props *TableProps) Table {
 	_init_.Initialize()
 
+	if err := validateNewTableParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Table{}
 
 	_jsii_.Create(
@@ -410,6 +413,9 @@ func NewTable_Override(t Table, scope constructs.Construct, id *string, props *T
 func Table_FromTableArn(scope constructs.Construct, id *string, tableArn *string) ITable {
 	_init_.Initialize()
 
+	if err := validateTable_FromTableArnParameters(scope, id, tableArn); err != nil {
+		panic(err)
+	}
 	var returns ITable
 
 	_jsii_.StaticInvoke(
@@ -427,6 +433,9 @@ func Table_FromTableArn(scope constructs.Construct, id *string, tableArn *string
 func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *TableAttributes) ITable {
 	_init_.Initialize()
 
+	if err := validateTable_FromTableAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ITable
 
 	_jsii_.StaticInvoke(
@@ -444,6 +453,9 @@ func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *Ta
 func Table_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTable_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -461,6 +473,9 @@ func Table_IsConstruct(x interface{}) *bool {
 func Table_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateTable_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -474,6 +489,9 @@ func Table_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (t *jsiiProxy_Table) AddPartitionIndex(index *PartitionIndex) {
+	if err := t.validateAddPartitionIndexParameters(index); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addPartitionIndex",
@@ -482,6 +500,9 @@ func (t *jsiiProxy_Table) AddPartitionIndex(index *PartitionIndex) {
 }
 
 func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := t.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyRemovalPolicy",
@@ -503,6 +524,9 @@ func (t *jsiiProxy_Table) GeneratePhysicalName() *string {
 }
 
 func (t *jsiiProxy_Table) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := t.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -516,6 +540,9 @@ func (t *jsiiProxy_Table) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (t *jsiiProxy_Table) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := t.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -529,6 +556,9 @@ func (t *jsiiProxy_Table) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (t *jsiiProxy_Table) Grant(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant {
+	if err := t.validateGrantParameters(grantee, actions); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -542,6 +572,9 @@ func (t *jsiiProxy_Table) Grant(grantee awsiam.IGrantable, actions *[]*string) a
 }
 
 func (t *jsiiProxy_Table) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := t.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -555,6 +588,9 @@ func (t *jsiiProxy_Table) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (t *jsiiProxy_Table) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := t.validateGrantReadWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -568,6 +604,9 @@ func (t *jsiiProxy_Table) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 func (t *jsiiProxy_Table) GrantToUnderlyingResources(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant {
+	if err := t.validateGrantToUnderlyingResourcesParameters(grantee, actions); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -581,6 +620,9 @@ func (t *jsiiProxy_Table) GrantToUnderlyingResources(grantee awsiam.IGrantable, 
 }
 
 func (t *jsiiProxy_Table) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := t.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -602,6 +644,9 @@ func (t *jsiiProxy_Table) OnPrepare() {
 }
 
 func (t *jsiiProxy_Table) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -631,6 +676,9 @@ func (t *jsiiProxy_Table) Prepare() {
 }
 
 func (t *jsiiProxy_Table) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

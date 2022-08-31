@@ -218,6 +218,9 @@ func (j *jsiiProxy_LayerVersion) Stack() awscdk.Stack {
 func NewLayerVersion(scope constructs.Construct, id *string, props *LayerVersionProps) LayerVersion {
 	_init_.Initialize()
 
+	if err := validateNewLayerVersionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LayerVersion{}
 
 	_jsii_.Create(
@@ -247,6 +250,9 @@ func NewLayerVersion_Override(l LayerVersion, scope constructs.Construct, id *st
 func LayerVersion_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateLayerVersion_FromLayerVersionArnParameters(scope, id, layerVersionArn); err != nil {
+		panic(err)
+	}
 	var returns ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -264,6 +270,9 @@ func LayerVersion_FromLayerVersionArn(scope constructs.Construct, id *string, la
 func LayerVersion_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *LayerVersionAttributes) ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateLayerVersion_FromLayerVersionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -281,6 +290,9 @@ func LayerVersion_FromLayerVersionAttributes(scope constructs.Construct, id *str
 func LayerVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLayerVersion_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -298,6 +310,9 @@ func LayerVersion_IsConstruct(x interface{}) *bool {
 func LayerVersion_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLayerVersion_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -311,6 +326,9 @@ func LayerVersion_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LayerVersion) AddPermission(id *string, permission *LayerVersionPermission) {
+	if err := l.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addPermission",
@@ -319,6 +337,9 @@ func (l *jsiiProxy_LayerVersion) AddPermission(id *string, permission *LayerVers
 }
 
 func (l *jsiiProxy_LayerVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -340,6 +361,9 @@ func (l *jsiiProxy_LayerVersion) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LayerVersion) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -353,6 +377,9 @@ func (l *jsiiProxy_LayerVersion) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (l *jsiiProxy_LayerVersion) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -374,6 +401,9 @@ func (l *jsiiProxy_LayerVersion) OnPrepare() {
 }
 
 func (l *jsiiProxy_LayerVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -403,6 +433,9 @@ func (l *jsiiProxy_LayerVersion) Prepare() {
 }
 
 func (l *jsiiProxy_LayerVersion) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

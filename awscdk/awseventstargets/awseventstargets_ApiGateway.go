@@ -81,6 +81,9 @@ func (j *jsiiProxy_ApiGateway) RestApi() awsapigateway.RestApi {
 func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGateway {
 	_init_.Initialize()
 
+	if err := validateNewApiGatewayParameters(restApi, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiGateway{}
 
 	_jsii_.Create(
@@ -104,6 +107,9 @@ func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *
 }
 
 func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := a.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

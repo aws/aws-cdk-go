@@ -54,6 +54,9 @@ func (j *jsiiProxy_ConnectionType) Name() *string {
 func NewConnectionType(name *string) ConnectionType {
 	_init_.Initialize()
 
+	if err := validateNewConnectionTypeParameters(name); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ConnectionType{}
 
 	_jsii_.Create(

@@ -18,6 +18,9 @@ type jsiiProxy_IAccessLogDestination struct {
 }
 
 func (i *jsiiProxy_IAccessLogDestination) Bind(stage IStage) *AccessLogDestinationConfig {
+	if err := i.validateBindParameters(stage); err != nil {
+		panic(err)
+	}
 	var returns *AccessLogDestinationConfig
 
 	_jsii_.Invoke(

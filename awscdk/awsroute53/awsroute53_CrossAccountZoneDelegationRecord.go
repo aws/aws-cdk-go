@@ -115,6 +115,9 @@ func (j *jsiiProxy_CrossAccountZoneDelegationRecord) Node() awscdk.ConstructNode
 func NewCrossAccountZoneDelegationRecord(scope constructs.Construct, id *string, props *CrossAccountZoneDelegationRecordProps) CrossAccountZoneDelegationRecord {
 	_init_.Initialize()
 
+	if err := validateNewCrossAccountZoneDelegationRecordParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CrossAccountZoneDelegationRecord{}
 
 	_jsii_.Create(
@@ -142,6 +145,9 @@ func NewCrossAccountZoneDelegationRecord_Override(c CrossAccountZoneDelegationRe
 func CrossAccountZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCrossAccountZoneDelegationRecord_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -163,6 +169,9 @@ func (c *jsiiProxy_CrossAccountZoneDelegationRecord) OnPrepare() {
 }
 
 func (c *jsiiProxy_CrossAccountZoneDelegationRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -192,6 +201,9 @@ func (c *jsiiProxy_CrossAccountZoneDelegationRecord) Prepare() {
 }
 
 func (c *jsiiProxy_CrossAccountZoneDelegationRecord) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

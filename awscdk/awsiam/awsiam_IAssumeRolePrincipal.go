@@ -28,6 +28,9 @@ type jsiiProxy_IAssumeRolePrincipal struct {
 }
 
 func (i *jsiiProxy_IAssumeRolePrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := i.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addToAssumeRolePolicy",

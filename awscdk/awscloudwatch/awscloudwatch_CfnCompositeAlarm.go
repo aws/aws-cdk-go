@@ -530,6 +530,9 @@ func (j *jsiiProxy_CfnCompositeAlarm) UpdatedProperites() *map[string]interface{
 func NewCfnCompositeAlarm(scope awscdk.Construct, id *string, props *CfnCompositeAlarmProps) CfnCompositeAlarm {
 	_init_.Initialize()
 
+	if err := validateNewCfnCompositeAlarmParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCompositeAlarm{}
 
 	_jsii_.Create(
@@ -552,7 +555,10 @@ func NewCfnCompositeAlarm_Override(c CfnCompositeAlarm, scope awscdk.Construct, 
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetActionsEnabled(val interface{}) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetActionsEnabled(val interface{}) {
+	if err := j.validateSetActionsEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"actionsEnabled",
@@ -560,7 +566,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetActionsEnabled(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetActionsSuppressor(val *string) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetActionsSuppressor(val *string) {
 	_jsii_.Set(
 		j,
 		"actionsSuppressor",
@@ -568,7 +574,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetActionsSuppressor(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetActionsSuppressorExtensionPeriod(val *float64) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetActionsSuppressorExtensionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"actionsSuppressorExtensionPeriod",
@@ -576,7 +582,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetActionsSuppressorExtensionPeriod(val *f
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetActionsSuppressorWaitPeriod(val *float64) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetActionsSuppressorWaitPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"actionsSuppressorWaitPeriod",
@@ -584,7 +590,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetActionsSuppressorWaitPeriod(val *float6
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmActions(val *[]*string) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetAlarmActions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"alarmActions",
@@ -592,7 +598,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmActions(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmDescription(val *string) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetAlarmDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"alarmDescription",
@@ -600,7 +606,10 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmName(val *string) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetAlarmName(val *string) {
+	if err := j.validateSetAlarmNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"alarmName",
@@ -608,7 +617,10 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmRule(val *string) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetAlarmRule(val *string) {
+	if err := j.validateSetAlarmRuleParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"alarmRule",
@@ -616,7 +628,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetAlarmRule(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetInsufficientDataActions(val *[]*string) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetInsufficientDataActions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"insufficientDataActions",
@@ -624,7 +636,7 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetInsufficientDataActions(val *[]*string)
 	)
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) SetOkActions(val *[]*string) {
+func (j *jsiiProxy_CfnCompositeAlarm)SetOkActions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"okActions",
@@ -642,6 +654,9 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetOkActions(val *[]*string) {
 func CfnCompositeAlarm_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCompositeAlarm_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -659,6 +674,9 @@ func CfnCompositeAlarm_IsCfnElement(x interface{}) *bool {
 func CfnCompositeAlarm_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCompositeAlarm_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -676,6 +694,9 @@ func CfnCompositeAlarm_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnCompositeAlarm_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCompositeAlarm_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -700,6 +721,9 @@ func CfnCompositeAlarm_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -708,6 +732,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -716,6 +743,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -724,6 +754,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddMetadata(key *string, value interface{}
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -732,6 +765,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddOverride(path *string, value interface{
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -740,6 +776,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyDeletionOverride(propertyPath *
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -748,6 +787,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyOverride(propertyPath *string, 
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -756,6 +798,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -769,6 +814,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) GetAtt(attributeName *string) awscdk.Refer
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -782,6 +830,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -798,6 +849,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -819,6 +873,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -835,6 +892,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) Prepare() {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -861,6 +921,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -895,6 +958,9 @@ func (c *jsiiProxy_CfnCompositeAlarm) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

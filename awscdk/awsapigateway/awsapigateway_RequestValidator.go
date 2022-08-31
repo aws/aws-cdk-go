@@ -199,6 +199,9 @@ func (j *jsiiProxy_RequestValidator) Stack() awscdk.Stack {
 func NewRequestValidator(scope constructs.Construct, id *string, props *RequestValidatorProps) RequestValidator {
 	_init_.Initialize()
 
+	if err := validateNewRequestValidatorParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RequestValidator{}
 
 	_jsii_.Create(
@@ -225,6 +228,9 @@ func NewRequestValidator_Override(r RequestValidator, scope constructs.Construct
 func RequestValidator_FromRequestValidatorId(scope constructs.Construct, id *string, requestValidatorId *string) IRequestValidator {
 	_init_.Initialize()
 
+	if err := validateRequestValidator_FromRequestValidatorIdParameters(scope, id, requestValidatorId); err != nil {
+		panic(err)
+	}
 	var returns IRequestValidator
 
 	_jsii_.StaticInvoke(
@@ -242,6 +248,9 @@ func RequestValidator_FromRequestValidatorId(scope constructs.Construct, id *str
 func RequestValidator_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRequestValidator_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -259,6 +268,9 @@ func RequestValidator_IsConstruct(x interface{}) *bool {
 func RequestValidator_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateRequestValidator_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -272,6 +284,9 @@ func RequestValidator_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_RequestValidator) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -293,6 +308,9 @@ func (r *jsiiProxy_RequestValidator) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_RequestValidator) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -306,6 +324,9 @@ func (r *jsiiProxy_RequestValidator) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (r *jsiiProxy_RequestValidator) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -327,6 +348,9 @@ func (r *jsiiProxy_RequestValidator) OnPrepare() {
 }
 
 func (r *jsiiProxy_RequestValidator) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -356,6 +380,9 @@ func (r *jsiiProxy_RequestValidator) Prepare() {
 }
 
 func (r *jsiiProxy_RequestValidator) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

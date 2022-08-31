@@ -58,6 +58,9 @@ func (j *jsiiProxy_InstanceType) Architecture() InstanceArchitecture {
 func NewInstanceType(instanceTypeIdentifier *string) InstanceType {
 	_init_.Initialize()
 
+	if err := validateNewInstanceTypeParameters(instanceTypeIdentifier); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InstanceType{}
 
 	_jsii_.Create(
@@ -90,6 +93,9 @@ func NewInstanceType_Override(i InstanceType, instanceTypeIdentifier *string) {
 func InstanceType_Of(instanceClass InstanceClass, instanceSize InstanceSize) InstanceType {
 	_init_.Initialize()
 
+	if err := validateInstanceType_OfParameters(instanceClass, instanceSize); err != nil {
+		panic(err)
+	}
 	var returns InstanceType
 
 	_jsii_.StaticInvoke(

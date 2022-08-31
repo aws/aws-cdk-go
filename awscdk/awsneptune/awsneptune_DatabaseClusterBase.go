@@ -280,7 +280,7 @@ func NewDatabaseClusterBase_Override(d DatabaseClusterBase, scope constructs.Con
 	)
 }
 
-func (j *jsiiProxy_DatabaseClusterBase) SetEnableIamAuthentication(val *bool) {
+func (j *jsiiProxy_DatabaseClusterBase)SetEnableIamAuthentication(val *bool) {
 	_jsii_.Set(
 		j,
 		"enableIamAuthentication",
@@ -293,6 +293,9 @@ func (j *jsiiProxy_DatabaseClusterBase) SetEnableIamAuthentication(val *bool) {
 func DatabaseClusterBase_FromDatabaseClusterAttributes(scope constructs.Construct, id *string, attrs *DatabaseClusterAttributes) IDatabaseCluster {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterBase_FromDatabaseClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDatabaseCluster
 
 	_jsii_.StaticInvoke(
@@ -310,6 +313,9 @@ func DatabaseClusterBase_FromDatabaseClusterAttributes(scope constructs.Construc
 func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -327,6 +333,9 @@ func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 func DatabaseClusterBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseClusterBase_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -340,6 +349,9 @@ func DatabaseClusterBase_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DatabaseClusterBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -361,6 +373,9 @@ func (d *jsiiProxy_DatabaseClusterBase) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DatabaseClusterBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -374,6 +389,9 @@ func (d *jsiiProxy_DatabaseClusterBase) GetResourceArnAttribute(arnAttr *string,
 }
 
 func (d *jsiiProxy_DatabaseClusterBase) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -387,6 +405,9 @@ func (d *jsiiProxy_DatabaseClusterBase) GetResourceNameAttribute(nameAttr *strin
 }
 
 func (d *jsiiProxy_DatabaseClusterBase) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantConnectParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -408,6 +429,9 @@ func (d *jsiiProxy_DatabaseClusterBase) OnPrepare() {
 }
 
 func (d *jsiiProxy_DatabaseClusterBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -437,6 +461,9 @@ func (d *jsiiProxy_DatabaseClusterBase) Prepare() {
 }
 
 func (d *jsiiProxy_DatabaseClusterBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

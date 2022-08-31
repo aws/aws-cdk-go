@@ -378,6 +378,9 @@ func (j *jsiiProxy_Cluster) Vpc() awsec2.IVpc {
 func NewCluster(scope awscdk.Construct, id *string, props *ClusterProps) Cluster {
 	_init_.Initialize()
 
+	if err := validateNewClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Cluster{}
 
 	_jsii_.Create(
@@ -406,6 +409,9 @@ func NewCluster_Override(c Cluster, scope awscdk.Construct, id *string, props *C
 func Cluster_FromClusterAttributes(scope awscdk.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
+	if err := validateCluster_FromClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
@@ -423,6 +429,9 @@ func Cluster_FromClusterAttributes(scope awscdk.Construct, id *string, attrs *Cl
 func Cluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -440,6 +449,9 @@ func Cluster_IsConstruct(x interface{}) *bool {
 func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -453,6 +465,9 @@ func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_Cluster) AddAutoScalingGroup(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions) {
+	if err := c.validateAddAutoScalingGroupParameters(autoScalingGroup, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addAutoScalingGroup",
@@ -461,6 +476,9 @@ func (c *jsiiProxy_Cluster) AddAutoScalingGroup(autoScalingGroup awsautoscaling.
 }
 
 func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *CapacityOptions) awsautoscaling.AutoScalingGroup {
+	if err := c.validateAddCapacityParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsautoscaling.AutoScalingGroup
 
 	_jsii_.Invoke(
@@ -474,6 +492,9 @@ func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *CapacityOptions) aw
 }
 
 func (c *jsiiProxy_Cluster) AddChart(id *string, options *HelmChartOptions) HelmChart {
+	if err := c.validateAddChartParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns HelmChart
 
 	_jsii_.Invoke(
@@ -487,6 +508,9 @@ func (c *jsiiProxy_Cluster) AddChart(id *string, options *HelmChartOptions) Helm
 }
 
 func (c *jsiiProxy_Cluster) AddResource(id *string, manifest ...interface{}) KubernetesResource {
+	if err := c.validateAddResourceParameters(id); err != nil {
+		panic(err)
+	}
 	args := []interface{}{id}
 	for _, a := range manifest {
 		args = append(args, a)
@@ -505,6 +529,9 @@ func (c *jsiiProxy_Cluster) AddResource(id *string, manifest ...interface{}) Kub
 }
 
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -526,6 +553,9 @@ func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -539,6 +569,9 @@ func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -560,6 +593,9 @@ func (c *jsiiProxy_Cluster) OnPrepare() {
 }
 
 func (c *jsiiProxy_Cluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -589,6 +625,9 @@ func (c *jsiiProxy_Cluster) Prepare() {
 }
 
 func (c *jsiiProxy_Cluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

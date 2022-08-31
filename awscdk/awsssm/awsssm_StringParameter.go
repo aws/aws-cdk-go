@@ -272,6 +272,9 @@ func (j *jsiiProxy_StringParameter) StringValue() *string {
 func NewStringParameter(scope constructs.Construct, id *string, props *StringParameterProps) StringParameter {
 	_init_.Initialize()
 
+	if err := validateNewStringParameterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StringParameter{}
 
 	_jsii_.Create(
@@ -299,6 +302,9 @@ func NewStringParameter_Override(s StringParameter, scope constructs.Construct, 
 func StringParameter_FromSecureStringParameterAttributes(scope constructs.Construct, id *string, attrs *SecureStringParameterAttributes) IStringParameter {
 	_init_.Initialize()
 
+	if err := validateStringParameter_FromSecureStringParameterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IStringParameter
 
 	_jsii_.StaticInvoke(
@@ -316,6 +322,9 @@ func StringParameter_FromSecureStringParameterAttributes(scope constructs.Constr
 func StringParameter_FromStringParameterAttributes(scope constructs.Construct, id *string, attrs *StringParameterAttributes) IStringParameter {
 	_init_.Initialize()
 
+	if err := validateStringParameter_FromStringParameterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IStringParameter
 
 	_jsii_.StaticInvoke(
@@ -333,6 +342,9 @@ func StringParameter_FromStringParameterAttributes(scope constructs.Construct, i
 func StringParameter_FromStringParameterName(scope constructs.Construct, id *string, stringParameterName *string) IStringParameter {
 	_init_.Initialize()
 
+	if err := validateStringParameter_FromStringParameterNameParameters(scope, id, stringParameterName); err != nil {
+		panic(err)
+	}
 	var returns IStringParameter
 
 	_jsii_.StaticInvoke(
@@ -350,6 +362,9 @@ func StringParameter_FromStringParameterName(scope constructs.Construct, id *str
 func StringParameter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStringParameter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -367,6 +382,9 @@ func StringParameter_IsConstruct(x interface{}) *bool {
 func StringParameter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateStringParameter_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -384,6 +402,9 @@ func StringParameter_IsResource(construct awscdk.IConstruct) *bool {
 func StringParameter_ValueForSecureStringParameter(scope constructs.Construct, parameterName *string, version *float64) *string {
 	_init_.Initialize()
 
+	if err := validateStringParameter_ValueForSecureStringParameterParameters(scope, parameterName, version); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -401,6 +422,9 @@ func StringParameter_ValueForSecureStringParameter(scope constructs.Construct, p
 func StringParameter_ValueForStringParameter(scope constructs.Construct, parameterName *string, version *float64) *string {
 	_init_.Initialize()
 
+	if err := validateStringParameter_ValueForStringParameterParameters(scope, parameterName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -418,6 +442,9 @@ func StringParameter_ValueForStringParameter(scope constructs.Construct, paramet
 func StringParameter_ValueForTypedStringParameter(scope constructs.Construct, parameterName *string, type_ ParameterType, version *float64) *string {
 	_init_.Initialize()
 
+	if err := validateStringParameter_ValueForTypedStringParameterParameters(scope, parameterName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -438,6 +465,9 @@ func StringParameter_ValueForTypedStringParameter(scope constructs.Construct, pa
 func StringParameter_ValueFromLookup(scope awscdk.Construct, parameterName *string) *string {
 	_init_.Initialize()
 
+	if err := validateStringParameter_ValueFromLookupParameters(scope, parameterName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -451,6 +481,9 @@ func StringParameter_ValueFromLookup(scope awscdk.Construct, parameterName *stri
 }
 
 func (s *jsiiProxy_StringParameter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -472,6 +505,9 @@ func (s *jsiiProxy_StringParameter) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_StringParameter) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -485,6 +521,9 @@ func (s *jsiiProxy_StringParameter) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (s *jsiiProxy_StringParameter) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -498,6 +537,9 @@ func (s *jsiiProxy_StringParameter) GetResourceNameAttribute(nameAttr *string) *
 }
 
 func (s *jsiiProxy_StringParameter) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -511,6 +553,9 @@ func (s *jsiiProxy_StringParameter) GrantRead(grantee awsiam.IGrantable) awsiam.
 }
 
 func (s *jsiiProxy_StringParameter) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -532,6 +577,9 @@ func (s *jsiiProxy_StringParameter) OnPrepare() {
 }
 
 func (s *jsiiProxy_StringParameter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -561,6 +609,9 @@ func (s *jsiiProxy_StringParameter) Prepare() {
 }
 
 func (s *jsiiProxy_StringParameter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

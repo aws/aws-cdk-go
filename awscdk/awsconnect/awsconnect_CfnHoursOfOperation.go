@@ -448,6 +448,9 @@ func (j *jsiiProxy_CfnHoursOfOperation) UpdatedProperites() *map[string]interfac
 func NewCfnHoursOfOperation(scope awscdk.Construct, id *string, props *CfnHoursOfOperationProps) CfnHoursOfOperation {
 	_init_.Initialize()
 
+	if err := validateNewCfnHoursOfOperationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnHoursOfOperation{}
 
 	_jsii_.Create(
@@ -470,7 +473,10 @@ func NewCfnHoursOfOperation_Override(c CfnHoursOfOperation, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnHoursOfOperation) SetConfig(val interface{}) {
+func (j *jsiiProxy_CfnHoursOfOperation)SetConfig(val interface{}) {
+	if err := j.validateSetConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"config",
@@ -478,7 +484,7 @@ func (j *jsiiProxy_CfnHoursOfOperation) SetConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnHoursOfOperation) SetDescription(val *string) {
+func (j *jsiiProxy_CfnHoursOfOperation)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -486,7 +492,10 @@ func (j *jsiiProxy_CfnHoursOfOperation) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnHoursOfOperation) SetInstanceArn(val *string) {
+func (j *jsiiProxy_CfnHoursOfOperation)SetInstanceArn(val *string) {
+	if err := j.validateSetInstanceArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceArn",
@@ -494,7 +503,10 @@ func (j *jsiiProxy_CfnHoursOfOperation) SetInstanceArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnHoursOfOperation) SetName(val *string) {
+func (j *jsiiProxy_CfnHoursOfOperation)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -502,7 +514,10 @@ func (j *jsiiProxy_CfnHoursOfOperation) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnHoursOfOperation) SetTimeZone(val *string) {
+func (j *jsiiProxy_CfnHoursOfOperation)SetTimeZone(val *string) {
+	if err := j.validateSetTimeZoneParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"timeZone",
@@ -520,6 +535,9 @@ func (j *jsiiProxy_CfnHoursOfOperation) SetTimeZone(val *string) {
 func CfnHoursOfOperation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnHoursOfOperation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -537,6 +555,9 @@ func CfnHoursOfOperation_IsCfnElement(x interface{}) *bool {
 func CfnHoursOfOperation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnHoursOfOperation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -554,6 +575,9 @@ func CfnHoursOfOperation_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnHoursOfOperation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnHoursOfOperation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -578,6 +602,9 @@ func CfnHoursOfOperation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -586,6 +613,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -594,6 +624,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -602,6 +635,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -610,6 +646,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -618,6 +657,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -626,6 +668,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -634,6 +679,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -647,6 +695,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -660,6 +711,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -676,6 +730,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -697,6 +754,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -713,6 +773,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -739,6 +802,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -773,6 +839,9 @@ func (c *jsiiProxy_CfnHoursOfOperation) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

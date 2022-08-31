@@ -345,6 +345,9 @@ func (j *jsiiProxy_Pipeline) Stages() *[]IStage {
 func NewPipeline(scope constructs.Construct, id *string, props *PipelineProps) Pipeline {
 	_init_.Initialize()
 
+	if err := validateNewPipelineParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Pipeline{}
 
 	_jsii_.Create(
@@ -372,6 +375,9 @@ func NewPipeline_Override(p Pipeline, scope constructs.Construct, id *string, pr
 func Pipeline_FromPipelineArn(scope constructs.Construct, id *string, pipelineArn *string) IPipeline {
 	_init_.Initialize()
 
+	if err := validatePipeline_FromPipelineArnParameters(scope, id, pipelineArn); err != nil {
+		panic(err)
+	}
 	var returns IPipeline
 
 	_jsii_.StaticInvoke(
@@ -389,6 +395,9 @@ func Pipeline_FromPipelineArn(scope constructs.Construct, id *string, pipelineAr
 func Pipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePipeline_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -406,6 +415,9 @@ func Pipeline_IsConstruct(x interface{}) *bool {
 func Pipeline_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePipeline_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -419,6 +431,9 @@ func Pipeline_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_Pipeline) AddStage(props *StageOptions) IStage {
+	if err := p.validateAddStageParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IStage
 
 	_jsii_.Invoke(
@@ -432,6 +447,9 @@ func (p *jsiiProxy_Pipeline) AddStage(props *StageOptions) IStage {
 }
 
 func (p *jsiiProxy_Pipeline) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := p.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addToRolePolicy",
@@ -440,6 +458,9 @@ func (p *jsiiProxy_Pipeline) AddToRolePolicy(statement awsiam.PolicyStatement) {
 }
 
 func (p *jsiiProxy_Pipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -448,6 +469,9 @@ func (p *jsiiProxy_Pipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (p *jsiiProxy_Pipeline) BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
+	if err := p.validateBindAsNotificationRuleSourceParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
 
 	_jsii_.Invoke(
@@ -474,6 +498,9 @@ func (p *jsiiProxy_Pipeline) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_Pipeline) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -487,6 +514,9 @@ func (p *jsiiProxy_Pipeline) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (p *jsiiProxy_Pipeline) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -500,6 +530,9 @@ func (p *jsiiProxy_Pipeline) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 func (p *jsiiProxy_Pipeline) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule {
+	if err := p.validateNotifyOnParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -513,6 +546,9 @@ func (p *jsiiProxy_Pipeline) NotifyOn(id *string, target awscodestarnotification
 }
 
 func (p *jsiiProxy_Pipeline) NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := p.validateNotifyOnAnyActionStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -526,6 +562,9 @@ func (p *jsiiProxy_Pipeline) NotifyOnAnyActionStateChange(id *string, target aws
 }
 
 func (p *jsiiProxy_Pipeline) NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := p.validateNotifyOnAnyManualApprovalStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -539,6 +578,9 @@ func (p *jsiiProxy_Pipeline) NotifyOnAnyManualApprovalStateChange(id *string, ta
 }
 
 func (p *jsiiProxy_Pipeline) NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := p.validateNotifyOnAnyStageStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -552,6 +594,9 @@ func (p *jsiiProxy_Pipeline) NotifyOnAnyStageStateChange(id *string, target awsc
 }
 
 func (p *jsiiProxy_Pipeline) NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := p.validateNotifyOnExecutionStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -565,6 +610,9 @@ func (p *jsiiProxy_Pipeline) NotifyOnExecutionStateChange(id *string, target aws
 }
 
 func (p *jsiiProxy_Pipeline) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := p.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -586,6 +634,9 @@ func (p *jsiiProxy_Pipeline) OnPrepare() {
 }
 
 func (p *jsiiProxy_Pipeline) OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := p.validateOnStateChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -599,6 +650,9 @@ func (p *jsiiProxy_Pipeline) OnStateChange(id *string, options *awsevents.OnEven
 }
 
 func (p *jsiiProxy_Pipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -628,6 +682,9 @@ func (p *jsiiProxy_Pipeline) Prepare() {
 }
 
 func (p *jsiiProxy_Pipeline) Stage(stageName *string) IStage {
+	if err := p.validateStageParameters(stageName); err != nil {
+		panic(err)
+	}
 	var returns IStage
 
 	_jsii_.Invoke(
@@ -641,6 +698,9 @@ func (p *jsiiProxy_Pipeline) Stage(stageName *string) IStage {
 }
 
 func (p *jsiiProxy_Pipeline) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

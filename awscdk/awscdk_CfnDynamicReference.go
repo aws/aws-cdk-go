@@ -66,6 +66,9 @@ func (j *jsiiProxy_CfnDynamicReference) CreationStack() *[]*string {
 func NewCfnDynamicReference(service CfnDynamicReferenceService, key *string) CfnDynamicReference {
 	_init_.Initialize()
 
+	if err := validateNewCfnDynamicReferenceParameters(service, key); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnDynamicReference{}
 
 	_jsii_.Create(
@@ -89,6 +92,9 @@ func NewCfnDynamicReference_Override(c CfnDynamicReference, service CfnDynamicRe
 }
 
 func (c *jsiiProxy_CfnDynamicReference) NewError(message *string) interface{} {
+	if err := c.validateNewErrorParameters(message); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -102,6 +108,9 @@ func (c *jsiiProxy_CfnDynamicReference) NewError(message *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnDynamicReference) Resolve(_context IResolveContext) interface{} {
+	if err := c.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

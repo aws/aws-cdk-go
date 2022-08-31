@@ -28,6 +28,9 @@ type jsiiProxy_ICodePipelineActionFactory struct {
 }
 
 func (i *jsiiProxy_ICodePipelineActionFactory) ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult {
+	if err := i.validateProduceActionParameters(stage, options); err != nil {
+		panic(err)
+	}
 	var returns *CodePipelineActionFactoryResult
 
 	_jsii_.Invoke(

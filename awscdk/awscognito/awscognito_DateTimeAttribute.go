@@ -55,6 +55,9 @@ type jsiiProxy_DateTimeAttribute struct {
 func NewDateTimeAttribute(props *CustomAttributeProps) DateTimeAttribute {
 	_init_.Initialize()
 
+	if err := validateNewDateTimeAttributeParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DateTimeAttribute{}
 
 	_jsii_.Create(

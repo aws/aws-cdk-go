@@ -36,6 +36,9 @@ type jsiiProxy_IVirtualNode struct {
 }
 
 func (i *jsiiProxy_IVirtualNode) GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantStreamAggregatedResourcesParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

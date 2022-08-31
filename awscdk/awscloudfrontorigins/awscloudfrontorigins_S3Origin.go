@@ -52,6 +52,9 @@ type jsiiProxy_S3Origin struct {
 func NewS3Origin(bucket awss3.IBucket, props *S3OriginProps) S3Origin {
 	_init_.Initialize()
 
+	if err := validateNewS3OriginParameters(bucket, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3Origin{}
 
 	_jsii_.Create(
@@ -75,6 +78,9 @@ func NewS3Origin_Override(s S3Origin, bucket awss3.IBucket, props *S3OriginProps
 }
 
 func (s *jsiiProxy_S3Origin) Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := s.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(

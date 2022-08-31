@@ -67,6 +67,9 @@ func NewHealthCheck_Override(h HealthCheck) {
 func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
+	if err := validateHealthCheck_GrpcParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
@@ -84,6 +87,9 @@ func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
 func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
+	if err := validateHealthCheck_HttpParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
@@ -101,6 +107,9 @@ func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
 func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
+	if err := validateHealthCheck_Http2Parameters(options); err != nil {
+		panic(err)
+	}
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
@@ -118,6 +127,9 @@ func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
 func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
+	if err := validateHealthCheck_TcpParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
@@ -131,6 +143,9 @@ func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
 }
 
 func (h *jsiiProxy_HealthCheck) Bind(scope awscdk.Construct, options *HealthCheckBindOptions) *HealthCheckConfig {
+	if err := h.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *HealthCheckConfig
 
 	_jsii_.Invoke(

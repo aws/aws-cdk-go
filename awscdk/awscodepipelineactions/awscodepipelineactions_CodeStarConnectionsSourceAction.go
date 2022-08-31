@@ -88,6 +88,9 @@ func (j *jsiiProxy_CodeStarConnectionsSourceAction) Variables() *CodeStarSourceV
 func NewCodeStarConnectionsSourceAction(props *CodeStarConnectionsSourceActionProps) CodeStarConnectionsSourceAction {
 	_init_.Initialize()
 
+	if err := validateNewCodeStarConnectionsSourceActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodeStarConnectionsSourceAction{}
 
 	_jsii_.Create(
@@ -111,6 +114,9 @@ func NewCodeStarConnectionsSourceAction_Override(c CodeStarConnectionsSourceActi
 }
 
 func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -124,6 +130,9 @@ func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope awscdk.Construct,
 }
 
 func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(_scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -137,6 +146,9 @@ func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope awscdk.Construc
 }
 
 func (c *jsiiProxy_CodeStarConnectionsSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -150,6 +162,9 @@ func (c *jsiiProxy_CodeStarConnectionsSourceAction) OnStateChange(name *string, 
 }
 
 func (c *jsiiProxy_CodeStarConnectionsSourceAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

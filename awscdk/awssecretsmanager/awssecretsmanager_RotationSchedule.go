@@ -191,6 +191,9 @@ func (j *jsiiProxy_RotationSchedule) Stack() awscdk.Stack {
 func NewRotationSchedule(scope constructs.Construct, id *string, props *RotationScheduleProps) RotationSchedule {
 	_init_.Initialize()
 
+	if err := validateNewRotationScheduleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RotationSchedule{}
 
 	_jsii_.Create(
@@ -218,6 +221,9 @@ func NewRotationSchedule_Override(r RotationSchedule, scope constructs.Construct
 func RotationSchedule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRotationSchedule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -235,6 +241,9 @@ func RotationSchedule_IsConstruct(x interface{}) *bool {
 func RotationSchedule_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateRotationSchedule_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -248,6 +257,9 @@ func RotationSchedule_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_RotationSchedule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -269,6 +281,9 @@ func (r *jsiiProxy_RotationSchedule) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_RotationSchedule) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -282,6 +297,9 @@ func (r *jsiiProxy_RotationSchedule) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (r *jsiiProxy_RotationSchedule) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -303,6 +321,9 @@ func (r *jsiiProxy_RotationSchedule) OnPrepare() {
 }
 
 func (r *jsiiProxy_RotationSchedule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -332,6 +353,9 @@ func (r *jsiiProxy_RotationSchedule) Prepare() {
 }
 
 func (r *jsiiProxy_RotationSchedule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

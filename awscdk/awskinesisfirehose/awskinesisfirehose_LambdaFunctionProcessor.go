@@ -118,6 +118,9 @@ func (j *jsiiProxy_LambdaFunctionProcessor) Props() *DataProcessorProps {
 func NewLambdaFunctionProcessor(lambdaFunction awslambda.IFunction, props *DataProcessorProps) LambdaFunctionProcessor {
 	_init_.Initialize()
 
+	if err := validateNewLambdaFunctionProcessorParameters(lambdaFunction, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaFunctionProcessor{}
 
 	_jsii_.Create(
@@ -141,6 +144,9 @@ func NewLambdaFunctionProcessor_Override(l LambdaFunctionProcessor, lambdaFuncti
 }
 
 func (l *jsiiProxy_LambdaFunctionProcessor) Bind(_scope constructs.Construct, options *DataProcessorBindOptions) *DataProcessorConfig {
+	if err := l.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *DataProcessorConfig
 
 	_jsii_.Invoke(

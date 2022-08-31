@@ -421,6 +421,9 @@ func (j *jsiiProxy_EmrContainersStartJobRun) TaskPolicies() *[]awsiam.PolicyStat
 func NewEmrContainersStartJobRun(scope constructs.Construct, id *string, props *EmrContainersStartJobRunProps) EmrContainersStartJobRun {
 	_init_.Initialize()
 
+	if err := validateNewEmrContainersStartJobRunParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EmrContainersStartJobRun{}
 
 	_jsii_.Create(
@@ -443,7 +446,7 @@ func NewEmrContainersStartJobRun_Override(e EmrContainersStartJobRun, scope cons
 	)
 }
 
-func (j *jsiiProxy_EmrContainersStartJobRun) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_EmrContainersStartJobRun)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -451,7 +454,7 @@ func (j *jsiiProxy_EmrContainersStartJobRun) SetDefaultChoice(val awsstepfunctio
 	)
 }
 
-func (j *jsiiProxy_EmrContainersStartJobRun) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_EmrContainersStartJobRun)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -464,6 +467,9 @@ func (j *jsiiProxy_EmrContainersStartJobRun) SetIteration(val awsstepfunctions.S
 func EmrContainersStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateEmrContainersStartJobRun_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -481,6 +487,9 @@ func EmrContainersStartJobRun_FilterNextables(states *[]awsstepfunctions.State) 
 func EmrContainersStartJobRun_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrContainersStartJobRun_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -500,6 +509,9 @@ func EmrContainersStartJobRun_FindReachableEndStates(start awsstepfunctions.Stat
 func EmrContainersStartJobRun_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateEmrContainersStartJobRun_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -517,6 +529,9 @@ func EmrContainersStartJobRun_FindReachableStates(start awsstepfunctions.State, 
 func EmrContainersStartJobRun_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEmrContainersStartJobRun_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -534,6 +549,9 @@ func EmrContainersStartJobRun_IsConstruct(x interface{}) *bool {
 func EmrContainersStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateEmrContainersStartJobRun_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		"prefixStates",
@@ -542,6 +560,9 @@ func EmrContainersStartJobRun_PrefixStates(root constructs.IConstruct, prefix *s
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := e.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addBranch",
@@ -550,6 +571,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) AddBranch(branch awsstepfunctions.S
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -563,6 +587,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) AddCatch(handler awsstepfunctions.I
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := e.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addChoice",
@@ -571,6 +598,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) AddChoice(condition awsstepfunction
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := e.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addIterator",
@@ -579,6 +609,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) AddIterator(iteration awsstepfuncti
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) AddPrefix(x *string) {
+	if err := e.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPrefix",
@@ -587,6 +620,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) AddPrefix(x *string) {
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := e.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -600,6 +636,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) AddRetry(props *awsstepfunctions.Re
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"bindToGraph",
@@ -608,6 +647,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) BindToGraph(graph awsstepfunctions.
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MakeDefault(def awsstepfunctions.State) {
+	if err := e.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeDefault",
@@ -616,6 +658,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MakeDefault(def awsstepfunctions.St
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MakeNext(next awsstepfunctions.State) {
+	if err := e.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"makeNext",
@@ -624,6 +669,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MakeNext(next awsstepfunctions.Stat
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -637,6 +685,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) Metric(metricName *string, props *a
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -650,6 +701,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricFailed(props *awscloudwatch.M
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -663,6 +717,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricHeartbeatTimedOut(props *awsc
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -676,6 +733,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricRunTime(props *awscloudwatch.
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -689,6 +749,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricScheduled(props *awscloudwatc
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -702,6 +765,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricScheduleTime(props *awscloudw
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -715,6 +781,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricStarted(props *awscloudwatch.
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -728,6 +797,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricSucceeded(props *awscloudwatc
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -741,6 +813,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricTime(props *awscloudwatch.Met
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -754,6 +829,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) MetricTimedOut(props *awscloudwatch
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := e.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -775,6 +853,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) OnPrepare() {
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -895,6 +976,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) RenderRetryCatch() interface{} {
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",
@@ -942,6 +1026,9 @@ func (e *jsiiProxy_EmrContainersStartJobRun) Validate() *[]*string {
 }
 
 func (e *jsiiProxy_EmrContainersStartJobRun) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := e.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"whenBoundToGraph",

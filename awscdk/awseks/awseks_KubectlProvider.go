@@ -721,6 +721,9 @@ func (j *jsiiProxy_KubectlProvider) UrlSuffix() *string {
 func NewKubectlProvider(scope constructs.Construct, id *string, props *KubectlProviderProps) KubectlProvider {
 	_init_.Initialize()
 
+	if err := validateNewKubectlProviderParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubectlProvider{}
 
 	_jsii_.Create(
@@ -748,6 +751,9 @@ func NewKubectlProvider_Override(k KubectlProvider, scope constructs.Construct, 
 func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, id *string, attrs *KubectlProviderAttributes) IKubectlProvider {
 	_init_.Initialize()
 
+	if err := validateKubectlProvider_FromKubectlProviderAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IKubectlProvider
 
 	_jsii_.StaticInvoke(
@@ -765,6 +771,9 @@ func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, i
 func KubectlProvider_GetOrCreate(scope constructs.Construct, cluster ICluster) IKubectlProvider {
 	_init_.Initialize()
 
+	if err := validateKubectlProvider_GetOrCreateParameters(scope, cluster); err != nil {
+		panic(err)
+	}
 	var returns IKubectlProvider
 
 	_jsii_.StaticInvoke(
@@ -782,6 +791,9 @@ func KubectlProvider_GetOrCreate(scope constructs.Construct, cluster ICluster) I
 func KubectlProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubectlProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -799,6 +811,9 @@ func KubectlProvider_IsConstruct(x interface{}) *bool {
 func KubectlProvider_IsNestedStack(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubectlProvider_IsNestedStackParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -818,6 +833,9 @@ func KubectlProvider_IsNestedStack(x interface{}) *bool {
 func KubectlProvider_IsStack(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubectlProvider_IsStackParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -837,6 +855,9 @@ func KubectlProvider_IsStack(x interface{}) *bool {
 func KubectlProvider_Of(construct constructs.IConstruct) awscdk.Stack {
 	_init_.Initialize()
 
+	if err := validateKubectlProvider_OfParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Stack
 
 	_jsii_.StaticInvoke(
@@ -850,6 +871,9 @@ func KubectlProvider_Of(construct constructs.IConstruct) awscdk.Stack {
 }
 
 func (k *jsiiProxy_KubectlProvider) AddDependency(target awscdk.Stack, reason *string) {
+	if err := k.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"addDependency",
@@ -858,6 +882,9 @@ func (k *jsiiProxy_KubectlProvider) AddDependency(target awscdk.Stack, reason *s
 }
 
 func (k *jsiiProxy_KubectlProvider) AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation {
+	if err := k.validateAddDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -871,6 +898,9 @@ func (k *jsiiProxy_KubectlProvider) AddDockerImageAsset(asset *awscdk.DockerImag
 }
 
 func (k *jsiiProxy_KubectlProvider) AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation {
+	if err := k.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.FileAssetLocation
 
 	_jsii_.Invoke(
@@ -884,6 +914,9 @@ func (k *jsiiProxy_KubectlProvider) AddFileAsset(asset *awscdk.FileAssetSource) 
 }
 
 func (k *jsiiProxy_KubectlProvider) AddTransform(transform *string) {
+	if err := k.validateAddTransformParameters(transform); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"addTransform",
@@ -892,6 +925,9 @@ func (k *jsiiProxy_KubectlProvider) AddTransform(transform *string) {
 }
 
 func (k *jsiiProxy_KubectlProvider) AllocateLogicalId(cfnElement awscdk.CfnElement) *string {
+	if err := k.validateAllocateLogicalIdParameters(cfnElement); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -905,6 +941,9 @@ func (k *jsiiProxy_KubectlProvider) AllocateLogicalId(cfnElement awscdk.CfnEleme
 }
 
 func (k *jsiiProxy_KubectlProvider) ExportValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *string {
+	if err := k.validateExportValueParameters(exportedValue, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -918,6 +957,9 @@ func (k *jsiiProxy_KubectlProvider) ExportValue(exportedValue interface{}, optio
 }
 
 func (k *jsiiProxy_KubectlProvider) FormatArn(components *awscdk.ArnComponents) *string {
+	if err := k.validateFormatArnParameters(components); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -931,6 +973,9 @@ func (k *jsiiProxy_KubectlProvider) FormatArn(components *awscdk.ArnComponents) 
 }
 
 func (k *jsiiProxy_KubectlProvider) GetLogicalId(element awscdk.CfnElement) *string {
+	if err := k.validateGetLogicalIdParameters(element); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -952,6 +997,9 @@ func (k *jsiiProxy_KubectlProvider) OnPrepare() {
 }
 
 func (k *jsiiProxy_KubectlProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"onSynthesize",
@@ -973,6 +1021,9 @@ func (k *jsiiProxy_KubectlProvider) OnValidate() *[]*string {
 }
 
 func (k *jsiiProxy_KubectlProvider) ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents {
+	if err := k.validateParseArnParameters(arn); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.ArnComponents
 
 	_jsii_.Invoke(
@@ -994,6 +1045,9 @@ func (k *jsiiProxy_KubectlProvider) Prepare() {
 }
 
 func (k *jsiiProxy_KubectlProvider) PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable {
+	if err := k.validatePrepareCrossReferenceParameters(_sourceStack, reference); err != nil {
+		panic(err)
+	}
 	var returns awscdk.IResolvable
 
 	_jsii_.Invoke(
@@ -1007,6 +1061,9 @@ func (k *jsiiProxy_KubectlProvider) PrepareCrossReference(_sourceStack awscdk.St
 }
 
 func (k *jsiiProxy_KubectlProvider) RegionalFact(factName *string, defaultValue *string) *string {
+	if err := k.validateRegionalFactParameters(factName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -1020,6 +1077,9 @@ func (k *jsiiProxy_KubectlProvider) RegionalFact(factName *string, defaultValue 
 }
 
 func (k *jsiiProxy_KubectlProvider) RenameLogicalId(oldId *string, newId *string) {
+	if err := k.validateRenameLogicalIdParameters(oldId, newId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"renameLogicalId",
@@ -1028,6 +1088,9 @@ func (k *jsiiProxy_KubectlProvider) RenameLogicalId(oldId *string, newId *string
 }
 
 func (k *jsiiProxy_KubectlProvider) ReportMissingContext(report *cxapi.MissingContext) {
+	if err := k.validateReportMissingContextParameters(report); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"reportMissingContext",
@@ -1036,6 +1099,9 @@ func (k *jsiiProxy_KubectlProvider) ReportMissingContext(report *cxapi.MissingCo
 }
 
 func (k *jsiiProxy_KubectlProvider) ReportMissingContextKey(report *cloudassemblyschema.MissingContext) {
+	if err := k.validateReportMissingContextKeyParameters(report); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"reportMissingContextKey",
@@ -1044,6 +1110,9 @@ func (k *jsiiProxy_KubectlProvider) ReportMissingContextKey(report *cloudassembl
 }
 
 func (k *jsiiProxy_KubectlProvider) Resolve(obj interface{}) interface{} {
+	if err := k.validateResolveParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1057,6 +1126,9 @@ func (k *jsiiProxy_KubectlProvider) Resolve(obj interface{}) interface{} {
 }
 
 func (k *jsiiProxy_KubectlProvider) SetParameter(name *string, value *string) {
+	if err := k.validateSetParameterParameters(name, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"setParameter",
@@ -1065,6 +1137,9 @@ func (k *jsiiProxy_KubectlProvider) SetParameter(name *string, value *string) {
 }
 
 func (k *jsiiProxy_KubectlProvider) SplitArn(arn *string, arnFormat awscdk.ArnFormat) *awscdk.ArnComponents {
+	if err := k.validateSplitArnParameters(arn, arnFormat); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.ArnComponents
 
 	_jsii_.Invoke(
@@ -1078,6 +1153,9 @@ func (k *jsiiProxy_KubectlProvider) SplitArn(arn *string, arnFormat awscdk.ArnFo
 }
 
 func (k *jsiiProxy_KubectlProvider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"synthesize",
@@ -1086,6 +1164,9 @@ func (k *jsiiProxy_KubectlProvider) Synthesize(session awscdk.ISynthesisSession)
 }
 
 func (k *jsiiProxy_KubectlProvider) ToJsonString(obj interface{}, space *float64) *string {
+	if err := k.validateToJsonStringParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

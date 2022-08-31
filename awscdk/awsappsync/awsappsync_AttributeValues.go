@@ -66,6 +66,9 @@ type jsiiProxy_AttributeValues struct {
 func NewAttributeValues(container *string, assignments *[]Assign) AttributeValues {
 	_init_.Initialize()
 
+	if err := validateNewAttributeValuesParameters(container); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AttributeValues{}
 
 	_jsii_.Create(
@@ -89,6 +92,9 @@ func NewAttributeValues_Override(a AttributeValues, container *string, assignmen
 }
 
 func (a *jsiiProxy_AttributeValues) Attribute(attr *string) AttributeValuesStep {
+	if err := a.validateAttributeParameters(attr); err != nil {
+		panic(err)
+	}
 	var returns AttributeValuesStep
 
 	_jsii_.Invoke(

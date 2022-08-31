@@ -50,6 +50,9 @@ type jsiiProxy_ProxyTarget struct {
 func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 	_init_.Initialize()
 
+	if err := validateProxyTarget_FromClusterParameters(cluster); err != nil {
+		panic(err)
+	}
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
@@ -67,6 +70,9 @@ func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 	_init_.Initialize()
 
+	if err := validateProxyTarget_FromInstanceParameters(instance); err != nil {
+		panic(err)
+	}
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
@@ -80,6 +86,9 @@ func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 }
 
 func (p *jsiiProxy_ProxyTarget) Bind(proxy DatabaseProxy) *ProxyTargetConfig {
+	if err := p.validateBindParameters(proxy); err != nil {
+		panic(err)
+	}
 	var returns *ProxyTargetConfig
 
 	_jsii_.Invoke(

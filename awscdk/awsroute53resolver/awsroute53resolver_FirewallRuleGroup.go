@@ -322,6 +322,9 @@ func (j *jsiiProxy_FirewallRuleGroup) Stack() awscdk.Stack {
 func NewFirewallRuleGroup(scope constructs.Construct, id *string, props *FirewallRuleGroupProps) FirewallRuleGroup {
 	_init_.Initialize()
 
+	if err := validateNewFirewallRuleGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FirewallRuleGroup{}
 
 	_jsii_.Create(
@@ -349,6 +352,9 @@ func NewFirewallRuleGroup_Override(f FirewallRuleGroup, scope constructs.Constru
 func FirewallRuleGroup_FromFirewallRuleGroupId(scope constructs.Construct, id *string, firewallRuleGroupId *string) IFirewallRuleGroup {
 	_init_.Initialize()
 
+	if err := validateFirewallRuleGroup_FromFirewallRuleGroupIdParameters(scope, id, firewallRuleGroupId); err != nil {
+		panic(err)
+	}
 	var returns IFirewallRuleGroup
 
 	_jsii_.StaticInvoke(
@@ -366,6 +372,9 @@ func FirewallRuleGroup_FromFirewallRuleGroupId(scope constructs.Construct, id *s
 func FirewallRuleGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFirewallRuleGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -383,6 +392,9 @@ func FirewallRuleGroup_IsConstruct(x interface{}) *bool {
 func FirewallRuleGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFirewallRuleGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -396,6 +408,9 @@ func FirewallRuleGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (f *jsiiProxy_FirewallRuleGroup) AddRule(rule *FirewallRule) FirewallRuleGroup {
+	if err := f.validateAddRuleParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns FirewallRuleGroup
 
 	_jsii_.Invoke(
@@ -409,6 +424,9 @@ func (f *jsiiProxy_FirewallRuleGroup) AddRule(rule *FirewallRule) FirewallRuleGr
 }
 
 func (f *jsiiProxy_FirewallRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -417,6 +435,9 @@ func (f *jsiiProxy_FirewallRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 func (f *jsiiProxy_FirewallRuleGroup) Associate(id *string, props *FirewallRuleGroupAssociationOptions) FirewallRuleGroupAssociation {
+	if err := f.validateAssociateParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns FirewallRuleGroupAssociation
 
 	_jsii_.Invoke(
@@ -443,6 +464,9 @@ func (f *jsiiProxy_FirewallRuleGroup) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FirewallRuleGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -456,6 +480,9 @@ func (f *jsiiProxy_FirewallRuleGroup) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (f *jsiiProxy_FirewallRuleGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -477,6 +504,9 @@ func (f *jsiiProxy_FirewallRuleGroup) OnPrepare() {
 }
 
 func (f *jsiiProxy_FirewallRuleGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -506,6 +536,9 @@ func (f *jsiiProxy_FirewallRuleGroup) Prepare() {
 }
 
 func (f *jsiiProxy_FirewallRuleGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

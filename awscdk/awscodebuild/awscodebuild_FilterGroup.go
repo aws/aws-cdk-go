@@ -121,6 +121,9 @@ func FilterGroup_InEventOf(actions ...EventAction) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndActorAccountIs(pattern *string) FilterGroup {
+	if err := f.validateAndActorAccountIsParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -134,6 +137,9 @@ func (f *jsiiProxy_FilterGroup) AndActorAccountIs(pattern *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndActorAccountIsNot(pattern *string) FilterGroup {
+	if err := f.validateAndActorAccountIsNotParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -147,6 +153,9 @@ func (f *jsiiProxy_FilterGroup) AndActorAccountIsNot(pattern *string) FilterGrou
 }
 
 func (f *jsiiProxy_FilterGroup) AndBaseBranchIs(branchName *string) FilterGroup {
+	if err := f.validateAndBaseBranchIsParameters(branchName); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -160,6 +169,9 @@ func (f *jsiiProxy_FilterGroup) AndBaseBranchIs(branchName *string) FilterGroup 
 }
 
 func (f *jsiiProxy_FilterGroup) AndBaseBranchIsNot(branchName *string) FilterGroup {
+	if err := f.validateAndBaseBranchIsNotParameters(branchName); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -173,6 +185,9 @@ func (f *jsiiProxy_FilterGroup) AndBaseBranchIsNot(branchName *string) FilterGro
 }
 
 func (f *jsiiProxy_FilterGroup) AndBaseRefIs(pattern *string) FilterGroup {
+	if err := f.validateAndBaseRefIsParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -186,6 +201,9 @@ func (f *jsiiProxy_FilterGroup) AndBaseRefIs(pattern *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndBaseRefIsNot(pattern *string) FilterGroup {
+	if err := f.validateAndBaseRefIsNotParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -199,6 +217,9 @@ func (f *jsiiProxy_FilterGroup) AndBaseRefIsNot(pattern *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndBranchIs(branchName *string) FilterGroup {
+	if err := f.validateAndBranchIsParameters(branchName); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -212,6 +233,9 @@ func (f *jsiiProxy_FilterGroup) AndBranchIs(branchName *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndBranchIsNot(branchName *string) FilterGroup {
+	if err := f.validateAndBranchIsNotParameters(branchName); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -225,6 +249,9 @@ func (f *jsiiProxy_FilterGroup) AndBranchIsNot(branchName *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndCommitMessageIs(commitMessage *string) FilterGroup {
+	if err := f.validateAndCommitMessageIsParameters(commitMessage); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -238,6 +265,9 @@ func (f *jsiiProxy_FilterGroup) AndCommitMessageIs(commitMessage *string) Filter
 }
 
 func (f *jsiiProxy_FilterGroup) AndCommitMessageIsNot(commitMessage *string) FilterGroup {
+	if err := f.validateAndCommitMessageIsNotParameters(commitMessage); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -251,6 +281,9 @@ func (f *jsiiProxy_FilterGroup) AndCommitMessageIsNot(commitMessage *string) Fil
 }
 
 func (f *jsiiProxy_FilterGroup) AndFilePathIs(pattern *string) FilterGroup {
+	if err := f.validateAndFilePathIsParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -264,6 +297,9 @@ func (f *jsiiProxy_FilterGroup) AndFilePathIs(pattern *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndFilePathIsNot(pattern *string) FilterGroup {
+	if err := f.validateAndFilePathIsNotParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -277,6 +313,9 @@ func (f *jsiiProxy_FilterGroup) AndFilePathIsNot(pattern *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndHeadRefIs(pattern *string) FilterGroup {
+	if err := f.validateAndHeadRefIsParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -290,6 +329,9 @@ func (f *jsiiProxy_FilterGroup) AndHeadRefIs(pattern *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndHeadRefIsNot(pattern *string) FilterGroup {
+	if err := f.validateAndHeadRefIsNotParameters(pattern); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -303,6 +345,9 @@ func (f *jsiiProxy_FilterGroup) AndHeadRefIsNot(pattern *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndTagIs(tagName *string) FilterGroup {
+	if err := f.validateAndTagIsParameters(tagName); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(
@@ -316,6 +361,9 @@ func (f *jsiiProxy_FilterGroup) AndTagIs(tagName *string) FilterGroup {
 }
 
 func (f *jsiiProxy_FilterGroup) AndTagIsNot(tagName *string) FilterGroup {
+	if err := f.validateAndTagIsNotParameters(tagName); err != nil {
+		panic(err)
+	}
 	var returns FilterGroup
 
 	_jsii_.Invoke(

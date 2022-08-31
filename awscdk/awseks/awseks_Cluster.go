@@ -671,6 +671,9 @@ func (j *jsiiProxy_Cluster) Vpc() awsec2.IVpc {
 func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Cluster {
 	_init_.Initialize()
 
+	if err := validateNewClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Cluster{}
 
 	_jsii_.Create(
@@ -699,6 +702,9 @@ func NewCluster_Override(c Cluster, scope constructs.Construct, id *string, prop
 func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
+	if err := validateCluster_FromClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
@@ -716,6 +722,9 @@ func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs
 func Cluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -733,6 +742,9 @@ func Cluster_IsConstruct(x interface{}) *bool {
 func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -746,6 +758,9 @@ func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_Cluster) AddAutoScalingGroupCapacity(id *string, options *AutoScalingGroupCapacityOptions) awsautoscaling.AutoScalingGroup {
+	if err := c.validateAddAutoScalingGroupCapacityParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsautoscaling.AutoScalingGroup
 
 	_jsii_.Invoke(
@@ -759,6 +774,9 @@ func (c *jsiiProxy_Cluster) AddAutoScalingGroupCapacity(id *string, options *Aut
 }
 
 func (c *jsiiProxy_Cluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
+	if err := c.validateAddCdk8sChartParameters(id, chart, options); err != nil {
+		panic(err)
+	}
 	var returns KubernetesManifest
 
 	_jsii_.Invoke(
@@ -772,6 +790,9 @@ func (c *jsiiProxy_Cluster) AddCdk8sChart(id *string, chart constructs.Construct
 }
 
 func (c *jsiiProxy_Cluster) AddFargateProfile(id *string, options *FargateProfileOptions) FargateProfile {
+	if err := c.validateAddFargateProfileParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns FargateProfile
 
 	_jsii_.Invoke(
@@ -785,6 +806,9 @@ func (c *jsiiProxy_Cluster) AddFargateProfile(id *string, options *FargateProfil
 }
 
 func (c *jsiiProxy_Cluster) AddHelmChart(id *string, options *HelmChartOptions) HelmChart {
+	if err := c.validateAddHelmChartParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns HelmChart
 
 	_jsii_.Invoke(
@@ -798,6 +822,9 @@ func (c *jsiiProxy_Cluster) AddHelmChart(id *string, options *HelmChartOptions) 
 }
 
 func (c *jsiiProxy_Cluster) AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest {
+	if err := c.validateAddManifestParameters(id); err != nil {
+		panic(err)
+	}
 	args := []interface{}{id}
 	for _, a := range manifest {
 		args = append(args, a)
@@ -816,6 +843,9 @@ func (c *jsiiProxy_Cluster) AddManifest(id *string, manifest ...*map[string]inte
 }
 
 func (c *jsiiProxy_Cluster) AddNodegroupCapacity(id *string, options *NodegroupOptions) Nodegroup {
+	if err := c.validateAddNodegroupCapacityParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns Nodegroup
 
 	_jsii_.Invoke(
@@ -829,6 +859,9 @@ func (c *jsiiProxy_Cluster) AddNodegroupCapacity(id *string, options *NodegroupO
 }
 
 func (c *jsiiProxy_Cluster) AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount {
+	if err := c.validateAddServiceAccountParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns ServiceAccount
 
 	_jsii_.Invoke(
@@ -842,6 +875,9 @@ func (c *jsiiProxy_Cluster) AddServiceAccount(id *string, options *ServiceAccoun
 }
 
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -850,6 +886,9 @@ func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (c *jsiiProxy_Cluster) ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions) {
+	if err := c.validateConnectAutoScalingGroupCapacityParameters(autoScalingGroup, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"connectAutoScalingGroupCapacity",
@@ -871,6 +910,9 @@ func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_Cluster) GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string {
+	if err := c.validateGetIngressLoadBalancerAddressParameters(ingressName, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -884,6 +926,9 @@ func (c *jsiiProxy_Cluster) GetIngressLoadBalancerAddress(ingressName *string, o
 }
 
 func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -897,6 +942,9 @@ func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -910,6 +958,9 @@ func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (c *jsiiProxy_Cluster) GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string {
+	if err := c.validateGetServiceLoadBalancerAddressParameters(serviceName, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -931,6 +982,9 @@ func (c *jsiiProxy_Cluster) OnPrepare() {
 }
 
 func (c *jsiiProxy_Cluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -960,6 +1014,9 @@ func (c *jsiiProxy_Cluster) Prepare() {
 }
 
 func (c *jsiiProxy_Cluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

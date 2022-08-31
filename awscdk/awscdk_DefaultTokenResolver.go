@@ -43,6 +43,9 @@ type jsiiProxy_DefaultTokenResolver struct {
 func NewDefaultTokenResolver(concat IFragmentConcatenator) DefaultTokenResolver {
 	_init_.Initialize()
 
+	if err := validateNewDefaultTokenResolverParameters(concat); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DefaultTokenResolver{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewDefaultTokenResolver_Override(d DefaultTokenResolver, concat IFragmentCo
 }
 
 func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IResolveContext) interface{} {
+	if err := d.validateResolveListParameters(xs, context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -79,6 +85,9 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveList(xs *[]*string, context IRes
 }
 
 func (d *jsiiProxy_DefaultTokenResolver) ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{} {
+	if err := d.validateResolveStringParameters(fragments, context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -92,6 +101,9 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveString(fragments TokenizedString
 }
 
 func (d *jsiiProxy_DefaultTokenResolver) ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{} {
+	if err := d.validateResolveTokenParameters(t, context, postProcessor); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

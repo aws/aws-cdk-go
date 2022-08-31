@@ -44,6 +44,9 @@ type jsiiProxy_Bounce struct {
 func NewBounce(props *BounceProps) Bounce {
 	_init_.Initialize()
 
+	if err := validateNewBounceParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Bounce{}
 
 	_jsii_.Create(
@@ -67,6 +70,9 @@ func NewBounce_Override(b Bounce, props *BounceProps) {
 }
 
 func (b *jsiiProxy_Bounce) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := b.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsses.ReceiptRuleActionConfig
 
 	_jsii_.Invoke(

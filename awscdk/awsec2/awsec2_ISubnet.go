@@ -36,6 +36,9 @@ type jsiiProxy_ISubnet struct {
 }
 
 func (i *jsiiProxy_ISubnet) AssociateNetworkAcl(id *string, acl INetworkAcl) {
+	if err := i.validateAssociateNetworkAclParameters(id, acl); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"associateNetworkAcl",

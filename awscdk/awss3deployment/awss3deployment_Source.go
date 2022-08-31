@@ -51,6 +51,9 @@ type jsiiProxy_Source struct {
 func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_AssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -70,6 +73,9 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_BucketParameters(bucket, zipObjectKey); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -93,6 +99,9 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 func Source_Data(objectKey *string, data *string) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_DataParameters(objectKey, data); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -114,6 +123,9 @@ func Source_Data(objectKey *string, data *string) ISource {
 func Source_JsonData(objectKey *string, obj interface{}) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_JsonDataParameters(objectKey, obj); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(

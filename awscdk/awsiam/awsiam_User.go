@@ -295,6 +295,9 @@ func (j *jsiiProxy_User) UserName() *string {
 func NewUser(scope constructs.Construct, id *string, props *UserProps) User {
 	_init_.Initialize()
 
+	if err := validateNewUserParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_User{}
 
 	_jsii_.Create(
@@ -325,6 +328,9 @@ func NewUser_Override(u User, scope constructs.Construct, id *string, props *Use
 func User_FromUserArn(scope constructs.Construct, id *string, userArn *string) IUser {
 	_init_.Initialize()
 
+	if err := validateUser_FromUserArnParameters(scope, id, userArn); err != nil {
+		panic(err)
+	}
 	var returns IUser
 
 	_jsii_.StaticInvoke(
@@ -345,6 +351,9 @@ func User_FromUserArn(scope constructs.Construct, id *string, userArn *string) I
 func User_FromUserAttributes(scope constructs.Construct, id *string, attrs *UserAttributes) IUser {
 	_init_.Initialize()
 
+	if err := validateUser_FromUserAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IUser
 
 	_jsii_.StaticInvoke(
@@ -362,6 +371,9 @@ func User_FromUserAttributes(scope constructs.Construct, id *string, attrs *User
 func User_FromUserName(scope constructs.Construct, id *string, userName *string) IUser {
 	_init_.Initialize()
 
+	if err := validateUser_FromUserNameParameters(scope, id, userName); err != nil {
+		panic(err)
+	}
 	var returns IUser
 
 	_jsii_.StaticInvoke(
@@ -379,6 +391,9 @@ func User_FromUserName(scope constructs.Construct, id *string, userName *string)
 func User_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUser_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -396,6 +411,9 @@ func User_IsConstruct(x interface{}) *bool {
 func User_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUser_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -409,6 +427,9 @@ func User_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (u *jsiiProxy_User) AddManagedPolicy(policy IManagedPolicy) {
+	if err := u.validateAddManagedPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addManagedPolicy",
@@ -417,6 +438,9 @@ func (u *jsiiProxy_User) AddManagedPolicy(policy IManagedPolicy) {
 }
 
 func (u *jsiiProxy_User) AddToGroup(group IGroup) {
+	if err := u.validateAddToGroupParameters(group); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addToGroup",
@@ -425,6 +449,9 @@ func (u *jsiiProxy_User) AddToGroup(group IGroup) {
 }
 
 func (u *jsiiProxy_User) AddToPolicy(statement PolicyStatement) *bool {
+	if err := u.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -438,6 +465,9 @@ func (u *jsiiProxy_User) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 func (u *jsiiProxy_User) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := u.validateAddToPrincipalPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -451,6 +481,9 @@ func (u *jsiiProxy_User) AddToPrincipalPolicy(statement PolicyStatement) *AddToP
 }
 
 func (u *jsiiProxy_User) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -459,6 +492,9 @@ func (u *jsiiProxy_User) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (u *jsiiProxy_User) AttachInlinePolicy(policy Policy) {
+	if err := u.validateAttachInlinePolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"attachInlinePolicy",
@@ -480,6 +516,9 @@ func (u *jsiiProxy_User) GeneratePhysicalName() *string {
 }
 
 func (u *jsiiProxy_User) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -493,6 +532,9 @@ func (u *jsiiProxy_User) GetResourceArnAttribute(arnAttr *string, arnComponents 
 }
 
 func (u *jsiiProxy_User) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -514,6 +556,9 @@ func (u *jsiiProxy_User) OnPrepare() {
 }
 
 func (u *jsiiProxy_User) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -543,6 +588,9 @@ func (u *jsiiProxy_User) Prepare() {
 }
 
 func (u *jsiiProxy_User) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

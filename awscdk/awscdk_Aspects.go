@@ -75,6 +75,9 @@ func (j *jsiiProxy_Aspects) Aspects() *[]IAspect {
 func Aspects_Of(scope IConstruct) Aspects {
 	_init_.Initialize()
 
+	if err := validateAspects_OfParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns Aspects
 
 	_jsii_.StaticInvoke(
@@ -88,6 +91,9 @@ func Aspects_Of(scope IConstruct) Aspects {
 }
 
 func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
+	if err := a.validateAddParameters(aspect); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"add",

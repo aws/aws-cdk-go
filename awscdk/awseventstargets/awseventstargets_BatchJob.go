@@ -70,6 +70,9 @@ type jsiiProxy_BatchJob struct {
 func NewBatchJob(jobQueueArn *string, jobQueueScope awscdk.IConstruct, jobDefinitionArn *string, jobDefinitionScope awscdk.IConstruct, props *BatchJobProps) BatchJob {
 	_init_.Initialize()
 
+	if err := validateNewBatchJobParameters(jobQueueArn, jobQueueScope, jobDefinitionArn, jobDefinitionScope, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BatchJob{}
 
 	_jsii_.Create(
@@ -93,6 +96,9 @@ func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope awscdk.
 }
 
 func (b *jsiiProxy_BatchJob) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := b.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

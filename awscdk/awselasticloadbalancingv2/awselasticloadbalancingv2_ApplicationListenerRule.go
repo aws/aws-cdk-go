@@ -164,6 +164,9 @@ func (j *jsiiProxy_ApplicationListenerRule) Node() awscdk.ConstructNode {
 func NewApplicationListenerRule(scope constructs.Construct, id *string, props *ApplicationListenerRuleProps) ApplicationListenerRule {
 	_init_.Initialize()
 
+	if err := validateNewApplicationListenerRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationListenerRule{}
 
 	_jsii_.Create(
@@ -191,6 +194,9 @@ func NewApplicationListenerRule_Override(a ApplicationListenerRule, scope constr
 func ApplicationListenerRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationListenerRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -204,6 +210,9 @@ func ApplicationListenerRule_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) AddCondition(condition ListenerCondition) {
+	if err := a.validateAddConditionParameters(condition); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addCondition",
@@ -212,6 +221,9 @@ func (a *jsiiProxy_ApplicationListenerRule) AddCondition(condition ListenerCondi
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) AddFixedResponse(fixedResponse *FixedResponse) {
+	if err := a.validateAddFixedResponseParameters(fixedResponse); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addFixedResponse",
@@ -220,6 +232,9 @@ func (a *jsiiProxy_ApplicationListenerRule) AddFixedResponse(fixedResponse *Fixe
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) AddRedirectResponse(redirectResponse *RedirectResponse) {
+	if err := a.validateAddRedirectResponseParameters(redirectResponse); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addRedirectResponse",
@@ -228,6 +243,9 @@ func (a *jsiiProxy_ApplicationListenerRule) AddRedirectResponse(redirectResponse
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) AddTargetGroup(targetGroup IApplicationTargetGroup) {
+	if err := a.validateAddTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addTargetGroup",
@@ -236,6 +254,9 @@ func (a *jsiiProxy_ApplicationListenerRule) AddTargetGroup(targetGroup IApplicat
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) ConfigureAction(action ListenerAction) {
+	if err := a.validateConfigureActionParameters(action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"configureAction",
@@ -252,6 +273,9 @@ func (a *jsiiProxy_ApplicationListenerRule) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -281,6 +305,9 @@ func (a *jsiiProxy_ApplicationListenerRule) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) SetCondition(field *string, values *[]*string) {
+	if err := a.validateSetConditionParameters(field); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"setCondition",
@@ -289,6 +316,9 @@ func (a *jsiiProxy_ApplicationListenerRule) SetCondition(field *string, values *
 }
 
 func (a *jsiiProxy_ApplicationListenerRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

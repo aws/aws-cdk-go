@@ -282,6 +282,9 @@ func (j *jsiiProxy_Input) Stack() awscdk.Stack {
 func NewInput(scope constructs.Construct, id *string, props *InputProps) Input {
 	_init_.Initialize()
 
+	if err := validateNewInputParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Input{}
 
 	_jsii_.Create(
@@ -309,6 +312,9 @@ func NewInput_Override(i Input, scope constructs.Construct, id *string, props *I
 func Input_FromInputName(scope constructs.Construct, id *string, inputName *string) IInput {
 	_init_.Initialize()
 
+	if err := validateInput_FromInputNameParameters(scope, id, inputName); err != nil {
+		panic(err)
+	}
 	var returns IInput
 
 	_jsii_.StaticInvoke(
@@ -326,6 +332,9 @@ func Input_FromInputName(scope constructs.Construct, id *string, inputName *stri
 func Input_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateInput_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -343,6 +352,9 @@ func Input_IsConstruct(x interface{}) *bool {
 func Input_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateInput_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -356,6 +368,9 @@ func Input_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (i *jsiiProxy_Input) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -377,6 +392,9 @@ func (i *jsiiProxy_Input) GeneratePhysicalName() *string {
 }
 
 func (i *jsiiProxy_Input) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := i.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -390,6 +408,9 @@ func (i *jsiiProxy_Input) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (i *jsiiProxy_Input) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := i.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -403,6 +424,9 @@ func (i *jsiiProxy_Input) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (i *jsiiProxy_Input) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -421,6 +445,9 @@ func (i *jsiiProxy_Input) Grant(grantee awsiam.IGrantable, actions ...*string) a
 }
 
 func (i *jsiiProxy_Input) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -442,6 +469,9 @@ func (i *jsiiProxy_Input) OnPrepare() {
 }
 
 func (i *jsiiProxy_Input) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := i.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"onSynthesize",
@@ -471,6 +501,9 @@ func (i *jsiiProxy_Input) Prepare() {
 }
 
 func (i *jsiiProxy_Input) Synthesize(session awscdk.ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

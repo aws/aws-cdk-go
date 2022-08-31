@@ -145,6 +145,9 @@ func (j *jsiiProxy_UpdatePipelineAction) Node() awscdk.ConstructNode {
 func NewUpdatePipelineAction(scope constructs.Construct, id *string, props *UpdatePipelineActionProps) UpdatePipelineAction {
 	_init_.Initialize()
 
+	if err := validateNewUpdatePipelineActionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UpdatePipelineAction{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewUpdatePipelineAction_Override(u UpdatePipelineAction, scope constructs.C
 func UpdatePipelineAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUpdatePipelineAction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -185,6 +191,9 @@ func UpdatePipelineAction_IsConstruct(x interface{}) *bool {
 }
 
 func (u *jsiiProxy_UpdatePipelineAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := u.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -206,6 +215,9 @@ func (u *jsiiProxy_UpdatePipelineAction) OnPrepare() {
 }
 
 func (u *jsiiProxy_UpdatePipelineAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := u.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -219,6 +231,9 @@ func (u *jsiiProxy_UpdatePipelineAction) OnStateChange(name *string, target awse
 }
 
 func (u *jsiiProxy_UpdatePipelineAction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -248,6 +263,9 @@ func (u *jsiiProxy_UpdatePipelineAction) Prepare() {
 }
 
 func (u *jsiiProxy_UpdatePipelineAction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

@@ -156,6 +156,9 @@ func (j *jsiiProxy_AwsCustomResource) Node() awscdk.ConstructNode {
 func NewAwsCustomResource(scope constructs.Construct, id *string, props *AwsCustomResourceProps) AwsCustomResource {
 	_init_.Initialize()
 
+	if err := validateNewAwsCustomResourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AwsCustomResource{}
 
 	_jsii_.Create(
@@ -183,6 +186,9 @@ func NewAwsCustomResource_Override(a AwsCustomResource, scope constructs.Constru
 func AwsCustomResource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAwsCustomResource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -196,6 +202,9 @@ func AwsCustomResource_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_AwsCustomResource) GetResponseField(dataPath *string) *string {
+	if err := a.validateGetResponseFieldParameters(dataPath); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -209,6 +218,9 @@ func (a *jsiiProxy_AwsCustomResource) GetResponseField(dataPath *string) *string
 }
 
 func (a *jsiiProxy_AwsCustomResource) GetResponseFieldReference(dataPath *string) awscdk.Reference {
+	if err := a.validateGetResponseFieldReferenceParameters(dataPath); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -230,6 +242,9 @@ func (a *jsiiProxy_AwsCustomResource) OnPrepare() {
 }
 
 func (a *jsiiProxy_AwsCustomResource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -259,6 +274,9 @@ func (a *jsiiProxy_AwsCustomResource) Prepare() {
 }
 
 func (a *jsiiProxy_AwsCustomResource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

@@ -245,6 +245,9 @@ func (j *jsiiProxy_SigningProfile) Stack() awscdk.Stack {
 func NewSigningProfile(scope constructs.Construct, id *string, props *SigningProfileProps) SigningProfile {
 	_init_.Initialize()
 
+	if err := validateNewSigningProfileParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SigningProfile{}
 
 	_jsii_.Create(
@@ -272,6 +275,9 @@ func NewSigningProfile_Override(s SigningProfile, scope constructs.Construct, id
 func SigningProfile_FromSigningProfileAttributes(scope constructs.Construct, id *string, attrs *SigningProfileAttributes) ISigningProfile {
 	_init_.Initialize()
 
+	if err := validateSigningProfile_FromSigningProfileAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ISigningProfile
 
 	_jsii_.StaticInvoke(
@@ -289,6 +295,9 @@ func SigningProfile_FromSigningProfileAttributes(scope constructs.Construct, id 
 func SigningProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSigningProfile_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -306,6 +315,9 @@ func SigningProfile_IsConstruct(x interface{}) *bool {
 func SigningProfile_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSigningProfile_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -319,6 +331,9 @@ func SigningProfile_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_SigningProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -340,6 +355,9 @@ func (s *jsiiProxy_SigningProfile) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_SigningProfile) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -353,6 +371,9 @@ func (s *jsiiProxy_SigningProfile) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (s *jsiiProxy_SigningProfile) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -374,6 +395,9 @@ func (s *jsiiProxy_SigningProfile) OnPrepare() {
 }
 
 func (s *jsiiProxy_SigningProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -403,6 +427,9 @@ func (s *jsiiProxy_SigningProfile) Prepare() {
 }
 
 func (s *jsiiProxy_SigningProfile) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

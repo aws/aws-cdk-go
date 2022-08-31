@@ -44,6 +44,9 @@ type jsiiProxy_IHttpApi struct {
 }
 
 func (i *jsiiProxy_IHttpApi) AddVpcLink(options *VpcLinkProps) VpcLink {
+	if err := i.validateAddVpcLinkParameters(options); err != nil {
+		panic(err)
+	}
 	var returns VpcLink
 
 	_jsii_.Invoke(
@@ -57,6 +60,9 @@ func (i *jsiiProxy_IHttpApi) AddVpcLink(options *VpcLinkProps) VpcLink {
 }
 
 func (i *jsiiProxy_IHttpApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricClientErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -70,6 +76,9 @@ func (i *jsiiProxy_IHttpApi) MetricClientError(props *awscloudwatch.MetricOption
 }
 
 func (i *jsiiProxy_IHttpApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -83,6 +92,9 @@ func (i *jsiiProxy_IHttpApi) MetricCount(props *awscloudwatch.MetricOptions) aws
 }
 
 func (i *jsiiProxy_IHttpApi) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricDataProcessedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -96,6 +108,9 @@ func (i *jsiiProxy_IHttpApi) MetricDataProcessed(props *awscloudwatch.MetricOpti
 }
 
 func (i *jsiiProxy_IHttpApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricIntegrationLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -109,6 +124,9 @@ func (i *jsiiProxy_IHttpApi) MetricIntegrationLatency(props *awscloudwatch.Metri
 }
 
 func (i *jsiiProxy_IHttpApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -122,6 +140,9 @@ func (i *jsiiProxy_IHttpApi) MetricLatency(props *awscloudwatch.MetricOptions) a
 }
 
 func (i *jsiiProxy_IHttpApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricServerErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(

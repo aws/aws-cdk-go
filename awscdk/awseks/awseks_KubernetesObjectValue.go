@@ -126,6 +126,9 @@ func (j *jsiiProxy_KubernetesObjectValue) Value() *string {
 func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *KubernetesObjectValueProps) KubernetesObjectValue {
 	_init_.Initialize()
 
+	if err := validateNewKubernetesObjectValueParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubernetesObjectValue{}
 
 	_jsii_.Create(
@@ -153,6 +156,9 @@ func NewKubernetesObjectValue_Override(k KubernetesObjectValue, scope constructs
 func KubernetesObjectValue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubernetesObjectValue_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -185,6 +191,9 @@ func (k *jsiiProxy_KubernetesObjectValue) OnPrepare() {
 }
 
 func (k *jsiiProxy_KubernetesObjectValue) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"onSynthesize",
@@ -214,6 +223,9 @@ func (k *jsiiProxy_KubernetesObjectValue) Prepare() {
 }
 
 func (k *jsiiProxy_KubernetesObjectValue) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"synthesize",

@@ -173,6 +173,9 @@ func (j *jsiiProxy_CfnMapping) Stack() Stack {
 func NewCfnMapping(scope constructs.Construct, id *string, props *CfnMappingProps) CfnMapping {
 	_init_.Initialize()
 
+	if err := validateNewCfnMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnMapping{}
 
 	_jsii_.Create(
@@ -205,6 +208,9 @@ func NewCfnMapping_Override(c CfnMapping, scope constructs.Construct, id *string
 func CfnMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMapping_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -222,6 +228,9 @@ func CfnMapping_IsCfnElement(x interface{}) *bool {
 func CfnMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -235,6 +244,9 @@ func CfnMapping_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_CfnMapping) FindInMap(key1 *string, key2 *string) *string {
+	if err := c.validateFindInMapParameters(key1, key2); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -256,6 +268,9 @@ func (c *jsiiProxy_CfnMapping) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -277,6 +292,9 @@ func (c *jsiiProxy_CfnMapping) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMapping) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -293,6 +311,9 @@ func (c *jsiiProxy_CfnMapping) Prepare() {
 }
 
 func (c *jsiiProxy_CfnMapping) SetValue(key1 *string, key2 *string, value interface{}) {
+	if err := c.validateSetValueParameters(key1, key2, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"setValue",
@@ -301,6 +322,9 @@ func (c *jsiiProxy_CfnMapping) SetValue(key1 *string, key2 *string, value interf
 }
 
 func (c *jsiiProxy_CfnMapping) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

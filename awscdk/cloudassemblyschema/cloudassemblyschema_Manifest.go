@@ -20,6 +20,9 @@ type jsiiProxy_Manifest struct {
 func Manifest_Load(filePath *string) *AssemblyManifest {
 	_init_.Initialize()
 
+	if err := validateManifest_LoadParameters(filePath); err != nil {
+		panic(err)
+	}
 	var returns *AssemblyManifest
 
 	_jsii_.StaticInvoke(
@@ -37,6 +40,9 @@ func Manifest_Load(filePath *string) *AssemblyManifest {
 func Manifest_LoadAssemblyManifest(filePath *string, options *LoadManifestOptions) *AssemblyManifest {
 	_init_.Initialize()
 
+	if err := validateManifest_LoadAssemblyManifestParameters(filePath, options); err != nil {
+		panic(err)
+	}
 	var returns *AssemblyManifest
 
 	_jsii_.StaticInvoke(
@@ -54,6 +60,9 @@ func Manifest_LoadAssemblyManifest(filePath *string, options *LoadManifestOption
 func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	_init_.Initialize()
 
+	if err := validateManifest_LoadAssetManifestParameters(filePath); err != nil {
+		panic(err)
+	}
 	var returns *AssetManifest
 
 	_jsii_.StaticInvoke(
@@ -71,6 +80,9 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 func Manifest_LoadIntegManifest(filePath *string) *IntegManifest {
 	_init_.Initialize()
 
+	if err := validateManifest_LoadIntegManifestParameters(filePath); err != nil {
+		panic(err)
+	}
 	var returns *IntegManifest
 
 	_jsii_.StaticInvoke(
@@ -88,6 +100,9 @@ func Manifest_LoadIntegManifest(filePath *string) *IntegManifest {
 func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
 	_init_.Initialize()
 
+	if err := validateManifest_SaveParameters(manifest, filePath); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.cloud_assembly_schema.Manifest",
 		"save",
@@ -100,6 +115,9 @@ func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
 func Manifest_SaveAssemblyManifest(manifest *AssemblyManifest, filePath *string) {
 	_init_.Initialize()
 
+	if err := validateManifest_SaveAssemblyManifestParameters(manifest, filePath); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssemblyManifest",
@@ -112,6 +130,9 @@ func Manifest_SaveAssemblyManifest(manifest *AssemblyManifest, filePath *string)
 func Manifest_SaveAssetManifest(manifest *AssetManifest, filePath *string) {
 	_init_.Initialize()
 
+	if err := validateManifest_SaveAssetManifestParameters(manifest, filePath); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssetManifest",
@@ -124,6 +145,9 @@ func Manifest_SaveAssetManifest(manifest *AssetManifest, filePath *string) {
 func Manifest_SaveIntegManifest(manifest *IntegManifest, filePath *string) {
 	_init_.Initialize()
 
+	if err := validateManifest_SaveIntegManifestParameters(manifest, filePath); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.cloud_assembly_schema.Manifest",
 		"saveIntegManifest",

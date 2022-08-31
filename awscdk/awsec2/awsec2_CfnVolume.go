@@ -577,6 +577,9 @@ func (j *jsiiProxy_CfnVolume) VolumeType() *string {
 func NewCfnVolume(scope awscdk.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
+	if err := validateNewCfnVolumeParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnVolume{}
 
 	_jsii_.Create(
@@ -599,7 +602,10 @@ func NewCfnVolume_Override(c CfnVolume, scope awscdk.Construct, id *string, prop
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetAutoEnableIo(val interface{}) {
+func (j *jsiiProxy_CfnVolume)SetAutoEnableIo(val interface{}) {
+	if err := j.validateSetAutoEnableIoParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"autoEnableIo",
@@ -607,7 +613,10 @@ func (j *jsiiProxy_CfnVolume) SetAutoEnableIo(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetAvailabilityZone(val *string) {
+func (j *jsiiProxy_CfnVolume)SetAvailabilityZone(val *string) {
+	if err := j.validateSetAvailabilityZoneParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"availabilityZone",
@@ -615,7 +624,10 @@ func (j *jsiiProxy_CfnVolume) SetAvailabilityZone(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetEncrypted(val interface{}) {
+func (j *jsiiProxy_CfnVolume)SetEncrypted(val interface{}) {
+	if err := j.validateSetEncryptedParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"encrypted",
@@ -623,7 +635,7 @@ func (j *jsiiProxy_CfnVolume) SetEncrypted(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetIops(val *float64) {
+func (j *jsiiProxy_CfnVolume)SetIops(val *float64) {
 	_jsii_.Set(
 		j,
 		"iops",
@@ -631,7 +643,7 @@ func (j *jsiiProxy_CfnVolume) SetIops(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetKmsKeyId(val *string) {
+func (j *jsiiProxy_CfnVolume)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
@@ -639,7 +651,10 @@ func (j *jsiiProxy_CfnVolume) SetKmsKeyId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetMultiAttachEnabled(val interface{}) {
+func (j *jsiiProxy_CfnVolume)SetMultiAttachEnabled(val interface{}) {
+	if err := j.validateSetMultiAttachEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"multiAttachEnabled",
@@ -647,7 +662,7 @@ func (j *jsiiProxy_CfnVolume) SetMultiAttachEnabled(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetOutpostArn(val *string) {
+func (j *jsiiProxy_CfnVolume)SetOutpostArn(val *string) {
 	_jsii_.Set(
 		j,
 		"outpostArn",
@@ -655,7 +670,7 @@ func (j *jsiiProxy_CfnVolume) SetOutpostArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetSize(val *float64) {
+func (j *jsiiProxy_CfnVolume)SetSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"size",
@@ -663,7 +678,7 @@ func (j *jsiiProxy_CfnVolume) SetSize(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetSnapshotId(val *string) {
+func (j *jsiiProxy_CfnVolume)SetSnapshotId(val *string) {
 	_jsii_.Set(
 		j,
 		"snapshotId",
@@ -671,7 +686,7 @@ func (j *jsiiProxy_CfnVolume) SetSnapshotId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetThroughput(val *float64) {
+func (j *jsiiProxy_CfnVolume)SetThroughput(val *float64) {
 	_jsii_.Set(
 		j,
 		"throughput",
@@ -679,7 +694,7 @@ func (j *jsiiProxy_CfnVolume) SetThroughput(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnVolume) SetVolumeType(val *string) {
+func (j *jsiiProxy_CfnVolume)SetVolumeType(val *string) {
 	_jsii_.Set(
 		j,
 		"volumeType",
@@ -697,6 +712,9 @@ func (j *jsiiProxy_CfnVolume) SetVolumeType(val *string) {
 func CfnVolume_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVolume_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -714,6 +732,9 @@ func CfnVolume_IsCfnElement(x interface{}) *bool {
 func CfnVolume_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVolume_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -731,6 +752,9 @@ func CfnVolume_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnVolume_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnVolume_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -755,6 +779,9 @@ func CfnVolume_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnVolume) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -763,6 +790,9 @@ func (c *jsiiProxy_CfnVolume) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnVolume) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -771,6 +801,9 @@ func (c *jsiiProxy_CfnVolume) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnVolume) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -779,6 +812,9 @@ func (c *jsiiProxy_CfnVolume) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnVolume) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -787,6 +823,9 @@ func (c *jsiiProxy_CfnVolume) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnVolume) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -795,6 +834,9 @@ func (c *jsiiProxy_CfnVolume) AddPropertyDeletionOverride(propertyPath *string) 
 }
 
 func (c *jsiiProxy_CfnVolume) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -803,6 +845,9 @@ func (c *jsiiProxy_CfnVolume) AddPropertyOverride(propertyPath *string, value in
 }
 
 func (c *jsiiProxy_CfnVolume) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -811,6 +856,9 @@ func (c *jsiiProxy_CfnVolume) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 }
 
 func (c *jsiiProxy_CfnVolume) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -824,6 +872,9 @@ func (c *jsiiProxy_CfnVolume) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnVolume) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -837,6 +888,9 @@ func (c *jsiiProxy_CfnVolume) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnVolume) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -853,6 +907,9 @@ func (c *jsiiProxy_CfnVolume) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnVolume) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -874,6 +931,9 @@ func (c *jsiiProxy_CfnVolume) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVolume) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -890,6 +950,9 @@ func (c *jsiiProxy_CfnVolume) Prepare() {
 }
 
 func (c *jsiiProxy_CfnVolume) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -916,6 +979,9 @@ func (c *jsiiProxy_CfnVolume) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnVolume) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -950,6 +1016,9 @@ func (c *jsiiProxy_CfnVolume) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnVolume) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -63,6 +63,9 @@ func (j *jsiiProxy_StackOutputReference) StackDescription() *string {
 func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputReference {
 	_init_.Initialize()
 
+	if err := validateStackOutputReference_FromCfnOutputParameters(output); err != nil {
+		panic(err)
+	}
 	var returns StackOutputReference
 
 	_jsii_.StaticInvoke(
@@ -76,6 +79,9 @@ func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputRefe
 }
 
 func (s *jsiiProxy_StackOutputReference) IsProducedBy(stack StackDeployment) *bool {
+	if err := s.validateIsProducedByParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

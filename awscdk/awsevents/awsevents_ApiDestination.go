@@ -230,6 +230,9 @@ func (j *jsiiProxy_ApiDestination) Stack() awscdk.Stack {
 func NewApiDestination(scope constructs.Construct, id *string, props *ApiDestinationProps) ApiDestination {
 	_init_.Initialize()
 
+	if err := validateNewApiDestinationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiDestination{}
 
 	_jsii_.Create(
@@ -257,6 +260,9 @@ func NewApiDestination_Override(a ApiDestination, scope constructs.Construct, id
 func ApiDestination_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApiDestination_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -274,6 +280,9 @@ func ApiDestination_IsConstruct(x interface{}) *bool {
 func ApiDestination_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateApiDestination_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -287,6 +296,9 @@ func ApiDestination_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_ApiDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -308,6 +320,9 @@ func (a *jsiiProxy_ApiDestination) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_ApiDestination) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -321,6 +336,9 @@ func (a *jsiiProxy_ApiDestination) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (a *jsiiProxy_ApiDestination) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -342,6 +360,9 @@ func (a *jsiiProxy_ApiDestination) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApiDestination) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -371,6 +392,9 @@ func (a *jsiiProxy_ApiDestination) Prepare() {
 }
 
 func (a *jsiiProxy_ApiDestination) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

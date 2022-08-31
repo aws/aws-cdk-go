@@ -22,6 +22,9 @@ type jsiiProxy_IResourceWithPolicy struct {
 }
 
 func (i *jsiiProxy_IResourceWithPolicy) AddToResourcePolicy(statement PolicyStatement) *AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToResourcePolicyResult
 
 	_jsii_.Invoke(

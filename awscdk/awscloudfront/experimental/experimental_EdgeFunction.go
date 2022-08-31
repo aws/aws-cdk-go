@@ -449,6 +449,9 @@ func (j *jsiiProxy_EdgeFunction) Version() *string {
 func NewEdgeFunction(scope constructs.Construct, id *string, props *EdgeFunctionProps) EdgeFunction {
 	_init_.Initialize()
 
+	if err := validateNewEdgeFunctionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EdgeFunction{}
 
 	_jsii_.Create(
@@ -476,6 +479,9 @@ func NewEdgeFunction_Override(e EdgeFunction, scope constructs.Construct, id *st
 func EdgeFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEdgeFunction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -493,6 +499,9 @@ func EdgeFunction_IsConstruct(x interface{}) *bool {
 func EdgeFunction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateEdgeFunction_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -506,6 +515,9 @@ func EdgeFunction_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (e *jsiiProxy_EdgeFunction) AddAlias(aliasName *string, options *awslambda.AliasOptions) awslambda.Alias {
+	if err := e.validateAddAliasParameters(aliasName, options); err != nil {
+		panic(err)
+	}
 	var returns awslambda.Alias
 
 	_jsii_.Invoke(
@@ -519,6 +531,9 @@ func (e *jsiiProxy_EdgeFunction) AddAlias(aliasName *string, options *awslambda.
 }
 
 func (e *jsiiProxy_EdgeFunction) AddEventSource(source awslambda.IEventSource) {
+	if err := e.validateAddEventSourceParameters(source); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addEventSource",
@@ -527,6 +542,9 @@ func (e *jsiiProxy_EdgeFunction) AddEventSource(source awslambda.IEventSource) {
 }
 
 func (e *jsiiProxy_EdgeFunction) AddEventSourceMapping(id *string, options *awslambda.EventSourceMappingOptions) awslambda.EventSourceMapping {
+	if err := e.validateAddEventSourceMappingParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awslambda.EventSourceMapping
 
 	_jsii_.Invoke(
@@ -540,6 +558,9 @@ func (e *jsiiProxy_EdgeFunction) AddEventSourceMapping(id *string, options *awsl
 }
 
 func (e *jsiiProxy_EdgeFunction) AddFunctionUrl(options *awslambda.FunctionUrlOptions) awslambda.FunctionUrl {
+	if err := e.validateAddFunctionUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awslambda.FunctionUrl
 
 	_jsii_.Invoke(
@@ -553,6 +574,9 @@ func (e *jsiiProxy_EdgeFunction) AddFunctionUrl(options *awslambda.FunctionUrlOp
 }
 
 func (e *jsiiProxy_EdgeFunction) AddPermission(id *string, permission *awslambda.Permission) {
+	if err := e.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPermission",
@@ -561,6 +585,9 @@ func (e *jsiiProxy_EdgeFunction) AddPermission(id *string, permission *awslambda
 }
 
 func (e *jsiiProxy_EdgeFunction) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := e.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addToRolePolicy",
@@ -569,6 +596,9 @@ func (e *jsiiProxy_EdgeFunction) AddToRolePolicy(statement awsiam.PolicyStatemen
 }
 
 func (e *jsiiProxy_EdgeFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -577,6 +607,9 @@ func (e *jsiiProxy_EdgeFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 }
 
 func (e *jsiiProxy_EdgeFunction) ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions) {
+	if err := e.validateConfigureAsyncInvokeParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"configureAsyncInvoke",
@@ -598,6 +631,9 @@ func (e *jsiiProxy_EdgeFunction) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_EdgeFunction) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -611,6 +647,9 @@ func (e *jsiiProxy_EdgeFunction) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (e *jsiiProxy_EdgeFunction) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -624,6 +663,9 @@ func (e *jsiiProxy_EdgeFunction) GetResourceNameAttribute(nameAttr *string) *str
 }
 
 func (e *jsiiProxy_EdgeFunction) GrantInvoke(identity awsiam.IGrantable) awsiam.Grant {
+	if err := e.validateGrantInvokeParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -637,6 +679,9 @@ func (e *jsiiProxy_EdgeFunction) GrantInvoke(identity awsiam.IGrantable) awsiam.
 }
 
 func (e *jsiiProxy_EdgeFunction) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
+	if err := e.validateGrantInvokeUrlParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -650,6 +695,9 @@ func (e *jsiiProxy_EdgeFunction) GrantInvokeUrl(identity awsiam.IGrantable) awsi
 }
 
 func (e *jsiiProxy_EdgeFunction) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -663,6 +711,9 @@ func (e *jsiiProxy_EdgeFunction) Metric(metricName *string, props *awscloudwatch
 }
 
 func (e *jsiiProxy_EdgeFunction) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -676,6 +727,9 @@ func (e *jsiiProxy_EdgeFunction) MetricDuration(props *awscloudwatch.MetricOptio
 }
 
 func (e *jsiiProxy_EdgeFunction) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -689,6 +743,9 @@ func (e *jsiiProxy_EdgeFunction) MetricErrors(props *awscloudwatch.MetricOptions
 }
 
 func (e *jsiiProxy_EdgeFunction) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -702,6 +759,9 @@ func (e *jsiiProxy_EdgeFunction) MetricInvocations(props *awscloudwatch.MetricOp
 }
 
 func (e *jsiiProxy_EdgeFunction) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := e.validateMetricThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -723,6 +783,9 @@ func (e *jsiiProxy_EdgeFunction) OnPrepare() {
 }
 
 func (e *jsiiProxy_EdgeFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -752,6 +815,9 @@ func (e *jsiiProxy_EdgeFunction) Prepare() {
 }
 
 func (e *jsiiProxy_EdgeFunction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

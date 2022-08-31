@@ -126,6 +126,9 @@ func (j *jsiiProxy_BucketDeployment) Node() awscdk.ConstructNode {
 func NewBucketDeployment(scope constructs.Construct, id *string, props *BucketDeploymentProps) BucketDeployment {
 	_init_.Initialize()
 
+	if err := validateNewBucketDeploymentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BucketDeployment{}
 
 	_jsii_.Create(
@@ -153,6 +156,9 @@ func NewBucketDeployment_Override(b BucketDeployment, scope constructs.Construct
 func BucketDeployment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBucketDeployment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -174,6 +180,9 @@ func (b *jsiiProxy_BucketDeployment) OnPrepare() {
 }
 
 func (b *jsiiProxy_BucketDeployment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -203,6 +212,9 @@ func (b *jsiiProxy_BucketDeployment) Prepare() {
 }
 
 func (b *jsiiProxy_BucketDeployment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

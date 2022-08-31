@@ -52,6 +52,9 @@ func (j *jsiiProxy_GlueVersion) Name() *string {
 func GlueVersion_Of(version *string) GlueVersion {
 	_init_.Initialize()
 
+	if err := validateGlueVersion_OfParameters(version); err != nil {
+		panic(err)
+	}
 	var returns GlueVersion
 
 	_jsii_.StaticInvoke(

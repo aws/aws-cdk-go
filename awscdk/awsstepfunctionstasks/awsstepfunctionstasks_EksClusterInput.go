@@ -44,6 +44,9 @@ func (j *jsiiProxy_EksClusterInput) ClusterName() *string {
 func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
 	_init_.Initialize()
 
+	if err := validateEksClusterInput_FromClusterParameters(cluster); err != nil {
+		panic(err)
+	}
 	var returns EksClusterInput
 
 	_jsii_.StaticInvoke(
@@ -61,6 +64,9 @@ func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
 func EksClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) EksClusterInput {
 	_init_.Initialize()
 
+	if err := validateEksClusterInput_FromTaskInputParameters(taskInput); err != nil {
+		panic(err)
+	}
 	var returns EksClusterInput
 
 	_jsii_.StaticInvoke(

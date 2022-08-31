@@ -513,6 +513,9 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) UpdatedProperites() *map[string]
 func NewCfnCapacityReservationFleet(scope awscdk.Construct, id *string, props *CfnCapacityReservationFleetProps) CfnCapacityReservationFleet {
 	_init_.Initialize()
 
+	if err := validateNewCfnCapacityReservationFleetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCapacityReservationFleet{}
 
 	_jsii_.Create(
@@ -535,7 +538,7 @@ func NewCfnCapacityReservationFleet_Override(c CfnCapacityReservationFleet, scop
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetAllocationStrategy(val *string) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetAllocationStrategy(val *string) {
 	_jsii_.Set(
 		j,
 		"allocationStrategy",
@@ -543,7 +546,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetAllocationStrategy(val *strin
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetEndDate(val *string) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetEndDate(val *string) {
 	_jsii_.Set(
 		j,
 		"endDate",
@@ -551,7 +554,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetEndDate(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetInstanceMatchCriteria(val *string) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetInstanceMatchCriteria(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceMatchCriteria",
@@ -559,7 +562,10 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetInstanceMatchCriteria(val *st
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetInstanceTypeSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetInstanceTypeSpecifications(val interface{}) {
+	if err := j.validateSetInstanceTypeSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceTypeSpecifications",
@@ -567,7 +573,10 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetInstanceTypeSpecifications(va
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetNoRemoveEndDate(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetNoRemoveEndDate(val interface{}) {
+	if err := j.validateSetNoRemoveEndDateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"noRemoveEndDate",
@@ -575,7 +584,10 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetNoRemoveEndDate(val interface
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetRemoveEndDate(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetRemoveEndDate(val interface{}) {
+	if err := j.validateSetRemoveEndDateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"removeEndDate",
@@ -583,7 +595,10 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetRemoveEndDate(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetTagSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetTagSpecifications(val interface{}) {
+	if err := j.validateSetTagSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagSpecifications",
@@ -591,7 +606,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetTagSpecifications(val interfa
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetTenancy(val *string) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetTenancy(val *string) {
 	_jsii_.Set(
 		j,
 		"tenancy",
@@ -599,7 +614,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetTenancy(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) SetTotalTargetCapacity(val *float64) {
+func (j *jsiiProxy_CfnCapacityReservationFleet)SetTotalTargetCapacity(val *float64) {
 	_jsii_.Set(
 		j,
 		"totalTargetCapacity",
@@ -617,6 +632,9 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) SetTotalTargetCapacity(val *floa
 func CfnCapacityReservationFleet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCapacityReservationFleet_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -634,6 +652,9 @@ func CfnCapacityReservationFleet_IsCfnElement(x interface{}) *bool {
 func CfnCapacityReservationFleet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCapacityReservationFleet_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -651,6 +672,9 @@ func CfnCapacityReservationFleet_IsCfnResource(construct constructs.IConstruct) 
 func CfnCapacityReservationFleet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCapacityReservationFleet_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -675,6 +699,9 @@ func CfnCapacityReservationFleet_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -683,6 +710,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) AddDeletionOverride(path *string
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -691,6 +721,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) AddDependsOn(target awscdk.CfnRe
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -699,6 +732,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) AddMetadata(key *string, value i
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -707,6 +743,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) AddOverride(path *string, value 
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -715,6 +754,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) AddPropertyDeletionOverride(prop
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -723,6 +765,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) AddPropertyOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -731,6 +776,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) ApplyRemovalPolicy(policy awscdk
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -744,6 +792,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) GetAtt(attributeName *string) aw
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -757,6 +808,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) GetMetadata(key *string) interfa
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -773,6 +827,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -794,6 +851,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -810,6 +870,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) Prepare() {
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -836,6 +899,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -870,6 +936,9 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

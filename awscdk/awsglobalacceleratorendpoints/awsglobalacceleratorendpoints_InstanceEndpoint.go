@@ -58,6 +58,9 @@ func (j *jsiiProxy_InstanceEndpoint) Region() *string {
 func NewInstanceEndpoint(instance awsec2.IInstance, options *InstanceEndpointProps) InstanceEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewInstanceEndpointParameters(instance, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InstanceEndpoint{}
 
 	_jsii_.Create(

@@ -452,6 +452,9 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) UpdatedProperites() *map[strin
 func NewCfnLoadBalancerTlsCertificate(scope awscdk.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) CfnLoadBalancerTlsCertificate {
 	_init_.Initialize()
 
+	if err := validateNewCfnLoadBalancerTlsCertificateParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnLoadBalancerTlsCertificate{}
 
 	_jsii_.Create(
@@ -474,7 +477,7 @@ func NewCfnLoadBalancerTlsCertificate_Override(c CfnLoadBalancerTlsCertificate, 
 	)
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetCertificateAlternativeNames(val *[]*string) {
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate)SetCertificateAlternativeNames(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"certificateAlternativeNames",
@@ -482,7 +485,10 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetCertificateAlternativeNames
 	)
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetCertificateDomainName(val *string) {
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate)SetCertificateDomainName(val *string) {
+	if err := j.validateSetCertificateDomainNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"certificateDomainName",
@@ -490,7 +496,10 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetCertificateDomainName(val *
 	)
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetCertificateName(val *string) {
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate)SetCertificateName(val *string) {
+	if err := j.validateSetCertificateNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"certificateName",
@@ -498,7 +507,10 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetCertificateName(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetHttpsRedirectionEnabled(val interface{}) {
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate)SetHttpsRedirectionEnabled(val interface{}) {
+	if err := j.validateSetHttpsRedirectionEnabledParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"httpsRedirectionEnabled",
@@ -506,7 +518,10 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetHttpsRedirectionEnabled(val
 	)
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetIsAttached(val interface{}) {
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate)SetIsAttached(val interface{}) {
+	if err := j.validateSetIsAttachedParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"isAttached",
@@ -514,7 +529,10 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetIsAttached(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetLoadBalancerName(val *string) {
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate)SetLoadBalancerName(val *string) {
+	if err := j.validateSetLoadBalancerNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"loadBalancerName",
@@ -532,6 +550,9 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetLoadBalancerName(val *strin
 func CfnLoadBalancerTlsCertificate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLoadBalancerTlsCertificate_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -549,6 +570,9 @@ func CfnLoadBalancerTlsCertificate_IsCfnElement(x interface{}) *bool {
 func CfnLoadBalancerTlsCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLoadBalancerTlsCertificate_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -566,6 +590,9 @@ func CfnLoadBalancerTlsCertificate_IsCfnResource(construct constructs.IConstruct
 func CfnLoadBalancerTlsCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLoadBalancerTlsCertificate_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -590,6 +617,9 @@ func CfnLoadBalancerTlsCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -598,6 +628,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddDeletionOverride(path *stri
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -606,6 +639,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddDependsOn(target awscdk.Cfn
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -614,6 +650,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddMetadata(key *string, value
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -622,6 +661,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddOverride(path *string, valu
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -630,6 +672,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddPropertyDeletionOverride(pr
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -638,6 +683,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) AddPropertyOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -646,6 +694,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) ApplyRemovalPolicy(policy awsc
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -659,6 +710,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) GetAtt(attributeName *string) 
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -672,6 +726,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) GetMetadata(key *string) inter
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -688,6 +745,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -709,6 +769,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -725,6 +788,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) Prepare() {
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -751,6 +817,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -785,6 +854,9 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

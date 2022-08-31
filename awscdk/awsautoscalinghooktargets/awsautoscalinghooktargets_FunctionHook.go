@@ -46,6 +46,9 @@ type jsiiProxy_FunctionHook struct {
 func NewFunctionHook(fn awslambda.IFunction, encryptionKey awskms.IKey) FunctionHook {
 	_init_.Initialize()
 
+	if err := validateNewFunctionHookParameters(fn); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FunctionHook{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryption
 }
 
 func (f *jsiiProxy_FunctionHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
+	if err := f.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(

@@ -221,7 +221,10 @@ func NewApplicationMultipleTargetGroupsServiceBase_Override(a ApplicationMultipl
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase)SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
+	if err := j.validateSetListenersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"listeners",
@@ -229,7 +232,7 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetListeners(val 
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetLogDriver(val awsecs.LogDriver) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase)SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
@@ -237,7 +240,10 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetLogDriver(val 
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase)SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
+	if err := j.validateSetTargetGroupsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetGroups",
@@ -250,6 +256,9 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetTargetGroups(v
 func ApplicationMultipleTargetGroupsServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationMultipleTargetGroupsServiceBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -263,6 +272,9 @@ func ApplicationMultipleTargetGroupsServiceBase_IsConstruct(x interface{}) *bool
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) {
+	if err := a.validateAddPortMappingForTargetsParameters(container, targets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addPortMappingForTargets",
@@ -271,6 +283,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) AddPortMappingFor
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := a.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -297,6 +312,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) FindListener(name
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := a.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -318,6 +336,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -347,6 +368,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
+	if err := a.validateRegisterECSTargetsParameters(service, container, targets); err != nil {
+		panic(err)
+	}
 	var returns awselasticloadbalancingv2.ApplicationTargetGroup
 
 	_jsii_.Invoke(
@@ -360,6 +384,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) RegisterECSTarget
 }
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

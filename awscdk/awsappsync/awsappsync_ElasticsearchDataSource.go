@@ -184,6 +184,9 @@ func (j *jsiiProxy_ElasticsearchDataSource) ServiceRole() awsiam.IRole {
 func NewElasticsearchDataSource(scope constructs.Construct, id *string, props *ElasticsearchDataSourceProps) ElasticsearchDataSource {
 	_init_.Initialize()
 
+	if err := validateNewElasticsearchDataSourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ElasticsearchDataSource{}
 
 	_jsii_.Create(
@@ -206,7 +209,10 @@ func NewElasticsearchDataSource_Override(e ElasticsearchDataSource, scope constr
 	)
 }
 
-func (j *jsiiProxy_ElasticsearchDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_ElasticsearchDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -214,7 +220,7 @@ func (j *jsiiProxy_ElasticsearchDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_ElasticsearchDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_ElasticsearchDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -227,6 +233,9 @@ func (j *jsiiProxy_ElasticsearchDataSource) SetServiceRole(val awsiam.IRole) {
 func ElasticsearchDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateElasticsearchDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -240,6 +249,9 @@ func ElasticsearchDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (e *jsiiProxy_ElasticsearchDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := e.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -253,6 +265,9 @@ func (e *jsiiProxy_ElasticsearchDataSource) CreateFunction(props *BaseAppsyncFun
 }
 
 func (e *jsiiProxy_ElasticsearchDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := e.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -274,6 +289,9 @@ func (e *jsiiProxy_ElasticsearchDataSource) OnPrepare() {
 }
 
 func (e *jsiiProxy_ElasticsearchDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -303,6 +321,9 @@ func (e *jsiiProxy_ElasticsearchDataSource) Prepare() {
 }
 
 func (e *jsiiProxy_ElasticsearchDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

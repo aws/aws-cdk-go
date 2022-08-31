@@ -154,6 +154,9 @@ func (j *jsiiProxy_ManualApprovalStep) PrimaryOutput() FileSet {
 func NewManualApprovalStep(id *string, props *ManualApprovalStepProps) ManualApprovalStep {
 	_init_.Initialize()
 
+	if err := validateNewManualApprovalStepParameters(id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ManualApprovalStep{}
 
 	_jsii_.Create(
@@ -185,6 +188,9 @@ func NewManualApprovalStep_Override(m ManualApprovalStep, id *string, props *Man
 func ManualApprovalStep_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
+	if err := validateManualApprovalStep_SequenceParameters(steps); err != nil {
+		panic(err)
+	}
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
@@ -198,6 +204,9 @@ func ManualApprovalStep_Sequence(steps *[]Step) *[]Step {
 }
 
 func (m *jsiiProxy_ManualApprovalStep) AddDependencyFileSet(fs FileSet) {
+	if err := m.validateAddDependencyFileSetParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addDependencyFileSet",
@@ -206,6 +215,9 @@ func (m *jsiiProxy_ManualApprovalStep) AddDependencyFileSet(fs FileSet) {
 }
 
 func (m *jsiiProxy_ManualApprovalStep) AddStepDependency(step Step) {
+	if err := m.validateAddStepDependencyParameters(step); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addStepDependency",
@@ -214,6 +226,9 @@ func (m *jsiiProxy_ManualApprovalStep) AddStepDependency(step Step) {
 }
 
 func (m *jsiiProxy_ManualApprovalStep) ConfigurePrimaryOutput(fs FileSet) {
+	if err := m.validateConfigurePrimaryOutputParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"configurePrimaryOutput",
@@ -222,6 +237,9 @@ func (m *jsiiProxy_ManualApprovalStep) ConfigurePrimaryOutput(fs FileSet) {
 }
 
 func (m *jsiiProxy_ManualApprovalStep) DiscoverReferencedOutputs(structure interface{}) {
+	if err := m.validateDiscoverReferencedOutputsParameters(structure); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"discoverReferencedOutputs",

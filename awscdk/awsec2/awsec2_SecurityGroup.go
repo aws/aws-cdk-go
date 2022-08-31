@@ -391,6 +391,9 @@ func (j *jsiiProxy_SecurityGroup) UniqueId() *string {
 func NewSecurityGroup(scope constructs.Construct, id *string, props *SecurityGroupProps) SecurityGroup {
 	_init_.Initialize()
 
+	if err := validateNewSecurityGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SecurityGroup{}
 
 	_jsii_.Create(
@@ -418,6 +421,9 @@ func NewSecurityGroup_Override(s SecurityGroup, scope constructs.Construct, id *
 func SecurityGroup_FromLookup(scope constructs.Construct, id *string, securityGroupId *string) ISecurityGroup {
 	_init_.Initialize()
 
+	if err := validateSecurityGroup_FromLookupParameters(scope, id, securityGroupId); err != nil {
+		panic(err)
+	}
 	var returns ISecurityGroup
 
 	_jsii_.StaticInvoke(
@@ -435,6 +441,9 @@ func SecurityGroup_FromLookup(scope constructs.Construct, id *string, securityGr
 func SecurityGroup_FromLookupById(scope constructs.Construct, id *string, securityGroupId *string) ISecurityGroup {
 	_init_.Initialize()
 
+	if err := validateSecurityGroup_FromLookupByIdParameters(scope, id, securityGroupId); err != nil {
+		panic(err)
+	}
 	var returns ISecurityGroup
 
 	_jsii_.StaticInvoke(
@@ -452,6 +461,9 @@ func SecurityGroup_FromLookupById(scope constructs.Construct, id *string, securi
 func SecurityGroup_FromLookupByName(scope constructs.Construct, id *string, securityGroupName *string, vpc IVpc) ISecurityGroup {
 	_init_.Initialize()
 
+	if err := validateSecurityGroup_FromLookupByNameParameters(scope, id, securityGroupName, vpc); err != nil {
+		panic(err)
+	}
 	var returns ISecurityGroup
 
 	_jsii_.StaticInvoke(
@@ -476,6 +488,9 @@ func SecurityGroup_FromLookupByName(scope constructs.Construct, id *string, secu
 func SecurityGroup_FromSecurityGroupId(scope constructs.Construct, id *string, securityGroupId *string, options *SecurityGroupImportOptions) ISecurityGroup {
 	_init_.Initialize()
 
+	if err := validateSecurityGroup_FromSecurityGroupIdParameters(scope, id, securityGroupId, options); err != nil {
+		panic(err)
+	}
 	var returns ISecurityGroup
 
 	_jsii_.StaticInvoke(
@@ -493,6 +508,9 @@ func SecurityGroup_FromSecurityGroupId(scope constructs.Construct, id *string, s
 func SecurityGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSecurityGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -510,6 +528,9 @@ func SecurityGroup_IsConstruct(x interface{}) *bool {
 func SecurityGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSecurityGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -527,6 +548,9 @@ func SecurityGroup_IsResource(construct awscdk.IConstruct) *bool {
 func SecurityGroup_IsSecurityGroup(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSecurityGroup_IsSecurityGroupParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -540,6 +564,9 @@ func SecurityGroup_IsSecurityGroup(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_SecurityGroup) AddEgressRule(peer IPeer, connection Port, description *string, remoteRule *bool) {
+	if err := s.validateAddEgressRuleParameters(peer, connection); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addEgressRule",
@@ -548,6 +575,9 @@ func (s *jsiiProxy_SecurityGroup) AddEgressRule(peer IPeer, connection Port, des
 }
 
 func (s *jsiiProxy_SecurityGroup) AddIngressRule(peer IPeer, connection Port, description *string, remoteRule *bool) {
+	if err := s.validateAddIngressRuleParameters(peer, connection); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addIngressRule",
@@ -556,6 +586,9 @@ func (s *jsiiProxy_SecurityGroup) AddIngressRule(peer IPeer, connection Port, de
 }
 
 func (s *jsiiProxy_SecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -564,6 +597,9 @@ func (s *jsiiProxy_SecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (s *jsiiProxy_SecurityGroup) DetermineRuleScope(peer IPeer, connection Port, fromTo *string, remoteRule *bool) *map[string]interface{} {
+	if err := s.validateDetermineRuleScopeParameters(peer, connection, fromTo); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -590,6 +626,9 @@ func (s *jsiiProxy_SecurityGroup) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_SecurityGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -603,6 +642,9 @@ func (s *jsiiProxy_SecurityGroup) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (s *jsiiProxy_SecurityGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -624,6 +666,9 @@ func (s *jsiiProxy_SecurityGroup) OnPrepare() {
 }
 
 func (s *jsiiProxy_SecurityGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -653,6 +698,9 @@ func (s *jsiiProxy_SecurityGroup) Prepare() {
 }
 
 func (s *jsiiProxy_SecurityGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

@@ -36,6 +36,9 @@ type jsiiProxy_ContainerDefinition struct {
 func NewContainerDefinition(options *ContainerDefinitionOptions) ContainerDefinition {
 	_init_.Initialize()
 
+	if err := validateNewContainerDefinitionParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ContainerDefinition{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewContainerDefinition_Override(c ContainerDefinition, options *ContainerDe
 }
 
 func (c *jsiiProxy_ContainerDefinition) Bind(task ISageMakerTask) *ContainerDefinitionConfig {
+	if err := c.validateBindParameters(task); err != nil {
+		panic(err)
+	}
 	var returns *ContainerDefinitionConfig
 
 	_jsii_.Invoke(

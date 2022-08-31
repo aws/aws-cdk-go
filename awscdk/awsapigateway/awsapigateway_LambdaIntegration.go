@@ -32,6 +32,9 @@ type jsiiProxy_LambdaIntegration struct {
 func NewLambdaIntegration(handler awslambda.IFunction, options *LambdaIntegrationOptions) LambdaIntegration {
 	_init_.Initialize()
 
+	if err := validateNewLambdaIntegrationParameters(handler, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaIntegration{}
 
 	_jsii_.Create(
@@ -55,6 +58,9 @@ func NewLambdaIntegration_Override(l LambdaIntegration, handler awslambda.IFunct
 }
 
 func (l *jsiiProxy_LambdaIntegration) Bind(method Method) *IntegrationConfig {
+	if err := l.validateBindParameters(method); err != nil {
+		panic(err)
+	}
 	var returns *IntegrationConfig
 
 	_jsii_.Invoke(

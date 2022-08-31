@@ -73,6 +73,9 @@ func (j *jsiiProxy_ExposedSecret) SecretArn() *string {
 func NewExposedSecret(optionName *string, secretArn *string) ExposedSecret {
 	_init_.Initialize()
 
+	if err := validateNewExposedSecretParameters(optionName, secretArn); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ExposedSecret{}
 
 	_jsii_.Create(
@@ -95,7 +98,10 @@ func NewExposedSecret_Override(e ExposedSecret, optionName *string, secretArn *s
 	)
 }
 
-func (j *jsiiProxy_ExposedSecret) SetOptionName(val *string) {
+func (j *jsiiProxy_ExposedSecret)SetOptionName(val *string) {
+	if err := j.validateSetOptionNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"optionName",
@@ -103,7 +109,10 @@ func (j *jsiiProxy_ExposedSecret) SetOptionName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_ExposedSecret) SetSecretArn(val *string) {
+func (j *jsiiProxy_ExposedSecret)SetSecretArn(val *string) {
+	if err := j.validateSetSecretArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"secretArn",
@@ -116,6 +125,9 @@ func (j *jsiiProxy_ExposedSecret) SetSecretArn(val *string) {
 func ExposedSecret_FromParametersStore(optionName *string, parameter awsssm.IParameter) ExposedSecret {
 	_init_.Initialize()
 
+	if err := validateExposedSecret_FromParametersStoreParameters(optionName, parameter); err != nil {
+		panic(err)
+	}
 	var returns ExposedSecret
 
 	_jsii_.StaticInvoke(
@@ -133,6 +145,9 @@ func ExposedSecret_FromParametersStore(optionName *string, parameter awsssm.IPar
 func ExposedSecret_FromSecretsManager(optionName *string, secret awssecretsmanager.ISecret) ExposedSecret {
 	_init_.Initialize()
 
+	if err := validateExposedSecret_FromSecretsManagerParameters(optionName, secret); err != nil {
+		panic(err)
+	}
 	var returns ExposedSecret
 
 	_jsii_.StaticInvoke(

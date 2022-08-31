@@ -44,6 +44,9 @@ func (j *jsiiProxy_Cpu) Unit() *string {
 func Cpu_Of(unit *string) Cpu {
 	_init_.Initialize()
 
+	if err := validateCpu_OfParameters(unit); err != nil {
+		panic(err)
+	}
 	var returns Cpu
 
 	_jsii_.StaticInvoke(

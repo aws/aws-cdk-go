@@ -41,6 +41,9 @@ func (j *jsiiProxy_RepositoryEncryption) Value() *string {
 func NewRepositoryEncryption(value *string) RepositoryEncryption {
 	_init_.Initialize()
 
+	if err := validateNewRepositoryEncryptionParameters(value); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RepositoryEncryption{}
 
 	_jsii_.Create(

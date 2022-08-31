@@ -34,6 +34,9 @@ type jsiiProxy_AttributeValuesStep struct {
 func NewAttributeValuesStep(attr *string, container *string, assignments *[]Assign) AttributeValuesStep {
 	_init_.Initialize()
 
+	if err := validateNewAttributeValuesStepParameters(attr, container, assignments); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AttributeValuesStep{}
 
 	_jsii_.Create(
@@ -57,6 +60,9 @@ func NewAttributeValuesStep_Override(a AttributeValuesStep, attr *string, contai
 }
 
 func (a *jsiiProxy_AttributeValuesStep) Is(val *string) AttributeValues {
+	if err := a.validateIsParameters(val); err != nil {
+		panic(err)
+	}
 	var returns AttributeValues
 
 	_jsii_.Invoke(

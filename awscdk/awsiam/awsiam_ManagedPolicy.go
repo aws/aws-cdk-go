@@ -262,6 +262,9 @@ func (j *jsiiProxy_ManagedPolicy) Stack() awscdk.Stack {
 func NewManagedPolicy(scope constructs.Construct, id *string, props *ManagedPolicyProps) ManagedPolicy {
 	_init_.Initialize()
 
+	if err := validateNewManagedPolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ManagedPolicy{}
 
 	_jsii_.Create(
@@ -295,6 +298,9 @@ func NewManagedPolicy_Override(m ManagedPolicy, scope constructs.Construct, id *
 func ManagedPolicy_FromAwsManagedPolicyName(managedPolicyName *string) IManagedPolicy {
 	_init_.Initialize()
 
+	if err := validateManagedPolicy_FromAwsManagedPolicyNameParameters(managedPolicyName); err != nil {
+		panic(err)
+	}
 	var returns IManagedPolicy
 
 	_jsii_.StaticInvoke(
@@ -324,6 +330,9 @@ func ManagedPolicy_FromAwsManagedPolicyName(managedPolicyName *string) IManagedP
 func ManagedPolicy_FromManagedPolicyArn(scope constructs.Construct, id *string, managedPolicyArn *string) IManagedPolicy {
 	_init_.Initialize()
 
+	if err := validateManagedPolicy_FromManagedPolicyArnParameters(scope, id, managedPolicyArn); err != nil {
+		panic(err)
+	}
 	var returns IManagedPolicy
 
 	_jsii_.StaticInvoke(
@@ -343,6 +352,9 @@ func ManagedPolicy_FromManagedPolicyArn(scope constructs.Construct, id *string, 
 func ManagedPolicy_FromManagedPolicyName(scope constructs.Construct, id *string, managedPolicyName *string) IManagedPolicy {
 	_init_.Initialize()
 
+	if err := validateManagedPolicy_FromManagedPolicyNameParameters(scope, id, managedPolicyName); err != nil {
+		panic(err)
+	}
 	var returns IManagedPolicy
 
 	_jsii_.StaticInvoke(
@@ -360,6 +372,9 @@ func ManagedPolicy_FromManagedPolicyName(scope constructs.Construct, id *string,
 func ManagedPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateManagedPolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -377,6 +392,9 @@ func ManagedPolicy_IsConstruct(x interface{}) *bool {
 func ManagedPolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateManagedPolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -403,6 +421,9 @@ func (m *jsiiProxy_ManagedPolicy) AddStatements(statement ...PolicyStatement) {
 }
 
 func (m *jsiiProxy_ManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := m.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"applyRemovalPolicy",
@@ -411,6 +432,9 @@ func (m *jsiiProxy_ManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group IGroup) {
+	if err := m.validateAttachToGroupParameters(group); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"attachToGroup",
@@ -419,6 +443,9 @@ func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group IGroup) {
 }
 
 func (m *jsiiProxy_ManagedPolicy) AttachToRole(role IRole) {
+	if err := m.validateAttachToRoleParameters(role); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"attachToRole",
@@ -427,6 +454,9 @@ func (m *jsiiProxy_ManagedPolicy) AttachToRole(role IRole) {
 }
 
 func (m *jsiiProxy_ManagedPolicy) AttachToUser(user IUser) {
+	if err := m.validateAttachToUserParameters(user); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"attachToUser",
@@ -448,6 +478,9 @@ func (m *jsiiProxy_ManagedPolicy) GeneratePhysicalName() *string {
 }
 
 func (m *jsiiProxy_ManagedPolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := m.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -461,6 +494,9 @@ func (m *jsiiProxy_ManagedPolicy) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (m *jsiiProxy_ManagedPolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := m.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -482,6 +518,9 @@ func (m *jsiiProxy_ManagedPolicy) OnPrepare() {
 }
 
 func (m *jsiiProxy_ManagedPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := m.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"onSynthesize",
@@ -511,6 +550,9 @@ func (m *jsiiProxy_ManagedPolicy) Prepare() {
 }
 
 func (m *jsiiProxy_ManagedPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := m.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"synthesize",

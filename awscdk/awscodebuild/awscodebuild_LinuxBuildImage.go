@@ -156,6 +156,9 @@ func (j *jsiiProxy_LinuxBuildImage) Type() *string {
 func LinuxBuildImage_FromAsset(scope constructs.Construct, id *string, props *awsecrassets.DockerImageAssetProps) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxBuildImage_FromAssetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -181,6 +184,9 @@ func LinuxBuildImage_FromAsset(scope constructs.Construct, id *string, props *aw
 func LinuxBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxBuildImage_FromCodeBuildImageIdParameters(id); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -198,6 +204,9 @@ func LinuxBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 func LinuxBuildImage_FromDockerRegistry(name *string, options *DockerImageOptions) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxBuildImage_FromDockerRegistryParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -220,6 +229,9 @@ func LinuxBuildImage_FromDockerRegistry(name *string, options *DockerImageOption
 func LinuxBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxBuildImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -673,6 +685,9 @@ func LinuxBuildImage_UBUNTU_14_04_RUBY_2_5_3() IBuildImage {
 }
 
 func (l *jsiiProxy_LinuxBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
+	if err := l.validateRunScriptBuildspecParameters(entrypoint); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.Invoke(
@@ -686,6 +701,9 @@ func (l *jsiiProxy_LinuxBuildImage) RunScriptBuildspec(entrypoint *string) Build
 }
 
 func (l *jsiiProxy_LinuxBuildImage) Validate(_arg *BuildEnvironment) *[]*string {
+	if err := l.validateValidateParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

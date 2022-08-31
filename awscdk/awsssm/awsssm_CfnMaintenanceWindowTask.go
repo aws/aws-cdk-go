@@ -615,6 +615,9 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) WindowId() *string {
 func NewCfnMaintenanceWindowTask(scope awscdk.Construct, id *string, props *CfnMaintenanceWindowTaskProps) CfnMaintenanceWindowTask {
 	_init_.Initialize()
 
+	if err := validateNewCfnMaintenanceWindowTaskParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnMaintenanceWindowTask{}
 
 	_jsii_.Create(
@@ -637,7 +640,7 @@ func NewCfnMaintenanceWindowTask_Override(c CfnMaintenanceWindowTask, scope awsc
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetCutoffBehavior(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetCutoffBehavior(val *string) {
 	_jsii_.Set(
 		j,
 		"cutoffBehavior",
@@ -645,7 +648,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetCutoffBehavior(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetDescription(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -653,7 +656,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetLoggingInfo(val interface{}) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetLoggingInfo(val interface{}) {
+	if err := j.validateSetLoggingInfoParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"loggingInfo",
@@ -661,7 +667,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetLoggingInfo(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetMaxConcurrency(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetMaxConcurrency(val *string) {
 	_jsii_.Set(
 		j,
 		"maxConcurrency",
@@ -669,7 +675,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetMaxConcurrency(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetMaxErrors(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetMaxErrors(val *string) {
 	_jsii_.Set(
 		j,
 		"maxErrors",
@@ -677,7 +683,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetMaxErrors(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetName(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
@@ -685,7 +691,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetPriority(val *float64) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetPriority(val *float64) {
+	if err := j.validateSetPriorityParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"priority",
@@ -693,7 +702,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetPriority(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetServiceRoleArn(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetServiceRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceRoleArn",
@@ -701,7 +710,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetServiceRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTargets(val interface{}) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTargets(val interface{}) {
+	if err := j.validateSetTargetsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targets",
@@ -709,7 +721,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTargets(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskArn(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskArn(val *string) {
+	if err := j.validateSetTaskArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"taskArn",
@@ -717,7 +732,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskInvocationParameters(val interface{}) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskInvocationParameters(val interface{}) {
+	if err := j.validateSetTaskInvocationParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"taskInvocationParameters",
@@ -725,7 +743,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskInvocationParameters(val int
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskParameters(val interface{}) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskParameters(val interface{}) {
+	if err := j.validateSetTaskParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"taskParameters",
@@ -733,7 +754,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskParameters(val interface{}) 
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskType(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskType(val *string) {
+	if err := j.validateSetTaskTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"taskType",
@@ -741,7 +765,10 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetTaskType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) SetWindowId(val *string) {
+func (j *jsiiProxy_CfnMaintenanceWindowTask)SetWindowId(val *string) {
+	if err := j.validateSetWindowIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"windowId",
@@ -759,6 +786,9 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) SetWindowId(val *string) {
 func CfnMaintenanceWindowTask_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMaintenanceWindowTask_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -776,6 +806,9 @@ func CfnMaintenanceWindowTask_IsCfnElement(x interface{}) *bool {
 func CfnMaintenanceWindowTask_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMaintenanceWindowTask_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -793,6 +826,9 @@ func CfnMaintenanceWindowTask_IsCfnResource(construct constructs.IConstruct) *bo
 func CfnMaintenanceWindowTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnMaintenanceWindowTask_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -817,6 +853,9 @@ func CfnMaintenanceWindowTask_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -825,6 +864,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -833,6 +875,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) AddDependsOn(target awscdk.CfnResou
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -841,6 +886,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) AddMetadata(key *string, value inte
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -849,6 +897,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) AddOverride(path *string, value int
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -857,6 +908,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) AddPropertyDeletionOverride(propert
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -865,6 +919,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) AddPropertyOverride(propertyPath *s
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -873,6 +930,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) ApplyRemovalPolicy(policy awscdk.Re
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -886,6 +946,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) GetAtt(attributeName *string) awscd
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -899,6 +962,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) GetMetadata(key *string) interface{
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -915,6 +981,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -936,6 +1005,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -952,6 +1024,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) Prepare() {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -978,6 +1053,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1012,6 +1090,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

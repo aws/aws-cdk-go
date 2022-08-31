@@ -216,6 +216,9 @@ func (j *jsiiProxy_FunctionUrl) Url() *string {
 func NewFunctionUrl(scope constructs.Construct, id *string, props *FunctionUrlProps) FunctionUrl {
 	_init_.Initialize()
 
+	if err := validateNewFunctionUrlParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FunctionUrl{}
 
 	_jsii_.Create(
@@ -243,6 +246,9 @@ func NewFunctionUrl_Override(f FunctionUrl, scope constructs.Construct, id *stri
 func FunctionUrl_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFunctionUrl_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -260,6 +266,9 @@ func FunctionUrl_IsConstruct(x interface{}) *bool {
 func FunctionUrl_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFunctionUrl_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -273,6 +282,9 @@ func FunctionUrl_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (f *jsiiProxy_FunctionUrl) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -294,6 +306,9 @@ func (f *jsiiProxy_FunctionUrl) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FunctionUrl) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -307,6 +322,9 @@ func (f *jsiiProxy_FunctionUrl) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (f *jsiiProxy_FunctionUrl) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -320,6 +338,9 @@ func (f *jsiiProxy_FunctionUrl) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 func (f *jsiiProxy_FunctionUrl) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantInvokeUrlParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -341,6 +362,9 @@ func (f *jsiiProxy_FunctionUrl) OnPrepare() {
 }
 
 func (f *jsiiProxy_FunctionUrl) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -370,6 +394,9 @@ func (f *jsiiProxy_FunctionUrl) Prepare() {
 }
 
 func (f *jsiiProxy_FunctionUrl) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

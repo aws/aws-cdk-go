@@ -50,6 +50,9 @@ type jsiiProxy_CodeBuildProject struct {
 func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectProps) CodeBuildProject {
 	_init_.Initialize()
 
+	if err := validateNewCodeBuildProjectParameters(project, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodeBuildProject{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProj
 }
 
 func (c *jsiiProxy_CodeBuildProject) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := c.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

@@ -32,6 +32,9 @@ func NewProxyConfiguration_Override(p ProxyConfiguration) {
 }
 
 func (p *jsiiProxy_ProxyConfiguration) Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
+	if err := p.validateBindParameters(_scope, _taskDefinition); err != nil {
+		panic(err)
+	}
 	var returns *CfnTaskDefinition_ProxyConfigurationProperty
 
 	_jsii_.Invoke(

@@ -37,6 +37,9 @@ type jsiiProxy_IotRepublishMqttAction struct {
 func NewIotRepublishMqttAction(topic *string, props *IotRepublishMqttActionProps) IotRepublishMqttAction {
 	_init_.Initialize()
 
+	if err := validateNewIotRepublishMqttActionParameters(topic, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IotRepublishMqttAction{}
 
 	_jsii_.Create(
@@ -60,6 +63,9 @@ func NewIotRepublishMqttAction_Override(i IotRepublishMqttAction, topic *string,
 }
 
 func (i *jsiiProxy_IotRepublishMqttAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := i.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

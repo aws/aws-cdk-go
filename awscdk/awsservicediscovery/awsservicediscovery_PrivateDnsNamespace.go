@@ -286,6 +286,9 @@ func (j *jsiiProxy_PrivateDnsNamespace) Type() NamespaceType {
 func NewPrivateDnsNamespace(scope constructs.Construct, id *string, props *PrivateDnsNamespaceProps) PrivateDnsNamespace {
 	_init_.Initialize()
 
+	if err := validateNewPrivateDnsNamespaceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PrivateDnsNamespace{}
 
 	_jsii_.Create(
@@ -312,6 +315,9 @@ func NewPrivateDnsNamespace_Override(p PrivateDnsNamespace, scope constructs.Con
 func PrivateDnsNamespace_FromPrivateDnsNamespaceAttributes(scope constructs.Construct, id *string, attrs *PrivateDnsNamespaceAttributes) IPrivateDnsNamespace {
 	_init_.Initialize()
 
+	if err := validatePrivateDnsNamespace_FromPrivateDnsNamespaceAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IPrivateDnsNamespace
 
 	_jsii_.StaticInvoke(
@@ -329,6 +335,9 @@ func PrivateDnsNamespace_FromPrivateDnsNamespaceAttributes(scope constructs.Cons
 func PrivateDnsNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePrivateDnsNamespace_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -346,6 +355,9 @@ func PrivateDnsNamespace_IsConstruct(x interface{}) *bool {
 func PrivateDnsNamespace_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePrivateDnsNamespace_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -359,6 +371,9 @@ func PrivateDnsNamespace_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_PrivateDnsNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -367,6 +382,9 @@ func (p *jsiiProxy_PrivateDnsNamespace) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (p *jsiiProxy_PrivateDnsNamespace) CreateService(id *string, props *DnsServiceProps) Service {
+	if err := p.validateCreateServiceParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns Service
 
 	_jsii_.Invoke(
@@ -393,6 +411,9 @@ func (p *jsiiProxy_PrivateDnsNamespace) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_PrivateDnsNamespace) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -406,6 +427,9 @@ func (p *jsiiProxy_PrivateDnsNamespace) GetResourceArnAttribute(arnAttr *string,
 }
 
 func (p *jsiiProxy_PrivateDnsNamespace) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -427,6 +451,9 @@ func (p *jsiiProxy_PrivateDnsNamespace) OnPrepare() {
 }
 
 func (p *jsiiProxy_PrivateDnsNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -456,6 +483,9 @@ func (p *jsiiProxy_PrivateDnsNamespace) Prepare() {
 }
 
 func (p *jsiiProxy_PrivateDnsNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

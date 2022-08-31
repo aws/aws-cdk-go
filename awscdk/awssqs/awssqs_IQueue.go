@@ -126,6 +126,9 @@ type jsiiProxy_IQueue struct {
 }
 
 func (i *jsiiProxy_IQueue) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -139,6 +142,9 @@ func (i *jsiiProxy_IQueue) AddToResourcePolicy(statement awsiam.PolicyStatement)
 }
 
 func (i *jsiiProxy_IQueue) Grant(grantee awsiam.IGrantable, queueActions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range queueActions {
 		args = append(args, a)
@@ -157,6 +163,9 @@ func (i *jsiiProxy_IQueue) Grant(grantee awsiam.IGrantable, queueActions ...*str
 }
 
 func (i *jsiiProxy_IQueue) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantConsumeMessagesParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -170,6 +179,9 @@ func (i *jsiiProxy_IQueue) GrantConsumeMessages(grantee awsiam.IGrantable) awsia
 }
 
 func (i *jsiiProxy_IQueue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPurgeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -183,6 +195,9 @@ func (i *jsiiProxy_IQueue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (i *jsiiProxy_IQueue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantSendMessagesParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -196,6 +211,9 @@ func (i *jsiiProxy_IQueue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.G
 }
 
 func (i *jsiiProxy_IQueue) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -209,6 +227,9 @@ func (i *jsiiProxy_IQueue) Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 func (i *jsiiProxy_IQueue) MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricApproximateAgeOfOldestMessageParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -222,6 +243,9 @@ func (i *jsiiProxy_IQueue) MetricApproximateAgeOfOldestMessage(props *awscloudwa
 }
 
 func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricApproximateNumberOfMessagesDelayedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -235,6 +259,9 @@ func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesDelayed(props *awscl
 }
 
 func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricApproximateNumberOfMessagesNotVisibleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -248,6 +275,9 @@ func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesNotVisible(props *aw
 }
 
 func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricApproximateNumberOfMessagesVisibleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -261,6 +291,9 @@ func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesVisible(props *awscl
 }
 
 func (i *jsiiProxy_IQueue) MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfEmptyReceivesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -274,6 +307,9 @@ func (i *jsiiProxy_IQueue) MetricNumberOfEmptyReceives(props *awscloudwatch.Metr
 }
 
 func (i *jsiiProxy_IQueue) MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfMessagesDeletedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -287,6 +323,9 @@ func (i *jsiiProxy_IQueue) MetricNumberOfMessagesDeleted(props *awscloudwatch.Me
 }
 
 func (i *jsiiProxy_IQueue) MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfMessagesReceivedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -300,6 +339,9 @@ func (i *jsiiProxy_IQueue) MetricNumberOfMessagesReceived(props *awscloudwatch.M
 }
 
 func (i *jsiiProxy_IQueue) MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricNumberOfMessagesSentParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -313,6 +355,9 @@ func (i *jsiiProxy_IQueue) MetricNumberOfMessagesSent(props *awscloudwatch.Metri
 }
 
 func (i *jsiiProxy_IQueue) MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSentMessageSizeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(

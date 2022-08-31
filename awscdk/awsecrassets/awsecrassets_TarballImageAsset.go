@@ -171,6 +171,9 @@ func (j *jsiiProxy_TarballImageAsset) SourceHash() *string {
 func NewTarballImageAsset(scope constructs.Construct, id *string, props *TarballImageAssetProps) TarballImageAsset {
 	_init_.Initialize()
 
+	if err := validateNewTarballImageAssetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TarballImageAsset{}
 
 	_jsii_.Create(
@@ -193,7 +196,10 @@ func NewTarballImageAsset_Override(t TarballImageAsset, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_TarballImageAsset) SetImageUri(val *string) {
+func (j *jsiiProxy_TarballImageAsset)SetImageUri(val *string) {
+	if err := j.validateSetImageUriParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"imageUri",
@@ -201,7 +207,10 @@ func (j *jsiiProxy_TarballImageAsset) SetImageUri(val *string) {
 	)
 }
 
-func (j *jsiiProxy_TarballImageAsset) SetRepository(val awsecr.IRepository) {
+func (j *jsiiProxy_TarballImageAsset)SetRepository(val awsecr.IRepository) {
+	if err := j.validateSetRepositoryParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"repository",
@@ -214,6 +223,9 @@ func (j *jsiiProxy_TarballImageAsset) SetRepository(val awsecr.IRepository) {
 func TarballImageAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTarballImageAsset_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -235,6 +247,9 @@ func (t *jsiiProxy_TarballImageAsset) OnPrepare() {
 }
 
 func (t *jsiiProxy_TarballImageAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -264,6 +279,9 @@ func (t *jsiiProxy_TarballImageAsset) Prepare() {
 }
 
 func (t *jsiiProxy_TarballImageAsset) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

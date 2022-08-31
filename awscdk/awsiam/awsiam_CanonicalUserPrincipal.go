@@ -146,6 +146,9 @@ func (j *jsiiProxy_CanonicalUserPrincipal) PrincipalAccount() *string {
 func NewCanonicalUserPrincipal(canonicalUserId *string) CanonicalUserPrincipal {
 	_init_.Initialize()
 
+	if err := validateNewCanonicalUserPrincipalParameters(canonicalUserId); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CanonicalUserPrincipal{}
 
 	_jsii_.Create(
@@ -169,6 +172,9 @@ func NewCanonicalUserPrincipal_Override(c CanonicalUserPrincipal, canonicalUserI
 }
 
 func (c *jsiiProxy_CanonicalUserPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := c.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addToAssumeRolePolicy",
@@ -177,6 +183,9 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToAssumeRolePolicy(document Policy
 }
 
 func (c *jsiiProxy_CanonicalUserPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := c.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -190,6 +199,9 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToPolicy(statement PolicyStatement
 }
 
 func (c *jsiiProxy_CanonicalUserPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := c.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -242,6 +254,9 @@ func (c *jsiiProxy_CanonicalUserPrincipal) ToString() *string {
 }
 
 func (c *jsiiProxy_CanonicalUserPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := c.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

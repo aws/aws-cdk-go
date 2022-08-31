@@ -23,6 +23,9 @@ type jsiiProxy_IStageHost struct {
 }
 
 func (i *jsiiProxy_IStageHost) PublishAsset(command *AssetPublishingCommand) {
+	if err := i.validatePublishAssetParameters(command); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"publishAsset",
@@ -31,6 +34,9 @@ func (i *jsiiProxy_IStageHost) PublishAsset(command *AssetPublishingCommand) {
 }
 
 func (i *jsiiProxy_IStageHost) StackOutputArtifact(stackArtifactId *string) awscodepipeline.Artifact {
+	if err := i.validateStackOutputArtifactParameters(stackArtifactId); err != nil {
+		panic(err)
+	}
 	var returns awscodepipeline.Artifact
 
 	_jsii_.Invoke(

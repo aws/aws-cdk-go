@@ -27,6 +27,9 @@ type jsiiProxy_IVersion struct {
 }
 
 func (i *jsiiProxy_IVersion) AddAlias(aliasName *string, options *AliasOptions) Alias {
+	if err := i.validateAddAliasParameters(aliasName, options); err != nil {
+		panic(err)
+	}
 	var returns Alias
 
 	_jsii_.Invoke(

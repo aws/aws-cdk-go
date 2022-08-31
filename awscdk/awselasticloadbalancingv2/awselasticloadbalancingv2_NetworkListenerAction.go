@@ -80,6 +80,9 @@ func (j *jsiiProxy_NetworkListenerAction) Next() NetworkListenerAction {
 func NewNetworkListenerAction(actionJson *CfnListener_ActionProperty, next NetworkListenerAction) NetworkListenerAction {
 	_init_.Initialize()
 
+	if err := validateNewNetworkListenerActionParameters(actionJson); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NetworkListenerAction{}
 
 	_jsii_.Create(
@@ -112,6 +115,9 @@ func NewNetworkListenerAction_Override(n NetworkListenerAction, actionJson *CfnL
 func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
+	if err := validateNetworkListenerAction_ForwardParameters(targetGroups, options); err != nil {
+		panic(err)
+	}
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
@@ -129,6 +135,9 @@ func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options 
 func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
+	if err := validateNetworkListenerAction_WeightedForwardParameters(targetGroups, options); err != nil {
+		panic(err)
+	}
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
@@ -142,6 +151,9 @@ func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTarge
 }
 
 func (n *jsiiProxy_NetworkListenerAction) Bind(scope awscdk.Construct, listener INetworkListener) {
+	if err := n.validateBindParameters(scope, listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"bind",
@@ -163,6 +175,9 @@ func (n *jsiiProxy_NetworkListenerAction) RenderActions() *[]*CfnListener_Action
 }
 
 func (n *jsiiProxy_NetworkListenerAction) Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty {
+	if err := n.validateRenumberParameters(actions); err != nil {
+		panic(err)
+	}
 	var returns *[]*CfnListener_ActionProperty
 
 	_jsii_.Invoke(

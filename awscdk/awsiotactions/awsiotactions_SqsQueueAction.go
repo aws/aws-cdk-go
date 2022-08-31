@@ -43,6 +43,9 @@ type jsiiProxy_SqsQueueAction struct {
 func NewSqsQueueAction(queue awssqs.IQueue, props *SqsQueueActionProps) SqsQueueAction {
 	_init_.Initialize()
 
+	if err := validateNewSqsQueueActionParameters(queue, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SqsQueueAction{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewSqsQueueAction_Override(s SqsQueueAction, queue awssqs.IQueue, props *Sq
 }
 
 func (s *jsiiProxy_SqsQueueAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := s.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

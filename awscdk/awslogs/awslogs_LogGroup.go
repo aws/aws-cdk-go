@@ -261,6 +261,9 @@ func (j *jsiiProxy_LogGroup) Stack() awscdk.Stack {
 func NewLogGroup(scope constructs.Construct, id *string, props *LogGroupProps) LogGroup {
 	_init_.Initialize()
 
+	if err := validateNewLogGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LogGroup{}
 
 	_jsii_.Create(
@@ -288,6 +291,9 @@ func NewLogGroup_Override(l LogGroup, scope constructs.Construct, id *string, pr
 func LogGroup_FromLogGroupArn(scope constructs.Construct, id *string, logGroupArn *string) ILogGroup {
 	_init_.Initialize()
 
+	if err := validateLogGroup_FromLogGroupArnParameters(scope, id, logGroupArn); err != nil {
+		panic(err)
+	}
 	var returns ILogGroup
 
 	_jsii_.StaticInvoke(
@@ -305,6 +311,9 @@ func LogGroup_FromLogGroupArn(scope constructs.Construct, id *string, logGroupAr
 func LogGroup_FromLogGroupName(scope constructs.Construct, id *string, logGroupName *string) ILogGroup {
 	_init_.Initialize()
 
+	if err := validateLogGroup_FromLogGroupNameParameters(scope, id, logGroupName); err != nil {
+		panic(err)
+	}
 	var returns ILogGroup
 
 	_jsii_.StaticInvoke(
@@ -322,6 +331,9 @@ func LogGroup_FromLogGroupName(scope constructs.Construct, id *string, logGroupN
 func LogGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLogGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -339,6 +351,9 @@ func LogGroup_IsConstruct(x interface{}) *bool {
 func LogGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLogGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -352,6 +367,9 @@ func LogGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LogGroup) AddMetricFilter(id *string, props *MetricFilterOptions) MetricFilter {
+	if err := l.validateAddMetricFilterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns MetricFilter
 
 	_jsii_.Invoke(
@@ -365,6 +383,9 @@ func (l *jsiiProxy_LogGroup) AddMetricFilter(id *string, props *MetricFilterOpti
 }
 
 func (l *jsiiProxy_LogGroup) AddStream(id *string, props *StreamOptions) LogStream {
+	if err := l.validateAddStreamParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns LogStream
 
 	_jsii_.Invoke(
@@ -378,6 +399,9 @@ func (l *jsiiProxy_LogGroup) AddStream(id *string, props *StreamOptions) LogStre
 }
 
 func (l *jsiiProxy_LogGroup) AddSubscriptionFilter(id *string, props *SubscriptionFilterOptions) SubscriptionFilter {
+	if err := l.validateAddSubscriptionFilterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns SubscriptionFilter
 
 	_jsii_.Invoke(
@@ -391,6 +415,9 @@ func (l *jsiiProxy_LogGroup) AddSubscriptionFilter(id *string, props *Subscripti
 }
 
 func (l *jsiiProxy_LogGroup) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := l.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -404,6 +431,9 @@ func (l *jsiiProxy_LogGroup) AddToResourcePolicy(statement awsiam.PolicyStatemen
 }
 
 func (l *jsiiProxy_LogGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -412,6 +442,9 @@ func (l *jsiiProxy_LogGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (l *jsiiProxy_LogGroup) ExtractMetric(jsonField *string, metricNamespace *string, metricName *string) awscloudwatch.Metric {
+	if err := l.validateExtractMetricParameters(jsonField, metricNamespace, metricName); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -438,6 +471,9 @@ func (l *jsiiProxy_LogGroup) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LogGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -451,6 +487,9 @@ func (l *jsiiProxy_LogGroup) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (l *jsiiProxy_LogGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -464,6 +503,9 @@ func (l *jsiiProxy_LogGroup) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 func (l *jsiiProxy_LogGroup) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := l.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -482,6 +524,9 @@ func (l *jsiiProxy_LogGroup) Grant(grantee awsiam.IGrantable, actions ...*string
 }
 
 func (l *jsiiProxy_LogGroup) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := l.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -516,6 +561,9 @@ func (l *jsiiProxy_LogGroup) OnPrepare() {
 }
 
 func (l *jsiiProxy_LogGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -545,6 +593,9 @@ func (l *jsiiProxy_LogGroup) Prepare() {
 }
 
 func (l *jsiiProxy_LogGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

@@ -29,6 +29,9 @@ type jsiiProxy_IStage struct {
 }
 
 func (i *jsiiProxy_IStage) AddAction(action IAction) {
+	if err := i.validateAddActionParameters(action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addAction",
@@ -37,6 +40,9 @@ func (i *jsiiProxy_IStage) AddAction(action IAction) {
 }
 
 func (i *jsiiProxy_IStage) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := i.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

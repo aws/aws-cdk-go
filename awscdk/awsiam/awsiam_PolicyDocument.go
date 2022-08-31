@@ -130,6 +130,9 @@ func (j *jsiiProxy_PolicyDocument) StatementCount() *float64 {
 func NewPolicyDocument(props *PolicyDocumentProps) PolicyDocument {
 	_init_.Initialize()
 
+	if err := validateNewPolicyDocumentParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PolicyDocument{}
 
 	_jsii_.Create(
@@ -159,6 +162,9 @@ func NewPolicyDocument_Override(p PolicyDocument, props *PolicyDocumentProps) {
 func PolicyDocument_FromJson(obj interface{}) PolicyDocument {
 	_init_.Initialize()
 
+	if err := validatePolicyDocument_FromJsonParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns PolicyDocument
 
 	_jsii_.StaticInvoke(
@@ -185,6 +191,9 @@ func (p *jsiiProxy_PolicyDocument) AddStatements(statement ...PolicyStatement) {
 }
 
 func (p *jsiiProxy_PolicyDocument) Resolve(context awscdk.IResolveContext) interface{} {
+	if err := p.validateResolveParameters(context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

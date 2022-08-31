@@ -280,6 +280,9 @@ func (j *jsiiProxy_Trail) TrailSnsTopicArn() *string {
 func NewTrail(scope constructs.Construct, id *string, props *TrailProps) Trail {
 	_init_.Initialize()
 
+	if err := validateNewTrailParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Trail{}
 
 	_jsii_.Create(
@@ -307,6 +310,9 @@ func NewTrail_Override(t Trail, scope constructs.Construct, id *string, props *T
 func Trail_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTrail_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -324,6 +330,9 @@ func Trail_IsConstruct(x interface{}) *bool {
 func Trail_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateTrail_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -346,6 +355,9 @@ func Trail_IsResource(construct awscdk.IConstruct) *bool {
 func Trail_OnEvent(scope constructs.Construct, id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	_init_.Initialize()
 
+	if err := validateTrail_OnEventParameters(scope, id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.StaticInvoke(
@@ -359,6 +371,9 @@ func Trail_OnEvent(scope constructs.Construct, id *string, options *awsevents.On
 }
 
 func (t *jsiiProxy_Trail) AddEventSelector(dataResourceType DataResourceType, dataResourceValues *[]*string, options *AddEventSelectorOptions) {
+	if err := t.validateAddEventSelectorParameters(dataResourceType, dataResourceValues, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addEventSelector",
@@ -367,6 +382,9 @@ func (t *jsiiProxy_Trail) AddEventSelector(dataResourceType DataResourceType, da
 }
 
 func (t *jsiiProxy_Trail) AddLambdaEventSelector(handlers *[]awslambda.IFunction, options *AddEventSelectorOptions) {
+	if err := t.validateAddLambdaEventSelectorParameters(handlers, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addLambdaEventSelector",
@@ -375,6 +393,9 @@ func (t *jsiiProxy_Trail) AddLambdaEventSelector(handlers *[]awslambda.IFunction
 }
 
 func (t *jsiiProxy_Trail) AddS3EventSelector(s3Selector *[]*S3EventSelector, options *AddEventSelectorOptions) {
+	if err := t.validateAddS3EventSelectorParameters(s3Selector, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addS3EventSelector",
@@ -383,6 +404,9 @@ func (t *jsiiProxy_Trail) AddS3EventSelector(s3Selector *[]*S3EventSelector, opt
 }
 
 func (t *jsiiProxy_Trail) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := t.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyRemovalPolicy",
@@ -404,6 +428,9 @@ func (t *jsiiProxy_Trail) GeneratePhysicalName() *string {
 }
 
 func (t *jsiiProxy_Trail) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := t.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -417,6 +444,9 @@ func (t *jsiiProxy_Trail) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (t *jsiiProxy_Trail) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := t.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -430,6 +460,9 @@ func (t *jsiiProxy_Trail) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (t *jsiiProxy_Trail) LogAllLambdaDataEvents(options *AddEventSelectorOptions) {
+	if err := t.validateLogAllLambdaDataEventsParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"logAllLambdaDataEvents",
@@ -438,6 +471,9 @@ func (t *jsiiProxy_Trail) LogAllLambdaDataEvents(options *AddEventSelectorOption
 }
 
 func (t *jsiiProxy_Trail) LogAllS3DataEvents(options *AddEventSelectorOptions) {
+	if err := t.validateLogAllS3DataEventsParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"logAllS3DataEvents",
@@ -446,6 +482,9 @@ func (t *jsiiProxy_Trail) LogAllS3DataEvents(options *AddEventSelectorOptions) {
 }
 
 func (t *jsiiProxy_Trail) OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := t.validateOnCloudTrailEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -467,6 +506,9 @@ func (t *jsiiProxy_Trail) OnPrepare() {
 }
 
 func (t *jsiiProxy_Trail) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -496,6 +538,9 @@ func (t *jsiiProxy_Trail) Prepare() {
 }
 
 func (t *jsiiProxy_Trail) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

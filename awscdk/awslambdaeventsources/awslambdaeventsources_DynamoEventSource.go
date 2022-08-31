@@ -73,6 +73,9 @@ func (j *jsiiProxy_DynamoEventSource) Props() *StreamEventSourceProps {
 func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProps) DynamoEventSource {
 	_init_.Initialize()
 
+	if err := validateNewDynamoEventSourceParameters(table, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DynamoEventSource{}
 
 	_jsii_.Create(
@@ -96,6 +99,9 @@ func NewDynamoEventSource_Override(d DynamoEventSource, table awsdynamodb.ITable
 }
 
 func (d *jsiiProxy_DynamoEventSource) Bind(target awslambda.IFunction) {
+	if err := d.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"bind",
@@ -104,6 +110,9 @@ func (d *jsiiProxy_DynamoEventSource) Bind(target awslambda.IFunction) {
 }
 
 func (d *jsiiProxy_DynamoEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
+	if err := d.validateEnrichMappingOptionsParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.EventSourceMappingOptions
 
 	_jsii_.Invoke(

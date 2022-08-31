@@ -174,6 +174,9 @@ func NewScheduledTaskBase_Override(s ScheduledTaskBase, scope constructs.Constru
 func ScheduledTaskBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateScheduledTaskBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -187,6 +190,9 @@ func ScheduledTaskBase_IsConstruct(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_ScheduledTaskBase) AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask) {
+	if err := s.validateAddTaskAsTargetParameters(ecsTaskTarget); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addTaskAsTarget",
@@ -195,6 +201,9 @@ func (s *jsiiProxy_ScheduledTaskBase) AddTaskAsTarget(ecsTaskTarget awseventstar
 }
 
 func (s *jsiiProxy_ScheduledTaskBase) AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask {
+	if err := s.validateAddTaskDefinitionToEventTargetParameters(taskDefinition); err != nil {
+		panic(err)
+	}
 	var returns awseventstargets.EcsTask
 
 	_jsii_.Invoke(
@@ -208,6 +217,9 @@ func (s *jsiiProxy_ScheduledTaskBase) AddTaskDefinitionToEventTarget(taskDefinit
 }
 
 func (s *jsiiProxy_ScheduledTaskBase) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := s.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -221,6 +233,9 @@ func (s *jsiiProxy_ScheduledTaskBase) CreateAWSLogDriver(prefix *string) awsecs.
 }
 
 func (s *jsiiProxy_ScheduledTaskBase) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := s.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -242,6 +257,9 @@ func (s *jsiiProxy_ScheduledTaskBase) OnPrepare() {
 }
 
 func (s *jsiiProxy_ScheduledTaskBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -271,6 +289,9 @@ func (s *jsiiProxy_ScheduledTaskBase) Prepare() {
 }
 
 func (s *jsiiProxy_ScheduledTaskBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

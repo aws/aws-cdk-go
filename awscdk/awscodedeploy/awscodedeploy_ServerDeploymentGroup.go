@@ -264,6 +264,9 @@ func (j *jsiiProxy_ServerDeploymentGroup) Stack() awscdk.Stack {
 func NewServerDeploymentGroup(scope constructs.Construct, id *string, props *ServerDeploymentGroupProps) ServerDeploymentGroup {
 	_init_.Initialize()
 
+	if err := validateNewServerDeploymentGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ServerDeploymentGroup{}
 
 	_jsii_.Create(
@@ -293,6 +296,9 @@ func NewServerDeploymentGroup_Override(s ServerDeploymentGroup, scope constructs
 func ServerDeploymentGroup_FromServerDeploymentGroupAttributes(scope constructs.Construct, id *string, attrs *ServerDeploymentGroupAttributes) IServerDeploymentGroup {
 	_init_.Initialize()
 
+	if err := validateServerDeploymentGroup_FromServerDeploymentGroupAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IServerDeploymentGroup
 
 	_jsii_.StaticInvoke(
@@ -310,6 +316,9 @@ func ServerDeploymentGroup_FromServerDeploymentGroupAttributes(scope constructs.
 func ServerDeploymentGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateServerDeploymentGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -327,6 +336,9 @@ func ServerDeploymentGroup_IsConstruct(x interface{}) *bool {
 func ServerDeploymentGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateServerDeploymentGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -340,6 +352,9 @@ func ServerDeploymentGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_ServerDeploymentGroup) AddAlarm(alarm awscloudwatch.IAlarm) {
+	if err := s.validateAddAlarmParameters(alarm); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addAlarm",
@@ -348,6 +363,9 @@ func (s *jsiiProxy_ServerDeploymentGroup) AddAlarm(alarm awscloudwatch.IAlarm) {
 }
 
 func (s *jsiiProxy_ServerDeploymentGroup) AddAutoScalingGroup(asg awsautoscaling.AutoScalingGroup) {
+	if err := s.validateAddAutoScalingGroupParameters(asg); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addAutoScalingGroup",
@@ -356,6 +374,9 @@ func (s *jsiiProxy_ServerDeploymentGroup) AddAutoScalingGroup(asg awsautoscaling
 }
 
 func (s *jsiiProxy_ServerDeploymentGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -377,6 +398,9 @@ func (s *jsiiProxy_ServerDeploymentGroup) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_ServerDeploymentGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -390,6 +414,9 @@ func (s *jsiiProxy_ServerDeploymentGroup) GetResourceArnAttribute(arnAttr *strin
 }
 
 func (s *jsiiProxy_ServerDeploymentGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -411,6 +438,9 @@ func (s *jsiiProxy_ServerDeploymentGroup) OnPrepare() {
 }
 
 func (s *jsiiProxy_ServerDeploymentGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -440,6 +470,9 @@ func (s *jsiiProxy_ServerDeploymentGroup) Prepare() {
 }
 
 func (s *jsiiProxy_ServerDeploymentGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

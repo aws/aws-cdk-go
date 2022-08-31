@@ -34,6 +34,9 @@ type jsiiProxy_IUser struct {
 }
 
 func (i *jsiiProxy_IUser) AddTablePrivileges(table ITable, actions ...TableAction) {
+	if err := i.validateAddTablePrivilegesParameters(table); err != nil {
+		panic(err)
+	}
 	args := []interface{}{table}
 	for _, a := range actions {
 		args = append(args, a)

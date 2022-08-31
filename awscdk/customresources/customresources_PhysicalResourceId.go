@@ -71,6 +71,9 @@ func (j *jsiiProxy_PhysicalResourceId) ResponsePath() *string {
 func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 	_init_.Initialize()
 
+	if err := validatePhysicalResourceId_FromResponseParameters(responsePath); err != nil {
+		panic(err)
+	}
 	var returns PhysicalResourceId
 
 	_jsii_.StaticInvoke(
@@ -88,6 +91,9 @@ func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 func PhysicalResourceId_Of(id *string) PhysicalResourceId {
 	_init_.Initialize()
 
+	if err := validatePhysicalResourceId_OfParameters(id); err != nil {
+		panic(err)
+	}
 	var returns PhysicalResourceId
 
 	_jsii_.StaticInvoke(

@@ -38,6 +38,9 @@ type jsiiProxy_CodeCommitSourceCodeProvider struct {
 func NewCodeCommitSourceCodeProvider(props *CodeCommitSourceCodeProviderProps) CodeCommitSourceCodeProvider {
 	_init_.Initialize()
 
+	if err := validateNewCodeCommitSourceCodeProviderParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodeCommitSourceCodeProvider{}
 
 	_jsii_.Create(
@@ -61,6 +64,9 @@ func NewCodeCommitSourceCodeProvider_Override(c CodeCommitSourceCodeProvider, pr
 }
 
 func (c *jsiiProxy_CodeCommitSourceCodeProvider) Bind(app App) *SourceCodeProviderConfig {
+	if err := c.validateBindParameters(app); err != nil {
+		panic(err)
+	}
 	var returns *SourceCodeProviderConfig
 
 	_jsii_.Invoke(

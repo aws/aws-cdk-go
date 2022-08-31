@@ -12,7 +12,7 @@ import (
 	constructs "github.com/aws/constructs-go/constructs/v3/jsii"
 )
 
-//go:embed monocdk-1.170.1.tgz
+//go:embed monocdk-1.171.0.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -22,5 +22,5 @@ func Initialize() {
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("monocdk", "1.170.1", tarball)
+	_jsii_.Load("monocdk", "1.171.0", tarball)
 }

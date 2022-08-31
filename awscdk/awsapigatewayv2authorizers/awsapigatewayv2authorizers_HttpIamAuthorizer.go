@@ -70,6 +70,9 @@ func NewHttpIamAuthorizer_Override(h HttpIamAuthorizer) {
 }
 
 func (h *jsiiProxy_HttpIamAuthorizer) Bind(_options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig {
+	if err := h.validateBindParameters(_options); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteAuthorizerConfig
 
 	_jsii_.Invoke(

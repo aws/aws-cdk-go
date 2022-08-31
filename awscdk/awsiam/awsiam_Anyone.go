@@ -161,6 +161,9 @@ func NewAnyone_Override(a Anyone) {
 }
 
 func (a *jsiiProxy_Anyone) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := a.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addToAssumeRolePolicy",
@@ -169,6 +172,9 @@ func (a *jsiiProxy_Anyone) AddToAssumeRolePolicy(document PolicyDocument) {
 }
 
 func (a *jsiiProxy_Anyone) AddToPolicy(statement PolicyStatement) *bool {
+	if err := a.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -182,6 +188,9 @@ func (a *jsiiProxy_Anyone) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 func (a *jsiiProxy_Anyone) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := a.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -208,6 +217,9 @@ func (a *jsiiProxy_Anyone) DedupeString() *string {
 }
 
 func (a *jsiiProxy_Anyone) InOrganization(organizationId *string) PrincipalBase {
+	if err := a.validateInOrganizationParameters(organizationId); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(
@@ -247,6 +259,9 @@ func (a *jsiiProxy_Anyone) ToString() *string {
 }
 
 func (a *jsiiProxy_Anyone) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := a.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

@@ -64,6 +64,9 @@ func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsev
 }
 
 func (e *jsiiProxy_EventBridgeDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+	if err := e.validateBindParameters(_scope, fn, _options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(

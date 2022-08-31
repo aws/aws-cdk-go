@@ -361,6 +361,9 @@ func (j *jsiiProxy_Subnet) SubnetVpcId() *string {
 func NewSubnet(scope constructs.Construct, id *string, props *SubnetProps) Subnet {
 	_init_.Initialize()
 
+	if err := validateNewSubnetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Subnet{}
 
 	_jsii_.Create(
@@ -387,6 +390,9 @@ func NewSubnet_Override(s Subnet, scope constructs.Construct, id *string, props 
 func Subnet_FromSubnetAttributes(scope constructs.Construct, id *string, attrs *SubnetAttributes) ISubnet {
 	_init_.Initialize()
 
+	if err := validateSubnet_FromSubnetAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ISubnet
 
 	_jsii_.StaticInvoke(
@@ -404,6 +410,9 @@ func Subnet_FromSubnetAttributes(scope constructs.Construct, id *string, attrs *
 func Subnet_FromSubnetId(scope constructs.Construct, id *string, subnetId *string) ISubnet {
 	_init_.Initialize()
 
+	if err := validateSubnet_FromSubnetIdParameters(scope, id, subnetId); err != nil {
+		panic(err)
+	}
 	var returns ISubnet
 
 	_jsii_.StaticInvoke(
@@ -421,6 +430,9 @@ func Subnet_FromSubnetId(scope constructs.Construct, id *string, subnetId *strin
 func Subnet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSubnet_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -438,6 +450,9 @@ func Subnet_IsConstruct(x interface{}) *bool {
 func Subnet_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSubnet_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -454,6 +469,9 @@ func Subnet_IsResource(construct awscdk.IConstruct) *bool {
 func Subnet_IsVpcSubnet(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSubnet_IsVpcSubnetParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -467,6 +485,9 @@ func Subnet_IsVpcSubnet(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_Subnet) AddDefaultInternetRoute(gatewayId *string, gatewayAttachment awscdk.IDependable) {
+	if err := s.validateAddDefaultInternetRouteParameters(gatewayId, gatewayAttachment); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addDefaultInternetRoute",
@@ -475,6 +496,9 @@ func (s *jsiiProxy_Subnet) AddDefaultInternetRoute(gatewayId *string, gatewayAtt
 }
 
 func (s *jsiiProxy_Subnet) AddDefaultNatRoute(natGatewayId *string) {
+	if err := s.validateAddDefaultNatRouteParameters(natGatewayId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addDefaultNatRoute",
@@ -483,6 +507,9 @@ func (s *jsiiProxy_Subnet) AddDefaultNatRoute(natGatewayId *string) {
 }
 
 func (s *jsiiProxy_Subnet) AddRoute(id *string, options *AddRouteOptions) {
+	if err := s.validateAddRouteParameters(id, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addRoute",
@@ -491,6 +518,9 @@ func (s *jsiiProxy_Subnet) AddRoute(id *string, options *AddRouteOptions) {
 }
 
 func (s *jsiiProxy_Subnet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -499,6 +529,9 @@ func (s *jsiiProxy_Subnet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (s *jsiiProxy_Subnet) AssociateNetworkAcl(id *string, networkAcl INetworkAcl) {
+	if err := s.validateAssociateNetworkAclParameters(id, networkAcl); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"associateNetworkAcl",
@@ -520,6 +553,9 @@ func (s *jsiiProxy_Subnet) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_Subnet) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -533,6 +569,9 @@ func (s *jsiiProxy_Subnet) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (s *jsiiProxy_Subnet) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -554,6 +593,9 @@ func (s *jsiiProxy_Subnet) OnPrepare() {
 }
 
 func (s *jsiiProxy_Subnet) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -583,6 +625,9 @@ func (s *jsiiProxy_Subnet) Prepare() {
 }
 
 func (s *jsiiProxy_Subnet) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

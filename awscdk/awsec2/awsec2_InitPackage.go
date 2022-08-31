@@ -91,6 +91,9 @@ func (j *jsiiProxy_InitPackage) ElementType() *string {
 func NewInitPackage(type_ *string, versions *[]*string, packageName *string, serviceHandles *[]InitServiceRestartHandle) InitPackage {
 	_init_.Initialize()
 
+	if err := validateNewInitPackageParameters(type_, versions); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InitPackage{}
 
 	_jsii_.Create(
@@ -118,6 +121,9 @@ func NewInitPackage_Override(i InitPackage, type_ *string, versions *[]*string, 
 func InitPackage_Apt(packageName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
+	if err := validateInitPackage_AptParameters(packageName, options); err != nil {
+		panic(err)
+	}
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
@@ -135,6 +141,9 @@ func InitPackage_Apt(packageName *string, options *NamedPackageOptions) InitPack
 func InitPackage_Msi(location *string, options *LocationPackageOptions) InitPackage {
 	_init_.Initialize()
 
+	if err := validateInitPackage_MsiParameters(location, options); err != nil {
+		panic(err)
+	}
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
@@ -152,6 +161,9 @@ func InitPackage_Msi(location *string, options *LocationPackageOptions) InitPack
 func InitPackage_Python(packageName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
+	if err := validateInitPackage_PythonParameters(packageName, options); err != nil {
+		panic(err)
+	}
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
@@ -169,6 +181,9 @@ func InitPackage_Python(packageName *string, options *NamedPackageOptions) InitP
 func InitPackage_Rpm(location *string, options *LocationPackageOptions) InitPackage {
 	_init_.Initialize()
 
+	if err := validateInitPackage_RpmParameters(location, options); err != nil {
+		panic(err)
+	}
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
@@ -186,6 +201,9 @@ func InitPackage_Rpm(location *string, options *LocationPackageOptions) InitPack
 func InitPackage_RubyGem(gemName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
+	if err := validateInitPackage_RubyGemParameters(gemName, options); err != nil {
+		panic(err)
+	}
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(
@@ -203,6 +221,9 @@ func InitPackage_RubyGem(gemName *string, options *NamedPackageOptions) InitPack
 func InitPackage_Yum(packageName *string, options *NamedPackageOptions) InitPackage {
 	_init_.Initialize()
 
+	if err := validateInitPackage_YumParameters(packageName, options); err != nil {
+		panic(err)
+	}
 	var returns InitPackage
 
 	_jsii_.StaticInvoke(

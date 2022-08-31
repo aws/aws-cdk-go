@@ -29,6 +29,9 @@ type jsiiProxy_IApi struct {
 }
 
 func (i *jsiiProxy_IApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(

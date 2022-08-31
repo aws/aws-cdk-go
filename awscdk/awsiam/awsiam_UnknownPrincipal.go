@@ -87,6 +87,9 @@ func (j *jsiiProxy_UnknownPrincipal) PolicyFragment() PrincipalPolicyFragment {
 func NewUnknownPrincipal(props *UnknownPrincipalProps) UnknownPrincipal {
 	_init_.Initialize()
 
+	if err := validateNewUnknownPrincipalParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UnknownPrincipal{}
 
 	_jsii_.Create(
@@ -110,6 +113,9 @@ func NewUnknownPrincipal_Override(u UnknownPrincipal, props *UnknownPrincipalPro
 }
 
 func (u *jsiiProxy_UnknownPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := u.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -123,6 +129,9 @@ func (u *jsiiProxy_UnknownPrincipal) AddToPolicy(statement PolicyStatement) *boo
 }
 
 func (u *jsiiProxy_UnknownPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := u.validateAddToPrincipalPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(

@@ -120,6 +120,9 @@ type jsiiProxy_IRepository struct {
 }
 
 func (i *jsiiProxy_IRepository) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -138,6 +141,9 @@ func (i *jsiiProxy_IRepository) Grant(grantee awsiam.IGrantable, actions ...*str
 }
 
 func (i *jsiiProxy_IRepository) GrantPull(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPullParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -151,6 +157,9 @@ func (i *jsiiProxy_IRepository) GrantPull(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 func (i *jsiiProxy_IRepository) GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPullPushParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -164,6 +173,9 @@ func (i *jsiiProxy_IRepository) GrantPullPush(grantee awsiam.IGrantable) awsiam.
 }
 
 func (i *jsiiProxy_IRepository) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -177,6 +189,9 @@ func (i *jsiiProxy_IRepository) GrantRead(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 func (i *jsiiProxy_IRepository) NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifiyOnPullRequestMergedParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -190,6 +205,9 @@ func (i *jsiiProxy_IRepository) NotifiyOnPullRequestMerged(id *string, target aw
 }
 
 func (i *jsiiProxy_IRepository) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *RepositoryNotifyOnOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -203,6 +221,9 @@ func (i *jsiiProxy_IRepository) NotifyOn(id *string, target awscodestarnotificat
 }
 
 func (i *jsiiProxy_IRepository) NotifyOnApprovalRuleOverridden(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnApprovalRuleOverriddenParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -216,6 +237,9 @@ func (i *jsiiProxy_IRepository) NotifyOnApprovalRuleOverridden(id *string, targe
 }
 
 func (i *jsiiProxy_IRepository) NotifyOnApprovalStatusChanged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnApprovalStatusChangedParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -229,6 +253,9 @@ func (i *jsiiProxy_IRepository) NotifyOnApprovalStatusChanged(id *string, target
 }
 
 func (i *jsiiProxy_IRepository) NotifyOnBranchOrTagCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnBranchOrTagCreatedParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -242,6 +269,9 @@ func (i *jsiiProxy_IRepository) NotifyOnBranchOrTagCreated(id *string, target aw
 }
 
 func (i *jsiiProxy_IRepository) NotifyOnBranchOrTagDeleted(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnBranchOrTagDeletedParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -255,6 +285,9 @@ func (i *jsiiProxy_IRepository) NotifyOnBranchOrTagDeleted(id *string, target aw
 }
 
 func (i *jsiiProxy_IRepository) NotifyOnPullRequestComment(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnPullRequestCommentParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -268,6 +301,9 @@ func (i *jsiiProxy_IRepository) NotifyOnPullRequestComment(id *string, target aw
 }
 
 func (i *jsiiProxy_IRepository) NotifyOnPullRequestCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnPullRequestCreatedParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -281,6 +317,9 @@ func (i *jsiiProxy_IRepository) NotifyOnPullRequestCreated(id *string, target aw
 }
 
 func (i *jsiiProxy_IRepository) NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnPullRequestMergedParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -294,6 +333,9 @@ func (i *jsiiProxy_IRepository) NotifyOnPullRequestMerged(id *string, target aws
 }
 
 func (i *jsiiProxy_IRepository) OnCommentOnCommit(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnCommentOnCommitParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -307,6 +349,9 @@ func (i *jsiiProxy_IRepository) OnCommentOnCommit(id *string, options *awsevents
 }
 
 func (i *jsiiProxy_IRepository) OnCommentOnPullRequest(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnCommentOnPullRequestParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -320,6 +365,9 @@ func (i *jsiiProxy_IRepository) OnCommentOnPullRequest(id *string, options *awse
 }
 
 func (i *jsiiProxy_IRepository) OnCommit(id *string, options *OnCommitOptions) awsevents.Rule {
+	if err := i.validateOnCommitParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -333,6 +381,9 @@ func (i *jsiiProxy_IRepository) OnCommit(id *string, options *OnCommitOptions) a
 }
 
 func (i *jsiiProxy_IRepository) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -346,6 +397,9 @@ func (i *jsiiProxy_IRepository) OnEvent(id *string, options *awsevents.OnEventOp
 }
 
 func (i *jsiiProxy_IRepository) OnPullRequestStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnPullRequestStateChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -359,6 +413,9 @@ func (i *jsiiProxy_IRepository) OnPullRequestStateChange(id *string, options *aw
 }
 
 func (i *jsiiProxy_IRepository) OnReferenceCreated(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnReferenceCreatedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -372,6 +429,9 @@ func (i *jsiiProxy_IRepository) OnReferenceCreated(id *string, options *awsevent
 }
 
 func (i *jsiiProxy_IRepository) OnReferenceDeleted(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnReferenceDeletedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -385,6 +445,9 @@ func (i *jsiiProxy_IRepository) OnReferenceDeleted(id *string, options *awsevent
 }
 
 func (i *jsiiProxy_IRepository) OnReferenceUpdated(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnReferenceUpdatedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -398,6 +461,9 @@ func (i *jsiiProxy_IRepository) OnReferenceUpdated(id *string, options *awsevent
 }
 
 func (i *jsiiProxy_IRepository) OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnStateChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -411,6 +477,9 @@ func (i *jsiiProxy_IRepository) OnStateChange(id *string, options *awsevents.OnE
 }
 
 func (i *jsiiProxy_IRepository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -419,6 +488,9 @@ func (i *jsiiProxy_IRepository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 }
 
 func (i *jsiiProxy_IRepository) BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
+	if err := i.validateBindAsNotificationRuleSourceParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
 
 	_jsii_.Invoke(

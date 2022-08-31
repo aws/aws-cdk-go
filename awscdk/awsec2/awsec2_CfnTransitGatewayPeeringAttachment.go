@@ -450,6 +450,9 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) UpdatedProperites() *map[
 func NewCfnTransitGatewayPeeringAttachment(scope awscdk.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) CfnTransitGatewayPeeringAttachment {
 	_init_.Initialize()
 
+	if err := validateNewCfnTransitGatewayPeeringAttachmentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnTransitGatewayPeeringAttachment{}
 
 	_jsii_.Create(
@@ -472,7 +475,10 @@ func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAt
 	)
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetPeerAccountId(val *string) {
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetPeerAccountId(val *string) {
+	if err := j.validateSetPeerAccountIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"peerAccountId",
@@ -480,7 +486,10 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetPeerAccountId(val *str
 	)
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetPeerRegion(val *string) {
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetPeerRegion(val *string) {
+	if err := j.validateSetPeerRegionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"peerRegion",
@@ -488,7 +497,10 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetPeerRegion(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetPeerTransitGatewayId(val *string) {
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetPeerTransitGatewayId(val *string) {
+	if err := j.validateSetPeerTransitGatewayIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"peerTransitGatewayId",
@@ -496,7 +508,10 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetPeerTransitGatewayId(v
 	)
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetTransitGatewayId(val *string) {
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetTransitGatewayId(val *string) {
+	if err := j.validateSetTransitGatewayIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"transitGatewayId",
@@ -514,6 +529,9 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetTransitGatewayId(val *
 func CfnTransitGatewayPeeringAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTransitGatewayPeeringAttachment_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -531,6 +549,9 @@ func CfnTransitGatewayPeeringAttachment_IsCfnElement(x interface{}) *bool {
 func CfnTransitGatewayPeeringAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTransitGatewayPeeringAttachment_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -548,6 +569,9 @@ func CfnTransitGatewayPeeringAttachment_IsCfnResource(construct constructs.ICons
 func CfnTransitGatewayPeeringAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTransitGatewayPeeringAttachment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -572,6 +596,9 @@ func CfnTransitGatewayPeeringAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -580,6 +607,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddDeletionOverride(path 
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -588,6 +618,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddDependsOn(target awscd
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -596,6 +629,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddMetadata(key *string, 
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -604,6 +640,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddOverride(path *string,
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -612,6 +651,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddPropertyDeletionOverri
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -620,6 +662,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) AddPropertyOverride(prope
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -628,6 +673,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ApplyRemovalPolicy(policy
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -641,6 +689,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) GetAtt(attributeName *str
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -654,6 +705,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) GetMetadata(key *string) 
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -670,6 +724,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -691,6 +748,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -707,6 +767,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Prepare() {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -733,6 +796,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ShouldSynthesize() *bool 
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -767,6 +833,9 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

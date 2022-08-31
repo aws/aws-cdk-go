@@ -430,6 +430,9 @@ func (j *jsiiProxy_CfnInsightRule) UpdatedProperites() *map[string]interface{} {
 func NewCfnInsightRule(scope awscdk.Construct, id *string, props *CfnInsightRuleProps) CfnInsightRule {
 	_init_.Initialize()
 
+	if err := validateNewCfnInsightRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnInsightRule{}
 
 	_jsii_.Create(
@@ -452,7 +455,10 @@ func NewCfnInsightRule_Override(c CfnInsightRule, scope awscdk.Construct, id *st
 	)
 }
 
-func (j *jsiiProxy_CfnInsightRule) SetRuleBody(val *string) {
+func (j *jsiiProxy_CfnInsightRule)SetRuleBody(val *string) {
+	if err := j.validateSetRuleBodyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleBody",
@@ -460,7 +466,10 @@ func (j *jsiiProxy_CfnInsightRule) SetRuleBody(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInsightRule) SetRuleName(val *string) {
+func (j *jsiiProxy_CfnInsightRule)SetRuleName(val *string) {
+	if err := j.validateSetRuleNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleName",
@@ -468,7 +477,10 @@ func (j *jsiiProxy_CfnInsightRule) SetRuleName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnInsightRule) SetRuleState(val *string) {
+func (j *jsiiProxy_CfnInsightRule)SetRuleState(val *string) {
+	if err := j.validateSetRuleStateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleState",
@@ -486,6 +498,9 @@ func (j *jsiiProxy_CfnInsightRule) SetRuleState(val *string) {
 func CfnInsightRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInsightRule_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -503,6 +518,9 @@ func CfnInsightRule_IsCfnElement(x interface{}) *bool {
 func CfnInsightRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInsightRule_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -520,6 +538,9 @@ func CfnInsightRule_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnInsightRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInsightRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -544,6 +565,9 @@ func CfnInsightRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnInsightRule) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -552,6 +576,9 @@ func (c *jsiiProxy_CfnInsightRule) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnInsightRule) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -560,6 +587,9 @@ func (c *jsiiProxy_CfnInsightRule) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnInsightRule) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -568,6 +598,9 @@ func (c *jsiiProxy_CfnInsightRule) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnInsightRule) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -576,6 +609,9 @@ func (c *jsiiProxy_CfnInsightRule) AddOverride(path *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnInsightRule) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -584,6 +620,9 @@ func (c *jsiiProxy_CfnInsightRule) AddPropertyDeletionOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnInsightRule) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -592,6 +631,9 @@ func (c *jsiiProxy_CfnInsightRule) AddPropertyOverride(propertyPath *string, val
 }
 
 func (c *jsiiProxy_CfnInsightRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -600,6 +642,9 @@ func (c *jsiiProxy_CfnInsightRule) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (c *jsiiProxy_CfnInsightRule) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -613,6 +658,9 @@ func (c *jsiiProxy_CfnInsightRule) GetAtt(attributeName *string) awscdk.Referenc
 }
 
 func (c *jsiiProxy_CfnInsightRule) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -626,6 +674,9 @@ func (c *jsiiProxy_CfnInsightRule) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnInsightRule) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -642,6 +693,9 @@ func (c *jsiiProxy_CfnInsightRule) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnInsightRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -663,6 +717,9 @@ func (c *jsiiProxy_CfnInsightRule) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnInsightRule) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -679,6 +736,9 @@ func (c *jsiiProxy_CfnInsightRule) Prepare() {
 }
 
 func (c *jsiiProxy_CfnInsightRule) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -705,6 +765,9 @@ func (c *jsiiProxy_CfnInsightRule) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnInsightRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -739,6 +802,9 @@ func (c *jsiiProxy_CfnInsightRule) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnInsightRule) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

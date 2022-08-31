@@ -29,6 +29,9 @@ type jsiiProxy_IFunctionUrl struct {
 }
 
 func (i *jsiiProxy_IFunctionUrl) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantInvokeUrlParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

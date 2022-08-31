@@ -20,6 +20,9 @@ type jsiiProxy_IInterfaceVpcEndpoint struct {
 }
 
 func (i *jsiiProxy_IInterfaceVpcEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

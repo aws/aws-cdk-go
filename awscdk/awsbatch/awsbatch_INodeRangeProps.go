@@ -44,7 +44,10 @@ func (j *jsiiProxy_INodeRangeProps) Container() *JobDefinitionContainer {
 	return returns
 }
 
-func (j *jsiiProxy_INodeRangeProps) SetContainer(val *JobDefinitionContainer) {
+func (j *jsiiProxy_INodeRangeProps)SetContainer(val *JobDefinitionContainer) {
+	if err := j.validateSetContainerParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"container",
@@ -62,7 +65,7 @@ func (j *jsiiProxy_INodeRangeProps) FromNodeIndex() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_INodeRangeProps) SetFromNodeIndex(val *float64) {
+func (j *jsiiProxy_INodeRangeProps)SetFromNodeIndex(val *float64) {
 	_jsii_.Set(
 		j,
 		"fromNodeIndex",
@@ -80,7 +83,7 @@ func (j *jsiiProxy_INodeRangeProps) ToNodeIndex() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_INodeRangeProps) SetToNodeIndex(val *float64) {
+func (j *jsiiProxy_INodeRangeProps)SetToNodeIndex(val *float64) {
 	_jsii_.Set(
 		j,
 		"toNodeIndex",

@@ -297,6 +297,9 @@ func NewBaseLoadBalancer_Override(b BaseLoadBalancer, scope constructs.Construct
 func BaseLoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseLoadBalancer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -314,6 +317,9 @@ func BaseLoadBalancer_IsConstruct(x interface{}) *bool {
 func BaseLoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseLoadBalancer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -327,6 +333,9 @@ func BaseLoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -348,6 +357,9 @@ func (b *jsiiProxy_BaseLoadBalancer) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -361,6 +373,9 @@ func (b *jsiiProxy_BaseLoadBalancer) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -374,6 +389,9 @@ func (b *jsiiProxy_BaseLoadBalancer) GetResourceNameAttribute(nameAttr *string) 
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) LogAccessLogs(bucket awss3.IBucket, prefix *string) {
+	if err := b.validateLogAccessLogsParameters(bucket); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"logAccessLogs",
@@ -390,6 +408,9 @@ func (b *jsiiProxy_BaseLoadBalancer) OnPrepare() {
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -419,6 +440,9 @@ func (b *jsiiProxy_BaseLoadBalancer) Prepare() {
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) RemoveAttribute(key *string) {
+	if err := b.validateRemoveAttributeParameters(key); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"removeAttribute",
@@ -427,6 +451,9 @@ func (b *jsiiProxy_BaseLoadBalancer) RemoveAttribute(key *string) {
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) SetAttribute(key *string, value *string) {
+	if err := b.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"setAttribute",
@@ -435,6 +462,9 @@ func (b *jsiiProxy_BaseLoadBalancer) SetAttribute(key *string, value *string) {
 }
 
 func (b *jsiiProxy_BaseLoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

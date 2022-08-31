@@ -56,6 +56,9 @@ func NewAuthorization_Override(a Authorization) {
 func Authorization_ApiKey(apiKeyName *string, apiKeyValue awscdk.SecretValue) Authorization {
 	_init_.Initialize()
 
+	if err := validateAuthorization_ApiKeyParameters(apiKeyName, apiKeyValue); err != nil {
+		panic(err)
+	}
 	var returns Authorization
 
 	_jsii_.StaticInvoke(
@@ -73,6 +76,9 @@ func Authorization_ApiKey(apiKeyName *string, apiKeyValue awscdk.SecretValue) Au
 func Authorization_Basic(username *string, password awscdk.SecretValue) Authorization {
 	_init_.Initialize()
 
+	if err := validateAuthorization_BasicParameters(username, password); err != nil {
+		panic(err)
+	}
 	var returns Authorization
 
 	_jsii_.StaticInvoke(
@@ -90,6 +96,9 @@ func Authorization_Basic(username *string, password awscdk.SecretValue) Authoriz
 func Authorization_Oauth(props *OAuthAuthorizationProps) Authorization {
 	_init_.Initialize()
 
+	if err := validateAuthorization_OauthParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Authorization
 
 	_jsii_.StaticInvoke(

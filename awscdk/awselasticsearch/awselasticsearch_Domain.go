@@ -389,6 +389,9 @@ func (j *jsiiProxy_Domain) Stack() awscdk.Stack {
 func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domain {
 	_init_.Initialize()
 
+	if err := validateNewDomainParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Domain{}
 
 	_jsii_.Create(
@@ -416,6 +419,9 @@ func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props 
 func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *DomainAttributes) IDomain {
 	_init_.Initialize()
 
+	if err := validateDomain_FromDomainAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDomain
 
 	_jsii_.StaticInvoke(
@@ -433,6 +439,9 @@ func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *
 func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEndpoint *string) IDomain {
 	_init_.Initialize()
 
+	if err := validateDomain_FromDomainEndpointParameters(scope, id, domainEndpoint); err != nil {
+		panic(err)
+	}
 	var returns IDomain
 
 	_jsii_.StaticInvoke(
@@ -450,6 +459,9 @@ func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEnd
 func Domain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDomain_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -467,6 +479,9 @@ func Domain_IsConstruct(x interface{}) *bool {
 func Domain_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDomain_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -493,6 +508,9 @@ func (d *jsiiProxy_Domain) AddAccessPolicies(accessPolicyStatements ...awsiam.Po
 }
 
 func (d *jsiiProxy_Domain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -514,6 +532,9 @@ func (d *jsiiProxy_Domain) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -527,6 +548,9 @@ func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -540,6 +564,9 @@ func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (d *jsiiProxy_Domain) GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantIndexReadParameters(index, identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -553,6 +580,9 @@ func (d *jsiiProxy_Domain) GrantIndexRead(index *string, identity awsiam.IGranta
 }
 
 func (d *jsiiProxy_Domain) GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantIndexReadWriteParameters(index, identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -566,6 +596,9 @@ func (d *jsiiProxy_Domain) GrantIndexReadWrite(index *string, identity awsiam.IG
 }
 
 func (d *jsiiProxy_Domain) GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantIndexWriteParameters(index, identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -579,6 +612,9 @@ func (d *jsiiProxy_Domain) GrantIndexWrite(index *string, identity awsiam.IGrant
 }
 
 func (d *jsiiProxy_Domain) GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantPathReadParameters(path, identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -592,6 +628,9 @@ func (d *jsiiProxy_Domain) GrantPathRead(path *string, identity awsiam.IGrantabl
 }
 
 func (d *jsiiProxy_Domain) GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantPathReadWriteParameters(path, identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -605,6 +644,9 @@ func (d *jsiiProxy_Domain) GrantPathReadWrite(path *string, identity awsiam.IGra
 }
 
 func (d *jsiiProxy_Domain) GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantPathWriteParameters(path, identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -618,6 +660,9 @@ func (d *jsiiProxy_Domain) GrantPathWrite(path *string, identity awsiam.IGrantab
 }
 
 func (d *jsiiProxy_Domain) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantReadParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -631,6 +676,9 @@ func (d *jsiiProxy_Domain) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
 }
 
 func (d *jsiiProxy_Domain) GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantReadWriteParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -644,6 +692,9 @@ func (d *jsiiProxy_Domain) GrantReadWrite(identity awsiam.IGrantable) awsiam.Gra
 }
 
 func (d *jsiiProxy_Domain) GrantWrite(identity awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantWriteParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -657,6 +708,9 @@ func (d *jsiiProxy_Domain) GrantWrite(identity awsiam.IGrantable) awsiam.Grant {
 }
 
 func (d *jsiiProxy_Domain) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -670,6 +724,9 @@ func (d *jsiiProxy_Domain) Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 func (d *jsiiProxy_Domain) MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricAutomatedSnapshotFailureParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -683,6 +740,9 @@ func (d *jsiiProxy_Domain) MetricAutomatedSnapshotFailure(props *awscloudwatch.M
 }
 
 func (d *jsiiProxy_Domain) MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricClusterIndexWritesBlockedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -696,6 +756,9 @@ func (d *jsiiProxy_Domain) MetricClusterIndexWritesBlocked(props *awscloudwatch.
 }
 
 func (d *jsiiProxy_Domain) MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricClusterStatusRedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -709,6 +772,9 @@ func (d *jsiiProxy_Domain) MetricClusterStatusRed(props *awscloudwatch.MetricOpt
 }
 
 func (d *jsiiProxy_Domain) MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricClusterStatusYellowParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -722,6 +788,9 @@ func (d *jsiiProxy_Domain) MetricClusterStatusYellow(props *awscloudwatch.Metric
 }
 
 func (d *jsiiProxy_Domain) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricCPUUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -735,6 +804,9 @@ func (d *jsiiProxy_Domain) MetricCPUUtilization(props *awscloudwatch.MetricOptio
 }
 
 func (d *jsiiProxy_Domain) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricFreeStorageSpaceParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -748,6 +820,9 @@ func (d *jsiiProxy_Domain) MetricFreeStorageSpace(props *awscloudwatch.MetricOpt
 }
 
 func (d *jsiiProxy_Domain) MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricIndexingLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -761,6 +836,9 @@ func (d *jsiiProxy_Domain) MetricIndexingLatency(props *awscloudwatch.MetricOpti
 }
 
 func (d *jsiiProxy_Domain) MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricJVMMemoryPressureParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -774,6 +852,9 @@ func (d *jsiiProxy_Domain) MetricJVMMemoryPressure(props *awscloudwatch.MetricOp
 }
 
 func (d *jsiiProxy_Domain) MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricKMSKeyErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -787,6 +868,9 @@ func (d *jsiiProxy_Domain) MetricKMSKeyError(props *awscloudwatch.MetricOptions)
 }
 
 func (d *jsiiProxy_Domain) MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricKMSKeyInaccessibleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -800,6 +884,9 @@ func (d *jsiiProxy_Domain) MetricKMSKeyInaccessible(props *awscloudwatch.MetricO
 }
 
 func (d *jsiiProxy_Domain) MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricMasterCPUUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -813,6 +900,9 @@ func (d *jsiiProxy_Domain) MetricMasterCPUUtilization(props *awscloudwatch.Metri
 }
 
 func (d *jsiiProxy_Domain) MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricMasterJVMMemoryPressureParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -826,6 +916,9 @@ func (d *jsiiProxy_Domain) MetricMasterJVMMemoryPressure(props *awscloudwatch.Me
 }
 
 func (d *jsiiProxy_Domain) MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricNodesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -839,6 +932,9 @@ func (d *jsiiProxy_Domain) MetricNodes(props *awscloudwatch.MetricOptions) awscl
 }
 
 func (d *jsiiProxy_Domain) MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricSearchableDocumentsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -852,6 +948,9 @@ func (d *jsiiProxy_Domain) MetricSearchableDocuments(props *awscloudwatch.Metric
 }
 
 func (d *jsiiProxy_Domain) MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricSearchLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -873,6 +972,9 @@ func (d *jsiiProxy_Domain) OnPrepare() {
 }
 
 func (d *jsiiProxy_Domain) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -902,6 +1004,9 @@ func (d *jsiiProxy_Domain) Prepare() {
 }
 
 func (d *jsiiProxy_Domain) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

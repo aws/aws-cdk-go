@@ -114,6 +114,9 @@ func (j *jsiiProxy_LogQueryWidget) Y() *float64 {
 func NewLogQueryWidget(props *LogQueryWidgetProps) LogQueryWidget {
 	_init_.Initialize()
 
+	if err := validateNewLogQueryWidgetParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LogQueryWidget{}
 
 	_jsii_.Create(
@@ -136,7 +139,7 @@ func NewLogQueryWidget_Override(l LogQueryWidget, props *LogQueryWidgetProps) {
 	)
 }
 
-func (j *jsiiProxy_LogQueryWidget) SetX(val *float64) {
+func (j *jsiiProxy_LogQueryWidget)SetX(val *float64) {
 	_jsii_.Set(
 		j,
 		"x",
@@ -144,7 +147,7 @@ func (j *jsiiProxy_LogQueryWidget) SetX(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_LogQueryWidget) SetY(val *float64) {
+func (j *jsiiProxy_LogQueryWidget)SetY(val *float64) {
 	_jsii_.Set(
 		j,
 		"y",
@@ -166,6 +169,9 @@ func (l *jsiiProxy_LogQueryWidget) CopyMetricWarnings(ms ...IMetric) {
 }
 
 func (l *jsiiProxy_LogQueryWidget) Position(x *float64, y *float64) {
+	if err := l.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"position",

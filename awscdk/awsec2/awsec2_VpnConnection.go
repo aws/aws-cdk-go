@@ -253,6 +253,9 @@ func (j *jsiiProxy_VpnConnection) VpnId() *string {
 func NewVpnConnection(scope constructs.Construct, id *string, props *VpnConnectionProps) VpnConnection {
 	_init_.Initialize()
 
+	if err := validateNewVpnConnectionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_VpnConnection{}
 
 	_jsii_.Create(
@@ -280,6 +283,9 @@ func NewVpnConnection_Override(v VpnConnection, scope constructs.Construct, id *
 func VpnConnection_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVpnConnection_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -297,6 +303,9 @@ func VpnConnection_IsConstruct(x interface{}) *bool {
 func VpnConnection_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVpnConnection_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -314,6 +323,9 @@ func VpnConnection_IsResource(construct awscdk.IConstruct) *bool {
 func VpnConnection_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateVpnConnection_MetricAllParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -331,6 +343,9 @@ func VpnConnection_MetricAll(metricName *string, props *awscloudwatch.MetricOpti
 func VpnConnection_MetricAllTunnelDataIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateVpnConnection_MetricAllTunnelDataInParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -348,6 +363,9 @@ func VpnConnection_MetricAllTunnelDataIn(props *awscloudwatch.MetricOptions) aws
 func VpnConnection_MetricAllTunnelDataOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateVpnConnection_MetricAllTunnelDataOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -365,6 +383,9 @@ func VpnConnection_MetricAllTunnelDataOut(props *awscloudwatch.MetricOptions) aw
 func VpnConnection_MetricAllTunnelState(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateVpnConnection_MetricAllTunnelStateParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -378,6 +399,9 @@ func VpnConnection_MetricAllTunnelState(props *awscloudwatch.MetricOptions) awsc
 }
 
 func (v *jsiiProxy_VpnConnection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -399,6 +423,9 @@ func (v *jsiiProxy_VpnConnection) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_VpnConnection) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -412,6 +439,9 @@ func (v *jsiiProxy_VpnConnection) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (v *jsiiProxy_VpnConnection) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -425,6 +455,9 @@ func (v *jsiiProxy_VpnConnection) GetResourceNameAttribute(nameAttr *string) *st
 }
 
 func (v *jsiiProxy_VpnConnection) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := v.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -438,6 +471,9 @@ func (v *jsiiProxy_VpnConnection) Metric(metricName *string, props *awscloudwatc
 }
 
 func (v *jsiiProxy_VpnConnection) MetricTunnelDataIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := v.validateMetricTunnelDataInParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -451,6 +487,9 @@ func (v *jsiiProxy_VpnConnection) MetricTunnelDataIn(props *awscloudwatch.Metric
 }
 
 func (v *jsiiProxy_VpnConnection) MetricTunnelDataOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := v.validateMetricTunnelDataOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -464,6 +503,9 @@ func (v *jsiiProxy_VpnConnection) MetricTunnelDataOut(props *awscloudwatch.Metri
 }
 
 func (v *jsiiProxy_VpnConnection) MetricTunnelState(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := v.validateMetricTunnelStateParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -485,6 +527,9 @@ func (v *jsiiProxy_VpnConnection) OnPrepare() {
 }
 
 func (v *jsiiProxy_VpnConnection) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -514,6 +559,9 @@ func (v *jsiiProxy_VpnConnection) Prepare() {
 }
 
 func (v *jsiiProxy_VpnConnection) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

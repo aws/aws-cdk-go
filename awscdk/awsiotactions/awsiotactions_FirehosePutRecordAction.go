@@ -50,6 +50,9 @@ type jsiiProxy_FirehosePutRecordAction struct {
 func NewFirehosePutRecordAction(stream awskinesisfirehose.IDeliveryStream, props *FirehosePutRecordActionProps) FirehosePutRecordAction {
 	_init_.Initialize()
 
+	if err := validateNewFirehosePutRecordActionParameters(stream, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FirehosePutRecordAction{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewFirehosePutRecordAction_Override(f FirehosePutRecordAction, stream awski
 }
 
 func (f *jsiiProxy_FirehosePutRecordAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := f.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

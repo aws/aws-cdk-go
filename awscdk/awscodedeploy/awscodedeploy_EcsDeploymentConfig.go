@@ -28,6 +28,9 @@ type jsiiProxy_EcsDeploymentConfig struct {
 func EcsDeploymentConfig_FromEcsDeploymentConfigName(_scope constructs.Construct, _id *string, ecsDeploymentConfigName *string) IEcsDeploymentConfig {
 	_init_.Initialize()
 
+	if err := validateEcsDeploymentConfig_FromEcsDeploymentConfigNameParameters(_scope, _id, ecsDeploymentConfigName); err != nil {
+		panic(err)
+	}
 	var returns IEcsDeploymentConfig
 
 	_jsii_.StaticInvoke(

@@ -58,6 +58,9 @@ func (j *jsiiProxy_Expiration) Date() *time.Time {
 func Expiration_After(t Duration) Expiration {
 	_init_.Initialize()
 
+	if err := validateExpiration_AfterParameters(t); err != nil {
+		panic(err)
+	}
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
@@ -75,6 +78,9 @@ func Expiration_After(t Duration) Expiration {
 func Expiration_AtDate(d *time.Time) Expiration {
 	_init_.Initialize()
 
+	if err := validateExpiration_AtDateParameters(d); err != nil {
+		panic(err)
+	}
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
@@ -92,6 +98,9 @@ func Expiration_AtDate(d *time.Time) Expiration {
 func Expiration_AtTimestamp(t *float64) Expiration {
 	_init_.Initialize()
 
+	if err := validateExpiration_AtTimestampParameters(t); err != nil {
+		panic(err)
+	}
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
@@ -109,6 +118,9 @@ func Expiration_AtTimestamp(t *float64) Expiration {
 func Expiration_FromString(s *string) Expiration {
 	_init_.Initialize()
 
+	if err := validateExpiration_FromStringParameters(s); err != nil {
+		panic(err)
+	}
 	var returns Expiration
 
 	_jsii_.StaticInvoke(
@@ -122,6 +134,9 @@ func Expiration_FromString(s *string) Expiration {
 }
 
 func (e *jsiiProxy_Expiration) IsAfter(t Duration) *bool {
+	if err := e.validateIsAfterParameters(t); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -135,6 +150,9 @@ func (e *jsiiProxy_Expiration) IsAfter(t Duration) *bool {
 }
 
 func (e *jsiiProxy_Expiration) IsBefore(t Duration) *bool {
+	if err := e.validateIsBeforeParameters(t); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

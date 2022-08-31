@@ -278,6 +278,9 @@ func (j *jsiiProxy_RequestAuthorizer) Stack() awscdk.Stack {
 func NewRequestAuthorizer(scope constructs.Construct, id *string, props *RequestAuthorizerProps) RequestAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewRequestAuthorizerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RequestAuthorizer{}
 
 	_jsii_.Create(
@@ -300,7 +303,7 @@ func NewRequestAuthorizer_Override(r RequestAuthorizer, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_RequestAuthorizer) SetRestApiId(val *string) {
+func (j *jsiiProxy_RequestAuthorizer)SetRestApiId(val *string) {
 	_jsii_.Set(
 		j,
 		"restApiId",
@@ -313,6 +316,9 @@ func (j *jsiiProxy_RequestAuthorizer) SetRestApiId(val *string) {
 func RequestAuthorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRequestAuthorizer_IsAuthorizerParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -330,6 +336,9 @@ func RequestAuthorizer_IsAuthorizer(x interface{}) *bool {
 func RequestAuthorizer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRequestAuthorizer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -347,6 +356,9 @@ func RequestAuthorizer_IsConstruct(x interface{}) *bool {
 func RequestAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateRequestAuthorizer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -360,6 +372,9 @@ func RequestAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_RequestAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -381,6 +396,9 @@ func (r *jsiiProxy_RequestAuthorizer) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_RequestAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -394,6 +412,9 @@ func (r *jsiiProxy_RequestAuthorizer) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (r *jsiiProxy_RequestAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -428,6 +449,9 @@ func (r *jsiiProxy_RequestAuthorizer) OnPrepare() {
 }
 
 func (r *jsiiProxy_RequestAuthorizer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -465,6 +489,9 @@ func (r *jsiiProxy_RequestAuthorizer) SetupPermissions() {
 }
 
 func (r *jsiiProxy_RequestAuthorizer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

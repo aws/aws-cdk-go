@@ -85,6 +85,9 @@ type jsiiProxy_MockIntegration struct {
 func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	_init_.Initialize()
 
+	if err := validateNewMockIntegrationParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MockIntegration{}
 
 	_jsii_.Create(
@@ -108,6 +111,9 @@ func NewMockIntegration_Override(m MockIntegration, options *IntegrationOptions)
 }
 
 func (m *jsiiProxy_MockIntegration) Bind(_method Method) *IntegrationConfig {
+	if err := m.validateBindParameters(_method); err != nil {
+		panic(err)
+	}
 	var returns *IntegrationConfig
 
 	_jsii_.Invoke(

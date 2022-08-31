@@ -94,6 +94,9 @@ func AccessLogField_ContextApiId() *string {
 func AccessLogField_ContextAuthorizer(property *string) *string {
 	_init_.Initialize()
 
+	if err := validateAccessLogField_ContextAuthorizerParameters(property); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -113,6 +116,9 @@ func AccessLogField_ContextAuthorizer(property *string) *string {
 func AccessLogField_ContextAuthorizerClaims(property *string) *string {
 	_init_.Initialize()
 
+	if err := validateAccessLogField_ContextAuthorizerClaimsParameters(property); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -663,6 +669,9 @@ func AccessLogField_ContextRequestId() *string {
 func AccessLogField_ContextRequestOverrideHeader(headerName *string) *string {
 	_init_.Initialize()
 
+	if err := validateAccessLogField_ContextRequestOverrideHeaderParameters(headerName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -685,6 +694,9 @@ func AccessLogField_ContextRequestOverrideHeader(headerName *string) *string {
 func AccessLogField_ContextRequestOverridePath(pathName *string) *string {
 	_init_.Initialize()
 
+	if err := validateAccessLogField_ContextRequestOverridePathParameters(pathName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -705,6 +717,9 @@ func AccessLogField_ContextRequestOverridePath(pathName *string) *string {
 func AccessLogField_ContextRequestOverrideQuerystring(querystringName *string) *string {
 	_init_.Initialize()
 
+	if err := validateAccessLogField_ContextRequestOverrideQuerystringParameters(querystringName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -834,6 +849,9 @@ func AccessLogField_ContextResponseLength() *string {
 func AccessLogField_ContextResponseOverrideHeader(headerName *string) *string {
 	_init_.Initialize()
 
+	if err := validateAccessLogField_ContextResponseOverrideHeaderParameters(headerName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

@@ -157,6 +157,9 @@ func (j *jsiiProxy_ScalableTaskCount) Props() *awsapplicationautoscaling.BaseSca
 func NewScalableTaskCount(scope constructs.Construct, id *string, props *ScalableTaskCountProps) ScalableTaskCount {
 	_init_.Initialize()
 
+	if err := validateNewScalableTaskCountParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ScalableTaskCount{}
 
 	_jsii_.Create(
@@ -185,6 +188,9 @@ func NewScalableTaskCount_Override(s ScalableTaskCount, scope constructs.Constru
 func ScalableTaskCount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateScalableTaskCount_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -198,6 +204,9 @@ func ScalableTaskCount_IsConstruct(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_ScalableTaskCount) DoScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps) {
+	if err := s.validateDoScaleOnMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"doScaleOnMetric",
@@ -206,6 +215,9 @@ func (s *jsiiProxy_ScalableTaskCount) DoScaleOnMetric(id *string, props *awsappl
 }
 
 func (s *jsiiProxy_ScalableTaskCount) DoScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule) {
+	if err := s.validateDoScaleOnScheduleParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"doScaleOnSchedule",
@@ -214,6 +226,9 @@ func (s *jsiiProxy_ScalableTaskCount) DoScaleOnSchedule(id *string, props *awsap
 }
 
 func (s *jsiiProxy_ScalableTaskCount) DoScaleToTrackMetric(id *string, props *awsapplicationautoscaling.BasicTargetTrackingScalingPolicyProps) {
+	if err := s.validateDoScaleToTrackMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"doScaleToTrackMetric",
@@ -230,6 +245,9 @@ func (s *jsiiProxy_ScalableTaskCount) OnPrepare() {
 }
 
 func (s *jsiiProxy_ScalableTaskCount) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -259,6 +277,9 @@ func (s *jsiiProxy_ScalableTaskCount) Prepare() {
 }
 
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps) {
+	if err := s.validateScaleOnCpuUtilizationParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"scaleOnCpuUtilization",
@@ -267,6 +288,9 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnCpuUtilization(id *string, props *C
 }
 
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnMemoryUtilization(id *string, props *MemoryUtilizationScalingProps) {
+	if err := s.validateScaleOnMemoryUtilizationParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"scaleOnMemoryUtilization",
@@ -275,6 +299,9 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnMemoryUtilization(id *string, props
 }
 
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps) {
+	if err := s.validateScaleOnMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"scaleOnMetric",
@@ -283,6 +310,9 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnMetric(id *string, props *awsapplic
 }
 
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnRequestCount(id *string, props *RequestCountScalingProps) {
+	if err := s.validateScaleOnRequestCountParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"scaleOnRequestCount",
@@ -291,6 +321,9 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnRequestCount(id *string, props *Req
 }
 
 func (s *jsiiProxy_ScalableTaskCount) ScaleOnSchedule(id *string, props *awsapplicationautoscaling.ScalingSchedule) {
+	if err := s.validateScaleOnScheduleParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"scaleOnSchedule",
@@ -299,6 +332,9 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleOnSchedule(id *string, props *awsappl
 }
 
 func (s *jsiiProxy_ScalableTaskCount) ScaleToTrackCustomMetric(id *string, props *TrackCustomMetricProps) {
+	if err := s.validateScaleToTrackCustomMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"scaleToTrackCustomMetric",
@@ -307,6 +343,9 @@ func (s *jsiiProxy_ScalableTaskCount) ScaleToTrackCustomMetric(id *string, props
 }
 
 func (s *jsiiProxy_ScalableTaskCount) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

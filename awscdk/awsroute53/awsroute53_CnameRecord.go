@@ -217,6 +217,9 @@ func (j *jsiiProxy_CnameRecord) Stack() awscdk.Stack {
 func NewCnameRecord(scope constructs.Construct, id *string, props *CnameRecordProps) CnameRecord {
 	_init_.Initialize()
 
+	if err := validateNewCnameRecordParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CnameRecord{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewCnameRecord_Override(c CnameRecord, scope constructs.Construct, id *stri
 func CnameRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCnameRecord_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func CnameRecord_IsConstruct(x interface{}) *bool {
 func CnameRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCnameRecord_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -274,6 +283,9 @@ func CnameRecord_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CnameRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -295,6 +307,9 @@ func (c *jsiiProxy_CnameRecord) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CnameRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -308,6 +323,9 @@ func (c *jsiiProxy_CnameRecord) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (c *jsiiProxy_CnameRecord) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -329,6 +347,9 @@ func (c *jsiiProxy_CnameRecord) OnPrepare() {
 }
 
 func (c *jsiiProxy_CnameRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -358,6 +379,9 @@ func (c *jsiiProxy_CnameRecord) Prepare() {
 }
 
 func (c *jsiiProxy_CnameRecord) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

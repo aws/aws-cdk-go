@@ -72,6 +72,9 @@ type jsiiProxy_IDeployAssert struct {
 }
 
 func (i *jsiiProxy_IDeployAssert) AwsApiCall(service *string, api *string, parameters interface{}) IAwsApiCall {
+	if err := i.validateAwsApiCallParameters(service, api); err != nil {
+		panic(err)
+	}
 	var returns IAwsApiCall
 
 	_jsii_.Invoke(
@@ -85,6 +88,9 @@ func (i *jsiiProxy_IDeployAssert) AwsApiCall(service *string, api *string, param
 }
 
 func (i *jsiiProxy_IDeployAssert) Expect(id *string, expected ExpectedResult, actual ActualResult) {
+	if err := i.validateExpectParameters(id, expected, actual); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"expect",
@@ -93,6 +99,9 @@ func (i *jsiiProxy_IDeployAssert) Expect(id *string, expected ExpectedResult, ac
 }
 
 func (i *jsiiProxy_IDeployAssert) InvokeFunction(props *LambdaInvokeFunctionProps) IAwsApiCall {
+	if err := i.validateInvokeFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IAwsApiCall
 
 	_jsii_.Invoke(

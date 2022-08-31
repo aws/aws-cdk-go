@@ -228,6 +228,9 @@ func (j *jsiiProxy_UserPoolDomain) Stack() awscdk.Stack {
 func NewUserPoolDomain(scope constructs.Construct, id *string, props *UserPoolDomainProps) UserPoolDomain {
 	_init_.Initialize()
 
+	if err := validateNewUserPoolDomainParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UserPoolDomain{}
 
 	_jsii_.Create(
@@ -255,6 +258,9 @@ func NewUserPoolDomain_Override(u UserPoolDomain, scope constructs.Construct, id
 func UserPoolDomain_FromDomainName(scope constructs.Construct, id *string, userPoolDomainName *string) IUserPoolDomain {
 	_init_.Initialize()
 
+	if err := validateUserPoolDomain_FromDomainNameParameters(scope, id, userPoolDomainName); err != nil {
+		panic(err)
+	}
 	var returns IUserPoolDomain
 
 	_jsii_.StaticInvoke(
@@ -272,6 +278,9 @@ func UserPoolDomain_FromDomainName(scope constructs.Construct, id *string, userP
 func UserPoolDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolDomain_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -289,6 +298,9 @@ func UserPoolDomain_IsConstruct(x interface{}) *bool {
 func UserPoolDomain_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPoolDomain_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -302,6 +314,9 @@ func UserPoolDomain_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (u *jsiiProxy_UserPoolDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -310,6 +325,9 @@ func (u *jsiiProxy_UserPoolDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (u *jsiiProxy_UserPoolDomain) BaseUrl(options *BaseUrlOptions) *string {
+	if err := u.validateBaseUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -336,6 +354,9 @@ func (u *jsiiProxy_UserPoolDomain) GeneratePhysicalName() *string {
 }
 
 func (u *jsiiProxy_UserPoolDomain) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -349,6 +370,9 @@ func (u *jsiiProxy_UserPoolDomain) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (u *jsiiProxy_UserPoolDomain) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -370,6 +394,9 @@ func (u *jsiiProxy_UserPoolDomain) OnPrepare() {
 }
 
 func (u *jsiiProxy_UserPoolDomain) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -399,6 +426,9 @@ func (u *jsiiProxy_UserPoolDomain) Prepare() {
 }
 
 func (u *jsiiProxy_UserPoolDomain) SignInUrl(client UserPoolClient, options *SignInUrlOptions) *string {
+	if err := u.validateSignInUrlParameters(client, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -412,6 +442,9 @@ func (u *jsiiProxy_UserPoolDomain) SignInUrl(client UserPoolClient, options *Sig
 }
 
 func (u *jsiiProxy_UserPoolDomain) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

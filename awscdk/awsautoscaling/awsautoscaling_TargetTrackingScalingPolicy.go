@@ -125,6 +125,9 @@ func (j *jsiiProxy_TargetTrackingScalingPolicy) ScalingPolicyArn() *string {
 func NewTargetTrackingScalingPolicy(scope constructs.Construct, id *string, props *TargetTrackingScalingPolicyProps) TargetTrackingScalingPolicy {
 	_init_.Initialize()
 
+	if err := validateNewTargetTrackingScalingPolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TargetTrackingScalingPolicy{}
 
 	_jsii_.Create(
@@ -152,6 +155,9 @@ func NewTargetTrackingScalingPolicy_Override(t TargetTrackingScalingPolicy, scop
 func TargetTrackingScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTargetTrackingScalingPolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -173,6 +179,9 @@ func (t *jsiiProxy_TargetTrackingScalingPolicy) OnPrepare() {
 }
 
 func (t *jsiiProxy_TargetTrackingScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -202,6 +211,9 @@ func (t *jsiiProxy_TargetTrackingScalingPolicy) Prepare() {
 }
 
 func (t *jsiiProxy_TargetTrackingScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

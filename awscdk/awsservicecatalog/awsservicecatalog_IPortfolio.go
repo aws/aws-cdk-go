@@ -80,6 +80,9 @@ type jsiiProxy_IPortfolio struct {
 }
 
 func (i *jsiiProxy_IPortfolio) AddProduct(product IProduct) {
+	if err := i.validateAddProductParameters(product); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addProduct",
@@ -88,6 +91,9 @@ func (i *jsiiProxy_IPortfolio) AddProduct(product IProduct) {
 }
 
 func (i *jsiiProxy_IPortfolio) AssociateTagOptions(tagOptions TagOptions) {
+	if err := i.validateAssociateTagOptionsParameters(tagOptions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"associateTagOptions",
@@ -96,6 +102,9 @@ func (i *jsiiProxy_IPortfolio) AssociateTagOptions(tagOptions TagOptions) {
 }
 
 func (i *jsiiProxy_IPortfolio) ConstrainCloudFormationParameters(product IProduct, options *CloudFormationRuleConstraintOptions) {
+	if err := i.validateConstrainCloudFormationParametersParameters(product, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"constrainCloudFormationParameters",
@@ -104,6 +113,9 @@ func (i *jsiiProxy_IPortfolio) ConstrainCloudFormationParameters(product IProduc
 }
 
 func (i *jsiiProxy_IPortfolio) ConstrainTagUpdates(product IProduct, options *TagUpdateConstraintOptions) {
+	if err := i.validateConstrainTagUpdatesParameters(product, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"constrainTagUpdates",
@@ -112,6 +124,9 @@ func (i *jsiiProxy_IPortfolio) ConstrainTagUpdates(product IProduct, options *Ta
 }
 
 func (i *jsiiProxy_IPortfolio) DeployWithStackSets(product IProduct, options *StackSetsConstraintOptions) {
+	if err := i.validateDeployWithStackSetsParameters(product, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"deployWithStackSets",
@@ -120,6 +135,9 @@ func (i *jsiiProxy_IPortfolio) DeployWithStackSets(product IProduct, options *St
 }
 
 func (i *jsiiProxy_IPortfolio) GiveAccessToGroup(group awsiam.IGroup) {
+	if err := i.validateGiveAccessToGroupParameters(group); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"giveAccessToGroup",
@@ -128,6 +146,9 @@ func (i *jsiiProxy_IPortfolio) GiveAccessToGroup(group awsiam.IGroup) {
 }
 
 func (i *jsiiProxy_IPortfolio) GiveAccessToRole(role awsiam.IRole) {
+	if err := i.validateGiveAccessToRoleParameters(role); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"giveAccessToRole",
@@ -136,6 +157,9 @@ func (i *jsiiProxy_IPortfolio) GiveAccessToRole(role awsiam.IRole) {
 }
 
 func (i *jsiiProxy_IPortfolio) GiveAccessToUser(user awsiam.IUser) {
+	if err := i.validateGiveAccessToUserParameters(user); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"giveAccessToUser",
@@ -144,6 +168,9 @@ func (i *jsiiProxy_IPortfolio) GiveAccessToUser(user awsiam.IUser) {
 }
 
 func (i *jsiiProxy_IPortfolio) NotifyOnStackEvents(product IProduct, topic awssns.ITopic, options *CommonConstraintOptions) {
+	if err := i.validateNotifyOnStackEventsParameters(product, topic, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"notifyOnStackEvents",
@@ -152,6 +179,9 @@ func (i *jsiiProxy_IPortfolio) NotifyOnStackEvents(product IProduct, topic awssn
 }
 
 func (i *jsiiProxy_IPortfolio) SetLaunchRole(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions) {
+	if err := i.validateSetLaunchRoleParameters(product, launchRole, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"setLaunchRole",
@@ -160,6 +190,9 @@ func (i *jsiiProxy_IPortfolio) SetLaunchRole(product IProduct, launchRole awsiam
 }
 
 func (i *jsiiProxy_IPortfolio) SetLocalLaunchRole(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions) {
+	if err := i.validateSetLocalLaunchRoleParameters(product, launchRole, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"setLocalLaunchRole",
@@ -168,6 +201,9 @@ func (i *jsiiProxy_IPortfolio) SetLocalLaunchRole(product IProduct, launchRole a
 }
 
 func (i *jsiiProxy_IPortfolio) SetLocalLaunchRoleName(product IProduct, launchRoleName *string, options *CommonConstraintOptions) awsiam.IRole {
+	if err := i.validateSetLocalLaunchRoleNameParameters(product, launchRoleName, options); err != nil {
+		panic(err)
+	}
 	var returns awsiam.IRole
 
 	_jsii_.Invoke(
@@ -181,6 +217,9 @@ func (i *jsiiProxy_IPortfolio) SetLocalLaunchRoleName(product IProduct, launchRo
 }
 
 func (i *jsiiProxy_IPortfolio) ShareWithAccount(accountId *string, options *PortfolioShareOptions) {
+	if err := i.validateShareWithAccountParameters(accountId, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"shareWithAccount",

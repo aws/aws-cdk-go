@@ -20,6 +20,9 @@ type jsiiProxy_IRuleTarget struct {
 }
 
 func (i *jsiiProxy_IRuleTarget) Bind(rule IRule, id *string) *RuleTargetConfig {
+	if err := i.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *RuleTargetConfig
 
 	_jsii_.Invoke(

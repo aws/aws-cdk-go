@@ -275,6 +275,9 @@ func (j *jsiiProxy_TokenAuthorizer) Stack() awscdk.Stack {
 func NewTokenAuthorizer(scope constructs.Construct, id *string, props *TokenAuthorizerProps) TokenAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewTokenAuthorizerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TokenAuthorizer{}
 
 	_jsii_.Create(
@@ -297,7 +300,7 @@ func NewTokenAuthorizer_Override(t TokenAuthorizer, scope constructs.Construct, 
 	)
 }
 
-func (j *jsiiProxy_TokenAuthorizer) SetRestApiId(val *string) {
+func (j *jsiiProxy_TokenAuthorizer)SetRestApiId(val *string) {
 	_jsii_.Set(
 		j,
 		"restApiId",
@@ -310,6 +313,9 @@ func (j *jsiiProxy_TokenAuthorizer) SetRestApiId(val *string) {
 func TokenAuthorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTokenAuthorizer_IsAuthorizerParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -327,6 +333,9 @@ func TokenAuthorizer_IsAuthorizer(x interface{}) *bool {
 func TokenAuthorizer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTokenAuthorizer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -344,6 +353,9 @@ func TokenAuthorizer_IsConstruct(x interface{}) *bool {
 func TokenAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateTokenAuthorizer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -357,6 +369,9 @@ func TokenAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (t *jsiiProxy_TokenAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := t.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyRemovalPolicy",
@@ -378,6 +393,9 @@ func (t *jsiiProxy_TokenAuthorizer) GeneratePhysicalName() *string {
 }
 
 func (t *jsiiProxy_TokenAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := t.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -391,6 +409,9 @@ func (t *jsiiProxy_TokenAuthorizer) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (t *jsiiProxy_TokenAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := t.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -425,6 +446,9 @@ func (t *jsiiProxy_TokenAuthorizer) OnPrepare() {
 }
 
 func (t *jsiiProxy_TokenAuthorizer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -462,6 +486,9 @@ func (t *jsiiProxy_TokenAuthorizer) SetupPermissions() {
 }
 
 func (t *jsiiProxy_TokenAuthorizer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

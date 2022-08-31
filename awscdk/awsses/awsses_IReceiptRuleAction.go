@@ -18,6 +18,9 @@ type jsiiProxy_IReceiptRuleAction struct {
 }
 
 func (i *jsiiProxy_IReceiptRuleAction) Bind(receiptRule IReceiptRule) *ReceiptRuleActionConfig {
+	if err := i.validateBindParameters(receiptRule); err != nil {
+		panic(err)
+	}
 	var returns *ReceiptRuleActionConfig
 
 	_jsii_.Invoke(

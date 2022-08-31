@@ -151,6 +151,9 @@ type jsiiProxy_ICluster struct {
 }
 
 func (i *jsiiProxy_ICluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
+	if err := i.validateAddCdk8sChartParameters(id, chart, options); err != nil {
+		panic(err)
+	}
 	var returns KubernetesManifest
 
 	_jsii_.Invoke(
@@ -164,6 +167,9 @@ func (i *jsiiProxy_ICluster) AddCdk8sChart(id *string, chart constructs.Construc
 }
 
 func (i *jsiiProxy_ICluster) AddHelmChart(id *string, options *HelmChartOptions) HelmChart {
+	if err := i.validateAddHelmChartParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns HelmChart
 
 	_jsii_.Invoke(
@@ -177,6 +183,9 @@ func (i *jsiiProxy_ICluster) AddHelmChart(id *string, options *HelmChartOptions)
 }
 
 func (i *jsiiProxy_ICluster) AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest {
+	if err := i.validateAddManifestParameters(id); err != nil {
+		panic(err)
+	}
 	args := []interface{}{id}
 	for _, a := range manifest {
 		args = append(args, a)
@@ -195,6 +204,9 @@ func (i *jsiiProxy_ICluster) AddManifest(id *string, manifest ...*map[string]int
 }
 
 func (i *jsiiProxy_ICluster) AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount {
+	if err := i.validateAddServiceAccountParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns ServiceAccount
 
 	_jsii_.Invoke(
@@ -208,6 +220,9 @@ func (i *jsiiProxy_ICluster) AddServiceAccount(id *string, options *ServiceAccou
 }
 
 func (i *jsiiProxy_ICluster) ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions) {
+	if err := i.validateConnectAutoScalingGroupCapacityParameters(autoScalingGroup, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"connectAutoScalingGroupCapacity",
@@ -216,6 +231,9 @@ func (i *jsiiProxy_ICluster) ConnectAutoScalingGroupCapacity(autoScalingGroup aw
 }
 
 func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

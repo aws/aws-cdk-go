@@ -134,6 +134,9 @@ func (j *jsiiProxy_CodeBuildAction) ProvidedActionProperties() *awscodepipeline.
 func NewCodeBuildAction(props *CodeBuildActionProps) CodeBuildAction {
 	_init_.Initialize()
 
+	if err := validateNewCodeBuildActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodeBuildAction{}
 
 	_jsii_.Create(
@@ -157,6 +160,9 @@ func NewCodeBuildAction_Override(c CodeBuildAction, props *CodeBuildActionProps)
 }
 
 func (c *jsiiProxy_CodeBuildAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -170,6 +176,9 @@ func (c *jsiiProxy_CodeBuildAction) Bind(scope awscdk.Construct, stage awscodepi
 }
 
 func (c *jsiiProxy_CodeBuildAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -183,6 +192,9 @@ func (c *jsiiProxy_CodeBuildAction) Bound(scope awscdk.Construct, _stage awscode
 }
 
 func (c *jsiiProxy_CodeBuildAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -196,6 +208,9 @@ func (c *jsiiProxy_CodeBuildAction) OnStateChange(name *string, target awsevents
 }
 
 func (c *jsiiProxy_CodeBuildAction) Variable(variableName *string) *string {
+	if err := c.validateVariableParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -209,6 +224,9 @@ func (c *jsiiProxy_CodeBuildAction) Variable(variableName *string) *string {
 }
 
 func (c *jsiiProxy_CodeBuildAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

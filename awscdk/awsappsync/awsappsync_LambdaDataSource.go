@@ -184,6 +184,9 @@ func (j *jsiiProxy_LambdaDataSource) ServiceRole() awsiam.IRole {
 func NewLambdaDataSource(scope constructs.Construct, id *string, props *LambdaDataSourceProps) LambdaDataSource {
 	_init_.Initialize()
 
+	if err := validateNewLambdaDataSourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaDataSource{}
 
 	_jsii_.Create(
@@ -206,7 +209,10 @@ func NewLambdaDataSource_Override(l LambdaDataSource, scope constructs.Construct
 	)
 }
 
-func (j *jsiiProxy_LambdaDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_LambdaDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -214,7 +220,7 @@ func (j *jsiiProxy_LambdaDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_LambdaDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_LambdaDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -227,6 +233,9 @@ func (j *jsiiProxy_LambdaDataSource) SetServiceRole(val awsiam.IRole) {
 func LambdaDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLambdaDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -240,6 +249,9 @@ func LambdaDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (l *jsiiProxy_LambdaDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := l.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -253,6 +265,9 @@ func (l *jsiiProxy_LambdaDataSource) CreateFunction(props *BaseAppsyncFunctionPr
 }
 
 func (l *jsiiProxy_LambdaDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := l.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -274,6 +289,9 @@ func (l *jsiiProxy_LambdaDataSource) OnPrepare() {
 }
 
 func (l *jsiiProxy_LambdaDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -303,6 +321,9 @@ func (l *jsiiProxy_LambdaDataSource) Prepare() {
 }
 
 func (l *jsiiProxy_LambdaDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

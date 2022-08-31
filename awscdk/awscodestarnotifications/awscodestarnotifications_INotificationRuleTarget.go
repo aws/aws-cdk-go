@@ -20,6 +20,9 @@ type jsiiProxy_INotificationRuleTarget struct {
 }
 
 func (i *jsiiProxy_INotificationRuleTarget) BindAsNotificationRuleTarget(scope constructs.Construct) *NotificationRuleTargetConfig {
+	if err := i.validateBindAsNotificationRuleTargetParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *NotificationRuleTargetConfig
 
 	_jsii_.Invoke(

@@ -30,6 +30,9 @@ type jsiiProxy_IScalableFunctionAttribute struct {
 }
 
 func (i *jsiiProxy_IScalableFunctionAttribute) ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule) {
+	if err := i.validateScaleOnScheduleParameters(id, actions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"scaleOnSchedule",
@@ -38,6 +41,9 @@ func (i *jsiiProxy_IScalableFunctionAttribute) ScaleOnSchedule(id *string, actio
 }
 
 func (i *jsiiProxy_IScalableFunctionAttribute) ScaleOnUtilization(options *UtilizationScalingOptions) {
+	if err := i.validateScaleOnUtilizationParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"scaleOnUtilization",

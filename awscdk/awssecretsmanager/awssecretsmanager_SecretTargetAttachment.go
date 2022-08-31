@@ -332,6 +332,9 @@ func (j *jsiiProxy_SecretTargetAttachment) Stack() awscdk.Stack {
 func NewSecretTargetAttachment(scope constructs.Construct, id *string, props *SecretTargetAttachmentProps) SecretTargetAttachment {
 	_init_.Initialize()
 
+	if err := validateNewSecretTargetAttachmentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SecretTargetAttachment{}
 
 	_jsii_.Create(
@@ -358,6 +361,9 @@ func NewSecretTargetAttachment_Override(s SecretTargetAttachment, scope construc
 func SecretTargetAttachment_FromSecretTargetAttachmentSecretArn(scope constructs.Construct, id *string, secretTargetAttachmentSecretArn *string) ISecretTargetAttachment {
 	_init_.Initialize()
 
+	if err := validateSecretTargetAttachment_FromSecretTargetAttachmentSecretArnParameters(scope, id, secretTargetAttachmentSecretArn); err != nil {
+		panic(err)
+	}
 	var returns ISecretTargetAttachment
 
 	_jsii_.StaticInvoke(
@@ -375,6 +381,9 @@ func SecretTargetAttachment_FromSecretTargetAttachmentSecretArn(scope constructs
 func SecretTargetAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSecretTargetAttachment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -392,6 +401,9 @@ func SecretTargetAttachment_IsConstruct(x interface{}) *bool {
 func SecretTargetAttachment_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSecretTargetAttachment_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -405,6 +417,9 @@ func SecretTargetAttachment_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule {
+	if err := s.validateAddRotationScheduleParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns RotationSchedule
 
 	_jsii_.Invoke(
@@ -418,6 +433,9 @@ func (s *jsiiProxy_SecretTargetAttachment) AddRotationSchedule(id *string, optio
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := s.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -431,6 +449,9 @@ func (s *jsiiProxy_SecretTargetAttachment) AddToResourcePolicy(statement awsiam.
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -439,6 +460,9 @@ func (s *jsiiProxy_SecretTargetAttachment) ApplyRemovalPolicy(policy awscdk.Remo
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) Attach(target ISecretAttachmentTarget) ISecret {
+	if err := s.validateAttachParameters(target); err != nil {
+		panic(err)
+	}
 	var returns ISecret
 
 	_jsii_.Invoke(
@@ -473,6 +497,9 @@ func (s *jsiiProxy_SecretTargetAttachment) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -486,6 +513,9 @@ func (s *jsiiProxy_SecretTargetAttachment) GetResourceArnAttribute(arnAttr *stri
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -499,6 +529,9 @@ func (s *jsiiProxy_SecretTargetAttachment) GetResourceNameAttribute(nameAttr *st
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant {
+	if err := s.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -512,6 +545,9 @@ func (s *jsiiProxy_SecretTargetAttachment) GrantRead(grantee awsiam.IGrantable, 
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -533,6 +569,9 @@ func (s *jsiiProxy_SecretTargetAttachment) OnPrepare() {
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -562,6 +601,9 @@ func (s *jsiiProxy_SecretTargetAttachment) Prepare() {
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
+	if err := s.validateSecretValueFromJsonParameters(jsonField); err != nil {
+		panic(err)
+	}
 	var returns awscdk.SecretValue
 
 	_jsii_.Invoke(
@@ -575,6 +617,9 @@ func (s *jsiiProxy_SecretTargetAttachment) SecretValueFromJson(jsonField *string
 }
 
 func (s *jsiiProxy_SecretTargetAttachment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

@@ -43,6 +43,9 @@ type jsiiProxy_FeatureFlags struct {
 func FeatureFlags_Of(scope constructs.IConstruct) FeatureFlags {
 	_init_.Initialize()
 
+	if err := validateFeatureFlags_OfParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns FeatureFlags
 
 	_jsii_.StaticInvoke(
@@ -56,6 +59,9 @@ func FeatureFlags_Of(scope constructs.IConstruct) FeatureFlags {
 }
 
 func (f *jsiiProxy_FeatureFlags) IsEnabled(featureFlag *string) *bool {
+	if err := f.validateIsEnabledParameters(featureFlag); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

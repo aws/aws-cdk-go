@@ -46,6 +46,9 @@ type jsiiProxy_SqsDlq struct {
 func NewSqsDlq(queue awssqs.IQueue) SqsDlq {
 	_init_.Initialize()
 
+	if err := validateNewSqsDlqParameters(queue); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SqsDlq{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func NewSqsDlq_Override(s SqsDlq, queue awssqs.IQueue) {
 }
 
 func (s *jsiiProxy_SqsDlq) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
+	if err := s.validateBindParameters(_target, targetHandler); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.DlqDestinationConfig
 
 	_jsii_.Invoke(

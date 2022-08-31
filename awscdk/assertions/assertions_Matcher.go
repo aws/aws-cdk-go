@@ -83,6 +83,9 @@ func NewMatcher_Override(m Matcher) {
 func Matcher_IsMatcher(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateMatcher_IsMatcherParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -96,6 +99,9 @@ func Matcher_IsMatcher(x interface{}) *bool {
 }
 
 func (m *jsiiProxy_Matcher) Test(actual interface{}) MatchResult {
+	if err := m.validateTestParameters(actual); err != nil {
+		panic(err)
+	}
 	var returns MatchResult
 
 	_jsii_.Invoke(

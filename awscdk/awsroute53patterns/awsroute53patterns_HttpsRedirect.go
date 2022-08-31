@@ -104,6 +104,9 @@ func (j *jsiiProxy_HttpsRedirect) Node() awscdk.ConstructNode {
 func NewHttpsRedirect(scope constructs.Construct, id *string, props *HttpsRedirectProps) HttpsRedirect {
 	_init_.Initialize()
 
+	if err := validateNewHttpsRedirectParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpsRedirect{}
 
 	_jsii_.Create(
@@ -131,6 +134,9 @@ func NewHttpsRedirect_Override(h HttpsRedirect, scope constructs.Construct, id *
 func HttpsRedirect_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpsRedirect_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -152,6 +158,9 @@ func (h *jsiiProxy_HttpsRedirect) OnPrepare() {
 }
 
 func (h *jsiiProxy_HttpsRedirect) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -181,6 +190,9 @@ func (h *jsiiProxy_HttpsRedirect) Prepare() {
 }
 
 func (h *jsiiProxy_HttpsRedirect) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

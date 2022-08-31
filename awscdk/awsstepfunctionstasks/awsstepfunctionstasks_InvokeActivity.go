@@ -43,6 +43,9 @@ type jsiiProxy_InvokeActivity struct {
 func NewInvokeActivity(activity awsstepfunctions.IActivity, props *InvokeActivityProps) InvokeActivity {
 	_init_.Initialize()
 
+	if err := validateNewInvokeActivityParameters(activity, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InvokeActivity{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewInvokeActivity_Override(i InvokeActivity, activity awsstepfunctions.IAct
 }
 
 func (i *jsiiProxy_InvokeActivity) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := i.validateBindParameters(_task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

@@ -29,6 +29,9 @@ type jsiiProxy_AuthorizationToken struct {
 func AuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 	_init_.Initialize()
 
+	if err := validateAuthorizationToken_GrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_ecr.AuthorizationToken",
 		"grantRead",

@@ -160,6 +160,9 @@ func (j *jsiiProxy_CustomResourceProvider) ServiceToken() *string {
 func NewCustomResourceProvider(scope constructs.Construct, id *string, props *CustomResourceProviderProps) CustomResourceProvider {
 	_init_.Initialize()
 
+	if err := validateNewCustomResourceProviderParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CustomResourceProvider{}
 
 	_jsii_.Create(
@@ -190,6 +193,9 @@ func NewCustomResourceProvider_Override(c CustomResourceProvider, scope construc
 func CustomResourceProvider_GetOrCreate(scope constructs.Construct, uniqueid *string, props *CustomResourceProviderProps) *string {
 	_init_.Initialize()
 
+	if err := validateCustomResourceProvider_GetOrCreateParameters(scope, uniqueid, props); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -210,6 +216,9 @@ func CustomResourceProvider_GetOrCreate(scope constructs.Construct, uniqueid *st
 func CustomResourceProvider_GetOrCreateProvider(scope constructs.Construct, uniqueid *string, props *CustomResourceProviderProps) CustomResourceProvider {
 	_init_.Initialize()
 
+	if err := validateCustomResourceProvider_GetOrCreateProviderParameters(scope, uniqueid, props); err != nil {
+		panic(err)
+	}
 	var returns CustomResourceProvider
 
 	_jsii_.StaticInvoke(
@@ -227,6 +236,9 @@ func CustomResourceProvider_GetOrCreateProvider(scope constructs.Construct, uniq
 func CustomResourceProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCustomResourceProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -248,6 +260,9 @@ func (c *jsiiProxy_CustomResourceProvider) OnPrepare() {
 }
 
 func (c *jsiiProxy_CustomResourceProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -277,6 +292,9 @@ func (c *jsiiProxy_CustomResourceProvider) Prepare() {
 }
 
 func (c *jsiiProxy_CustomResourceProvider) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

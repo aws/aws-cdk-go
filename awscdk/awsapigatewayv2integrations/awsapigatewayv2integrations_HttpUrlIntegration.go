@@ -59,6 +59,9 @@ type jsiiProxy_HttpUrlIntegration struct {
 func NewHttpUrlIntegration(id *string, url *string, props *HttpUrlIntegrationProps) HttpUrlIntegration {
 	_init_.Initialize()
 
+	if err := validateNewHttpUrlIntegrationParameters(id, url, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpUrlIntegration{}
 
 	_jsii_.Create(
@@ -82,6 +85,9 @@ func NewHttpUrlIntegration_Override(h HttpUrlIntegration, id *string, url *strin
 }
 
 func (h *jsiiProxy_HttpUrlIntegration) Bind(_arg *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteIntegrationConfig
 
 	_jsii_.Invoke(
@@ -95,6 +101,9 @@ func (h *jsiiProxy_HttpUrlIntegration) Bind(_arg *awsapigatewayv2.HttpRouteInteg
 }
 
 func (h *jsiiProxy_HttpUrlIntegration) CompleteBind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) {
+	if err := h.validateCompleteBindParameters(_options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"completeBind",

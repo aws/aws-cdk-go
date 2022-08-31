@@ -144,6 +144,9 @@ func NewStep_Override(s Step, id *string) {
 func Step_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
+	if err := validateStep_SequenceParameters(steps); err != nil {
+		panic(err)
+	}
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
@@ -157,6 +160,9 @@ func Step_Sequence(steps *[]Step) *[]Step {
 }
 
 func (s *jsiiProxy_Step) AddDependencyFileSet(fs FileSet) {
+	if err := s.validateAddDependencyFileSetParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addDependencyFileSet",
@@ -165,6 +171,9 @@ func (s *jsiiProxy_Step) AddDependencyFileSet(fs FileSet) {
 }
 
 func (s *jsiiProxy_Step) AddStepDependency(step Step) {
+	if err := s.validateAddStepDependencyParameters(step); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addStepDependency",
@@ -173,6 +182,9 @@ func (s *jsiiProxy_Step) AddStepDependency(step Step) {
 }
 
 func (s *jsiiProxy_Step) ConfigurePrimaryOutput(fs FileSet) {
+	if err := s.validateConfigurePrimaryOutputParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"configurePrimaryOutput",
@@ -181,6 +193,9 @@ func (s *jsiiProxy_Step) ConfigurePrimaryOutput(fs FileSet) {
 }
 
 func (s *jsiiProxy_Step) DiscoverReferencedOutputs(structure interface{}) {
+	if err := s.validateDiscoverReferencedOutputsParameters(structure); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"discoverReferencedOutputs",

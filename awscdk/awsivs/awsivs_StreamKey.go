@@ -205,6 +205,9 @@ func (j *jsiiProxy_StreamKey) StreamKeyValue() *string {
 func NewStreamKey(scope constructs.Construct, id *string, props *StreamKeyProps) StreamKey {
 	_init_.Initialize()
 
+	if err := validateNewStreamKeyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StreamKey{}
 
 	_jsii_.Create(
@@ -232,6 +235,9 @@ func NewStreamKey_Override(s StreamKey, scope constructs.Construct, id *string, 
 func StreamKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStreamKey_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -249,6 +255,9 @@ func StreamKey_IsConstruct(x interface{}) *bool {
 func StreamKey_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateStreamKey_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -262,6 +271,9 @@ func StreamKey_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_StreamKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -283,6 +295,9 @@ func (s *jsiiProxy_StreamKey) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_StreamKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -296,6 +311,9 @@ func (s *jsiiProxy_StreamKey) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (s *jsiiProxy_StreamKey) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -317,6 +335,9 @@ func (s *jsiiProxy_StreamKey) OnPrepare() {
 }
 
 func (s *jsiiProxy_StreamKey) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -346,6 +367,9 @@ func (s *jsiiProxy_StreamKey) Prepare() {
 }
 
 func (s *jsiiProxy_StreamKey) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

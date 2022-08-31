@@ -178,6 +178,9 @@ func (j *jsiiProxy_Table) TableName() *string {
 func NewTable(scope constructs.Construct, id *string, props *TableProps) Table {
 	_init_.Initialize()
 
+	if err := validateNewTableParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Table{}
 
 	_jsii_.Create(
@@ -205,6 +208,9 @@ func NewTable_Override(t Table, scope constructs.Construct, id *string, props *T
 func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *TableAttributes) ITable {
 	_init_.Initialize()
 
+	if err := validateTable_FromTableAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ITable
 
 	_jsii_.StaticInvoke(
@@ -222,6 +228,9 @@ func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *Ta
 func Table_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTable_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -235,6 +244,9 @@ func Table_IsConstruct(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := t.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"applyRemovalPolicy",
@@ -243,6 +255,9 @@ func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (t *jsiiProxy_Table) Grant(user IUser, actions ...TableAction) {
+	if err := t.validateGrantParameters(user); err != nil {
+		panic(err)
+	}
 	args := []interface{}{user}
 	for _, a := range actions {
 		args = append(args, a)
@@ -264,6 +279,9 @@ func (t *jsiiProxy_Table) OnPrepare() {
 }
 
 func (t *jsiiProxy_Table) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -293,6 +311,9 @@ func (t *jsiiProxy_Table) Prepare() {
 }
 
 func (t *jsiiProxy_Table) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

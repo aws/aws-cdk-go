@@ -55,6 +55,9 @@ type jsiiProxy_BooleanAttribute struct {
 func NewBooleanAttribute(props *CustomAttributeProps) BooleanAttribute {
 	_init_.Initialize()
 
+	if err := validateNewBooleanAttributeParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BooleanAttribute{}
 
 	_jsii_.Create(

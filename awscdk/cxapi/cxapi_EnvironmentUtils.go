@@ -52,6 +52,9 @@ func NewEnvironmentUtils_Override(e EnvironmentUtils) {
 func EnvironmentUtils_Format(account *string, region *string) *string {
 	_init_.Initialize()
 
+	if err := validateEnvironmentUtils_FormatParameters(account, region); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -69,6 +72,9 @@ func EnvironmentUtils_Format(account *string, region *string) *string {
 func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	_init_.Initialize()
 
+	if err := validateEnvironmentUtils_MakeParameters(account, region); err != nil {
+		panic(err)
+	}
 	var returns *Environment
 
 	_jsii_.StaticInvoke(
@@ -85,6 +91,9 @@ func EnvironmentUtils_Make(account *string, region *string) *Environment {
 func EnvironmentUtils_Parse(environment *string) *Environment {
 	_init_.Initialize()
 
+	if err := validateEnvironmentUtils_ParseParameters(environment); err != nil {
+		panic(err)
+	}
 	var returns *Environment
 
 	_jsii_.StaticInvoke(

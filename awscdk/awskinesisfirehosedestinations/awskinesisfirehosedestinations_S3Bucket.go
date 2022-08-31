@@ -54,6 +54,9 @@ type jsiiProxy_S3Bucket struct {
 func NewS3Bucket(bucket awss3.IBucket, props *S3BucketProps) S3Bucket {
 	_init_.Initialize()
 
+	if err := validateNewS3BucketParameters(bucket, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3Bucket{}
 
 	_jsii_.Create(
@@ -77,6 +80,9 @@ func NewS3Bucket_Override(s S3Bucket, bucket awss3.IBucket, props *S3BucketProps
 }
 
 func (s *jsiiProxy_S3Bucket) Bind(scope constructs.Construct, _options *awskinesisfirehose.DestinationBindOptions) *awskinesisfirehose.DestinationConfig {
+	if err := s.validateBindParameters(scope, _options); err != nil {
+		panic(err)
+	}
 	var returns *awskinesisfirehose.DestinationConfig
 
 	_jsii_.Invoke(

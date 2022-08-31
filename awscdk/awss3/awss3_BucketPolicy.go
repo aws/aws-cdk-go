@@ -205,6 +205,9 @@ func (j *jsiiProxy_BucketPolicy) Stack() awscdk.Stack {
 func NewBucketPolicy(scope constructs.Construct, id *string, props *BucketPolicyProps) BucketPolicy {
 	_init_.Initialize()
 
+	if err := validateNewBucketPolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BucketPolicy{}
 
 	_jsii_.Create(
@@ -232,6 +235,9 @@ func NewBucketPolicy_Override(b BucketPolicy, scope constructs.Construct, id *st
 func BucketPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBucketPolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -249,6 +255,9 @@ func BucketPolicy_IsConstruct(x interface{}) *bool {
 func BucketPolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBucketPolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -262,6 +271,9 @@ func BucketPolicy_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BucketPolicy) ApplyRemovalPolicy(removalPolicy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(removalPolicy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -283,6 +295,9 @@ func (b *jsiiProxy_BucketPolicy) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BucketPolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -296,6 +311,9 @@ func (b *jsiiProxy_BucketPolicy) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (b *jsiiProxy_BucketPolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -317,6 +335,9 @@ func (b *jsiiProxy_BucketPolicy) OnPrepare() {
 }
 
 func (b *jsiiProxy_BucketPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -346,6 +367,9 @@ func (b *jsiiProxy_BucketPolicy) Prepare() {
 }
 
 func (b *jsiiProxy_BucketPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

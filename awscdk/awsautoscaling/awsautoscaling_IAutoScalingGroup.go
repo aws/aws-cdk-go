@@ -64,6 +64,9 @@ type jsiiProxy_IAutoScalingGroup struct {
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) AddLifecycleHook(id *string, props *BasicLifecycleHookProps) LifecycleHook {
+	if err := i.validateAddLifecycleHookParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns LifecycleHook
 
 	_jsii_.Invoke(
@@ -90,6 +93,9 @@ func (i *jsiiProxy_IAutoScalingGroup) AddUserData(commands ...*string) {
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) AddWarmPool(options *WarmPoolOptions) WarmPool {
+	if err := i.validateAddWarmPoolParameters(options); err != nil {
+		panic(err)
+	}
 	var returns WarmPool
 
 	_jsii_.Invoke(
@@ -103,6 +109,9 @@ func (i *jsiiProxy_IAutoScalingGroup) AddWarmPool(options *WarmPoolOptions) Warm
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps) TargetTrackingScalingPolicy {
+	if err := i.validateScaleOnCpuUtilizationParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -116,6 +125,9 @@ func (i *jsiiProxy_IAutoScalingGroup) ScaleOnCpuUtilization(id *string, props *C
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) ScaleOnIncomingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy {
+	if err := i.validateScaleOnIncomingBytesParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -129,6 +141,9 @@ func (i *jsiiProxy_IAutoScalingGroup) ScaleOnIncomingBytes(id *string, props *Ne
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) ScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) StepScalingPolicy {
+	if err := i.validateScaleOnMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns StepScalingPolicy
 
 	_jsii_.Invoke(
@@ -142,6 +157,9 @@ func (i *jsiiProxy_IAutoScalingGroup) ScaleOnMetric(id *string, props *BasicStep
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) ScaleOnOutgoingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy {
+	if err := i.validateScaleOnOutgoingBytesParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -155,6 +173,9 @@ func (i *jsiiProxy_IAutoScalingGroup) ScaleOnOutgoingBytes(id *string, props *Ne
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) ScaleOnSchedule(id *string, props *BasicScheduledActionProps) ScheduledAction {
+	if err := i.validateScaleOnScheduleParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ScheduledAction
 
 	_jsii_.Invoke(
@@ -168,6 +189,9 @@ func (i *jsiiProxy_IAutoScalingGroup) ScaleOnSchedule(id *string, props *BasicSc
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) ScaleToTrackMetric(id *string, props *MetricTargetTrackingProps) TargetTrackingScalingPolicy {
+	if err := i.validateScaleToTrackMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -181,6 +205,9 @@ func (i *jsiiProxy_IAutoScalingGroup) ScaleToTrackMetric(id *string, props *Metr
 }
 
 func (i *jsiiProxy_IAutoScalingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

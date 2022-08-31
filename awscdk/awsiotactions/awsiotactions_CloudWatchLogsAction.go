@@ -39,6 +39,9 @@ type jsiiProxy_CloudWatchLogsAction struct {
 func NewCloudWatchLogsAction(logGroup awslogs.ILogGroup, props *CloudWatchLogsActionProps) CloudWatchLogsAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudWatchLogsActionParameters(logGroup, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudWatchLogsAction{}
 
 	_jsii_.Create(
@@ -62,6 +65,9 @@ func NewCloudWatchLogsAction_Override(c CloudWatchLogsAction, logGroup awslogs.I
 }
 
 func (c *jsiiProxy_CloudWatchLogsAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := c.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

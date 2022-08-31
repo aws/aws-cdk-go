@@ -268,6 +268,9 @@ func (j *jsiiProxy_CompositeAlarm) Stack() awscdk.Stack {
 func NewCompositeAlarm(scope constructs.Construct, id *string, props *CompositeAlarmProps) CompositeAlarm {
 	_init_.Initialize()
 
+	if err := validateNewCompositeAlarmParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CompositeAlarm{}
 
 	_jsii_.Create(
@@ -290,7 +293,7 @@ func NewCompositeAlarm_Override(c CompositeAlarm, scope constructs.Construct, id
 	)
 }
 
-func (j *jsiiProxy_CompositeAlarm) SetAlarmActionArns(val *[]*string) {
+func (j *jsiiProxy_CompositeAlarm)SetAlarmActionArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"alarmActionArns",
@@ -298,7 +301,7 @@ func (j *jsiiProxy_CompositeAlarm) SetAlarmActionArns(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CompositeAlarm) SetInsufficientDataActionArns(val *[]*string) {
+func (j *jsiiProxy_CompositeAlarm)SetInsufficientDataActionArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"insufficientDataActionArns",
@@ -306,7 +309,7 @@ func (j *jsiiProxy_CompositeAlarm) SetInsufficientDataActionArns(val *[]*string)
 	)
 }
 
-func (j *jsiiProxy_CompositeAlarm) SetOkActionArns(val *[]*string) {
+func (j *jsiiProxy_CompositeAlarm)SetOkActionArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"okActionArns",
@@ -319,6 +322,9 @@ func (j *jsiiProxy_CompositeAlarm) SetOkActionArns(val *[]*string) {
 func CompositeAlarm_FromCompositeAlarmArn(scope constructs.Construct, id *string, compositeAlarmArn *string) IAlarm {
 	_init_.Initialize()
 
+	if err := validateCompositeAlarm_FromCompositeAlarmArnParameters(scope, id, compositeAlarmArn); err != nil {
+		panic(err)
+	}
 	var returns IAlarm
 
 	_jsii_.StaticInvoke(
@@ -336,6 +342,9 @@ func CompositeAlarm_FromCompositeAlarmArn(scope constructs.Construct, id *string
 func CompositeAlarm_FromCompositeAlarmName(scope constructs.Construct, id *string, compositeAlarmName *string) IAlarm {
 	_init_.Initialize()
 
+	if err := validateCompositeAlarm_FromCompositeAlarmNameParameters(scope, id, compositeAlarmName); err != nil {
+		panic(err)
+	}
 	var returns IAlarm
 
 	_jsii_.StaticInvoke(
@@ -353,6 +362,9 @@ func CompositeAlarm_FromCompositeAlarmName(scope constructs.Construct, id *strin
 func CompositeAlarm_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCompositeAlarm_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -370,6 +382,9 @@ func CompositeAlarm_IsConstruct(x interface{}) *bool {
 func CompositeAlarm_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCompositeAlarm_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -422,6 +437,9 @@ func (c *jsiiProxy_CompositeAlarm) AddOkAction(actions ...IAlarmAction) {
 }
 
 func (c *jsiiProxy_CompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -443,6 +461,9 @@ func (c *jsiiProxy_CompositeAlarm) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CompositeAlarm) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -456,6 +477,9 @@ func (c *jsiiProxy_CompositeAlarm) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (c *jsiiProxy_CompositeAlarm) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -477,6 +501,9 @@ func (c *jsiiProxy_CompositeAlarm) OnPrepare() {
 }
 
 func (c *jsiiProxy_CompositeAlarm) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -519,6 +546,9 @@ func (c *jsiiProxy_CompositeAlarm) RenderAlarmRule() *string {
 }
 
 func (c *jsiiProxy_CompositeAlarm) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

@@ -60,6 +60,9 @@ func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlaceholderValues) interface{} {
 	_init_.Initialize()
 
+	if err := validateEnvironmentPlaceholders_ReplaceParameters(object, values); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -77,6 +80,9 @@ func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlac
 func EnvironmentPlaceholders_ReplaceAsync(object interface{}, provider IEnvironmentPlaceholderProvider) interface{} {
 	_init_.Initialize()
 
+	if err := validateEnvironmentPlaceholders_ReplaceAsyncParameters(object, provider); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(

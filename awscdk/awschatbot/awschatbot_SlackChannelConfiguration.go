@@ -254,6 +254,9 @@ func (j *jsiiProxy_SlackChannelConfiguration) Stack() awscdk.Stack {
 func NewSlackChannelConfiguration(scope constructs.Construct, id *string, props *SlackChannelConfigurationProps) SlackChannelConfiguration {
 	_init_.Initialize()
 
+	if err := validateNewSlackChannelConfigurationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SlackChannelConfiguration{}
 
 	_jsii_.Create(
@@ -283,6 +286,9 @@ func NewSlackChannelConfiguration_Override(s SlackChannelConfiguration, scope co
 func SlackChannelConfiguration_FromSlackChannelConfigurationArn(scope constructs.Construct, id *string, slackChannelConfigurationArn *string) ISlackChannelConfiguration {
 	_init_.Initialize()
 
+	if err := validateSlackChannelConfiguration_FromSlackChannelConfigurationArnParameters(scope, id, slackChannelConfigurationArn); err != nil {
+		panic(err)
+	}
 	var returns ISlackChannelConfiguration
 
 	_jsii_.StaticInvoke(
@@ -300,6 +306,9 @@ func SlackChannelConfiguration_FromSlackChannelConfigurationArn(scope constructs
 func SlackChannelConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSlackChannelConfiguration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -317,6 +326,9 @@ func SlackChannelConfiguration_IsConstruct(x interface{}) *bool {
 func SlackChannelConfiguration_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSlackChannelConfiguration_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -334,6 +346,9 @@ func SlackChannelConfiguration_IsResource(construct awscdk.IConstruct) *bool {
 func SlackChannelConfiguration_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateSlackChannelConfiguration_MetricAllParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -347,6 +362,9 @@ func SlackChannelConfiguration_MetricAll(metricName *string, props *awscloudwatc
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) AddNotificationTopic(notificationTopic awssns.ITopic) {
+	if err := s.validateAddNotificationTopicParameters(notificationTopic); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addNotificationTopic",
@@ -355,6 +373,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) AddNotificationTopic(notificationT
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := s.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToRolePolicy",
@@ -363,6 +384,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) AddToRolePolicy(statement awsiam.P
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -371,6 +395,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.R
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig {
+	if err := s.validateBindAsNotificationRuleTargetParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *awscodestarnotifications.NotificationRuleTargetConfig
 
 	_jsii_.Invoke(
@@ -397,6 +424,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -410,6 +440,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) GetResourceArnAttribute(arnAttr *s
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -423,6 +456,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) GetResourceNameAttribute(nameAttr 
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := s.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -444,6 +480,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) OnPrepare() {
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -473,6 +512,9 @@ func (s *jsiiProxy_SlackChannelConfiguration) Prepare() {
 }
 
 func (s *jsiiProxy_SlackChannelConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

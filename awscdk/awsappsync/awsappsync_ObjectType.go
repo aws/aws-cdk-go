@@ -139,6 +139,9 @@ func (j *jsiiProxy_ObjectType) Resolvers() *[]Resolver {
 func NewObjectType(name *string, props *ObjectTypeOptions) ObjectType {
 	_init_.Initialize()
 
+	if err := validateNewObjectTypeParameters(name, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ObjectType{}
 
 	_jsii_.Create(
@@ -161,7 +164,7 @@ func NewObjectType_Override(o ObjectType, name *string, props *ObjectTypeOptions
 	)
 }
 
-func (j *jsiiProxy_ObjectType) SetModes(val *[]AuthorizationType) {
+func (j *jsiiProxy_ObjectType)SetModes(val *[]AuthorizationType) {
 	_jsii_.Set(
 		j,
 		"modes",
@@ -169,7 +172,7 @@ func (j *jsiiProxy_ObjectType) SetModes(val *[]AuthorizationType) {
 	)
 }
 
-func (j *jsiiProxy_ObjectType) SetResolvers(val *[]Resolver) {
+func (j *jsiiProxy_ObjectType)SetResolvers(val *[]Resolver) {
 	_jsii_.Set(
 		j,
 		"resolvers",
@@ -178,6 +181,9 @@ func (j *jsiiProxy_ObjectType) SetResolvers(val *[]Resolver) {
 }
 
 func (o *jsiiProxy_ObjectType) AddField(options *AddFieldOptions) {
+	if err := o.validateAddFieldParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"addField",
@@ -186,6 +192,9 @@ func (o *jsiiProxy_ObjectType) AddField(options *AddFieldOptions) {
 }
 
 func (o *jsiiProxy_ObjectType) Attribute(options *BaseTypeOptions) GraphqlType {
+	if err := o.validateAttributeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.Invoke(
@@ -199,6 +208,9 @@ func (o *jsiiProxy_ObjectType) Attribute(options *BaseTypeOptions) GraphqlType {
 }
 
 func (o *jsiiProxy_ObjectType) GenerateResolver(api IGraphqlApi, fieldName *string, options *ResolvableFieldOptions) Resolver {
+	if err := o.validateGenerateResolverParameters(api, fieldName, options); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(

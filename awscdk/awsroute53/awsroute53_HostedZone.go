@@ -255,6 +255,9 @@ func (j *jsiiProxy_HostedZone) ZoneName() *string {
 func NewHostedZone(scope constructs.Construct, id *string, props *HostedZoneProps) HostedZone {
 	_init_.Initialize()
 
+	if err := validateNewHostedZoneParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HostedZone{}
 
 	_jsii_.Create(
@@ -284,6 +287,9 @@ func NewHostedZone_Override(h HostedZone, scope constructs.Construct, id *string
 func HostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
+	if err := validateHostedZone_FromHostedZoneAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -303,6 +309,9 @@ func HostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string,
 func HostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
+	if err := validateHostedZone_FromHostedZoneIdParameters(scope, id, hostedZoneId); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -326,6 +335,9 @@ func HostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZ
 func HostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
+	if err := validateHostedZone_FromLookupParameters(scope, id, query); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -343,6 +355,9 @@ func HostedZone_FromLookup(scope constructs.Construct, id *string, query *Hosted
 func HostedZone_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHostedZone_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -360,6 +375,9 @@ func HostedZone_IsConstruct(x interface{}) *bool {
 func HostedZone_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateHostedZone_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -373,6 +391,9 @@ func HostedZone_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (h *jsiiProxy_HostedZone) AddVpc(vpc awsec2.IVpc) {
+	if err := h.validateAddVpcParameters(vpc); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"addVpc",
@@ -381,6 +402,9 @@ func (h *jsiiProxy_HostedZone) AddVpc(vpc awsec2.IVpc) {
 }
 
 func (h *jsiiProxy_HostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := h.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"applyRemovalPolicy",
@@ -402,6 +426,9 @@ func (h *jsiiProxy_HostedZone) GeneratePhysicalName() *string {
 }
 
 func (h *jsiiProxy_HostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := h.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -415,6 +442,9 @@ func (h *jsiiProxy_HostedZone) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (h *jsiiProxy_HostedZone) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := h.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -436,6 +466,9 @@ func (h *jsiiProxy_HostedZone) OnPrepare() {
 }
 
 func (h *jsiiProxy_HostedZone) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -465,6 +498,9 @@ func (h *jsiiProxy_HostedZone) Prepare() {
 }
 
 func (h *jsiiProxy_HostedZone) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

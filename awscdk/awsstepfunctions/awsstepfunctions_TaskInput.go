@@ -66,6 +66,9 @@ func (j *jsiiProxy_TaskInput) Value() interface{} {
 func TaskInput_FromContextAt(path *string) TaskInput {
 	_init_.Initialize()
 
+	if err := validateTaskInput_FromContextAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(
@@ -87,6 +90,9 @@ func TaskInput_FromContextAt(path *string) TaskInput {
 func TaskInput_FromDataAt(path *string) TaskInput {
 	_init_.Initialize()
 
+	if err := validateTaskInput_FromDataAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(
@@ -108,6 +114,9 @@ func TaskInput_FromDataAt(path *string) TaskInput {
 func TaskInput_FromJsonPathAt(path *string) TaskInput {
 	_init_.Initialize()
 
+	if err := validateTaskInput_FromJsonPathAtParameters(path); err != nil {
+		panic(err)
+	}
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(
@@ -127,6 +136,9 @@ func TaskInput_FromJsonPathAt(path *string) TaskInput {
 func TaskInput_FromObject(obj *map[string]interface{}) TaskInput {
 	_init_.Initialize()
 
+	if err := validateTaskInput_FromObjectParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(
@@ -146,6 +158,9 @@ func TaskInput_FromObject(obj *map[string]interface{}) TaskInput {
 func TaskInput_FromText(text *string) TaskInput {
 	_init_.Initialize()
 
+	if err := validateTaskInput_FromTextParameters(text); err != nil {
+		panic(err)
+	}
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(

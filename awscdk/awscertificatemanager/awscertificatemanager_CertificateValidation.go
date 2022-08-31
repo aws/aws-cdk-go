@@ -80,6 +80,9 @@ func CertificateValidation_FromDns(hostedZone awsroute53.IHostedZone) Certificat
 func CertificateValidation_FromDnsMultiZone(hostedZones *map[string]awsroute53.IHostedZone) CertificateValidation {
 	_init_.Initialize()
 
+	if err := validateCertificateValidation_FromDnsMultiZoneParameters(hostedZones); err != nil {
+		panic(err)
+	}
 	var returns CertificateValidation
 
 	_jsii_.StaticInvoke(

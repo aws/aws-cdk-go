@@ -43,6 +43,9 @@ type jsiiProxy_IMesh struct {
 }
 
 func (i *jsiiProxy_IMesh) AddVirtualGateway(id *string, props *VirtualGatewayBaseProps) VirtualGateway {
+	if err := i.validateAddVirtualGatewayParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns VirtualGateway
 
 	_jsii_.Invoke(
@@ -56,6 +59,9 @@ func (i *jsiiProxy_IMesh) AddVirtualGateway(id *string, props *VirtualGatewayBas
 }
 
 func (i *jsiiProxy_IMesh) AddVirtualNode(id *string, props *VirtualNodeBaseProps) VirtualNode {
+	if err := i.validateAddVirtualNodeParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns VirtualNode
 
 	_jsii_.Invoke(
@@ -69,6 +75,9 @@ func (i *jsiiProxy_IMesh) AddVirtualNode(id *string, props *VirtualNodeBaseProps
 }
 
 func (i *jsiiProxy_IMesh) AddVirtualRouter(id *string, props *VirtualRouterBaseProps) VirtualRouter {
+	if err := i.validateAddVirtualRouterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns VirtualRouter
 
 	_jsii_.Invoke(

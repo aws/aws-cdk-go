@@ -214,6 +214,9 @@ func (j *jsiiProxy_ApiKey) Stack() awscdk.Stack {
 func NewApiKey(scope constructs.Construct, id *string, props *ApiKeyProps) ApiKey {
 	_init_.Initialize()
 
+	if err := validateNewApiKeyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiKey{}
 
 	_jsii_.Create(
@@ -241,6 +244,9 @@ func NewApiKey_Override(a ApiKey, scope constructs.Construct, id *string, props 
 func ApiKey_FromApiKeyId(scope constructs.Construct, id *string, apiKeyId *string) IApiKey {
 	_init_.Initialize()
 
+	if err := validateApiKey_FromApiKeyIdParameters(scope, id, apiKeyId); err != nil {
+		panic(err)
+	}
 	var returns IApiKey
 
 	_jsii_.StaticInvoke(
@@ -258,6 +264,9 @@ func ApiKey_FromApiKeyId(scope constructs.Construct, id *string, apiKeyId *strin
 func ApiKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApiKey_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -275,6 +284,9 @@ func ApiKey_IsConstruct(x interface{}) *bool {
 func ApiKey_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateApiKey_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -288,6 +300,9 @@ func ApiKey_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_ApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -309,6 +324,9 @@ func (a *jsiiProxy_ApiKey) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_ApiKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -322,6 +340,9 @@ func (a *jsiiProxy_ApiKey) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (a *jsiiProxy_ApiKey) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -335,6 +356,9 @@ func (a *jsiiProxy_ApiKey) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (a *jsiiProxy_ApiKey) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -348,6 +372,9 @@ func (a *jsiiProxy_ApiKey) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (a *jsiiProxy_ApiKey) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantReadWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -361,6 +388,9 @@ func (a *jsiiProxy_ApiKey) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 func (a *jsiiProxy_ApiKey) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -382,6 +412,9 @@ func (a *jsiiProxy_ApiKey) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApiKey) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -411,6 +444,9 @@ func (a *jsiiProxy_ApiKey) Prepare() {
 }
 
 func (a *jsiiProxy_ApiKey) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

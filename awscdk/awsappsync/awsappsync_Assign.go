@@ -33,6 +33,9 @@ type jsiiProxy_Assign struct {
 func NewAssign(attr *string, arg *string) Assign {
 	_init_.Initialize()
 
+	if err := validateNewAssignParameters(attr, arg); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Assign{}
 
 	_jsii_.Create(
@@ -56,6 +59,9 @@ func NewAssign_Override(a Assign, attr *string, arg *string) {
 }
 
 func (a *jsiiProxy_Assign) PutInMap(map_ *string) *string {
+	if err := a.validatePutInMapParameters(map_); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

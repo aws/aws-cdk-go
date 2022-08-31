@@ -584,6 +584,9 @@ func (j *jsiiProxy_CfnAssetModel) UpdatedProperites() *map[string]interface{} {
 func NewCfnAssetModel(scope awscdk.Construct, id *string, props *CfnAssetModelProps) CfnAssetModel {
 	_init_.Initialize()
 
+	if err := validateNewCfnAssetModelParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnAssetModel{}
 
 	_jsii_.Create(
@@ -606,7 +609,10 @@ func NewCfnAssetModel_Override(c CfnAssetModel, scope awscdk.Construct, id *stri
 	)
 }
 
-func (j *jsiiProxy_CfnAssetModel) SetAssetModelCompositeModels(val interface{}) {
+func (j *jsiiProxy_CfnAssetModel)SetAssetModelCompositeModels(val interface{}) {
+	if err := j.validateSetAssetModelCompositeModelsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"assetModelCompositeModels",
@@ -614,7 +620,7 @@ func (j *jsiiProxy_CfnAssetModel) SetAssetModelCompositeModels(val interface{}) 
 	)
 }
 
-func (j *jsiiProxy_CfnAssetModel) SetAssetModelDescription(val *string) {
+func (j *jsiiProxy_CfnAssetModel)SetAssetModelDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"assetModelDescription",
@@ -622,7 +628,10 @@ func (j *jsiiProxy_CfnAssetModel) SetAssetModelDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAssetModel) SetAssetModelHierarchies(val interface{}) {
+func (j *jsiiProxy_CfnAssetModel)SetAssetModelHierarchies(val interface{}) {
+	if err := j.validateSetAssetModelHierarchiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"assetModelHierarchies",
@@ -630,7 +639,10 @@ func (j *jsiiProxy_CfnAssetModel) SetAssetModelHierarchies(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnAssetModel) SetAssetModelName(val *string) {
+func (j *jsiiProxy_CfnAssetModel)SetAssetModelName(val *string) {
+	if err := j.validateSetAssetModelNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"assetModelName",
@@ -638,7 +650,10 @@ func (j *jsiiProxy_CfnAssetModel) SetAssetModelName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnAssetModel) SetAssetModelProperties(val interface{}) {
+func (j *jsiiProxy_CfnAssetModel)SetAssetModelProperties(val interface{}) {
+	if err := j.validateSetAssetModelPropertiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"assetModelProperties",
@@ -656,6 +671,9 @@ func (j *jsiiProxy_CfnAssetModel) SetAssetModelProperties(val interface{}) {
 func CfnAssetModel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAssetModel_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -673,6 +691,9 @@ func CfnAssetModel_IsCfnElement(x interface{}) *bool {
 func CfnAssetModel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAssetModel_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -690,6 +711,9 @@ func CfnAssetModel_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnAssetModel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnAssetModel_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -714,6 +738,9 @@ func CfnAssetModel_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnAssetModel) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -722,6 +749,9 @@ func (c *jsiiProxy_CfnAssetModel) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnAssetModel) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -730,6 +760,9 @@ func (c *jsiiProxy_CfnAssetModel) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnAssetModel) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -738,6 +771,9 @@ func (c *jsiiProxy_CfnAssetModel) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnAssetModel) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -746,6 +782,9 @@ func (c *jsiiProxy_CfnAssetModel) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnAssetModel) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -754,6 +793,9 @@ func (c *jsiiProxy_CfnAssetModel) AddPropertyDeletionOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnAssetModel) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -762,6 +804,9 @@ func (c *jsiiProxy_CfnAssetModel) AddPropertyOverride(propertyPath *string, valu
 }
 
 func (c *jsiiProxy_CfnAssetModel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -770,6 +815,9 @@ func (c *jsiiProxy_CfnAssetModel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (c *jsiiProxy_CfnAssetModel) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -783,6 +831,9 @@ func (c *jsiiProxy_CfnAssetModel) GetAtt(attributeName *string) awscdk.Reference
 }
 
 func (c *jsiiProxy_CfnAssetModel) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -796,6 +847,9 @@ func (c *jsiiProxy_CfnAssetModel) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnAssetModel) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -812,6 +866,9 @@ func (c *jsiiProxy_CfnAssetModel) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnAssetModel) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -833,6 +890,9 @@ func (c *jsiiProxy_CfnAssetModel) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAssetModel) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -849,6 +909,9 @@ func (c *jsiiProxy_CfnAssetModel) Prepare() {
 }
 
 func (c *jsiiProxy_CfnAssetModel) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -875,6 +938,9 @@ func (c *jsiiProxy_CfnAssetModel) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnAssetModel) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -909,6 +975,9 @@ func (c *jsiiProxy_CfnAssetModel) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnAssetModel) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

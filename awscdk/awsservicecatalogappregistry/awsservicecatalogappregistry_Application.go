@@ -215,6 +215,9 @@ func (j *jsiiProxy_Application) Stack() awscdk.Stack {
 func NewApplication(scope constructs.Construct, id *string, props *ApplicationProps) Application {
 	_init_.Initialize()
 
+	if err := validateNewApplicationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Application{}
 
 	_jsii_.Create(
@@ -242,6 +245,9 @@ func NewApplication_Override(a Application, scope constructs.Construct, id *stri
 func Application_FromApplicationArn(scope constructs.Construct, id *string, applicationArn *string) IApplication {
 	_init_.Initialize()
 
+	if err := validateApplication_FromApplicationArnParameters(scope, id, applicationArn); err != nil {
+		panic(err)
+	}
 	var returns IApplication
 
 	_jsii_.StaticInvoke(
@@ -259,6 +265,9 @@ func Application_FromApplicationArn(scope constructs.Construct, id *string, appl
 func Application_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplication_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -276,6 +285,9 @@ func Application_IsConstruct(x interface{}) *bool {
 func Application_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateApplication_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -289,6 +301,9 @@ func Application_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_Application) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -297,6 +312,9 @@ func (a *jsiiProxy_Application) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 }
 
 func (a *jsiiProxy_Application) AssociateAttributeGroup(attributeGroup IAttributeGroup) {
+	if err := a.validateAssociateAttributeGroupParameters(attributeGroup); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"associateAttributeGroup",
@@ -305,6 +323,9 @@ func (a *jsiiProxy_Application) AssociateAttributeGroup(attributeGroup IAttribut
 }
 
 func (a *jsiiProxy_Application) AssociateStack(stack awscdk.Stack) {
+	if err := a.validateAssociateStackParameters(stack); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"associateStack",
@@ -326,6 +347,9 @@ func (a *jsiiProxy_Application) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_Application) GenerateUniqueHash(resourceAddress *string) *string {
+	if err := a.validateGenerateUniqueHashParameters(resourceAddress); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -339,6 +363,9 @@ func (a *jsiiProxy_Application) GenerateUniqueHash(resourceAddress *string) *str
 }
 
 func (a *jsiiProxy_Application) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -352,6 +379,9 @@ func (a *jsiiProxy_Application) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (a *jsiiProxy_Application) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -373,6 +403,9 @@ func (a *jsiiProxy_Application) OnPrepare() {
 }
 
 func (a *jsiiProxy_Application) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -402,6 +435,9 @@ func (a *jsiiProxy_Application) Prepare() {
 }
 
 func (a *jsiiProxy_Application) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

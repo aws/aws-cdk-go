@@ -55,6 +55,9 @@ func (j *jsiiProxy_CustomResourceProvider) ServiceToken() *string {
 func CustomResourceProvider_FromLambda(handler awslambda.IFunction) CustomResourceProvider {
 	_init_.Initialize()
 
+	if err := validateCustomResourceProvider_FromLambdaParameters(handler); err != nil {
+		panic(err)
+	}
 	var returns CustomResourceProvider
 
 	_jsii_.StaticInvoke(
@@ -72,6 +75,9 @@ func CustomResourceProvider_FromLambda(handler awslambda.IFunction) CustomResour
 func CustomResourceProvider_FromTopic(topic awssns.ITopic) CustomResourceProvider {
 	_init_.Initialize()
 
+	if err := validateCustomResourceProvider_FromTopicParameters(topic); err != nil {
+		panic(err)
+	}
 	var returns CustomResourceProvider
 
 	_jsii_.StaticInvoke(
@@ -89,6 +95,9 @@ func CustomResourceProvider_FromTopic(topic awssns.ITopic) CustomResourceProvide
 func CustomResourceProvider_Lambda(handler awslambda.IFunction) CustomResourceProvider {
 	_init_.Initialize()
 
+	if err := validateCustomResourceProvider_LambdaParameters(handler); err != nil {
+		panic(err)
+	}
 	var returns CustomResourceProvider
 
 	_jsii_.StaticInvoke(
@@ -106,6 +115,9 @@ func CustomResourceProvider_Lambda(handler awslambda.IFunction) CustomResourcePr
 func CustomResourceProvider_Topic(topic awssns.ITopic) CustomResourceProvider {
 	_init_.Initialize()
 
+	if err := validateCustomResourceProvider_TopicParameters(topic); err != nil {
+		panic(err)
+	}
 	var returns CustomResourceProvider
 
 	_jsii_.StaticInvoke(
@@ -119,6 +131,9 @@ func CustomResourceProvider_Topic(topic awssns.ITopic) CustomResourceProvider {
 }
 
 func (c *jsiiProxy_CustomResourceProvider) Bind(_arg awscdk.Construct) *CustomResourceProviderConfig {
+	if err := c.validateBindParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *CustomResourceProviderConfig
 
 	_jsii_.Invoke(

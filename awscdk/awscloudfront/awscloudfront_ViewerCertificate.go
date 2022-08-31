@@ -74,6 +74,9 @@ func (j *jsiiProxy_ViewerCertificate) Props() *CfnDistribution_ViewerCertificate
 func ViewerCertificate_FromAcmCertificate(certificate awscertificatemanager.ICertificate, options *ViewerCertificateOptions) ViewerCertificate {
 	_init_.Initialize()
 
+	if err := validateViewerCertificate_FromAcmCertificateParameters(certificate, options); err != nil {
+		panic(err)
+	}
 	var returns ViewerCertificate
 
 	_jsii_.StaticInvoke(
@@ -113,6 +116,9 @@ func ViewerCertificate_FromCloudFrontDefaultCertificate(aliases ...*string) View
 func ViewerCertificate_FromIamCertificate(iamCertificateId *string, options *ViewerCertificateOptions) ViewerCertificate {
 	_init_.Initialize()
 
+	if err := validateViewerCertificate_FromIamCertificateParameters(iamCertificateId, options); err != nil {
+		panic(err)
+	}
 	var returns ViewerCertificate
 
 	_jsii_.StaticInvoke(

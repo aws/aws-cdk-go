@@ -98,6 +98,9 @@ func NewPhysicalResourceIdReference_Override(p PhysicalResourceIdReference) {
 }
 
 func (p *jsiiProxy_PhysicalResourceIdReference) Resolve(_arg awscdk.IResolveContext) interface{} {
+	if err := p.validateResolveParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

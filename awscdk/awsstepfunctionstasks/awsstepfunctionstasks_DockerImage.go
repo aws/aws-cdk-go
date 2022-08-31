@@ -49,6 +49,9 @@ func NewDockerImage_Override(d DockerImage) {
 func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecrassets.DockerImageAssetProps) DockerImage {
 	_init_.Initialize()
 
+	if err := validateDockerImage_FromAssetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
@@ -66,6 +69,9 @@ func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecr
 func DockerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) DockerImage {
 	_init_.Initialize()
 
+	if err := validateDockerImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
@@ -83,6 +89,9 @@ func DockerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *s
 func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bool) DockerImage {
 	_init_.Initialize()
 
+	if err := validateDockerImage_FromJsonExpressionParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
@@ -102,6 +111,9 @@ func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bo
 func DockerImage_FromRegistry(imageUri *string) DockerImage {
 	_init_.Initialize()
 
+	if err := validateDockerImage_FromRegistryParameters(imageUri); err != nil {
+		panic(err)
+	}
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
@@ -115,6 +127,9 @@ func DockerImage_FromRegistry(imageUri *string) DockerImage {
 }
 
 func (d *jsiiProxy_DockerImage) Bind(task ISageMakerTask) *DockerImageConfig {
+	if err := d.validateBindParameters(task); err != nil {
+		panic(err)
+	}
 	var returns *DockerImageConfig
 
 	_jsii_.Invoke(

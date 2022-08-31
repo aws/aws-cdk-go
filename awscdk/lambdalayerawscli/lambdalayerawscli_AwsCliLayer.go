@@ -215,6 +215,9 @@ func (j *jsiiProxy_AwsCliLayer) Stack() awscdk.Stack {
 func NewAwsCliLayer(scope constructs.Construct, id *string) AwsCliLayer {
 	_init_.Initialize()
 
+	if err := validateNewAwsCliLayerParameters(scope, id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AwsCliLayer{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewAwsCliLayer_Override(a AwsCliLayer, scope constructs.Construct, id *stri
 func AwsCliLayer_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) awslambda.ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateAwsCliLayer_FromLayerVersionArnParameters(scope, id, layerVersionArn); err != nil {
+		panic(err)
+	}
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func AwsCliLayer_FromLayerVersionArn(scope constructs.Construct, id *string, lay
 func AwsCliLayer_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *awslambda.LayerVersionAttributes) awslambda.ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateAwsCliLayer_FromLayerVersionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -278,6 +287,9 @@ func AwsCliLayer_FromLayerVersionAttributes(scope constructs.Construct, id *stri
 func AwsCliLayer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAwsCliLayer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -295,6 +307,9 @@ func AwsCliLayer_IsConstruct(x interface{}) *bool {
 func AwsCliLayer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAwsCliLayer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -308,6 +323,9 @@ func AwsCliLayer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_AwsCliLayer) AddPermission(id *string, permission *awslambda.LayerVersionPermission) {
+	if err := a.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addPermission",
@@ -316,6 +334,9 @@ func (a *jsiiProxy_AwsCliLayer) AddPermission(id *string, permission *awslambda.
 }
 
 func (a *jsiiProxy_AwsCliLayer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -337,6 +358,9 @@ func (a *jsiiProxy_AwsCliLayer) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_AwsCliLayer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -350,6 +374,9 @@ func (a *jsiiProxy_AwsCliLayer) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (a *jsiiProxy_AwsCliLayer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -371,6 +398,9 @@ func (a *jsiiProxy_AwsCliLayer) OnPrepare() {
 }
 
 func (a *jsiiProxy_AwsCliLayer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -400,6 +430,9 @@ func (a *jsiiProxy_AwsCliLayer) Prepare() {
 }
 
 func (a *jsiiProxy_AwsCliLayer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

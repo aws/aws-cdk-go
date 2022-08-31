@@ -69,6 +69,9 @@ func (j *jsiiProxy_EcrImageCode) IsInline() *bool {
 func NewEcrImageCode(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
+	if err := validateNewEcrImageCodeParameters(repository, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcrImageCode{}
 
 	_jsii_.Create(
@@ -96,6 +99,9 @@ func NewEcrImageCode_Override(e EcrImageCode, repository awsecr.IRepository, pro
 func EcrImageCode_Asset(path *string) AssetCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_AssetParameters(path); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -113,6 +119,9 @@ func EcrImageCode_Asset(path *string) AssetCode {
 func EcrImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_BucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -130,6 +139,9 @@ func EcrImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *strin
 func EcrImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_CfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -147,6 +159,9 @@ func EcrImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode
 func EcrImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -164,6 +179,9 @@ func EcrImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) Ass
 func EcrImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_FromAssetImageParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
@@ -181,6 +199,9 @@ func EcrImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) 
 func EcrImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -200,6 +221,9 @@ func EcrImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *s
 func EcrImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_FromCfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -220,6 +244,9 @@ func EcrImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParameters
 func EcrImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_FromDockerBuildParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -237,6 +264,9 @@ func EcrImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions
 func EcrImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_FromEcrImageParameters(repository, props); err != nil {
+		panic(err)
+	}
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
@@ -256,6 +286,9 @@ func EcrImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCod
 func EcrImageCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_FromInlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -273,6 +306,9 @@ func EcrImageCode_FromInline(code *string) InlineCode {
 func EcrImageCode_Inline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateEcrImageCode_InlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -286,6 +322,9 @@ func EcrImageCode_Inline(code *string) InlineCode {
 }
 
 func (e *jsiiProxy_EcrImageCode) Bind(_arg awscdk.Construct) *CodeConfig {
+	if err := e.validateBindParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -299,6 +338,9 @@ func (e *jsiiProxy_EcrImageCode) Bind(_arg awscdk.Construct) *CodeConfig {
 }
 
 func (e *jsiiProxy_EcrImageCode) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
+	if err := e.validateBindToResourceParameters(_resource, _options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"bindToResource",

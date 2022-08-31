@@ -81,6 +81,9 @@ func (j *jsiiProxy_KinesisEventSource) Stream() awskinesis.IStream {
 func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceProps) KinesisEventSource {
 	_init_.Initialize()
 
+	if err := validateNewKinesisEventSourceParameters(stream, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KinesisEventSource{}
 
 	_jsii_.Create(
@@ -104,6 +107,9 @@ func NewKinesisEventSource_Override(k KinesisEventSource, stream awskinesis.IStr
 }
 
 func (k *jsiiProxy_KinesisEventSource) Bind(target awslambda.IFunction) {
+	if err := k.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"bind",
@@ -112,6 +118,9 @@ func (k *jsiiProxy_KinesisEventSource) Bind(target awslambda.IFunction) {
 }
 
 func (k *jsiiProxy_KinesisEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
+	if err := k.validateEnrichMappingOptionsParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.EventSourceMappingOptions
 
 	_jsii_.Invoke(

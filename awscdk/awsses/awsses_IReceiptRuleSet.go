@@ -28,6 +28,9 @@ type jsiiProxy_IReceiptRuleSet struct {
 }
 
 func (i *jsiiProxy_IReceiptRuleSet) AddRule(id *string, options *ReceiptRuleOptions) ReceiptRule {
+	if err := i.validateAddRuleParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns ReceiptRule
 
 	_jsii_.Invoke(

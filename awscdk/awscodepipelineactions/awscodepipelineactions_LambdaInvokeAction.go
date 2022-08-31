@@ -93,6 +93,9 @@ func (j *jsiiProxy_LambdaInvokeAction) ProvidedActionProperties() *awscodepipeli
 func NewLambdaInvokeAction(props *LambdaInvokeActionProps) LambdaInvokeAction {
 	_init_.Initialize()
 
+	if err := validateNewLambdaInvokeActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaInvokeAction{}
 
 	_jsii_.Create(
@@ -116,6 +119,9 @@ func NewLambdaInvokeAction_Override(l LambdaInvokeAction, props *LambdaInvokeAct
 }
 
 func (l *jsiiProxy_LambdaInvokeAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := l.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -129,6 +135,9 @@ func (l *jsiiProxy_LambdaInvokeAction) Bind(scope awscdk.Construct, stage awscod
 }
 
 func (l *jsiiProxy_LambdaInvokeAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := l.validateBoundParameters(scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -142,6 +151,9 @@ func (l *jsiiProxy_LambdaInvokeAction) Bound(scope awscdk.Construct, _stage awsc
 }
 
 func (l *jsiiProxy_LambdaInvokeAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := l.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -155,6 +167,9 @@ func (l *jsiiProxy_LambdaInvokeAction) OnStateChange(name *string, target awseve
 }
 
 func (l *jsiiProxy_LambdaInvokeAction) Variable(variableName *string) *string {
+	if err := l.validateVariableParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -168,6 +183,9 @@ func (l *jsiiProxy_LambdaInvokeAction) Variable(variableName *string) *string {
 }
 
 func (l *jsiiProxy_LambdaInvokeAction) VariableExpression(variableName *string) *string {
+	if err := l.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

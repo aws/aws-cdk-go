@@ -45,6 +45,9 @@ type jsiiProxy_Lambda struct {
 func NewLambda(props *LambdaProps) Lambda {
 	_init_.Initialize()
 
+	if err := validateNewLambdaParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Lambda{}
 
 	_jsii_.Create(
@@ -68,6 +71,9 @@ func NewLambda_Override(l Lambda, props *LambdaProps) {
 }
 
 func (l *jsiiProxy_Lambda) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := l.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsses.ReceiptRuleActionConfig
 
 	_jsii_.Invoke(

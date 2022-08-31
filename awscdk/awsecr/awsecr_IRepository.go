@@ -83,6 +83,9 @@ type jsiiProxy_IRepository struct {
 }
 
 func (i *jsiiProxy_IRepository) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -96,6 +99,9 @@ func (i *jsiiProxy_IRepository) AddToResourcePolicy(statement awsiam.PolicyState
 }
 
 func (i *jsiiProxy_IRepository) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -114,6 +120,9 @@ func (i *jsiiProxy_IRepository) Grant(grantee awsiam.IGrantable, actions ...*str
 }
 
 func (i *jsiiProxy_IRepository) GrantPull(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPullParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -127,6 +136,9 @@ func (i *jsiiProxy_IRepository) GrantPull(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 func (i *jsiiProxy_IRepository) GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPullPushParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -140,6 +152,9 @@ func (i *jsiiProxy_IRepository) GrantPullPush(grantee awsiam.IGrantable) awsiam.
 }
 
 func (i *jsiiProxy_IRepository) OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnCloudTrailEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -153,6 +168,9 @@ func (i *jsiiProxy_IRepository) OnCloudTrailEvent(id *string, options *awsevents
 }
 
 func (i *jsiiProxy_IRepository) OnCloudTrailImagePushed(id *string, options *OnCloudTrailImagePushedOptions) awsevents.Rule {
+	if err := i.validateOnCloudTrailImagePushedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -166,6 +184,9 @@ func (i *jsiiProxy_IRepository) OnCloudTrailImagePushed(id *string, options *OnC
 }
 
 func (i *jsiiProxy_IRepository) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -179,6 +200,9 @@ func (i *jsiiProxy_IRepository) OnEvent(id *string, options *awsevents.OnEventOp
 }
 
 func (i *jsiiProxy_IRepository) OnImageScanCompleted(id *string, options *OnImageScanCompletedOptions) awsevents.Rule {
+	if err := i.validateOnImageScanCompletedParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(

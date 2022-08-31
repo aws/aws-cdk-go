@@ -55,6 +55,9 @@ func NewArtifactMap_Override(a ArtifactMap) {
 }
 
 func (a *jsiiProxy_ArtifactMap) ToCodePipeline(x FileSet) awscodepipeline.Artifact {
+	if err := a.validateToCodePipelineParameters(x); err != nil {
+		panic(err)
+	}
 	var returns awscodepipeline.Artifact
 
 	_jsii_.Invoke(

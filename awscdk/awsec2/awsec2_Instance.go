@@ -369,6 +369,9 @@ func (j *jsiiProxy_Instance) UserData() UserData {
 func NewInstance(scope constructs.Construct, id *string, props *InstanceProps) Instance {
 	_init_.Initialize()
 
+	if err := validateNewInstanceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Instance{}
 
 	_jsii_.Create(
@@ -396,6 +399,9 @@ func NewInstance_Override(i Instance, scope constructs.Construct, id *string, pr
 func Instance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateInstance_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -413,6 +419,9 @@ func Instance_IsConstruct(x interface{}) *bool {
 func Instance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateInstance_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -426,6 +435,9 @@ func Instance_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (i *jsiiProxy_Instance) AddSecurityGroup(securityGroup ISecurityGroup) {
+	if err := i.validateAddSecurityGroupParameters(securityGroup); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addSecurityGroup",
@@ -434,6 +446,9 @@ func (i *jsiiProxy_Instance) AddSecurityGroup(securityGroup ISecurityGroup) {
 }
 
 func (i *jsiiProxy_Instance) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := i.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addToRolePolicy",
@@ -455,6 +470,9 @@ func (i *jsiiProxy_Instance) AddUserData(commands ...*string) {
 }
 
 func (i *jsiiProxy_Instance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -476,6 +494,9 @@ func (i *jsiiProxy_Instance) GeneratePhysicalName() *string {
 }
 
 func (i *jsiiProxy_Instance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := i.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -489,6 +510,9 @@ func (i *jsiiProxy_Instance) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (i *jsiiProxy_Instance) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := i.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -510,6 +534,9 @@ func (i *jsiiProxy_Instance) OnPrepare() {
 }
 
 func (i *jsiiProxy_Instance) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := i.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"onSynthesize",
@@ -539,6 +566,9 @@ func (i *jsiiProxy_Instance) Prepare() {
 }
 
 func (i *jsiiProxy_Instance) Synthesize(session awscdk.ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",

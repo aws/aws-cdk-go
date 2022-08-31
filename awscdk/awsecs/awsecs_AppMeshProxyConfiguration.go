@@ -60,6 +60,9 @@ type jsiiProxy_AppMeshProxyConfiguration struct {
 func NewAppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) AppMeshProxyConfiguration {
 	_init_.Initialize()
 
+	if err := validateNewAppMeshProxyConfigurationParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AppMeshProxyConfiguration{}
 
 	_jsii_.Create(
@@ -84,6 +87,9 @@ func NewAppMeshProxyConfiguration_Override(a AppMeshProxyConfiguration, props *A
 }
 
 func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
+	if err := a.validateBindParameters(_scope, _taskDefinition); err != nil {
+		panic(err)
+	}
 	var returns *CfnTaskDefinition_ProxyConfigurationProperty
 
 	_jsii_.Invoke(

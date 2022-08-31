@@ -131,6 +131,9 @@ func (j *jsiiProxy_LogRetention) Node() awscdk.ConstructNode {
 func NewLogRetention(scope constructs.Construct, id *string, props *LogRetentionProps) LogRetention {
 	_init_.Initialize()
 
+	if err := validateNewLogRetentionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LogRetention{}
 
 	_jsii_.Create(
@@ -158,6 +161,9 @@ func NewLogRetention_Override(l LogRetention, scope constructs.Construct, id *st
 func LogRetention_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLogRetention_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -179,6 +185,9 @@ func (l *jsiiProxy_LogRetention) OnPrepare() {
 }
 
 func (l *jsiiProxy_LogRetention) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -208,6 +217,9 @@ func (l *jsiiProxy_LogRetention) Prepare() {
 }
 
 func (l *jsiiProxy_LogRetention) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

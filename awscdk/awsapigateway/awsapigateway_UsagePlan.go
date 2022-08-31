@@ -212,6 +212,9 @@ func (j *jsiiProxy_UsagePlan) UsagePlanId() *string {
 func NewUsagePlan(scope constructs.Construct, id *string, props *UsagePlanProps) UsagePlan {
 	_init_.Initialize()
 
+	if err := validateNewUsagePlanParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UsagePlan{}
 
 	_jsii_.Create(
@@ -239,6 +242,9 @@ func NewUsagePlan_Override(u UsagePlan, scope constructs.Construct, id *string, 
 func UsagePlan_FromUsagePlanId(scope constructs.Construct, id *string, usagePlanId *string) IUsagePlan {
 	_init_.Initialize()
 
+	if err := validateUsagePlan_FromUsagePlanIdParameters(scope, id, usagePlanId); err != nil {
+		panic(err)
+	}
 	var returns IUsagePlan
 
 	_jsii_.StaticInvoke(
@@ -256,6 +262,9 @@ func UsagePlan_FromUsagePlanId(scope constructs.Construct, id *string, usagePlan
 func UsagePlan_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUsagePlan_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -273,6 +282,9 @@ func UsagePlan_IsConstruct(x interface{}) *bool {
 func UsagePlan_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUsagePlan_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -286,6 +298,9 @@ func UsagePlan_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOptions) {
+	if err := u.validateAddApiKeyParameters(apiKey, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addApiKey",
@@ -294,6 +309,9 @@ func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOption
 }
 
 func (u *jsiiProxy_UsagePlan) AddApiStage(apiStage *UsagePlanPerApiStage) {
+	if err := u.validateAddApiStageParameters(apiStage); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addApiStage",
@@ -302,6 +320,9 @@ func (u *jsiiProxy_UsagePlan) AddApiStage(apiStage *UsagePlanPerApiStage) {
 }
 
 func (u *jsiiProxy_UsagePlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -323,6 +344,9 @@ func (u *jsiiProxy_UsagePlan) GeneratePhysicalName() *string {
 }
 
 func (u *jsiiProxy_UsagePlan) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -336,6 +360,9 @@ func (u *jsiiProxy_UsagePlan) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (u *jsiiProxy_UsagePlan) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -357,6 +384,9 @@ func (u *jsiiProxy_UsagePlan) OnPrepare() {
 }
 
 func (u *jsiiProxy_UsagePlan) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -386,6 +416,9 @@ func (u *jsiiProxy_UsagePlan) Prepare() {
 }
 
 func (u *jsiiProxy_UsagePlan) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

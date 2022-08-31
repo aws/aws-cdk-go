@@ -49,6 +49,9 @@ type jsiiProxy_HttpOrigin struct {
 func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	_init_.Initialize()
 
+	if err := validateNewHttpOriginParameters(domainName, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpOrigin{}
 
 	_jsii_.Create(
@@ -72,6 +75,9 @@ func NewHttpOrigin_Override(h HttpOrigin, domainName *string, props *HttpOriginP
 }
 
 func (h *jsiiProxy_HttpOrigin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := h.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(

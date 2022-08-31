@@ -44,6 +44,9 @@ func NewCode_Override(c Code) {
 func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
 	_init_.Initialize()
 
+	if err := validateCode_FromAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns Code
 
 	_jsii_.StaticInvoke(
@@ -61,6 +64,9 @@ func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
 func Code_FromDirectory(directoryPath *string, branch *string) Code {
 	_init_.Initialize()
 
+	if err := validateCode_FromDirectoryParameters(directoryPath); err != nil {
+		panic(err)
+	}
 	var returns Code
 
 	_jsii_.StaticInvoke(
@@ -78,6 +84,9 @@ func Code_FromDirectory(directoryPath *string, branch *string) Code {
 func Code_FromZipFile(filePath *string, branch *string) Code {
 	_init_.Initialize()
 
+	if err := validateCode_FromZipFileParameters(filePath); err != nil {
+		panic(err)
+	}
 	var returns Code
 
 	_jsii_.StaticInvoke(
@@ -91,6 +100,9 @@ func Code_FromZipFile(filePath *string, branch *string) Code {
 }
 
 func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
+	if err := c.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(

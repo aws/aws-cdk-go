@@ -213,6 +213,9 @@ func (j *jsiiProxy_GitHubRepository) Stack() awscdk.Stack {
 func NewGitHubRepository(scope constructs.Construct, id *string, props *GitHubRepositoryProps) GitHubRepository {
 	_init_.Initialize()
 
+	if err := validateNewGitHubRepositoryParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GitHubRepository{}
 
 	_jsii_.Create(
@@ -240,6 +243,9 @@ func NewGitHubRepository_Override(g GitHubRepository, scope constructs.Construct
 func GitHubRepository_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGitHubRepository_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -257,6 +263,9 @@ func GitHubRepository_IsConstruct(x interface{}) *bool {
 func GitHubRepository_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateGitHubRepository_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -270,6 +279,9 @@ func GitHubRepository_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (g *jsiiProxy_GitHubRepository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := g.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"applyRemovalPolicy",
@@ -291,6 +303,9 @@ func (g *jsiiProxy_GitHubRepository) GeneratePhysicalName() *string {
 }
 
 func (g *jsiiProxy_GitHubRepository) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := g.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -304,6 +319,9 @@ func (g *jsiiProxy_GitHubRepository) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (g *jsiiProxy_GitHubRepository) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := g.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -325,6 +343,9 @@ func (g *jsiiProxy_GitHubRepository) OnPrepare() {
 }
 
 func (g *jsiiProxy_GitHubRepository) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -354,6 +375,9 @@ func (g *jsiiProxy_GitHubRepository) Prepare() {
 }
 
 func (g *jsiiProxy_GitHubRepository) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",

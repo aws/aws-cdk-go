@@ -46,6 +46,9 @@ type jsiiProxy_LambdaDeploymentConfig struct {
 func LambdaDeploymentConfig_Import(_scope constructs.Construct, _id *string, props *LambdaDeploymentConfigImportProps) ILambdaDeploymentConfig {
 	_init_.Initialize()
 
+	if err := validateLambdaDeploymentConfig_ImportParameters(_scope, _id, props); err != nil {
+		panic(err)
+	}
 	var returns ILambdaDeploymentConfig
 
 	_jsii_.StaticInvoke(

@@ -133,6 +133,9 @@ func (j *jsiiProxy_LinuxArmBuildImage) Type() *string {
 func LinuxArmBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxArmBuildImage_FromCodeBuildImageIdParameters(id); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -157,6 +160,9 @@ func LinuxArmBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 func LinuxArmBuildImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxArmBuildImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -192,6 +198,9 @@ func LinuxArmBuildImage_AMAZON_LINUX_2_STANDARD_2_0() IBuildImage {
 }
 
 func (l *jsiiProxy_LinuxArmBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
+	if err := l.validateRunScriptBuildspecParameters(entrypoint); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.Invoke(
@@ -205,6 +214,9 @@ func (l *jsiiProxy_LinuxArmBuildImage) RunScriptBuildspec(entrypoint *string) Bu
 }
 
 func (l *jsiiProxy_LinuxArmBuildImage) Validate(buildEnvironment *BuildEnvironment) *[]*string {
+	if err := l.validateValidateParameters(buildEnvironment); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

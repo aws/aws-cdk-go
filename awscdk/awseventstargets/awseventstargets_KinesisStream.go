@@ -35,6 +35,9 @@ type jsiiProxy_KinesisStream struct {
 func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) KinesisStream {
 	_init_.Initialize()
 
+	if err := validateNewKinesisStreamParameters(stream, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KinesisStream{}
 
 	_jsii_.Create(
@@ -58,6 +61,9 @@ func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props
 }
 
 func (k *jsiiProxy_KinesisStream) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := k.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

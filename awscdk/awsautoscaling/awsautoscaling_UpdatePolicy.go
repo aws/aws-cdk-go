@@ -56,6 +56,9 @@ func UpdatePolicy_ReplacingUpdate() UpdatePolicy {
 func UpdatePolicy_RollingUpdate(options *RollingUpdateOptions) UpdatePolicy {
 	_init_.Initialize()
 
+	if err := validateUpdatePolicy_RollingUpdateParameters(options); err != nil {
+		panic(err)
+	}
 	var returns UpdatePolicy
 
 	_jsii_.StaticInvoke(

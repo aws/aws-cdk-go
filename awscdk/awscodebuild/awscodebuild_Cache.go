@@ -69,6 +69,9 @@ func NewCache_Override(c Cache) {
 func Cache_Bucket(bucket awss3.IBucket, options *BucketCacheOptions) Cache {
 	_init_.Initialize()
 
+	if err := validateCache_BucketParameters(bucket, options); err != nil {
+		panic(err)
+	}
 	var returns Cache
 
 	_jsii_.StaticInvoke(

@@ -103,6 +103,9 @@ func NewParameterMapping_Override(p ParameterMapping) {
 func ParameterMapping_FromObject(obj *map[string]MappingValue) ParameterMapping {
 	_init_.Initialize()
 
+	if err := validateParameterMapping_FromObjectParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.StaticInvoke(
@@ -116,6 +119,9 @@ func ParameterMapping_FromObject(obj *map[string]MappingValue) ParameterMapping 
 }
 
 func (p *jsiiProxy_ParameterMapping) AppendHeader(name *string, value MappingValue) ParameterMapping {
+	if err := p.validateAppendHeaderParameters(name, value); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(
@@ -129,6 +135,9 @@ func (p *jsiiProxy_ParameterMapping) AppendHeader(name *string, value MappingVal
 }
 
 func (p *jsiiProxy_ParameterMapping) AppendQueryString(name *string, value MappingValue) ParameterMapping {
+	if err := p.validateAppendQueryStringParameters(name, value); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(
@@ -142,6 +151,9 @@ func (p *jsiiProxy_ParameterMapping) AppendQueryString(name *string, value Mappi
 }
 
 func (p *jsiiProxy_ParameterMapping) Custom(key *string, value *string) ParameterMapping {
+	if err := p.validateCustomParameters(key, value); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(
@@ -155,6 +167,9 @@ func (p *jsiiProxy_ParameterMapping) Custom(key *string, value *string) Paramete
 }
 
 func (p *jsiiProxy_ParameterMapping) OverwriteHeader(name *string, value MappingValue) ParameterMapping {
+	if err := p.validateOverwriteHeaderParameters(name, value); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(
@@ -168,6 +183,9 @@ func (p *jsiiProxy_ParameterMapping) OverwriteHeader(name *string, value Mapping
 }
 
 func (p *jsiiProxy_ParameterMapping) OverwritePath(value MappingValue) ParameterMapping {
+	if err := p.validateOverwritePathParameters(value); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(
@@ -181,6 +199,9 @@ func (p *jsiiProxy_ParameterMapping) OverwritePath(value MappingValue) Parameter
 }
 
 func (p *jsiiProxy_ParameterMapping) OverwriteQueryString(name *string, value MappingValue) ParameterMapping {
+	if err := p.validateOverwriteQueryStringParameters(name, value); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(
@@ -194,6 +215,9 @@ func (p *jsiiProxy_ParameterMapping) OverwriteQueryString(name *string, value Ma
 }
 
 func (p *jsiiProxy_ParameterMapping) RemoveHeader(name *string) ParameterMapping {
+	if err := p.validateRemoveHeaderParameters(name); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(
@@ -207,6 +231,9 @@ func (p *jsiiProxy_ParameterMapping) RemoveHeader(name *string) ParameterMapping
 }
 
 func (p *jsiiProxy_ParameterMapping) RemoveQueryString(name *string) ParameterMapping {
+	if err := p.validateRemoveQueryStringParameters(name); err != nil {
+		panic(err)
+	}
 	var returns ParameterMapping
 
 	_jsii_.Invoke(

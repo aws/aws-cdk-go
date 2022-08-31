@@ -69,6 +69,9 @@ func NewS3Location_Override(s S3Location) {
 func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 	_init_.Initialize()
 
+	if err := validateS3Location_FromBucketParameters(bucket, keyPrefix); err != nil {
+		panic(err)
+	}
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
@@ -89,6 +92,9 @@ func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 func S3Location_FromJsonExpression(expression *string) S3Location {
 	_init_.Initialize()
 
+	if err := validateS3Location_FromJsonExpressionParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
@@ -102,6 +108,9 @@ func S3Location_FromJsonExpression(expression *string) S3Location {
 }
 
 func (s *jsiiProxy_S3Location) Bind(task ISageMakerTask, opts *S3LocationBindOptions) *S3LocationConfig {
+	if err := s.validateBindParameters(task, opts); err != nil {
+		panic(err)
+	}
 	var returns *S3LocationConfig
 
 	_jsii_.Invoke(

@@ -72,6 +72,9 @@ type jsiiProxy_RunBatchJob struct {
 func NewRunBatchJob(props *RunBatchJobProps) RunBatchJob {
 	_init_.Initialize()
 
+	if err := validateNewRunBatchJobParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RunBatchJob{}
 
 	_jsii_.Create(
@@ -95,6 +98,9 @@ func NewRunBatchJob_Override(r RunBatchJob, props *RunBatchJobProps) {
 }
 
 func (r *jsiiProxy_RunBatchJob) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := r.validateBindParameters(_task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

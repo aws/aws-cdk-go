@@ -65,6 +65,9 @@ func AccessLogFormat_Clf() AccessLogFormat {
 func AccessLogFormat_Custom(format *string) AccessLogFormat {
 	_init_.Initialize()
 
+	if err := validateAccessLogFormat_CustomParameters(format); err != nil {
+		panic(err)
+	}
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(
@@ -85,6 +88,9 @@ func AccessLogFormat_Custom(format *string) AccessLogFormat {
 func AccessLogFormat_JsonWithStandardFields(fields *JsonWithStandardFieldProps) AccessLogFormat {
 	_init_.Initialize()
 
+	if err := validateAccessLogFormat_JsonWithStandardFieldsParameters(fields); err != nil {
+		panic(err)
+	}
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(

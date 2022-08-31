@@ -250,6 +250,9 @@ func (j *jsiiProxy_EndpointGroup) Stack() awscdk.Stack {
 func NewEndpointGroup(scope constructs.Construct, id *string, props *EndpointGroupProps) EndpointGroup {
 	_init_.Initialize()
 
+	if err := validateNewEndpointGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EndpointGroup{}
 
 	_jsii_.Create(
@@ -277,6 +280,9 @@ func NewEndpointGroup_Override(e EndpointGroup, scope constructs.Construct, id *
 func EndpointGroup_FromEndpointGroupArn(scope constructs.Construct, id *string, endpointGroupArn *string) IEndpointGroup {
 	_init_.Initialize()
 
+	if err := validateEndpointGroup_FromEndpointGroupArnParameters(scope, id, endpointGroupArn); err != nil {
+		panic(err)
+	}
 	var returns IEndpointGroup
 
 	_jsii_.StaticInvoke(
@@ -294,6 +300,9 @@ func EndpointGroup_FromEndpointGroupArn(scope constructs.Construct, id *string, 
 func EndpointGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEndpointGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -311,6 +320,9 @@ func EndpointGroup_IsConstruct(x interface{}) *bool {
 func EndpointGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateEndpointGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -324,6 +336,9 @@ func EndpointGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (e *jsiiProxy_EndpointGroup) AddEndpoint(endpoint IEndpoint) {
+	if err := e.validateAddEndpointParameters(endpoint); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addEndpoint",
@@ -332,6 +347,9 @@ func (e *jsiiProxy_EndpointGroup) AddEndpoint(endpoint IEndpoint) {
 }
 
 func (e *jsiiProxy_EndpointGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -340,6 +358,9 @@ func (e *jsiiProxy_EndpointGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (e *jsiiProxy_EndpointGroup) ConnectionsPeer(id *string, vpc awsec2.IVpc) awsec2.IPeer {
+	if err := e.validateConnectionsPeerParameters(id, vpc); err != nil {
+		panic(err)
+	}
 	var returns awsec2.IPeer
 
 	_jsii_.Invoke(
@@ -366,6 +387,9 @@ func (e *jsiiProxy_EndpointGroup) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_EndpointGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -379,6 +403,9 @@ func (e *jsiiProxy_EndpointGroup) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (e *jsiiProxy_EndpointGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -400,6 +427,9 @@ func (e *jsiiProxy_EndpointGroup) OnPrepare() {
 }
 
 func (e *jsiiProxy_EndpointGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -429,6 +459,9 @@ func (e *jsiiProxy_EndpointGroup) Prepare() {
 }
 
 func (e *jsiiProxy_EndpointGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

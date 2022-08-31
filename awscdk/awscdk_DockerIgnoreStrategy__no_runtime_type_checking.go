@@ -1,0 +1,36 @@
+//go:build no_runtime_type_checking
+// +build no_runtime_type_checking
+
+// An experiment to bundle the entire CDK into a single module
+package awscdk
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (d *jsiiProxy_DockerIgnoreStrategy) validateAddParameters(pattern *string) error {
+	return nil
+}
+
+func (d *jsiiProxy_DockerIgnoreStrategy) validateIgnoresParameters(absoluteFilePath *string) error {
+	return nil
+}
+
+func validateDockerIgnoreStrategy_DockerParameters(absoluteRootPath *string, patterns *[]*string) error {
+	return nil
+}
+
+func validateDockerIgnoreStrategy_FromCopyOptionsParameters(options *CopyOptions, absoluteRootPath *string) error {
+	return nil
+}
+
+func validateDockerIgnoreStrategy_GitParameters(absoluteRootPath *string, patterns *[]*string) error {
+	return nil
+}
+
+func validateDockerIgnoreStrategy_GlobParameters(absoluteRootPath *string, patterns *[]*string) error {
+	return nil
+}
+
+func validateNewDockerIgnoreStrategyParameters(absoluteRootPath *string, patterns *[]*string) error {
+	return nil
+}
+

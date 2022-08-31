@@ -109,6 +109,9 @@ type jsiiProxy_ITable struct {
 }
 
 func (i *jsiiProxy_ITable) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -127,6 +130,9 @@ func (i *jsiiProxy_ITable) Grant(grantee awsiam.IGrantable, actions ...*string) 
 }
 
 func (i *jsiiProxy_ITable) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantFullAccessParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -140,6 +146,9 @@ func (i *jsiiProxy_ITable) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Gra
 }
 
 func (i *jsiiProxy_ITable) GrantReadData(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadDataParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -153,6 +162,9 @@ func (i *jsiiProxy_ITable) GrantReadData(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 func (i *jsiiProxy_ITable) GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadWriteDataParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -166,6 +178,9 @@ func (i *jsiiProxy_ITable) GrantReadWriteData(grantee awsiam.IGrantable) awsiam.
 }
 
 func (i *jsiiProxy_ITable) GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantStreamParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -184,6 +199,9 @@ func (i *jsiiProxy_ITable) GrantStream(grantee awsiam.IGrantable, actions ...*st
 }
 
 func (i *jsiiProxy_ITable) GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantStreamReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -197,6 +215,9 @@ func (i *jsiiProxy_ITable) GrantStreamRead(grantee awsiam.IGrantable) awsiam.Gra
 }
 
 func (i *jsiiProxy_ITable) GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantTableListStreamsParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -210,6 +231,9 @@ func (i *jsiiProxy_ITable) GrantTableListStreams(grantee awsiam.IGrantable) awsi
 }
 
 func (i *jsiiProxy_ITable) GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantWriteDataParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -223,6 +247,9 @@ func (i *jsiiProxy_ITable) GrantWriteData(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 func (i *jsiiProxy_ITable) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -236,6 +263,9 @@ func (i *jsiiProxy_ITable) Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 func (i *jsiiProxy_ITable) MetricConditionalCheckFailedRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricConditionalCheckFailedRequestsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -249,6 +279,9 @@ func (i *jsiiProxy_ITable) MetricConditionalCheckFailedRequests(props *awscloudw
 }
 
 func (i *jsiiProxy_ITable) MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricConsumedReadCapacityUnitsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -262,6 +295,9 @@ func (i *jsiiProxy_ITable) MetricConsumedReadCapacityUnits(props *awscloudwatch.
 }
 
 func (i *jsiiProxy_ITable) MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricConsumedWriteCapacityUnitsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -275,6 +311,9 @@ func (i *jsiiProxy_ITable) MetricConsumedWriteCapacityUnits(props *awscloudwatch
 }
 
 func (i *jsiiProxy_ITable) MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSuccessfulRequestLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -288,6 +327,9 @@ func (i *jsiiProxy_ITable) MetricSuccessfulRequestLatency(props *awscloudwatch.M
 }
 
 func (i *jsiiProxy_ITable) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSystemErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -301,6 +343,9 @@ func (i *jsiiProxy_ITable) MetricSystemErrors(props *awscloudwatch.MetricOptions
 }
 
 func (i *jsiiProxy_ITable) MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric {
+	if err := i.validateMetricSystemErrorsForOperationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.IMetric
 
 	_jsii_.Invoke(
@@ -314,6 +359,9 @@ func (i *jsiiProxy_ITable) MetricSystemErrorsForOperations(props *SystemErrorsFo
 }
 
 func (i *jsiiProxy_ITable) MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricThrottledRequestsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -327,6 +375,9 @@ func (i *jsiiProxy_ITable) MetricThrottledRequests(props *awscloudwatch.MetricOp
 }
 
 func (i *jsiiProxy_ITable) MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricUserErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(

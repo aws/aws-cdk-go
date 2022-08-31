@@ -438,7 +438,7 @@ func NewBaseService_Override(b BaseService, scope constructs.Construct, id *stri
 	)
 }
 
-func (j *jsiiProxy_BaseService) SetCloudmapService(val awsservicediscovery.Service) {
+func (j *jsiiProxy_BaseService)SetCloudmapService(val awsservicediscovery.Service) {
 	_jsii_.Set(
 		j,
 		"cloudmapService",
@@ -446,7 +446,10 @@ func (j *jsiiProxy_BaseService) SetCloudmapService(val awsservicediscovery.Servi
 	)
 }
 
-func (j *jsiiProxy_BaseService) SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty) {
+func (j *jsiiProxy_BaseService)SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty) {
+	if err := j.validateSetLoadBalancersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"loadBalancers",
@@ -454,7 +457,10 @@ func (j *jsiiProxy_BaseService) SetLoadBalancers(val *[]*CfnService_LoadBalancer
 	)
 }
 
-func (j *jsiiProxy_BaseService) SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty) {
+func (j *jsiiProxy_BaseService)SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty) {
+	if err := j.validateSetNetworkConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"networkConfiguration",
@@ -462,7 +468,10 @@ func (j *jsiiProxy_BaseService) SetNetworkConfiguration(val *CfnService_NetworkC
 	)
 }
 
-func (j *jsiiProxy_BaseService) SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty) {
+func (j *jsiiProxy_BaseService)SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty) {
+	if err := j.validateSetServiceRegistriesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"serviceRegistries",
@@ -479,6 +488,9 @@ func (j *jsiiProxy_BaseService) SetServiceRegistries(val *[]*CfnService_ServiceR
 func BaseService_FromServiceArnWithCluster(scope constructs.Construct, id *string, serviceArn *string) IBaseService {
 	_init_.Initialize()
 
+	if err := validateBaseService_FromServiceArnWithClusterParameters(scope, id, serviceArn); err != nil {
+		panic(err)
+	}
 	var returns IBaseService
 
 	_jsii_.StaticInvoke(
@@ -496,6 +508,9 @@ func BaseService_FromServiceArnWithCluster(scope constructs.Construct, id *strin
 func BaseService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -513,6 +528,9 @@ func BaseService_IsConstruct(x interface{}) *bool {
 func BaseService_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBaseService_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -526,6 +544,9 @@ func BaseService_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BaseService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -534,6 +555,9 @@ func (b *jsiiProxy_BaseService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 }
 
 func (b *jsiiProxy_BaseService) AssociateCloudMapService(options *AssociateCloudMapServiceOptions) {
+	if err := b.validateAssociateCloudMapServiceParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"associateCloudMapService",
@@ -542,6 +566,9 @@ func (b *jsiiProxy_BaseService) AssociateCloudMapService(options *AssociateCloud
 }
 
 func (b *jsiiProxy_BaseService) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := b.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -555,6 +582,9 @@ func (b *jsiiProxy_BaseService) AttachToApplicationTargetGroup(targetGroup awsel
 }
 
 func (b *jsiiProxy_BaseService) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
+	if err := b.validateAttachToClassicLBParameters(loadBalancer); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"attachToClassicLB",
@@ -563,6 +593,9 @@ func (b *jsiiProxy_BaseService) AttachToClassicLB(loadBalancer awselasticloadbal
 }
 
 func (b *jsiiProxy_BaseService) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := b.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -576,6 +609,9 @@ func (b *jsiiProxy_BaseService) AttachToNetworkTargetGroup(targetGroup awselasti
 }
 
 func (b *jsiiProxy_BaseService) AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
+	if err := b.validateAutoScaleTaskCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ScalableTaskCount
 
 	_jsii_.Invoke(
@@ -589,6 +625,9 @@ func (b *jsiiProxy_BaseService) AutoScaleTaskCount(props *awsapplicationautoscal
 }
 
 func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	if err := b.validateConfigureAwsVpcNetworkingParameters(vpc, vpcSubnets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"configureAwsVpcNetworking",
@@ -597,6 +636,9 @@ func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assig
 }
 
 func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
+	if err := b.validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc, vpcSubnets); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"configureAwsVpcNetworkingWithSecurityGroups",
@@ -605,6 +647,9 @@ func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc 
 }
 
 func (b *jsiiProxy_BaseService) EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service {
+	if err := b.validateEnableCloudMapParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awsservicediscovery.Service
 
 	_jsii_.Invoke(
@@ -631,6 +676,9 @@ func (b *jsiiProxy_BaseService) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BaseService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -644,6 +692,9 @@ func (b *jsiiProxy_BaseService) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (b *jsiiProxy_BaseService) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -657,6 +708,9 @@ func (b *jsiiProxy_BaseService) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 func (b *jsiiProxy_BaseService) LoadBalancerTarget(options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+	if err := b.validateLoadBalancerTargetParameters(options); err != nil {
+		panic(err)
+	}
 	var returns IEcsLoadBalancerTarget
 
 	_jsii_.Invoke(
@@ -670,6 +724,9 @@ func (b *jsiiProxy_BaseService) LoadBalancerTarget(options *LoadBalancerTargetOp
 }
 
 func (b *jsiiProxy_BaseService) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -683,6 +740,9 @@ func (b *jsiiProxy_BaseService) Metric(metricName *string, props *awscloudwatch.
 }
 
 func (b *jsiiProxy_BaseService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricCpuUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -696,6 +756,9 @@ func (b *jsiiProxy_BaseService) MetricCpuUtilization(props *awscloudwatch.Metric
 }
 
 func (b *jsiiProxy_BaseService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := b.validateMetricMemoryUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -717,6 +780,9 @@ func (b *jsiiProxy_BaseService) OnPrepare() {
 }
 
 func (b *jsiiProxy_BaseService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -746,6 +812,9 @@ func (b *jsiiProxy_BaseService) Prepare() {
 }
 
 func (b *jsiiProxy_BaseService) RegisterLoadBalancerTargets(targets ...*EcsTarget) {
+	if err := b.validateRegisterLoadBalancerTargetsParameters(&targets); err != nil {
+		panic(err)
+	}
 	args := []interface{}{}
 	for _, a := range targets {
 		args = append(args, a)
@@ -759,6 +828,9 @@ func (b *jsiiProxy_BaseService) RegisterLoadBalancerTargets(targets ...*EcsTarge
 }
 
 func (b *jsiiProxy_BaseService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

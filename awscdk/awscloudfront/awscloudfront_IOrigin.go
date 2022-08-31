@@ -22,6 +22,9 @@ type jsiiProxy_IOrigin struct {
 }
 
 func (i *jsiiProxy_IOrigin) Bind(scope awscdk.Construct, options *OriginBindOptions) *OriginBindConfig {
+	if err := i.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *OriginBindConfig
 
 	_jsii_.Invoke(

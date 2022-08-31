@@ -197,6 +197,9 @@ func (j *jsiiProxy_VpnGateway) Stack() awscdk.Stack {
 func NewVpnGateway(scope constructs.Construct, id *string, props *VpnGatewayProps) VpnGateway {
 	_init_.Initialize()
 
+	if err := validateNewVpnGatewayParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_VpnGateway{}
 
 	_jsii_.Create(
@@ -224,6 +227,9 @@ func NewVpnGateway_Override(v VpnGateway, scope constructs.Construct, id *string
 func VpnGateway_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVpnGateway_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -241,6 +247,9 @@ func VpnGateway_IsConstruct(x interface{}) *bool {
 func VpnGateway_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVpnGateway_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -254,6 +263,9 @@ func VpnGateway_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (v *jsiiProxy_VpnGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -275,6 +287,9 @@ func (v *jsiiProxy_VpnGateway) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_VpnGateway) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -288,6 +303,9 @@ func (v *jsiiProxy_VpnGateway) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (v *jsiiProxy_VpnGateway) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -309,6 +327,9 @@ func (v *jsiiProxy_VpnGateway) OnPrepare() {
 }
 
 func (v *jsiiProxy_VpnGateway) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -338,6 +359,9 @@ func (v *jsiiProxy_VpnGateway) Prepare() {
 }
 
 func (v *jsiiProxy_VpnGateway) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

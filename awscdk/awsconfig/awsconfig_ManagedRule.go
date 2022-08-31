@@ -292,6 +292,9 @@ func (j *jsiiProxy_ManagedRule) Stack() awscdk.Stack {
 func NewManagedRule(scope constructs.Construct, id *string, props *ManagedRuleProps) ManagedRule {
 	_init_.Initialize()
 
+	if err := validateNewManagedRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ManagedRule{}
 
 	_jsii_.Create(
@@ -314,7 +317,7 @@ func NewManagedRule_Override(m ManagedRule, scope constructs.Construct, id *stri
 	)
 }
 
-func (j *jsiiProxy_ManagedRule) SetIsCustomWithChanges(val *bool) {
+func (j *jsiiProxy_ManagedRule)SetIsCustomWithChanges(val *bool) {
 	_jsii_.Set(
 		j,
 		"isCustomWithChanges",
@@ -322,7 +325,7 @@ func (j *jsiiProxy_ManagedRule) SetIsCustomWithChanges(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_ManagedRule) SetIsManaged(val *bool) {
+func (j *jsiiProxy_ManagedRule)SetIsManaged(val *bool) {
 	_jsii_.Set(
 		j,
 		"isManaged",
@@ -330,7 +333,7 @@ func (j *jsiiProxy_ManagedRule) SetIsManaged(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_ManagedRule) SetRuleScope(val RuleScope) {
+func (j *jsiiProxy_ManagedRule)SetRuleScope(val RuleScope) {
 	_jsii_.Set(
 		j,
 		"ruleScope",
@@ -343,6 +346,9 @@ func (j *jsiiProxy_ManagedRule) SetRuleScope(val RuleScope) {
 func ManagedRule_FromConfigRuleName(scope constructs.Construct, id *string, configRuleName *string) IRule {
 	_init_.Initialize()
 
+	if err := validateManagedRule_FromConfigRuleNameParameters(scope, id, configRuleName); err != nil {
+		panic(err)
+	}
 	var returns IRule
 
 	_jsii_.StaticInvoke(
@@ -360,6 +366,9 @@ func ManagedRule_FromConfigRuleName(scope constructs.Construct, id *string, conf
 func ManagedRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateManagedRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -377,6 +386,9 @@ func ManagedRule_IsConstruct(x interface{}) *bool {
 func ManagedRule_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateManagedRule_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -390,6 +402,9 @@ func ManagedRule_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (m *jsiiProxy_ManagedRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := m.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"applyRemovalPolicy",
@@ -411,6 +426,9 @@ func (m *jsiiProxy_ManagedRule) GeneratePhysicalName() *string {
 }
 
 func (m *jsiiProxy_ManagedRule) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := m.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -424,6 +442,9 @@ func (m *jsiiProxy_ManagedRule) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (m *jsiiProxy_ManagedRule) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := m.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -437,6 +458,9 @@ func (m *jsiiProxy_ManagedRule) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 func (m *jsiiProxy_ManagedRule) OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := m.validateOnComplianceChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -450,6 +474,9 @@ func (m *jsiiProxy_ManagedRule) OnComplianceChange(id *string, options *awsevent
 }
 
 func (m *jsiiProxy_ManagedRule) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := m.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -471,6 +498,9 @@ func (m *jsiiProxy_ManagedRule) OnPrepare() {
 }
 
 func (m *jsiiProxy_ManagedRule) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := m.validateOnReEvaluationStatusParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -484,6 +514,9 @@ func (m *jsiiProxy_ManagedRule) OnReEvaluationStatus(id *string, options *awseve
 }
 
 func (m *jsiiProxy_ManagedRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := m.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"onSynthesize",
@@ -513,6 +546,9 @@ func (m *jsiiProxy_ManagedRule) Prepare() {
 }
 
 func (m *jsiiProxy_ManagedRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := m.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"synthesize",

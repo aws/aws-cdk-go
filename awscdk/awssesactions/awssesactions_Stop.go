@@ -39,6 +39,9 @@ type jsiiProxy_Stop struct {
 func NewStop(props *StopProps) Stop {
 	_init_.Initialize()
 
+	if err := validateNewStopParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Stop{}
 
 	_jsii_.Create(
@@ -62,6 +65,9 @@ func NewStop_Override(s Stop, props *StopProps) {
 }
 
 func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := s.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsses.ReceiptRuleActionConfig
 
 	_jsii_.Invoke(

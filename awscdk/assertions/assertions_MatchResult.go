@@ -81,6 +81,9 @@ func (j *jsiiProxy_MatchResult) Target() interface{} {
 func NewMatchResult(target interface{}) MatchResult {
 	_init_.Initialize()
 
+	if err := validateNewMatchResultParameters(target); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MatchResult{}
 
 	_jsii_.Create(
@@ -104,6 +107,9 @@ func NewMatchResult_Override(m MatchResult, target interface{}) {
 }
 
 func (m *jsiiProxy_MatchResult) Compose(id *string, inner MatchResult) MatchResult {
+	if err := m.validateComposeParameters(id, inner); err != nil {
+		panic(err)
+	}
 	var returns MatchResult
 
 	_jsii_.Invoke(
@@ -143,6 +149,9 @@ func (m *jsiiProxy_MatchResult) HasFailed() *bool {
 }
 
 func (m *jsiiProxy_MatchResult) Push(matcher Matcher, path *[]*string, message *string) MatchResult {
+	if err := m.validatePushParameters(matcher, path, message); err != nil {
+		panic(err)
+	}
 	var returns MatchResult
 
 	_jsii_.Invoke(
@@ -156,6 +165,9 @@ func (m *jsiiProxy_MatchResult) Push(matcher Matcher, path *[]*string, message *
 }
 
 func (m *jsiiProxy_MatchResult) RecordCapture(options *MatchCapture) {
+	if err := m.validateRecordCaptureParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"recordCapture",
@@ -164,6 +176,9 @@ func (m *jsiiProxy_MatchResult) RecordCapture(options *MatchCapture) {
 }
 
 func (m *jsiiProxy_MatchResult) RecordFailure(failure *MatchFailure) MatchResult {
+	if err := m.validateRecordFailureParameters(failure); err != nil {
+		panic(err)
+	}
 	var returns MatchResult
 
 	_jsii_.Invoke(

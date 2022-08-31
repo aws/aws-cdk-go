@@ -817,6 +817,9 @@ func (j *jsiiProxy_CfnTopicRule) UpdatedProperites() *map[string]interface{} {
 func NewCfnTopicRule(scope awscdk.Construct, id *string, props *CfnTopicRuleProps) CfnTopicRule {
 	_init_.Initialize()
 
+	if err := validateNewCfnTopicRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnTopicRule{}
 
 	_jsii_.Create(
@@ -839,7 +842,7 @@ func NewCfnTopicRule_Override(c CfnTopicRule, scope awscdk.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_CfnTopicRule) SetRuleName(val *string) {
+func (j *jsiiProxy_CfnTopicRule)SetRuleName(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleName",
@@ -847,7 +850,10 @@ func (j *jsiiProxy_CfnTopicRule) SetRuleName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnTopicRule) SetTopicRulePayload(val interface{}) {
+func (j *jsiiProxy_CfnTopicRule)SetTopicRulePayload(val interface{}) {
+	if err := j.validateSetTopicRulePayloadParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"topicRulePayload",
@@ -865,6 +871,9 @@ func (j *jsiiProxy_CfnTopicRule) SetTopicRulePayload(val interface{}) {
 func CfnTopicRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTopicRule_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -882,6 +891,9 @@ func CfnTopicRule_IsCfnElement(x interface{}) *bool {
 func CfnTopicRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTopicRule_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -899,6 +911,9 @@ func CfnTopicRule_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnTopicRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnTopicRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -923,6 +938,9 @@ func CfnTopicRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnTopicRule) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -931,6 +949,9 @@ func (c *jsiiProxy_CfnTopicRule) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnTopicRule) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -939,6 +960,9 @@ func (c *jsiiProxy_CfnTopicRule) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnTopicRule) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -947,6 +971,9 @@ func (c *jsiiProxy_CfnTopicRule) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnTopicRule) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -955,6 +982,9 @@ func (c *jsiiProxy_CfnTopicRule) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnTopicRule) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -963,6 +993,9 @@ func (c *jsiiProxy_CfnTopicRule) AddPropertyDeletionOverride(propertyPath *strin
 }
 
 func (c *jsiiProxy_CfnTopicRule) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -971,6 +1004,9 @@ func (c *jsiiProxy_CfnTopicRule) AddPropertyOverride(propertyPath *string, value
 }
 
 func (c *jsiiProxy_CfnTopicRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -979,6 +1015,9 @@ func (c *jsiiProxy_CfnTopicRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 }
 
 func (c *jsiiProxy_CfnTopicRule) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -992,6 +1031,9 @@ func (c *jsiiProxy_CfnTopicRule) GetAtt(attributeName *string) awscdk.Reference 
 }
 
 func (c *jsiiProxy_CfnTopicRule) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1005,6 +1047,9 @@ func (c *jsiiProxy_CfnTopicRule) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnTopicRule) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1021,6 +1066,9 @@ func (c *jsiiProxy_CfnTopicRule) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnTopicRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1042,6 +1090,9 @@ func (c *jsiiProxy_CfnTopicRule) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTopicRule) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1058,6 +1109,9 @@ func (c *jsiiProxy_CfnTopicRule) Prepare() {
 }
 
 func (c *jsiiProxy_CfnTopicRule) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1084,6 +1138,9 @@ func (c *jsiiProxy_CfnTopicRule) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnTopicRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1118,6 +1175,9 @@ func (c *jsiiProxy_CfnTopicRule) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnTopicRule) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

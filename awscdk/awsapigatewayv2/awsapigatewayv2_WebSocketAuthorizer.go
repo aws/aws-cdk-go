@@ -204,6 +204,9 @@ func (j *jsiiProxy_WebSocketAuthorizer) Stack() awscdk.Stack {
 func NewWebSocketAuthorizer(scope constructs.Construct, id *string, props *WebSocketAuthorizerProps) WebSocketAuthorizer {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketAuthorizerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketAuthorizer{}
 
 	_jsii_.Create(
@@ -231,6 +234,9 @@ func NewWebSocketAuthorizer_Override(w WebSocketAuthorizer, scope constructs.Con
 func WebSocketAuthorizer_FromWebSocketAuthorizerAttributes(scope constructs.Construct, id *string, attrs *WebSocketAuthorizerAttributes) IWebSocketRouteAuthorizer {
 	_init_.Initialize()
 
+	if err := validateWebSocketAuthorizer_FromWebSocketAuthorizerAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IWebSocketRouteAuthorizer
 
 	_jsii_.StaticInvoke(
@@ -248,6 +254,9 @@ func WebSocketAuthorizer_FromWebSocketAuthorizerAttributes(scope constructs.Cons
 func WebSocketAuthorizer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketAuthorizer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -265,6 +274,9 @@ func WebSocketAuthorizer_IsConstruct(x interface{}) *bool {
 func WebSocketAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateWebSocketAuthorizer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -278,6 +290,9 @@ func WebSocketAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (w *jsiiProxy_WebSocketAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := w.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"applyRemovalPolicy",
@@ -299,6 +314,9 @@ func (w *jsiiProxy_WebSocketAuthorizer) GeneratePhysicalName() *string {
 }
 
 func (w *jsiiProxy_WebSocketAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := w.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -312,6 +330,9 @@ func (w *jsiiProxy_WebSocketAuthorizer) GetResourceArnAttribute(arnAttr *string,
 }
 
 func (w *jsiiProxy_WebSocketAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := w.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -333,6 +354,9 @@ func (w *jsiiProxy_WebSocketAuthorizer) OnPrepare() {
 }
 
 func (w *jsiiProxy_WebSocketAuthorizer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := w.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"onSynthesize",
@@ -362,6 +386,9 @@ func (w *jsiiProxy_WebSocketAuthorizer) Prepare() {
 }
 
 func (w *jsiiProxy_WebSocketAuthorizer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := w.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"synthesize",

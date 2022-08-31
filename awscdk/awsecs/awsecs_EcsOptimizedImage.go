@@ -58,6 +58,9 @@ type jsiiProxy_EcsOptimizedImage struct {
 func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
+	if err := validateEcsOptimizedImage_AmazonLinuxParameters(options); err != nil {
+		panic(err)
+	}
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
@@ -75,6 +78,9 @@ func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimiz
 func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
+	if err := validateEcsOptimizedImage_AmazonLinux2Parameters(options); err != nil {
+		panic(err)
+	}
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
@@ -92,6 +98,9 @@ func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOp
 func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
+	if err := validateEcsOptimizedImage_WindowsParameters(windowsVersion, options); err != nil {
+		panic(err)
+	}
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
@@ -105,6 +114,9 @@ func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *
 }
 
 func (e *jsiiProxy_EcsOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
+	if err := e.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awsec2.MachineImageConfig
 
 	_jsii_.Invoke(

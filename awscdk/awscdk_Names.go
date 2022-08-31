@@ -33,6 +33,9 @@ type jsiiProxy_Names struct {
 func Names_NodeUniqueId(node ConstructNode) *string {
 	_init_.Initialize()
 
+	if err := validateNames_NodeUniqueIdParameters(node); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -55,6 +58,9 @@ func Names_NodeUniqueId(node ConstructNode) *string {
 func Names_UniqueId(construct constructs.Construct) *string {
 	_init_.Initialize()
 
+	if err := validateNames_UniqueIdParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

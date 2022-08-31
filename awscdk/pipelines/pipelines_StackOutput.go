@@ -60,6 +60,9 @@ func (j *jsiiProxy_StackOutput) OutputName() *string {
 func NewStackOutput(artifactFile awscodepipeline.ArtifactPath, outputName *string) StackOutput {
 	_init_.Initialize()
 
+	if err := validateNewStackOutputParameters(artifactFile, outputName); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StackOutput{}
 
 	_jsii_.Create(

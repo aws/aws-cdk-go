@@ -36,6 +36,9 @@ type jsiiProxy_JobExecutable struct {
 func JobExecutable_Of(config *JobExecutableConfig) JobExecutable {
 	_init_.Initialize()
 
+	if err := validateJobExecutable_OfParameters(config); err != nil {
+		panic(err)
+	}
 	var returns JobExecutable
 
 	_jsii_.StaticInvoke(
@@ -53,6 +56,9 @@ func JobExecutable_Of(config *JobExecutableConfig) JobExecutable {
 func JobExecutable_PythonEtl(props *PythonSparkJobExecutableProps) JobExecutable {
 	_init_.Initialize()
 
+	if err := validateJobExecutable_PythonEtlParameters(props); err != nil {
+		panic(err)
+	}
 	var returns JobExecutable
 
 	_jsii_.StaticInvoke(
@@ -70,6 +76,9 @@ func JobExecutable_PythonEtl(props *PythonSparkJobExecutableProps) JobExecutable
 func JobExecutable_PythonShell(props *PythonShellExecutableProps) JobExecutable {
 	_init_.Initialize()
 
+	if err := validateJobExecutable_PythonShellParameters(props); err != nil {
+		panic(err)
+	}
 	var returns JobExecutable
 
 	_jsii_.StaticInvoke(
@@ -87,6 +96,9 @@ func JobExecutable_PythonShell(props *PythonShellExecutableProps) JobExecutable 
 func JobExecutable_PythonStreaming(props *PythonSparkJobExecutableProps) JobExecutable {
 	_init_.Initialize()
 
+	if err := validateJobExecutable_PythonStreamingParameters(props); err != nil {
+		panic(err)
+	}
 	var returns JobExecutable
 
 	_jsii_.StaticInvoke(
@@ -104,6 +116,9 @@ func JobExecutable_PythonStreaming(props *PythonSparkJobExecutableProps) JobExec
 func JobExecutable_ScalaEtl(props *ScalaJobExecutableProps) JobExecutable {
 	_init_.Initialize()
 
+	if err := validateJobExecutable_ScalaEtlParameters(props); err != nil {
+		panic(err)
+	}
 	var returns JobExecutable
 
 	_jsii_.StaticInvoke(
@@ -121,6 +136,9 @@ func JobExecutable_ScalaEtl(props *ScalaJobExecutableProps) JobExecutable {
 func JobExecutable_ScalaStreaming(props *ScalaJobExecutableProps) JobExecutable {
 	_init_.Initialize()
 
+	if err := validateJobExecutable_ScalaStreamingParameters(props); err != nil {
+		panic(err)
+	}
 	var returns JobExecutable
 
 	_jsii_.StaticInvoke(

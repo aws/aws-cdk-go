@@ -352,6 +352,9 @@ func (j *jsiiProxy_CfnReceiptRuleSet) UpdatedProperites() *map[string]interface{
 func NewCfnReceiptRuleSet(scope awscdk.Construct, id *string, props *CfnReceiptRuleSetProps) CfnReceiptRuleSet {
 	_init_.Initialize()
 
+	if err := validateNewCfnReceiptRuleSetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnReceiptRuleSet{}
 
 	_jsii_.Create(
@@ -374,7 +377,7 @@ func NewCfnReceiptRuleSet_Override(c CfnReceiptRuleSet, scope awscdk.Construct, 
 	)
 }
 
-func (j *jsiiProxy_CfnReceiptRuleSet) SetRuleSetName(val *string) {
+func (j *jsiiProxy_CfnReceiptRuleSet)SetRuleSetName(val *string) {
 	_jsii_.Set(
 		j,
 		"ruleSetName",
@@ -392,6 +395,9 @@ func (j *jsiiProxy_CfnReceiptRuleSet) SetRuleSetName(val *string) {
 func CfnReceiptRuleSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnReceiptRuleSet_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -409,6 +415,9 @@ func CfnReceiptRuleSet_IsCfnElement(x interface{}) *bool {
 func CfnReceiptRuleSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnReceiptRuleSet_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -426,6 +435,9 @@ func CfnReceiptRuleSet_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnReceiptRuleSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnReceiptRuleSet_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -450,6 +462,9 @@ func CfnReceiptRuleSet_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -458,6 +473,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -466,6 +484,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -474,6 +495,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) AddMetadata(key *string, value interface{}
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -482,6 +506,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) AddOverride(path *string, value interface{
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -490,6 +517,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) AddPropertyDeletionOverride(propertyPath *
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -498,6 +528,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) AddPropertyOverride(propertyPath *string, 
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -506,6 +539,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -519,6 +555,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) GetAtt(attributeName *string) awscdk.Refer
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -532,6 +571,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -548,6 +590,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -569,6 +614,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -585,6 +633,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) Prepare() {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -611,6 +662,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -645,6 +699,9 @@ func (c *jsiiProxy_CfnReceiptRuleSet) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

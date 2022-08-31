@@ -202,6 +202,9 @@ func (j *jsiiProxy_RdsDataSource) ServiceRole() awsiam.IRole {
 func NewRdsDataSource(scope constructs.Construct, id *string, props *RdsDataSourceProps) RdsDataSource {
 	_init_.Initialize()
 
+	if err := validateNewRdsDataSourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RdsDataSource{}
 
 	_jsii_.Create(
@@ -224,7 +227,10 @@ func NewRdsDataSource_Override(r RdsDataSource, scope constructs.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_RdsDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_RdsDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -232,7 +238,7 @@ func (j *jsiiProxy_RdsDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_RdsDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_RdsDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -245,6 +251,9 @@ func (j *jsiiProxy_RdsDataSource) SetServiceRole(val awsiam.IRole) {
 func RdsDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRdsDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -258,6 +267,9 @@ func RdsDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (r *jsiiProxy_RdsDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := r.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -271,6 +283,9 @@ func (r *jsiiProxy_RdsDataSource) CreateFunction(props *BaseAppsyncFunctionProps
 }
 
 func (r *jsiiProxy_RdsDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := r.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -292,6 +307,9 @@ func (r *jsiiProxy_RdsDataSource) OnPrepare() {
 }
 
 func (r *jsiiProxy_RdsDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -321,6 +339,9 @@ func (r *jsiiProxy_RdsDataSource) Prepare() {
 }
 
 func (r *jsiiProxy_RdsDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

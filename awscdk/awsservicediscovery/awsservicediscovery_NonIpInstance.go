@@ -217,6 +217,9 @@ func (j *jsiiProxy_NonIpInstance) Stack() awscdk.Stack {
 func NewNonIpInstance(scope constructs.Construct, id *string, props *NonIpInstanceProps) NonIpInstance {
 	_init_.Initialize()
 
+	if err := validateNewNonIpInstanceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NonIpInstance{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewNonIpInstance_Override(n NonIpInstance, scope constructs.Construct, id *
 func NonIpInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNonIpInstance_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func NonIpInstance_IsConstruct(x interface{}) *bool {
 func NonIpInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateNonIpInstance_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -274,6 +283,9 @@ func NonIpInstance_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (n *jsiiProxy_NonIpInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := n.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"applyRemovalPolicy",
@@ -295,6 +307,9 @@ func (n *jsiiProxy_NonIpInstance) GeneratePhysicalName() *string {
 }
 
 func (n *jsiiProxy_NonIpInstance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := n.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -308,6 +323,9 @@ func (n *jsiiProxy_NonIpInstance) GetResourceArnAttribute(arnAttr *string, arnCo
 }
 
 func (n *jsiiProxy_NonIpInstance) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := n.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -329,6 +347,9 @@ func (n *jsiiProxy_NonIpInstance) OnPrepare() {
 }
 
 func (n *jsiiProxy_NonIpInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -358,6 +379,9 @@ func (n *jsiiProxy_NonIpInstance) Prepare() {
 }
 
 func (n *jsiiProxy_NonIpInstance) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

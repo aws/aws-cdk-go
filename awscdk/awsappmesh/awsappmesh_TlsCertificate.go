@@ -88,6 +88,9 @@ func NewTlsCertificate_Override(t TlsCertificate) {
 func TlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCertificate {
 	_init_.Initialize()
 
+	if err := validateTlsCertificate_AcmParameters(certificate); err != nil {
+		panic(err)
+	}
 	var returns TlsCertificate
 
 	_jsii_.StaticInvoke(
@@ -105,6 +108,9 @@ func TlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCerti
 func TlsCertificate_File(certificateChainPath *string, privateKeyPath *string) MutualTlsCertificate {
 	_init_.Initialize()
 
+	if err := validateTlsCertificate_FileParameters(certificateChainPath, privateKeyPath); err != nil {
+		panic(err)
+	}
 	var returns MutualTlsCertificate
 
 	_jsii_.StaticInvoke(
@@ -122,6 +128,9 @@ func TlsCertificate_File(certificateChainPath *string, privateKeyPath *string) M
 func TlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	_init_.Initialize()
 
+	if err := validateTlsCertificate_SdsParameters(secretName); err != nil {
+		panic(err)
+	}
 	var returns MutualTlsCertificate
 
 	_jsii_.StaticInvoke(
@@ -135,6 +144,9 @@ func TlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 }
 
 func (t *jsiiProxy_TlsCertificate) Bind(_scope awscdk.Construct) *TlsCertificateConfig {
+	if err := t.validateBindParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *TlsCertificateConfig
 
 	_jsii_.Invoke(

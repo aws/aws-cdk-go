@@ -98,6 +98,9 @@ func (j *jsiiProxy_CodeDeployEcsDeployAction) ProvidedActionProperties() *awscod
 func NewCodeDeployEcsDeployAction(props *CodeDeployEcsDeployActionProps) CodeDeployEcsDeployAction {
 	_init_.Initialize()
 
+	if err := validateNewCodeDeployEcsDeployActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodeDeployEcsDeployAction{}
 
 	_jsii_.Create(
@@ -121,6 +124,9 @@ func NewCodeDeployEcsDeployAction_Override(c CodeDeployEcsDeployAction, props *C
 }
 
 func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -134,6 +140,9 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope awscdk.Construct, stage
 }
 
 func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(_scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -147,6 +156,9 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope awscdk.Construct, _st
 }
 
 func (c *jsiiProxy_CodeDeployEcsDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -160,6 +172,9 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) OnStateChange(name *string, target
 }
 
 func (c *jsiiProxy_CodeDeployEcsDeployAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

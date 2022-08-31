@@ -58,6 +58,9 @@ func (j *jsiiProxy_VirtualClusterInput) Id() *string {
 func VirtualClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) VirtualClusterInput {
 	_init_.Initialize()
 
+	if err := validateVirtualClusterInput_FromTaskInputParameters(taskInput); err != nil {
+		panic(err)
+	}
 	var returns VirtualClusterInput
 
 	_jsii_.StaticInvoke(
@@ -75,6 +78,9 @@ func VirtualClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) Vir
 func VirtualClusterInput_FromVirtualClusterId(virtualClusterId *string) VirtualClusterInput {
 	_init_.Initialize()
 
+	if err := validateVirtualClusterInput_FromVirtualClusterIdParameters(virtualClusterId); err != nil {
+		panic(err)
+	}
 	var returns VirtualClusterInput
 
 	_jsii_.StaticInvoke(

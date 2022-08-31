@@ -43,6 +43,9 @@ type jsiiProxy_InlineApiDefinition struct {
 func NewInlineApiDefinition(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
+	if err := validateNewInlineApiDefinitionParameters(definition); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InlineApiDefinition{}
 
 	_jsii_.Create(
@@ -70,6 +73,9 @@ func NewInlineApiDefinition_Override(i InlineApiDefinition, definition interface
 func InlineApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
+	if err := validateInlineApiDefinition_FromAssetParameters(file, options); err != nil {
+		panic(err)
+	}
 	var returns AssetApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -87,6 +93,9 @@ func InlineApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptio
 func InlineApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
+	if err := validateInlineApiDefinition_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3ApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -150,6 +159,9 @@ func InlineApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVer
 func InlineApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
+	if err := validateInlineApiDefinition_FromInlineParameters(definition); err != nil {
+		panic(err)
+	}
 	var returns InlineApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -163,6 +175,9 @@ func InlineApiDefinition_FromInline(definition interface{}) InlineApiDefinition 
 }
 
 func (i *jsiiProxy_InlineApiDefinition) Bind(_scope awscdk.Construct) *ApiDefinitionConfig {
+	if err := i.validateBindParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *ApiDefinitionConfig
 
 	_jsii_.Invoke(
@@ -176,6 +191,9 @@ func (i *jsiiProxy_InlineApiDefinition) Bind(_scope awscdk.Construct) *ApiDefini
 }
 
 func (i *jsiiProxy_InlineApiDefinition) BindAfterCreate(_scope awscdk.Construct, _restApi IRestApi) {
+	if err := i.validateBindAfterCreateParameters(_scope, _restApi); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"bindAfterCreate",

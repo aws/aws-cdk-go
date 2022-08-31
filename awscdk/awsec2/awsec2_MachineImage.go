@@ -51,6 +51,9 @@ func NewMachineImage_Override(m MachineImage) {
 func MachineImage_FromSsmParameter(parameterName *string, options *SsmParameterImageOptions) IMachineImage {
 	_init_.Initialize()
 
+	if err := validateMachineImage_FromSsmParameterParameters(parameterName, options); err != nil {
+		panic(err)
+	}
 	var returns IMachineImage
 
 	_jsii_.StaticInvoke(
@@ -73,6 +76,9 @@ func MachineImage_FromSsmParameter(parameterName *string, options *SsmParameterI
 func MachineImage_FromSSMParameter(parameterName *string, os OperatingSystemType, userData UserData) IMachineImage {
 	_init_.Initialize()
 
+	if err := validateMachineImage_FromSSMParameterParameters(parameterName, os); err != nil {
+		panic(err)
+	}
 	var returns IMachineImage
 
 	_jsii_.StaticInvoke(
@@ -90,6 +96,9 @@ func MachineImage_FromSSMParameter(parameterName *string, os OperatingSystemType
 func MachineImage_GenericLinux(amiMap *map[string]*string, props *GenericLinuxImageProps) IMachineImage {
 	_init_.Initialize()
 
+	if err := validateMachineImage_GenericLinuxParameters(amiMap, props); err != nil {
+		panic(err)
+	}
 	var returns IMachineImage
 
 	_jsii_.StaticInvoke(
@@ -107,6 +116,9 @@ func MachineImage_GenericLinux(amiMap *map[string]*string, props *GenericLinuxIm
 func MachineImage_GenericWindows(amiMap *map[string]*string, props *GenericWindowsImageProps) IMachineImage {
 	_init_.Initialize()
 
+	if err := validateMachineImage_GenericWindowsParameters(amiMap, props); err != nil {
+		panic(err)
+	}
 	var returns IMachineImage
 
 	_jsii_.StaticInvoke(
@@ -129,6 +141,9 @@ func MachineImage_GenericWindows(amiMap *map[string]*string, props *GenericWindo
 func MachineImage_LatestAmazonLinux(props *AmazonLinuxImageProps) IMachineImage {
 	_init_.Initialize()
 
+	if err := validateMachineImage_LatestAmazonLinuxParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IMachineImage
 
 	_jsii_.StaticInvoke(
@@ -151,6 +166,9 @@ func MachineImage_LatestAmazonLinux(props *AmazonLinuxImageProps) IMachineImage 
 func MachineImage_LatestWindows(version WindowsVersion, props *WindowsImageProps) IMachineImage {
 	_init_.Initialize()
 
+	if err := validateMachineImage_LatestWindowsParameters(version, props); err != nil {
+		panic(err)
+	}
 	var returns IMachineImage
 
 	_jsii_.StaticInvoke(
@@ -179,6 +197,9 @@ func MachineImage_LatestWindows(version WindowsVersion, props *WindowsImageProps
 func MachineImage_Lookup(props *LookupMachineImageProps) IMachineImage {
 	_init_.Initialize()
 
+	if err := validateMachineImage_LookupParameters(props); err != nil {
+		panic(err)
+	}
 	var returns IMachineImage
 
 	_jsii_.StaticInvoke(

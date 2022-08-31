@@ -53,6 +53,9 @@ type jsiiProxy_IPrincipal struct {
 }
 
 func (i *jsiiProxy_IPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := i.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -66,6 +69,9 @@ func (i *jsiiProxy_IPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 func (i *jsiiProxy_IPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := i.validateAddToPrincipalPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(

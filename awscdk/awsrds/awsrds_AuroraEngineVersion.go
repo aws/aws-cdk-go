@@ -63,6 +63,9 @@ func (j *jsiiProxy_AuroraEngineVersion) AuroraMajorVersion() *string {
 func AuroraEngineVersion_Of(auroraFullVersion *string, auroraMajorVersion *string) AuroraEngineVersion {
 	_init_.Initialize()
 
+	if err := validateAuroraEngineVersion_OfParameters(auroraFullVersion); err != nil {
+		panic(err)
+	}
 	var returns AuroraEngineVersion
 
 	_jsii_.StaticInvoke(

@@ -111,6 +111,9 @@ func (j *jsiiProxy_HelmChart) Node() awscdk.ConstructNode {
 func NewHelmChart(scope constructs.Construct, id *string, props *HelmChartProps) HelmChart {
 	_init_.Initialize()
 
+	if err := validateNewHelmChartParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HelmChart{}
 
 	_jsii_.Create(
@@ -138,6 +141,9 @@ func NewHelmChart_Override(h HelmChart, scope constructs.Construct, id *string, 
 func HelmChart_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHelmChart_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -170,6 +176,9 @@ func (h *jsiiProxy_HelmChart) OnPrepare() {
 }
 
 func (h *jsiiProxy_HelmChart) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -199,6 +208,9 @@ func (h *jsiiProxy_HelmChart) Prepare() {
 }
 
 func (h *jsiiProxy_HelmChart) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

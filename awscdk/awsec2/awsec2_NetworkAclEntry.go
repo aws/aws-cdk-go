@@ -206,6 +206,9 @@ func (j *jsiiProxy_NetworkAclEntry) Stack() awscdk.Stack {
 func NewNetworkAclEntry(scope constructs.Construct, id *string, props *NetworkAclEntryProps) NetworkAclEntry {
 	_init_.Initialize()
 
+	if err := validateNewNetworkAclEntryParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NetworkAclEntry{}
 
 	_jsii_.Create(
@@ -233,6 +236,9 @@ func NewNetworkAclEntry_Override(n NetworkAclEntry, scope constructs.Construct, 
 func NetworkAclEntry_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkAclEntry_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -250,6 +256,9 @@ func NetworkAclEntry_IsConstruct(x interface{}) *bool {
 func NetworkAclEntry_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkAclEntry_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -263,6 +272,9 @@ func NetworkAclEntry_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (n *jsiiProxy_NetworkAclEntry) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := n.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"applyRemovalPolicy",
@@ -284,6 +296,9 @@ func (n *jsiiProxy_NetworkAclEntry) GeneratePhysicalName() *string {
 }
 
 func (n *jsiiProxy_NetworkAclEntry) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := n.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -297,6 +312,9 @@ func (n *jsiiProxy_NetworkAclEntry) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (n *jsiiProxy_NetworkAclEntry) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := n.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -318,6 +336,9 @@ func (n *jsiiProxy_NetworkAclEntry) OnPrepare() {
 }
 
 func (n *jsiiProxy_NetworkAclEntry) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -347,6 +368,9 @@ func (n *jsiiProxy_NetworkAclEntry) Prepare() {
 }
 
 func (n *jsiiProxy_NetworkAclEntry) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

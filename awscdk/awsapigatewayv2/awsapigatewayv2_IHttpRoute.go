@@ -33,6 +33,9 @@ type jsiiProxy_IHttpRoute struct {
 }
 
 func (i *jsiiProxy_IHttpRoute) GrantInvoke(grantee awsiam.IGrantable, options *GrantInvokeOptions) awsiam.Grant {
+	if err := i.validateGrantInvokeParameters(grantee, options); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

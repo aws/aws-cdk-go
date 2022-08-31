@@ -325,6 +325,9 @@ func (j *jsiiProxy_DatabaseSecret) Stack() awscdk.Stack {
 func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSecretProps) DatabaseSecret {
 	_init_.Initialize()
 
+	if err := validateNewDatabaseSecretParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DatabaseSecret{}
 
 	_jsii_.Create(
@@ -351,6 +354,9 @@ func NewDatabaseSecret_Override(d DatabaseSecret, scope constructs.Construct, id
 func DatabaseSecret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_FromSecretArnParameters(scope, id, secretArn); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
@@ -368,6 +374,9 @@ func DatabaseSecret_FromSecretArn(scope constructs.Construct, id *string, secret
 func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *awssecretsmanager.SecretAttributes) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_FromSecretAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
@@ -387,6 +396,9 @@ func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string,
 func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string, secretCompleteArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_FromSecretCompleteArnParameters(scope, id, secretCompleteArn); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
@@ -407,6 +419,9 @@ func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string
 func DatabaseSecret_FromSecretName(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_FromSecretNameParameters(scope, id, secretName); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
@@ -427,6 +442,9 @@ func DatabaseSecret_FromSecretName(scope constructs.Construct, id *string, secre
 func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_FromSecretNameV2Parameters(scope, id, secretName); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
@@ -446,6 +464,9 @@ func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, sec
 func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string, secretPartialArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_FromSecretPartialArnParameters(scope, id, secretPartialArn); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
@@ -463,6 +484,9 @@ func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string,
 func DatabaseSecret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -480,6 +504,9 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 func DatabaseSecret_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDatabaseSecret_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -493,6 +520,9 @@ func DatabaseSecret_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DatabaseSecret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
+	if err := d.validateAddReplicaRegionParameters(region); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addReplicaRegion",
@@ -501,6 +531,9 @@ func (d *jsiiProxy_DatabaseSecret) AddReplicaRegion(region *string, encryptionKe
 }
 
 func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule {
+	if err := d.validateAddRotationScheduleParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.RotationSchedule
 
 	_jsii_.Invoke(
@@ -514,6 +547,9 @@ func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awss
 }
 
 func (d *jsiiProxy_DatabaseSecret) AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment {
+	if err := d.validateAddTargetAttachmentParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretTargetAttachment
 
 	_jsii_.Invoke(
@@ -527,6 +563,9 @@ func (d *jsiiProxy_DatabaseSecret) AddTargetAttachment(id *string, options *awss
 }
 
 func (d *jsiiProxy_DatabaseSecret) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := d.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -540,6 +579,9 @@ func (d *jsiiProxy_DatabaseSecret) AddToResourcePolicy(statement awsiam.PolicySt
 }
 
 func (d *jsiiProxy_DatabaseSecret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -548,6 +590,9 @@ func (d *jsiiProxy_DatabaseSecret) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (d *jsiiProxy_DatabaseSecret) Attach(target awssecretsmanager.ISecretAttachmentTarget) awssecretsmanager.ISecret {
+	if err := d.validateAttachParameters(target); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.Invoke(
@@ -582,6 +627,9 @@ func (d *jsiiProxy_DatabaseSecret) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DatabaseSecret) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -595,6 +643,9 @@ func (d *jsiiProxy_DatabaseSecret) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (d *jsiiProxy_DatabaseSecret) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -608,6 +659,9 @@ func (d *jsiiProxy_DatabaseSecret) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 func (d *jsiiProxy_DatabaseSecret) GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant {
+	if err := d.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -621,6 +675,9 @@ func (d *jsiiProxy_DatabaseSecret) GrantRead(grantee awsiam.IGrantable, versionS
 }
 
 func (d *jsiiProxy_DatabaseSecret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantWriteParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -642,6 +699,9 @@ func (d *jsiiProxy_DatabaseSecret) OnPrepare() {
 }
 
 func (d *jsiiProxy_DatabaseSecret) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -671,6 +731,9 @@ func (d *jsiiProxy_DatabaseSecret) Prepare() {
 }
 
 func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
+	if err := d.validateSecretValueFromJsonParameters(jsonField); err != nil {
+		panic(err)
+	}
 	var returns awscdk.SecretValue
 
 	_jsii_.Invoke(
@@ -684,6 +747,9 @@ func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk
 }
 
 func (d *jsiiProxy_DatabaseSecret) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

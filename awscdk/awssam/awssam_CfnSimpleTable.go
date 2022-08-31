@@ -415,6 +415,9 @@ func (j *jsiiProxy_CfnSimpleTable) UpdatedProperites() *map[string]interface{} {
 func NewCfnSimpleTable(scope awscdk.Construct, id *string, props *CfnSimpleTableProps) CfnSimpleTable {
 	_init_.Initialize()
 
+	if err := validateNewCfnSimpleTableParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnSimpleTable{}
 
 	_jsii_.Create(
@@ -437,7 +440,10 @@ func NewCfnSimpleTable_Override(c CfnSimpleTable, scope awscdk.Construct, id *st
 	)
 }
 
-func (j *jsiiProxy_CfnSimpleTable) SetPrimaryKey(val interface{}) {
+func (j *jsiiProxy_CfnSimpleTable)SetPrimaryKey(val interface{}) {
+	if err := j.validateSetPrimaryKeyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"primaryKey",
@@ -445,7 +451,10 @@ func (j *jsiiProxy_CfnSimpleTable) SetPrimaryKey(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnSimpleTable) SetProvisionedThroughput(val interface{}) {
+func (j *jsiiProxy_CfnSimpleTable)SetProvisionedThroughput(val interface{}) {
+	if err := j.validateSetProvisionedThroughputParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"provisionedThroughput",
@@ -453,7 +462,10 @@ func (j *jsiiProxy_CfnSimpleTable) SetProvisionedThroughput(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnSimpleTable) SetSseSpecification(val interface{}) {
+func (j *jsiiProxy_CfnSimpleTable)SetSseSpecification(val interface{}) {
+	if err := j.validateSetSseSpecificationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sseSpecification",
@@ -461,7 +473,7 @@ func (j *jsiiProxy_CfnSimpleTable) SetSseSpecification(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnSimpleTable) SetTableName(val *string) {
+func (j *jsiiProxy_CfnSimpleTable)SetTableName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableName",
@@ -479,6 +491,9 @@ func (j *jsiiProxy_CfnSimpleTable) SetTableName(val *string) {
 func CfnSimpleTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSimpleTable_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -496,6 +511,9 @@ func CfnSimpleTable_IsCfnElement(x interface{}) *bool {
 func CfnSimpleTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSimpleTable_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -513,6 +531,9 @@ func CfnSimpleTable_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnSimpleTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnSimpleTable_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -548,6 +569,9 @@ func CfnSimpleTable_REQUIRED_TRANSFORM() *string {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -556,6 +580,9 @@ func (c *jsiiProxy_CfnSimpleTable) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -564,6 +591,9 @@ func (c *jsiiProxy_CfnSimpleTable) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -572,6 +602,9 @@ func (c *jsiiProxy_CfnSimpleTable) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -580,6 +613,9 @@ func (c *jsiiProxy_CfnSimpleTable) AddOverride(path *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnSimpleTable) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -588,6 +624,9 @@ func (c *jsiiProxy_CfnSimpleTable) AddPropertyDeletionOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnSimpleTable) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -596,6 +635,9 @@ func (c *jsiiProxy_CfnSimpleTable) AddPropertyOverride(propertyPath *string, val
 }
 
 func (c *jsiiProxy_CfnSimpleTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -604,6 +646,9 @@ func (c *jsiiProxy_CfnSimpleTable) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (c *jsiiProxy_CfnSimpleTable) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -617,6 +662,9 @@ func (c *jsiiProxy_CfnSimpleTable) GetAtt(attributeName *string) awscdk.Referenc
 }
 
 func (c *jsiiProxy_CfnSimpleTable) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -630,6 +678,9 @@ func (c *jsiiProxy_CfnSimpleTable) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -646,6 +697,9 @@ func (c *jsiiProxy_CfnSimpleTable) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -667,6 +721,9 @@ func (c *jsiiProxy_CfnSimpleTable) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -683,6 +740,9 @@ func (c *jsiiProxy_CfnSimpleTable) Prepare() {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -709,6 +769,9 @@ func (c *jsiiProxy_CfnSimpleTable) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -743,6 +806,9 @@ func (c *jsiiProxy_CfnSimpleTable) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnSimpleTable) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

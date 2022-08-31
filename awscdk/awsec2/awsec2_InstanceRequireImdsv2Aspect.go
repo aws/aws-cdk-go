@@ -54,6 +54,9 @@ func (j *jsiiProxy_InstanceRequireImdsv2Aspect) SuppressWarnings() *bool {
 func NewInstanceRequireImdsv2Aspect(props *InstanceRequireImdsv2AspectProps) InstanceRequireImdsv2Aspect {
 	_init_.Initialize()
 
+	if err := validateNewInstanceRequireImdsv2AspectParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InstanceRequireImdsv2Aspect{}
 
 	_jsii_.Create(
@@ -77,6 +80,9 @@ func NewInstanceRequireImdsv2Aspect_Override(i InstanceRequireImdsv2Aspect, prop
 }
 
 func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Visit(node awscdk.IConstruct) {
+	if err := i.validateVisitParameters(node); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"visit",
@@ -85,6 +91,9 @@ func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Visit(node awscdk.IConstruct) {
 }
 
 func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Warn(node awscdk.IConstruct, message *string) {
+	if err := i.validateWarnParameters(node, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"warn",

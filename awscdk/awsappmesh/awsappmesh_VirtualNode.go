@@ -257,6 +257,9 @@ func (j *jsiiProxy_VirtualNode) VirtualNodeName() *string {
 func NewVirtualNode(scope constructs.Construct, id *string, props *VirtualNodeProps) VirtualNode {
 	_init_.Initialize()
 
+	if err := validateNewVirtualNodeParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_VirtualNode{}
 
 	_jsii_.Create(
@@ -284,6 +287,9 @@ func NewVirtualNode_Override(v VirtualNode, scope constructs.Construct, id *stri
 func VirtualNode_FromVirtualNodeArn(scope constructs.Construct, id *string, virtualNodeArn *string) IVirtualNode {
 	_init_.Initialize()
 
+	if err := validateVirtualNode_FromVirtualNodeArnParameters(scope, id, virtualNodeArn); err != nil {
+		panic(err)
+	}
 	var returns IVirtualNode
 
 	_jsii_.StaticInvoke(
@@ -301,6 +307,9 @@ func VirtualNode_FromVirtualNodeArn(scope constructs.Construct, id *string, virt
 func VirtualNode_FromVirtualNodeAttributes(scope constructs.Construct, id *string, attrs *VirtualNodeAttributes) IVirtualNode {
 	_init_.Initialize()
 
+	if err := validateVirtualNode_FromVirtualNodeAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IVirtualNode
 
 	_jsii_.StaticInvoke(
@@ -318,6 +327,9 @@ func VirtualNode_FromVirtualNodeAttributes(scope constructs.Construct, id *strin
 func VirtualNode_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVirtualNode_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -335,6 +347,9 @@ func VirtualNode_IsConstruct(x interface{}) *bool {
 func VirtualNode_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVirtualNode_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -348,6 +363,9 @@ func VirtualNode_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (v *jsiiProxy_VirtualNode) AddBackend(backend Backend) {
+	if err := v.validateAddBackendParameters(backend); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"addBackend",
@@ -356,6 +374,9 @@ func (v *jsiiProxy_VirtualNode) AddBackend(backend Backend) {
 }
 
 func (v *jsiiProxy_VirtualNode) AddListener(listener VirtualNodeListener) {
+	if err := v.validateAddListenerParameters(listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"addListener",
@@ -364,6 +385,9 @@ func (v *jsiiProxy_VirtualNode) AddListener(listener VirtualNodeListener) {
 }
 
 func (v *jsiiProxy_VirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -385,6 +409,9 @@ func (v *jsiiProxy_VirtualNode) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_VirtualNode) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -398,6 +425,9 @@ func (v *jsiiProxy_VirtualNode) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (v *jsiiProxy_VirtualNode) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -411,6 +441,9 @@ func (v *jsiiProxy_VirtualNode) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 func (v *jsiiProxy_VirtualNode) GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant {
+	if err := v.validateGrantStreamAggregatedResourcesParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -432,6 +465,9 @@ func (v *jsiiProxy_VirtualNode) OnPrepare() {
 }
 
 func (v *jsiiProxy_VirtualNode) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -461,6 +497,9 @@ func (v *jsiiProxy_VirtualNode) Prepare() {
 }
 
 func (v *jsiiProxy_VirtualNode) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

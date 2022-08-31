@@ -60,6 +60,9 @@ func (j *jsiiProxy_ReplaceKey) WithKey() *string {
 func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 	_init_.Initialize()
 
+	if err := validateReplaceKey_PrefixWithParameters(keyReplacement); err != nil {
+		panic(err)
+	}
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(
@@ -77,6 +80,9 @@ func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 	_init_.Initialize()
 
+	if err := validateReplaceKey_WithParameters(keyReplacement); err != nil {
+		panic(err)
+	}
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(

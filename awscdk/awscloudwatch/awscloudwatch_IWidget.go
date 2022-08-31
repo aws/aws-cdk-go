@@ -30,6 +30,9 @@ type jsiiProxy_IWidget struct {
 }
 
 func (i *jsiiProxy_IWidget) Position(x *float64, y *float64) {
+	if err := i.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"position",

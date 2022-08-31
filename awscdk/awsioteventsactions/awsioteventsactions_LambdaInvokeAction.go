@@ -106,6 +106,9 @@ type jsiiProxy_LambdaInvokeAction struct {
 func NewLambdaInvokeAction(func_ awslambda.IFunction) LambdaInvokeAction {
 	_init_.Initialize()
 
+	if err := validateNewLambdaInvokeActionParameters(func_); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaInvokeAction{}
 
 	_jsii_.Create(
@@ -129,6 +132,9 @@ func NewLambdaInvokeAction_Override(l LambdaInvokeAction, func_ awslambda.IFunct
 }
 
 func (l *jsiiProxy_LambdaInvokeAction) Bind(_scope constructs.Construct, options *awsiotevents.ActionBindOptions) *awsiotevents.ActionConfig {
+	if err := l.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awsiotevents.ActionConfig
 
 	_jsii_.Invoke(

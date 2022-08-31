@@ -76,6 +76,9 @@ func NewStackSetTemplate_Override(s StackSetTemplate) {
 func StackSetTemplate_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetTemplate {
 	_init_.Initialize()
 
+	if err := validateStackSetTemplate_FromArtifactPathParameters(artifactPath); err != nil {
+		panic(err)
+	}
 	var returns StackSetTemplate
 
 	_jsii_.StaticInvoke(

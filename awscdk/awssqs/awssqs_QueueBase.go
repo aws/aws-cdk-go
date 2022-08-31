@@ -353,6 +353,9 @@ func NewQueueBase_Override(q QueueBase, scope constructs.Construct, id *string, 
 func QueueBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQueueBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -370,6 +373,9 @@ func QueueBase_IsConstruct(x interface{}) *bool {
 func QueueBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateQueueBase_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -383,6 +389,9 @@ func QueueBase_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (q *jsiiProxy_QueueBase) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := q.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -396,6 +405,9 @@ func (q *jsiiProxy_QueueBase) AddToResourcePolicy(statement awsiam.PolicyStateme
 }
 
 func (q *jsiiProxy_QueueBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := q.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"applyRemovalPolicy",
@@ -417,6 +429,9 @@ func (q *jsiiProxy_QueueBase) GeneratePhysicalName() *string {
 }
 
 func (q *jsiiProxy_QueueBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := q.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -430,6 +445,9 @@ func (q *jsiiProxy_QueueBase) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (q *jsiiProxy_QueueBase) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := q.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -443,6 +461,9 @@ func (q *jsiiProxy_QueueBase) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 func (q *jsiiProxy_QueueBase) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := q.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -461,6 +482,9 @@ func (q *jsiiProxy_QueueBase) Grant(grantee awsiam.IGrantable, actions ...*strin
 }
 
 func (q *jsiiProxy_QueueBase) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantConsumeMessagesParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -474,6 +498,9 @@ func (q *jsiiProxy_QueueBase) GrantConsumeMessages(grantee awsiam.IGrantable) aw
 }
 
 func (q *jsiiProxy_QueueBase) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantPurgeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -487,6 +514,9 @@ func (q *jsiiProxy_QueueBase) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 func (q *jsiiProxy_QueueBase) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantSendMessagesParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -500,6 +530,9 @@ func (q *jsiiProxy_QueueBase) GrantSendMessages(grantee awsiam.IGrantable) awsia
 }
 
 func (q *jsiiProxy_QueueBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -513,6 +546,9 @@ func (q *jsiiProxy_QueueBase) Metric(metricName *string, props *awscloudwatch.Me
 }
 
 func (q *jsiiProxy_QueueBase) MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateAgeOfOldestMessageParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -526,6 +562,9 @@ func (q *jsiiProxy_QueueBase) MetricApproximateAgeOfOldestMessage(props *awsclou
 }
 
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateNumberOfMessagesDelayedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -539,6 +578,9 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesDelayed(props *aw
 }
 
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateNumberOfMessagesNotVisibleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -552,6 +594,9 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesNotVisible(props 
 }
 
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricApproximateNumberOfMessagesVisibleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -565,6 +610,9 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesVisible(props *aw
 }
 
 func (q *jsiiProxy_QueueBase) MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfEmptyReceivesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -578,6 +626,9 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfEmptyReceives(props *awscloudwatch.M
 }
 
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfMessagesDeletedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -591,6 +642,9 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesDeleted(props *awscloudwatch
 }
 
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfMessagesReceivedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -604,6 +658,9 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesReceived(props *awscloudwatc
 }
 
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricNumberOfMessagesSentParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -617,6 +674,9 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesSent(props *awscloudwatch.Me
 }
 
 func (q *jsiiProxy_QueueBase) MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricSentMessageSizeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -638,6 +698,9 @@ func (q *jsiiProxy_QueueBase) OnPrepare() {
 }
 
 func (q *jsiiProxy_QueueBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -667,6 +730,9 @@ func (q *jsiiProxy_QueueBase) Prepare() {
 }
 
 func (q *jsiiProxy_QueueBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",

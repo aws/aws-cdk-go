@@ -58,6 +58,9 @@ func NewLogDrivers_Override(l LogDrivers) {
 func LogDrivers_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_AwsLogsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -78,6 +81,9 @@ func LogDrivers_AwsLogs(props *AwsLogDriverProps) LogDriver {
 func LogDrivers_Firelens(props *FireLensLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_FirelensParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -95,6 +101,9 @@ func LogDrivers_Firelens(props *FireLensLogDriverProps) LogDriver {
 func LogDrivers_Fluentd(props *FluentdLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_FluentdParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -112,6 +121,9 @@ func LogDrivers_Fluentd(props *FluentdLogDriverProps) LogDriver {
 func LogDrivers_Gelf(props *GelfLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_GelfParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -129,6 +141,9 @@ func LogDrivers_Gelf(props *GelfLogDriverProps) LogDriver {
 func LogDrivers_Journald(props *JournaldLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_JournaldParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -146,6 +161,9 @@ func LogDrivers_Journald(props *JournaldLogDriverProps) LogDriver {
 func LogDrivers_JsonFile(props *JsonFileLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_JsonFileParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -163,6 +181,9 @@ func LogDrivers_JsonFile(props *JsonFileLogDriverProps) LogDriver {
 func LogDrivers_Splunk(props *SplunkLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_SplunkParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
@@ -180,6 +201,9 @@ func LogDrivers_Splunk(props *SplunkLogDriverProps) LogDriver {
 func LogDrivers_Syslog(props *SyslogLogDriverProps) LogDriver {
 	_init_.Initialize()
 
+	if err := validateLogDrivers_SyslogParameters(props); err != nil {
+		panic(err)
+	}
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(

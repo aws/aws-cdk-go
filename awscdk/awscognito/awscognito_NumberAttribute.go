@@ -55,6 +55,9 @@ type jsiiProxy_NumberAttribute struct {
 func NewNumberAttribute(props *NumberAttributeProps) NumberAttribute {
 	_init_.Initialize()
 
+	if err := validateNewNumberAttributeParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NumberAttribute{}
 
 	_jsii_.Create(

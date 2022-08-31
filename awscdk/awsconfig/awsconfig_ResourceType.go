@@ -58,6 +58,9 @@ func (j *jsiiProxy_ResourceType) ComplianceResourceType() *string {
 func ResourceType_Of(type_ *string) ResourceType {
 	_init_.Initialize()
 
+	if err := validateResourceType_OfParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns ResourceType
 
 	_jsii_.StaticInvoke(

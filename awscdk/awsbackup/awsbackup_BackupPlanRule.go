@@ -40,6 +40,9 @@ func (j *jsiiProxy_BackupPlanRule) Props() *BackupPlanRuleProps {
 func NewBackupPlanRule(props *BackupPlanRuleProps) BackupPlanRule {
 	_init_.Initialize()
 
+	if err := validateNewBackupPlanRuleParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BackupPlanRule{}
 
 	_jsii_.Create(

@@ -41,6 +41,9 @@ type jsiiProxy_CloudWatchPutMetricAction struct {
 func NewCloudWatchPutMetricAction(props *CloudWatchPutMetricActionProps) CloudWatchPutMetricAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudWatchPutMetricActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudWatchPutMetricAction{}
 
 	_jsii_.Create(
@@ -64,6 +67,9 @@ func NewCloudWatchPutMetricAction_Override(c CloudWatchPutMetricAction, props *C
 }
 
 func (c *jsiiProxy_CloudWatchPutMetricAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := c.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

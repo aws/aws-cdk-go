@@ -89,6 +89,9 @@ func (j *jsiiProxy_InputType) Name() *string {
 func NewInputType(name *string, props *IntermediateTypeOptions) InputType {
 	_init_.Initialize()
 
+	if err := validateNewInputTypeParameters(name, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InputType{}
 
 	_jsii_.Create(
@@ -111,7 +114,7 @@ func NewInputType_Override(i InputType, name *string, props *IntermediateTypeOpt
 	)
 }
 
-func (j *jsiiProxy_InputType) SetModes(val *[]AuthorizationType) {
+func (j *jsiiProxy_InputType)SetModes(val *[]AuthorizationType) {
 	_jsii_.Set(
 		j,
 		"modes",
@@ -120,6 +123,9 @@ func (j *jsiiProxy_InputType) SetModes(val *[]AuthorizationType) {
 }
 
 func (i *jsiiProxy_InputType) AddField(options *AddFieldOptions) {
+	if err := i.validateAddFieldParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addField",
@@ -128,6 +134,9 @@ func (i *jsiiProxy_InputType) AddField(options *AddFieldOptions) {
 }
 
 func (i *jsiiProxy_InputType) Attribute(options *BaseTypeOptions) GraphqlType {
+	if err := i.validateAttributeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.Invoke(

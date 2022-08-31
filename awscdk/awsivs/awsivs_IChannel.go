@@ -27,6 +27,9 @@ type jsiiProxy_IChannel struct {
 }
 
 func (i *jsiiProxy_IChannel) AddStreamKey(id *string) StreamKey {
+	if err := i.validateAddStreamKeyParameters(id); err != nil {
+		panic(err)
+	}
 	var returns StreamKey
 
 	_jsii_.Invoke(

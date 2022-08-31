@@ -116,6 +116,9 @@ func (j *jsiiProxy_AwsAuth) Node() awscdk.ConstructNode {
 func NewAwsAuth(scope awscdk.Construct, id *string, props *AwsAuthProps) AwsAuth {
 	_init_.Initialize()
 
+	if err := validateNewAwsAuthParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AwsAuth{}
 
 	_jsii_.Create(
@@ -143,6 +146,9 @@ func NewAwsAuth_Override(a AwsAuth, scope awscdk.Construct, id *string, props *A
 func AwsAuth_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAwsAuth_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -156,6 +162,9 @@ func AwsAuth_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_AwsAuth) AddAccount(accountId *string) {
+	if err := a.validateAddAccountParameters(accountId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addAccount",
@@ -164,6 +173,9 @@ func (a *jsiiProxy_AwsAuth) AddAccount(accountId *string) {
 }
 
 func (a *jsiiProxy_AwsAuth) AddMastersRole(role awsiam.IRole, username *string) {
+	if err := a.validateAddMastersRoleParameters(role); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addMastersRole",
@@ -172,6 +184,9 @@ func (a *jsiiProxy_AwsAuth) AddMastersRole(role awsiam.IRole, username *string) 
 }
 
 func (a *jsiiProxy_AwsAuth) AddRoleMapping(role awsiam.IRole, mapping *Mapping) {
+	if err := a.validateAddRoleMappingParameters(role, mapping); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addRoleMapping",
@@ -180,6 +195,9 @@ func (a *jsiiProxy_AwsAuth) AddRoleMapping(role awsiam.IRole, mapping *Mapping) 
 }
 
 func (a *jsiiProxy_AwsAuth) AddUserMapping(user awsiam.IUser, mapping *Mapping) {
+	if err := a.validateAddUserMappingParameters(user, mapping); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addUserMapping",
@@ -196,6 +214,9 @@ func (a *jsiiProxy_AwsAuth) OnPrepare() {
 }
 
 func (a *jsiiProxy_AwsAuth) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -225,6 +246,9 @@ func (a *jsiiProxy_AwsAuth) Prepare() {
 }
 
 func (a *jsiiProxy_AwsAuth) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

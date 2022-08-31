@@ -21,6 +21,9 @@ type jsiiProxy_IBindableBuildImage struct {
 }
 
 func (i *jsiiProxy_IBindableBuildImage) Bind(scope awscdk.Construct, project IProject, options *BuildImageBindOptions) *BuildImageConfig {
+	if err := i.validateBindParameters(scope, project, options); err != nil {
+		panic(err)
+	}
 	var returns *BuildImageConfig
 
 	_jsii_.Invoke(

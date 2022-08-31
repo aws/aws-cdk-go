@@ -75,6 +75,9 @@ func NewDependableTrait_Override(d DependableTrait) {
 func DependableTrait_Get(instance IDependable) DependableTrait {
 	_init_.Initialize()
 
+	if err := validateDependableTrait_GetParameters(instance); err != nil {
+		panic(err)
+	}
 	var returns DependableTrait
 
 	_jsii_.StaticInvoke(
@@ -94,6 +97,9 @@ func DependableTrait_Get(instance IDependable) DependableTrait {
 func DependableTrait_Implement(instance IDependable, trait DependableTrait) {
 	_init_.Initialize()
 
+	if err := validateDependableTrait_ImplementParameters(instance, trait); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.DependableTrait",
 		"implement",

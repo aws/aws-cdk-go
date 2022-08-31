@@ -697,6 +697,9 @@ func (j *jsiiProxy_IntegTestCaseStack) UrlSuffix() *string {
 func NewIntegTestCaseStack(scope constructs.Construct, id *string, props *IntegTestCaseStackProps) IntegTestCaseStack {
 	_init_.Initialize()
 
+	if err := validateNewIntegTestCaseStackParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_IntegTestCaseStack{}
 
 	_jsii_.Create(
@@ -724,6 +727,9 @@ func NewIntegTestCaseStack_Override(i IntegTestCaseStack, scope constructs.Const
 func IntegTestCaseStack_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateIntegTestCaseStack_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -741,6 +747,9 @@ func IntegTestCaseStack_IsConstruct(x interface{}) *bool {
 func IntegTestCaseStack_IsIntegTestCaseStack(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateIntegTestCaseStack_IsIntegTestCaseStackParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -760,6 +769,9 @@ func IntegTestCaseStack_IsIntegTestCaseStack(x interface{}) *bool {
 func IntegTestCaseStack_IsStack(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateIntegTestCaseStack_IsStackParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -779,6 +791,9 @@ func IntegTestCaseStack_IsStack(x interface{}) *bool {
 func IntegTestCaseStack_Of(construct constructs.IConstruct) awscdk.Stack {
 	_init_.Initialize()
 
+	if err := validateIntegTestCaseStack_OfParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Stack
 
 	_jsii_.StaticInvoke(
@@ -792,6 +807,9 @@ func IntegTestCaseStack_Of(construct constructs.IConstruct) awscdk.Stack {
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) AddDependency(target awscdk.Stack, reason *string) {
+	if err := i.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addDependency",
@@ -800,6 +818,9 @@ func (i *jsiiProxy_IntegTestCaseStack) AddDependency(target awscdk.Stack, reason
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation {
+	if err := i.validateAddDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -813,6 +834,9 @@ func (i *jsiiProxy_IntegTestCaseStack) AddDockerImageAsset(asset *awscdk.DockerI
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation {
+	if err := i.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.FileAssetLocation
 
 	_jsii_.Invoke(
@@ -826,6 +850,9 @@ func (i *jsiiProxy_IntegTestCaseStack) AddFileAsset(asset *awscdk.FileAssetSourc
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) AddTransform(transform *string) {
+	if err := i.validateAddTransformParameters(transform); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addTransform",
@@ -834,6 +861,9 @@ func (i *jsiiProxy_IntegTestCaseStack) AddTransform(transform *string) {
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) AllocateLogicalId(cfnElement awscdk.CfnElement) *string {
+	if err := i.validateAllocateLogicalIdParameters(cfnElement); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -847,6 +877,9 @@ func (i *jsiiProxy_IntegTestCaseStack) AllocateLogicalId(cfnElement awscdk.CfnEl
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) ExportValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *string {
+	if err := i.validateExportValueParameters(exportedValue, options); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -860,6 +893,9 @@ func (i *jsiiProxy_IntegTestCaseStack) ExportValue(exportedValue interface{}, op
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) FormatArn(components *awscdk.ArnComponents) *string {
+	if err := i.validateFormatArnParameters(components); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -873,6 +909,9 @@ func (i *jsiiProxy_IntegTestCaseStack) FormatArn(components *awscdk.ArnComponent
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) GetLogicalId(element awscdk.CfnElement) *string {
+	if err := i.validateGetLogicalIdParameters(element); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -894,6 +933,9 @@ func (i *jsiiProxy_IntegTestCaseStack) OnPrepare() {
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := i.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"onSynthesize",
@@ -915,6 +957,9 @@ func (i *jsiiProxy_IntegTestCaseStack) OnValidate() *[]*string {
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents {
+	if err := i.validateParseArnParameters(arn); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.ArnComponents
 
 	_jsii_.Invoke(
@@ -936,6 +981,9 @@ func (i *jsiiProxy_IntegTestCaseStack) Prepare() {
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable {
+	if err := i.validatePrepareCrossReferenceParameters(_sourceStack, reference); err != nil {
+		panic(err)
+	}
 	var returns awscdk.IResolvable
 
 	_jsii_.Invoke(
@@ -949,6 +997,9 @@ func (i *jsiiProxy_IntegTestCaseStack) PrepareCrossReference(_sourceStack awscdk
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) RegionalFact(factName *string, defaultValue *string) *string {
+	if err := i.validateRegionalFactParameters(factName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -962,6 +1013,9 @@ func (i *jsiiProxy_IntegTestCaseStack) RegionalFact(factName *string, defaultVal
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) RenameLogicalId(oldId *string, newId *string) {
+	if err := i.validateRenameLogicalIdParameters(oldId, newId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"renameLogicalId",
@@ -970,6 +1024,9 @@ func (i *jsiiProxy_IntegTestCaseStack) RenameLogicalId(oldId *string, newId *str
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) ReportMissingContext(report *cxapi.MissingContext) {
+	if err := i.validateReportMissingContextParameters(report); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"reportMissingContext",
@@ -978,6 +1035,9 @@ func (i *jsiiProxy_IntegTestCaseStack) ReportMissingContext(report *cxapi.Missin
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) ReportMissingContextKey(report *cloudassemblyschema.MissingContext) {
+	if err := i.validateReportMissingContextKeyParameters(report); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"reportMissingContextKey",
@@ -986,6 +1046,9 @@ func (i *jsiiProxy_IntegTestCaseStack) ReportMissingContextKey(report *cloudasse
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) Resolve(obj interface{}) interface{} {
+	if err := i.validateResolveParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -999,6 +1062,9 @@ func (i *jsiiProxy_IntegTestCaseStack) Resolve(obj interface{}) interface{} {
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) SplitArn(arn *string, arnFormat awscdk.ArnFormat) *awscdk.ArnComponents {
+	if err := i.validateSplitArnParameters(arn, arnFormat); err != nil {
+		panic(err)
+	}
 	var returns *awscdk.ArnComponents
 
 	_jsii_.Invoke(
@@ -1012,6 +1078,9 @@ func (i *jsiiProxy_IntegTestCaseStack) SplitArn(arn *string, arnFormat awscdk.Ar
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) Synthesize(session awscdk.ISynthesisSession) {
+	if err := i.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"synthesize",
@@ -1020,6 +1089,9 @@ func (i *jsiiProxy_IntegTestCaseStack) Synthesize(session awscdk.ISynthesisSessi
 }
 
 func (i *jsiiProxy_IntegTestCaseStack) ToJsonString(obj interface{}, space *float64) *string {
+	if err := i.validateToJsonStringParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

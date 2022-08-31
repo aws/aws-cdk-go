@@ -418,6 +418,9 @@ func (j *jsiiProxy_CfnClassifier) XmlClassifier() interface{} {
 func NewCfnClassifier(scope awscdk.Construct, id *string, props *CfnClassifierProps) CfnClassifier {
 	_init_.Initialize()
 
+	if err := validateNewCfnClassifierParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnClassifier{}
 
 	_jsii_.Create(
@@ -440,7 +443,10 @@ func NewCfnClassifier_Override(c CfnClassifier, scope awscdk.Construct, id *stri
 	)
 }
 
-func (j *jsiiProxy_CfnClassifier) SetCsvClassifier(val interface{}) {
+func (j *jsiiProxy_CfnClassifier)SetCsvClassifier(val interface{}) {
+	if err := j.validateSetCsvClassifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"csvClassifier",
@@ -448,7 +454,10 @@ func (j *jsiiProxy_CfnClassifier) SetCsvClassifier(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnClassifier) SetGrokClassifier(val interface{}) {
+func (j *jsiiProxy_CfnClassifier)SetGrokClassifier(val interface{}) {
+	if err := j.validateSetGrokClassifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"grokClassifier",
@@ -456,7 +465,10 @@ func (j *jsiiProxy_CfnClassifier) SetGrokClassifier(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnClassifier) SetJsonClassifier(val interface{}) {
+func (j *jsiiProxy_CfnClassifier)SetJsonClassifier(val interface{}) {
+	if err := j.validateSetJsonClassifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"jsonClassifier",
@@ -464,7 +476,10 @@ func (j *jsiiProxy_CfnClassifier) SetJsonClassifier(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnClassifier) SetXmlClassifier(val interface{}) {
+func (j *jsiiProxy_CfnClassifier)SetXmlClassifier(val interface{}) {
+	if err := j.validateSetXmlClassifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"xmlClassifier",
@@ -482,6 +497,9 @@ func (j *jsiiProxy_CfnClassifier) SetXmlClassifier(val interface{}) {
 func CfnClassifier_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClassifier_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -499,6 +517,9 @@ func CfnClassifier_IsCfnElement(x interface{}) *bool {
 func CfnClassifier_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClassifier_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -516,6 +537,9 @@ func CfnClassifier_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnClassifier_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnClassifier_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -540,6 +564,9 @@ func CfnClassifier_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnClassifier) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -548,6 +575,9 @@ func (c *jsiiProxy_CfnClassifier) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnClassifier) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -556,6 +586,9 @@ func (c *jsiiProxy_CfnClassifier) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnClassifier) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -564,6 +597,9 @@ func (c *jsiiProxy_CfnClassifier) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnClassifier) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -572,6 +608,9 @@ func (c *jsiiProxy_CfnClassifier) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnClassifier) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -580,6 +619,9 @@ func (c *jsiiProxy_CfnClassifier) AddPropertyDeletionOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnClassifier) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -588,6 +630,9 @@ func (c *jsiiProxy_CfnClassifier) AddPropertyOverride(propertyPath *string, valu
 }
 
 func (c *jsiiProxy_CfnClassifier) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -596,6 +641,9 @@ func (c *jsiiProxy_CfnClassifier) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 func (c *jsiiProxy_CfnClassifier) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -609,6 +657,9 @@ func (c *jsiiProxy_CfnClassifier) GetAtt(attributeName *string) awscdk.Reference
 }
 
 func (c *jsiiProxy_CfnClassifier) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -622,6 +673,9 @@ func (c *jsiiProxy_CfnClassifier) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnClassifier) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -638,6 +692,9 @@ func (c *jsiiProxy_CfnClassifier) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnClassifier) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -659,6 +716,9 @@ func (c *jsiiProxy_CfnClassifier) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnClassifier) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -675,6 +735,9 @@ func (c *jsiiProxy_CfnClassifier) Prepare() {
 }
 
 func (c *jsiiProxy_CfnClassifier) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -701,6 +764,9 @@ func (c *jsiiProxy_CfnClassifier) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnClassifier) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -735,6 +801,9 @@ func (c *jsiiProxy_CfnClassifier) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnClassifier) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

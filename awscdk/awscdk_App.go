@@ -253,6 +253,9 @@ func (j *jsiiProxy_App) StageName() *string {
 func NewApp(props *AppProps) App {
 	_init_.Initialize()
 
+	if err := validateNewAppParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_App{}
 
 	_jsii_.Create(
@@ -283,6 +286,9 @@ func NewApp_Override(a App, props *AppProps) {
 func App_IsApp(obj interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApp_IsAppParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -300,6 +306,9 @@ func App_IsApp(obj interface{}) *bool {
 func App_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApp_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -317,6 +326,9 @@ func App_IsConstruct(x interface{}) *bool {
 func App_IsStage(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApp_IsStageParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -337,6 +349,9 @@ func App_IsStage(x interface{}) *bool {
 func App_Of(construct constructs.IConstruct) Stage {
 	_init_.Initialize()
 
+	if err := validateApp_OfParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns Stage
 
 	_jsii_.StaticInvoke(
@@ -358,6 +373,9 @@ func (a *jsiiProxy_App) OnPrepare() {
 }
 
 func (a *jsiiProxy_App) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -387,6 +405,9 @@ func (a *jsiiProxy_App) Prepare() {
 }
 
 func (a *jsiiProxy_App) Synth(options *StageSynthesisOptions) cxapi.CloudAssembly {
+	if err := a.validateSynthParameters(options); err != nil {
+		panic(err)
+	}
 	var returns cxapi.CloudAssembly
 
 	_jsii_.Invoke(
@@ -400,6 +421,9 @@ func (a *jsiiProxy_App) Synth(options *StageSynthesisOptions) cxapi.CloudAssembl
 }
 
 func (a *jsiiProxy_App) Synthesize(session ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

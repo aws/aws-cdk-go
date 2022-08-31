@@ -27,6 +27,9 @@ type jsiiProxy_IUser struct {
 }
 
 func (i *jsiiProxy_IUser) AddToGroup(group IGroup) {
+	if err := i.validateAddToGroupParameters(group); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addToGroup",

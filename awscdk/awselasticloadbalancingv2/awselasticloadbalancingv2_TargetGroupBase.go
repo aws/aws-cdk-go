@@ -258,7 +258,10 @@ func NewTargetGroupBase_Override(t TargetGroupBase, scope constructs.Construct, 
 	)
 }
 
-func (j *jsiiProxy_TargetGroupBase) SetHealthCheck(val *HealthCheck) {
+func (j *jsiiProxy_TargetGroupBase)SetHealthCheck(val *HealthCheck) {
+	if err := j.validateSetHealthCheckParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"healthCheck",
@@ -266,7 +269,7 @@ func (j *jsiiProxy_TargetGroupBase) SetHealthCheck(val *HealthCheck) {
 	)
 }
 
-func (j *jsiiProxy_TargetGroupBase) SetTargetType(val TargetType) {
+func (j *jsiiProxy_TargetGroupBase)SetTargetType(val TargetType) {
 	_jsii_.Set(
 		j,
 		"targetType",
@@ -279,6 +282,9 @@ func (j *jsiiProxy_TargetGroupBase) SetTargetType(val TargetType) {
 func TargetGroupBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateTargetGroupBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -292,6 +298,9 @@ func TargetGroupBase_IsConstruct(x interface{}) *bool {
 }
 
 func (t *jsiiProxy_TargetGroupBase) AddLoadBalancerTarget(props *LoadBalancerTargetProps) {
+	if err := t.validateAddLoadBalancerTargetParameters(props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"addLoadBalancerTarget",
@@ -300,6 +309,9 @@ func (t *jsiiProxy_TargetGroupBase) AddLoadBalancerTarget(props *LoadBalancerTar
 }
 
 func (t *jsiiProxy_TargetGroupBase) ConfigureHealthCheck(healthCheck *HealthCheck) {
+	if err := t.validateConfigureHealthCheckParameters(healthCheck); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"configureHealthCheck",
@@ -316,6 +328,9 @@ func (t *jsiiProxy_TargetGroupBase) OnPrepare() {
 }
 
 func (t *jsiiProxy_TargetGroupBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"onSynthesize",
@@ -345,6 +360,9 @@ func (t *jsiiProxy_TargetGroupBase) Prepare() {
 }
 
 func (t *jsiiProxy_TargetGroupBase) SetAttribute(key *string, value *string) {
+	if err := t.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"setAttribute",
@@ -353,6 +371,9 @@ func (t *jsiiProxy_TargetGroupBase) SetAttribute(key *string, value *string) {
 }
 
 func (t *jsiiProxy_TargetGroupBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		t,
 		"synthesize",

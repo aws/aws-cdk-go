@@ -114,6 +114,9 @@ func (j *jsiiProxy_ArtifactPath) Location() *string {
 func NewArtifactPath(artifact Artifact, fileName *string) ArtifactPath {
 	_init_.Initialize()
 
+	if err := validateNewArtifactPathParameters(artifact, fileName); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ArtifactPath{}
 
 	_jsii_.Create(
@@ -140,6 +143,9 @@ func NewArtifactPath_Override(a ArtifactPath, artifact Artifact, fileName *strin
 func ArtifactPath_ArtifactPath(artifactName *string, fileName *string) ArtifactPath {
 	_init_.Initialize()
 
+	if err := validateArtifactPath_ArtifactPathParameters(artifactName, fileName); err != nil {
+		panic(err)
+	}
 	var returns ArtifactPath
 
 	_jsii_.StaticInvoke(

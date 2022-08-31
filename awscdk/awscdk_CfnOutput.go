@@ -277,6 +277,9 @@ func (j *jsiiProxy_CfnOutput) Value() interface{} {
 func NewCfnOutput(scope constructs.Construct, id *string, props *CfnOutputProps) CfnOutput {
 	_init_.Initialize()
 
+	if err := validateNewCfnOutputParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnOutput{}
 
 	_jsii_.Create(
@@ -300,7 +303,7 @@ func NewCfnOutput_Override(c CfnOutput, scope constructs.Construct, id *string, 
 	)
 }
 
-func (j *jsiiProxy_CfnOutput) SetCondition(val CfnCondition) {
+func (j *jsiiProxy_CfnOutput)SetCondition(val CfnCondition) {
 	_jsii_.Set(
 		j,
 		"condition",
@@ -308,7 +311,7 @@ func (j *jsiiProxy_CfnOutput) SetCondition(val CfnCondition) {
 	)
 }
 
-func (j *jsiiProxy_CfnOutput) SetDescription(val *string) {
+func (j *jsiiProxy_CfnOutput)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -316,7 +319,7 @@ func (j *jsiiProxy_CfnOutput) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOutput) SetExportName(val *string) {
+func (j *jsiiProxy_CfnOutput)SetExportName(val *string) {
 	_jsii_.Set(
 		j,
 		"exportName",
@@ -324,7 +327,10 @@ func (j *jsiiProxy_CfnOutput) SetExportName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOutput) SetValue(val interface{}) {
+func (j *jsiiProxy_CfnOutput)SetValue(val interface{}) {
+	if err := j.validateSetValueParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"value",
@@ -342,6 +348,9 @@ func (j *jsiiProxy_CfnOutput) SetValue(val interface{}) {
 func CfnOutput_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnOutput_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -359,6 +368,9 @@ func CfnOutput_IsCfnElement(x interface{}) *bool {
 func CfnOutput_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnOutput_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -380,6 +392,9 @@ func (c *jsiiProxy_CfnOutput) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnOutput) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -401,6 +416,9 @@ func (c *jsiiProxy_CfnOutput) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnOutput) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -417,6 +435,9 @@ func (c *jsiiProxy_CfnOutput) Prepare() {
 }
 
 func (c *jsiiProxy_CfnOutput) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

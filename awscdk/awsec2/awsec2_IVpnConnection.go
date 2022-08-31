@@ -49,6 +49,9 @@ type jsiiProxy_IVpnConnection struct {
 }
 
 func (i *jsiiProxy_IVpnConnection) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -62,6 +65,9 @@ func (i *jsiiProxy_IVpnConnection) Metric(metricName *string, props *awscloudwat
 }
 
 func (i *jsiiProxy_IVpnConnection) MetricTunnelDataIn(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricTunnelDataInParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -75,6 +81,9 @@ func (i *jsiiProxy_IVpnConnection) MetricTunnelDataIn(props *awscloudwatch.Metri
 }
 
 func (i *jsiiProxy_IVpnConnection) MetricTunnelDataOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricTunnelDataOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -88,6 +97,9 @@ func (i *jsiiProxy_IVpnConnection) MetricTunnelDataOut(props *awscloudwatch.Metr
 }
 
 func (i *jsiiProxy_IVpnConnection) MetricTunnelState(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricTunnelStateParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(

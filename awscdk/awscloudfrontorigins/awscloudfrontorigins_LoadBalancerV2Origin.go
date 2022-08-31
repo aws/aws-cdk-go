@@ -52,6 +52,9 @@ type jsiiProxy_LoadBalancerV2Origin struct {
 func NewLoadBalancerV2Origin(loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, props *LoadBalancerV2OriginProps) LoadBalancerV2Origin {
 	_init_.Initialize()
 
+	if err := validateNewLoadBalancerV2OriginParameters(loadBalancer, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LoadBalancerV2Origin{}
 
 	_jsii_.Create(
@@ -75,6 +78,9 @@ func NewLoadBalancerV2Origin_Override(l LoadBalancerV2Origin, loadBalancer awsel
 }
 
 func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := l.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(

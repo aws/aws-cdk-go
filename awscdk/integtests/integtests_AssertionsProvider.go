@@ -138,6 +138,9 @@ func (j *jsiiProxy_AssertionsProvider) ServiceToken() *string {
 func NewAssertionsProvider(scope constructs.Construct, id *string) AssertionsProvider {
 	_init_.Initialize()
 
+	if err := validateNewAssertionsProviderParameters(scope, id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AssertionsProvider{}
 
 	_jsii_.Create(
@@ -165,6 +168,9 @@ func NewAssertionsProvider_Override(a AssertionsProvider, scope constructs.Const
 func AssertionsProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAssertionsProvider_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -178,6 +184,9 @@ func AssertionsProvider_IsConstruct(x interface{}) *bool {
 }
 
 func (a *jsiiProxy_AssertionsProvider) AddPolicyStatementFromSdkCall(service *string, api *string, resources *[]*string) {
+	if err := a.validateAddPolicyStatementFromSdkCallParameters(service, api); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addPolicyStatementFromSdkCall",
@@ -186,6 +195,9 @@ func (a *jsiiProxy_AssertionsProvider) AddPolicyStatementFromSdkCall(service *st
 }
 
 func (a *jsiiProxy_AssertionsProvider) Encode(obj interface{}) interface{} {
+	if err := a.validateEncodeParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -207,6 +219,9 @@ func (a *jsiiProxy_AssertionsProvider) OnPrepare() {
 }
 
 func (a *jsiiProxy_AssertionsProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -236,6 +251,9 @@ func (a *jsiiProxy_AssertionsProvider) Prepare() {
 }
 
 func (a *jsiiProxy_AssertionsProvider) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

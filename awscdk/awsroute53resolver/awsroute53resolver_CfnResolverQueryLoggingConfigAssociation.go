@@ -434,6 +434,9 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) UpdatedProperites()
 func NewCfnResolverQueryLoggingConfigAssociation(scope awscdk.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) CfnResolverQueryLoggingConfigAssociation {
 	_init_.Initialize()
 
+	if err := validateNewCfnResolverQueryLoggingConfigAssociationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnResolverQueryLoggingConfigAssociation{}
 
 	_jsii_.Create(
@@ -456,7 +459,7 @@ func NewCfnResolverQueryLoggingConfigAssociation_Override(c CfnResolverQueryLogg
 	)
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) SetResolverQueryLogConfigId(val *string) {
+func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation)SetResolverQueryLogConfigId(val *string) {
 	_jsii_.Set(
 		j,
 		"resolverQueryLogConfigId",
@@ -464,7 +467,7 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) SetResolverQueryLog
 	)
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) SetResourceId(val *string) {
+func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation)SetResourceId(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceId",
@@ -482,6 +485,9 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) SetResourceId(val *
 func CfnResolverQueryLoggingConfigAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnResolverQueryLoggingConfigAssociation_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -499,6 +505,9 @@ func CfnResolverQueryLoggingConfigAssociation_IsCfnElement(x interface{}) *bool 
 func CfnResolverQueryLoggingConfigAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnResolverQueryLoggingConfigAssociation_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -516,6 +525,9 @@ func CfnResolverQueryLoggingConfigAssociation_IsCfnResource(construct constructs
 func CfnResolverQueryLoggingConfigAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnResolverQueryLoggingConfigAssociation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -540,6 +552,9 @@ func CfnResolverQueryLoggingConfigAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -548,6 +563,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddDeletionOverride
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -556,6 +574,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddDependsOn(target
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -564,6 +585,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddMetadata(key *st
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -572,6 +596,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddOverride(path *s
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -580,6 +607,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddPropertyDeletion
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -588,6 +618,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) AddPropertyOverride
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -596,6 +629,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ApplyRemovalPolicy(
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -609,6 +645,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) GetAtt(attributeNam
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -622,6 +661,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) GetMetadata(key *st
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -638,6 +680,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -659,6 +704,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OnValidate() *[]*st
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -675,6 +723,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Prepare() {
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -701,6 +752,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ShouldSynthesize() 
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -735,6 +789,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Validate() *[]*stri
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

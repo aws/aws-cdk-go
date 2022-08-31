@@ -362,6 +362,9 @@ func (j *jsiiProxy_Cluster) Vpc() awsec2.IVpc {
 func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Cluster {
 	_init_.Initialize()
 
+	if err := validateNewClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Cluster{}
 
 	_jsii_.Create(
@@ -393,6 +396,9 @@ func NewCluster_Override(c Cluster, scope constructs.Construct, id *string, prop
 func Cluster_FromClusterArn(scope constructs.Construct, id *string, clusterArn *string) ICluster {
 	_init_.Initialize()
 
+	if err := validateCluster_FromClusterArnParameters(scope, id, clusterArn); err != nil {
+		panic(err)
+	}
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
@@ -410,6 +416,9 @@ func Cluster_FromClusterArn(scope constructs.Construct, id *string, clusterArn *
 func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
+	if err := validateCluster_FromClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
@@ -427,6 +436,9 @@ func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs
 func Cluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -444,6 +456,9 @@ func Cluster_IsConstruct(x interface{}) *bool {
 func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -457,6 +472,9 @@ func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_Cluster) AddAsgCapacityProvider(provider AsgCapacityProvider, options *AddAutoScalingGroupCapacityOptions) {
+	if err := c.validateAddAsgCapacityProviderParameters(provider, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addAsgCapacityProvider",
@@ -465,6 +483,9 @@ func (c *jsiiProxy_Cluster) AddAsgCapacityProvider(provider AsgCapacityProvider,
 }
 
 func (c *jsiiProxy_Cluster) AddAutoScalingGroup(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AddAutoScalingGroupCapacityOptions) {
+	if err := c.validateAddAutoScalingGroupParameters(autoScalingGroup, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addAutoScalingGroup",
@@ -473,6 +494,9 @@ func (c *jsiiProxy_Cluster) AddAutoScalingGroup(autoScalingGroup awsautoscaling.
 }
 
 func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *AddCapacityOptions) awsautoscaling.AutoScalingGroup {
+	if err := c.validateAddCapacityParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsautoscaling.AutoScalingGroup
 
 	_jsii_.Invoke(
@@ -486,6 +510,9 @@ func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *AddCapacityOptions)
 }
 
 func (c *jsiiProxy_Cluster) AddCapacityProvider(provider *string) {
+	if err := c.validateAddCapacityProviderParameters(provider); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addCapacityProvider",
@@ -494,6 +521,9 @@ func (c *jsiiProxy_Cluster) AddCapacityProvider(provider *string) {
 }
 
 func (c *jsiiProxy_Cluster) AddDefaultCloudMapNamespace(options *CloudMapNamespaceOptions) awsservicediscovery.INamespace {
+	if err := c.validateAddDefaultCloudMapNamespaceParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awsservicediscovery.INamespace
 
 	_jsii_.Invoke(
@@ -507,6 +537,9 @@ func (c *jsiiProxy_Cluster) AddDefaultCloudMapNamespace(options *CloudMapNamespa
 }
 
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -536,6 +569,9 @@ func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -549,6 +585,9 @@ func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -562,6 +601,9 @@ func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (c *jsiiProxy_Cluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -575,6 +617,9 @@ func (c *jsiiProxy_Cluster) Metric(metricName *string, props *awscloudwatch.Metr
 }
 
 func (c *jsiiProxy_Cluster) MetricCpuReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricCpuReservationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -588,6 +633,9 @@ func (c *jsiiProxy_Cluster) MetricCpuReservation(props *awscloudwatch.MetricOpti
 }
 
 func (c *jsiiProxy_Cluster) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricCpuUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -601,6 +649,9 @@ func (c *jsiiProxy_Cluster) MetricCpuUtilization(props *awscloudwatch.MetricOpti
 }
 
 func (c *jsiiProxy_Cluster) MetricMemoryReservation(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricMemoryReservationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -614,6 +665,9 @@ func (c *jsiiProxy_Cluster) MetricMemoryReservation(props *awscloudwatch.MetricO
 }
 
 func (c *jsiiProxy_Cluster) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricMemoryUtilizationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -635,6 +689,9 @@ func (c *jsiiProxy_Cluster) OnPrepare() {
 }
 
 func (c *jsiiProxy_Cluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -664,6 +721,9 @@ func (c *jsiiProxy_Cluster) Prepare() {
 }
 
 func (c *jsiiProxy_Cluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

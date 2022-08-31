@@ -254,6 +254,9 @@ func (j *jsiiProxy_PrivateHostedZone) ZoneName() *string {
 func NewPrivateHostedZone(scope constructs.Construct, id *string, props *PrivateHostedZoneProps) PrivateHostedZone {
 	_init_.Initialize()
 
+	if err := validateNewPrivateHostedZoneParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PrivateHostedZone{}
 
 	_jsii_.Create(
@@ -283,6 +286,9 @@ func NewPrivateHostedZone_Override(p PrivateHostedZone, scope constructs.Constru
 func PrivateHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
+	if err := validatePrivateHostedZone_FromHostedZoneAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -302,6 +308,9 @@ func PrivateHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *
 func PrivateHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
+	if err := validatePrivateHostedZone_FromHostedZoneIdParameters(scope, id, hostedZoneId); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -325,6 +334,9 @@ func PrivateHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, 
 func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
+	if err := validatePrivateHostedZone_FromLookupParameters(scope, id, query); err != nil {
+		panic(err)
+	}
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
@@ -342,6 +354,9 @@ func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query 
 func PrivateHostedZone_FromPrivateHostedZoneId(scope constructs.Construct, id *string, privateHostedZoneId *string) IPrivateHostedZone {
 	_init_.Initialize()
 
+	if err := validatePrivateHostedZone_FromPrivateHostedZoneIdParameters(scope, id, privateHostedZoneId); err != nil {
+		panic(err)
+	}
 	var returns IPrivateHostedZone
 
 	_jsii_.StaticInvoke(
@@ -359,6 +374,9 @@ func PrivateHostedZone_FromPrivateHostedZoneId(scope constructs.Construct, id *s
 func PrivateHostedZone_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePrivateHostedZone_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -376,6 +394,9 @@ func PrivateHostedZone_IsConstruct(x interface{}) *bool {
 func PrivateHostedZone_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePrivateHostedZone_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -389,6 +410,9 @@ func PrivateHostedZone_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_PrivateHostedZone) AddVpc(vpc awsec2.IVpc) {
+	if err := p.validateAddVpcParameters(vpc); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addVpc",
@@ -397,6 +421,9 @@ func (p *jsiiProxy_PrivateHostedZone) AddVpc(vpc awsec2.IVpc) {
 }
 
 func (p *jsiiProxy_PrivateHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -418,6 +445,9 @@ func (p *jsiiProxy_PrivateHostedZone) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_PrivateHostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -431,6 +461,9 @@ func (p *jsiiProxy_PrivateHostedZone) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (p *jsiiProxy_PrivateHostedZone) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -452,6 +485,9 @@ func (p *jsiiProxy_PrivateHostedZone) OnPrepare() {
 }
 
 func (p *jsiiProxy_PrivateHostedZone) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -481,6 +517,9 @@ func (p *jsiiProxy_PrivateHostedZone) Prepare() {
 }
 
 func (p *jsiiProxy_PrivateHostedZone) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

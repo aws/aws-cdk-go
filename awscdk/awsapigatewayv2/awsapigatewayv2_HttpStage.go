@@ -273,6 +273,9 @@ func (j *jsiiProxy_HttpStage) Url() *string {
 func NewHttpStage(scope constructs.Construct, id *string, props *HttpStageProps) HttpStage {
 	_init_.Initialize()
 
+	if err := validateNewHttpStageParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpStage{}
 
 	_jsii_.Create(
@@ -300,6 +303,9 @@ func NewHttpStage_Override(h HttpStage, scope constructs.Construct, id *string, 
 func HttpStage_FromHttpStageAttributes(scope constructs.Construct, id *string, attrs *HttpStageAttributes) IHttpStage {
 	_init_.Initialize()
 
+	if err := validateHttpStage_FromHttpStageAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IHttpStage
 
 	_jsii_.StaticInvoke(
@@ -317,6 +323,9 @@ func HttpStage_FromHttpStageAttributes(scope constructs.Construct, id *string, a
 func HttpStage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpStage_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -334,6 +343,9 @@ func HttpStage_IsConstruct(x interface{}) *bool {
 func HttpStage_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpStage_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -347,6 +359,9 @@ func HttpStage_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (h *jsiiProxy_HttpStage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := h.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"applyRemovalPolicy",
@@ -368,6 +383,9 @@ func (h *jsiiProxy_HttpStage) GeneratePhysicalName() *string {
 }
 
 func (h *jsiiProxy_HttpStage) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := h.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -381,6 +399,9 @@ func (h *jsiiProxy_HttpStage) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (h *jsiiProxy_HttpStage) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := h.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -394,6 +415,9 @@ func (h *jsiiProxy_HttpStage) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 func (h *jsiiProxy_HttpStage) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := h.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -407,6 +431,9 @@ func (h *jsiiProxy_HttpStage) Metric(metricName *string, props *awscloudwatch.Me
 }
 
 func (h *jsiiProxy_HttpStage) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := h.validateMetricClientErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -420,6 +447,9 @@ func (h *jsiiProxy_HttpStage) MetricClientError(props *awscloudwatch.MetricOptio
 }
 
 func (h *jsiiProxy_HttpStage) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := h.validateMetricCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -433,6 +463,9 @@ func (h *jsiiProxy_HttpStage) MetricCount(props *awscloudwatch.MetricOptions) aw
 }
 
 func (h *jsiiProxy_HttpStage) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := h.validateMetricDataProcessedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -446,6 +479,9 @@ func (h *jsiiProxy_HttpStage) MetricDataProcessed(props *awscloudwatch.MetricOpt
 }
 
 func (h *jsiiProxy_HttpStage) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := h.validateMetricIntegrationLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -459,6 +495,9 @@ func (h *jsiiProxy_HttpStage) MetricIntegrationLatency(props *awscloudwatch.Metr
 }
 
 func (h *jsiiProxy_HttpStage) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := h.validateMetricLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -472,6 +511,9 @@ func (h *jsiiProxy_HttpStage) MetricLatency(props *awscloudwatch.MetricOptions) 
 }
 
 func (h *jsiiProxy_HttpStage) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := h.validateMetricServerErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -493,6 +535,9 @@ func (h *jsiiProxy_HttpStage) OnPrepare() {
 }
 
 func (h *jsiiProxy_HttpStage) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -522,6 +567,9 @@ func (h *jsiiProxy_HttpStage) Prepare() {
 }
 
 func (h *jsiiProxy_HttpStage) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

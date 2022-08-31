@@ -193,6 +193,9 @@ func (j *jsiiProxy_AaaaRecord) Stack() awscdk.Stack {
 func NewAaaaRecord(scope constructs.Construct, id *string, props *AaaaRecordProps) AaaaRecord {
 	_init_.Initialize()
 
+	if err := validateNewAaaaRecordParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AaaaRecord{}
 
 	_jsii_.Create(
@@ -220,6 +223,9 @@ func NewAaaaRecord_Override(a AaaaRecord, scope constructs.Construct, id *string
 func AaaaRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAaaaRecord_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -237,6 +243,9 @@ func AaaaRecord_IsConstruct(x interface{}) *bool {
 func AaaaRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAaaaRecord_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -250,6 +259,9 @@ func AaaaRecord_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_AaaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -271,6 +283,9 @@ func (a *jsiiProxy_AaaaRecord) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_AaaaRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -284,6 +299,9 @@ func (a *jsiiProxy_AaaaRecord) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (a *jsiiProxy_AaaaRecord) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -305,6 +323,9 @@ func (a *jsiiProxy_AaaaRecord) OnPrepare() {
 }
 
 func (a *jsiiProxy_AaaaRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -334,6 +355,9 @@ func (a *jsiiProxy_AaaaRecord) Prepare() {
 }
 
 func (a *jsiiProxy_AaaaRecord) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

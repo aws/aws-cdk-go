@@ -42,6 +42,9 @@ func (j *jsiiProxy_EngineVersion) Version() *string {
 func NewEngineVersion(version *string) EngineVersion {
 	_init_.Initialize()
 
+	if err := validateNewEngineVersionParameters(version); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EngineVersion{}
 
 	_jsii_.Create(

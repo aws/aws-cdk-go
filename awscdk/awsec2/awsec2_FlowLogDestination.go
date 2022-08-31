@@ -85,6 +85,9 @@ func FlowLogDestination_ToS3(bucket awss3.IBucket, keyPrefix *string) FlowLogDes
 }
 
 func (f *jsiiProxy_FlowLogDestination) Bind(scope awscdk.Construct, flowLog FlowLog) *FlowLogDestinationConfig {
+	if err := f.validateBindParameters(scope, flowLog); err != nil {
+		panic(err)
+	}
 	var returns *FlowLogDestinationConfig
 
 	_jsii_.Invoke(

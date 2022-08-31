@@ -276,6 +276,9 @@ func (j *jsiiProxy_NetworkTargetGroup) TargetType() TargetType {
 func NewNetworkTargetGroup(scope constructs.Construct, id *string, props *NetworkTargetGroupProps) NetworkTargetGroup {
 	_init_.Initialize()
 
+	if err := validateNewNetworkTargetGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NetworkTargetGroup{}
 
 	_jsii_.Create(
@@ -298,7 +301,10 @@ func NewNetworkTargetGroup_Override(n NetworkTargetGroup, scope constructs.Const
 	)
 }
 
-func (j *jsiiProxy_NetworkTargetGroup) SetHealthCheck(val *HealthCheck) {
+func (j *jsiiProxy_NetworkTargetGroup)SetHealthCheck(val *HealthCheck) {
+	if err := j.validateSetHealthCheckParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"healthCheck",
@@ -306,7 +312,7 @@ func (j *jsiiProxy_NetworkTargetGroup) SetHealthCheck(val *HealthCheck) {
 	)
 }
 
-func (j *jsiiProxy_NetworkTargetGroup) SetTargetType(val TargetType) {
+func (j *jsiiProxy_NetworkTargetGroup)SetTargetType(val TargetType) {
 	_jsii_.Set(
 		j,
 		"targetType",
@@ -319,6 +325,9 @@ func (j *jsiiProxy_NetworkTargetGroup) SetTargetType(val TargetType) {
 func NetworkTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) INetworkTargetGroup {
 	_init_.Initialize()
 
+	if err := validateNetworkTargetGroup_FromTargetGroupAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns INetworkTargetGroup
 
 	_jsii_.StaticInvoke(
@@ -336,6 +345,9 @@ func NetworkTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id
 func NetworkTargetGroup_Import(scope constructs.Construct, id *string, props *TargetGroupImportProps) INetworkTargetGroup {
 	_init_.Initialize()
 
+	if err := validateNetworkTargetGroup_ImportParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	var returns INetworkTargetGroup
 
 	_jsii_.StaticInvoke(
@@ -353,6 +365,9 @@ func NetworkTargetGroup_Import(scope constructs.Construct, id *string, props *Ta
 func NetworkTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkTargetGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -366,6 +381,9 @@ func NetworkTargetGroup_IsConstruct(x interface{}) *bool {
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) AddLoadBalancerTarget(props *LoadBalancerTargetProps) {
+	if err := n.validateAddLoadBalancerTargetParameters(props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"addLoadBalancerTarget",
@@ -387,6 +405,9 @@ func (n *jsiiProxy_NetworkTargetGroup) AddTarget(targets ...INetworkLoadBalancer
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) ConfigureHealthCheck(healthCheck *HealthCheck) {
+	if err := n.validateConfigureHealthCheckParameters(healthCheck); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"configureHealthCheck",
@@ -395,6 +416,9 @@ func (n *jsiiProxy_NetworkTargetGroup) ConfigureHealthCheck(healthCheck *HealthC
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := n.validateMetricHealthyHostCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -408,6 +432,9 @@ func (n *jsiiProxy_NetworkTargetGroup) MetricHealthyHostCount(props *awscloudwat
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := n.validateMetricUnHealthyHostCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -429,6 +456,9 @@ func (n *jsiiProxy_NetworkTargetGroup) OnPrepare() {
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -458,6 +488,9 @@ func (n *jsiiProxy_NetworkTargetGroup) Prepare() {
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) RegisterListener(listener INetworkListener) {
+	if err := n.validateRegisterListenerParameters(listener); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"registerListener",
@@ -466,6 +499,9 @@ func (n *jsiiProxy_NetworkTargetGroup) RegisterListener(listener INetworkListene
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) SetAttribute(key *string, value *string) {
+	if err := n.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"setAttribute",
@@ -474,6 +510,9 @@ func (n *jsiiProxy_NetworkTargetGroup) SetAttribute(key *string, value *string) 
 }
 
 func (n *jsiiProxy_NetworkTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

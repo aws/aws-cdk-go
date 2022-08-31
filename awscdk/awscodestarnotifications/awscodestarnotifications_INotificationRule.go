@@ -27,6 +27,9 @@ type jsiiProxy_INotificationRule struct {
 }
 
 func (i *jsiiProxy_INotificationRule) AddTarget(target INotificationRuleTarget) *bool {
+	if err := i.validateAddTargetParameters(target); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

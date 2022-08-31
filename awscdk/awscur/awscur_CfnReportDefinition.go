@@ -516,6 +516,9 @@ func (j *jsiiProxy_CfnReportDefinition) UpdatedProperites() *map[string]interfac
 func NewCfnReportDefinition(scope awscdk.Construct, id *string, props *CfnReportDefinitionProps) CfnReportDefinition {
 	_init_.Initialize()
 
+	if err := validateNewCfnReportDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnReportDefinition{}
 
 	_jsii_.Create(
@@ -538,7 +541,7 @@ func NewCfnReportDefinition_Override(c CfnReportDefinition, scope awscdk.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetAdditionalArtifacts(val *[]*string) {
+func (j *jsiiProxy_CfnReportDefinition)SetAdditionalArtifacts(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"additionalArtifacts",
@@ -546,7 +549,7 @@ func (j *jsiiProxy_CfnReportDefinition) SetAdditionalArtifacts(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetAdditionalSchemaElements(val *[]*string) {
+func (j *jsiiProxy_CfnReportDefinition)SetAdditionalSchemaElements(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"additionalSchemaElements",
@@ -554,7 +557,7 @@ func (j *jsiiProxy_CfnReportDefinition) SetAdditionalSchemaElements(val *[]*stri
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetBillingViewArn(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetBillingViewArn(val *string) {
 	_jsii_.Set(
 		j,
 		"billingViewArn",
@@ -562,7 +565,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetBillingViewArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetCompression(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetCompression(val *string) {
+	if err := j.validateSetCompressionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"compression",
@@ -570,7 +576,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetCompression(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetFormat(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetFormat(val *string) {
+	if err := j.validateSetFormatParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"format",
@@ -578,7 +587,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetFormat(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetRefreshClosedReports(val interface{}) {
+func (j *jsiiProxy_CfnReportDefinition)SetRefreshClosedReports(val interface{}) {
+	if err := j.validateSetRefreshClosedReportsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"refreshClosedReports",
@@ -586,7 +598,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetRefreshClosedReports(val interface{})
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetReportName(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetReportName(val *string) {
+	if err := j.validateSetReportNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"reportName",
@@ -594,7 +609,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetReportName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetReportVersioning(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetReportVersioning(val *string) {
+	if err := j.validateSetReportVersioningParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"reportVersioning",
@@ -602,7 +620,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetReportVersioning(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetS3Bucket(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetS3Bucket(val *string) {
+	if err := j.validateSetS3BucketParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"s3Bucket",
@@ -610,7 +631,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetS3Bucket(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetS3Prefix(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetS3Prefix(val *string) {
+	if err := j.validateSetS3PrefixParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"s3Prefix",
@@ -618,7 +642,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetS3Prefix(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetS3Region(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetS3Region(val *string) {
+	if err := j.validateSetS3RegionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"s3Region",
@@ -626,7 +653,10 @@ func (j *jsiiProxy_CfnReportDefinition) SetS3Region(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportDefinition) SetTimeUnit(val *string) {
+func (j *jsiiProxy_CfnReportDefinition)SetTimeUnit(val *string) {
+	if err := j.validateSetTimeUnitParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"timeUnit",
@@ -644,6 +674,9 @@ func (j *jsiiProxy_CfnReportDefinition) SetTimeUnit(val *string) {
 func CfnReportDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnReportDefinition_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -661,6 +694,9 @@ func CfnReportDefinition_IsCfnElement(x interface{}) *bool {
 func CfnReportDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnReportDefinition_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -678,6 +714,9 @@ func CfnReportDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnReportDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnReportDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -702,6 +741,9 @@ func CfnReportDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -710,6 +752,9 @@ func (c *jsiiProxy_CfnReportDefinition) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -718,6 +763,9 @@ func (c *jsiiProxy_CfnReportDefinition) AddDependsOn(target awscdk.CfnResource) 
 }
 
 func (c *jsiiProxy_CfnReportDefinition) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -726,6 +774,9 @@ func (c *jsiiProxy_CfnReportDefinition) AddMetadata(key *string, value interface
 }
 
 func (c *jsiiProxy_CfnReportDefinition) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -734,6 +785,9 @@ func (c *jsiiProxy_CfnReportDefinition) AddOverride(path *string, value interfac
 }
 
 func (c *jsiiProxy_CfnReportDefinition) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -742,6 +796,9 @@ func (c *jsiiProxy_CfnReportDefinition) AddPropertyDeletionOverride(propertyPath
 }
 
 func (c *jsiiProxy_CfnReportDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -750,6 +807,9 @@ func (c *jsiiProxy_CfnReportDefinition) AddPropertyOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnReportDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -758,6 +818,9 @@ func (c *jsiiProxy_CfnReportDefinition) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (c *jsiiProxy_CfnReportDefinition) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -771,6 +834,9 @@ func (c *jsiiProxy_CfnReportDefinition) GetAtt(attributeName *string) awscdk.Ref
 }
 
 func (c *jsiiProxy_CfnReportDefinition) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -784,6 +850,9 @@ func (c *jsiiProxy_CfnReportDefinition) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -800,6 +869,9 @@ func (c *jsiiProxy_CfnReportDefinition) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -821,6 +893,9 @@ func (c *jsiiProxy_CfnReportDefinition) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -837,6 +912,9 @@ func (c *jsiiProxy_CfnReportDefinition) Prepare() {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -863,6 +941,9 @@ func (c *jsiiProxy_CfnReportDefinition) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -897,6 +978,9 @@ func (c *jsiiProxy_CfnReportDefinition) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnReportDefinition) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

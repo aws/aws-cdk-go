@@ -22,6 +22,9 @@ type jsiiProxy_ILoadBalancerTarget struct {
 }
 
 func (i *jsiiProxy_ILoadBalancerTarget) AttachToClassicLB(loadBalancer LoadBalancer) {
+	if err := i.validateAttachToClassicLBParameters(loadBalancer); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"attachToClassicLB",

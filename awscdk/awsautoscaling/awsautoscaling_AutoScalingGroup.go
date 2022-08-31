@@ -422,6 +422,9 @@ func (j *jsiiProxy_AutoScalingGroup) UserData() awsec2.UserData {
 func NewAutoScalingGroup(scope constructs.Construct, id *string, props *AutoScalingGroupProps) AutoScalingGroup {
 	_init_.Initialize()
 
+	if err := validateNewAutoScalingGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AutoScalingGroup{}
 
 	_jsii_.Create(
@@ -444,7 +447,7 @@ func NewAutoScalingGroup_Override(a AutoScalingGroup, scope constructs.Construct
 	)
 }
 
-func (j *jsiiProxy_AutoScalingGroup) SetAlbTargetGroup(val awselasticloadbalancingv2.ApplicationTargetGroup) {
+func (j *jsiiProxy_AutoScalingGroup)SetAlbTargetGroup(val awselasticloadbalancingv2.ApplicationTargetGroup) {
 	_jsii_.Set(
 		j,
 		"albTargetGroup",
@@ -452,7 +455,7 @@ func (j *jsiiProxy_AutoScalingGroup) SetAlbTargetGroup(val awselasticloadbalanci
 	)
 }
 
-func (j *jsiiProxy_AutoScalingGroup) SetNewInstancesProtectedFromScaleIn(val *bool) {
+func (j *jsiiProxy_AutoScalingGroup)SetNewInstancesProtectedFromScaleIn(val *bool) {
 	_jsii_.Set(
 		j,
 		"newInstancesProtectedFromScaleIn",
@@ -464,6 +467,9 @@ func (j *jsiiProxy_AutoScalingGroup) SetNewInstancesProtectedFromScaleIn(val *bo
 func AutoScalingGroup_FromAutoScalingGroupName(scope constructs.Construct, id *string, autoScalingGroupName *string) IAutoScalingGroup {
 	_init_.Initialize()
 
+	if err := validateAutoScalingGroup_FromAutoScalingGroupNameParameters(scope, id, autoScalingGroupName); err != nil {
+		panic(err)
+	}
 	var returns IAutoScalingGroup
 
 	_jsii_.StaticInvoke(
@@ -481,6 +487,9 @@ func AutoScalingGroup_FromAutoScalingGroupName(scope constructs.Construct, id *s
 func AutoScalingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAutoScalingGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -498,6 +507,9 @@ func AutoScalingGroup_IsConstruct(x interface{}) *bool {
 func AutoScalingGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAutoScalingGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -511,6 +523,9 @@ func AutoScalingGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_AutoScalingGroup) AddLifecycleHook(id *string, props *BasicLifecycleHookProps) LifecycleHook {
+	if err := a.validateAddLifecycleHookParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns LifecycleHook
 
 	_jsii_.Invoke(
@@ -524,6 +539,9 @@ func (a *jsiiProxy_AutoScalingGroup) AddLifecycleHook(id *string, props *BasicLi
 }
 
 func (a *jsiiProxy_AutoScalingGroup) AddSecurityGroup(securityGroup awsec2.ISecurityGroup) {
+	if err := a.validateAddSecurityGroupParameters(securityGroup); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addSecurityGroup",
@@ -532,6 +550,9 @@ func (a *jsiiProxy_AutoScalingGroup) AddSecurityGroup(securityGroup awsec2.ISecu
 }
 
 func (a *jsiiProxy_AutoScalingGroup) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := a.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addToRolePolicy",
@@ -553,6 +574,9 @@ func (a *jsiiProxy_AutoScalingGroup) AddUserData(commands ...*string) {
 }
 
 func (a *jsiiProxy_AutoScalingGroup) AddWarmPool(options *WarmPoolOptions) WarmPool {
+	if err := a.validateAddWarmPoolParameters(options); err != nil {
+		panic(err)
+	}
 	var returns WarmPool
 
 	_jsii_.Invoke(
@@ -566,6 +590,9 @@ func (a *jsiiProxy_AutoScalingGroup) AddWarmPool(options *WarmPoolOptions) WarmP
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ApplyCloudFormationInit(init awsec2.CloudFormationInit, options *ApplyCloudFormationInitOptions) {
+	if err := a.validateApplyCloudFormationInitParameters(init, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyCloudFormationInit",
@@ -574,6 +601,9 @@ func (a *jsiiProxy_AutoScalingGroup) ApplyCloudFormationInit(init awsec2.CloudFo
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -595,6 +625,9 @@ func (a *jsiiProxy_AutoScalingGroup) AreNewInstancesProtectedFromScaleIn() *bool
 }
 
 func (a *jsiiProxy_AutoScalingGroup) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := a.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -608,6 +641,9 @@ func (a *jsiiProxy_AutoScalingGroup) AttachToApplicationTargetGroup(targetGroup 
 }
 
 func (a *jsiiProxy_AutoScalingGroup) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
+	if err := a.validateAttachToClassicLBParameters(loadBalancer); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"attachToClassicLB",
@@ -616,6 +652,9 @@ func (a *jsiiProxy_AutoScalingGroup) AttachToClassicLB(loadBalancer awselasticlo
 }
 
 func (a *jsiiProxy_AutoScalingGroup) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	if err := a.validateAttachToNetworkTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
 	_jsii_.Invoke(
@@ -642,6 +681,9 @@ func (a *jsiiProxy_AutoScalingGroup) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_AutoScalingGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -655,6 +697,9 @@ func (a *jsiiProxy_AutoScalingGroup) GetResourceArnAttribute(arnAttr *string, ar
 }
 
 func (a *jsiiProxy_AutoScalingGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -676,6 +721,9 @@ func (a *jsiiProxy_AutoScalingGroup) OnPrepare() {
 }
 
 func (a *jsiiProxy_AutoScalingGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -713,6 +761,9 @@ func (a *jsiiProxy_AutoScalingGroup) ProtectNewInstancesFromScaleIn() {
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps) TargetTrackingScalingPolicy {
+	if err := a.validateScaleOnCpuUtilizationParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -726,6 +777,9 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleOnCpuUtilization(id *string, props *Cp
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ScaleOnIncomingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy {
+	if err := a.validateScaleOnIncomingBytesParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -739,6 +793,9 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleOnIncomingBytes(id *string, props *Net
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) StepScalingPolicy {
+	if err := a.validateScaleOnMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns StepScalingPolicy
 
 	_jsii_.Invoke(
@@ -752,6 +809,9 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleOnMetric(id *string, props *BasicStepS
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ScaleOnOutgoingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy {
+	if err := a.validateScaleOnOutgoingBytesParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -765,6 +825,9 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleOnOutgoingBytes(id *string, props *Net
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ScaleOnRequestCount(id *string, props *RequestCountScalingProps) TargetTrackingScalingPolicy {
+	if err := a.validateScaleOnRequestCountParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -778,6 +841,9 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleOnRequestCount(id *string, props *Requ
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ScaleOnSchedule(id *string, props *BasicScheduledActionProps) ScheduledAction {
+	if err := a.validateScaleOnScheduleParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ScheduledAction
 
 	_jsii_.Invoke(
@@ -791,6 +857,9 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleOnSchedule(id *string, props *BasicSch
 }
 
 func (a *jsiiProxy_AutoScalingGroup) ScaleToTrackMetric(id *string, props *MetricTargetTrackingProps) TargetTrackingScalingPolicy {
+	if err := a.validateScaleToTrackMetricParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns TargetTrackingScalingPolicy
 
 	_jsii_.Invoke(
@@ -804,6 +873,9 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleToTrackMetric(id *string, props *Metri
 }
 
 func (a *jsiiProxy_AutoScalingGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

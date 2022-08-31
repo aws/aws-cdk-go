@@ -40,6 +40,9 @@ func (j *jsiiProxy_InputFormat) ClassName() *string {
 func NewInputFormat(className *string) InputFormat {
 	_init_.Initialize()
 
+	if err := validateNewInputFormatParameters(className); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InputFormat{}
 
 	_jsii_.Create(

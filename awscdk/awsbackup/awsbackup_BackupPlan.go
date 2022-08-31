@@ -232,6 +232,9 @@ func (j *jsiiProxy_BackupPlan) VersionId() *string {
 func NewBackupPlan(scope constructs.Construct, id *string, props *BackupPlanProps) BackupPlan {
 	_init_.Initialize()
 
+	if err := validateNewBackupPlanParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BackupPlan{}
 
 	_jsii_.Create(
@@ -259,6 +262,9 @@ func NewBackupPlan_Override(b BackupPlan, scope constructs.Construct, id *string
 func BackupPlan_Daily35DayRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
+	if err := validateBackupPlan_Daily35DayRetentionParameters(scope, id); err != nil {
+		panic(err)
+	}
 	var returns BackupPlan
 
 	_jsii_.StaticInvoke(
@@ -276,6 +282,9 @@ func BackupPlan_Daily35DayRetention(scope constructs.Construct, id *string, back
 func BackupPlan_DailyMonthly1YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
+	if err := validateBackupPlan_DailyMonthly1YearRetentionParameters(scope, id); err != nil {
+		panic(err)
+	}
 	var returns BackupPlan
 
 	_jsii_.StaticInvoke(
@@ -293,6 +302,9 @@ func BackupPlan_DailyMonthly1YearRetention(scope constructs.Construct, id *strin
 func BackupPlan_DailyWeeklyMonthly5YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
+	if err := validateBackupPlan_DailyWeeklyMonthly5YearRetentionParameters(scope, id); err != nil {
+		panic(err)
+	}
 	var returns BackupPlan
 
 	_jsii_.StaticInvoke(
@@ -310,6 +322,9 @@ func BackupPlan_DailyWeeklyMonthly5YearRetention(scope constructs.Construct, id 
 func BackupPlan_DailyWeeklyMonthly7YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
+	if err := validateBackupPlan_DailyWeeklyMonthly7YearRetentionParameters(scope, id); err != nil {
+		panic(err)
+	}
 	var returns BackupPlan
 
 	_jsii_.StaticInvoke(
@@ -327,6 +342,9 @@ func BackupPlan_DailyWeeklyMonthly7YearRetention(scope constructs.Construct, id 
 func BackupPlan_FromBackupPlanId(scope constructs.Construct, id *string, backupPlanId *string) IBackupPlan {
 	_init_.Initialize()
 
+	if err := validateBackupPlan_FromBackupPlanIdParameters(scope, id, backupPlanId); err != nil {
+		panic(err)
+	}
 	var returns IBackupPlan
 
 	_jsii_.StaticInvoke(
@@ -344,6 +362,9 @@ func BackupPlan_FromBackupPlanId(scope constructs.Construct, id *string, backupP
 func BackupPlan_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBackupPlan_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -361,6 +382,9 @@ func BackupPlan_IsConstruct(x interface{}) *bool {
 func BackupPlan_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBackupPlan_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -374,6 +398,9 @@ func BackupPlan_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BackupPlan) AddRule(rule BackupPlanRule) {
+	if err := b.validateAddRuleParameters(rule); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addRule",
@@ -382,6 +409,9 @@ func (b *jsiiProxy_BackupPlan) AddRule(rule BackupPlanRule) {
 }
 
 func (b *jsiiProxy_BackupPlan) AddSelection(id *string, options *BackupSelectionOptions) BackupSelection {
+	if err := b.validateAddSelectionParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns BackupSelection
 
 	_jsii_.Invoke(
@@ -395,6 +425,9 @@ func (b *jsiiProxy_BackupPlan) AddSelection(id *string, options *BackupSelection
 }
 
 func (b *jsiiProxy_BackupPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -416,6 +449,9 @@ func (b *jsiiProxy_BackupPlan) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BackupPlan) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -429,6 +465,9 @@ func (b *jsiiProxy_BackupPlan) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (b *jsiiProxy_BackupPlan) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -450,6 +489,9 @@ func (b *jsiiProxy_BackupPlan) OnPrepare() {
 }
 
 func (b *jsiiProxy_BackupPlan) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -479,6 +521,9 @@ func (b *jsiiProxy_BackupPlan) Prepare() {
 }
 
 func (b *jsiiProxy_BackupPlan) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

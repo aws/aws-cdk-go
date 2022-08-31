@@ -63,6 +63,9 @@ func NewListenerConfig_Override(l ListenerConfig) {
 func ListenerConfig_ApplicationListener(listener awselasticloadbalancingv2.ApplicationListener, props *awselasticloadbalancingv2.AddApplicationTargetsProps) ListenerConfig {
 	_init_.Initialize()
 
+	if err := validateListenerConfig_ApplicationListenerParameters(listener, props); err != nil {
+		panic(err)
+	}
 	var returns ListenerConfig
 
 	_jsii_.StaticInvoke(
@@ -80,6 +83,9 @@ func ListenerConfig_ApplicationListener(listener awselasticloadbalancingv2.Appli
 func ListenerConfig_NetworkListener(listener awselasticloadbalancingv2.NetworkListener, props *awselasticloadbalancingv2.AddNetworkTargetsProps) ListenerConfig {
 	_init_.Initialize()
 
+	if err := validateListenerConfig_NetworkListenerParameters(listener, props); err != nil {
+		panic(err)
+	}
 	var returns ListenerConfig
 
 	_jsii_.StaticInvoke(
@@ -93,6 +99,9 @@ func ListenerConfig_NetworkListener(listener awselasticloadbalancingv2.NetworkLi
 }
 
 func (l *jsiiProxy_ListenerConfig) AddTargets(id *string, target *LoadBalancerTargetOptions, service BaseService) {
+	if err := l.validateAddTargetsParameters(id, target, service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addTargets",

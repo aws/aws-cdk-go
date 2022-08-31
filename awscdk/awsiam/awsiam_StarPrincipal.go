@@ -151,6 +151,9 @@ func NewStarPrincipal_Override(s StarPrincipal) {
 }
 
 func (s *jsiiProxy_StarPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := s.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToAssumeRolePolicy",
@@ -159,6 +162,9 @@ func (s *jsiiProxy_StarPrincipal) AddToAssumeRolePolicy(document PolicyDocument)
 }
 
 func (s *jsiiProxy_StarPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := s.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -172,6 +178,9 @@ func (s *jsiiProxy_StarPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 func (s *jsiiProxy_StarPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -224,6 +233,9 @@ func (s *jsiiProxy_StarPrincipal) ToString() *string {
 }
 
 func (s *jsiiProxy_StarPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := s.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

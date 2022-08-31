@@ -265,6 +265,9 @@ func (j *jsiiProxy_UntrustedCodeBoundaryPolicy) Stack() awscdk.Stack {
 func NewUntrustedCodeBoundaryPolicy(scope constructs.Construct, id *string, props *UntrustedCodeBoundaryPolicyProps) UntrustedCodeBoundaryPolicy {
 	_init_.Initialize()
 
+	if err := validateNewUntrustedCodeBoundaryPolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UntrustedCodeBoundaryPolicy{}
 
 	_jsii_.Create(
@@ -298,6 +301,9 @@ func NewUntrustedCodeBoundaryPolicy_Override(u UntrustedCodeBoundaryPolicy, scop
 func UntrustedCodeBoundaryPolicy_FromAwsManagedPolicyName(managedPolicyName *string) awsiam.IManagedPolicy {
 	_init_.Initialize()
 
+	if err := validateUntrustedCodeBoundaryPolicy_FromAwsManagedPolicyNameParameters(managedPolicyName); err != nil {
+		panic(err)
+	}
 	var returns awsiam.IManagedPolicy
 
 	_jsii_.StaticInvoke(
@@ -327,6 +333,9 @@ func UntrustedCodeBoundaryPolicy_FromAwsManagedPolicyName(managedPolicyName *str
 func UntrustedCodeBoundaryPolicy_FromManagedPolicyArn(scope constructs.Construct, id *string, managedPolicyArn *string) awsiam.IManagedPolicy {
 	_init_.Initialize()
 
+	if err := validateUntrustedCodeBoundaryPolicy_FromManagedPolicyArnParameters(scope, id, managedPolicyArn); err != nil {
+		panic(err)
+	}
 	var returns awsiam.IManagedPolicy
 
 	_jsii_.StaticInvoke(
@@ -346,6 +355,9 @@ func UntrustedCodeBoundaryPolicy_FromManagedPolicyArn(scope constructs.Construct
 func UntrustedCodeBoundaryPolicy_FromManagedPolicyName(scope constructs.Construct, id *string, managedPolicyName *string) awsiam.IManagedPolicy {
 	_init_.Initialize()
 
+	if err := validateUntrustedCodeBoundaryPolicy_FromManagedPolicyNameParameters(scope, id, managedPolicyName); err != nil {
+		panic(err)
+	}
 	var returns awsiam.IManagedPolicy
 
 	_jsii_.StaticInvoke(
@@ -363,6 +375,9 @@ func UntrustedCodeBoundaryPolicy_FromManagedPolicyName(scope constructs.Construc
 func UntrustedCodeBoundaryPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUntrustedCodeBoundaryPolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -380,6 +395,9 @@ func UntrustedCodeBoundaryPolicy_IsConstruct(x interface{}) *bool {
 func UntrustedCodeBoundaryPolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUntrustedCodeBoundaryPolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -406,6 +424,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AddStatements(statement ...awsia
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -414,6 +435,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) ApplyRemovalPolicy(policy awscdk
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToGroup(group awsiam.IGroup) {
+	if err := u.validateAttachToGroupParameters(group); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"attachToGroup",
@@ -422,6 +446,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToGroup(group awsiam.IGrou
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToRole(role awsiam.IRole) {
+	if err := u.validateAttachToRoleParameters(role); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"attachToRole",
@@ -430,6 +457,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToRole(role awsiam.IRole) 
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AttachToUser(user awsiam.IUser) {
+	if err := u.validateAttachToUserParameters(user); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"attachToUser",
@@ -451,6 +481,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) GeneratePhysicalName() *string {
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -464,6 +497,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) GetResourceArnAttribute(arnAttr 
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -485,6 +521,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) OnPrepare() {
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -514,6 +553,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) Prepare() {
 }
 
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

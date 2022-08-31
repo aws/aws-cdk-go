@@ -218,6 +218,9 @@ func (j *jsiiProxy_NestedCloudAssemblyArtifact) NestedAssembly() CloudAssembly {
 func NewNestedCloudAssemblyArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) NestedCloudAssemblyArtifact {
 	_init_.Initialize()
 
+	if err := validateNewNestedCloudAssemblyArtifactParameters(assembly, name, artifact); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NestedCloudAssemblyArtifact{}
 
 	_jsii_.Create(
@@ -247,6 +250,9 @@ func NewNestedCloudAssemblyArtifact_Override(n NestedCloudAssemblyArtifact, asse
 func NestedCloudAssemblyArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
+	if err := validateNestedCloudAssemblyArtifact_FromManifestParameters(assembly, id, artifact); err != nil {
+		panic(err)
+	}
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
@@ -260,6 +266,9 @@ func NestedCloudAssemblyArtifact_FromManifest(assembly CloudAssembly, id *string
 }
 
 func (n *jsiiProxy_NestedCloudAssemblyArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
+	if err := n.validateFindMetadataByTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *[]*MetadataEntryResult
 
 	_jsii_.Invoke(

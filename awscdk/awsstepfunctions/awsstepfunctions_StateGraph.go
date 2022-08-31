@@ -115,6 +115,9 @@ func (j *jsiiProxy_StateGraph) Timeout() awscdk.Duration {
 func NewStateGraph(startState State, graphDescription *string) StateGraph {
 	_init_.Initialize()
 
+	if err := validateNewStateGraphParameters(startState, graphDescription); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_StateGraph{}
 
 	_jsii_.Create(
@@ -137,7 +140,7 @@ func NewStateGraph_Override(s StateGraph, startState State, graphDescription *st
 	)
 }
 
-func (j *jsiiProxy_StateGraph) SetTimeout(val awscdk.Duration) {
+func (j *jsiiProxy_StateGraph)SetTimeout(val awscdk.Duration) {
 	_jsii_.Set(
 		j,
 		"timeout",
@@ -146,6 +149,9 @@ func (j *jsiiProxy_StateGraph) SetTimeout(val awscdk.Duration) {
 }
 
 func (s *jsiiProxy_StateGraph) RegisterPolicyStatement(statement awsiam.PolicyStatement) {
+	if err := s.validateRegisterPolicyStatementParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"registerPolicyStatement",
@@ -154,6 +160,9 @@ func (s *jsiiProxy_StateGraph) RegisterPolicyStatement(statement awsiam.PolicySt
 }
 
 func (s *jsiiProxy_StateGraph) RegisterState(state State) {
+	if err := s.validateRegisterStateParameters(state); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"registerState",
@@ -162,6 +171,9 @@ func (s *jsiiProxy_StateGraph) RegisterState(state State) {
 }
 
 func (s *jsiiProxy_StateGraph) RegisterSuperGraph(graph StateGraph) {
+	if err := s.validateRegisterSuperGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"registerSuperGraph",

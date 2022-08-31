@@ -153,6 +153,9 @@ func (j *jsiiProxy_WebIdentityPrincipal) PrincipalAccount() *string {
 func NewWebIdentityPrincipal(identityProvider *string, conditions *map[string]interface{}) WebIdentityPrincipal {
 	_init_.Initialize()
 
+	if err := validateNewWebIdentityPrincipalParameters(identityProvider); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebIdentityPrincipal{}
 
 	_jsii_.Create(
@@ -176,6 +179,9 @@ func NewWebIdentityPrincipal_Override(w WebIdentityPrincipal, identityProvider *
 }
 
 func (w *jsiiProxy_WebIdentityPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := w.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		w,
 		"addToAssumeRolePolicy",
@@ -184,6 +190,9 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToAssumeRolePolicy(document PolicyDo
 }
 
 func (w *jsiiProxy_WebIdentityPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := w.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -197,6 +206,9 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 func (w *jsiiProxy_WebIdentityPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := w.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -249,6 +261,9 @@ func (w *jsiiProxy_WebIdentityPrincipal) ToString() *string {
 }
 
 func (w *jsiiProxy_WebIdentityPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := w.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

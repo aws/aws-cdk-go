@@ -83,6 +83,9 @@ func (j *jsiiProxy_AlexaSkillDeployAction) ProvidedActionProperties() *awscodepi
 func NewAlexaSkillDeployAction(props *AlexaSkillDeployActionProps) AlexaSkillDeployAction {
 	_init_.Initialize()
 
+	if err := validateNewAlexaSkillDeployActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AlexaSkillDeployAction{}
 
 	_jsii_.Create(
@@ -106,6 +109,9 @@ func NewAlexaSkillDeployAction_Override(a AlexaSkillDeployAction, props *AlexaSk
 }
 
 func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := a.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -119,6 +125,9 @@ func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope awscdk.Construct, stage aw
 }
 
 func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := a.validateBoundParameters(_scope, _stage, _options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -132,6 +141,9 @@ func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope awscdk.Construct, _stage
 }
 
 func (a *jsiiProxy_AlexaSkillDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := a.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -145,6 +157,9 @@ func (a *jsiiProxy_AlexaSkillDeployAction) OnStateChange(name *string, target aw
 }
 
 func (a *jsiiProxy_AlexaSkillDeployAction) VariableExpression(variableName *string) *string {
+	if err := a.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

@@ -59,6 +59,9 @@ func (j *jsiiProxy_Architecture) Name() *string {
 func Architecture_Custom(name *string, dockerPlatform *string) Architecture {
 	_init_.Initialize()
 
+	if err := validateArchitecture_CustomParameters(name); err != nil {
+		panic(err)
+	}
 	var returns Architecture
 
 	_jsii_.StaticInvoke(

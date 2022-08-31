@@ -29,6 +29,9 @@ type jsiiProxy_IOptionGroup struct {
 }
 
 func (i *jsiiProxy_IOptionGroup) AddConfiguration(configuration *OptionConfiguration) *bool {
+	if err := i.validateAddConfigurationParameters(configuration); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

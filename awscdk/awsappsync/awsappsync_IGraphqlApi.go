@@ -61,6 +61,9 @@ type jsiiProxy_IGraphqlApi struct {
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource {
+	if err := i.validateAddDynamoDbDataSourceParameters(id, table, options); err != nil {
+		panic(err)
+	}
 	var returns DynamoDbDataSource
 
 	_jsii_.Invoke(
@@ -74,6 +77,9 @@ func (i *jsiiProxy_IGraphqlApi) AddDynamoDbDataSource(id *string, table awsdynam
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource {
+	if err := i.validateAddElasticsearchDataSourceParameters(id, domain, options); err != nil {
+		panic(err)
+	}
 	var returns ElasticsearchDataSource
 
 	_jsii_.Invoke(
@@ -87,6 +93,9 @@ func (i *jsiiProxy_IGraphqlApi) AddElasticsearchDataSource(id *string, domain aw
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddHttpDataSource(id *string, endpoint *string, options *HttpDataSourceOptions) HttpDataSource {
+	if err := i.validateAddHttpDataSourceParameters(id, endpoint, options); err != nil {
+		panic(err)
+	}
 	var returns HttpDataSource
 
 	_jsii_.Invoke(
@@ -100,6 +109,9 @@ func (i *jsiiProxy_IGraphqlApi) AddHttpDataSource(id *string, endpoint *string, 
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *DataSourceOptions) LambdaDataSource {
+	if err := i.validateAddLambdaDataSourceParameters(id, lambdaFunction, options); err != nil {
+		panic(err)
+	}
 	var returns LambdaDataSource
 
 	_jsii_.Invoke(
@@ -113,6 +125,9 @@ func (i *jsiiProxy_IGraphqlApi) AddLambdaDataSource(id *string, lambdaFunction a
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddNoneDataSource(id *string, options *DataSourceOptions) NoneDataSource {
+	if err := i.validateAddNoneDataSourceParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns NoneDataSource
 
 	_jsii_.Invoke(
@@ -126,6 +141,9 @@ func (i *jsiiProxy_IGraphqlApi) AddNoneDataSource(id *string, options *DataSourc
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource {
+	if err := i.validateAddOpenSearchDataSourceParameters(id, domain, options); err != nil {
+		panic(err)
+	}
 	var returns OpenSearchDataSource
 
 	_jsii_.Invoke(
@@ -139,6 +157,9 @@ func (i *jsiiProxy_IGraphqlApi) AddOpenSearchDataSource(id *string, domain awsop
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource {
+	if err := i.validateAddRdsDataSourceParameters(id, serverlessCluster, secretStore, options); err != nil {
+		panic(err)
+	}
 	var returns RdsDataSource
 
 	_jsii_.Invoke(
@@ -152,6 +173,9 @@ func (i *jsiiProxy_IGraphqlApi) AddRdsDataSource(id *string, serverlessCluster a
 }
 
 func (i *jsiiProxy_IGraphqlApi) AddSchemaDependency(construct awscdk.CfnResource) *bool {
+	if err := i.validateAddSchemaDependencyParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -165,6 +189,9 @@ func (i *jsiiProxy_IGraphqlApi) AddSchemaDependency(construct awscdk.CfnResource
 }
 
 func (i *jsiiProxy_IGraphqlApi) CreateResolver(props *ExtendedResolverProps) Resolver {
+	if err := i.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(

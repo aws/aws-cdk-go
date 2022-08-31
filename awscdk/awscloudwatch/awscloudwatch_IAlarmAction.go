@@ -20,6 +20,9 @@ type jsiiProxy_IAlarmAction struct {
 }
 
 func (i *jsiiProxy_IAlarmAction) Bind(scope awscdk.Construct, alarm IAlarm) *AlarmActionConfig {
+	if err := i.validateBindParameters(scope, alarm); err != nil {
+		panic(err)
+	}
 	var returns *AlarmActionConfig
 
 	_jsii_.Invoke(

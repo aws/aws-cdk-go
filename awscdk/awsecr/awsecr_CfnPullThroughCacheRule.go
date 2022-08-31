@@ -362,6 +362,9 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) UpstreamRegistryUrl() *string {
 func NewCfnPullThroughCacheRule(scope awscdk.Construct, id *string, props *CfnPullThroughCacheRuleProps) CfnPullThroughCacheRule {
 	_init_.Initialize()
 
+	if err := validateNewCfnPullThroughCacheRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnPullThroughCacheRule{}
 
 	_jsii_.Create(
@@ -384,7 +387,7 @@ func NewCfnPullThroughCacheRule_Override(c CfnPullThroughCacheRule, scope awscdk
 	)
 }
 
-func (j *jsiiProxy_CfnPullThroughCacheRule) SetEcrRepositoryPrefix(val *string) {
+func (j *jsiiProxy_CfnPullThroughCacheRule)SetEcrRepositoryPrefix(val *string) {
 	_jsii_.Set(
 		j,
 		"ecrRepositoryPrefix",
@@ -392,7 +395,7 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) SetEcrRepositoryPrefix(val *string) 
 	)
 }
 
-func (j *jsiiProxy_CfnPullThroughCacheRule) SetUpstreamRegistryUrl(val *string) {
+func (j *jsiiProxy_CfnPullThroughCacheRule)SetUpstreamRegistryUrl(val *string) {
 	_jsii_.Set(
 		j,
 		"upstreamRegistryUrl",
@@ -410,6 +413,9 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) SetUpstreamRegistryUrl(val *string) 
 func CfnPullThroughCacheRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPullThroughCacheRule_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -427,6 +433,9 @@ func CfnPullThroughCacheRule_IsCfnElement(x interface{}) *bool {
 func CfnPullThroughCacheRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPullThroughCacheRule_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -444,6 +453,9 @@ func CfnPullThroughCacheRule_IsCfnResource(construct constructs.IConstruct) *boo
 func CfnPullThroughCacheRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPullThroughCacheRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -468,6 +480,9 @@ func CfnPullThroughCacheRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -476,6 +491,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -484,6 +502,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) AddDependsOn(target awscdk.CfnResour
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -492,6 +513,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) AddMetadata(key *string, value inter
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -500,6 +524,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) AddOverride(path *string, value inte
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -508,6 +535,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) AddPropertyDeletionOverride(property
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -516,6 +546,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) AddPropertyOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -524,6 +557,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) ApplyRemovalPolicy(policy awscdk.Rem
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -537,6 +573,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) GetAtt(attributeName *string) awscdk
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -550,6 +589,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) GetMetadata(key *string) interface{}
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -566,6 +608,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -587,6 +632,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -603,6 +651,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) Prepare() {
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -629,6 +680,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -663,6 +717,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPullThroughCacheRule) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -63,6 +63,9 @@ type jsiiProxy_NestedStackSynthesizer struct {
 func NewNestedStackSynthesizer(parentDeployment IStackSynthesizer) NestedStackSynthesizer {
 	_init_.Initialize()
 
+	if err := validateNewNestedStackSynthesizerParameters(parentDeployment); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NestedStackSynthesizer{}
 
 	_jsii_.Create(
@@ -86,6 +89,9 @@ func NewNestedStackSynthesizer_Override(n NestedStackSynthesizer, parentDeployme
 }
 
 func (n *jsiiProxy_NestedStackSynthesizer) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := n.validateAddDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *DockerImageAssetLocation
 
 	_jsii_.Invoke(
@@ -99,6 +105,9 @@ func (n *jsiiProxy_NestedStackSynthesizer) AddDockerImageAsset(asset *DockerImag
 }
 
 func (n *jsiiProxy_NestedStackSynthesizer) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	if err := n.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns *FileAssetLocation
 
 	_jsii_.Invoke(
@@ -112,6 +121,9 @@ func (n *jsiiProxy_NestedStackSynthesizer) AddFileAsset(asset *FileAssetSource) 
 }
 
 func (n *jsiiProxy_NestedStackSynthesizer) Bind(stack Stack) {
+	if err := n.validateBindParameters(stack); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"bind",
@@ -120,6 +132,9 @@ func (n *jsiiProxy_NestedStackSynthesizer) Bind(stack Stack) {
 }
 
 func (n *jsiiProxy_NestedStackSynthesizer) EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions) {
+	if err := n.validateEmitStackArtifactParameters(stack, session, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"emitStackArtifact",
@@ -128,6 +143,9 @@ func (n *jsiiProxy_NestedStackSynthesizer) EmitStackArtifact(stack Stack, sessio
 }
 
 func (n *jsiiProxy_NestedStackSynthesizer) Synthesize(session ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",
@@ -136,6 +154,9 @@ func (n *jsiiProxy_NestedStackSynthesizer) Synthesize(session ISynthesisSession)
 }
 
 func (n *jsiiProxy_NestedStackSynthesizer) SynthesizeStackTemplate(stack Stack, session ISynthesisSession) {
+	if err := n.validateSynthesizeStackTemplateParameters(stack, session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesizeStackTemplate",

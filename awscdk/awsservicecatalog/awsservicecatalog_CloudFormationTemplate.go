@@ -57,6 +57,9 @@ func NewCloudFormationTemplate_Override(c CloudFormationTemplate) {
 func CloudFormationTemplate_FromAsset(path *string, options *awss3assets.AssetOptions) CloudFormationTemplate {
 	_init_.Initialize()
 
+	if err := validateCloudFormationTemplate_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationTemplate
 
 	_jsii_.StaticInvoke(
@@ -74,6 +77,9 @@ func CloudFormationTemplate_FromAsset(path *string, options *awss3assets.AssetOp
 func CloudFormationTemplate_FromProductStack(productStack ProductStack) CloudFormationTemplate {
 	_init_.Initialize()
 
+	if err := validateCloudFormationTemplate_FromProductStackParameters(productStack); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationTemplate
 
 	_jsii_.StaticInvoke(
@@ -91,6 +97,9 @@ func CloudFormationTemplate_FromProductStack(productStack ProductStack) CloudFor
 func CloudFormationTemplate_FromUrl(url *string) CloudFormationTemplate {
 	_init_.Initialize()
 
+	if err := validateCloudFormationTemplate_FromUrlParameters(url); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationTemplate
 
 	_jsii_.StaticInvoke(
@@ -104,6 +113,9 @@ func CloudFormationTemplate_FromUrl(url *string) CloudFormationTemplate {
 }
 
 func (c *jsiiProxy_CloudFormationTemplate) Bind(scope awscdk.Construct) *CloudFormationTemplateConfig {
+	if err := c.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *CloudFormationTemplateConfig
 
 	_jsii_.Invoke(

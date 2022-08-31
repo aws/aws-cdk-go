@@ -23,6 +23,9 @@ type jsiiProxy_IUserPoolAuthenticationProvider struct {
 }
 
 func (i *jsiiProxy_IUserPoolAuthenticationProvider) Bind(scope constructs.Construct, identityPool IIdentityPool, options *UserPoolAuthenticationProviderBindOptions) *UserPoolAuthenticationProviderBindConfig {
+	if err := i.validateBindParameters(scope, identityPool, options); err != nil {
+		panic(err)
+	}
 	var returns *UserPoolAuthenticationProviderBindConfig
 
 	_jsii_.Invoke(

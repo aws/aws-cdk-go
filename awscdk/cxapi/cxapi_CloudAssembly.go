@@ -169,6 +169,9 @@ func (j *jsiiProxy_CloudAssembly) Version() *string {
 func NewCloudAssembly(directory *string, loadOptions *cloudassemblyschema.LoadManifestOptions) CloudAssembly {
 	_init_.Initialize()
 
+	if err := validateNewCloudAssemblyParameters(directory, loadOptions); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudAssembly{}
 
 	_jsii_.Create(
@@ -193,6 +196,9 @@ func NewCloudAssembly_Override(c CloudAssembly, directory *string, loadOptions *
 }
 
 func (c *jsiiProxy_CloudAssembly) GetNestedAssembly(artifactId *string) CloudAssembly {
+	if err := c.validateGetNestedAssemblyParameters(artifactId); err != nil {
+		panic(err)
+	}
 	var returns CloudAssembly
 
 	_jsii_.Invoke(
@@ -206,6 +212,9 @@ func (c *jsiiProxy_CloudAssembly) GetNestedAssembly(artifactId *string) CloudAss
 }
 
 func (c *jsiiProxy_CloudAssembly) GetNestedAssemblyArtifact(artifactId *string) NestedCloudAssemblyArtifact {
+	if err := c.validateGetNestedAssemblyArtifactParameters(artifactId); err != nil {
+		panic(err)
+	}
 	var returns NestedCloudAssemblyArtifact
 
 	_jsii_.Invoke(
@@ -219,6 +228,9 @@ func (c *jsiiProxy_CloudAssembly) GetNestedAssemblyArtifact(artifactId *string) 
 }
 
 func (c *jsiiProxy_CloudAssembly) GetStack(stackName *string) CloudFormationStackArtifact {
+	if err := c.validateGetStackParameters(stackName); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationStackArtifact
 
 	_jsii_.Invoke(
@@ -232,6 +244,9 @@ func (c *jsiiProxy_CloudAssembly) GetStack(stackName *string) CloudFormationStac
 }
 
 func (c *jsiiProxy_CloudAssembly) GetStackArtifact(artifactId *string) CloudFormationStackArtifact {
+	if err := c.validateGetStackArtifactParameters(artifactId); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationStackArtifact
 
 	_jsii_.Invoke(
@@ -245,6 +260,9 @@ func (c *jsiiProxy_CloudAssembly) GetStackArtifact(artifactId *string) CloudForm
 }
 
 func (c *jsiiProxy_CloudAssembly) GetStackByName(stackName *string) CloudFormationStackArtifact {
+	if err := c.validateGetStackByNameParameters(stackName); err != nil {
+		panic(err)
+	}
 	var returns CloudFormationStackArtifact
 
 	_jsii_.Invoke(
@@ -271,6 +289,9 @@ func (c *jsiiProxy_CloudAssembly) Tree() TreeCloudArtifact {
 }
 
 func (c *jsiiProxy_CloudAssembly) TryGetArtifact(id *string) CloudArtifact {
+	if err := c.validateTryGetArtifactParameters(id); err != nil {
+		panic(err)
+	}
 	var returns CloudArtifact
 
 	_jsii_.Invoke(

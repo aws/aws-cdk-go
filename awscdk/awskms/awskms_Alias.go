@@ -269,6 +269,9 @@ func (j *jsiiProxy_Alias) Stack() awscdk.Stack {
 func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	_init_.Initialize()
 
+	if err := validateNewAliasParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Alias{}
 
 	_jsii_.Create(
@@ -296,6 +299,9 @@ func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *A
 func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *AliasAttributes) IAlias {
 	_init_.Initialize()
 
+	if err := validateAlias_FromAliasAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
@@ -317,6 +323,9 @@ func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *Al
 func Alias_FromAliasName(scope constructs.Construct, id *string, aliasName *string) IAlias {
 	_init_.Initialize()
 
+	if err := validateAlias_FromAliasNameParameters(scope, id, aliasName); err != nil {
+		panic(err)
+	}
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
@@ -334,6 +343,9 @@ func Alias_FromAliasName(scope constructs.Construct, id *string, aliasName *stri
 func Alias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAlias_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -351,6 +363,9 @@ func Alias_IsConstruct(x interface{}) *bool {
 func Alias_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAlias_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -364,6 +379,9 @@ func Alias_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
+	if err := a.validateAddAliasParameters(alias); err != nil {
+		panic(err)
+	}
 	var returns Alias
 
 	_jsii_.Invoke(
@@ -377,6 +395,9 @@ func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
 }
 
 func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
+	if err := a.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -390,6 +411,9 @@ func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, 
 }
 
 func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -411,6 +435,9 @@ func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -424,6 +451,9 @@ func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -437,6 +467,9 @@ func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := a.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -455,6 +488,9 @@ func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) a
 }
 
 func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantDecryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -468,6 +504,9 @@ func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantEncryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -481,6 +520,9 @@ func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (a *jsiiProxy_Alias) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantEncryptDecryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -502,6 +544,9 @@ func (a *jsiiProxy_Alias) OnPrepare() {
 }
 
 func (a *jsiiProxy_Alias) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -531,6 +576,9 @@ func (a *jsiiProxy_Alias) Prepare() {
 }
 
 func (a *jsiiProxy_Alias) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

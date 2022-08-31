@@ -90,6 +90,9 @@ func NewSource_Override(s Source, props *SourceProps) {
 func Source_BitBucket(props *BitBucketSourceProps) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_BitBucketParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -106,6 +109,9 @@ func Source_BitBucket(props *BitBucketSourceProps) ISource {
 func Source_CodeCommit(props *CodeCommitSourceProps) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_CodeCommitParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -122,6 +128,9 @@ func Source_CodeCommit(props *CodeCommitSourceProps) ISource {
 func Source_GitHub(props *GitHubSourceProps) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_GitHubParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -138,6 +147,9 @@ func Source_GitHub(props *GitHubSourceProps) ISource {
 func Source_GitHubEnterprise(props *GitHubEnterpriseSourceProps) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_GitHubEnterpriseParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -154,6 +166,9 @@ func Source_GitHubEnterprise(props *GitHubEnterpriseSourceProps) ISource {
 func Source_S3(props *S3SourceProps) ISource {
 	_init_.Initialize()
 
+	if err := validateSource_S3Parameters(props); err != nil {
+		panic(err)
+	}
 	var returns ISource
 
 	_jsii_.StaticInvoke(
@@ -167,6 +182,9 @@ func Source_S3(props *S3SourceProps) ISource {
 }
 
 func (s *jsiiProxy_Source) Bind(_scope awscdk.Construct, _project IProject) *SourceConfig {
+	if err := s.validateBindParameters(_scope, _project); err != nil {
+		panic(err)
+	}
 	var returns *SourceConfig
 
 	_jsii_.Invoke(

@@ -43,6 +43,9 @@ type jsiiProxy_KinesisPutRecordAction struct {
 func NewKinesisPutRecordAction(stream awskinesis.IStream, props *KinesisPutRecordActionProps) KinesisPutRecordAction {
 	_init_.Initialize()
 
+	if err := validateNewKinesisPutRecordActionParameters(stream, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KinesisPutRecordAction{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewKinesisPutRecordAction_Override(k KinesisPutRecordAction, stream awskine
 }
 
 func (k *jsiiProxy_KinesisPutRecordAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := k.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

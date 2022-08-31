@@ -329,6 +329,9 @@ func (j *jsiiProxy_LazyRole) Stack() awscdk.Stack {
 func NewLazyRole(scope constructs.Construct, id *string, props *LazyRoleProps) LazyRole {
 	_init_.Initialize()
 
+	if err := validateNewLazyRoleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LazyRole{}
 
 	_jsii_.Create(
@@ -356,6 +359,9 @@ func NewLazyRole_Override(l LazyRole, scope constructs.Construct, id *string, pr
 func LazyRole_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLazyRole_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -373,6 +379,9 @@ func LazyRole_IsConstruct(x interface{}) *bool {
 func LazyRole_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateLazyRole_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -386,6 +395,9 @@ func LazyRole_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (l *jsiiProxy_LazyRole) AddManagedPolicy(policy IManagedPolicy) {
+	if err := l.validateAddManagedPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"addManagedPolicy",
@@ -394,6 +406,9 @@ func (l *jsiiProxy_LazyRole) AddManagedPolicy(policy IManagedPolicy) {
 }
 
 func (l *jsiiProxy_LazyRole) AddToPolicy(statement PolicyStatement) *bool {
+	if err := l.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -407,6 +422,9 @@ func (l *jsiiProxy_LazyRole) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 func (l *jsiiProxy_LazyRole) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := l.validateAddToPrincipalPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -420,6 +438,9 @@ func (l *jsiiProxy_LazyRole) AddToPrincipalPolicy(statement PolicyStatement) *Ad
 }
 
 func (l *jsiiProxy_LazyRole) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := l.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"applyRemovalPolicy",
@@ -428,6 +449,9 @@ func (l *jsiiProxy_LazyRole) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (l *jsiiProxy_LazyRole) AttachInlinePolicy(policy Policy) {
+	if err := l.validateAttachInlinePolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"attachInlinePolicy",
@@ -449,6 +473,9 @@ func (l *jsiiProxy_LazyRole) GeneratePhysicalName() *string {
 }
 
 func (l *jsiiProxy_LazyRole) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := l.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -462,6 +489,9 @@ func (l *jsiiProxy_LazyRole) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (l *jsiiProxy_LazyRole) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := l.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -475,6 +505,9 @@ func (l *jsiiProxy_LazyRole) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 func (l *jsiiProxy_LazyRole) Grant(identity IPrincipal, actions ...*string) Grant {
+	if err := l.validateGrantParameters(identity); err != nil {
+		panic(err)
+	}
 	args := []interface{}{identity}
 	for _, a := range actions {
 		args = append(args, a)
@@ -493,6 +526,9 @@ func (l *jsiiProxy_LazyRole) Grant(identity IPrincipal, actions ...*string) Gran
 }
 
 func (l *jsiiProxy_LazyRole) GrantAssumeRole(identity IPrincipal) Grant {
+	if err := l.validateGrantAssumeRoleParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.Invoke(
@@ -506,6 +542,9 @@ func (l *jsiiProxy_LazyRole) GrantAssumeRole(identity IPrincipal) Grant {
 }
 
 func (l *jsiiProxy_LazyRole) GrantPassRole(identity IPrincipal) Grant {
+	if err := l.validateGrantPassRoleParameters(identity); err != nil {
+		panic(err)
+	}
 	var returns Grant
 
 	_jsii_.Invoke(
@@ -527,6 +566,9 @@ func (l *jsiiProxy_LazyRole) OnPrepare() {
 }
 
 func (l *jsiiProxy_LazyRole) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -556,6 +598,9 @@ func (l *jsiiProxy_LazyRole) Prepare() {
 }
 
 func (l *jsiiProxy_LazyRole) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

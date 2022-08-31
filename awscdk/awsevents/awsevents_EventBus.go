@@ -250,6 +250,9 @@ func (j *jsiiProxy_EventBus) Stack() awscdk.Stack {
 func NewEventBus(scope constructs.Construct, id *string, props *EventBusProps) EventBus {
 	_init_.Initialize()
 
+	if err := validateNewEventBusParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EventBus{}
 
 	_jsii_.Create(
@@ -277,6 +280,9 @@ func NewEventBus_Override(e EventBus, scope constructs.Construct, id *string, pr
 func EventBus_FromEventBusArn(scope constructs.Construct, id *string, eventBusArn *string) IEventBus {
 	_init_.Initialize()
 
+	if err := validateEventBus_FromEventBusArnParameters(scope, id, eventBusArn); err != nil {
+		panic(err)
+	}
 	var returns IEventBus
 
 	_jsii_.StaticInvoke(
@@ -294,6 +300,9 @@ func EventBus_FromEventBusArn(scope constructs.Construct, id *string, eventBusAr
 func EventBus_FromEventBusAttributes(scope constructs.Construct, id *string, attrs *EventBusAttributes) IEventBus {
 	_init_.Initialize()
 
+	if err := validateEventBus_FromEventBusAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IEventBus
 
 	_jsii_.StaticInvoke(
@@ -311,6 +320,9 @@ func EventBus_FromEventBusAttributes(scope constructs.Construct, id *string, att
 func EventBus_FromEventBusName(scope constructs.Construct, id *string, eventBusName *string) IEventBus {
 	_init_.Initialize()
 
+	if err := validateEventBus_FromEventBusNameParameters(scope, id, eventBusName); err != nil {
+		panic(err)
+	}
 	var returns IEventBus
 
 	_jsii_.StaticInvoke(
@@ -328,6 +340,9 @@ func EventBus_FromEventBusName(scope constructs.Construct, id *string, eventBusN
 func EventBus_GrantAllPutEvents(grantee awsiam.IGrantable) awsiam.Grant {
 	_init_.Initialize()
 
+	if err := validateEventBus_GrantAllPutEventsParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.StaticInvoke(
@@ -345,6 +360,9 @@ func EventBus_GrantAllPutEvents(grantee awsiam.IGrantable) awsiam.Grant {
 func EventBus_GrantPutEvents(grantee awsiam.IGrantable) awsiam.Grant {
 	_init_.Initialize()
 
+	if err := validateEventBus_GrantPutEventsParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.StaticInvoke(
@@ -362,6 +380,9 @@ func EventBus_GrantPutEvents(grantee awsiam.IGrantable) awsiam.Grant {
 func EventBus_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateEventBus_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -379,6 +400,9 @@ func EventBus_IsConstruct(x interface{}) *bool {
 func EventBus_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateEventBus_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -392,6 +416,9 @@ func EventBus_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (e *jsiiProxy_EventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -400,6 +427,9 @@ func (e *jsiiProxy_EventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (e *jsiiProxy_EventBus) Archive(id *string, props *BaseArchiveProps) Archive {
+	if err := e.validateArchiveParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns Archive
 
 	_jsii_.Invoke(
@@ -426,6 +456,9 @@ func (e *jsiiProxy_EventBus) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_EventBus) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -439,6 +472,9 @@ func (e *jsiiProxy_EventBus) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (e *jsiiProxy_EventBus) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -452,6 +488,9 @@ func (e *jsiiProxy_EventBus) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 func (e *jsiiProxy_EventBus) GrantPutEventsTo(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := e.validateGrantPutEventsToParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -473,6 +512,9 @@ func (e *jsiiProxy_EventBus) OnPrepare() {
 }
 
 func (e *jsiiProxy_EventBus) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -502,6 +544,9 @@ func (e *jsiiProxy_EventBus) Prepare() {
 }
 
 func (e *jsiiProxy_EventBus) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

@@ -39,6 +39,9 @@ type jsiiProxy_ApiGatewayv2DomainProperties struct {
 func NewApiGatewayv2DomainProperties(regionalDomainName *string, regionalHostedZoneId *string) ApiGatewayv2DomainProperties {
 	_init_.Initialize()
 
+	if err := validateNewApiGatewayv2DomainPropertiesParameters(regionalDomainName, regionalHostedZoneId); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiGatewayv2DomainProperties{}
 
 	_jsii_.Create(
@@ -62,6 +65,9 @@ func NewApiGatewayv2DomainProperties_Override(a ApiGatewayv2DomainProperties, re
 }
 
 func (a *jsiiProxy_ApiGatewayv2DomainProperties) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := a.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

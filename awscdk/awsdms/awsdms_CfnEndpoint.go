@@ -1075,6 +1075,9 @@ func (j *jsiiProxy_CfnEndpoint) Username() *string {
 func NewCfnEndpoint(scope awscdk.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewCfnEndpointParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnEndpoint{}
 
 	_jsii_.Create(
@@ -1097,7 +1100,7 @@ func NewCfnEndpoint_Override(c CfnEndpoint, scope awscdk.Construct, id *string, 
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetCertificateArn(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetCertificateArn(val *string) {
 	_jsii_.Set(
 		j,
 		"certificateArn",
@@ -1105,7 +1108,7 @@ func (j *jsiiProxy_CfnEndpoint) SetCertificateArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetDatabaseName(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetDatabaseName(val *string) {
 	_jsii_.Set(
 		j,
 		"databaseName",
@@ -1113,7 +1116,10 @@ func (j *jsiiProxy_CfnEndpoint) SetDatabaseName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetDocDbSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetDocDbSettings(val interface{}) {
+	if err := j.validateSetDocDbSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"docDbSettings",
@@ -1121,7 +1127,10 @@ func (j *jsiiProxy_CfnEndpoint) SetDocDbSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetDynamoDbSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetDynamoDbSettings(val interface{}) {
+	if err := j.validateSetDynamoDbSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dynamoDbSettings",
@@ -1129,7 +1138,10 @@ func (j *jsiiProxy_CfnEndpoint) SetDynamoDbSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetElasticsearchSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetElasticsearchSettings(val interface{}) {
+	if err := j.validateSetElasticsearchSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"elasticsearchSettings",
@@ -1137,7 +1149,7 @@ func (j *jsiiProxy_CfnEndpoint) SetElasticsearchSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetEndpointIdentifier(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetEndpointIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"endpointIdentifier",
@@ -1145,7 +1157,10 @@ func (j *jsiiProxy_CfnEndpoint) SetEndpointIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetEndpointType(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetEndpointType(val *string) {
+	if err := j.validateSetEndpointTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"endpointType",
@@ -1153,7 +1168,10 @@ func (j *jsiiProxy_CfnEndpoint) SetEndpointType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetEngineName(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetEngineName(val *string) {
+	if err := j.validateSetEngineNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"engineName",
@@ -1161,7 +1179,7 @@ func (j *jsiiProxy_CfnEndpoint) SetEngineName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetExtraConnectionAttributes(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetExtraConnectionAttributes(val *string) {
 	_jsii_.Set(
 		j,
 		"extraConnectionAttributes",
@@ -1169,7 +1187,10 @@ func (j *jsiiProxy_CfnEndpoint) SetExtraConnectionAttributes(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetGcpMySqlSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetGcpMySqlSettings(val interface{}) {
+	if err := j.validateSetGcpMySqlSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"gcpMySqlSettings",
@@ -1177,7 +1198,10 @@ func (j *jsiiProxy_CfnEndpoint) SetGcpMySqlSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetIbmDb2Settings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetIbmDb2Settings(val interface{}) {
+	if err := j.validateSetIbmDb2SettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ibmDb2Settings",
@@ -1185,7 +1209,10 @@ func (j *jsiiProxy_CfnEndpoint) SetIbmDb2Settings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetKafkaSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetKafkaSettings(val interface{}) {
+	if err := j.validateSetKafkaSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"kafkaSettings",
@@ -1193,7 +1220,10 @@ func (j *jsiiProxy_CfnEndpoint) SetKafkaSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetKinesisSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetKinesisSettings(val interface{}) {
+	if err := j.validateSetKinesisSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"kinesisSettings",
@@ -1201,7 +1231,7 @@ func (j *jsiiProxy_CfnEndpoint) SetKinesisSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetKmsKeyId(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
@@ -1209,7 +1239,10 @@ func (j *jsiiProxy_CfnEndpoint) SetKmsKeyId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetMicrosoftSqlServerSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetMicrosoftSqlServerSettings(val interface{}) {
+	if err := j.validateSetMicrosoftSqlServerSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"microsoftSqlServerSettings",
@@ -1217,7 +1250,10 @@ func (j *jsiiProxy_CfnEndpoint) SetMicrosoftSqlServerSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetMongoDbSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetMongoDbSettings(val interface{}) {
+	if err := j.validateSetMongoDbSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"mongoDbSettings",
@@ -1225,7 +1261,10 @@ func (j *jsiiProxy_CfnEndpoint) SetMongoDbSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetMySqlSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetMySqlSettings(val interface{}) {
+	if err := j.validateSetMySqlSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"mySqlSettings",
@@ -1233,7 +1272,10 @@ func (j *jsiiProxy_CfnEndpoint) SetMySqlSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetNeptuneSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetNeptuneSettings(val interface{}) {
+	if err := j.validateSetNeptuneSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"neptuneSettings",
@@ -1241,7 +1283,10 @@ func (j *jsiiProxy_CfnEndpoint) SetNeptuneSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetOracleSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetOracleSettings(val interface{}) {
+	if err := j.validateSetOracleSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"oracleSettings",
@@ -1249,7 +1294,7 @@ func (j *jsiiProxy_CfnEndpoint) SetOracleSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetPassword(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"password",
@@ -1257,7 +1302,7 @@ func (j *jsiiProxy_CfnEndpoint) SetPassword(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetPort(val *float64) {
+func (j *jsiiProxy_CfnEndpoint)SetPort(val *float64) {
 	_jsii_.Set(
 		j,
 		"port",
@@ -1265,7 +1310,10 @@ func (j *jsiiProxy_CfnEndpoint) SetPort(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetPostgreSqlSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetPostgreSqlSettings(val interface{}) {
+	if err := j.validateSetPostgreSqlSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"postgreSqlSettings",
@@ -1273,7 +1321,10 @@ func (j *jsiiProxy_CfnEndpoint) SetPostgreSqlSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetRedisSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetRedisSettings(val interface{}) {
+	if err := j.validateSetRedisSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"redisSettings",
@@ -1281,7 +1332,10 @@ func (j *jsiiProxy_CfnEndpoint) SetRedisSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetRedshiftSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetRedshiftSettings(val interface{}) {
+	if err := j.validateSetRedshiftSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"redshiftSettings",
@@ -1289,7 +1343,7 @@ func (j *jsiiProxy_CfnEndpoint) SetRedshiftSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetResourceIdentifier(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetResourceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceIdentifier",
@@ -1297,7 +1351,10 @@ func (j *jsiiProxy_CfnEndpoint) SetResourceIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetS3Settings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetS3Settings(val interface{}) {
+	if err := j.validateSetS3SettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"s3Settings",
@@ -1305,7 +1362,7 @@ func (j *jsiiProxy_CfnEndpoint) SetS3Settings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetServerName(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetServerName(val *string) {
 	_jsii_.Set(
 		j,
 		"serverName",
@@ -1313,7 +1370,7 @@ func (j *jsiiProxy_CfnEndpoint) SetServerName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetSslMode(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetSslMode(val *string) {
 	_jsii_.Set(
 		j,
 		"sslMode",
@@ -1321,7 +1378,10 @@ func (j *jsiiProxy_CfnEndpoint) SetSslMode(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetSybaseSettings(val interface{}) {
+func (j *jsiiProxy_CfnEndpoint)SetSybaseSettings(val interface{}) {
+	if err := j.validateSetSybaseSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sybaseSettings",
@@ -1329,7 +1389,7 @@ func (j *jsiiProxy_CfnEndpoint) SetSybaseSettings(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEndpoint) SetUsername(val *string) {
+func (j *jsiiProxy_CfnEndpoint)SetUsername(val *string) {
 	_jsii_.Set(
 		j,
 		"username",
@@ -1347,6 +1407,9 @@ func (j *jsiiProxy_CfnEndpoint) SetUsername(val *string) {
 func CfnEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnEndpoint_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1364,6 +1427,9 @@ func CfnEndpoint_IsCfnElement(x interface{}) *bool {
 func CfnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnEndpoint_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1381,6 +1447,9 @@ func CfnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnEndpoint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -1405,6 +1474,9 @@ func CfnEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnEndpoint) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -1413,6 +1485,9 @@ func (c *jsiiProxy_CfnEndpoint) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnEndpoint) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1421,6 +1496,9 @@ func (c *jsiiProxy_CfnEndpoint) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnEndpoint) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1429,6 +1507,9 @@ func (c *jsiiProxy_CfnEndpoint) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnEndpoint) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1437,6 +1518,9 @@ func (c *jsiiProxy_CfnEndpoint) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnEndpoint) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1445,6 +1529,9 @@ func (c *jsiiProxy_CfnEndpoint) AddPropertyDeletionOverride(propertyPath *string
 }
 
 func (c *jsiiProxy_CfnEndpoint) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1453,6 +1540,9 @@ func (c *jsiiProxy_CfnEndpoint) AddPropertyOverride(propertyPath *string, value 
 }
 
 func (c *jsiiProxy_CfnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1461,6 +1551,9 @@ func (c *jsiiProxy_CfnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 }
 
 func (c *jsiiProxy_CfnEndpoint) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1474,6 +1567,9 @@ func (c *jsiiProxy_CfnEndpoint) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (c *jsiiProxy_CfnEndpoint) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1487,6 +1583,9 @@ func (c *jsiiProxy_CfnEndpoint) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnEndpoint) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1503,6 +1602,9 @@ func (c *jsiiProxy_CfnEndpoint) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1524,6 +1626,9 @@ func (c *jsiiProxy_CfnEndpoint) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnEndpoint) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1540,6 +1645,9 @@ func (c *jsiiProxy_CfnEndpoint) Prepare() {
 }
 
 func (c *jsiiProxy_CfnEndpoint) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1566,6 +1674,9 @@ func (c *jsiiProxy_CfnEndpoint) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1600,6 +1711,9 @@ func (c *jsiiProxy_CfnEndpoint) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

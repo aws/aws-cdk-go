@@ -528,6 +528,9 @@ func (j *jsiiProxy_CfnJobTemplate) UpdatedProperites() *map[string]interface{} {
 func NewCfnJobTemplate(scope awscdk.Construct, id *string, props *CfnJobTemplateProps) CfnJobTemplate {
 	_init_.Initialize()
 
+	if err := validateNewCfnJobTemplateParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnJobTemplate{}
 
 	_jsii_.Create(
@@ -550,7 +553,10 @@ func NewCfnJobTemplate_Override(c CfnJobTemplate, scope awscdk.Construct, id *st
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetAbortConfig(val interface{}) {
+func (j *jsiiProxy_CfnJobTemplate)SetAbortConfig(val interface{}) {
+	if err := j.validateSetAbortConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"abortConfig",
@@ -558,7 +564,10 @@ func (j *jsiiProxy_CfnJobTemplate) SetAbortConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetDescription(val *string) {
+func (j *jsiiProxy_CfnJobTemplate)SetDescription(val *string) {
+	if err := j.validateSetDescriptionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"description",
@@ -566,7 +575,7 @@ func (j *jsiiProxy_CfnJobTemplate) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetDocument(val *string) {
+func (j *jsiiProxy_CfnJobTemplate)SetDocument(val *string) {
 	_jsii_.Set(
 		j,
 		"document",
@@ -574,7 +583,7 @@ func (j *jsiiProxy_CfnJobTemplate) SetDocument(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetDocumentSource(val *string) {
+func (j *jsiiProxy_CfnJobTemplate)SetDocumentSource(val *string) {
 	_jsii_.Set(
 		j,
 		"documentSource",
@@ -582,7 +591,7 @@ func (j *jsiiProxy_CfnJobTemplate) SetDocumentSource(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetJobArn(val *string) {
+func (j *jsiiProxy_CfnJobTemplate)SetJobArn(val *string) {
 	_jsii_.Set(
 		j,
 		"jobArn",
@@ -590,7 +599,10 @@ func (j *jsiiProxy_CfnJobTemplate) SetJobArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetJobExecutionsRetryConfig(val interface{}) {
+func (j *jsiiProxy_CfnJobTemplate)SetJobExecutionsRetryConfig(val interface{}) {
+	if err := j.validateSetJobExecutionsRetryConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"jobExecutionsRetryConfig",
@@ -598,7 +610,10 @@ func (j *jsiiProxy_CfnJobTemplate) SetJobExecutionsRetryConfig(val interface{}) 
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetJobExecutionsRolloutConfig(val interface{}) {
+func (j *jsiiProxy_CfnJobTemplate)SetJobExecutionsRolloutConfig(val interface{}) {
+	if err := j.validateSetJobExecutionsRolloutConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"jobExecutionsRolloutConfig",
@@ -606,7 +621,10 @@ func (j *jsiiProxy_CfnJobTemplate) SetJobExecutionsRolloutConfig(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetJobTemplateId(val *string) {
+func (j *jsiiProxy_CfnJobTemplate)SetJobTemplateId(val *string) {
+	if err := j.validateSetJobTemplateIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"jobTemplateId",
@@ -614,7 +632,10 @@ func (j *jsiiProxy_CfnJobTemplate) SetJobTemplateId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetPresignedUrlConfig(val interface{}) {
+func (j *jsiiProxy_CfnJobTemplate)SetPresignedUrlConfig(val interface{}) {
+	if err := j.validateSetPresignedUrlConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"presignedUrlConfig",
@@ -622,7 +643,10 @@ func (j *jsiiProxy_CfnJobTemplate) SetPresignedUrlConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnJobTemplate) SetTimeoutConfig(val interface{}) {
+func (j *jsiiProxy_CfnJobTemplate)SetTimeoutConfig(val interface{}) {
+	if err := j.validateSetTimeoutConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"timeoutConfig",
@@ -640,6 +664,9 @@ func (j *jsiiProxy_CfnJobTemplate) SetTimeoutConfig(val interface{}) {
 func CfnJobTemplate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnJobTemplate_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -657,6 +684,9 @@ func CfnJobTemplate_IsCfnElement(x interface{}) *bool {
 func CfnJobTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnJobTemplate_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -674,6 +704,9 @@ func CfnJobTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnJobTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnJobTemplate_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -698,6 +731,9 @@ func CfnJobTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -706,6 +742,9 @@ func (c *jsiiProxy_CfnJobTemplate) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -714,6 +753,9 @@ func (c *jsiiProxy_CfnJobTemplate) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -722,6 +764,9 @@ func (c *jsiiProxy_CfnJobTemplate) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -730,6 +775,9 @@ func (c *jsiiProxy_CfnJobTemplate) AddOverride(path *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnJobTemplate) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -738,6 +786,9 @@ func (c *jsiiProxy_CfnJobTemplate) AddPropertyDeletionOverride(propertyPath *str
 }
 
 func (c *jsiiProxy_CfnJobTemplate) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -746,6 +797,9 @@ func (c *jsiiProxy_CfnJobTemplate) AddPropertyOverride(propertyPath *string, val
 }
 
 func (c *jsiiProxy_CfnJobTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -754,6 +808,9 @@ func (c *jsiiProxy_CfnJobTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (c *jsiiProxy_CfnJobTemplate) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -767,6 +824,9 @@ func (c *jsiiProxy_CfnJobTemplate) GetAtt(attributeName *string) awscdk.Referenc
 }
 
 func (c *jsiiProxy_CfnJobTemplate) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -780,6 +840,9 @@ func (c *jsiiProxy_CfnJobTemplate) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -796,6 +859,9 @@ func (c *jsiiProxy_CfnJobTemplate) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -817,6 +883,9 @@ func (c *jsiiProxy_CfnJobTemplate) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -833,6 +902,9 @@ func (c *jsiiProxy_CfnJobTemplate) Prepare() {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -859,6 +931,9 @@ func (c *jsiiProxy_CfnJobTemplate) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -893,6 +968,9 @@ func (c *jsiiProxy_CfnJobTemplate) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

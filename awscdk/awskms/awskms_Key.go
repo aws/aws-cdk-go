@@ -274,6 +274,9 @@ func (j *jsiiProxy_Key) TrustAccountIdentities() *bool {
 func NewKey(scope constructs.Construct, id *string, props *KeyProps) Key {
 	_init_.Initialize()
 
+	if err := validateNewKeyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Key{}
 
 	_jsii_.Create(
@@ -310,6 +313,9 @@ func NewKey_Override(k Key, scope constructs.Construct, id *string, props *KeyPr
 func Key_FromCfnKey(cfnKey CfnKey) IKey {
 	_init_.Initialize()
 
+	if err := validateKey_FromCfnKeyParameters(cfnKey); err != nil {
+		panic(err)
+	}
 	var returns IKey
 
 	_jsii_.StaticInvoke(
@@ -327,6 +333,9 @@ func Key_FromCfnKey(cfnKey CfnKey) IKey {
 func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey {
 	_init_.Initialize()
 
+	if err := validateKey_FromKeyArnParameters(scope, id, keyArn); err != nil {
+		panic(err)
+	}
 	var returns IKey
 
 	_jsii_.StaticInvoke(
@@ -360,6 +369,9 @@ func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey
 func Key_FromLookup(scope constructs.Construct, id *string, options *KeyLookupOptions) IKey {
 	_init_.Initialize()
 
+	if err := validateKey_FromLookupParameters(scope, id, options); err != nil {
+		panic(err)
+	}
 	var returns IKey
 
 	_jsii_.StaticInvoke(
@@ -377,6 +389,9 @@ func Key_FromLookup(scope constructs.Construct, id *string, options *KeyLookupOp
 func Key_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKey_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -394,6 +409,9 @@ func Key_IsConstruct(x interface{}) *bool {
 func Key_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateKey_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -407,6 +425,9 @@ func Key_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
+	if err := k.validateAddAliasParameters(aliasName); err != nil {
+		panic(err)
+	}
 	var returns Alias
 
 	_jsii_.Invoke(
@@ -420,6 +441,9 @@ func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
 }
 
 func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
+	if err := k.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -433,6 +457,9 @@ func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, al
 }
 
 func (k *jsiiProxy_Key) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := k.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"applyRemovalPolicy",
@@ -454,6 +481,9 @@ func (k *jsiiProxy_Key) GeneratePhysicalName() *string {
 }
 
 func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := k.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -467,6 +497,9 @@ func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *
 }
 
 func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := k.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -480,6 +513,9 @@ func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := k.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -498,6 +534,9 @@ func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) aws
 }
 
 func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateGrantAdminParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -511,6 +550,9 @@ func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateGrantDecryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -524,6 +566,9 @@ func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateGrantEncryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -537,6 +582,9 @@ func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (k *jsiiProxy_Key) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateGrantEncryptDecryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -558,6 +606,9 @@ func (k *jsiiProxy_Key) OnPrepare() {
 }
 
 func (k *jsiiProxy_Key) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := k.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"onSynthesize",
@@ -587,6 +638,9 @@ func (k *jsiiProxy_Key) Prepare() {
 }
 
 func (k *jsiiProxy_Key) Synthesize(session awscdk.ISynthesisSession) {
+	if err := k.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		k,
 		"synthesize",

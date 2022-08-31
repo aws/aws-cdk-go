@@ -114,6 +114,9 @@ func (j *jsiiProxy_GraphWidget) Y() *float64 {
 func NewGraphWidget(props *GraphWidgetProps) GraphWidget {
 	_init_.Initialize()
 
+	if err := validateNewGraphWidgetParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GraphWidget{}
 
 	_jsii_.Create(
@@ -136,7 +139,7 @@ func NewGraphWidget_Override(g GraphWidget, props *GraphWidgetProps) {
 	)
 }
 
-func (j *jsiiProxy_GraphWidget) SetX(val *float64) {
+func (j *jsiiProxy_GraphWidget)SetX(val *float64) {
 	_jsii_.Set(
 		j,
 		"x",
@@ -144,7 +147,7 @@ func (j *jsiiProxy_GraphWidget) SetX(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_GraphWidget) SetY(val *float64) {
+func (j *jsiiProxy_GraphWidget)SetY(val *float64) {
 	_jsii_.Set(
 		j,
 		"y",
@@ -153,6 +156,9 @@ func (j *jsiiProxy_GraphWidget) SetY(val *float64) {
 }
 
 func (g *jsiiProxy_GraphWidget) AddLeftMetric(metric IMetric) {
+	if err := g.validateAddLeftMetricParameters(metric); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addLeftMetric",
@@ -161,6 +167,9 @@ func (g *jsiiProxy_GraphWidget) AddLeftMetric(metric IMetric) {
 }
 
 func (g *jsiiProxy_GraphWidget) AddRightMetric(metric IMetric) {
+	if err := g.validateAddRightMetricParameters(metric); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addRightMetric",
@@ -182,6 +191,9 @@ func (g *jsiiProxy_GraphWidget) CopyMetricWarnings(ms ...IMetric) {
 }
 
 func (g *jsiiProxy_GraphWidget) Position(x *float64, y *float64) {
+	if err := g.validatePositionParameters(x, y); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"position",

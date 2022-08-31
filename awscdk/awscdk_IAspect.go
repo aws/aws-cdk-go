@@ -19,6 +19,9 @@ type jsiiProxy_IAspect struct {
 }
 
 func (i *jsiiProxy_IAspect) Visit(node IConstruct) {
+	if err := i.validateVisitParameters(node); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"visit",

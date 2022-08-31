@@ -85,6 +85,9 @@ type jsiiProxy_Annotations struct {
 func Annotations_Of(scope constructs.IConstruct) Annotations {
 	_init_.Initialize()
 
+	if err := validateAnnotations_OfParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns Annotations
 
 	_jsii_.StaticInvoke(
@@ -98,6 +101,9 @@ func Annotations_Of(scope constructs.IConstruct) Annotations {
 }
 
 func (a *jsiiProxy_Annotations) AddDeprecation(api *string, message *string) {
+	if err := a.validateAddDeprecationParameters(api, message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addDeprecation",
@@ -106,6 +112,9 @@ func (a *jsiiProxy_Annotations) AddDeprecation(api *string, message *string) {
 }
 
 func (a *jsiiProxy_Annotations) AddError(message *string) {
+	if err := a.validateAddErrorParameters(message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addError",
@@ -114,6 +123,9 @@ func (a *jsiiProxy_Annotations) AddError(message *string) {
 }
 
 func (a *jsiiProxy_Annotations) AddInfo(message *string) {
+	if err := a.validateAddInfoParameters(message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addInfo",
@@ -122,6 +134,9 @@ func (a *jsiiProxy_Annotations) AddInfo(message *string) {
 }
 
 func (a *jsiiProxy_Annotations) AddWarning(message *string) {
+	if err := a.validateAddWarningParameters(message); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addWarning",

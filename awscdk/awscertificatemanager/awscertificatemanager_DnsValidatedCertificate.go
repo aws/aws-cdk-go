@@ -233,6 +233,9 @@ func (j *jsiiProxy_DnsValidatedCertificate) Tags() awscdk.TagManager {
 func NewDnsValidatedCertificate(scope constructs.Construct, id *string, props *DnsValidatedCertificateProps) DnsValidatedCertificate {
 	_init_.Initialize()
 
+	if err := validateNewDnsValidatedCertificateParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DnsValidatedCertificate{}
 
 	_jsii_.Create(
@@ -260,6 +263,9 @@ func NewDnsValidatedCertificate_Override(d DnsValidatedCertificate, scope constr
 func DnsValidatedCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDnsValidatedCertificate_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -277,6 +283,9 @@ func DnsValidatedCertificate_IsConstruct(x interface{}) *bool {
 func DnsValidatedCertificate_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDnsValidatedCertificate_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -290,6 +299,9 @@ func DnsValidatedCertificate_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DnsValidatedCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -311,6 +323,9 @@ func (d *jsiiProxy_DnsValidatedCertificate) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DnsValidatedCertificate) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -324,6 +339,9 @@ func (d *jsiiProxy_DnsValidatedCertificate) GetResourceArnAttribute(arnAttr *str
 }
 
 func (d *jsiiProxy_DnsValidatedCertificate) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -337,6 +355,9 @@ func (d *jsiiProxy_DnsValidatedCertificate) GetResourceNameAttribute(nameAttr *s
 }
 
 func (d *jsiiProxy_DnsValidatedCertificate) MetricDaysToExpiry(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricDaysToExpiryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -358,6 +379,9 @@ func (d *jsiiProxy_DnsValidatedCertificate) OnPrepare() {
 }
 
 func (d *jsiiProxy_DnsValidatedCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -387,6 +411,9 @@ func (d *jsiiProxy_DnsValidatedCertificate) Prepare() {
 }
 
 func (d *jsiiProxy_DnsValidatedCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

@@ -55,6 +55,9 @@ func NewFunctionCode_Override(f FunctionCode) {
 func FunctionCode_FromFile(options *FileCodeOptions) FunctionCode {
 	_init_.Initialize()
 
+	if err := validateFunctionCode_FromFileParameters(options); err != nil {
+		panic(err)
+	}
 	var returns FunctionCode
 
 	_jsii_.StaticInvoke(
@@ -74,6 +77,9 @@ func FunctionCode_FromFile(options *FileCodeOptions) FunctionCode {
 func FunctionCode_FromInline(code *string) FunctionCode {
 	_init_.Initialize()
 
+	if err := validateFunctionCode_FromInlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns FunctionCode
 
 	_jsii_.StaticInvoke(

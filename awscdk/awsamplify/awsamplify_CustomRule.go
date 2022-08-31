@@ -92,6 +92,9 @@ func (j *jsiiProxy_CustomRule) Target() *string {
 func NewCustomRule(options *CustomRuleOptions) CustomRule {
 	_init_.Initialize()
 
+	if err := validateNewCustomRuleParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CustomRule{}
 
 	_jsii_.Create(

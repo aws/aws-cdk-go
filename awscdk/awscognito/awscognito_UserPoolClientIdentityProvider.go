@@ -45,6 +45,9 @@ func (j *jsiiProxy_UserPoolClientIdentityProvider) Name() *string {
 func UserPoolClientIdentityProvider_Custom(name *string) UserPoolClientIdentityProvider {
 	_init_.Initialize()
 
+	if err := validateUserPoolClientIdentityProvider_CustomParameters(name); err != nil {
+		panic(err)
+	}
 	var returns UserPoolClientIdentityProvider
 
 	_jsii_.StaticInvoke(

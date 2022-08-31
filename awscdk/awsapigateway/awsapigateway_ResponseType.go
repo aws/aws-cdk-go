@@ -51,6 +51,9 @@ func (j *jsiiProxy_ResponseType) ResponseType() *string {
 func ResponseType_Of(type_ *string) ResponseType {
 	_init_.Initialize()
 
+	if err := validateResponseType_OfParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns ResponseType
 
 	_jsii_.StaticInvoke(

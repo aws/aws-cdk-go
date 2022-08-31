@@ -66,6 +66,9 @@ type jsiiProxy_IApplicationListener struct {
 }
 
 func (i *jsiiProxy_IApplicationListener) AddAction(id *string, props *AddApplicationActionProps) {
+	if err := i.validateAddActionParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addAction",
@@ -74,6 +77,9 @@ func (i *jsiiProxy_IApplicationListener) AddAction(id *string, props *AddApplica
 }
 
 func (i *jsiiProxy_IApplicationListener) AddCertificateArns(id *string, arns *[]*string) {
+	if err := i.validateAddCertificateArnsParameters(id, arns); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addCertificateArns",
@@ -82,6 +88,9 @@ func (i *jsiiProxy_IApplicationListener) AddCertificateArns(id *string, arns *[]
 }
 
 func (i *jsiiProxy_IApplicationListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
+	if err := i.validateAddCertificatesParameters(id, certificates); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addCertificates",
@@ -90,6 +99,9 @@ func (i *jsiiProxy_IApplicationListener) AddCertificates(id *string, certificate
 }
 
 func (i *jsiiProxy_IApplicationListener) AddTargetGroups(id *string, props *AddApplicationTargetGroupsProps) {
+	if err := i.validateAddTargetGroupsParameters(id, props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"addTargetGroups",
@@ -98,6 +110,9 @@ func (i *jsiiProxy_IApplicationListener) AddTargetGroups(id *string, props *AddA
 }
 
 func (i *jsiiProxy_IApplicationListener) AddTargets(id *string, props *AddApplicationTargetsProps) ApplicationTargetGroup {
+	if err := i.validateAddTargetsParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ApplicationTargetGroup
 
 	_jsii_.Invoke(
@@ -111,6 +126,9 @@ func (i *jsiiProxy_IApplicationListener) AddTargets(id *string, props *AddApplic
 }
 
 func (i *jsiiProxy_IApplicationListener) RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port) {
+	if err := i.validateRegisterConnectableParameters(connectable, portRange); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"registerConnectable",
@@ -119,6 +137,9 @@ func (i *jsiiProxy_IApplicationListener) RegisterConnectable(connectable awsec2.
 }
 
 func (i *jsiiProxy_IApplicationListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

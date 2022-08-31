@@ -68,6 +68,9 @@ type jsiiProxy_IDeliveryStream struct {
 }
 
 func (i *jsiiProxy_IDeliveryStream) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -86,6 +89,9 @@ func (i *jsiiProxy_IDeliveryStream) Grant(grantee awsiam.IGrantable, actions ...
 }
 
 func (i *jsiiProxy_IDeliveryStream) GrantPutRecords(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantPutRecordsParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -99,6 +105,9 @@ func (i *jsiiProxy_IDeliveryStream) GrantPutRecords(grantee awsiam.IGrantable) a
 }
 
 func (i *jsiiProxy_IDeliveryStream) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -112,6 +121,9 @@ func (i *jsiiProxy_IDeliveryStream) Metric(metricName *string, props *awscloudwa
 }
 
 func (i *jsiiProxy_IDeliveryStream) MetricBackupToS3Bytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricBackupToS3BytesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -125,6 +137,9 @@ func (i *jsiiProxy_IDeliveryStream) MetricBackupToS3Bytes(props *awscloudwatch.M
 }
 
 func (i *jsiiProxy_IDeliveryStream) MetricBackupToS3DataFreshness(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricBackupToS3DataFreshnessParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -138,6 +153,9 @@ func (i *jsiiProxy_IDeliveryStream) MetricBackupToS3DataFreshness(props *awsclou
 }
 
 func (i *jsiiProxy_IDeliveryStream) MetricBackupToS3Records(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricBackupToS3RecordsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -151,6 +169,9 @@ func (i *jsiiProxy_IDeliveryStream) MetricBackupToS3Records(props *awscloudwatch
 }
 
 func (i *jsiiProxy_IDeliveryStream) MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricIncomingBytesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -164,6 +185,9 @@ func (i *jsiiProxy_IDeliveryStream) MetricIncomingBytes(props *awscloudwatch.Met
 }
 
 func (i *jsiiProxy_IDeliveryStream) MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricIncomingRecordsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -177,6 +201,9 @@ func (i *jsiiProxy_IDeliveryStream) MetricIncomingRecords(props *awscloudwatch.M
 }
 
 func (i *jsiiProxy_IDeliveryStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",

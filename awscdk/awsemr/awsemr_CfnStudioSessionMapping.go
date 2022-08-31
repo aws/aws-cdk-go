@@ -394,6 +394,9 @@ func (j *jsiiProxy_CfnStudioSessionMapping) UpdatedProperites() *map[string]inte
 func NewCfnStudioSessionMapping(scope awscdk.Construct, id *string, props *CfnStudioSessionMappingProps) CfnStudioSessionMapping {
 	_init_.Initialize()
 
+	if err := validateNewCfnStudioSessionMappingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnStudioSessionMapping{}
 
 	_jsii_.Create(
@@ -416,7 +419,10 @@ func NewCfnStudioSessionMapping_Override(c CfnStudioSessionMapping, scope awscdk
 	)
 }
 
-func (j *jsiiProxy_CfnStudioSessionMapping) SetIdentityName(val *string) {
+func (j *jsiiProxy_CfnStudioSessionMapping)SetIdentityName(val *string) {
+	if err := j.validateSetIdentityNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"identityName",
@@ -424,7 +430,10 @@ func (j *jsiiProxy_CfnStudioSessionMapping) SetIdentityName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStudioSessionMapping) SetIdentityType(val *string) {
+func (j *jsiiProxy_CfnStudioSessionMapping)SetIdentityType(val *string) {
+	if err := j.validateSetIdentityTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"identityType",
@@ -432,7 +441,10 @@ func (j *jsiiProxy_CfnStudioSessionMapping) SetIdentityType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStudioSessionMapping) SetSessionPolicyArn(val *string) {
+func (j *jsiiProxy_CfnStudioSessionMapping)SetSessionPolicyArn(val *string) {
+	if err := j.validateSetSessionPolicyArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sessionPolicyArn",
@@ -440,7 +452,10 @@ func (j *jsiiProxy_CfnStudioSessionMapping) SetSessionPolicyArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStudioSessionMapping) SetStudioId(val *string) {
+func (j *jsiiProxy_CfnStudioSessionMapping)SetStudioId(val *string) {
+	if err := j.validateSetStudioIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"studioId",
@@ -458,6 +473,9 @@ func (j *jsiiProxy_CfnStudioSessionMapping) SetStudioId(val *string) {
 func CfnStudioSessionMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnStudioSessionMapping_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -475,6 +493,9 @@ func CfnStudioSessionMapping_IsCfnElement(x interface{}) *bool {
 func CfnStudioSessionMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnStudioSessionMapping_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -492,6 +513,9 @@ func CfnStudioSessionMapping_IsCfnResource(construct constructs.IConstruct) *boo
 func CfnStudioSessionMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnStudioSessionMapping_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -516,6 +540,9 @@ func CfnStudioSessionMapping_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -524,6 +551,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -532,6 +562,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddDependsOn(target awscdk.CfnResour
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -540,6 +573,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddMetadata(key *string, value inter
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -548,6 +584,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddOverride(path *string, value inte
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -556,6 +595,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyDeletionOverride(property
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -564,6 +606,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) AddPropertyOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -572,6 +617,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) ApplyRemovalPolicy(policy awscdk.Rem
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -585,6 +633,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) GetAtt(attributeName *string) awscdk
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -598,6 +649,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) GetMetadata(key *string) interface{}
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -614,6 +668,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -635,6 +692,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -651,6 +711,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) Prepare() {
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -677,6 +740,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -711,6 +777,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnStudioSessionMapping) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

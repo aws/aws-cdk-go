@@ -182,6 +182,9 @@ func (j *jsiiProxy_SubscriptionFilter) Stack() awscdk.Stack {
 func NewSubscriptionFilter(scope constructs.Construct, id *string, props *SubscriptionFilterProps) SubscriptionFilter {
 	_init_.Initialize()
 
+	if err := validateNewSubscriptionFilterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SubscriptionFilter{}
 
 	_jsii_.Create(
@@ -209,6 +212,9 @@ func NewSubscriptionFilter_Override(s SubscriptionFilter, scope constructs.Const
 func SubscriptionFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateSubscriptionFilter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -226,6 +232,9 @@ func SubscriptionFilter_IsConstruct(x interface{}) *bool {
 func SubscriptionFilter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateSubscriptionFilter_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -239,6 +248,9 @@ func SubscriptionFilter_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_SubscriptionFilter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -260,6 +272,9 @@ func (s *jsiiProxy_SubscriptionFilter) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_SubscriptionFilter) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -273,6 +288,9 @@ func (s *jsiiProxy_SubscriptionFilter) GetResourceArnAttribute(arnAttr *string, 
 }
 
 func (s *jsiiProxy_SubscriptionFilter) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -294,6 +312,9 @@ func (s *jsiiProxy_SubscriptionFilter) OnPrepare() {
 }
 
 func (s *jsiiProxy_SubscriptionFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -323,6 +344,9 @@ func (s *jsiiProxy_SubscriptionFilter) Prepare() {
 }
 
 func (s *jsiiProxy_SubscriptionFilter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

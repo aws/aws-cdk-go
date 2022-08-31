@@ -41,6 +41,9 @@ type jsiiProxy_SqsDestination struct {
 func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	_init_.Initialize()
 
+	if err := validateNewSqsDestinationParameters(queue); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SqsDestination{}
 
 	_jsii_.Create(
@@ -64,6 +67,9 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 }
 
 func (s *jsiiProxy_SqsDestination) Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
+	if err := s.validateBindParameters(_scope, bucket); err != nil {
+		panic(err)
+	}
 	var returns *awss3.BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(

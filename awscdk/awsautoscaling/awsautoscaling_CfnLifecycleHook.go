@@ -467,6 +467,9 @@ func (j *jsiiProxy_CfnLifecycleHook) UpdatedProperites() *map[string]interface{}
 func NewCfnLifecycleHook(scope awscdk.Construct, id *string, props *CfnLifecycleHookProps) CfnLifecycleHook {
 	_init_.Initialize()
 
+	if err := validateNewCfnLifecycleHookParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnLifecycleHook{}
 
 	_jsii_.Create(
@@ -489,7 +492,10 @@ func NewCfnLifecycleHook_Override(c CfnLifecycleHook, scope awscdk.Construct, id
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetAutoScalingGroupName(val *string) {
+func (j *jsiiProxy_CfnLifecycleHook)SetAutoScalingGroupName(val *string) {
+	if err := j.validateSetAutoScalingGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"autoScalingGroupName",
@@ -497,7 +503,7 @@ func (j *jsiiProxy_CfnLifecycleHook) SetAutoScalingGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetDefaultResult(val *string) {
+func (j *jsiiProxy_CfnLifecycleHook)SetDefaultResult(val *string) {
 	_jsii_.Set(
 		j,
 		"defaultResult",
@@ -505,7 +511,7 @@ func (j *jsiiProxy_CfnLifecycleHook) SetDefaultResult(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetHeartbeatTimeout(val *float64) {
+func (j *jsiiProxy_CfnLifecycleHook)SetHeartbeatTimeout(val *float64) {
 	_jsii_.Set(
 		j,
 		"heartbeatTimeout",
@@ -513,7 +519,7 @@ func (j *jsiiProxy_CfnLifecycleHook) SetHeartbeatTimeout(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetLifecycleHookName(val *string) {
+func (j *jsiiProxy_CfnLifecycleHook)SetLifecycleHookName(val *string) {
 	_jsii_.Set(
 		j,
 		"lifecycleHookName",
@@ -521,7 +527,10 @@ func (j *jsiiProxy_CfnLifecycleHook) SetLifecycleHookName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetLifecycleTransition(val *string) {
+func (j *jsiiProxy_CfnLifecycleHook)SetLifecycleTransition(val *string) {
+	if err := j.validateSetLifecycleTransitionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"lifecycleTransition",
@@ -529,7 +538,7 @@ func (j *jsiiProxy_CfnLifecycleHook) SetLifecycleTransition(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetNotificationMetadata(val *string) {
+func (j *jsiiProxy_CfnLifecycleHook)SetNotificationMetadata(val *string) {
 	_jsii_.Set(
 		j,
 		"notificationMetadata",
@@ -537,7 +546,7 @@ func (j *jsiiProxy_CfnLifecycleHook) SetNotificationMetadata(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetNotificationTargetArn(val *string) {
+func (j *jsiiProxy_CfnLifecycleHook)SetNotificationTargetArn(val *string) {
 	_jsii_.Set(
 		j,
 		"notificationTargetArn",
@@ -545,7 +554,7 @@ func (j *jsiiProxy_CfnLifecycleHook) SetNotificationTargetArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) SetRoleArn(val *string) {
+func (j *jsiiProxy_CfnLifecycleHook)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
@@ -563,6 +572,9 @@ func (j *jsiiProxy_CfnLifecycleHook) SetRoleArn(val *string) {
 func CfnLifecycleHook_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLifecycleHook_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -580,6 +592,9 @@ func CfnLifecycleHook_IsCfnElement(x interface{}) *bool {
 func CfnLifecycleHook_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLifecycleHook_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -597,6 +612,9 @@ func CfnLifecycleHook_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnLifecycleHook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLifecycleHook_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -621,6 +639,9 @@ func CfnLifecycleHook_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -629,6 +650,9 @@ func (c *jsiiProxy_CfnLifecycleHook) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -637,6 +661,9 @@ func (c *jsiiProxy_CfnLifecycleHook) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -645,6 +672,9 @@ func (c *jsiiProxy_CfnLifecycleHook) AddMetadata(key *string, value interface{})
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -653,6 +683,9 @@ func (c *jsiiProxy_CfnLifecycleHook) AddOverride(path *string, value interface{}
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -661,6 +694,9 @@ func (c *jsiiProxy_CfnLifecycleHook) AddPropertyDeletionOverride(propertyPath *s
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -669,6 +705,9 @@ func (c *jsiiProxy_CfnLifecycleHook) AddPropertyOverride(propertyPath *string, v
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -677,6 +716,9 @@ func (c *jsiiProxy_CfnLifecycleHook) ApplyRemovalPolicy(policy awscdk.RemovalPol
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -690,6 +732,9 @@ func (c *jsiiProxy_CfnLifecycleHook) GetAtt(attributeName *string) awscdk.Refere
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -703,6 +748,9 @@ func (c *jsiiProxy_CfnLifecycleHook) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -719,6 +767,9 @@ func (c *jsiiProxy_CfnLifecycleHook) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -740,6 +791,9 @@ func (c *jsiiProxy_CfnLifecycleHook) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -756,6 +810,9 @@ func (c *jsiiProxy_CfnLifecycleHook) Prepare() {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -782,6 +839,9 @@ func (c *jsiiProxy_CfnLifecycleHook) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -816,6 +876,9 @@ func (c *jsiiProxy_CfnLifecycleHook) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLifecycleHook) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

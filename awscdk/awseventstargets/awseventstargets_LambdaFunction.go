@@ -56,6 +56,9 @@ type jsiiProxy_LambdaFunction struct {
 func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) LambdaFunction {
 	_init_.Initialize()
 
+	if err := validateNewLambdaFunctionParameters(handler, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaFunction{}
 
 	_jsii_.Create(
@@ -79,6 +82,9 @@ func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, p
 }
 
 func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := l.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

@@ -209,6 +209,9 @@ func NewAuthorizer_Override(a Authorizer, scope constructs.Construct, id *string
 func Authorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAuthorizer_IsAuthorizerParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -226,6 +229,9 @@ func Authorizer_IsAuthorizer(x interface{}) *bool {
 func Authorizer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAuthorizer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -243,6 +249,9 @@ func Authorizer_IsConstruct(x interface{}) *bool {
 func Authorizer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAuthorizer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -256,6 +265,9 @@ func Authorizer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_Authorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -277,6 +289,9 @@ func (a *jsiiProxy_Authorizer) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_Authorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -290,6 +305,9 @@ func (a *jsiiProxy_Authorizer) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (a *jsiiProxy_Authorizer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -311,6 +329,9 @@ func (a *jsiiProxy_Authorizer) OnPrepare() {
 }
 
 func (a *jsiiProxy_Authorizer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -340,6 +361,9 @@ func (a *jsiiProxy_Authorizer) Prepare() {
 }
 
 func (a *jsiiProxy_Authorizer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

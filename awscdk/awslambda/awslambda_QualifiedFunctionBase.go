@@ -437,6 +437,9 @@ func NewQualifiedFunctionBase_Override(q QualifiedFunctionBase, scope constructs
 func QualifiedFunctionBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateQualifiedFunctionBase_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -454,6 +457,9 @@ func QualifiedFunctionBase_IsConstruct(x interface{}) *bool {
 func QualifiedFunctionBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateQualifiedFunctionBase_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -467,6 +473,9 @@ func QualifiedFunctionBase_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) AddEventSource(source IEventSource) {
+	if err := q.validateAddEventSourceParameters(source); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"addEventSource",
@@ -475,6 +484,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddEventSource(source IEventSource) {
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
+	if err := q.validateAddEventSourceMappingParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns EventSourceMapping
 
 	_jsii_.Invoke(
@@ -488,6 +500,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddEventSourceMapping(id *string, opti
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	if err := q.validateAddFunctionUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns FunctionUrl
 
 	_jsii_.Invoke(
@@ -501,6 +516,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddFunctionUrl(options *FunctionUrlOpt
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) AddPermission(id *string, permission *Permission) {
+	if err := q.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"addPermission",
@@ -509,6 +527,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddPermission(id *string, permission *
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := q.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"addToRolePolicy",
@@ -517,6 +538,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddToRolePolicy(statement awsiam.Polic
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := q.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"applyRemovalPolicy",
@@ -525,6 +549,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
+	if err := q.validateConfigureAsyncInvokeParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"configureAsyncInvoke",
@@ -533,6 +560,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) ConfigureAsyncInvoke(options *EventInv
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string) {
+	if err := q.validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope, _action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -554,6 +584,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) GeneratePhysicalName() *string {
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := q.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -567,6 +600,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) GetResourceArnAttribute(arnAttr *strin
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := q.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -580,6 +616,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) GetResourceNameAttribute(nameAttr *str
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantInvokeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -593,6 +632,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) GrantInvoke(grantee awsiam.IGrantable)
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := q.validateGrantInvokeUrlParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -606,6 +648,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) GrantInvokeUrl(grantee awsiam.IGrantab
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -619,6 +664,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) Metric(metricName *string, props *awsc
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -632,6 +680,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricDuration(props *awscloudwatch.Me
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -645,6 +696,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricErrors(props *awscloudwatch.Metr
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -658,6 +712,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricInvocations(props *awscloudwatch
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := q.validateMetricThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -679,6 +736,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) OnPrepare() {
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := q.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"onSynthesize",
@@ -708,6 +768,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) Prepare() {
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) Synthesize(session awscdk.ISynthesisSession) {
+	if err := q.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"synthesize",
@@ -742,6 +805,9 @@ func (q *jsiiProxy_QualifiedFunctionBase) Validate() *[]*string {
 }
 
 func (q *jsiiProxy_QualifiedFunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+	if err := q.validateWarnInvokeFunctionPermissionsParameters(scope); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		q,
 		"warnInvokeFunctionPermissions",

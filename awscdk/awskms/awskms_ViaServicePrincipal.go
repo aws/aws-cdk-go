@@ -128,6 +128,9 @@ func (j *jsiiProxy_ViaServicePrincipal) PrincipalAccount() *string {
 func NewViaServicePrincipal(serviceName *string, basePrincipal awsiam.IPrincipal) ViaServicePrincipal {
 	_init_.Initialize()
 
+	if err := validateNewViaServicePrincipalParameters(serviceName); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ViaServicePrincipal{}
 
 	_jsii_.Create(
@@ -151,6 +154,9 @@ func NewViaServicePrincipal_Override(v ViaServicePrincipal, serviceName *string,
 }
 
 func (v *jsiiProxy_ViaServicePrincipal) AddToAssumeRolePolicy(document awsiam.PolicyDocument) {
+	if err := v.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"addToAssumeRolePolicy",
@@ -159,6 +165,9 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToAssumeRolePolicy(document awsiam.Po
 }
 
 func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyStatement) *bool {
+	if err := v.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -172,6 +181,9 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyState
 }
 
 func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult {
+	if err := v.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -224,6 +236,9 @@ func (v *jsiiProxy_ViaServicePrincipal) ToString() *string {
 }
 
 func (v *jsiiProxy_ViaServicePrincipal) WithConditions(conditions *map[string]interface{}) awsiam.PrincipalBase {
+	if err := v.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns awsiam.PrincipalBase
 
 	_jsii_.Invoke(

@@ -48,6 +48,9 @@ func (j *jsiiProxy_InitCommand) ElementType() *string {
 func InitCommand_ArgvCommand(argv *[]*string, options *InitCommandOptions) InitCommand {
 	_init_.Initialize()
 
+	if err := validateInitCommand_ArgvCommandParameters(argv, options); err != nil {
+		panic(err)
+	}
 	var returns InitCommand
 
 	_jsii_.StaticInvoke(
@@ -68,6 +71,9 @@ func InitCommand_ArgvCommand(argv *[]*string, options *InitCommandOptions) InitC
 func InitCommand_ShellCommand(shellCommand *string, options *InitCommandOptions) InitCommand {
 	_init_.Initialize()
 
+	if err := validateInitCommand_ShellCommandParameters(shellCommand, options); err != nil {
+		panic(err)
+	}
 	var returns InitCommand
 
 	_jsii_.StaticInvoke(

@@ -201,6 +201,9 @@ func (j *jsiiProxy_ParameterGroup) Stack() awscdk.Stack {
 func NewParameterGroup(scope constructs.Construct, id *string, props *ParameterGroupProps) ParameterGroup {
 	_init_.Initialize()
 
+	if err := validateNewParameterGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ParameterGroup{}
 
 	_jsii_.Create(
@@ -228,6 +231,9 @@ func NewParameterGroup_Override(p ParameterGroup, scope constructs.Construct, id
 func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IParameterGroup {
 	_init_.Initialize()
 
+	if err := validateParameterGroup_FromParameterGroupNameParameters(scope, id, parameterGroupName); err != nil {
+		panic(err)
+	}
 	var returns IParameterGroup
 
 	_jsii_.StaticInvoke(
@@ -245,6 +251,9 @@ func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *strin
 func ParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateParameterGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -262,6 +271,9 @@ func ParameterGroup_IsConstruct(x interface{}) *bool {
 func ParameterGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateParameterGroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -275,6 +287,9 @@ func ParameterGroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_ParameterGroup) AddParameter(key *string, value *string) *bool {
+	if err := p.validateAddParameterParameters(key, value); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -288,6 +303,9 @@ func (p *jsiiProxy_ParameterGroup) AddParameter(key *string, value *string) *boo
 }
 
 func (p *jsiiProxy_ParameterGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -296,6 +314,9 @@ func (p *jsiiProxy_ParameterGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 func (p *jsiiProxy_ParameterGroup) BindToCluster(_options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig {
+	if err := p.validateBindToClusterParameters(_options); err != nil {
+		panic(err)
+	}
 	var returns *ParameterGroupClusterConfig
 
 	_jsii_.Invoke(
@@ -309,6 +330,9 @@ func (p *jsiiProxy_ParameterGroup) BindToCluster(_options *ParameterGroupCluster
 }
 
 func (p *jsiiProxy_ParameterGroup) BindToInstance(_options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig {
+	if err := p.validateBindToInstanceParameters(_options); err != nil {
+		panic(err)
+	}
 	var returns *ParameterGroupInstanceConfig
 
 	_jsii_.Invoke(
@@ -335,6 +359,9 @@ func (p *jsiiProxy_ParameterGroup) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_ParameterGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -348,6 +375,9 @@ func (p *jsiiProxy_ParameterGroup) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (p *jsiiProxy_ParameterGroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -369,6 +399,9 @@ func (p *jsiiProxy_ParameterGroup) OnPrepare() {
 }
 
 func (p *jsiiProxy_ParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -398,6 +431,9 @@ func (p *jsiiProxy_ParameterGroup) Prepare() {
 }
 
 func (p *jsiiProxy_ParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

@@ -35,6 +35,9 @@ type jsiiProxy_EmailSubscription struct {
 func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) EmailSubscription {
 	_init_.Initialize()
 
+	if err := validateNewEmailSubscriptionParameters(emailAddress, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EmailSubscription{}
 
 	_jsii_.Create(
@@ -58,6 +61,9 @@ func NewEmailSubscription_Override(e EmailSubscription, emailAddress *string, pr
 }
 
 func (e *jsiiProxy_EmailSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig {
+	if err := e.validateBindParameters(_topic); err != nil {
+		panic(err)
+	}
 	var returns *awssns.TopicSubscriptionConfig
 
 	_jsii_.Invoke(

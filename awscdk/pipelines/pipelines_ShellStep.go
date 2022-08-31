@@ -245,6 +245,9 @@ func (j *jsiiProxy_ShellStep) PrimaryOutput() FileSet {
 func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	_init_.Initialize()
 
+	if err := validateNewShellStepParameters(id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ShellStep{}
 
 	_jsii_.Create(
@@ -276,6 +279,9 @@ func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 func ShellStep_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
+	if err := validateShellStep_SequenceParameters(steps); err != nil {
+		panic(err)
+	}
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
@@ -289,6 +295,9 @@ func ShellStep_Sequence(steps *[]Step) *[]Step {
 }
 
 func (s *jsiiProxy_ShellStep) AddDependencyFileSet(fs FileSet) {
+	if err := s.validateAddDependencyFileSetParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addDependencyFileSet",
@@ -297,6 +306,9 @@ func (s *jsiiProxy_ShellStep) AddDependencyFileSet(fs FileSet) {
 }
 
 func (s *jsiiProxy_ShellStep) AddOutputDirectory(directory *string) FileSet {
+	if err := s.validateAddOutputDirectoryParameters(directory); err != nil {
+		panic(err)
+	}
 	var returns FileSet
 
 	_jsii_.Invoke(
@@ -310,6 +322,9 @@ func (s *jsiiProxy_ShellStep) AddOutputDirectory(directory *string) FileSet {
 }
 
 func (s *jsiiProxy_ShellStep) AddStepDependency(step Step) {
+	if err := s.validateAddStepDependencyParameters(step); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addStepDependency",
@@ -318,6 +333,9 @@ func (s *jsiiProxy_ShellStep) AddStepDependency(step Step) {
 }
 
 func (s *jsiiProxy_ShellStep) ConfigurePrimaryOutput(fs FileSet) {
+	if err := s.validateConfigurePrimaryOutputParameters(fs); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"configurePrimaryOutput",
@@ -326,6 +344,9 @@ func (s *jsiiProxy_ShellStep) ConfigurePrimaryOutput(fs FileSet) {
 }
 
 func (s *jsiiProxy_ShellStep) DiscoverReferencedOutputs(structure interface{}) {
+	if err := s.validateDiscoverReferencedOutputsParameters(structure); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"discoverReferencedOutputs",
@@ -334,6 +355,9 @@ func (s *jsiiProxy_ShellStep) DiscoverReferencedOutputs(structure interface{}) {
 }
 
 func (s *jsiiProxy_ShellStep) PrimaryOutputDirectory(directory *string) FileSet {
+	if err := s.validatePrimaryOutputDirectoryParameters(directory); err != nil {
+		panic(err)
+	}
 	var returns FileSet
 
 	_jsii_.Invoke(

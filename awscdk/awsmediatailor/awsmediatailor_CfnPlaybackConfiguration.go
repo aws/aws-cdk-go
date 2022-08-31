@@ -633,6 +633,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) VideoContentSourceUrl() *string {
 func NewCfnPlaybackConfiguration(scope awscdk.Construct, id *string, props *CfnPlaybackConfigurationProps) CfnPlaybackConfiguration {
 	_init_.Initialize()
 
+	if err := validateNewCfnPlaybackConfigurationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnPlaybackConfiguration{}
 
 	_jsii_.Create(
@@ -655,7 +658,10 @@ func NewCfnPlaybackConfiguration_Override(c CfnPlaybackConfiguration, scope awsc
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetAdDecisionServerUrl(val *string) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetAdDecisionServerUrl(val *string) {
+	if err := j.validateSetAdDecisionServerUrlParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"adDecisionServerUrl",
@@ -663,7 +669,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetAdDecisionServerUrl(val *string)
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetAvailSuppression(val interface{}) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetAvailSuppression(val interface{}) {
+	if err := j.validateSetAvailSuppressionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"availSuppression",
@@ -671,7 +680,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetAvailSuppression(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetBumper(val interface{}) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetBumper(val interface{}) {
+	if err := j.validateSetBumperParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"bumper",
@@ -679,7 +691,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetBumper(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetCdnConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetCdnConfiguration(val interface{}) {
+	if err := j.validateSetCdnConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cdnConfiguration",
@@ -687,7 +702,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetCdnConfiguration(val interface{}
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetConfigurationAliases(val interface{}) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetConfigurationAliases(val interface{}) {
+	if err := j.validateSetConfigurationAliasesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"configurationAliases",
@@ -695,7 +713,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetConfigurationAliases(val interfa
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetDashConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetDashConfiguration(val interface{}) {
+	if err := j.validateSetDashConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dashConfiguration",
@@ -703,7 +724,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetDashConfiguration(val interface{
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetLivePreRollConfiguration(val interface{}) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetLivePreRollConfiguration(val interface{}) {
+	if err := j.validateSetLivePreRollConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"livePreRollConfiguration",
@@ -711,7 +735,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetLivePreRollConfiguration(val int
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetManifestProcessingRules(val interface{}) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetManifestProcessingRules(val interface{}) {
+	if err := j.validateSetManifestProcessingRulesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"manifestProcessingRules",
@@ -719,7 +746,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetManifestProcessingRules(val inte
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetName(val *string) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -727,7 +757,7 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetPersonalizationThresholdSeconds(val *float64) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetPersonalizationThresholdSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"personalizationThresholdSeconds",
@@ -735,7 +765,7 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetPersonalizationThresholdSeconds(
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetSlateAdUrl(val *string) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetSlateAdUrl(val *string) {
 	_jsii_.Set(
 		j,
 		"slateAdUrl",
@@ -743,7 +773,7 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetSlateAdUrl(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetTranscodeProfileName(val *string) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetTranscodeProfileName(val *string) {
 	_jsii_.Set(
 		j,
 		"transcodeProfileName",
@@ -751,7 +781,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetTranscodeProfileName(val *string
 	)
 }
 
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetVideoContentSourceUrl(val *string) {
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetVideoContentSourceUrl(val *string) {
+	if err := j.validateSetVideoContentSourceUrlParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"videoContentSourceUrl",
@@ -769,6 +802,9 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetVideoContentSourceUrl(val *strin
 func CfnPlaybackConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPlaybackConfiguration_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -786,6 +822,9 @@ func CfnPlaybackConfiguration_IsCfnElement(x interface{}) *bool {
 func CfnPlaybackConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPlaybackConfiguration_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -803,6 +842,9 @@ func CfnPlaybackConfiguration_IsCfnResource(construct constructs.IConstruct) *bo
 func CfnPlaybackConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnPlaybackConfiguration_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -827,6 +869,9 @@ func CfnPlaybackConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -835,6 +880,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -843,6 +891,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) AddDependsOn(target awscdk.CfnResou
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -851,6 +902,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) AddMetadata(key *string, value inte
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -859,6 +913,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) AddOverride(path *string, value int
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -867,6 +924,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) AddPropertyDeletionOverride(propert
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -875,6 +935,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) AddPropertyOverride(propertyPath *s
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -883,6 +946,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) ApplyRemovalPolicy(policy awscdk.Re
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -896,6 +962,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) GetAtt(attributeName *string) awscd
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -909,6 +978,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) GetMetadata(key *string) interface{
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -925,6 +997,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -946,6 +1021,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -962,6 +1040,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) Prepare() {
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -988,6 +1069,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1022,6 +1106,9 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -103,6 +103,9 @@ func (c *jsiiProxy_ClientAttributes) WithCustomAttributes(attributes ...*string)
 }
 
 func (c *jsiiProxy_ClientAttributes) WithStandardAttributes(attributes *StandardAttributesMask) ClientAttributes {
+	if err := c.validateWithStandardAttributesParameters(attributes); err != nil {
+		panic(err)
+	}
 	var returns ClientAttributes
 
 	_jsii_.Invoke(

@@ -402,6 +402,9 @@ func (j *jsiiProxy_ExternalTaskDefinition) TaskRole() awsiam.IRole {
 func NewExternalTaskDefinition(scope constructs.Construct, id *string, props *ExternalTaskDefinitionProps) ExternalTaskDefinition {
 	_init_.Initialize()
 
+	if err := validateNewExternalTaskDefinitionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ExternalTaskDefinition{}
 
 	_jsii_.Create(
@@ -425,7 +428,7 @@ func NewExternalTaskDefinition_Override(e ExternalTaskDefinition, scope construc
 	)
 }
 
-func (j *jsiiProxy_ExternalTaskDefinition) SetDefaultContainer(val ContainerDefinition) {
+func (j *jsiiProxy_ExternalTaskDefinition)SetDefaultContainer(val ContainerDefinition) {
 	_jsii_.Set(
 		j,
 		"defaultContainer",
@@ -438,6 +441,9 @@ func (j *jsiiProxy_ExternalTaskDefinition) SetDefaultContainer(val ContainerDefi
 func ExternalTaskDefinition_FromEc2TaskDefinitionArn(scope constructs.Construct, id *string, externalTaskDefinitionArn *string) IExternalTaskDefinition {
 	_init_.Initialize()
 
+	if err := validateExternalTaskDefinition_FromEc2TaskDefinitionArnParameters(scope, id, externalTaskDefinitionArn); err != nil {
+		panic(err)
+	}
 	var returns IExternalTaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -455,6 +461,9 @@ func ExternalTaskDefinition_FromEc2TaskDefinitionArn(scope constructs.Construct,
 func ExternalTaskDefinition_FromExternalTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *ExternalTaskDefinitionAttributes) IExternalTaskDefinition {
 	_init_.Initialize()
 
+	if err := validateExternalTaskDefinition_FromExternalTaskDefinitionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IExternalTaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -474,6 +483,9 @@ func ExternalTaskDefinition_FromExternalTaskDefinitionAttributes(scope construct
 func ExternalTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
 	_init_.Initialize()
 
+	if err := validateExternalTaskDefinition_FromTaskDefinitionArnParameters(scope, id, taskDefinitionArn); err != nil {
+		panic(err)
+	}
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -491,6 +503,9 @@ func ExternalTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id
 func ExternalTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
 	_init_.Initialize()
 
+	if err := validateExternalTaskDefinition_FromTaskDefinitionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ITaskDefinition
 
 	_jsii_.StaticInvoke(
@@ -508,6 +523,9 @@ func ExternalTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Constr
 func ExternalTaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateExternalTaskDefinition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -525,6 +543,9 @@ func ExternalTaskDefinition_IsConstruct(x interface{}) *bool {
 func ExternalTaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateExternalTaskDefinition_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -538,6 +559,9 @@ func ExternalTaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
+	if err := e.validateAddContainerParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns ContainerDefinition
 
 	_jsii_.Invoke(
@@ -551,6 +575,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddContainer(id *string, props *Conta
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
+	if err := e.validateAddExtensionParameters(extension); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addExtension",
@@ -559,6 +586,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddExtension(extension ITaskDefinitio
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
+	if err := e.validateAddFirelensLogRouterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns FirelensLogRouter
 
 	_jsii_.Invoke(
@@ -572,6 +602,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddFirelensLogRouter(id *string, prop
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator) {
+	if err := e.validateAddInferenceAcceleratorParameters(_inferenceAccelerator); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addInferenceAccelerator",
@@ -580,6 +613,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddInferenceAccelerator(_inferenceAcc
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
+	if err := e.validateAddPlacementConstraintParameters(constraint); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addPlacementConstraint",
@@ -588,6 +624,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddPlacementConstraint(constraint Pla
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
+	if err := e.validateAddToExecutionRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addToExecutionRolePolicy",
@@ -596,6 +635,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddToExecutionRolePolicy(statement aw
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
+	if err := e.validateAddToTaskRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addToTaskRolePolicy",
@@ -604,6 +646,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddToTaskRolePolicy(statement awsiam.
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) AddVolume(volume *Volume) {
+	if err := e.validateAddVolumeParameters(volume); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"addVolume",
@@ -612,6 +657,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) AddVolume(volume *Volume) {
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := e.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"applyRemovalPolicy",
@@ -620,6 +668,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) ApplyRemovalPolicy(policy awscdk.Remo
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) FindContainer(containerName *string) ContainerDefinition {
+	if err := e.validateFindContainerParameters(containerName); err != nil {
+		panic(err)
+	}
 	var returns ContainerDefinition
 
 	_jsii_.Invoke(
@@ -646,6 +697,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) GeneratePhysicalName() *string {
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := e.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -659,6 +713,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) GetResourceArnAttribute(arnAttr *stri
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := e.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -693,6 +750,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) OnPrepare() {
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := e.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"onSynthesize",
@@ -722,6 +782,9 @@ func (e *jsiiProxy_ExternalTaskDefinition) Prepare() {
 }
 
 func (e *jsiiProxy_ExternalTaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	if err := e.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		e,
 		"synthesize",

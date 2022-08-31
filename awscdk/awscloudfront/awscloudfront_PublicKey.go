@@ -210,6 +210,9 @@ func (j *jsiiProxy_PublicKey) Stack() awscdk.Stack {
 func NewPublicKey(scope constructs.Construct, id *string, props *PublicKeyProps) PublicKey {
 	_init_.Initialize()
 
+	if err := validateNewPublicKeyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PublicKey{}
 
 	_jsii_.Create(
@@ -237,6 +240,9 @@ func NewPublicKey_Override(p PublicKey, scope constructs.Construct, id *string, 
 func PublicKey_FromPublicKeyId(scope constructs.Construct, id *string, publicKeyId *string) IPublicKey {
 	_init_.Initialize()
 
+	if err := validatePublicKey_FromPublicKeyIdParameters(scope, id, publicKeyId); err != nil {
+		panic(err)
+	}
 	var returns IPublicKey
 
 	_jsii_.StaticInvoke(
@@ -254,6 +260,9 @@ func PublicKey_FromPublicKeyId(scope constructs.Construct, id *string, publicKey
 func PublicKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validatePublicKey_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -271,6 +280,9 @@ func PublicKey_IsConstruct(x interface{}) *bool {
 func PublicKey_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validatePublicKey_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -284,6 +296,9 @@ func PublicKey_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (p *jsiiProxy_PublicKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"applyRemovalPolicy",
@@ -305,6 +320,9 @@ func (p *jsiiProxy_PublicKey) GeneratePhysicalName() *string {
 }
 
 func (p *jsiiProxy_PublicKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := p.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -318,6 +336,9 @@ func (p *jsiiProxy_PublicKey) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (p *jsiiProxy_PublicKey) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := p.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -339,6 +360,9 @@ func (p *jsiiProxy_PublicKey) OnPrepare() {
 }
 
 func (p *jsiiProxy_PublicKey) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := p.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"onSynthesize",
@@ -368,6 +392,9 @@ func (p *jsiiProxy_PublicKey) Prepare() {
 }
 
 func (p *jsiiProxy_PublicKey) Synthesize(session awscdk.ISynthesisSession) {
+	if err := p.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"synthesize",

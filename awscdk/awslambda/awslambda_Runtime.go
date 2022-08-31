@@ -129,6 +129,9 @@ func (j *jsiiProxy_Runtime) SupportsInlineCode() *bool {
 func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) Runtime {
 	_init_.Initialize()
 
+	if err := validateNewRuntimeParameters(name, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Runtime{}
 
 	_jsii_.Create(
@@ -460,6 +463,9 @@ func Runtime_RUBY_2_7() Runtime {
 }
 
 func (r *jsiiProxy_Runtime) RuntimeEquals(other Runtime) *bool {
+	if err := r.validateRuntimeEqualsParameters(other); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(

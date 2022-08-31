@@ -296,6 +296,9 @@ func (j *jsiiProxy_Domain) StatusReason() *string {
 func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domain {
 	_init_.Initialize()
 
+	if err := validateNewDomainParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Domain{}
 
 	_jsii_.Create(
@@ -323,6 +326,9 @@ func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props 
 func Domain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDomain_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -340,6 +346,9 @@ func Domain_IsConstruct(x interface{}) *bool {
 func Domain_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDomain_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -353,6 +362,9 @@ func Domain_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_Domain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -374,6 +386,9 @@ func (d *jsiiProxy_Domain) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -387,6 +402,9 @@ func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -400,6 +418,9 @@ func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (d *jsiiProxy_Domain) MapRoot(branch IBranch) Domain {
+	if err := d.validateMapRootParameters(branch); err != nil {
+		panic(err)
+	}
 	var returns Domain
 
 	_jsii_.Invoke(
@@ -413,6 +434,9 @@ func (d *jsiiProxy_Domain) MapRoot(branch IBranch) Domain {
 }
 
 func (d *jsiiProxy_Domain) MapSubDomain(branch IBranch, prefix *string) Domain {
+	if err := d.validateMapSubDomainParameters(branch); err != nil {
+		panic(err)
+	}
 	var returns Domain
 
 	_jsii_.Invoke(
@@ -434,6 +458,9 @@ func (d *jsiiProxy_Domain) OnPrepare() {
 }
 
 func (d *jsiiProxy_Domain) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -463,6 +490,9 @@ func (d *jsiiProxy_Domain) Prepare() {
 }
 
 func (d *jsiiProxy_Domain) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

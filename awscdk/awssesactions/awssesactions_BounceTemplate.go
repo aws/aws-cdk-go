@@ -40,6 +40,9 @@ func (j *jsiiProxy_BounceTemplate) Props() *BounceTemplateProps {
 func NewBounceTemplate(props *BounceTemplateProps) BounceTemplate {
 	_init_.Initialize()
 
+	if err := validateNewBounceTemplateParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BounceTemplate{}
 
 	_jsii_.Create(

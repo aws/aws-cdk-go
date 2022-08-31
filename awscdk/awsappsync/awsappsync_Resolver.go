@@ -120,6 +120,9 @@ func (j *jsiiProxy_Resolver) Node() awscdk.ConstructNode {
 func NewResolver(scope constructs.Construct, id *string, props *ResolverProps) Resolver {
 	_init_.Initialize()
 
+	if err := validateNewResolverParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Resolver{}
 
 	_jsii_.Create(
@@ -147,6 +150,9 @@ func NewResolver_Override(r Resolver, scope constructs.Construct, id *string, pr
 func Resolver_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateResolver_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -168,6 +174,9 @@ func (r *jsiiProxy_Resolver) OnPrepare() {
 }
 
 func (r *jsiiProxy_Resolver) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -197,6 +206,9 @@ func (r *jsiiProxy_Resolver) Prepare() {
 }
 
 func (r *jsiiProxy_Resolver) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

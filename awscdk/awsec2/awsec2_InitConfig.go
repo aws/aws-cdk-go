@@ -80,6 +80,9 @@ type jsiiProxy_InitConfig struct {
 func NewInitConfig(elements *[]InitElement) InitConfig {
 	_init_.Initialize()
 
+	if err := validateNewInitConfigParameters(elements); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_InitConfig{}
 
 	_jsii_.Create(

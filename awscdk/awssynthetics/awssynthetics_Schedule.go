@@ -40,6 +40,9 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
+	if err := validateSchedule_CronParameters(options); err != nil {
+		panic(err)
+	}
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
@@ -60,6 +63,9 @@ func Schedule_Cron(options *CronOptions) Schedule {
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
+	if err := validateSchedule_ExpressionParameters(expression); err != nil {
+		panic(err)
+	}
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
@@ -97,6 +103,9 @@ func Schedule_Once() Schedule {
 func Schedule_Rate(interval awscdk.Duration) Schedule {
 	_init_.Initialize()
 
+	if err := validateSchedule_RateParameters(interval); err != nil {
+		panic(err)
+	}
 	var returns Schedule
 
 	_jsii_.StaticInvoke(

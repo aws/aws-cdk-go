@@ -326,6 +326,9 @@ func (j *jsiiProxy_ServerlessCluster) Stack() awscdk.Stack {
 func NewServerlessCluster(scope constructs.Construct, id *string, props *ServerlessClusterProps) ServerlessCluster {
 	_init_.Initialize()
 
+	if err := validateNewServerlessClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ServerlessCluster{}
 
 	_jsii_.Create(
@@ -348,7 +351,7 @@ func NewServerlessCluster_Override(s ServerlessCluster, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_ServerlessCluster) SetEnableDataApi(val *bool) {
+func (j *jsiiProxy_ServerlessCluster)SetEnableDataApi(val *bool) {
 	_jsii_.Set(
 		j,
 		"enableDataApi",
@@ -361,6 +364,9 @@ func (j *jsiiProxy_ServerlessCluster) SetEnableDataApi(val *bool) {
 func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construct, id *string, attrs *ServerlessClusterAttributes) IServerlessCluster {
 	_init_.Initialize()
 
+	if err := validateServerlessCluster_FromServerlessClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IServerlessCluster
 
 	_jsii_.StaticInvoke(
@@ -378,6 +384,9 @@ func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construc
 func ServerlessCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateServerlessCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -395,6 +404,9 @@ func ServerlessCluster_IsConstruct(x interface{}) *bool {
 func ServerlessCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateServerlessCluster_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -408,6 +420,9 @@ func ServerlessCluster_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (s *jsiiProxy_ServerlessCluster) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
+	if err := s.validateAddRotationMultiUserParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -421,6 +436,9 @@ func (s *jsiiProxy_ServerlessCluster) AddRotationMultiUser(id *string, options *
 }
 
 func (s *jsiiProxy_ServerlessCluster) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
+	if err := s.validateAddRotationSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -434,6 +452,9 @@ func (s *jsiiProxy_ServerlessCluster) AddRotationSingleUser(options *RotationSin
 }
 
 func (s *jsiiProxy_ServerlessCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -468,6 +489,9 @@ func (s *jsiiProxy_ServerlessCluster) GeneratePhysicalName() *string {
 }
 
 func (s *jsiiProxy_ServerlessCluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -481,6 +505,9 @@ func (s *jsiiProxy_ServerlessCluster) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (s *jsiiProxy_ServerlessCluster) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -494,6 +521,9 @@ func (s *jsiiProxy_ServerlessCluster) GetResourceNameAttribute(nameAttr *string)
 }
 
 func (s *jsiiProxy_ServerlessCluster) GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantDataApiAccessParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -515,6 +545,9 @@ func (s *jsiiProxy_ServerlessCluster) OnPrepare() {
 }
 
 func (s *jsiiProxy_ServerlessCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -544,6 +577,9 @@ func (s *jsiiProxy_ServerlessCluster) Prepare() {
 }
 
 func (s *jsiiProxy_ServerlessCluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

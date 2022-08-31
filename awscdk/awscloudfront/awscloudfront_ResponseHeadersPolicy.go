@@ -270,6 +270,9 @@ func (j *jsiiProxy_ResponseHeadersPolicy) Stack() awscdk.Stack {
 func NewResponseHeadersPolicy(scope constructs.Construct, id *string, props *ResponseHeadersPolicyProps) ResponseHeadersPolicy {
 	_init_.Initialize()
 
+	if err := validateNewResponseHeadersPolicyParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ResponseHeadersPolicy{}
 
 	_jsii_.Create(
@@ -297,6 +300,9 @@ func NewResponseHeadersPolicy_Override(r ResponseHeadersPolicy, scope constructs
 func ResponseHeadersPolicy_FromResponseHeadersPolicyId(scope constructs.Construct, id *string, responseHeadersPolicyId *string) IResponseHeadersPolicy {
 	_init_.Initialize()
 
+	if err := validateResponseHeadersPolicy_FromResponseHeadersPolicyIdParameters(scope, id, responseHeadersPolicyId); err != nil {
+		panic(err)
+	}
 	var returns IResponseHeadersPolicy
 
 	_jsii_.StaticInvoke(
@@ -314,6 +320,9 @@ func ResponseHeadersPolicy_FromResponseHeadersPolicyId(scope constructs.Construc
 func ResponseHeadersPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateResponseHeadersPolicy_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -331,6 +340,9 @@ func ResponseHeadersPolicy_IsConstruct(x interface{}) *bool {
 func ResponseHeadersPolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateResponseHeadersPolicy_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -399,6 +411,9 @@ func ResponseHeadersPolicy_SECURITY_HEADERS() IResponseHeadersPolicy {
 }
 
 func (r *jsiiProxy_ResponseHeadersPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -420,6 +435,9 @@ func (r *jsiiProxy_ResponseHeadersPolicy) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_ResponseHeadersPolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -433,6 +451,9 @@ func (r *jsiiProxy_ResponseHeadersPolicy) GetResourceArnAttribute(arnAttr *strin
 }
 
 func (r *jsiiProxy_ResponseHeadersPolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -454,6 +475,9 @@ func (r *jsiiProxy_ResponseHeadersPolicy) OnPrepare() {
 }
 
 func (r *jsiiProxy_ResponseHeadersPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -483,6 +507,9 @@ func (r *jsiiProxy_ResponseHeadersPolicy) Prepare() {
 }
 
 func (r *jsiiProxy_ResponseHeadersPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

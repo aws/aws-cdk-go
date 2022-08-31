@@ -184,6 +184,9 @@ func (j *jsiiProxy_BitBucketSourceCredentials) Stack() awscdk.Stack {
 func NewBitBucketSourceCredentials(scope constructs.Construct, id *string, props *BitBucketSourceCredentialsProps) BitBucketSourceCredentials {
 	_init_.Initialize()
 
+	if err := validateNewBitBucketSourceCredentialsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BitBucketSourceCredentials{}
 
 	_jsii_.Create(
@@ -211,6 +214,9 @@ func NewBitBucketSourceCredentials_Override(b BitBucketSourceCredentials, scope 
 func BitBucketSourceCredentials_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBitBucketSourceCredentials_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -228,6 +234,9 @@ func BitBucketSourceCredentials_IsConstruct(x interface{}) *bool {
 func BitBucketSourceCredentials_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBitBucketSourceCredentials_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -241,6 +250,9 @@ func BitBucketSourceCredentials_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BitBucketSourceCredentials) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -262,6 +274,9 @@ func (b *jsiiProxy_BitBucketSourceCredentials) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BitBucketSourceCredentials) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -275,6 +290,9 @@ func (b *jsiiProxy_BitBucketSourceCredentials) GetResourceArnAttribute(arnAttr *
 }
 
 func (b *jsiiProxy_BitBucketSourceCredentials) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -296,6 +314,9 @@ func (b *jsiiProxy_BitBucketSourceCredentials) OnPrepare() {
 }
 
 func (b *jsiiProxy_BitBucketSourceCredentials) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -325,6 +346,9 @@ func (b *jsiiProxy_BitBucketSourceCredentials) Prepare() {
 }
 
 func (b *jsiiProxy_BitBucketSourceCredentials) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

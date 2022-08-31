@@ -77,6 +77,9 @@ func (j *jsiiProxy_ServiceCatalogDeployActionBeta1) ProvidedActionProperties() *
 func NewServiceCatalogDeployActionBeta1(props *ServiceCatalogDeployActionBeta1Props) ServiceCatalogDeployActionBeta1 {
 	_init_.Initialize()
 
+	if err := validateNewServiceCatalogDeployActionBeta1Parameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ServiceCatalogDeployActionBeta1{}
 
 	_jsii_.Create(
@@ -100,6 +103,9 @@ func NewServiceCatalogDeployActionBeta1_Override(s ServiceCatalogDeployActionBet
 }
 
 func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -113,6 +119,9 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bind(scope awscdk.Construct,
 }
 
 func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBoundParameters(_scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -126,6 +135,9 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) Bound(_scope awscdk.Construc
 }
 
 func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := s.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -139,6 +151,9 @@ func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) OnStateChange(name *string, 
 }
 
 func (s *jsiiProxy_ServiceCatalogDeployActionBeta1) VariableExpression(variableName *string) *string {
+	if err := s.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

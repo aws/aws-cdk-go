@@ -229,6 +229,9 @@ func (j *jsiiProxy_CloudFormationProduct) Stack() awscdk.Stack {
 func NewCloudFormationProduct(scope constructs.Construct, id *string, props *CloudFormationProductProps) CloudFormationProduct {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationProductParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationProduct{}
 
 	_jsii_.Create(
@@ -256,6 +259,9 @@ func NewCloudFormationProduct_Override(c CloudFormationProduct, scope constructs
 func CloudFormationProduct_FromProductArn(scope constructs.Construct, id *string, productArn *string) IProduct {
 	_init_.Initialize()
 
+	if err := validateCloudFormationProduct_FromProductArnParameters(scope, id, productArn); err != nil {
+		panic(err)
+	}
 	var returns IProduct
 
 	_jsii_.StaticInvoke(
@@ -273,6 +279,9 @@ func CloudFormationProduct_FromProductArn(scope constructs.Construct, id *string
 func CloudFormationProduct_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudFormationProduct_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -290,6 +299,9 @@ func CloudFormationProduct_IsConstruct(x interface{}) *bool {
 func CloudFormationProduct_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudFormationProduct_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -303,6 +315,9 @@ func CloudFormationProduct_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CloudFormationProduct) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -311,6 +326,9 @@ func (c *jsiiProxy_CloudFormationProduct) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (c *jsiiProxy_CloudFormationProduct) AssociateTagOptions(tagOptions TagOptions) {
+	if err := c.validateAssociateTagOptionsParameters(tagOptions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"associateTagOptions",
@@ -332,6 +350,9 @@ func (c *jsiiProxy_CloudFormationProduct) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CloudFormationProduct) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -345,6 +366,9 @@ func (c *jsiiProxy_CloudFormationProduct) GetResourceArnAttribute(arnAttr *strin
 }
 
 func (c *jsiiProxy_CloudFormationProduct) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -366,6 +390,9 @@ func (c *jsiiProxy_CloudFormationProduct) OnPrepare() {
 }
 
 func (c *jsiiProxy_CloudFormationProduct) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -395,6 +422,9 @@ func (c *jsiiProxy_CloudFormationProduct) Prepare() {
 }
 
 func (c *jsiiProxy_CloudFormationProduct) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

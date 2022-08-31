@@ -177,6 +177,9 @@ func (j *jsiiProxy_CfnCondition) Stack() Stack {
 func NewCfnCondition(scope constructs.Construct, id *string, props *CfnConditionProps) CfnCondition {
 	_init_.Initialize()
 
+	if err := validateNewCfnConditionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCondition{}
 
 	_jsii_.Create(
@@ -203,7 +206,7 @@ func NewCfnCondition_Override(c CfnCondition, scope constructs.Construct, id *st
 	)
 }
 
-func (j *jsiiProxy_CfnCondition) SetExpression(val ICfnConditionExpression) {
+func (j *jsiiProxy_CfnCondition)SetExpression(val ICfnConditionExpression) {
 	_jsii_.Set(
 		j,
 		"expression",
@@ -221,6 +224,9 @@ func (j *jsiiProxy_CfnCondition) SetExpression(val ICfnConditionExpression) {
 func CfnCondition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCondition_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -238,6 +244,9 @@ func CfnCondition_IsCfnElement(x interface{}) *bool {
 func CfnCondition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCondition_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -259,6 +268,9 @@ func (c *jsiiProxy_CfnCondition) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCondition) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -280,6 +292,9 @@ func (c *jsiiProxy_CfnCondition) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCondition) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -296,6 +311,9 @@ func (c *jsiiProxy_CfnCondition) Prepare() {
 }
 
 func (c *jsiiProxy_CfnCondition) Resolve(_context IResolveContext) interface{} {
+	if err := c.validateResolveParameters(_context); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -309,6 +327,9 @@ func (c *jsiiProxy_CfnCondition) Resolve(_context IResolveContext) interface{} {
 }
 
 func (c *jsiiProxy_CfnCondition) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

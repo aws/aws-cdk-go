@@ -36,6 +36,9 @@ type jsiiProxy_Ec2Action struct {
 func NewEc2Action(instanceAction Ec2InstanceAction) Ec2Action {
 	_init_.Initialize()
 
+	if err := validateNewEc2ActionParameters(instanceAction); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Ec2Action{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewEc2Action_Override(e Ec2Action, instanceAction Ec2InstanceAction) {
 }
 
 func (e *jsiiProxy_Ec2Action) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := e.validateBindParameters(_scope, _alarm); err != nil {
+		panic(err)
+	}
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(

@@ -506,6 +506,9 @@ func (j *jsiiProxy_CfnBillingGroup) UpdatedProperites() *map[string]interface{} 
 func NewCfnBillingGroup(scope awscdk.Construct, id *string, props *CfnBillingGroupProps) CfnBillingGroup {
 	_init_.Initialize()
 
+	if err := validateNewCfnBillingGroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnBillingGroup{}
 
 	_jsii_.Create(
@@ -528,7 +531,10 @@ func NewCfnBillingGroup_Override(c CfnBillingGroup, scope awscdk.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_CfnBillingGroup) SetAccountGrouping(val interface{}) {
+func (j *jsiiProxy_CfnBillingGroup)SetAccountGrouping(val interface{}) {
+	if err := j.validateSetAccountGroupingParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"accountGrouping",
@@ -536,7 +542,10 @@ func (j *jsiiProxy_CfnBillingGroup) SetAccountGrouping(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnBillingGroup) SetComputationPreference(val interface{}) {
+func (j *jsiiProxy_CfnBillingGroup)SetComputationPreference(val interface{}) {
+	if err := j.validateSetComputationPreferenceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"computationPreference",
@@ -544,7 +553,7 @@ func (j *jsiiProxy_CfnBillingGroup) SetComputationPreference(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnBillingGroup) SetDescription(val *string) {
+func (j *jsiiProxy_CfnBillingGroup)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -552,7 +561,10 @@ func (j *jsiiProxy_CfnBillingGroup) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBillingGroup) SetName(val *string) {
+func (j *jsiiProxy_CfnBillingGroup)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -560,7 +572,10 @@ func (j *jsiiProxy_CfnBillingGroup) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBillingGroup) SetPrimaryAccountId(val *string) {
+func (j *jsiiProxy_CfnBillingGroup)SetPrimaryAccountId(val *string) {
+	if err := j.validateSetPrimaryAccountIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"primaryAccountId",
@@ -578,6 +593,9 @@ func (j *jsiiProxy_CfnBillingGroup) SetPrimaryAccountId(val *string) {
 func CfnBillingGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBillingGroup_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -595,6 +613,9 @@ func CfnBillingGroup_IsCfnElement(x interface{}) *bool {
 func CfnBillingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBillingGroup_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -612,6 +633,9 @@ func CfnBillingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnBillingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnBillingGroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -636,6 +660,9 @@ func CfnBillingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -644,6 +671,9 @@ func (c *jsiiProxy_CfnBillingGroup) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -652,6 +682,9 @@ func (c *jsiiProxy_CfnBillingGroup) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -660,6 +693,9 @@ func (c *jsiiProxy_CfnBillingGroup) AddMetadata(key *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnBillingGroup) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -668,6 +704,9 @@ func (c *jsiiProxy_CfnBillingGroup) AddOverride(path *string, value interface{})
 }
 
 func (c *jsiiProxy_CfnBillingGroup) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -676,6 +715,9 @@ func (c *jsiiProxy_CfnBillingGroup) AddPropertyDeletionOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnBillingGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -684,6 +726,9 @@ func (c *jsiiProxy_CfnBillingGroup) AddPropertyOverride(propertyPath *string, va
 }
 
 func (c *jsiiProxy_CfnBillingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -692,6 +737,9 @@ func (c *jsiiProxy_CfnBillingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 }
 
 func (c *jsiiProxy_CfnBillingGroup) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -705,6 +753,9 @@ func (c *jsiiProxy_CfnBillingGroup) GetAtt(attributeName *string) awscdk.Referen
 }
 
 func (c *jsiiProxy_CfnBillingGroup) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -718,6 +769,9 @@ func (c *jsiiProxy_CfnBillingGroup) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -734,6 +788,9 @@ func (c *jsiiProxy_CfnBillingGroup) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -755,6 +812,9 @@ func (c *jsiiProxy_CfnBillingGroup) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -771,6 +831,9 @@ func (c *jsiiProxy_CfnBillingGroup) Prepare() {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -797,6 +860,9 @@ func (c *jsiiProxy_CfnBillingGroup) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -831,6 +897,9 @@ func (c *jsiiProxy_CfnBillingGroup) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnBillingGroup) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

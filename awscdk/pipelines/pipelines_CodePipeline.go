@@ -219,6 +219,9 @@ func (j *jsiiProxy_CodePipeline) Waves() *[]Wave {
 func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipelineProps) CodePipeline {
 	_init_.Initialize()
 
+	if err := validateNewCodePipelineParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
@@ -246,6 +249,9 @@ func NewCodePipeline_Override(c CodePipeline, scope constructs.Construct, id *st
 func CodePipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCodePipeline_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -259,6 +265,9 @@ func CodePipeline_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_CodePipeline) AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment {
+	if err := c.validateAddStageParameters(stage, options); err != nil {
+		panic(err)
+	}
 	var returns StageDeployment
 
 	_jsii_.Invoke(
@@ -272,6 +281,9 @@ func (c *jsiiProxy_CodePipeline) AddStage(stage awscdk.Stage, options *AddStageO
 }
 
 func (c *jsiiProxy_CodePipeline) AddWave(id *string, options *WaveOptions) Wave {
+	if err := c.validateAddWaveParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns Wave
 
 	_jsii_.Invoke(
@@ -309,6 +321,9 @@ func (c *jsiiProxy_CodePipeline) OnPrepare() {
 }
 
 func (c *jsiiProxy_CodePipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -338,6 +353,9 @@ func (c *jsiiProxy_CodePipeline) Prepare() {
 }
 
 func (c *jsiiProxy_CodePipeline) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

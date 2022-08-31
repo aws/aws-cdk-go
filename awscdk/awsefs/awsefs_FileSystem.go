@@ -249,6 +249,9 @@ func (j *jsiiProxy_FileSystem) Stack() awscdk.Stack {
 func NewFileSystem(scope constructs.Construct, id *string, props *FileSystemProps) FileSystem {
 	_init_.Initialize()
 
+	if err := validateNewFileSystemParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FileSystem{}
 
 	_jsii_.Create(
@@ -277,6 +280,9 @@ func NewFileSystem_Override(f FileSystem, scope constructs.Construct, id *string
 func FileSystem_FromFileSystemAttributes(scope constructs.Construct, id *string, attrs *FileSystemAttributes) IFileSystem {
 	_init_.Initialize()
 
+	if err := validateFileSystem_FromFileSystemAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IFileSystem
 
 	_jsii_.StaticInvoke(
@@ -294,6 +300,9 @@ func FileSystem_FromFileSystemAttributes(scope constructs.Construct, id *string,
 func FileSystem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFileSystem_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -311,6 +320,9 @@ func FileSystem_IsConstruct(x interface{}) *bool {
 func FileSystem_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFileSystem_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -335,6 +347,9 @@ func FileSystem_DEFAULT_PORT() *float64 {
 }
 
 func (f *jsiiProxy_FileSystem) AddAccessPoint(id *string, accessPointOptions *AccessPointOptions) AccessPoint {
+	if err := f.validateAddAccessPointParameters(id, accessPointOptions); err != nil {
+		panic(err)
+	}
 	var returns AccessPoint
 
 	_jsii_.Invoke(
@@ -348,6 +363,9 @@ func (f *jsiiProxy_FileSystem) AddAccessPoint(id *string, accessPointOptions *Ac
 }
 
 func (f *jsiiProxy_FileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -369,6 +387,9 @@ func (f *jsiiProxy_FileSystem) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_FileSystem) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -382,6 +403,9 @@ func (f *jsiiProxy_FileSystem) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (f *jsiiProxy_FileSystem) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -395,6 +419,9 @@ func (f *jsiiProxy_FileSystem) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 func (f *jsiiProxy_FileSystem) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := f.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -421,6 +448,9 @@ func (f *jsiiProxy_FileSystem) OnPrepare() {
 }
 
 func (f *jsiiProxy_FileSystem) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -450,6 +480,9 @@ func (f *jsiiProxy_FileSystem) Prepare() {
 }
 
 func (f *jsiiProxy_FileSystem) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",

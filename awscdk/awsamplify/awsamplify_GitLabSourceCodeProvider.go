@@ -33,6 +33,9 @@ type jsiiProxy_GitLabSourceCodeProvider struct {
 func NewGitLabSourceCodeProvider(props *GitLabSourceCodeProviderProps) GitLabSourceCodeProvider {
 	_init_.Initialize()
 
+	if err := validateNewGitLabSourceCodeProviderParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GitLabSourceCodeProvider{}
 
 	_jsii_.Create(
@@ -56,6 +59,9 @@ func NewGitLabSourceCodeProvider_Override(g GitLabSourceCodeProvider, props *Git
 }
 
 func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(_app App) *SourceCodeProviderConfig {
+	if err := g.validateBindParameters(_app); err != nil {
+		panic(err)
+	}
 	var returns *SourceCodeProviderConfig
 
 	_jsii_.Invoke(

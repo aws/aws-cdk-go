@@ -416,6 +416,9 @@ func (j *jsiiProxy_CfnCustomMetric) UpdatedProperites() *map[string]interface{} 
 func NewCfnCustomMetric(scope awscdk.Construct, id *string, props *CfnCustomMetricProps) CfnCustomMetric {
 	_init_.Initialize()
 
+	if err := validateNewCfnCustomMetricParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnCustomMetric{}
 
 	_jsii_.Create(
@@ -438,7 +441,7 @@ func NewCfnCustomMetric_Override(c CfnCustomMetric, scope awscdk.Construct, id *
 	)
 }
 
-func (j *jsiiProxy_CfnCustomMetric) SetDisplayName(val *string) {
+func (j *jsiiProxy_CfnCustomMetric)SetDisplayName(val *string) {
 	_jsii_.Set(
 		j,
 		"displayName",
@@ -446,7 +449,7 @@ func (j *jsiiProxy_CfnCustomMetric) SetDisplayName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCustomMetric) SetMetricName(val *string) {
+func (j *jsiiProxy_CfnCustomMetric)SetMetricName(val *string) {
 	_jsii_.Set(
 		j,
 		"metricName",
@@ -454,7 +457,10 @@ func (j *jsiiProxy_CfnCustomMetric) SetMetricName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCustomMetric) SetMetricType(val *string) {
+func (j *jsiiProxy_CfnCustomMetric)SetMetricType(val *string) {
+	if err := j.validateSetMetricTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"metricType",
@@ -472,6 +478,9 @@ func (j *jsiiProxy_CfnCustomMetric) SetMetricType(val *string) {
 func CfnCustomMetric_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCustomMetric_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -489,6 +498,9 @@ func CfnCustomMetric_IsCfnElement(x interface{}) *bool {
 func CfnCustomMetric_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCustomMetric_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -506,6 +518,9 @@ func CfnCustomMetric_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnCustomMetric_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnCustomMetric_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -530,6 +545,9 @@ func CfnCustomMetric_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -538,6 +556,9 @@ func (c *jsiiProxy_CfnCustomMetric) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -546,6 +567,9 @@ func (c *jsiiProxy_CfnCustomMetric) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -554,6 +578,9 @@ func (c *jsiiProxy_CfnCustomMetric) AddMetadata(key *string, value interface{}) 
 }
 
 func (c *jsiiProxy_CfnCustomMetric) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -562,6 +589,9 @@ func (c *jsiiProxy_CfnCustomMetric) AddOverride(path *string, value interface{})
 }
 
 func (c *jsiiProxy_CfnCustomMetric) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -570,6 +600,9 @@ func (c *jsiiProxy_CfnCustomMetric) AddPropertyDeletionOverride(propertyPath *st
 }
 
 func (c *jsiiProxy_CfnCustomMetric) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -578,6 +611,9 @@ func (c *jsiiProxy_CfnCustomMetric) AddPropertyOverride(propertyPath *string, va
 }
 
 func (c *jsiiProxy_CfnCustomMetric) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -586,6 +622,9 @@ func (c *jsiiProxy_CfnCustomMetric) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 }
 
 func (c *jsiiProxy_CfnCustomMetric) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -599,6 +638,9 @@ func (c *jsiiProxy_CfnCustomMetric) GetAtt(attributeName *string) awscdk.Referen
 }
 
 func (c *jsiiProxy_CfnCustomMetric) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -612,6 +654,9 @@ func (c *jsiiProxy_CfnCustomMetric) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -628,6 +673,9 @@ func (c *jsiiProxy_CfnCustomMetric) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -649,6 +697,9 @@ func (c *jsiiProxy_CfnCustomMetric) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -665,6 +716,9 @@ func (c *jsiiProxy_CfnCustomMetric) Prepare() {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -691,6 +745,9 @@ func (c *jsiiProxy_CfnCustomMetric) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -725,6 +782,9 @@ func (c *jsiiProxy_CfnCustomMetric) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnCustomMetric) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

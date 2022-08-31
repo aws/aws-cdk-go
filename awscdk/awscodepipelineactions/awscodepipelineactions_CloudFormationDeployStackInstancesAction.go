@@ -117,6 +117,9 @@ func (j *jsiiProxy_CloudFormationDeployStackInstancesAction) ProvidedActionPrope
 func NewCloudFormationDeployStackInstancesAction(props *CloudFormationDeployStackInstancesActionProps) CloudFormationDeployStackInstancesAction {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationDeployStackInstancesActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationDeployStackInstancesAction{}
 
 	_jsii_.Create(
@@ -140,6 +143,9 @@ func NewCloudFormationDeployStackInstancesAction_Override(c CloudFormationDeploy
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -153,6 +159,9 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope awscdk.C
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := c.validateBoundParameters(scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -166,6 +175,9 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope awscdk.
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := c.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -179,6 +191,9 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) OnStateChange(name 
 }
 
 func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) VariableExpression(variableName *string) *string {
+	if err := c.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

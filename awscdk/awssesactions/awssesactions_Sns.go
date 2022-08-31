@@ -66,6 +66,9 @@ type jsiiProxy_Sns struct {
 func NewSns(props *SnsProps) Sns {
 	_init_.Initialize()
 
+	if err := validateNewSnsParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Sns{}
 
 	_jsii_.Create(
@@ -89,6 +92,9 @@ func NewSns_Override(s Sns, props *SnsProps) {
 }
 
 func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := s.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsses.ReceiptRuleActionConfig
 
 	_jsii_.Invoke(

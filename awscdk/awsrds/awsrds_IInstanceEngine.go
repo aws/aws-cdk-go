@@ -31,6 +31,9 @@ type jsiiProxy_IInstanceEngine struct {
 }
 
 func (i *jsiiProxy_IInstanceEngine) BindToInstance(scope awscdk.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig {
+	if err := i.validateBindToInstanceParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *InstanceEngineConfig
 
 	_jsii_.Invoke(

@@ -420,6 +420,9 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) UpdatedProperites() *map[string]interfa
 func NewCfnRealtimeLogConfig(scope awscdk.Construct, id *string, props *CfnRealtimeLogConfigProps) CfnRealtimeLogConfig {
 	_init_.Initialize()
 
+	if err := validateNewCfnRealtimeLogConfigParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnRealtimeLogConfig{}
 
 	_jsii_.Create(
@@ -442,7 +445,10 @@ func NewCfnRealtimeLogConfig_Override(c CfnRealtimeLogConfig, scope awscdk.Const
 	)
 }
 
-func (j *jsiiProxy_CfnRealtimeLogConfig) SetEndPoints(val interface{}) {
+func (j *jsiiProxy_CfnRealtimeLogConfig)SetEndPoints(val interface{}) {
+	if err := j.validateSetEndPointsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"endPoints",
@@ -450,7 +456,10 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) SetEndPoints(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRealtimeLogConfig) SetFields(val *[]*string) {
+func (j *jsiiProxy_CfnRealtimeLogConfig)SetFields(val *[]*string) {
+	if err := j.validateSetFieldsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"fields",
@@ -458,7 +467,10 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) SetFields(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRealtimeLogConfig) SetName(val *string) {
+func (j *jsiiProxy_CfnRealtimeLogConfig)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -466,7 +478,10 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRealtimeLogConfig) SetSamplingRate(val *float64) {
+func (j *jsiiProxy_CfnRealtimeLogConfig)SetSamplingRate(val *float64) {
+	if err := j.validateSetSamplingRateParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"samplingRate",
@@ -484,6 +499,9 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) SetSamplingRate(val *float64) {
 func CfnRealtimeLogConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRealtimeLogConfig_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -501,6 +519,9 @@ func CfnRealtimeLogConfig_IsCfnElement(x interface{}) *bool {
 func CfnRealtimeLogConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRealtimeLogConfig_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -518,6 +539,9 @@ func CfnRealtimeLogConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnRealtimeLogConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRealtimeLogConfig_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -542,6 +566,9 @@ func CfnRealtimeLogConfig_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -550,6 +577,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -558,6 +588,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) AddDependsOn(target awscdk.CfnResource)
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -566,6 +599,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) AddMetadata(key *string, value interfac
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -574,6 +610,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) AddOverride(path *string, value interfa
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -582,6 +621,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) AddPropertyDeletionOverride(propertyPat
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -590,6 +632,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) AddPropertyOverride(propertyPath *strin
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -598,6 +643,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) ApplyRemovalPolicy(policy awscdk.Remova
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -611,6 +659,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) GetAtt(attributeName *string) awscdk.Re
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -624,6 +675,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -640,6 +694,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -661,6 +718,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -677,6 +737,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) Prepare() {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -703,6 +766,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -737,6 +803,9 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

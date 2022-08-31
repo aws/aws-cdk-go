@@ -59,6 +59,9 @@ func (j *jsiiProxy_S3Code) IsInline() *bool {
 func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateNewS3CodeParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3Code{}
 
 	_jsii_.Create(
@@ -86,6 +89,9 @@ func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersi
 func S3Code_Asset(path *string) AssetCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_AssetParameters(path); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -103,6 +109,9 @@ func S3Code_Asset(path *string) AssetCode {
 func S3Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateS3Code_BucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -120,6 +129,9 @@ func S3Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3C
 func S3Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_CfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -137,6 +149,9 @@ func S3Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -154,6 +169,9 @@ func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode
 func S3Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromAssetImageParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
@@ -171,6 +189,9 @@ func S3Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetI
 func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -190,6 +211,9 @@ func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string)
 func S3Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromCfnParametersParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
@@ -210,6 +234,9 @@ func S3Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 func S3Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromDockerBuildParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -227,6 +254,9 @@ func S3Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) Asse
 func S3Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromEcrImageParameters(repository, props); err != nil {
+		panic(err)
+	}
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
@@ -246,6 +276,9 @@ func S3Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps
 func S3Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromInlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -263,6 +296,9 @@ func S3Code_FromInline(code *string) InlineCode {
 func S3Code_Inline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_InlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -276,6 +312,9 @@ func S3Code_Inline(code *string) InlineCode {
 }
 
 func (s *jsiiProxy_S3Code) Bind(_scope awscdk.Construct) *CodeConfig {
+	if err := s.validateBindParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -289,6 +328,9 @@ func (s *jsiiProxy_S3Code) Bind(_scope awscdk.Construct) *CodeConfig {
 }
 
 func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
+	if err := s.validateBindToResourceParameters(_resource, _options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bindToResource",

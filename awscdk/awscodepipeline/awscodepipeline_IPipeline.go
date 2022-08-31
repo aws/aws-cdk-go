@@ -68,6 +68,9 @@ type jsiiProxy_IPipeline struct {
 }
 
 func (i *jsiiProxy_IPipeline) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -81,6 +84,9 @@ func (i *jsiiProxy_IPipeline) NotifyOn(id *string, target awscodestarnotificatio
 }
 
 func (i *jsiiProxy_IPipeline) NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnAnyActionStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -94,6 +100,9 @@ func (i *jsiiProxy_IPipeline) NotifyOnAnyActionStateChange(id *string, target aw
 }
 
 func (i *jsiiProxy_IPipeline) NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnAnyManualApprovalStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -107,6 +116,9 @@ func (i *jsiiProxy_IPipeline) NotifyOnAnyManualApprovalStateChange(id *string, t
 }
 
 func (i *jsiiProxy_IPipeline) NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnAnyStageStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -120,6 +132,9 @@ func (i *jsiiProxy_IPipeline) NotifyOnAnyStageStateChange(id *string, target aws
 }
 
 func (i *jsiiProxy_IPipeline) NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	if err := i.validateNotifyOnExecutionStateChangeParameters(id, target, options); err != nil {
+		panic(err)
+	}
 	var returns awscodestarnotifications.INotificationRule
 
 	_jsii_.Invoke(
@@ -133,6 +148,9 @@ func (i *jsiiProxy_IPipeline) NotifyOnExecutionStateChange(id *string, target aw
 }
 
 func (i *jsiiProxy_IPipeline) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -146,6 +164,9 @@ func (i *jsiiProxy_IPipeline) OnEvent(id *string, options *awsevents.OnEventOpti
 }
 
 func (i *jsiiProxy_IPipeline) OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := i.validateOnStateChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -159,6 +180,9 @@ func (i *jsiiProxy_IPipeline) OnStateChange(id *string, options *awsevents.OnEve
 }
 
 func (i *jsiiProxy_IPipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"applyRemovalPolicy",
@@ -167,6 +191,9 @@ func (i *jsiiProxy_IPipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (i *jsiiProxy_IPipeline) BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
+	if err := i.validateBindAsNotificationRuleSourceParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
 
 	_jsii_.Invoke(

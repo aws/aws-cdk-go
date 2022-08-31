@@ -46,6 +46,9 @@ type jsiiProxy_OriginGroup struct {
 func NewOriginGroup(props *OriginGroupProps) OriginGroup {
 	_init_.Initialize()
 
+	if err := validateNewOriginGroupParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_OriginGroup{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func NewOriginGroup_Override(o OriginGroup, props *OriginGroupProps) {
 }
 
 func (o *jsiiProxy_OriginGroup) Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := o.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(

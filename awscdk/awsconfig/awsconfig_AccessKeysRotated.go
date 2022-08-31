@@ -283,6 +283,9 @@ func (j *jsiiProxy_AccessKeysRotated) Stack() awscdk.Stack {
 func NewAccessKeysRotated(scope constructs.Construct, id *string, props *AccessKeysRotatedProps) AccessKeysRotated {
 	_init_.Initialize()
 
+	if err := validateNewAccessKeysRotatedParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AccessKeysRotated{}
 
 	_jsii_.Create(
@@ -305,7 +308,7 @@ func NewAccessKeysRotated_Override(a AccessKeysRotated, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_AccessKeysRotated) SetIsCustomWithChanges(val *bool) {
+func (j *jsiiProxy_AccessKeysRotated)SetIsCustomWithChanges(val *bool) {
 	_jsii_.Set(
 		j,
 		"isCustomWithChanges",
@@ -313,7 +316,7 @@ func (j *jsiiProxy_AccessKeysRotated) SetIsCustomWithChanges(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_AccessKeysRotated) SetIsManaged(val *bool) {
+func (j *jsiiProxy_AccessKeysRotated)SetIsManaged(val *bool) {
 	_jsii_.Set(
 		j,
 		"isManaged",
@@ -321,7 +324,7 @@ func (j *jsiiProxy_AccessKeysRotated) SetIsManaged(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_AccessKeysRotated) SetRuleScope(val RuleScope) {
+func (j *jsiiProxy_AccessKeysRotated)SetRuleScope(val RuleScope) {
 	_jsii_.Set(
 		j,
 		"ruleScope",
@@ -334,6 +337,9 @@ func (j *jsiiProxy_AccessKeysRotated) SetRuleScope(val RuleScope) {
 func AccessKeysRotated_FromConfigRuleName(scope constructs.Construct, id *string, configRuleName *string) IRule {
 	_init_.Initialize()
 
+	if err := validateAccessKeysRotated_FromConfigRuleNameParameters(scope, id, configRuleName); err != nil {
+		panic(err)
+	}
 	var returns IRule
 
 	_jsii_.StaticInvoke(
@@ -351,6 +357,9 @@ func AccessKeysRotated_FromConfigRuleName(scope constructs.Construct, id *string
 func AccessKeysRotated_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAccessKeysRotated_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -368,6 +377,9 @@ func AccessKeysRotated_IsConstruct(x interface{}) *bool {
 func AccessKeysRotated_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAccessKeysRotated_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -381,6 +393,9 @@ func AccessKeysRotated_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_AccessKeysRotated) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -402,6 +417,9 @@ func (a *jsiiProxy_AccessKeysRotated) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_AccessKeysRotated) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -415,6 +433,9 @@ func (a *jsiiProxy_AccessKeysRotated) GetResourceArnAttribute(arnAttr *string, a
 }
 
 func (a *jsiiProxy_AccessKeysRotated) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -428,6 +449,9 @@ func (a *jsiiProxy_AccessKeysRotated) GetResourceNameAttribute(nameAttr *string)
 }
 
 func (a *jsiiProxy_AccessKeysRotated) OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := a.validateOnComplianceChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -441,6 +465,9 @@ func (a *jsiiProxy_AccessKeysRotated) OnComplianceChange(id *string, options *aw
 }
 
 func (a *jsiiProxy_AccessKeysRotated) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := a.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -462,6 +489,9 @@ func (a *jsiiProxy_AccessKeysRotated) OnPrepare() {
 }
 
 func (a *jsiiProxy_AccessKeysRotated) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := a.validateOnReEvaluationStatusParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -475,6 +505,9 @@ func (a *jsiiProxy_AccessKeysRotated) OnReEvaluationStatus(id *string, options *
 }
 
 func (a *jsiiProxy_AccessKeysRotated) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -504,6 +537,9 @@ func (a *jsiiProxy_AccessKeysRotated) Prepare() {
 }
 
 func (a *jsiiProxy_AccessKeysRotated) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

@@ -56,6 +56,9 @@ func NewSamlMetadataDocument_Override(s SamlMetadataDocument) {
 func SamlMetadataDocument_FromFile(path *string) SamlMetadataDocument {
 	_init_.Initialize()
 
+	if err := validateSamlMetadataDocument_FromFileParameters(path); err != nil {
+		panic(err)
+	}
 	var returns SamlMetadataDocument
 
 	_jsii_.StaticInvoke(
@@ -73,6 +76,9 @@ func SamlMetadataDocument_FromFile(path *string) SamlMetadataDocument {
 func SamlMetadataDocument_FromXml(xml *string) SamlMetadataDocument {
 	_init_.Initialize()
 
+	if err := validateSamlMetadataDocument_FromXmlParameters(xml); err != nil {
+		panic(err)
+	}
 	var returns SamlMetadataDocument
 
 	_jsii_.StaticInvoke(

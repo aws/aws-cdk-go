@@ -54,6 +54,9 @@ func NewMappingTemplate_Override(m MappingTemplate) {
 func MappingTemplate_DynamoDbDeleteItem(keyName *string, idArg *string) MappingTemplate {
 	_init_.Initialize()
 
+	if err := validateMappingTemplate_DynamoDbDeleteItemParameters(keyName, idArg); err != nil {
+		panic(err)
+	}
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
@@ -71,6 +74,9 @@ func MappingTemplate_DynamoDbDeleteItem(keyName *string, idArg *string) MappingT
 func MappingTemplate_DynamoDbGetItem(keyName *string, idArg *string) MappingTemplate {
 	_init_.Initialize()
 
+	if err := validateMappingTemplate_DynamoDbGetItemParameters(keyName, idArg); err != nil {
+		panic(err)
+	}
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
@@ -88,6 +94,9 @@ func MappingTemplate_DynamoDbGetItem(keyName *string, idArg *string) MappingTemp
 func MappingTemplate_DynamoDbPutItem(key PrimaryKey, values AttributeValues) MappingTemplate {
 	_init_.Initialize()
 
+	if err := validateMappingTemplate_DynamoDbPutItemParameters(key, values); err != nil {
+		panic(err)
+	}
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
@@ -105,6 +114,9 @@ func MappingTemplate_DynamoDbPutItem(key PrimaryKey, values AttributeValues) Map
 func MappingTemplate_DynamoDbQuery(cond KeyCondition, indexName *string) MappingTemplate {
 	_init_.Initialize()
 
+	if err := validateMappingTemplate_DynamoDbQueryParameters(cond); err != nil {
+		panic(err)
+	}
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
@@ -173,6 +185,9 @@ func MappingTemplate_DynamoDbScanTable() MappingTemplate {
 func MappingTemplate_FromFile(fileName *string) MappingTemplate {
 	_init_.Initialize()
 
+	if err := validateMappingTemplate_FromFileParameters(fileName); err != nil {
+		panic(err)
+	}
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
@@ -190,6 +205,9 @@ func MappingTemplate_FromFile(fileName *string) MappingTemplate {
 func MappingTemplate_FromString(template *string) MappingTemplate {
 	_init_.Initialize()
 
+	if err := validateMappingTemplate_FromStringParameters(template); err != nil {
+		panic(err)
+	}
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(

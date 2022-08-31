@@ -44,6 +44,9 @@ func (j *jsiiProxy_Platform) Platform() *string {
 func Platform_Custom(platform *string) Platform {
 	_init_.Initialize()
 
+	if err := validatePlatform_CustomParameters(platform); err != nil {
+		panic(err)
+	}
 	var returns Platform
 
 	_jsii_.StaticInvoke(

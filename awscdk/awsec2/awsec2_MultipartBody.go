@@ -49,6 +49,9 @@ func NewMultipartBody_Override(m MultipartBody) {
 func MultipartBody_FromRawBody(opts *MultipartBodyOptions) MultipartBody {
 	_init_.Initialize()
 
+	if err := validateMultipartBody_FromRawBodyParameters(opts); err != nil {
+		panic(err)
+	}
 	var returns MultipartBody
 
 	_jsii_.StaticInvoke(
@@ -68,6 +71,9 @@ func MultipartBody_FromRawBody(opts *MultipartBodyOptions) MultipartBody {
 func MultipartBody_FromUserData(userData UserData, contentType *string) MultipartBody {
 	_init_.Initialize()
 
+	if err := validateMultipartBody_FromUserDataParameters(userData); err != nil {
+		panic(err)
+	}
 	var returns MultipartBody
 
 	_jsii_.StaticInvoke(

@@ -453,6 +453,9 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) TaskPolicies() *[]awsiam.Polic
 func NewCallApiGatewayRestApiEndpoint(scope constructs.Construct, id *string, props *CallApiGatewayRestApiEndpointProps) CallApiGatewayRestApiEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewCallApiGatewayRestApiEndpointParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CallApiGatewayRestApiEndpoint{}
 
 	_jsii_.Create(
@@ -475,7 +478,7 @@ func NewCallApiGatewayRestApiEndpoint_Override(c CallApiGatewayRestApiEndpoint, 
 	)
 }
 
-func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) SetDefaultChoice(val awsstepfunctions.State) {
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint)SetDefaultChoice(val awsstepfunctions.State) {
 	_jsii_.Set(
 		j,
 		"defaultChoice",
@@ -483,7 +486,7 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) SetDefaultChoice(val awsstepfu
 	)
 }
 
-func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) SetIteration(val awsstepfunctions.StateGraph) {
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint)SetIteration(val awsstepfunctions.StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
@@ -496,6 +499,9 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) SetIteration(val awsstepfuncti
 func CallApiGatewayRestApiEndpoint_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
+	if err := validateCallApiGatewayRestApiEndpoint_FilterNextablesParameters(states); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
@@ -513,6 +519,9 @@ func CallApiGatewayRestApiEndpoint_FilterNextables(states *[]awsstepfunctions.St
 func CallApiGatewayRestApiEndpoint_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateCallApiGatewayRestApiEndpoint_FindReachableEndStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -532,6 +541,9 @@ func CallApiGatewayRestApiEndpoint_FindReachableEndStates(start awsstepfunctions
 func CallApiGatewayRestApiEndpoint_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
+	if err := validateCallApiGatewayRestApiEndpoint_FindReachableStatesParameters(start, options); err != nil {
+		panic(err)
+	}
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
@@ -549,6 +561,9 @@ func CallApiGatewayRestApiEndpoint_FindReachableStates(start awsstepfunctions.St
 func CallApiGatewayRestApiEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCallApiGatewayRestApiEndpoint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -566,6 +581,9 @@ func CallApiGatewayRestApiEndpoint_IsConstruct(x interface{}) *bool {
 func CallApiGatewayRestApiEndpoint_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
+	if err := validateCallApiGatewayRestApiEndpoint_PrefixStatesParameters(root, prefix); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"prefixStates",
@@ -574,6 +592,9 @@ func CallApiGatewayRestApiEndpoint_PrefixStates(root constructs.IConstruct, pref
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddBranch(branch awsstepfunctions.StateGraph) {
+	if err := c.validateAddBranchParameters(branch); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addBranch",
@@ -582,6 +603,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddBranch(branch awsstepfuncti
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	if err := c.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -595,6 +619,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddCatch(handler awsstepfuncti
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	if err := c.validateAddChoiceParameters(condition, next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addChoice",
@@ -603,6 +630,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddChoice(condition awsstepfun
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddIterator(iteration awsstepfunctions.StateGraph) {
+	if err := c.validateAddIteratorParameters(iteration); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addIterator",
@@ -611,6 +641,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddIterator(iteration awsstepf
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddPrefix(x *string) {
+	if err := c.validateAddPrefixParameters(x); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPrefix",
@@ -619,6 +652,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddPrefix(x *string) {
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	if err := c.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.TaskStateBase
 
 	_jsii_.Invoke(
@@ -632,6 +668,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddRetry(props *awsstepfunctio
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) BindToGraph(graph awsstepfunctions.StateGraph) {
+	if err := c.validateBindToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"bindToGraph",
@@ -653,6 +692,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) CreatePolicyStatements() *[]aw
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MakeDefault(def awsstepfunctions.State) {
+	if err := c.validateMakeDefaultParameters(def); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"makeDefault",
@@ -661,6 +703,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MakeDefault(def awsstepfunctio
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MakeNext(next awsstepfunctions.State) {
+	if err := c.validateMakeNextParameters(next); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"makeNext",
@@ -669,6 +714,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MakeNext(next awsstepfunctions
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -682,6 +730,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Metric(metricName *string, pro
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricFailedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -695,6 +746,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricFailed(props *awscloudwa
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricHeartbeatTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -708,6 +762,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricHeartbeatTimedOut(props 
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricRunTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -721,6 +778,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricRunTime(props *awscloudw
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricScheduledParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -734,6 +794,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricScheduled(props *awsclou
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricScheduleTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -747,6 +810,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricScheduleTime(props *awsc
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricStartedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -760,6 +826,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricStarted(props *awscloudw
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricSucceededParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -773,6 +842,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricSucceeded(props *awsclou
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricTimeParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -786,6 +858,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricTime(props *awscloudwatc
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := c.validateMetricTimedOutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -799,6 +874,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) MetricTimedOut(props *awscloud
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	if err := c.validateNextParameters(next); err != nil {
+		panic(err)
+	}
 	var returns awsstepfunctions.Chain
 
 	_jsii_.Invoke(
@@ -820,6 +898,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnPrepare() {
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -940,6 +1021,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderRetryCatch() interface{}
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -987,6 +1071,9 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	if err := c.validateWhenBoundToGraphParameters(graph); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"whenBoundToGraph",

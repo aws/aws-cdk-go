@@ -39,6 +39,9 @@ type jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget struct {
 func NewElasticBeanstalkEnvironmentEndpointTarget(environmentEndpoint *string) ElasticBeanstalkEnvironmentEndpointTarget {
 	_init_.Initialize()
 
+	if err := validateNewElasticBeanstalkEnvironmentEndpointTargetParameters(environmentEndpoint); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget{}
 
 	_jsii_.Create(
@@ -62,6 +65,9 @@ func NewElasticBeanstalkEnvironmentEndpointTarget_Override(e ElasticBeanstalkEnv
 }
 
 func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := e.validateBindParameters(_record); err != nil {
+		panic(err)
+	}
 	var returns *awsroute53.AliasRecordTargetConfig
 
 	_jsii_.Invoke(

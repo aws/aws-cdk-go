@@ -247,6 +247,9 @@ func (j *jsiiProxy_Cluster) Stack() awscdk.Stack {
 func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Cluster {
 	_init_.Initialize()
 
+	if err := validateNewClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Cluster{}
 
 	_jsii_.Create(
@@ -274,6 +277,9 @@ func NewCluster_Override(c Cluster, scope constructs.Construct, id *string, prop
 func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
+	if err := validateCluster_FromClusterAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
@@ -291,6 +297,9 @@ func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs
 func Cluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -308,6 +317,9 @@ func Cluster_IsConstruct(x interface{}) *bool {
 func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCluster_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -321,6 +333,9 @@ func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_Cluster) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
+	if err := c.validateAddRotationMultiUserParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awssecretsmanager.SecretRotation
 
 	_jsii_.Invoke(
@@ -347,6 +362,9 @@ func (c *jsiiProxy_Cluster) AddRotationSingleUser(automaticallyAfter awscdk.Dura
 }
 
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -381,6 +399,9 @@ func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -394,6 +415,9 @@ func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponen
 }
 
 func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -415,6 +439,9 @@ func (c *jsiiProxy_Cluster) OnPrepare() {
 }
 
 func (c *jsiiProxy_Cluster) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -444,6 +471,9 @@ func (c *jsiiProxy_Cluster) Prepare() {
 }
 
 func (c *jsiiProxy_Cluster) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

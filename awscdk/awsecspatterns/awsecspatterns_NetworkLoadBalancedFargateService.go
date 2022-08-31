@@ -232,6 +232,9 @@ func (j *jsiiProxy_NetworkLoadBalancedFargateService) TaskDefinition() awsecs.Fa
 func NewNetworkLoadBalancedFargateService(scope constructs.Construct, id *string, props *NetworkLoadBalancedFargateServiceProps) NetworkLoadBalancedFargateService {
 	_init_.Initialize()
 
+	if err := validateNewNetworkLoadBalancedFargateServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NetworkLoadBalancedFargateService{}
 
 	_jsii_.Create(
@@ -260,6 +263,9 @@ func NewNetworkLoadBalancedFargateService_Override(n NetworkLoadBalancedFargateS
 func NetworkLoadBalancedFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkLoadBalancedFargateService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -273,6 +279,9 @@ func NetworkLoadBalancedFargateService_IsConstruct(x interface{}) *bool {
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedFargateService) AddServiceAsTarget(service awsecs.BaseService) {
+	if err := n.validateAddServiceAsTargetParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"addServiceAsTarget",
@@ -281,6 +290,9 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) AddServiceAsTarget(service
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedFargateService) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := n.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -294,6 +306,9 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) CreateAWSLogDriver(prefix 
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedFargateService) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := n.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -315,6 +330,9 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) OnPrepare() {
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedFargateService) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -344,6 +362,9 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) Prepare() {
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedFargateService) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

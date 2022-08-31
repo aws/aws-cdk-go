@@ -42,6 +42,9 @@ type jsiiProxy_LambdaFunctionAction struct {
 func NewLambdaFunctionAction(func_ awslambda.IFunction) LambdaFunctionAction {
 	_init_.Initialize()
 
+	if err := validateNewLambdaFunctionActionParameters(func_); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaFunctionAction{}
 
 	_jsii_.Create(
@@ -65,6 +68,9 @@ func NewLambdaFunctionAction_Override(l LambdaFunctionAction, func_ awslambda.IF
 }
 
 func (l *jsiiProxy_LambdaFunctionAction) Bind(topicRule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := l.validateBindParameters(topicRule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

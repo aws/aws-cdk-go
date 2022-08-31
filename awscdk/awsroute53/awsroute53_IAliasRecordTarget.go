@@ -18,6 +18,9 @@ type jsiiProxy_IAliasRecordTarget struct {
 }
 
 func (i *jsiiProxy_IAliasRecordTarget) Bind(record IRecordSet, zone IHostedZone) *AliasRecordTargetConfig {
+	if err := i.validateBindParameters(record); err != nil {
+		panic(err)
+	}
 	var returns *AliasRecordTargetConfig
 
 	_jsii_.Invoke(

@@ -72,6 +72,9 @@ func (j *jsiiProxy_HttpRouteKey) Path() *string {
 func HttpRouteKey_With(path *string, method HttpMethod) HttpRouteKey {
 	_init_.Initialize()
 
+	if err := validateHttpRouteKey_WithParameters(path); err != nil {
+		panic(err)
+	}
 	var returns HttpRouteKey
 
 	_jsii_.StaticInvoke(

@@ -534,6 +534,9 @@ func (j *jsiiProxy_DockerImageFunction) Timeout() awscdk.Duration {
 func NewDockerImageFunction(scope constructs.Construct, id *string, props *DockerImageFunctionProps) DockerImageFunction {
 	_init_.Initialize()
 
+	if err := validateNewDockerImageFunctionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DockerImageFunction{}
 
 	_jsii_.Create(
@@ -563,6 +566,9 @@ func NewDockerImageFunction_Override(d DockerImageFunction, scope constructs.Con
 func DockerImageFunction_ClassifyVersionProperty(propertyName *string, locked *bool) {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_ClassifyVersionPropertyParameters(propertyName, locked); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_lambda.DockerImageFunction",
 		"classifyVersionProperty",
@@ -575,6 +581,9 @@ func DockerImageFunction_ClassifyVersionProperty(propertyName *string, locked *b
 func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) IFunction {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_FromFunctionArnParameters(scope, id, functionArn); err != nil {
+		panic(err)
+	}
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
@@ -592,6 +601,9 @@ func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string,
 func DockerImageFunction_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *FunctionAttributes) IFunction {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_FromFunctionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
@@ -609,6 +621,9 @@ func DockerImageFunction_FromFunctionAttributes(scope constructs.Construct, id *
 func DockerImageFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunction {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_FromFunctionNameParameters(scope, id, functionName); err != nil {
+		panic(err)
+	}
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
@@ -626,6 +641,9 @@ func DockerImageFunction_FromFunctionName(scope constructs.Construct, id *string
 func DockerImageFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -643,6 +661,9 @@ func DockerImageFunction_IsConstruct(x interface{}) *bool {
 func DockerImageFunction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -660,6 +681,9 @@ func DockerImageFunction_IsResource(construct awscdk.IConstruct) *bool {
 func DockerImageFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_MetricAllParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -677,6 +701,9 @@ func DockerImageFunction_MetricAll(metricName *string, props *awscloudwatch.Metr
 func DockerImageFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_MetricAllConcurrentExecutionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -694,6 +721,9 @@ func DockerImageFunction_MetricAllConcurrentExecutions(props *awscloudwatch.Metr
 func DockerImageFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_MetricAllDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -711,6 +741,9 @@ func DockerImageFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) a
 func DockerImageFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_MetricAllErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -728,6 +761,9 @@ func DockerImageFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) aws
 func DockerImageFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_MetricAllInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -745,6 +781,9 @@ func DockerImageFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions
 func DockerImageFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_MetricAllThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -762,6 +801,9 @@ func DockerImageFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) 
 func DockerImageFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateDockerImageFunction_MetricAllUnreservedConcurrentExecutionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -775,6 +817,9 @@ func DockerImageFunction_MetricAllUnreservedConcurrentExecutions(props *awscloud
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddAlias(aliasName *string, options *AliasOptions) Alias {
+	if err := d.validateAddAliasParameters(aliasName, options); err != nil {
+		panic(err)
+	}
 	var returns Alias
 
 	_jsii_.Invoke(
@@ -788,6 +833,9 @@ func (d *jsiiProxy_DockerImageFunction) AddAlias(aliasName *string, options *Ali
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function {
+	if err := d.validateAddEnvironmentParameters(key, value, options); err != nil {
+		panic(err)
+	}
 	var returns Function
 
 	_jsii_.Invoke(
@@ -801,6 +849,9 @@ func (d *jsiiProxy_DockerImageFunction) AddEnvironment(key *string, value *strin
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddEventSource(source IEventSource) {
+	if err := d.validateAddEventSourceParameters(source); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addEventSource",
@@ -809,6 +860,9 @@ func (d *jsiiProxy_DockerImageFunction) AddEventSource(source IEventSource) {
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
+	if err := d.validateAddEventSourceMappingParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns EventSourceMapping
 
 	_jsii_.Invoke(
@@ -822,6 +876,9 @@ func (d *jsiiProxy_DockerImageFunction) AddEventSourceMapping(id *string, option
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	if err := d.validateAddFunctionUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns FunctionUrl
 
 	_jsii_.Invoke(
@@ -848,6 +905,9 @@ func (d *jsiiProxy_DockerImageFunction) AddLayers(layers ...ILayerVersion) {
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddPermission(id *string, permission *Permission) {
+	if err := d.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addPermission",
@@ -856,6 +916,9 @@ func (d *jsiiProxy_DockerImageFunction) AddPermission(id *string, permission *Pe
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := d.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"addToRolePolicy",
@@ -864,6 +927,9 @@ func (d *jsiiProxy_DockerImageFunction) AddToRolePolicy(statement awsiam.PolicyS
 }
 
 func (d *jsiiProxy_DockerImageFunction) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version {
+	if err := d.validateAddVersionParameters(name, asyncInvokeConfig); err != nil {
+		panic(err)
+	}
 	var returns Version
 
 	_jsii_.Invoke(
@@ -877,6 +943,9 @@ func (d *jsiiProxy_DockerImageFunction) AddVersion(name *string, codeSha256 *str
 }
 
 func (d *jsiiProxy_DockerImageFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -885,6 +954,9 @@ func (d *jsiiProxy_DockerImageFunction) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 func (d *jsiiProxy_DockerImageFunction) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
+	if err := d.validateConfigureAsyncInvokeParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"configureAsyncInvoke",
@@ -893,6 +965,9 @@ func (d *jsiiProxy_DockerImageFunction) ConfigureAsyncInvoke(options *EventInvok
 }
 
 func (d *jsiiProxy_DockerImageFunction) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
+	if err := d.validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope, action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -914,6 +989,9 @@ func (d *jsiiProxy_DockerImageFunction) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DockerImageFunction) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -927,6 +1005,9 @@ func (d *jsiiProxy_DockerImageFunction) GetResourceArnAttribute(arnAttr *string,
 }
 
 func (d *jsiiProxy_DockerImageFunction) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -940,6 +1021,9 @@ func (d *jsiiProxy_DockerImageFunction) GetResourceNameAttribute(nameAttr *strin
 }
 
 func (d *jsiiProxy_DockerImageFunction) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantInvokeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -953,6 +1037,9 @@ func (d *jsiiProxy_DockerImageFunction) GrantInvoke(grantee awsiam.IGrantable) a
 }
 
 func (d *jsiiProxy_DockerImageFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantInvokeUrlParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -966,6 +1053,9 @@ func (d *jsiiProxy_DockerImageFunction) GrantInvokeUrl(grantee awsiam.IGrantable
 }
 
 func (d *jsiiProxy_DockerImageFunction) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -979,6 +1069,9 @@ func (d *jsiiProxy_DockerImageFunction) Metric(metricName *string, props *awsclo
 }
 
 func (d *jsiiProxy_DockerImageFunction) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -992,6 +1085,9 @@ func (d *jsiiProxy_DockerImageFunction) MetricDuration(props *awscloudwatch.Metr
 }
 
 func (d *jsiiProxy_DockerImageFunction) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1005,6 +1101,9 @@ func (d *jsiiProxy_DockerImageFunction) MetricErrors(props *awscloudwatch.Metric
 }
 
 func (d *jsiiProxy_DockerImageFunction) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1018,6 +1117,9 @@ func (d *jsiiProxy_DockerImageFunction) MetricInvocations(props *awscloudwatch.M
 }
 
 func (d *jsiiProxy_DockerImageFunction) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1039,6 +1141,9 @@ func (d *jsiiProxy_DockerImageFunction) OnPrepare() {
 }
 
 func (d *jsiiProxy_DockerImageFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -1068,6 +1173,9 @@ func (d *jsiiProxy_DockerImageFunction) Prepare() {
 }
 
 func (d *jsiiProxy_DockerImageFunction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",
@@ -1102,6 +1210,9 @@ func (d *jsiiProxy_DockerImageFunction) Validate() *[]*string {
 }
 
 func (d *jsiiProxy_DockerImageFunction) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+	if err := d.validateWarnInvokeFunctionPermissionsParameters(scope); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"warnInvokeFunctionPermissions",

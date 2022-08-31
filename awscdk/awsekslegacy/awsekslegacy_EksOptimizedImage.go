@@ -39,6 +39,9 @@ type jsiiProxy_EksOptimizedImage struct {
 func NewEksOptimizedImage(props *EksOptimizedImageProps) EksOptimizedImage {
 	_init_.Initialize()
 
+	if err := validateNewEksOptimizedImageParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EksOptimizedImage{}
 
 	_jsii_.Create(
@@ -63,6 +66,9 @@ func NewEksOptimizedImage_Override(e EksOptimizedImage, props *EksOptimizedImage
 }
 
 func (e *jsiiProxy_EksOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
+	if err := e.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *awsec2.MachineImageConfig
 
 	_jsii_.Invoke(

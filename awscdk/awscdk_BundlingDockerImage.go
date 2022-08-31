@@ -63,6 +63,9 @@ func (j *jsiiProxy_BundlingDockerImage) Image() *string {
 func NewBundlingDockerImage(image *string, _imageHash *string) BundlingDockerImage {
 	_init_.Initialize()
 
+	if err := validateNewBundlingDockerImageParameters(image); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BundlingDockerImage{}
 
 	_jsii_.Create(
@@ -90,6 +93,9 @@ func NewBundlingDockerImage_Override(b BundlingDockerImage, image *string, _imag
 func BundlingDockerImage_FromAsset(path *string, options *DockerBuildOptions) BundlingDockerImage {
 	_init_.Initialize()
 
+	if err := validateBundlingDockerImage_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns BundlingDockerImage
 
 	_jsii_.StaticInvoke(
@@ -107,6 +113,9 @@ func BundlingDockerImage_FromAsset(path *string, options *DockerBuildOptions) Bu
 func BundlingDockerImage_FromRegistry(image *string) DockerImage {
 	_init_.Initialize()
 
+	if err := validateBundlingDockerImage_FromRegistryParameters(image); err != nil {
+		panic(err)
+	}
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
@@ -120,6 +129,9 @@ func BundlingDockerImage_FromRegistry(image *string) DockerImage {
 }
 
 func (b *jsiiProxy_BundlingDockerImage) Cp(imagePath *string, outputPath *string) *string {
+	if err := b.validateCpParameters(imagePath); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -133,6 +145,9 @@ func (b *jsiiProxy_BundlingDockerImage) Cp(imagePath *string, outputPath *string
 }
 
 func (b *jsiiProxy_BundlingDockerImage) Run(options *DockerRunOptions) {
+	if err := b.validateRunParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"run",

@@ -72,6 +72,9 @@ func NewEnvironmentFile_Override(e EnvironmentFile) {
 func EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
+	if err := validateEnvironmentFile_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
 	var returns AssetEnvironmentFile
 
 	_jsii_.StaticInvoke(
@@ -91,6 +94,9 @@ func EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) 
 func EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
+	if err := validateEnvironmentFile_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3EnvironmentFile
 
 	_jsii_.StaticInvoke(
@@ -104,6 +110,9 @@ func EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion
 }
 
 func (e *jsiiProxy_EnvironmentFile) Bind(scope awscdk.Construct) *EnvironmentFileConfig {
+	if err := e.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *EnvironmentFileConfig
 
 	_jsii_.Invoke(

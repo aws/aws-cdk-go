@@ -83,6 +83,9 @@ func (j *jsiiProxy_OAuthScope) ScopeName() *string {
 func OAuthScope_Custom(name *string) OAuthScope {
 	_init_.Initialize()
 
+	if err := validateOAuthScope_CustomParameters(name); err != nil {
+		panic(err)
+	}
 	var returns OAuthScope
 
 	_jsii_.StaticInvoke(
@@ -100,6 +103,9 @@ func OAuthScope_Custom(name *string) OAuthScope {
 func OAuthScope_ResourceServer(server IUserPoolResourceServer, scope ResourceServerScope) OAuthScope {
 	_init_.Initialize()
 
+	if err := validateOAuthScope_ResourceServerParameters(server, scope); err != nil {
+		panic(err)
+	}
 	var returns OAuthScope
 
 	_jsii_.StaticInvoke(

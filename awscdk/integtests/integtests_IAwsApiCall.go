@@ -81,6 +81,9 @@ type jsiiProxy_IAwsApiCall struct {
 }
 
 func (i *jsiiProxy_IAwsApiCall) AssertAtPath(path *string, expected ExpectedResult) {
+	if err := i.validateAssertAtPathParameters(path, expected); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"assertAtPath",
@@ -89,6 +92,9 @@ func (i *jsiiProxy_IAwsApiCall) AssertAtPath(path *string, expected ExpectedResu
 }
 
 func (i *jsiiProxy_IAwsApiCall) Expect(expected ExpectedResult) {
+	if err := i.validateExpectParameters(expected); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"expect",
@@ -97,6 +103,9 @@ func (i *jsiiProxy_IAwsApiCall) Expect(expected ExpectedResult) {
 }
 
 func (i *jsiiProxy_IAwsApiCall) GetAtt(attributeName *string) awscdk.Reference {
+	if err := i.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -110,6 +119,9 @@ func (i *jsiiProxy_IAwsApiCall) GetAtt(attributeName *string) awscdk.Reference {
 }
 
 func (i *jsiiProxy_IAwsApiCall) GetAttString(attributeName *string) *string {
+	if err := i.validateGetAttStringParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

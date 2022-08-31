@@ -21,6 +21,9 @@ type jsiiProxy_IFragmentConcatenator struct {
 }
 
 func (i *jsiiProxy_IFragmentConcatenator) Join(left interface{}, right interface{}) interface{} {
+	if err := i.validateJoinParameters(left, right); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

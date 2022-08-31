@@ -130,6 +130,9 @@ func (j *jsiiProxy_DropSpamReceiptRule) Rule() ReceiptRule {
 func NewDropSpamReceiptRule(scope constructs.Construct, id *string, props *DropSpamReceiptRuleProps) DropSpamReceiptRule {
 	_init_.Initialize()
 
+	if err := validateNewDropSpamReceiptRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DropSpamReceiptRule{}
 
 	_jsii_.Create(
@@ -157,6 +160,9 @@ func NewDropSpamReceiptRule_Override(d DropSpamReceiptRule, scope constructs.Con
 func DropSpamReceiptRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDropSpamReceiptRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -178,6 +184,9 @@ func (d *jsiiProxy_DropSpamReceiptRule) OnPrepare() {
 }
 
 func (d *jsiiProxy_DropSpamReceiptRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -207,6 +216,9 @@ func (d *jsiiProxy_DropSpamReceiptRule) Prepare() {
 }
 
 func (d *jsiiProxy_DropSpamReceiptRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

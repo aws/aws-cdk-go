@@ -22,6 +22,9 @@ type jsiiProxy_IDestination struct {
 }
 
 func (i *jsiiProxy_IDestination) Bind(scope constructs.Construct, options *DestinationBindOptions) *DestinationConfig {
+	if err := i.validateBindParameters(scope, options); err != nil {
+		panic(err)
+	}
 	var returns *DestinationConfig
 
 	_jsii_.Invoke(

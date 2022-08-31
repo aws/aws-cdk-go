@@ -117,6 +117,9 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() awscdk.ConstructNode {
 func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, props *VpcEndpointServiceDomainNameProps) VpcEndpointServiceDomainName {
 	_init_.Initialize()
 
+	if err := validateNewVpcEndpointServiceDomainNameParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_VpcEndpointServiceDomainName{}
 
 	_jsii_.Create(
@@ -139,7 +142,10 @@ func NewVpcEndpointServiceDomainName_Override(v VpcEndpointServiceDomainName, sc
 	)
 }
 
-func (j *jsiiProxy_VpcEndpointServiceDomainName) SetDomainName(val *string) {
+func (j *jsiiProxy_VpcEndpointServiceDomainName)SetDomainName(val *string) {
+	if err := j.validateSetDomainNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"domainName",
@@ -152,6 +158,9 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) SetDomainName(val *string) {
 func VpcEndpointServiceDomainName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVpcEndpointServiceDomainName_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -173,6 +182,9 @@ func (v *jsiiProxy_VpcEndpointServiceDomainName) OnPrepare() {
 }
 
 func (v *jsiiProxy_VpcEndpointServiceDomainName) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -202,6 +214,9 @@ func (v *jsiiProxy_VpcEndpointServiceDomainName) Prepare() {
 }
 
 func (v *jsiiProxy_VpcEndpointServiceDomainName) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

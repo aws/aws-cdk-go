@@ -278,6 +278,9 @@ func (j *jsiiProxy_GatewayVpcEndpoint) VpcEndpointNetworkInterfaceIds() *[]*stri
 func NewGatewayVpcEndpoint(scope constructs.Construct, id *string, props *GatewayVpcEndpointProps) GatewayVpcEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewGatewayVpcEndpointParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GatewayVpcEndpoint{}
 
 	_jsii_.Create(
@@ -300,7 +303,7 @@ func NewGatewayVpcEndpoint_Override(g GatewayVpcEndpoint, scope constructs.Const
 	)
 }
 
-func (j *jsiiProxy_GatewayVpcEndpoint) SetPolicyDocument(val awsiam.PolicyDocument) {
+func (j *jsiiProxy_GatewayVpcEndpoint)SetPolicyDocument(val awsiam.PolicyDocument) {
 	_jsii_.Set(
 		j,
 		"policyDocument",
@@ -312,6 +315,9 @@ func (j *jsiiProxy_GatewayVpcEndpoint) SetPolicyDocument(val awsiam.PolicyDocume
 func GatewayVpcEndpoint_FromGatewayVpcEndpointId(scope constructs.Construct, id *string, gatewayVpcEndpointId *string) IGatewayVpcEndpoint {
 	_init_.Initialize()
 
+	if err := validateGatewayVpcEndpoint_FromGatewayVpcEndpointIdParameters(scope, id, gatewayVpcEndpointId); err != nil {
+		panic(err)
+	}
 	var returns IGatewayVpcEndpoint
 
 	_jsii_.StaticInvoke(
@@ -329,6 +335,9 @@ func GatewayVpcEndpoint_FromGatewayVpcEndpointId(scope constructs.Construct, id 
 func GatewayVpcEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGatewayVpcEndpoint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -346,6 +355,9 @@ func GatewayVpcEndpoint_IsConstruct(x interface{}) *bool {
 func GatewayVpcEndpoint_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateGatewayVpcEndpoint_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -359,6 +371,9 @@ func GatewayVpcEndpoint_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (g *jsiiProxy_GatewayVpcEndpoint) AddToPolicy(statement awsiam.PolicyStatement) {
+	if err := g.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"addToPolicy",
@@ -367,6 +382,9 @@ func (g *jsiiProxy_GatewayVpcEndpoint) AddToPolicy(statement awsiam.PolicyStatem
 }
 
 func (g *jsiiProxy_GatewayVpcEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := g.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"applyRemovalPolicy",
@@ -388,6 +406,9 @@ func (g *jsiiProxy_GatewayVpcEndpoint) GeneratePhysicalName() *string {
 }
 
 func (g *jsiiProxy_GatewayVpcEndpoint) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := g.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -401,6 +422,9 @@ func (g *jsiiProxy_GatewayVpcEndpoint) GetResourceArnAttribute(arnAttr *string, 
 }
 
 func (g *jsiiProxy_GatewayVpcEndpoint) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := g.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -422,6 +446,9 @@ func (g *jsiiProxy_GatewayVpcEndpoint) OnPrepare() {
 }
 
 func (g *jsiiProxy_GatewayVpcEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -451,6 +478,9 @@ func (g *jsiiProxy_GatewayVpcEndpoint) Prepare() {
 }
 
 func (g *jsiiProxy_GatewayVpcEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",

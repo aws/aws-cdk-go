@@ -278,6 +278,9 @@ func (j *jsiiProxy_UserPool) UserPoolProviderUrl() *string {
 func NewUserPool(scope constructs.Construct, id *string, props *UserPoolProps) UserPool {
 	_init_.Initialize()
 
+	if err := validateNewUserPoolParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_UserPool{}
 
 	_jsii_.Create(
@@ -305,6 +308,9 @@ func NewUserPool_Override(u UserPool, scope constructs.Construct, id *string, pr
 func UserPool_FromUserPoolArn(scope constructs.Construct, id *string, userPoolArn *string) IUserPool {
 	_init_.Initialize()
 
+	if err := validateUserPool_FromUserPoolArnParameters(scope, id, userPoolArn); err != nil {
+		panic(err)
+	}
 	var returns IUserPool
 
 	_jsii_.StaticInvoke(
@@ -322,6 +328,9 @@ func UserPool_FromUserPoolArn(scope constructs.Construct, id *string, userPoolAr
 func UserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId *string) IUserPool {
 	_init_.Initialize()
 
+	if err := validateUserPool_FromUserPoolIdParameters(scope, id, userPoolId); err != nil {
+		panic(err)
+	}
 	var returns IUserPool
 
 	_jsii_.StaticInvoke(
@@ -339,6 +348,9 @@ func UserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId 
 func UserPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPool_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -356,6 +368,9 @@ func UserPool_IsConstruct(x interface{}) *bool {
 func UserPool_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateUserPool_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -369,6 +384,9 @@ func UserPool_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (u *jsiiProxy_UserPool) AddClient(id *string, options *UserPoolClientOptions) UserPoolClient {
+	if err := u.validateAddClientParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns UserPoolClient
 
 	_jsii_.Invoke(
@@ -382,6 +400,9 @@ func (u *jsiiProxy_UserPool) AddClient(id *string, options *UserPoolClientOption
 }
 
 func (u *jsiiProxy_UserPool) AddDomain(id *string, options *UserPoolDomainOptions) UserPoolDomain {
+	if err := u.validateAddDomainParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns UserPoolDomain
 
 	_jsii_.Invoke(
@@ -395,6 +416,9 @@ func (u *jsiiProxy_UserPool) AddDomain(id *string, options *UserPoolDomainOption
 }
 
 func (u *jsiiProxy_UserPool) AddResourceServer(id *string, options *UserPoolResourceServerOptions) UserPoolResourceServer {
+	if err := u.validateAddResourceServerParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns UserPoolResourceServer
 
 	_jsii_.Invoke(
@@ -408,6 +432,9 @@ func (u *jsiiProxy_UserPool) AddResourceServer(id *string, options *UserPoolReso
 }
 
 func (u *jsiiProxy_UserPool) AddTrigger(operation UserPoolOperation, fn awslambda.IFunction) {
+	if err := u.validateAddTriggerParameters(operation, fn); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"addTrigger",
@@ -416,6 +443,9 @@ func (u *jsiiProxy_UserPool) AddTrigger(operation UserPoolOperation, fn awslambd
 }
 
 func (u *jsiiProxy_UserPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := u.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"applyRemovalPolicy",
@@ -437,6 +467,9 @@ func (u *jsiiProxy_UserPool) GeneratePhysicalName() *string {
 }
 
 func (u *jsiiProxy_UserPool) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := u.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -450,6 +483,9 @@ func (u *jsiiProxy_UserPool) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (u *jsiiProxy_UserPool) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := u.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -463,6 +499,9 @@ func (u *jsiiProxy_UserPool) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 func (u *jsiiProxy_UserPool) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := u.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -489,6 +528,9 @@ func (u *jsiiProxy_UserPool) OnPrepare() {
 }
 
 func (u *jsiiProxy_UserPool) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := u.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"onSynthesize",
@@ -518,6 +560,9 @@ func (u *jsiiProxy_UserPool) Prepare() {
 }
 
 func (u *jsiiProxy_UserPool) RegisterIdentityProvider(provider IUserPoolIdentityProvider) {
+	if err := u.validateRegisterIdentityProviderParameters(provider); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"registerIdentityProvider",
@@ -526,6 +571,9 @@ func (u *jsiiProxy_UserPool) RegisterIdentityProvider(provider IUserPoolIdentity
 }
 
 func (u *jsiiProxy_UserPool) Synthesize(session awscdk.ISynthesisSession) {
+	if err := u.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		u,
 		"synthesize",

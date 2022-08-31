@@ -50,6 +50,9 @@ func (j *jsiiProxy_HostedRotation) Connections() awsec2.Connections {
 func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_MariaDbMultiUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -67,6 +70,9 @@ func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_MariaDbSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -84,6 +90,9 @@ func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) 
 func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_MongoDbMultiUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -101,6 +110,9 @@ func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_MongoDbSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -118,6 +130,9 @@ func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) 
 func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_MysqlMultiUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -135,6 +150,9 @@ func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) Host
 func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_MysqlSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -152,6 +170,9 @@ func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) Ho
 func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_OracleMultiUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -169,6 +190,9 @@ func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) Hos
 func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_OracleSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -186,6 +210,9 @@ func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) H
 func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_PostgreSqlMultiUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -203,6 +230,9 @@ func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions)
 func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_PostgreSqlSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -220,6 +250,9 @@ func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOption
 func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_RedshiftMultiUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -237,6 +270,9 @@ func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) H
 func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_RedshiftSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -254,6 +290,9 @@ func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions)
 func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_SqlServerMultiUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -271,6 +310,9 @@ func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) 
 func HostedRotation_SqlServerSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
+	if err := validateHostedRotation_SqlServerSingleUserParameters(options); err != nil {
+		panic(err)
+	}
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
@@ -284,6 +326,9 @@ func HostedRotation_SqlServerSingleUser(options *SingleUserHostedRotationOptions
 }
 
 func (h *jsiiProxy_HostedRotation) Bind(secret ISecret, scope constructs.Construct) *CfnRotationSchedule_HostedRotationLambdaProperty {
+	if err := h.validateBindParameters(secret, scope); err != nil {
+		panic(err)
+	}
 	var returns *CfnRotationSchedule_HostedRotationLambdaProperty
 
 	_jsii_.Invoke(

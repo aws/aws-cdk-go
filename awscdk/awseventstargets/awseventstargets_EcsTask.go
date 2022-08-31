@@ -86,6 +86,9 @@ func (j *jsiiProxy_EcsTask) SecurityGroups() *[]awsec2.ISecurityGroup {
 func NewEcsTask(props *EcsTaskProps) EcsTask {
 	_init_.Initialize()
 
+	if err := validateNewEcsTaskParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_EcsTask{}
 
 	_jsii_.Create(
@@ -109,6 +112,9 @@ func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 }
 
 func (e *jsiiProxy_EcsTask) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := e.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

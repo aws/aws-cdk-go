@@ -301,6 +301,9 @@ func (j *jsiiProxy_Nodegroup) Stack() awscdk.Stack {
 func NewNodegroup(scope constructs.Construct, id *string, props *NodegroupProps) Nodegroup {
 	_init_.Initialize()
 
+	if err := validateNewNodegroupParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Nodegroup{}
 
 	_jsii_.Create(
@@ -328,6 +331,9 @@ func NewNodegroup_Override(n Nodegroup, scope constructs.Construct, id *string, 
 func Nodegroup_FromNodegroupName(scope constructs.Construct, id *string, nodegroupName *string) INodegroup {
 	_init_.Initialize()
 
+	if err := validateNodegroup_FromNodegroupNameParameters(scope, id, nodegroupName); err != nil {
+		panic(err)
+	}
 	var returns INodegroup
 
 	_jsii_.StaticInvoke(
@@ -345,6 +351,9 @@ func Nodegroup_FromNodegroupName(scope constructs.Construct, id *string, nodegro
 func Nodegroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNodegroup_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -362,6 +371,9 @@ func Nodegroup_IsConstruct(x interface{}) *bool {
 func Nodegroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateNodegroup_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -375,6 +387,9 @@ func Nodegroup_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (n *jsiiProxy_Nodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := n.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"applyRemovalPolicy",
@@ -396,6 +411,9 @@ func (n *jsiiProxy_Nodegroup) GeneratePhysicalName() *string {
 }
 
 func (n *jsiiProxy_Nodegroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := n.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -409,6 +427,9 @@ func (n *jsiiProxy_Nodegroup) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (n *jsiiProxy_Nodegroup) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := n.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -430,6 +451,9 @@ func (n *jsiiProxy_Nodegroup) OnPrepare() {
 }
 
 func (n *jsiiProxy_Nodegroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -459,6 +483,9 @@ func (n *jsiiProxy_Nodegroup) Prepare() {
 }
 
 func (n *jsiiProxy_Nodegroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

@@ -46,6 +46,9 @@ type jsiiProxy_ApiDestination struct {
 func NewApiDestination(apiDestination awsevents.IApiDestination, props *ApiDestinationProps) ApiDestination {
 	_init_.Initialize()
 
+	if err := validateNewApiDestinationParameters(apiDestination, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApiDestination{}
 
 	_jsii_.Create(
@@ -69,6 +72,9 @@ func NewApiDestination_Override(a ApiDestination, apiDestination awsevents.IApiD
 }
 
 func (a *jsiiProxy_ApiDestination) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	if err := a.validateBindParameters(_rule); err != nil {
+		panic(err)
+	}
 	var returns *awsevents.RuleTargetConfig
 
 	_jsii_.Invoke(

@@ -42,6 +42,9 @@ func (j *jsiiProxy_SerializationLibrary) ClassName() *string {
 func NewSerializationLibrary(className *string) SerializationLibrary {
 	_init_.Initialize()
 
+	if err := validateNewSerializationLibraryParameters(className); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SerializationLibrary{}
 
 	_jsii_.Create(

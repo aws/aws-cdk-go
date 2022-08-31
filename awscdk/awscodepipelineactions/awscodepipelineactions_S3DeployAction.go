@@ -82,6 +82,9 @@ func (j *jsiiProxy_S3DeployAction) ProvidedActionProperties() *awscodepipeline.A
 func NewS3DeployAction(props *S3DeployActionProps) S3DeployAction {
 	_init_.Initialize()
 
+	if err := validateNewS3DeployActionParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3DeployAction{}
 
 	_jsii_.Create(
@@ -105,6 +108,9 @@ func NewS3DeployAction_Override(s S3DeployAction, props *S3DeployActionProps) {
 }
 
 func (s *jsiiProxy_S3DeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBindParameters(scope, stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -118,6 +124,9 @@ func (s *jsiiProxy_S3DeployAction) Bind(scope awscdk.Construct, stage awscodepip
 }
 
 func (s *jsiiProxy_S3DeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	if err := s.validateBoundParameters(_scope, _stage, options); err != nil {
+		panic(err)
+	}
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -131,6 +140,9 @@ func (s *jsiiProxy_S3DeployAction) Bound(_scope awscdk.Construct, _stage awscode
 }
 
 func (s *jsiiProxy_S3DeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	if err := s.validateOnStateChangeParameters(name, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -144,6 +156,9 @@ func (s *jsiiProxy_S3DeployAction) OnStateChange(name *string, target awsevents.
 }
 
 func (s *jsiiProxy_S3DeployAction) VariableExpression(variableName *string) *string {
+	if err := s.validateVariableExpressionParameters(variableName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(

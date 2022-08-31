@@ -25,6 +25,9 @@ type jsiiProxy_Default struct {
 func Default_ServicePrincipal(serviceFqn *string, region *string, urlSuffix *string) *string {
 	_init_.Initialize()
 
+	if err := validateDefault_ServicePrincipalParameters(serviceFqn, region, urlSuffix); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(

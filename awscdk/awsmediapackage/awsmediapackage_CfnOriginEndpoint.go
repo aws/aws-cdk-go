@@ -736,6 +736,9 @@ func (j *jsiiProxy_CfnOriginEndpoint) Whitelist() *[]*string {
 func NewCfnOriginEndpoint(scope awscdk.Construct, id *string, props *CfnOriginEndpointProps) CfnOriginEndpoint {
 	_init_.Initialize()
 
+	if err := validateNewCfnOriginEndpointParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnOriginEndpoint{}
 
 	_jsii_.Create(
@@ -758,7 +761,10 @@ func NewCfnOriginEndpoint_Override(c CfnOriginEndpoint, scope awscdk.Construct, 
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetAuthorization(val interface{}) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetAuthorization(val interface{}) {
+	if err := j.validateSetAuthorizationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"authorization",
@@ -766,7 +772,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetAuthorization(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetChannelId(val *string) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetChannelId(val *string) {
+	if err := j.validateSetChannelIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelId",
@@ -774,7 +783,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetChannelId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetCmafPackage(val interface{}) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetCmafPackage(val interface{}) {
+	if err := j.validateSetCmafPackageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cmafPackage",
@@ -782,7 +794,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetCmafPackage(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetDashPackage(val interface{}) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetDashPackage(val interface{}) {
+	if err := j.validateSetDashPackageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dashPackage",
@@ -790,7 +805,7 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetDashPackage(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetDescription(val *string) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -798,7 +813,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetHlsPackage(val interface{}) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetHlsPackage(val interface{}) {
+	if err := j.validateSetHlsPackageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"hlsPackage",
@@ -806,7 +824,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetHlsPackage(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetId(val *string) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetId(val *string) {
+	if err := j.validateSetIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"id",
@@ -814,7 +835,7 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetManifestName(val *string) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetManifestName(val *string) {
 	_jsii_.Set(
 		j,
 		"manifestName",
@@ -822,7 +843,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetManifestName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetMssPackage(val interface{}) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetMssPackage(val interface{}) {
+	if err := j.validateSetMssPackageParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"mssPackage",
@@ -830,7 +854,7 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetMssPackage(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetOrigination(val *string) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetOrigination(val *string) {
 	_jsii_.Set(
 		j,
 		"origination",
@@ -838,7 +862,7 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetOrigination(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetStartoverWindowSeconds(val *float64) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetStartoverWindowSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"startoverWindowSeconds",
@@ -846,7 +870,7 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetStartoverWindowSeconds(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetTimeDelaySeconds(val *float64) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetTimeDelaySeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"timeDelaySeconds",
@@ -854,7 +878,7 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetTimeDelaySeconds(val *float64) {
 	)
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) SetWhitelist(val *[]*string) {
+func (j *jsiiProxy_CfnOriginEndpoint)SetWhitelist(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"whitelist",
@@ -872,6 +896,9 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetWhitelist(val *[]*string) {
 func CfnOriginEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnOriginEndpoint_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -889,6 +916,9 @@ func CfnOriginEndpoint_IsCfnElement(x interface{}) *bool {
 func CfnOriginEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnOriginEndpoint_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -906,6 +936,9 @@ func CfnOriginEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnOriginEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnOriginEndpoint_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -930,6 +963,9 @@ func CfnOriginEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -938,6 +974,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -946,6 +985,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -954,6 +996,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddMetadata(key *string, value interface{}
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -962,6 +1007,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddOverride(path *string, value interface{
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -970,6 +1018,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyDeletionOverride(propertyPath *
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -978,6 +1029,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyOverride(propertyPath *string, 
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -986,6 +1040,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -999,6 +1056,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) GetAtt(attributeName *string) awscdk.Refer
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1012,6 +1072,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1028,6 +1091,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1049,6 +1115,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1065,6 +1134,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) Prepare() {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1091,6 +1163,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1125,6 +1200,9 @@ func (c *jsiiProxy_CfnOriginEndpoint) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnOriginEndpoint) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

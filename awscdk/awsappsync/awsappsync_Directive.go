@@ -80,7 +80,7 @@ func (j *jsiiProxy_Directive) MutationFields() *[]*string {
 }
 
 
-func (j *jsiiProxy_Directive) SetModes(val *[]AuthorizationType) {
+func (j *jsiiProxy_Directive)SetModes(val *[]AuthorizationType) {
 	_jsii_.Set(
 		j,
 		"modes",
@@ -132,6 +132,9 @@ func Directive_Cognito(groups ...*string) Directive {
 func Directive_Custom(statement *string) Directive {
 	_init_.Initialize()
 
+	if err := validateDirective_CustomParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns Directive
 
 	_jsii_.StaticInvoke(

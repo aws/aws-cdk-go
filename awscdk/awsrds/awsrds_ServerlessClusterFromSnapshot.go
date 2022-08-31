@@ -306,6 +306,9 @@ func (j *jsiiProxy_ServerlessClusterFromSnapshot) Stack() awscdk.Stack {
 func NewServerlessClusterFromSnapshot(scope constructs.Construct, id *string, props *ServerlessClusterFromSnapshotProps) ServerlessClusterFromSnapshot {
 	_init_.Initialize()
 
+	if err := validateNewServerlessClusterFromSnapshotParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ServerlessClusterFromSnapshot{}
 
 	_jsii_.Create(
@@ -328,7 +331,7 @@ func NewServerlessClusterFromSnapshot_Override(s ServerlessClusterFromSnapshot, 
 	)
 }
 
-func (j *jsiiProxy_ServerlessClusterFromSnapshot) SetEnableDataApi(val *bool) {
+func (j *jsiiProxy_ServerlessClusterFromSnapshot)SetEnableDataApi(val *bool) {
 	_jsii_.Set(
 		j,
 		"enableDataApi",
@@ -341,6 +344,9 @@ func (j *jsiiProxy_ServerlessClusterFromSnapshot) SetEnableDataApi(val *bool) {
 func ServerlessClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateServerlessClusterFromSnapshot_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -358,6 +364,9 @@ func ServerlessClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 func ServerlessClusterFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateServerlessClusterFromSnapshot_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -371,6 +380,9 @@ func ServerlessClusterFromSnapshot_IsResource(construct awscdk.IConstruct) *bool
 }
 
 func (s *jsiiProxy_ServerlessClusterFromSnapshot) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := s.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"applyRemovalPolicy",
@@ -405,6 +417,9 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) GeneratePhysicalName() *string
 }
 
 func (s *jsiiProxy_ServerlessClusterFromSnapshot) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := s.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -418,6 +433,9 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) GetResourceArnAttribute(arnAtt
 }
 
 func (s *jsiiProxy_ServerlessClusterFromSnapshot) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := s.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -431,6 +449,9 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) GetResourceNameAttribute(nameA
 }
 
 func (s *jsiiProxy_ServerlessClusterFromSnapshot) GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantDataApiAccessParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -452,6 +473,9 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) OnPrepare() {
 }
 
 func (s *jsiiProxy_ServerlessClusterFromSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -481,6 +505,9 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) Prepare() {
 }
 
 func (s *jsiiProxy_ServerlessClusterFromSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

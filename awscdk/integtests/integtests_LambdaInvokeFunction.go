@@ -144,6 +144,9 @@ func (j *jsiiProxy_LambdaInvokeFunction) Provider() AssertionsProvider {
 func NewLambdaInvokeFunction(scope constructs.Construct, id *string, props *LambdaInvokeFunctionProps) LambdaInvokeFunction {
 	_init_.Initialize()
 
+	if err := validateNewLambdaInvokeFunctionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaInvokeFunction{}
 
 	_jsii_.Create(
@@ -166,7 +169,10 @@ func NewLambdaInvokeFunction_Override(l LambdaInvokeFunction, scope constructs.C
 	)
 }
 
-func (j *jsiiProxy_LambdaInvokeFunction) SetProvider(val AssertionsProvider) {
+func (j *jsiiProxy_LambdaInvokeFunction)SetProvider(val AssertionsProvider) {
+	if err := j.validateSetProviderParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"provider",
@@ -179,6 +185,9 @@ func (j *jsiiProxy_LambdaInvokeFunction) SetProvider(val AssertionsProvider) {
 func LambdaInvokeFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateLambdaInvokeFunction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -192,6 +201,9 @@ func LambdaInvokeFunction_IsConstruct(x interface{}) *bool {
 }
 
 func (l *jsiiProxy_LambdaInvokeFunction) AssertAtPath(path *string, expected ExpectedResult) {
+	if err := l.validateAssertAtPathParameters(path, expected); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"assertAtPath",
@@ -200,6 +212,9 @@ func (l *jsiiProxy_LambdaInvokeFunction) AssertAtPath(path *string, expected Exp
 }
 
 func (l *jsiiProxy_LambdaInvokeFunction) Expect(expected ExpectedResult) {
+	if err := l.validateExpectParameters(expected); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"expect",
@@ -208,6 +223,9 @@ func (l *jsiiProxy_LambdaInvokeFunction) Expect(expected ExpectedResult) {
 }
 
 func (l *jsiiProxy_LambdaInvokeFunction) GetAtt(attributeName *string) awscdk.Reference {
+	if err := l.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -221,6 +239,9 @@ func (l *jsiiProxy_LambdaInvokeFunction) GetAtt(attributeName *string) awscdk.Re
 }
 
 func (l *jsiiProxy_LambdaInvokeFunction) GetAttString(attributeName *string) *string {
+	if err := l.validateGetAttStringParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -242,6 +263,9 @@ func (l *jsiiProxy_LambdaInvokeFunction) OnPrepare() {
 }
 
 func (l *jsiiProxy_LambdaInvokeFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := l.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"onSynthesize",
@@ -271,6 +295,9 @@ func (l *jsiiProxy_LambdaInvokeFunction) Prepare() {
 }
 
 func (l *jsiiProxy_LambdaInvokeFunction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := l.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		l,
 		"synthesize",

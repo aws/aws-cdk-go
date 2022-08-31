@@ -46,6 +46,9 @@ type jsiiProxy_IUserPool struct {
 }
 
 func (i *jsiiProxy_IUserPool) AddClient(id *string, options *UserPoolClientOptions) UserPoolClient {
+	if err := i.validateAddClientParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns UserPoolClient
 
 	_jsii_.Invoke(
@@ -59,6 +62,9 @@ func (i *jsiiProxy_IUserPool) AddClient(id *string, options *UserPoolClientOptio
 }
 
 func (i *jsiiProxy_IUserPool) AddDomain(id *string, options *UserPoolDomainOptions) UserPoolDomain {
+	if err := i.validateAddDomainParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns UserPoolDomain
 
 	_jsii_.Invoke(
@@ -72,6 +78,9 @@ func (i *jsiiProxy_IUserPool) AddDomain(id *string, options *UserPoolDomainOptio
 }
 
 func (i *jsiiProxy_IUserPool) AddResourceServer(id *string, options *UserPoolResourceServerOptions) UserPoolResourceServer {
+	if err := i.validateAddResourceServerParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns UserPoolResourceServer
 
 	_jsii_.Invoke(
@@ -85,6 +94,9 @@ func (i *jsiiProxy_IUserPool) AddResourceServer(id *string, options *UserPoolRes
 }
 
 func (i *jsiiProxy_IUserPool) RegisterIdentityProvider(provider IUserPoolIdentityProvider) {
+	if err := i.validateRegisterIdentityProviderParameters(provider); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"registerIdentityProvider",

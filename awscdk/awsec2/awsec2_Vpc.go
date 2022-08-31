@@ -488,6 +488,9 @@ func (j *jsiiProxy_Vpc) VpnGatewayId() *string {
 func NewVpc(scope constructs.Construct, id *string, props *VpcProps) Vpc {
 	_init_.Initialize()
 
+	if err := validateNewVpcParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Vpc{}
 
 	_jsii_.Create(
@@ -515,7 +518,10 @@ func NewVpc_Override(v Vpc, scope constructs.Construct, id *string, props *VpcPr
 	)
 }
 
-func (j *jsiiProxy_Vpc) SetIncompleteSubnetDefinition(val *bool) {
+func (j *jsiiProxy_Vpc)SetIncompleteSubnetDefinition(val *bool) {
+	if err := j.validateSetIncompleteSubnetDefinitionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"incompleteSubnetDefinition",
@@ -541,6 +547,9 @@ func (j *jsiiProxy_Vpc) SetIncompleteSubnetDefinition(val *bool) {
 func Vpc_FromLookup(scope constructs.Construct, id *string, options *VpcLookupOptions) IVpc {
 	_init_.Initialize()
 
+	if err := validateVpc_FromLookupParameters(scope, id, options); err != nil {
+		panic(err)
+	}
 	var returns IVpc
 
 	_jsii_.StaticInvoke(
@@ -567,6 +576,9 @@ func Vpc_FromLookup(scope constructs.Construct, id *string, options *VpcLookupOp
 func Vpc_FromVpcAttributes(scope constructs.Construct, id *string, attrs *VpcAttributes) IVpc {
 	_init_.Initialize()
 
+	if err := validateVpc_FromVpcAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IVpc
 
 	_jsii_.StaticInvoke(
@@ -584,6 +596,9 @@ func Vpc_FromVpcAttributes(scope constructs.Construct, id *string, attrs *VpcAtt
 func Vpc_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVpc_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -601,6 +616,9 @@ func Vpc_IsConstruct(x interface{}) *bool {
 func Vpc_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVpc_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -647,6 +665,9 @@ func Vpc_DEFAULT_SUBNETS_NO_NAT() *[]*SubnetConfiguration {
 }
 
 func (v *jsiiProxy_Vpc) AddClientVpnEndpoint(id *string, options *ClientVpnEndpointOptions) ClientVpnEndpoint {
+	if err := v.validateAddClientVpnEndpointParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns ClientVpnEndpoint
 
 	_jsii_.Invoke(
@@ -660,6 +681,9 @@ func (v *jsiiProxy_Vpc) AddClientVpnEndpoint(id *string, options *ClientVpnEndpo
 }
 
 func (v *jsiiProxy_Vpc) AddDynamoDbEndpoint(id *string, subnets *[]*SubnetSelection) GatewayVpcEndpoint {
+	if err := v.validateAddDynamoDbEndpointParameters(id, subnets); err != nil {
+		panic(err)
+	}
 	var returns GatewayVpcEndpoint
 
 	_jsii_.Invoke(
@@ -673,6 +697,9 @@ func (v *jsiiProxy_Vpc) AddDynamoDbEndpoint(id *string, subnets *[]*SubnetSelect
 }
 
 func (v *jsiiProxy_Vpc) AddFlowLog(id *string, options *FlowLogOptions) FlowLog {
+	if err := v.validateAddFlowLogParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns FlowLog
 
 	_jsii_.Invoke(
@@ -686,6 +713,9 @@ func (v *jsiiProxy_Vpc) AddFlowLog(id *string, options *FlowLogOptions) FlowLog 
 }
 
 func (v *jsiiProxy_Vpc) AddGatewayEndpoint(id *string, options *GatewayVpcEndpointOptions) GatewayVpcEndpoint {
+	if err := v.validateAddGatewayEndpointParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns GatewayVpcEndpoint
 
 	_jsii_.Invoke(
@@ -699,6 +729,9 @@ func (v *jsiiProxy_Vpc) AddGatewayEndpoint(id *string, options *GatewayVpcEndpoi
 }
 
 func (v *jsiiProxy_Vpc) AddInterfaceEndpoint(id *string, options *InterfaceVpcEndpointOptions) InterfaceVpcEndpoint {
+	if err := v.validateAddInterfaceEndpointParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns InterfaceVpcEndpoint
 
 	_jsii_.Invoke(
@@ -712,6 +745,9 @@ func (v *jsiiProxy_Vpc) AddInterfaceEndpoint(id *string, options *InterfaceVpcEn
 }
 
 func (v *jsiiProxy_Vpc) AddS3Endpoint(id *string, subnets *[]*SubnetSelection) GatewayVpcEndpoint {
+	if err := v.validateAddS3EndpointParameters(id, subnets); err != nil {
+		panic(err)
+	}
 	var returns GatewayVpcEndpoint
 
 	_jsii_.Invoke(
@@ -725,6 +761,9 @@ func (v *jsiiProxy_Vpc) AddS3Endpoint(id *string, subnets *[]*SubnetSelection) G
 }
 
 func (v *jsiiProxy_Vpc) AddVpnConnection(id *string, options *VpnConnectionOptions) VpnConnection {
+	if err := v.validateAddVpnConnectionParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns VpnConnection
 
 	_jsii_.Invoke(
@@ -738,6 +777,9 @@ func (v *jsiiProxy_Vpc) AddVpnConnection(id *string, options *VpnConnectionOptio
 }
 
 func (v *jsiiProxy_Vpc) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -746,6 +788,9 @@ func (v *jsiiProxy_Vpc) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (v *jsiiProxy_Vpc) EnableVpnGateway(options *EnableVpnGatewayOptions) {
+	if err := v.validateEnableVpnGatewayParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"enableVpnGateway",
@@ -767,6 +812,9 @@ func (v *jsiiProxy_Vpc) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_Vpc) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -780,6 +828,9 @@ func (v *jsiiProxy_Vpc) GetResourceArnAttribute(arnAttr *string, arnComponents *
 }
 
 func (v *jsiiProxy_Vpc) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -801,6 +852,9 @@ func (v *jsiiProxy_Vpc) OnPrepare() {
 }
 
 func (v *jsiiProxy_Vpc) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -830,6 +884,9 @@ func (v *jsiiProxy_Vpc) Prepare() {
 }
 
 func (v *jsiiProxy_Vpc) SelectSubnetObjects(selection *SubnetSelection) *[]ISubnet {
+	if err := v.validateSelectSubnetObjectsParameters(selection); err != nil {
+		panic(err)
+	}
 	var returns *[]ISubnet
 
 	_jsii_.Invoke(
@@ -843,6 +900,9 @@ func (v *jsiiProxy_Vpc) SelectSubnetObjects(selection *SubnetSelection) *[]ISubn
 }
 
 func (v *jsiiProxy_Vpc) SelectSubnets(selection *SubnetSelection) *SelectedSubnets {
+	if err := v.validateSelectSubnetsParameters(selection); err != nil {
+		panic(err)
+	}
 	var returns *SelectedSubnets
 
 	_jsii_.Invoke(
@@ -856,6 +916,9 @@ func (v *jsiiProxy_Vpc) SelectSubnets(selection *SubnetSelection) *SelectedSubne
 }
 
 func (v *jsiiProxy_Vpc) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",

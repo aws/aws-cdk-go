@@ -29,6 +29,9 @@ type jsiiProxy_MinimumHealthyHosts struct {
 func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 
+	if err := validateMinimumHealthyHosts_CountParameters(value); err != nil {
+		panic(err)
+	}
 	var returns MinimumHealthyHosts
 
 	_jsii_.StaticInvoke(
@@ -46,6 +49,9 @@ func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 func MinimumHealthyHosts_Percentage(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 
+	if err := validateMinimumHealthyHosts_PercentageParameters(value); err != nil {
+		panic(err)
+	}
 	var returns MinimumHealthyHosts
 
 	_jsii_.StaticInvoke(

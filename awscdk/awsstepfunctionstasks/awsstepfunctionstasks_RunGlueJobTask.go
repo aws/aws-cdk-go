@@ -51,6 +51,9 @@ type jsiiProxy_RunGlueJobTask struct {
 func NewRunGlueJobTask(glueJobName *string, props *RunGlueJobTaskProps) RunGlueJobTask {
 	_init_.Initialize()
 
+	if err := validateNewRunGlueJobTaskParameters(glueJobName, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RunGlueJobTask{}
 
 	_jsii_.Create(
@@ -74,6 +77,9 @@ func NewRunGlueJobTask_Override(r RunGlueJobTask, glueJobName *string, props *Ru
 }
 
 func (r *jsiiProxy_RunGlueJobTask) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	if err := r.validateBindParameters(task); err != nil {
+		panic(err)
+	}
 	var returns *awsstepfunctions.StepFunctionsTaskConfig
 
 	_jsii_.Invoke(

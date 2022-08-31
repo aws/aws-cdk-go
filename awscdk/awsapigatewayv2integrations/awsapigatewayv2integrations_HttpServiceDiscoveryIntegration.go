@@ -116,6 +116,9 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) PayloadFormatVersion() awsap
 func NewHttpServiceDiscoveryIntegration(id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) HttpServiceDiscoveryIntegration {
 	_init_.Initialize()
 
+	if err := validateNewHttpServiceDiscoveryIntegrationParameters(id, service, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpServiceDiscoveryIntegration{}
 
 	_jsii_.Create(
@@ -138,7 +141,10 @@ func NewHttpServiceDiscoveryIntegration_Override(h HttpServiceDiscoveryIntegrati
 	)
 }
 
-func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetConnectionType(val awsapigatewayv2.HttpConnectionType) {
+func (j *jsiiProxy_HttpServiceDiscoveryIntegration)SetConnectionType(val awsapigatewayv2.HttpConnectionType) {
+	if err := j.validateSetConnectionTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"connectionType",
@@ -146,7 +152,10 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetConnectionType(val awsapi
 	)
 }
 
-func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetHttpMethod(val awsapigatewayv2.HttpMethod) {
+func (j *jsiiProxy_HttpServiceDiscoveryIntegration)SetHttpMethod(val awsapigatewayv2.HttpMethod) {
+	if err := j.validateSetHttpMethodParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"httpMethod",
@@ -154,7 +163,10 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetHttpMethod(val awsapigate
 	)
 }
 
-func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetIntegrationType(val awsapigatewayv2.HttpIntegrationType) {
+func (j *jsiiProxy_HttpServiceDiscoveryIntegration)SetIntegrationType(val awsapigatewayv2.HttpIntegrationType) {
+	if err := j.validateSetIntegrationTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"integrationType",
@@ -162,7 +174,10 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetIntegrationType(val awsap
 	)
 }
 
-func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion) {
+func (j *jsiiProxy_HttpServiceDiscoveryIntegration)SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion) {
+	if err := j.validateSetPayloadFormatVersionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"payloadFormatVersion",
@@ -171,6 +186,9 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetPayloadFormatVersion(val 
 }
 
 func (h *jsiiProxy_HttpServiceDiscoveryIntegration) Bind(_arg *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(_arg); err != nil {
+		panic(err)
+	}
 	var returns *awsapigatewayv2.HttpRouteIntegrationConfig
 
 	_jsii_.Invoke(
@@ -184,6 +202,9 @@ func (h *jsiiProxy_HttpServiceDiscoveryIntegration) Bind(_arg *awsapigatewayv2.H
 }
 
 func (h *jsiiProxy_HttpServiceDiscoveryIntegration) CompleteBind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) {
+	if err := h.validateCompleteBindParameters(_options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"completeBind",

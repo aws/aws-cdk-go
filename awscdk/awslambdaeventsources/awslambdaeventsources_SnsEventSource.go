@@ -56,6 +56,9 @@ func (j *jsiiProxy_SnsEventSource) Topic() awssns.ITopic {
 func NewSnsEventSource(topic awssns.ITopic, props *SnsEventSourceProps) SnsEventSource {
 	_init_.Initialize()
 
+	if err := validateNewSnsEventSourceParameters(topic, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsEventSource{}
 
 	_jsii_.Create(
@@ -79,6 +82,9 @@ func NewSnsEventSource_Override(s SnsEventSource, topic awssns.ITopic, props *Sn
 }
 
 func (s *jsiiProxy_SnsEventSource) Bind(target awslambda.IFunction) {
+	if err := s.validateBindParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bind",

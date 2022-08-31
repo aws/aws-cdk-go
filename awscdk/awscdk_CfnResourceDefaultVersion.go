@@ -395,6 +395,9 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) VersionId() *string {
 func NewCfnResourceDefaultVersion(scope Construct, id *string, props *CfnResourceDefaultVersionProps) CfnResourceDefaultVersion {
 	_init_.Initialize()
 
+	if err := validateNewCfnResourceDefaultVersionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnResourceDefaultVersion{}
 
 	_jsii_.Create(
@@ -417,7 +420,7 @@ func NewCfnResourceDefaultVersion_Override(c CfnResourceDefaultVersion, scope Co
 	)
 }
 
-func (j *jsiiProxy_CfnResourceDefaultVersion) SetTypeName(val *string) {
+func (j *jsiiProxy_CfnResourceDefaultVersion)SetTypeName(val *string) {
 	_jsii_.Set(
 		j,
 		"typeName",
@@ -425,7 +428,7 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) SetTypeName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnResourceDefaultVersion) SetTypeVersionArn(val *string) {
+func (j *jsiiProxy_CfnResourceDefaultVersion)SetTypeVersionArn(val *string) {
 	_jsii_.Set(
 		j,
 		"typeVersionArn",
@@ -433,7 +436,7 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) SetTypeVersionArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnResourceDefaultVersion) SetVersionId(val *string) {
+func (j *jsiiProxy_CfnResourceDefaultVersion)SetVersionId(val *string) {
 	_jsii_.Set(
 		j,
 		"versionId",
@@ -451,6 +454,9 @@ func (j *jsiiProxy_CfnResourceDefaultVersion) SetVersionId(val *string) {
 func CfnResourceDefaultVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnResourceDefaultVersion_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -468,6 +474,9 @@ func CfnResourceDefaultVersion_IsCfnElement(x interface{}) *bool {
 func CfnResourceDefaultVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnResourceDefaultVersion_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -485,6 +494,9 @@ func CfnResourceDefaultVersion_IsCfnResource(construct constructs.IConstruct) *b
 func CfnResourceDefaultVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnResourceDefaultVersion_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -509,6 +521,9 @@ func CfnResourceDefaultVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -517,6 +532,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) AddDeletionOverride(path *string) 
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) AddDependsOn(target CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -525,6 +543,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) AddDependsOn(target CfnResource) {
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -533,6 +554,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) AddMetadata(key *string, value int
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -541,6 +565,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) AddOverride(path *string, value in
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -549,6 +576,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) AddPropertyDeletionOverride(proper
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -557,6 +587,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) AddPropertyOverride(propertyPath *
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) ApplyRemovalPolicy(policy RemovalPolicy, options *RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -565,6 +598,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) ApplyRemovalPolicy(policy RemovalP
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) GetAtt(attributeName *string) Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns Reference
 
 	_jsii_.Invoke(
@@ -578,6 +614,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) GetAtt(attributeName *string) Refe
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -591,6 +630,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) GetMetadata(key *string) interface
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) Inspect(inspector TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -607,6 +649,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -628,6 +673,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -644,6 +692,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) Prepare() {
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -670,6 +721,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -704,6 +758,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

@@ -327,6 +327,9 @@ func (j *jsiiProxy_PolicyStatement) Sid() *string {
 func NewPolicyStatement(props *PolicyStatementProps) PolicyStatement {
 	_init_.Initialize()
 
+	if err := validateNewPolicyStatementParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_PolicyStatement{}
 
 	_jsii_.Create(
@@ -349,7 +352,10 @@ func NewPolicyStatement_Override(p PolicyStatement, props *PolicyStatementProps)
 	)
 }
 
-func (j *jsiiProxy_PolicyStatement) SetEffect(val Effect) {
+func (j *jsiiProxy_PolicyStatement)SetEffect(val Effect) {
+	if err := j.validateSetEffectParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"effect",
@@ -357,7 +363,7 @@ func (j *jsiiProxy_PolicyStatement) SetEffect(val Effect) {
 	)
 }
 
-func (j *jsiiProxy_PolicyStatement) SetSid(val *string) {
+func (j *jsiiProxy_PolicyStatement)SetSid(val *string) {
 	_jsii_.Set(
 		j,
 		"sid",
@@ -372,6 +378,9 @@ func (j *jsiiProxy_PolicyStatement) SetSid(val *string) {
 func PolicyStatement_FromJson(obj interface{}) PolicyStatement {
 	_init_.Initialize()
 
+	if err := validatePolicyStatement_FromJsonParameters(obj); err != nil {
+		panic(err)
+	}
 	var returns PolicyStatement
 
 	_jsii_.StaticInvoke(
@@ -385,6 +394,9 @@ func PolicyStatement_FromJson(obj interface{}) PolicyStatement {
 }
 
 func (p *jsiiProxy_PolicyStatement) AddAccountCondition(accountId *string) {
+	if err := p.validateAddAccountConditionParameters(accountId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addAccountCondition",
@@ -430,6 +442,9 @@ func (p *jsiiProxy_PolicyStatement) AddAnyPrincipal() {
 }
 
 func (p *jsiiProxy_PolicyStatement) AddArnPrincipal(arn *string) {
+	if err := p.validateAddArnPrincipalParameters(arn); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addArnPrincipal",
@@ -438,6 +453,9 @@ func (p *jsiiProxy_PolicyStatement) AddArnPrincipal(arn *string) {
 }
 
 func (p *jsiiProxy_PolicyStatement) AddAwsAccountPrincipal(accountId *string) {
+	if err := p.validateAddAwsAccountPrincipalParameters(accountId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addAwsAccountPrincipal",
@@ -446,6 +464,9 @@ func (p *jsiiProxy_PolicyStatement) AddAwsAccountPrincipal(accountId *string) {
 }
 
 func (p *jsiiProxy_PolicyStatement) AddCanonicalUserPrincipal(canonicalUserId *string) {
+	if err := p.validateAddCanonicalUserPrincipalParameters(canonicalUserId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addCanonicalUserPrincipal",
@@ -454,6 +475,9 @@ func (p *jsiiProxy_PolicyStatement) AddCanonicalUserPrincipal(canonicalUserId *s
 }
 
 func (p *jsiiProxy_PolicyStatement) AddCondition(key *string, value interface{}) {
+	if err := p.validateAddConditionParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addCondition",
@@ -462,6 +486,9 @@ func (p *jsiiProxy_PolicyStatement) AddCondition(key *string, value interface{})
 }
 
 func (p *jsiiProxy_PolicyStatement) AddConditions(conditions *map[string]interface{}) {
+	if err := p.validateAddConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addConditions",
@@ -470,6 +497,9 @@ func (p *jsiiProxy_PolicyStatement) AddConditions(conditions *map[string]interfa
 }
 
 func (p *jsiiProxy_PolicyStatement) AddFederatedPrincipal(federated interface{}, conditions *map[string]interface{}) {
+	if err := p.validateAddFederatedPrincipalParameters(federated, conditions); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addFederatedPrincipal",
@@ -543,6 +573,9 @@ func (p *jsiiProxy_PolicyStatement) AddResources(arns ...*string) {
 }
 
 func (p *jsiiProxy_PolicyStatement) AddServicePrincipal(service *string, opts *ServicePrincipalOpts) {
+	if err := p.validateAddServicePrincipalParameters(service, opts); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		p,
 		"addServicePrincipal",
@@ -551,6 +584,9 @@ func (p *jsiiProxy_PolicyStatement) AddServicePrincipal(service *string, opts *S
 }
 
 func (p *jsiiProxy_PolicyStatement) Copy(overrides *PolicyStatementProps) PolicyStatement {
+	if err := p.validateCopyParameters(overrides); err != nil {
+		panic(err)
+	}
 	var returns PolicyStatement
 
 	_jsii_.Invoke(

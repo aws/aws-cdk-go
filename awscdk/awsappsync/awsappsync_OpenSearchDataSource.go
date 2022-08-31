@@ -205,6 +205,9 @@ func (j *jsiiProxy_OpenSearchDataSource) ServiceRole() awsiam.IRole {
 func NewOpenSearchDataSource(scope constructs.Construct, id *string, props *OpenSearchDataSourceProps) OpenSearchDataSource {
 	_init_.Initialize()
 
+	if err := validateNewOpenSearchDataSourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_OpenSearchDataSource{}
 
 	_jsii_.Create(
@@ -227,7 +230,10 @@ func NewOpenSearchDataSource_Override(o OpenSearchDataSource, scope constructs.C
 	)
 }
 
-func (j *jsiiProxy_OpenSearchDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_OpenSearchDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -235,7 +241,7 @@ func (j *jsiiProxy_OpenSearchDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_OpenSearchDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_OpenSearchDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -248,6 +254,9 @@ func (j *jsiiProxy_OpenSearchDataSource) SetServiceRole(val awsiam.IRole) {
 func OpenSearchDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateOpenSearchDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -261,6 +270,9 @@ func OpenSearchDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (o *jsiiProxy_OpenSearchDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := o.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -274,6 +286,9 @@ func (o *jsiiProxy_OpenSearchDataSource) CreateFunction(props *BaseAppsyncFuncti
 }
 
 func (o *jsiiProxy_OpenSearchDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := o.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -295,6 +310,9 @@ func (o *jsiiProxy_OpenSearchDataSource) OnPrepare() {
 }
 
 func (o *jsiiProxy_OpenSearchDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := o.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"onSynthesize",
@@ -324,6 +342,9 @@ func (o *jsiiProxy_OpenSearchDataSource) Prepare() {
 }
 
 func (o *jsiiProxy_OpenSearchDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := o.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"synthesize",

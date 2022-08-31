@@ -52,7 +52,7 @@ func (j *jsiiProxy_ITemplateOptions) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ITemplateOptions) SetDescription(val *string) {
+func (j *jsiiProxy_ITemplateOptions)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
@@ -70,7 +70,7 @@ func (j *jsiiProxy_ITemplateOptions) Metadata() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_ITemplateOptions) SetMetadata(val *map[string]interface{}) {
+func (j *jsiiProxy_ITemplateOptions)SetMetadata(val *map[string]interface{}) {
 	_jsii_.Set(
 		j,
 		"metadata",
@@ -88,7 +88,7 @@ func (j *jsiiProxy_ITemplateOptions) TemplateFormatVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ITemplateOptions) SetTemplateFormatVersion(val *string) {
+func (j *jsiiProxy_ITemplateOptions)SetTemplateFormatVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"templateFormatVersion",
@@ -106,7 +106,7 @@ func (j *jsiiProxy_ITemplateOptions) Transform() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ITemplateOptions) SetTransform(val *string) {
+func (j *jsiiProxy_ITemplateOptions)SetTransform(val *string) {
 	_jsii_.Set(
 		j,
 		"transform",
@@ -124,7 +124,7 @@ func (j *jsiiProxy_ITemplateOptions) Transforms() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_ITemplateOptions) SetTransforms(val *[]*string) {
+func (j *jsiiProxy_ITemplateOptions)SetTransforms(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"transforms",

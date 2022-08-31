@@ -151,6 +151,9 @@ func (j *jsiiProxy_SamlConsolePrincipal) PrincipalAccount() *string {
 func NewSamlConsolePrincipal(samlProvider ISamlProvider, conditions *map[string]interface{}) SamlConsolePrincipal {
 	_init_.Initialize()
 
+	if err := validateNewSamlConsolePrincipalParameters(samlProvider); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SamlConsolePrincipal{}
 
 	_jsii_.Create(
@@ -174,6 +177,9 @@ func NewSamlConsolePrincipal_Override(s SamlConsolePrincipal, samlProvider ISaml
 }
 
 func (s *jsiiProxy_SamlConsolePrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := s.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToAssumeRolePolicy",
@@ -182,6 +188,9 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToAssumeRolePolicy(document PolicyDo
 }
 
 func (s *jsiiProxy_SamlConsolePrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := s.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -195,6 +204,9 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 func (s *jsiiProxy_SamlConsolePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := s.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -247,6 +259,9 @@ func (s *jsiiProxy_SamlConsolePrincipal) ToString() *string {
 }
 
 func (s *jsiiProxy_SamlConsolePrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := s.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

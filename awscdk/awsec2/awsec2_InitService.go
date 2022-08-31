@@ -54,6 +54,9 @@ func (j *jsiiProxy_InitService) ElementType() *string {
 func InitService_Disable(serviceName *string) InitService {
 	_init_.Initialize()
 
+	if err := validateInitService_DisableParameters(serviceName); err != nil {
+		panic(err)
+	}
 	var returns InitService
 
 	_jsii_.StaticInvoke(
@@ -71,6 +74,9 @@ func InitService_Disable(serviceName *string) InitService {
 func InitService_Enable(serviceName *string, options *InitServiceOptions) InitService {
 	_init_.Initialize()
 
+	if err := validateInitService_EnableParameters(serviceName, options); err != nil {
+		panic(err)
+	}
 	var returns InitService
 
 	_jsii_.StaticInvoke(

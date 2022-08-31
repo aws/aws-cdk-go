@@ -183,6 +183,9 @@ func (j *jsiiProxy_MetricFilter) Stack() awscdk.Stack {
 func NewMetricFilter(scope constructs.Construct, id *string, props *MetricFilterProps) MetricFilter {
 	_init_.Initialize()
 
+	if err := validateNewMetricFilterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_MetricFilter{}
 
 	_jsii_.Create(
@@ -210,6 +213,9 @@ func NewMetricFilter_Override(m MetricFilter, scope constructs.Construct, id *st
 func MetricFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateMetricFilter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -227,6 +233,9 @@ func MetricFilter_IsConstruct(x interface{}) *bool {
 func MetricFilter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateMetricFilter_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -240,6 +249,9 @@ func MetricFilter_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (m *jsiiProxy_MetricFilter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := m.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"applyRemovalPolicy",
@@ -261,6 +273,9 @@ func (m *jsiiProxy_MetricFilter) GeneratePhysicalName() *string {
 }
 
 func (m *jsiiProxy_MetricFilter) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := m.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -274,6 +289,9 @@ func (m *jsiiProxy_MetricFilter) GetResourceArnAttribute(arnAttr *string, arnCom
 }
 
 func (m *jsiiProxy_MetricFilter) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := m.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -287,6 +305,9 @@ func (m *jsiiProxy_MetricFilter) GetResourceNameAttribute(nameAttr *string) *str
 }
 
 func (m *jsiiProxy_MetricFilter) Metric(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := m.validateMetricParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -308,6 +329,9 @@ func (m *jsiiProxy_MetricFilter) OnPrepare() {
 }
 
 func (m *jsiiProxy_MetricFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := m.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"onSynthesize",
@@ -337,6 +361,9 @@ func (m *jsiiProxy_MetricFilter) Prepare() {
 }
 
 func (m *jsiiProxy_MetricFilter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := m.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"synthesize",

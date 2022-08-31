@@ -59,6 +59,9 @@ func (j *jsiiProxy_ListenerPort) Connections() awsec2.Connections {
 func NewListenerPort(securityGroup awsec2.ISecurityGroup, defaultPort awsec2.Port) ListenerPort {
 	_init_.Initialize()
 
+	if err := validateNewListenerPortParameters(securityGroup, defaultPort); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ListenerPort{}
 
 	_jsii_.Create(

@@ -100,6 +100,9 @@ func (j *jsiiProxy_LinuxGpuBuildImage) Type() *string {
 func LinuxGpuBuildImage_AwsDeepLearningContainersImage(repositoryName *string, tag *string, account *string) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxGpuBuildImage_AwsDeepLearningContainersImageParameters(repositoryName, tag); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -122,6 +125,9 @@ func LinuxGpuBuildImage_AwsDeepLearningContainersImage(repositoryName *string, t
 func LinuxGpuBuildImage_FromEcrRepository(repository awsecr.IRepository, tag *string) IBuildImage {
 	_init_.Initialize()
 
+	if err := validateLinuxGpuBuildImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns IBuildImage
 
 	_jsii_.StaticInvoke(
@@ -322,6 +328,9 @@ func LinuxGpuBuildImage_DLC_TENSORFLOW_2_2_0_TRAINING() IBuildImage {
 }
 
 func (l *jsiiProxy_LinuxGpuBuildImage) Bind(scope awscdk.Construct, project IProject, _options *BuildImageBindOptions) *BuildImageConfig {
+	if err := l.validateBindParameters(scope, project, _options); err != nil {
+		panic(err)
+	}
 	var returns *BuildImageConfig
 
 	_jsii_.Invoke(
@@ -335,6 +344,9 @@ func (l *jsiiProxy_LinuxGpuBuildImage) Bind(scope awscdk.Construct, project IPro
 }
 
 func (l *jsiiProxy_LinuxGpuBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
+	if err := l.validateRunScriptBuildspecParameters(entrypoint); err != nil {
+		panic(err)
+	}
 	var returns BuildSpec
 
 	_jsii_.Invoke(
@@ -348,6 +360,9 @@ func (l *jsiiProxy_LinuxGpuBuildImage) RunScriptBuildspec(entrypoint *string) Bu
 }
 
 func (l *jsiiProxy_LinuxGpuBuildImage) Validate(buildEnvironment *BuildEnvironment) *[]*string {
+	if err := l.validateValidateParameters(buildEnvironment); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(

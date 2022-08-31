@@ -484,6 +484,9 @@ func (j *jsiiProxy_Alias) Version() IVersion {
 func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	_init_.Initialize()
 
+	if err := validateNewAliasParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Alias{}
 
 	_jsii_.Create(
@@ -510,6 +513,9 @@ func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *A
 func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *AliasAttributes) IAlias {
 	_init_.Initialize()
 
+	if err := validateAlias_FromAliasAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
@@ -527,6 +533,9 @@ func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *Al
 func Alias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateAlias_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -544,6 +553,9 @@ func Alias_IsConstruct(x interface{}) *bool {
 func Alias_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateAlias_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -557,6 +569,9 @@ func Alias_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (a *jsiiProxy_Alias) AddAutoScaling(options *AutoScalingOptions) IScalableFunctionAttribute {
+	if err := a.validateAddAutoScalingParameters(options); err != nil {
+		panic(err)
+	}
 	var returns IScalableFunctionAttribute
 
 	_jsii_.Invoke(
@@ -570,6 +585,9 @@ func (a *jsiiProxy_Alias) AddAutoScaling(options *AutoScalingOptions) IScalableF
 }
 
 func (a *jsiiProxy_Alias) AddEventSource(source IEventSource) {
+	if err := a.validateAddEventSourceParameters(source); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addEventSource",
@@ -578,6 +596,9 @@ func (a *jsiiProxy_Alias) AddEventSource(source IEventSource) {
 }
 
 func (a *jsiiProxy_Alias) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
+	if err := a.validateAddEventSourceMappingParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns EventSourceMapping
 
 	_jsii_.Invoke(
@@ -591,6 +612,9 @@ func (a *jsiiProxy_Alias) AddEventSourceMapping(id *string, options *EventSource
 }
 
 func (a *jsiiProxy_Alias) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	if err := a.validateAddFunctionUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns FunctionUrl
 
 	_jsii_.Invoke(
@@ -604,6 +628,9 @@ func (a *jsiiProxy_Alias) AddFunctionUrl(options *FunctionUrlOptions) FunctionUr
 }
 
 func (a *jsiiProxy_Alias) AddPermission(id *string, permission *Permission) {
+	if err := a.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addPermission",
@@ -612,6 +639,9 @@ func (a *jsiiProxy_Alias) AddPermission(id *string, permission *Permission) {
 }
 
 func (a *jsiiProxy_Alias) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := a.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"addToRolePolicy",
@@ -620,6 +650,9 @@ func (a *jsiiProxy_Alias) AddToRolePolicy(statement awsiam.PolicyStatement) {
 }
 
 func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := a.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"applyRemovalPolicy",
@@ -628,6 +661,9 @@ func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (a *jsiiProxy_Alias) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
+	if err := a.validateConfigureAsyncInvokeParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"configureAsyncInvoke",
@@ -636,6 +672,9 @@ func (a *jsiiProxy_Alias) ConfigureAsyncInvoke(options *EventInvokeConfigOptions
 }
 
 func (a *jsiiProxy_Alias) ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string) {
+	if err := a.validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope, _action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -657,6 +696,9 @@ func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 }
 
 func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := a.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -670,6 +712,9 @@ func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := a.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -683,6 +728,9 @@ func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (a *jsiiProxy_Alias) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantInvokeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -696,6 +744,9 @@ func (a *jsiiProxy_Alias) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (a *jsiiProxy_Alias) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantInvokeUrlParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -709,6 +760,9 @@ func (a *jsiiProxy_Alias) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 func (a *jsiiProxy_Alias) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -722,6 +776,9 @@ func (a *jsiiProxy_Alias) Metric(metricName *string, props *awscloudwatch.Metric
 }
 
 func (a *jsiiProxy_Alias) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -735,6 +792,9 @@ func (a *jsiiProxy_Alias) MetricDuration(props *awscloudwatch.MetricOptions) aws
 }
 
 func (a *jsiiProxy_Alias) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -748,6 +808,9 @@ func (a *jsiiProxy_Alias) MetricErrors(props *awscloudwatch.MetricOptions) awscl
 }
 
 func (a *jsiiProxy_Alias) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -761,6 +824,9 @@ func (a *jsiiProxy_Alias) MetricInvocations(props *awscloudwatch.MetricOptions) 
 }
 
 func (a *jsiiProxy_Alias) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := a.validateMetricThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -782,6 +848,9 @@ func (a *jsiiProxy_Alias) OnPrepare() {
 }
 
 func (a *jsiiProxy_Alias) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -811,6 +880,9 @@ func (a *jsiiProxy_Alias) Prepare() {
 }
 
 func (a *jsiiProxy_Alias) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",
@@ -845,6 +917,9 @@ func (a *jsiiProxy_Alias) Validate() *[]*string {
 }
 
 func (a *jsiiProxy_Alias) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+	if err := a.validateWarnInvokeFunctionPermissionsParameters(scope); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"warnInvokeFunctionPermissions",

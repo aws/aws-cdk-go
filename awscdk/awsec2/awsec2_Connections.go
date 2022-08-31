@@ -122,6 +122,9 @@ func (j *jsiiProxy_Connections) SecurityGroups() *[]ISecurityGroup {
 func NewConnections(props *ConnectionsProps) Connections {
 	_init_.Initialize()
 
+	if err := validateNewConnectionsParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Connections{}
 
 	_jsii_.Create(
@@ -158,6 +161,9 @@ func (c *jsiiProxy_Connections) AddSecurityGroup(securityGroups ...ISecurityGrou
 }
 
 func (c *jsiiProxy_Connections) AllowDefaultPortFrom(other IConnectable, description *string) {
+	if err := c.validateAllowDefaultPortFromParameters(other); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowDefaultPortFrom",
@@ -182,6 +188,9 @@ func (c *jsiiProxy_Connections) AllowDefaultPortInternally(description *string) 
 }
 
 func (c *jsiiProxy_Connections) AllowDefaultPortTo(other IConnectable, description *string) {
+	if err := c.validateAllowDefaultPortToParameters(other); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowDefaultPortTo",
@@ -190,6 +199,9 @@ func (c *jsiiProxy_Connections) AllowDefaultPortTo(other IConnectable, descripti
 }
 
 func (c *jsiiProxy_Connections) AllowFrom(other IConnectable, portRange Port, description *string) {
+	if err := c.validateAllowFromParameters(other, portRange); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowFrom",
@@ -198,6 +210,9 @@ func (c *jsiiProxy_Connections) AllowFrom(other IConnectable, portRange Port, de
 }
 
 func (c *jsiiProxy_Connections) AllowFromAnyIpv4(portRange Port, description *string) {
+	if err := c.validateAllowFromAnyIpv4Parameters(portRange); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowFromAnyIpv4",
@@ -206,6 +221,9 @@ func (c *jsiiProxy_Connections) AllowFromAnyIpv4(portRange Port, description *st
 }
 
 func (c *jsiiProxy_Connections) AllowInternally(portRange Port, description *string) {
+	if err := c.validateAllowInternallyParameters(portRange); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowInternally",
@@ -214,6 +232,9 @@ func (c *jsiiProxy_Connections) AllowInternally(portRange Port, description *str
 }
 
 func (c *jsiiProxy_Connections) AllowTo(other IConnectable, portRange Port, description *string) {
+	if err := c.validateAllowToParameters(other, portRange); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowTo",
@@ -222,6 +243,9 @@ func (c *jsiiProxy_Connections) AllowTo(other IConnectable, portRange Port, desc
 }
 
 func (c *jsiiProxy_Connections) AllowToAnyIpv4(portRange Port, description *string) {
+	if err := c.validateAllowToAnyIpv4Parameters(portRange); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowToAnyIpv4",
@@ -230,6 +254,9 @@ func (c *jsiiProxy_Connections) AllowToAnyIpv4(portRange Port, description *stri
 }
 
 func (c *jsiiProxy_Connections) AllowToDefaultPort(other IConnectable, description *string) {
+	if err := c.validateAllowToDefaultPortParameters(other); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"allowToDefaultPort",

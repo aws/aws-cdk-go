@@ -102,6 +102,9 @@ func (j *jsiiProxy_Wave) Stages() *[]StageDeployment {
 func NewWave(id *string, props *WaveProps) Wave {
 	_init_.Initialize()
 
+	if err := validateNewWaveParameters(id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Wave{}
 
 	_jsii_.Create(
@@ -151,6 +154,9 @@ func (w *jsiiProxy_Wave) AddPre(steps ...Step) {
 }
 
 func (w *jsiiProxy_Wave) AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment {
+	if err := w.validateAddStageParameters(stage, options); err != nil {
+		panic(err)
+	}
 	var returns StageDeployment
 
 	_jsii_.Invoke(

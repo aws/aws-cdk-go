@@ -68,6 +68,9 @@ func (j *jsiiProxy_AmazonLinuxImage) ParameterName() *string {
 func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
 	_init_.Initialize()
 
+	if err := validateNewAmazonLinuxImageParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AmazonLinuxImage{}
 
 	_jsii_.Create(
@@ -95,6 +98,9 @@ func NewAmazonLinuxImage_Override(a AmazonLinuxImage, props *AmazonLinuxImagePro
 func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 	_init_.Initialize()
 
+	if err := validateAmazonLinuxImage_SsmParameterNameParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -108,6 +114,9 @@ func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 }
 
 func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+	if err := a.validateGetImageParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

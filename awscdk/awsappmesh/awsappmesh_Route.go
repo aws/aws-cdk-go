@@ -231,6 +231,9 @@ func (j *jsiiProxy_Route) VirtualRouter() IVirtualRouter {
 func NewRoute(scope constructs.Construct, id *string, props *RouteProps) Route {
 	_init_.Initialize()
 
+	if err := validateNewRouteParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Route{}
 
 	_jsii_.Create(
@@ -258,6 +261,9 @@ func NewRoute_Override(r Route, scope constructs.Construct, id *string, props *R
 func Route_FromRouteArn(scope constructs.Construct, id *string, routeArn *string) IRoute {
 	_init_.Initialize()
 
+	if err := validateRoute_FromRouteArnParameters(scope, id, routeArn); err != nil {
+		panic(err)
+	}
 	var returns IRoute
 
 	_jsii_.StaticInvoke(
@@ -275,6 +281,9 @@ func Route_FromRouteArn(scope constructs.Construct, id *string, routeArn *string
 func Route_FromRouteAttributes(scope constructs.Construct, id *string, attrs *RouteAttributes) IRoute {
 	_init_.Initialize()
 
+	if err := validateRoute_FromRouteAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IRoute
 
 	_jsii_.StaticInvoke(
@@ -292,6 +301,9 @@ func Route_FromRouteAttributes(scope constructs.Construct, id *string, attrs *Ro
 func Route_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateRoute_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -309,6 +321,9 @@ func Route_IsConstruct(x interface{}) *bool {
 func Route_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateRoute_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -322,6 +337,9 @@ func Route_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (r *jsiiProxy_Route) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := r.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"applyRemovalPolicy",
@@ -343,6 +361,9 @@ func (r *jsiiProxy_Route) GeneratePhysicalName() *string {
 }
 
 func (r *jsiiProxy_Route) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := r.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -356,6 +377,9 @@ func (r *jsiiProxy_Route) GetResourceArnAttribute(arnAttr *string, arnComponents
 }
 
 func (r *jsiiProxy_Route) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := r.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -377,6 +401,9 @@ func (r *jsiiProxy_Route) OnPrepare() {
 }
 
 func (r *jsiiProxy_Route) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := r.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"onSynthesize",
@@ -406,6 +433,9 @@ func (r *jsiiProxy_Route) Prepare() {
 }
 
 func (r *jsiiProxy_Route) Synthesize(session awscdk.ISynthesisSession) {
+	if err := r.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		r,
 		"synthesize",

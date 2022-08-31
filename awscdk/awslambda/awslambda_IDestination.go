@@ -20,6 +20,9 @@ type jsiiProxy_IDestination struct {
 }
 
 func (i *jsiiProxy_IDestination) Bind(scope awscdk.Construct, fn IFunction, options *DestinationOptions) *DestinationConfig {
+	if err := i.validateBindParameters(scope, fn, options); err != nil {
+		panic(err)
+	}
 	var returns *DestinationConfig
 
 	_jsii_.Invoke(

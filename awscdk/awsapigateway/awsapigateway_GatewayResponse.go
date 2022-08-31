@@ -194,6 +194,9 @@ func (j *jsiiProxy_GatewayResponse) Stack() awscdk.Stack {
 func NewGatewayResponse(scope constructs.Construct, id *string, props *GatewayResponseProps) GatewayResponse {
 	_init_.Initialize()
 
+	if err := validateNewGatewayResponseParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GatewayResponse{}
 
 	_jsii_.Create(
@@ -221,6 +224,9 @@ func NewGatewayResponse_Override(g GatewayResponse, scope constructs.Construct, 
 func GatewayResponse_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateGatewayResponse_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -238,6 +244,9 @@ func GatewayResponse_IsConstruct(x interface{}) *bool {
 func GatewayResponse_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateGatewayResponse_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -251,6 +260,9 @@ func GatewayResponse_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (g *jsiiProxy_GatewayResponse) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := g.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"applyRemovalPolicy",
@@ -272,6 +284,9 @@ func (g *jsiiProxy_GatewayResponse) GeneratePhysicalName() *string {
 }
 
 func (g *jsiiProxy_GatewayResponse) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := g.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -285,6 +300,9 @@ func (g *jsiiProxy_GatewayResponse) GetResourceArnAttribute(arnAttr *string, arn
 }
 
 func (g *jsiiProxy_GatewayResponse) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := g.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -306,6 +324,9 @@ func (g *jsiiProxy_GatewayResponse) OnPrepare() {
 }
 
 func (g *jsiiProxy_GatewayResponse) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := g.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"onSynthesize",
@@ -335,6 +356,9 @@ func (g *jsiiProxy_GatewayResponse) Prepare() {
 }
 
 func (g *jsiiProxy_GatewayResponse) Synthesize(session awscdk.ISynthesisSession) {
+	if err := g.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		g,
 		"synthesize",

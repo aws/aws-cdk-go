@@ -21,6 +21,9 @@ type jsiiProxy_IApplicationLoadBalancerTarget struct {
 }
 
 func (i *jsiiProxy_IApplicationLoadBalancerTarget) AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps {
+	if err := i.validateAttachToApplicationTargetGroupParameters(targetGroup); err != nil {
+		panic(err)
+	}
 	var returns *LoadBalancerTargetProps
 
 	_jsii_.Invoke(

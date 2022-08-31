@@ -175,6 +175,9 @@ func (j *jsiiProxy_CfnInclude) Template() *map[string]interface{} {
 func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProps) CfnInclude {
 	_init_.Initialize()
 
+	if err := validateNewCfnIncludeParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnInclude{}
 
 	_jsii_.Create(
@@ -212,6 +215,9 @@ func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string
 func CfnInclude_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInclude_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -229,6 +235,9 @@ func CfnInclude_IsCfnElement(x interface{}) *bool {
 func CfnInclude_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnInclude_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -250,6 +259,9 @@ func (c *jsiiProxy_CfnInclude) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnInclude) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -271,6 +283,9 @@ func (c *jsiiProxy_CfnInclude) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -287,6 +302,9 @@ func (c *jsiiProxy_CfnInclude) Prepare() {
 }
 
 func (c *jsiiProxy_CfnInclude) Synthesize(session ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

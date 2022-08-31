@@ -38,6 +38,9 @@ type jsiiProxy_S3Code struct {
 func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateNewS3CodeParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3Code{}
 
 	_jsii_.Create(
@@ -71,6 +74,9 @@ func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersi
 func S3Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromAssetParameters(assetPath, options); err != nil {
+		panic(err)
+	}
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
@@ -95,6 +101,9 @@ func S3Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) Asse
 func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
@@ -114,6 +123,9 @@ func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string)
 func S3Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
+	if err := validateS3Code_FromInlineParameters(code); err != nil {
+		panic(err)
+	}
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
@@ -127,6 +139,9 @@ func S3Code_FromInline(code *string) InlineCode {
 }
 
 func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, _handler *string, _family RuntimeFamily) *CodeConfig {
+	if err := s.validateBindParameters(_scope, _handler, _family); err != nil {
+		panic(err)
+	}
 	var returns *CodeConfig
 
 	_jsii_.Invoke(

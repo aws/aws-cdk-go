@@ -291,6 +291,9 @@ func (j *jsiiProxy_Job) Stack() awscdk.Stack {
 func NewJob(scope constructs.Construct, id *string, props *JobProps) Job {
 	_init_.Initialize()
 
+	if err := validateNewJobParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Job{}
 
 	_jsii_.Create(
@@ -318,6 +321,9 @@ func NewJob_Override(j Job, scope constructs.Construct, id *string, props *JobPr
 func Job_FromJobAttributes(scope constructs.Construct, id *string, attrs *JobAttributes) IJob {
 	_init_.Initialize()
 
+	if err := validateJob_FromJobAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IJob
 
 	_jsii_.StaticInvoke(
@@ -335,6 +341,9 @@ func Job_FromJobAttributes(scope constructs.Construct, id *string, attrs *JobAtt
 func Job_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateJob_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -352,6 +361,9 @@ func Job_IsConstruct(x interface{}) *bool {
 func Job_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateJob_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -365,6 +377,9 @@ func Job_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (j *jsiiProxy_Job) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := j.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"applyRemovalPolicy",
@@ -386,6 +401,9 @@ func (j *jsiiProxy_Job) GeneratePhysicalName() *string {
 }
 
 func (j *jsiiProxy_Job) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := j.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -399,6 +417,9 @@ func (j *jsiiProxy_Job) GetResourceArnAttribute(arnAttr *string, arnComponents *
 }
 
 func (j *jsiiProxy_Job) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := j.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -412,6 +433,9 @@ func (j *jsiiProxy_Job) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (j *jsiiProxy_Job) Metric(metricName *string, type_ MetricType, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := j.validateMetricParameters(metricName, type_, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -425,6 +449,9 @@ func (j *jsiiProxy_Job) Metric(metricName *string, type_ MetricType, props *awsc
 }
 
 func (j *jsiiProxy_Job) MetricFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := j.validateMetricFailureParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -438,6 +465,9 @@ func (j *jsiiProxy_Job) MetricFailure(props *awscloudwatch.MetricOptions) awsclo
 }
 
 func (j *jsiiProxy_Job) MetricSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := j.validateMetricSuccessParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -451,6 +481,9 @@ func (j *jsiiProxy_Job) MetricSuccess(props *awscloudwatch.MetricOptions) awsclo
 }
 
 func (j *jsiiProxy_Job) MetricTimeout(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := j.validateMetricTimeoutParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -464,6 +497,9 @@ func (j *jsiiProxy_Job) MetricTimeout(props *awscloudwatch.MetricOptions) awsclo
 }
 
 func (j *jsiiProxy_Job) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := j.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -477,6 +513,9 @@ func (j *jsiiProxy_Job) OnEvent(id *string, options *awsevents.OnEventOptions) a
 }
 
 func (j *jsiiProxy_Job) OnFailure(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := j.validateOnFailureParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -498,6 +537,9 @@ func (j *jsiiProxy_Job) OnPrepare() {
 }
 
 func (j *jsiiProxy_Job) OnStateChange(id *string, jobState JobState, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := j.validateOnStateChangeParameters(id, jobState, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -511,6 +553,9 @@ func (j *jsiiProxy_Job) OnStateChange(id *string, jobState JobState, options *aw
 }
 
 func (j *jsiiProxy_Job) OnSuccess(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := j.validateOnSuccessParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -524,6 +569,9 @@ func (j *jsiiProxy_Job) OnSuccess(id *string, options *awsevents.OnEventOptions)
 }
 
 func (j *jsiiProxy_Job) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := j.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"onSynthesize",
@@ -532,6 +580,9 @@ func (j *jsiiProxy_Job) OnSynthesize(session constructs.ISynthesisSession) {
 }
 
 func (j *jsiiProxy_Job) OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := j.validateOnTimeoutParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -566,6 +617,9 @@ func (j *jsiiProxy_Job) Prepare() {
 }
 
 func (j *jsiiProxy_Job) Synthesize(session awscdk.ISynthesisSession) {
+	if err := j.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		j,
 		"synthesize",

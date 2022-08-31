@@ -286,6 +286,9 @@ func (j *jsiiProxy_DeliveryStream) Stack() awscdk.Stack {
 func NewDeliveryStream(scope constructs.Construct, id *string, props *DeliveryStreamProps) DeliveryStream {
 	_init_.Initialize()
 
+	if err := validateNewDeliveryStreamParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DeliveryStream{}
 
 	_jsii_.Create(
@@ -313,6 +316,9 @@ func NewDeliveryStream_Override(d DeliveryStream, scope constructs.Construct, id
 func DeliveryStream_FromDeliveryStreamArn(scope constructs.Construct, id *string, deliveryStreamArn *string) IDeliveryStream {
 	_init_.Initialize()
 
+	if err := validateDeliveryStream_FromDeliveryStreamArnParameters(scope, id, deliveryStreamArn); err != nil {
+		panic(err)
+	}
 	var returns IDeliveryStream
 
 	_jsii_.StaticInvoke(
@@ -330,6 +336,9 @@ func DeliveryStream_FromDeliveryStreamArn(scope constructs.Construct, id *string
 func DeliveryStream_FromDeliveryStreamAttributes(scope constructs.Construct, id *string, attrs *DeliveryStreamAttributes) IDeliveryStream {
 	_init_.Initialize()
 
+	if err := validateDeliveryStream_FromDeliveryStreamAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IDeliveryStream
 
 	_jsii_.StaticInvoke(
@@ -347,6 +356,9 @@ func DeliveryStream_FromDeliveryStreamAttributes(scope constructs.Construct, id 
 func DeliveryStream_FromDeliveryStreamName(scope constructs.Construct, id *string, deliveryStreamName *string) IDeliveryStream {
 	_init_.Initialize()
 
+	if err := validateDeliveryStream_FromDeliveryStreamNameParameters(scope, id, deliveryStreamName); err != nil {
+		panic(err)
+	}
 	var returns IDeliveryStream
 
 	_jsii_.StaticInvoke(
@@ -364,6 +376,9 @@ func DeliveryStream_FromDeliveryStreamName(scope constructs.Construct, id *strin
 func DeliveryStream_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDeliveryStream_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -381,6 +396,9 @@ func DeliveryStream_IsConstruct(x interface{}) *bool {
 func DeliveryStream_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateDeliveryStream_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -394,6 +412,9 @@ func DeliveryStream_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (d *jsiiProxy_DeliveryStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := d.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"applyRemovalPolicy",
@@ -415,6 +436,9 @@ func (d *jsiiProxy_DeliveryStream) GeneratePhysicalName() *string {
 }
 
 func (d *jsiiProxy_DeliveryStream) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := d.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -428,6 +452,9 @@ func (d *jsiiProxy_DeliveryStream) GetResourceArnAttribute(arnAttr *string, arnC
 }
 
 func (d *jsiiProxy_DeliveryStream) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := d.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -441,6 +468,9 @@ func (d *jsiiProxy_DeliveryStream) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 func (d *jsiiProxy_DeliveryStream) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := d.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -459,6 +489,9 @@ func (d *jsiiProxy_DeliveryStream) Grant(grantee awsiam.IGrantable, actions ...*
 }
 
 func (d *jsiiProxy_DeliveryStream) GrantPutRecords(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantPutRecordsParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -472,6 +505,9 @@ func (d *jsiiProxy_DeliveryStream) GrantPutRecords(grantee awsiam.IGrantable) aw
 }
 
 func (d *jsiiProxy_DeliveryStream) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -485,6 +521,9 @@ func (d *jsiiProxy_DeliveryStream) Metric(metricName *string, props *awscloudwat
 }
 
 func (d *jsiiProxy_DeliveryStream) MetricBackupToS3Bytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricBackupToS3BytesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -498,6 +537,9 @@ func (d *jsiiProxy_DeliveryStream) MetricBackupToS3Bytes(props *awscloudwatch.Me
 }
 
 func (d *jsiiProxy_DeliveryStream) MetricBackupToS3DataFreshness(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricBackupToS3DataFreshnessParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -511,6 +553,9 @@ func (d *jsiiProxy_DeliveryStream) MetricBackupToS3DataFreshness(props *awscloud
 }
 
 func (d *jsiiProxy_DeliveryStream) MetricBackupToS3Records(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricBackupToS3RecordsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -524,6 +569,9 @@ func (d *jsiiProxy_DeliveryStream) MetricBackupToS3Records(props *awscloudwatch.
 }
 
 func (d *jsiiProxy_DeliveryStream) MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricIncomingBytesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -537,6 +585,9 @@ func (d *jsiiProxy_DeliveryStream) MetricIncomingBytes(props *awscloudwatch.Metr
 }
 
 func (d *jsiiProxy_DeliveryStream) MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricIncomingRecordsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -558,6 +609,9 @@ func (d *jsiiProxy_DeliveryStream) OnPrepare() {
 }
 
 func (d *jsiiProxy_DeliveryStream) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -587,6 +641,9 @@ func (d *jsiiProxy_DeliveryStream) Prepare() {
 }
 
 func (d *jsiiProxy_DeliveryStream) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

@@ -94,6 +94,9 @@ func (j *jsiiProxy_Schema) Definition() *string {
 func NewSchema(options *SchemaOptions) Schema {
 	_init_.Initialize()
 
+	if err := validateNewSchemaParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Schema{}
 
 	_jsii_.Create(
@@ -116,7 +119,10 @@ func NewSchema_Override(s Schema, options *SchemaOptions) {
 	)
 }
 
-func (j *jsiiProxy_Schema) SetDefinition(val *string) {
+func (j *jsiiProxy_Schema)SetDefinition(val *string) {
+	if err := j.validateSetDefinitionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"definition",
@@ -131,6 +137,9 @@ func (j *jsiiProxy_Schema) SetDefinition(val *string) {
 func Schema_FromAsset(filePath *string) Schema {
 	_init_.Initialize()
 
+	if err := validateSchema_FromAssetParameters(filePath); err != nil {
+		panic(err)
+	}
 	var returns Schema
 
 	_jsii_.StaticInvoke(
@@ -144,6 +153,9 @@ func Schema_FromAsset(filePath *string) Schema {
 }
 
 func (s *jsiiProxy_Schema) AddMutation(fieldName *string, field ResolvableField) ObjectType {
+	if err := s.validateAddMutationParameters(fieldName, field); err != nil {
+		panic(err)
+	}
 	var returns ObjectType
 
 	_jsii_.Invoke(
@@ -157,6 +169,9 @@ func (s *jsiiProxy_Schema) AddMutation(fieldName *string, field ResolvableField)
 }
 
 func (s *jsiiProxy_Schema) AddQuery(fieldName *string, field ResolvableField) ObjectType {
+	if err := s.validateAddQueryParameters(fieldName, field); err != nil {
+		panic(err)
+	}
 	var returns ObjectType
 
 	_jsii_.Invoke(
@@ -170,6 +185,9 @@ func (s *jsiiProxy_Schema) AddQuery(fieldName *string, field ResolvableField) Ob
 }
 
 func (s *jsiiProxy_Schema) AddSubscription(fieldName *string, field Field) ObjectType {
+	if err := s.validateAddSubscriptionParameters(fieldName, field); err != nil {
+		panic(err)
+	}
 	var returns ObjectType
 
 	_jsii_.Invoke(
@@ -183,6 +201,9 @@ func (s *jsiiProxy_Schema) AddSubscription(fieldName *string, field Field) Objec
 }
 
 func (s *jsiiProxy_Schema) AddToSchema(addition *string, delimiter *string) {
+	if err := s.validateAddToSchemaParameters(addition); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addToSchema",
@@ -191,6 +212,9 @@ func (s *jsiiProxy_Schema) AddToSchema(addition *string, delimiter *string) {
 }
 
 func (s *jsiiProxy_Schema) AddType(type_ IIntermediateType) IIntermediateType {
+	if err := s.validateAddTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns IIntermediateType
 
 	_jsii_.Invoke(
@@ -204,6 +228,9 @@ func (s *jsiiProxy_Schema) AddType(type_ IIntermediateType) IIntermediateType {
 }
 
 func (s *jsiiProxy_Schema) Bind(api GraphqlApi) CfnGraphQLSchema {
+	if err := s.validateBindParameters(api); err != nil {
+		panic(err)
+	}
 	var returns CfnGraphQLSchema
 
 	_jsii_.Invoke(

@@ -72,6 +72,9 @@ func NewVirtualGatewayListener_Override(v VirtualGatewayListener) {
 func VirtualGatewayListener_Grpc(options *GrpcGatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
+	if err := validateVirtualGatewayListener_GrpcParameters(options); err != nil {
+		panic(err)
+	}
 	var returns VirtualGatewayListener
 
 	_jsii_.StaticInvoke(
@@ -89,6 +92,9 @@ func VirtualGatewayListener_Grpc(options *GrpcGatewayListenerOptions) VirtualGat
 func VirtualGatewayListener_Http(options *HttpGatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
+	if err := validateVirtualGatewayListener_HttpParameters(options); err != nil {
+		panic(err)
+	}
 	var returns VirtualGatewayListener
 
 	_jsii_.StaticInvoke(
@@ -106,6 +112,9 @@ func VirtualGatewayListener_Http(options *HttpGatewayListenerOptions) VirtualGat
 func VirtualGatewayListener_Http2(options *Http2GatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
+	if err := validateVirtualGatewayListener_Http2Parameters(options); err != nil {
+		panic(err)
+	}
 	var returns VirtualGatewayListener
 
 	_jsii_.StaticInvoke(
@@ -119,6 +128,9 @@ func VirtualGatewayListener_Http2(options *Http2GatewayListenerOptions) VirtualG
 }
 
 func (v *jsiiProxy_VirtualGatewayListener) Bind(scope awscdk.Construct) *VirtualGatewayListenerConfig {
+	if err := v.validateBindParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns *VirtualGatewayListenerConfig
 
 	_jsii_.Invoke(

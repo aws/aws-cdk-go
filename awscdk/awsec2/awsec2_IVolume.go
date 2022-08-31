@@ -63,6 +63,9 @@ type jsiiProxy_IVolume struct {
 }
 
 func (i *jsiiProxy_IVolume) GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant {
+	if err := i.validateGrantAttachVolumeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -76,6 +79,9 @@ func (i *jsiiProxy_IVolume) GrantAttachVolume(grantee awsiam.IGrantable, instanc
 }
 
 func (i *jsiiProxy_IVolume) GrantAttachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant {
+	if err := i.validateGrantAttachVolumeByResourceTagParameters(grantee, constructs); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -89,6 +95,9 @@ func (i *jsiiProxy_IVolume) GrantAttachVolumeByResourceTag(grantee awsiam.IGrant
 }
 
 func (i *jsiiProxy_IVolume) GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant {
+	if err := i.validateGrantDetachVolumeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -102,6 +111,9 @@ func (i *jsiiProxy_IVolume) GrantDetachVolume(grantee awsiam.IGrantable, instanc
 }
 
 func (i *jsiiProxy_IVolume) GrantDetachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant {
+	if err := i.validateGrantDetachVolumeByResourceTagParameters(grantee, constructs); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

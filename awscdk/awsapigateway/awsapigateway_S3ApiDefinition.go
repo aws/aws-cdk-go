@@ -44,6 +44,9 @@ type jsiiProxy_S3ApiDefinition struct {
 func NewS3ApiDefinition(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
+	if err := validateNewS3ApiDefinitionParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3ApiDefinition{}
 
 	_jsii_.Create(
@@ -71,6 +74,9 @@ func NewS3ApiDefinition_Override(s S3ApiDefinition, bucket awss3.IBucket, key *s
 func S3ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
+	if err := validateS3ApiDefinition_FromAssetParameters(file, options); err != nil {
+		panic(err)
+	}
 	var returns AssetApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -88,6 +94,9 @@ func S3ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) 
 func S3ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
+	if err := validateS3ApiDefinition_FromBucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
 	var returns S3ApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -151,6 +160,9 @@ func S3ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion
 func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
+	if err := validateS3ApiDefinition_FromInlineParameters(definition); err != nil {
+		panic(err)
+	}
 	var returns InlineApiDefinition
 
 	_jsii_.StaticInvoke(
@@ -164,6 +176,9 @@ func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 }
 
 func (s *jsiiProxy_S3ApiDefinition) Bind(_scope awscdk.Construct) *ApiDefinitionConfig {
+	if err := s.validateBindParameters(_scope); err != nil {
+		panic(err)
+	}
 	var returns *ApiDefinitionConfig
 
 	_jsii_.Invoke(
@@ -177,6 +192,9 @@ func (s *jsiiProxy_S3ApiDefinition) Bind(_scope awscdk.Construct) *ApiDefinition
 }
 
 func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope awscdk.Construct, _restApi IRestApi) {
+	if err := s.validateBindAfterCreateParameters(_scope, _restApi); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"bindAfterCreate",

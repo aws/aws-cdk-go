@@ -153,6 +153,9 @@ func (j *jsiiProxy_OpenIdConnectPrincipal) PrincipalAccount() *string {
 func NewOpenIdConnectPrincipal(openIdConnectProvider IOpenIdConnectProvider, conditions *map[string]interface{}) OpenIdConnectPrincipal {
 	_init_.Initialize()
 
+	if err := validateNewOpenIdConnectPrincipalParameters(openIdConnectProvider); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_OpenIdConnectPrincipal{}
 
 	_jsii_.Create(
@@ -176,6 +179,9 @@ func NewOpenIdConnectPrincipal_Override(o OpenIdConnectPrincipal, openIdConnectP
 }
 
 func (o *jsiiProxy_OpenIdConnectPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
+	if err := o.validateAddToAssumeRolePolicyParameters(document); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		o,
 		"addToAssumeRolePolicy",
@@ -184,6 +190,9 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) AddToAssumeRolePolicy(document Policy
 }
 
 func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	if err := o.validateAddToPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.Invoke(
@@ -197,6 +206,9 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPolicy(statement PolicyStatement
 }
 
 func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	if err := o.validateAddToPrincipalPolicyParameters(_statement); err != nil {
+		panic(err)
+	}
 	var returns *AddToPrincipalPolicyResult
 
 	_jsii_.Invoke(
@@ -249,6 +261,9 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) ToString() *string {
 }
 
 func (o *jsiiProxy_OpenIdConnectPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	if err := o.validateWithConditionsParameters(conditions); err != nil {
+		panic(err)
+	}
 	var returns PrincipalBase
 
 	_jsii_.Invoke(

@@ -217,6 +217,9 @@ func (j *jsiiProxy_BackupVault) Stack() awscdk.Stack {
 func NewBackupVault(scope constructs.Construct, id *string, props *BackupVaultProps) BackupVault {
 	_init_.Initialize()
 
+	if err := validateNewBackupVaultParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BackupVault{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewBackupVault_Override(b BackupVault, scope constructs.Construct, id *stri
 func BackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, backupVaultArn *string) IBackupVault {
 	_init_.Initialize()
 
+	if err := validateBackupVault_FromBackupVaultArnParameters(scope, id, backupVaultArn); err != nil {
+		panic(err)
+	}
 	var returns IBackupVault
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func BackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, back
 func BackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) IBackupVault {
 	_init_.Initialize()
 
+	if err := validateBackupVault_FromBackupVaultNameParameters(scope, id, backupVaultName); err != nil {
+		panic(err)
+	}
 	var returns IBackupVault
 
 	_jsii_.StaticInvoke(
@@ -278,6 +287,9 @@ func BackupVault_FromBackupVaultName(scope constructs.Construct, id *string, bac
 func BackupVault_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateBackupVault_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -295,6 +307,9 @@ func BackupVault_IsConstruct(x interface{}) *bool {
 func BackupVault_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateBackupVault_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -308,6 +323,9 @@ func BackupVault_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (b *jsiiProxy_BackupVault) AddToAccessPolicy(statement awsiam.PolicyStatement) {
+	if err := b.validateAddToAccessPolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"addToAccessPolicy",
@@ -316,6 +334,9 @@ func (b *jsiiProxy_BackupVault) AddToAccessPolicy(statement awsiam.PolicyStateme
 }
 
 func (b *jsiiProxy_BackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := b.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"applyRemovalPolicy",
@@ -345,6 +366,9 @@ func (b *jsiiProxy_BackupVault) GeneratePhysicalName() *string {
 }
 
 func (b *jsiiProxy_BackupVault) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := b.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -358,6 +382,9 @@ func (b *jsiiProxy_BackupVault) GetResourceArnAttribute(arnAttr *string, arnComp
 }
 
 func (b *jsiiProxy_BackupVault) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := b.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -371,6 +398,9 @@ func (b *jsiiProxy_BackupVault) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 func (b *jsiiProxy_BackupVault) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := b.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -397,6 +427,9 @@ func (b *jsiiProxy_BackupVault) OnPrepare() {
 }
 
 func (b *jsiiProxy_BackupVault) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"onSynthesize",
@@ -426,6 +459,9 @@ func (b *jsiiProxy_BackupVault) Prepare() {
 }
 
 func (b *jsiiProxy_BackupVault) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		b,
 		"synthesize",

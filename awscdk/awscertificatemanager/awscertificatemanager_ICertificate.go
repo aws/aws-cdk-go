@@ -30,6 +30,9 @@ type jsiiProxy_ICertificate struct {
 }
 
 func (i *jsiiProxy_ICertificate) MetricDaysToExpiry(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricDaysToExpiryParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(

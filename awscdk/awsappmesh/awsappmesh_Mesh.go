@@ -221,6 +221,9 @@ func (j *jsiiProxy_Mesh) Stack() awscdk.Stack {
 func NewMesh(scope constructs.Construct, id *string, props *MeshProps) Mesh {
 	_init_.Initialize()
 
+	if err := validateNewMeshParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Mesh{}
 
 	_jsii_.Create(
@@ -248,6 +251,9 @@ func NewMesh_Override(m Mesh, scope constructs.Construct, id *string, props *Mes
 func Mesh_FromMeshArn(scope constructs.Construct, id *string, meshArn *string) IMesh {
 	_init_.Initialize()
 
+	if err := validateMesh_FromMeshArnParameters(scope, id, meshArn); err != nil {
+		panic(err)
+	}
 	var returns IMesh
 
 	_jsii_.StaticInvoke(
@@ -265,6 +271,9 @@ func Mesh_FromMeshArn(scope constructs.Construct, id *string, meshArn *string) I
 func Mesh_FromMeshName(scope constructs.Construct, id *string, meshName *string) IMesh {
 	_init_.Initialize()
 
+	if err := validateMesh_FromMeshNameParameters(scope, id, meshName); err != nil {
+		panic(err)
+	}
 	var returns IMesh
 
 	_jsii_.StaticInvoke(
@@ -282,6 +291,9 @@ func Mesh_FromMeshName(scope constructs.Construct, id *string, meshName *string)
 func Mesh_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateMesh_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -299,6 +311,9 @@ func Mesh_IsConstruct(x interface{}) *bool {
 func Mesh_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateMesh_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -312,6 +327,9 @@ func Mesh_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (m *jsiiProxy_Mesh) AddVirtualGateway(id *string, props *VirtualGatewayBaseProps) VirtualGateway {
+	if err := m.validateAddVirtualGatewayParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns VirtualGateway
 
 	_jsii_.Invoke(
@@ -325,6 +343,9 @@ func (m *jsiiProxy_Mesh) AddVirtualGateway(id *string, props *VirtualGatewayBase
 }
 
 func (m *jsiiProxy_Mesh) AddVirtualNode(id *string, props *VirtualNodeBaseProps) VirtualNode {
+	if err := m.validateAddVirtualNodeParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns VirtualNode
 
 	_jsii_.Invoke(
@@ -338,6 +359,9 @@ func (m *jsiiProxy_Mesh) AddVirtualNode(id *string, props *VirtualNodeBaseProps)
 }
 
 func (m *jsiiProxy_Mesh) AddVirtualRouter(id *string, props *VirtualRouterBaseProps) VirtualRouter {
+	if err := m.validateAddVirtualRouterParameters(id, props); err != nil {
+		panic(err)
+	}
 	var returns VirtualRouter
 
 	_jsii_.Invoke(
@@ -351,6 +375,9 @@ func (m *jsiiProxy_Mesh) AddVirtualRouter(id *string, props *VirtualRouterBasePr
 }
 
 func (m *jsiiProxy_Mesh) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := m.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"applyRemovalPolicy",
@@ -372,6 +399,9 @@ func (m *jsiiProxy_Mesh) GeneratePhysicalName() *string {
 }
 
 func (m *jsiiProxy_Mesh) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := m.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -385,6 +415,9 @@ func (m *jsiiProxy_Mesh) GetResourceArnAttribute(arnAttr *string, arnComponents 
 }
 
 func (m *jsiiProxy_Mesh) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := m.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -406,6 +439,9 @@ func (m *jsiiProxy_Mesh) OnPrepare() {
 }
 
 func (m *jsiiProxy_Mesh) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := m.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"onSynthesize",
@@ -435,6 +471,9 @@ func (m *jsiiProxy_Mesh) Prepare() {
 }
 
 func (m *jsiiProxy_Mesh) Synthesize(session awscdk.ISynthesisSession) {
+	if err := m.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"synthesize",

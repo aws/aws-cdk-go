@@ -512,6 +512,9 @@ func (j *jsiiProxy_CfnFirewallDomainList) UpdatedProperites() *map[string]interf
 func NewCfnFirewallDomainList(scope awscdk.Construct, id *string, props *CfnFirewallDomainListProps) CfnFirewallDomainList {
 	_init_.Initialize()
 
+	if err := validateNewCfnFirewallDomainListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnFirewallDomainList{}
 
 	_jsii_.Create(
@@ -534,7 +537,7 @@ func NewCfnFirewallDomainList_Override(c CfnFirewallDomainList, scope awscdk.Con
 	)
 }
 
-func (j *jsiiProxy_CfnFirewallDomainList) SetDomainFileUrl(val *string) {
+func (j *jsiiProxy_CfnFirewallDomainList)SetDomainFileUrl(val *string) {
 	_jsii_.Set(
 		j,
 		"domainFileUrl",
@@ -542,7 +545,7 @@ func (j *jsiiProxy_CfnFirewallDomainList) SetDomainFileUrl(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnFirewallDomainList) SetDomains(val *[]*string) {
+func (j *jsiiProxy_CfnFirewallDomainList)SetDomains(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"domains",
@@ -550,7 +553,7 @@ func (j *jsiiProxy_CfnFirewallDomainList) SetDomains(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnFirewallDomainList) SetName(val *string) {
+func (j *jsiiProxy_CfnFirewallDomainList)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
@@ -568,6 +571,9 @@ func (j *jsiiProxy_CfnFirewallDomainList) SetName(val *string) {
 func CfnFirewallDomainList_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnFirewallDomainList_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -585,6 +591,9 @@ func CfnFirewallDomainList_IsCfnElement(x interface{}) *bool {
 func CfnFirewallDomainList_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnFirewallDomainList_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -602,6 +611,9 @@ func CfnFirewallDomainList_IsCfnResource(construct constructs.IConstruct) *bool 
 func CfnFirewallDomainList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnFirewallDomainList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -626,6 +638,9 @@ func CfnFirewallDomainList_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -634,6 +649,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -642,6 +660,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) AddDependsOn(target awscdk.CfnResource
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -650,6 +671,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) AddMetadata(key *string, value interfa
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -658,6 +682,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) AddOverride(path *string, value interf
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -666,6 +693,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) AddPropertyDeletionOverride(propertyPa
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -674,6 +704,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) AddPropertyOverride(propertyPath *stri
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -682,6 +715,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -695,6 +731,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) GetAtt(attributeName *string) awscdk.R
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -708,6 +747,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -724,6 +766,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -745,6 +790,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -761,6 +809,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) Prepare() {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -787,6 +838,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -821,6 +875,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

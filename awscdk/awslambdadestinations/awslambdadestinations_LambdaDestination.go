@@ -43,6 +43,9 @@ type jsiiProxy_LambdaDestination struct {
 func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOptions) LambdaDestination {
 	_init_.Initialize()
 
+	if err := validateNewLambdaDestinationParameters(fn, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_LambdaDestination{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, 
 }
 
 func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+	if err := l.validateBindParameters(scope, fn, options); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(

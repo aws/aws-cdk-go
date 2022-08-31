@@ -770,6 +770,9 @@ func (j *jsiiProxy_CfnRecordSet) Weight() *float64 {
 func NewCfnRecordSet(scope awscdk.Construct, id *string, props *CfnRecordSetProps) CfnRecordSet {
 	_init_.Initialize()
 
+	if err := validateNewCfnRecordSetParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnRecordSet{}
 
 	_jsii_.Create(
@@ -792,7 +795,10 @@ func NewCfnRecordSet_Override(c CfnRecordSet, scope awscdk.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetAliasTarget(val interface{}) {
+func (j *jsiiProxy_CfnRecordSet)SetAliasTarget(val interface{}) {
+	if err := j.validateSetAliasTargetParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"aliasTarget",
@@ -800,7 +806,10 @@ func (j *jsiiProxy_CfnRecordSet) SetAliasTarget(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetCidrRoutingConfig(val interface{}) {
+func (j *jsiiProxy_CfnRecordSet)SetCidrRoutingConfig(val interface{}) {
+	if err := j.validateSetCidrRoutingConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"cidrRoutingConfig",
@@ -808,7 +817,7 @@ func (j *jsiiProxy_CfnRecordSet) SetCidrRoutingConfig(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetComment(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetComment(val *string) {
 	_jsii_.Set(
 		j,
 		"comment",
@@ -816,7 +825,7 @@ func (j *jsiiProxy_CfnRecordSet) SetComment(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetFailover(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetFailover(val *string) {
 	_jsii_.Set(
 		j,
 		"failover",
@@ -824,7 +833,10 @@ func (j *jsiiProxy_CfnRecordSet) SetFailover(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetGeoLocation(val interface{}) {
+func (j *jsiiProxy_CfnRecordSet)SetGeoLocation(val interface{}) {
+	if err := j.validateSetGeoLocationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"geoLocation",
@@ -832,7 +844,7 @@ func (j *jsiiProxy_CfnRecordSet) SetGeoLocation(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetHealthCheckId(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetHealthCheckId(val *string) {
 	_jsii_.Set(
 		j,
 		"healthCheckId",
@@ -840,7 +852,7 @@ func (j *jsiiProxy_CfnRecordSet) SetHealthCheckId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetHostedZoneId(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetHostedZoneId(val *string) {
 	_jsii_.Set(
 		j,
 		"hostedZoneId",
@@ -848,7 +860,7 @@ func (j *jsiiProxy_CfnRecordSet) SetHostedZoneId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetHostedZoneName(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetHostedZoneName(val *string) {
 	_jsii_.Set(
 		j,
 		"hostedZoneName",
@@ -856,7 +868,10 @@ func (j *jsiiProxy_CfnRecordSet) SetHostedZoneName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetMultiValueAnswer(val interface{}) {
+func (j *jsiiProxy_CfnRecordSet)SetMultiValueAnswer(val interface{}) {
+	if err := j.validateSetMultiValueAnswerParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"multiValueAnswer",
@@ -864,7 +879,10 @@ func (j *jsiiProxy_CfnRecordSet) SetMultiValueAnswer(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetName(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -872,7 +890,7 @@ func (j *jsiiProxy_CfnRecordSet) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetRegion(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetRegion(val *string) {
 	_jsii_.Set(
 		j,
 		"region",
@@ -880,7 +898,7 @@ func (j *jsiiProxy_CfnRecordSet) SetRegion(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetResourceRecords(val *[]*string) {
+func (j *jsiiProxy_CfnRecordSet)SetResourceRecords(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourceRecords",
@@ -888,7 +906,7 @@ func (j *jsiiProxy_CfnRecordSet) SetResourceRecords(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetSetIdentifier(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetSetIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"setIdentifier",
@@ -896,7 +914,7 @@ func (j *jsiiProxy_CfnRecordSet) SetSetIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetTtl(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetTtl(val *string) {
 	_jsii_.Set(
 		j,
 		"ttl",
@@ -904,7 +922,10 @@ func (j *jsiiProxy_CfnRecordSet) SetTtl(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetType(val *string) {
+func (j *jsiiProxy_CfnRecordSet)SetType(val *string) {
+	if err := j.validateSetTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"type",
@@ -912,7 +933,7 @@ func (j *jsiiProxy_CfnRecordSet) SetType(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnRecordSet) SetWeight(val *float64) {
+func (j *jsiiProxy_CfnRecordSet)SetWeight(val *float64) {
 	_jsii_.Set(
 		j,
 		"weight",
@@ -930,6 +951,9 @@ func (j *jsiiProxy_CfnRecordSet) SetWeight(val *float64) {
 func CfnRecordSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRecordSet_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -947,6 +971,9 @@ func CfnRecordSet_IsCfnElement(x interface{}) *bool {
 func CfnRecordSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRecordSet_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -964,6 +991,9 @@ func CfnRecordSet_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnRecordSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnRecordSet_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -988,6 +1018,9 @@ func CfnRecordSet_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnRecordSet) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -996,6 +1029,9 @@ func (c *jsiiProxy_CfnRecordSet) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnRecordSet) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -1004,6 +1040,9 @@ func (c *jsiiProxy_CfnRecordSet) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnRecordSet) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -1012,6 +1051,9 @@ func (c *jsiiProxy_CfnRecordSet) AddMetadata(key *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnRecordSet) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -1020,6 +1062,9 @@ func (c *jsiiProxy_CfnRecordSet) AddOverride(path *string, value interface{}) {
 }
 
 func (c *jsiiProxy_CfnRecordSet) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -1028,6 +1073,9 @@ func (c *jsiiProxy_CfnRecordSet) AddPropertyDeletionOverride(propertyPath *strin
 }
 
 func (c *jsiiProxy_CfnRecordSet) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -1036,6 +1084,9 @@ func (c *jsiiProxy_CfnRecordSet) AddPropertyOverride(propertyPath *string, value
 }
 
 func (c *jsiiProxy_CfnRecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -1044,6 +1095,9 @@ func (c *jsiiProxy_CfnRecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 }
 
 func (c *jsiiProxy_CfnRecordSet) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -1057,6 +1111,9 @@ func (c *jsiiProxy_CfnRecordSet) GetAtt(attributeName *string) awscdk.Reference 
 }
 
 func (c *jsiiProxy_CfnRecordSet) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -1070,6 +1127,9 @@ func (c *jsiiProxy_CfnRecordSet) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnRecordSet) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -1086,6 +1146,9 @@ func (c *jsiiProxy_CfnRecordSet) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnRecordSet) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -1107,6 +1170,9 @@ func (c *jsiiProxy_CfnRecordSet) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRecordSet) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -1123,6 +1189,9 @@ func (c *jsiiProxy_CfnRecordSet) Prepare() {
 }
 
 func (c *jsiiProxy_CfnRecordSet) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -1149,6 +1218,9 @@ func (c *jsiiProxy_CfnRecordSet) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnRecordSet) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -1183,6 +1255,9 @@ func (c *jsiiProxy_CfnRecordSet) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnRecordSet) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

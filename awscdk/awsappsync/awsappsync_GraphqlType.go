@@ -123,6 +123,9 @@ func (j *jsiiProxy_GraphqlType) Type() Type {
 func NewGraphqlType(type_ Type, options *GraphqlTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateNewGraphqlTypeParameters(type_, options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_GraphqlType{}
 
 	_jsii_.Create(
@@ -152,6 +155,9 @@ func NewGraphqlType_Override(g GraphqlType, type_ Type, options *GraphqlTypeOpti
 func GraphqlType_AwsDate(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsDateParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -171,6 +177,9 @@ func GraphqlType_AwsDate(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsDateTime(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsDateTimeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -188,6 +197,9 @@ func GraphqlType_AwsDateTime(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsEmail(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsEmailParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -205,6 +217,9 @@ func GraphqlType_AwsEmail(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsIpAddress(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsIpAddressParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -222,6 +237,9 @@ func GraphqlType_AwsIpAddress(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsJson(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsJsonParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -241,6 +259,9 @@ func GraphqlType_AwsJson(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsPhone(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsPhoneParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -260,6 +281,9 @@ func GraphqlType_AwsPhone(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsTime(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsTimeParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -279,6 +303,9 @@ func GraphqlType_AwsTime(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsTimestamp(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsTimestampParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -298,6 +325,9 @@ func GraphqlType_AwsTimestamp(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_AwsUrl(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_AwsUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -315,6 +345,9 @@ func GraphqlType_AwsUrl(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_Boolean(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_BooleanParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -332,6 +365,9 @@ func GraphqlType_Boolean(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_Float(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_FloatParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -351,6 +387,9 @@ func GraphqlType_Float(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_Id(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_IdParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -368,6 +407,9 @@ func GraphqlType_Id(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_Int(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_IntParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -385,6 +427,9 @@ func GraphqlType_Int(options *BaseTypeOptions) GraphqlType {
 func GraphqlType_Intermediate(options *GraphqlTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_IntermediateParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(
@@ -402,6 +447,9 @@ func GraphqlType_Intermediate(options *GraphqlTypeOptions) GraphqlType {
 func GraphqlType_String(options *BaseTypeOptions) GraphqlType {
 	_init_.Initialize()
 
+	if err := validateGraphqlType_StringParameters(options); err != nil {
+		panic(err)
+	}
 	var returns GraphqlType
 
 	_jsii_.StaticInvoke(

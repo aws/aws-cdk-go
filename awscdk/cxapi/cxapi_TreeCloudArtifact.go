@@ -176,6 +176,9 @@ func (j *jsiiProxy_TreeCloudArtifact) Messages() *[]*SynthesisMessage {
 func NewTreeCloudArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) TreeCloudArtifact {
 	_init_.Initialize()
 
+	if err := validateNewTreeCloudArtifactParameters(assembly, name, artifact); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_TreeCloudArtifact{}
 
 	_jsii_.Create(
@@ -205,6 +208,9 @@ func NewTreeCloudArtifact_Override(t TreeCloudArtifact, assembly CloudAssembly, 
 func TreeCloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
+	if err := validateTreeCloudArtifact_FromManifestParameters(assembly, id, artifact); err != nil {
+		panic(err)
+	}
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
@@ -218,6 +224,9 @@ func TreeCloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact
 }
 
 func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
+	if err := t.validateFindMetadataByTypeParameters(type_); err != nil {
+		panic(err)
+	}
 	var returns *[]*MetadataEntryResult
 
 	_jsii_.Invoke(

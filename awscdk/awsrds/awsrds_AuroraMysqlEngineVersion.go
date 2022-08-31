@@ -69,6 +69,9 @@ func (j *jsiiProxy_AuroraMysqlEngineVersion) AuroraMysqlMajorVersion() *string {
 func AuroraMysqlEngineVersion_Of(auroraMysqlFullVersion *string, auroraMysqlMajorVersion *string) AuroraMysqlEngineVersion {
 	_init_.Initialize()
 
+	if err := validateAuroraMysqlEngineVersion_OfParameters(auroraMysqlFullVersion); err != nil {
+		panic(err)
+	}
 	var returns AuroraMysqlEngineVersion
 
 	_jsii_.StaticInvoke(

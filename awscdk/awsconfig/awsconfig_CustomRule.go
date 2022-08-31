@@ -305,6 +305,9 @@ func (j *jsiiProxy_CustomRule) Stack() awscdk.Stack {
 func NewCustomRule(scope constructs.Construct, id *string, props *CustomRuleProps) CustomRule {
 	_init_.Initialize()
 
+	if err := validateNewCustomRuleParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CustomRule{}
 
 	_jsii_.Create(
@@ -327,7 +330,7 @@ func NewCustomRule_Override(c CustomRule, scope constructs.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_CustomRule) SetIsCustomWithChanges(val *bool) {
+func (j *jsiiProxy_CustomRule)SetIsCustomWithChanges(val *bool) {
 	_jsii_.Set(
 		j,
 		"isCustomWithChanges",
@@ -335,7 +338,7 @@ func (j *jsiiProxy_CustomRule) SetIsCustomWithChanges(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_CustomRule) SetIsManaged(val *bool) {
+func (j *jsiiProxy_CustomRule)SetIsManaged(val *bool) {
 	_jsii_.Set(
 		j,
 		"isManaged",
@@ -343,7 +346,7 @@ func (j *jsiiProxy_CustomRule) SetIsManaged(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_CustomRule) SetRuleScope(val RuleScope) {
+func (j *jsiiProxy_CustomRule)SetRuleScope(val RuleScope) {
 	_jsii_.Set(
 		j,
 		"ruleScope",
@@ -356,6 +359,9 @@ func (j *jsiiProxy_CustomRule) SetRuleScope(val RuleScope) {
 func CustomRule_FromConfigRuleName(scope constructs.Construct, id *string, configRuleName *string) IRule {
 	_init_.Initialize()
 
+	if err := validateCustomRule_FromConfigRuleNameParameters(scope, id, configRuleName); err != nil {
+		panic(err)
+	}
 	var returns IRule
 
 	_jsii_.StaticInvoke(
@@ -373,6 +379,9 @@ func CustomRule_FromConfigRuleName(scope constructs.Construct, id *string, confi
 func CustomRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCustomRule_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -390,6 +399,9 @@ func CustomRule_IsConstruct(x interface{}) *bool {
 func CustomRule_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCustomRule_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -403,6 +415,9 @@ func CustomRule_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (c *jsiiProxy_CustomRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -424,6 +439,9 @@ func (c *jsiiProxy_CustomRule) GeneratePhysicalName() *string {
 }
 
 func (c *jsiiProxy_CustomRule) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -437,6 +455,9 @@ func (c *jsiiProxy_CustomRule) GetResourceArnAttribute(arnAttr *string, arnCompo
 }
 
 func (c *jsiiProxy_CustomRule) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -450,6 +471,9 @@ func (c *jsiiProxy_CustomRule) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 func (c *jsiiProxy_CustomRule) OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := c.validateOnComplianceChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -463,6 +487,9 @@ func (c *jsiiProxy_CustomRule) OnComplianceChange(id *string, options *awsevents
 }
 
 func (c *jsiiProxy_CustomRule) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := c.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -484,6 +511,9 @@ func (c *jsiiProxy_CustomRule) OnPrepare() {
 }
 
 func (c *jsiiProxy_CustomRule) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := c.validateOnReEvaluationStatusParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -497,6 +527,9 @@ func (c *jsiiProxy_CustomRule) OnReEvaluationStatus(id *string, options *awseven
 }
 
 func (c *jsiiProxy_CustomRule) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -526,6 +559,9 @@ func (c *jsiiProxy_CustomRule) Prepare() {
 }
 
 func (c *jsiiProxy_CustomRule) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

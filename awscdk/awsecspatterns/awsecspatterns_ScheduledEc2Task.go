@@ -207,6 +207,9 @@ func (j *jsiiProxy_ScheduledEc2Task) TaskDefinition() awsecs.Ec2TaskDefinition {
 func NewScheduledEc2Task(scope constructs.Construct, id *string, props *ScheduledEc2TaskProps) ScheduledEc2Task {
 	_init_.Initialize()
 
+	if err := validateNewScheduledEc2TaskParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ScheduledEc2Task{}
 
 	_jsii_.Create(
@@ -235,6 +238,9 @@ func NewScheduledEc2Task_Override(s ScheduledEc2Task, scope constructs.Construct
 func ScheduledEc2Task_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateScheduledEc2Task_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -248,6 +254,9 @@ func ScheduledEc2Task_IsConstruct(x interface{}) *bool {
 }
 
 func (s *jsiiProxy_ScheduledEc2Task) AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask) {
+	if err := s.validateAddTaskAsTargetParameters(ecsTaskTarget); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"addTaskAsTarget",
@@ -256,6 +265,9 @@ func (s *jsiiProxy_ScheduledEc2Task) AddTaskAsTarget(ecsTaskTarget awseventstarg
 }
 
 func (s *jsiiProxy_ScheduledEc2Task) AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask {
+	if err := s.validateAddTaskDefinitionToEventTargetParameters(taskDefinition); err != nil {
+		panic(err)
+	}
 	var returns awseventstargets.EcsTask
 
 	_jsii_.Invoke(
@@ -269,6 +281,9 @@ func (s *jsiiProxy_ScheduledEc2Task) AddTaskDefinitionToEventTarget(taskDefiniti
 }
 
 func (s *jsiiProxy_ScheduledEc2Task) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := s.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -282,6 +297,9 @@ func (s *jsiiProxy_ScheduledEc2Task) CreateAWSLogDriver(prefix *string) awsecs.A
 }
 
 func (s *jsiiProxy_ScheduledEc2Task) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := s.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -303,6 +321,9 @@ func (s *jsiiProxy_ScheduledEc2Task) OnPrepare() {
 }
 
 func (s *jsiiProxy_ScheduledEc2Task) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -332,6 +353,9 @@ func (s *jsiiProxy_ScheduledEc2Task) Prepare() {
 }
 
 func (s *jsiiProxy_ScheduledEc2Task) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

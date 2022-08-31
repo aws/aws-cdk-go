@@ -87,6 +87,9 @@ func (j *jsiiProxy_ResourceServerScope) ScopeName() *string {
 func NewResourceServerScope(props *ResourceServerScopeProps) ResourceServerScope {
 	_init_.Initialize()
 
+	if err := validateNewResourceServerScopeParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ResourceServerScope{}
 
 	_jsii_.Create(

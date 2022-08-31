@@ -60,7 +60,10 @@ func NewActualResult_Override(a ActualResult) {
 	)
 }
 
-func (j *jsiiProxy_ActualResult) SetResult(val *string) {
+func (j *jsiiProxy_ActualResult)SetResult(val *string) {
+	if err := j.validateSetResultParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"result",
@@ -73,6 +76,9 @@ func (j *jsiiProxy_ActualResult) SetResult(val *string) {
 func ActualResult_FromAwsApiCall(query IAwsApiCall, attribute *string) ActualResult {
 	_init_.Initialize()
 
+	if err := validateActualResult_FromAwsApiCallParameters(query, attribute); err != nil {
+		panic(err)
+	}
 	var returns ActualResult
 
 	_jsii_.StaticInvoke(
@@ -90,6 +96,9 @@ func ActualResult_FromAwsApiCall(query IAwsApiCall, attribute *string) ActualRes
 func ActualResult_FromCustomResource(customResource awscdk.CustomResource, attribute *string) ActualResult {
 	_init_.Initialize()
 
+	if err := validateActualResult_FromCustomResourceParameters(customResource, attribute); err != nil {
+		panic(err)
+	}
 	var returns ActualResult
 
 	_jsii_.StaticInvoke(

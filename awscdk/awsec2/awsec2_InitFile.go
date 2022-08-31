@@ -71,6 +71,9 @@ func NewInitFile_Override(i InitFile, fileName *string, options *InitFileOptions
 func InitFile_FromAsset(targetFileName *string, path *string, options *InitFileAssetOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_FromAssetParameters(targetFileName, path, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(
@@ -88,6 +91,9 @@ func InitFile_FromAsset(targetFileName *string, path *string, options *InitFileA
 func InitFile_FromExistingAsset(targetFileName *string, asset awss3assets.Asset, options *InitFileOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_FromExistingAssetParameters(targetFileName, asset, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(
@@ -110,6 +116,9 @@ func InitFile_FromExistingAsset(targetFileName *string, asset awss3assets.Asset,
 func InitFile_FromFileInline(targetFileName *string, sourceFileName *string, options *InitFileOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_FromFileInlineParameters(targetFileName, sourceFileName, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(
@@ -129,6 +138,9 @@ func InitFile_FromFileInline(targetFileName *string, sourceFileName *string, opt
 func InitFile_FromObject(fileName *string, obj *map[string]interface{}, options *InitFileOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_FromObjectParameters(fileName, obj, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(
@@ -146,6 +158,9 @@ func InitFile_FromObject(fileName *string, obj *map[string]interface{}, options 
 func InitFile_FromS3Object(fileName *string, bucket awss3.IBucket, key *string, options *InitFileOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_FromS3ObjectParameters(fileName, bucket, key, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(
@@ -163,6 +178,9 @@ func InitFile_FromS3Object(fileName *string, bucket awss3.IBucket, key *string, 
 func InitFile_FromString(fileName *string, content *string, options *InitFileOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_FromStringParameters(fileName, content, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(
@@ -180,6 +198,9 @@ func InitFile_FromString(fileName *string, content *string, options *InitFileOpt
 func InitFile_FromUrl(fileName *string, url *string, options *InitFileOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_FromUrlParameters(fileName, url, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(
@@ -197,6 +218,9 @@ func InitFile_FromUrl(fileName *string, url *string, options *InitFileOptions) I
 func InitFile_Symlink(fileName *string, target *string, options *InitFileOptions) InitFile {
 	_init_.Initialize()
 
+	if err := validateInitFile_SymlinkParameters(fileName, target, options); err != nil {
+		panic(err)
+	}
 	var returns InitFile
 
 	_jsii_.StaticInvoke(

@@ -371,6 +371,9 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) UpdatedProperites() *map[st
 func NewCfnDataCatalogEncryptionSettings(scope awscdk.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) CfnDataCatalogEncryptionSettings {
 	_init_.Initialize()
 
+	if err := validateNewCfnDataCatalogEncryptionSettingsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnDataCatalogEncryptionSettings{}
 
 	_jsii_.Create(
@@ -393,7 +396,10 @@ func NewCfnDataCatalogEncryptionSettings_Override(c CfnDataCatalogEncryptionSett
 	)
 }
 
-func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) SetCatalogId(val *string) {
+func (j *jsiiProxy_CfnDataCatalogEncryptionSettings)SetCatalogId(val *string) {
+	if err := j.validateSetCatalogIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"catalogId",
@@ -401,7 +407,10 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) SetCatalogId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) SetDataCatalogEncryptionSettings(val interface{}) {
+func (j *jsiiProxy_CfnDataCatalogEncryptionSettings)SetDataCatalogEncryptionSettings(val interface{}) {
+	if err := j.validateSetDataCatalogEncryptionSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataCatalogEncryptionSettings",
@@ -419,6 +428,9 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) SetDataCatalogEncryptionSet
 func CfnDataCatalogEncryptionSettings_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataCatalogEncryptionSettings_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -436,6 +448,9 @@ func CfnDataCatalogEncryptionSettings_IsCfnElement(x interface{}) *bool {
 func CfnDataCatalogEncryptionSettings_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataCatalogEncryptionSettings_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -453,6 +468,9 @@ func CfnDataCatalogEncryptionSettings_IsCfnResource(construct constructs.IConstr
 func CfnDataCatalogEncryptionSettings_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataCatalogEncryptionSettings_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -477,6 +495,9 @@ func CfnDataCatalogEncryptionSettings_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -485,6 +506,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddDeletionOverride(path *s
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -493,6 +517,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddDependsOn(target awscdk.
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -501,6 +528,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddMetadata(key *string, va
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -509,6 +539,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddOverride(path *string, v
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -517,6 +550,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddPropertyDeletionOverride
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -525,6 +561,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) AddPropertyOverride(propert
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -533,6 +572,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) ApplyRemovalPolicy(policy a
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -546,6 +588,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) GetAtt(attributeName *strin
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -559,6 +604,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) GetMetadata(key *string) in
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -575,6 +623,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -596,6 +647,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -612,6 +666,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) Prepare() {
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -638,6 +695,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -672,6 +732,9 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

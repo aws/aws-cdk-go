@@ -43,6 +43,9 @@ type jsiiProxy_QueueHook struct {
 func NewQueueHook(queue awssqs.IQueue) QueueHook {
 	_init_.Initialize()
 
+	if err := validateNewQueueHookParameters(queue); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_QueueHook{}
 
 	_jsii_.Create(
@@ -66,6 +69,9 @@ func NewQueueHook_Override(q QueueHook, queue awssqs.IQueue) {
 }
 
 func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
+	if err := q.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(

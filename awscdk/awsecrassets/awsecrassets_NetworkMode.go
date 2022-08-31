@@ -44,6 +44,9 @@ func (j *jsiiProxy_NetworkMode) Mode() *string {
 func NetworkMode_Custom(mode *string) NetworkMode {
 	_init_.Initialize()
 
+	if err := validateNetworkMode_CustomParameters(mode); err != nil {
+		panic(err)
+	}
 	var returns NetworkMode
 
 	_jsii_.StaticInvoke(
@@ -61,6 +64,9 @@ func NetworkMode_Custom(mode *string) NetworkMode {
 func NetworkMode_FromContainer(containerId *string) NetworkMode {
 	_init_.Initialize()
 
+	if err := validateNetworkMode_FromContainerParameters(containerId); err != nil {
+		panic(err)
+	}
 	var returns NetworkMode
 
 	_jsii_.StaticInvoke(

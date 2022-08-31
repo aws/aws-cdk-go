@@ -36,6 +36,9 @@ type jsiiProxy_AwsIntegration struct {
 func NewAwsIntegration(props *AwsIntegrationProps) AwsIntegration {
 	_init_.Initialize()
 
+	if err := validateNewAwsIntegrationParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_AwsIntegration{}
 
 	_jsii_.Create(
@@ -59,6 +62,9 @@ func NewAwsIntegration_Override(a AwsIntegration, props *AwsIntegrationProps) {
 }
 
 func (a *jsiiProxy_AwsIntegration) Bind(method Method) *IntegrationConfig {
+	if err := a.validateBindParameters(method); err != nil {
+		panic(err)
+	}
 	var returns *IntegrationConfig
 
 	_jsii_.Invoke(

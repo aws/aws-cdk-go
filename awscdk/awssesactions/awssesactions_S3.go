@@ -66,6 +66,9 @@ type jsiiProxy_S3 struct {
 func NewS3(props *S3Props) S3 {
 	_init_.Initialize()
 
+	if err := validateNewS3Parameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_S3{}
 
 	_jsii_.Create(
@@ -89,6 +92,9 @@ func NewS3_Override(s S3, props *S3Props) {
 }
 
 func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+	if err := s.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsses.ReceiptRuleActionConfig
 
 	_jsii_.Invoke(

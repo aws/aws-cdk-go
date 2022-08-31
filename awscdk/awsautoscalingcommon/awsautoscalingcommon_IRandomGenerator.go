@@ -31,6 +31,9 @@ func (i *jsiiProxy_IRandomGenerator) NextBoolean() *bool {
 }
 
 func (i *jsiiProxy_IRandomGenerator) NextInt(min *float64, max *float64) *float64 {
+	if err := i.validateNextIntParameters(min, max); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(

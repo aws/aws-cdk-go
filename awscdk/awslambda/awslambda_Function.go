@@ -558,6 +558,9 @@ func (j *jsiiProxy_Function) Timeout() awscdk.Duration {
 func NewFunction(scope constructs.Construct, id *string, props *FunctionProps) Function {
 	_init_.Initialize()
 
+	if err := validateNewFunctionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Function{}
 
 	_jsii_.Create(
@@ -587,6 +590,9 @@ func NewFunction_Override(f Function, scope constructs.Construct, id *string, pr
 func Function_ClassifyVersionProperty(propertyName *string, locked *bool) {
 	_init_.Initialize()
 
+	if err := validateFunction_ClassifyVersionPropertyParameters(propertyName, locked); err != nil {
+		panic(err)
+	}
 	_jsii_.StaticInvokeVoid(
 		"monocdk.aws_lambda.Function",
 		"classifyVersionProperty",
@@ -599,6 +605,9 @@ func Function_ClassifyVersionProperty(propertyName *string, locked *bool) {
 func Function_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) IFunction {
 	_init_.Initialize()
 
+	if err := validateFunction_FromFunctionArnParameters(scope, id, functionArn); err != nil {
+		panic(err)
+	}
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
@@ -616,6 +625,9 @@ func Function_FromFunctionArn(scope constructs.Construct, id *string, functionAr
 func Function_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *FunctionAttributes) IFunction {
 	_init_.Initialize()
 
+	if err := validateFunction_FromFunctionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
@@ -633,6 +645,9 @@ func Function_FromFunctionAttributes(scope constructs.Construct, id *string, att
 func Function_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunction {
 	_init_.Initialize()
 
+	if err := validateFunction_FromFunctionNameParameters(scope, id, functionName); err != nil {
+		panic(err)
+	}
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
@@ -650,6 +665,9 @@ func Function_FromFunctionName(scope constructs.Construct, id *string, functionN
 func Function_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateFunction_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -667,6 +685,9 @@ func Function_IsConstruct(x interface{}) *bool {
 func Function_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateFunction_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -684,6 +705,9 @@ func Function_IsResource(construct awscdk.IConstruct) *bool {
 func Function_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateFunction_MetricAllParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -701,6 +725,9 @@ func Function_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) 
 func Function_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateFunction_MetricAllConcurrentExecutionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -718,6 +745,9 @@ func Function_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) 
 func Function_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateFunction_MetricAllDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -735,6 +765,9 @@ func Function_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatc
 func Function_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateFunction_MetricAllErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -752,6 +785,9 @@ func Function_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.
 func Function_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateFunction_MetricAllInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -769,6 +805,9 @@ func Function_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudw
 func Function_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateFunction_MetricAllThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -786,6 +825,9 @@ func Function_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwat
 func Function_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
+	if err := validateFunction_MetricAllUnreservedConcurrentExecutionsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
@@ -799,6 +841,9 @@ func Function_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.Metri
 }
 
 func (f *jsiiProxy_Function) AddAlias(aliasName *string, options *AliasOptions) Alias {
+	if err := f.validateAddAliasParameters(aliasName, options); err != nil {
+		panic(err)
+	}
 	var returns Alias
 
 	_jsii_.Invoke(
@@ -812,6 +857,9 @@ func (f *jsiiProxy_Function) AddAlias(aliasName *string, options *AliasOptions) 
 }
 
 func (f *jsiiProxy_Function) AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function {
+	if err := f.validateAddEnvironmentParameters(key, value, options); err != nil {
+		panic(err)
+	}
 	var returns Function
 
 	_jsii_.Invoke(
@@ -825,6 +873,9 @@ func (f *jsiiProxy_Function) AddEnvironment(key *string, value *string, options 
 }
 
 func (f *jsiiProxy_Function) AddEventSource(source IEventSource) {
+	if err := f.validateAddEventSourceParameters(source); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addEventSource",
@@ -833,6 +884,9 @@ func (f *jsiiProxy_Function) AddEventSource(source IEventSource) {
 }
 
 func (f *jsiiProxy_Function) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
+	if err := f.validateAddEventSourceMappingParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns EventSourceMapping
 
 	_jsii_.Invoke(
@@ -846,6 +900,9 @@ func (f *jsiiProxy_Function) AddEventSourceMapping(id *string, options *EventSou
 }
 
 func (f *jsiiProxy_Function) AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl {
+	if err := f.validateAddFunctionUrlParameters(options); err != nil {
+		panic(err)
+	}
 	var returns FunctionUrl
 
 	_jsii_.Invoke(
@@ -872,6 +929,9 @@ func (f *jsiiProxy_Function) AddLayers(layers ...ILayerVersion) {
 }
 
 func (f *jsiiProxy_Function) AddPermission(id *string, permission *Permission) {
+	if err := f.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addPermission",
@@ -880,6 +940,9 @@ func (f *jsiiProxy_Function) AddPermission(id *string, permission *Permission) {
 }
 
 func (f *jsiiProxy_Function) AddToRolePolicy(statement awsiam.PolicyStatement) {
+	if err := f.validateAddToRolePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"addToRolePolicy",
@@ -888,6 +951,9 @@ func (f *jsiiProxy_Function) AddToRolePolicy(statement awsiam.PolicyStatement) {
 }
 
 func (f *jsiiProxy_Function) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version {
+	if err := f.validateAddVersionParameters(name, asyncInvokeConfig); err != nil {
+		panic(err)
+	}
 	var returns Version
 
 	_jsii_.Invoke(
@@ -901,6 +967,9 @@ func (f *jsiiProxy_Function) AddVersion(name *string, codeSha256 *string, descri
 }
 
 func (f *jsiiProxy_Function) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := f.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"applyRemovalPolicy",
@@ -909,6 +978,9 @@ func (f *jsiiProxy_Function) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 func (f *jsiiProxy_Function) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
+	if err := f.validateConfigureAsyncInvokeParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"configureAsyncInvoke",
@@ -917,6 +989,9 @@ func (f *jsiiProxy_Function) ConfigureAsyncInvoke(options *EventInvokeConfigOpti
 }
 
 func (f *jsiiProxy_Function) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
+	if err := f.validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope, action); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -938,6 +1013,9 @@ func (f *jsiiProxy_Function) GeneratePhysicalName() *string {
 }
 
 func (f *jsiiProxy_Function) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := f.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -951,6 +1029,9 @@ func (f *jsiiProxy_Function) GetResourceArnAttribute(arnAttr *string, arnCompone
 }
 
 func (f *jsiiProxy_Function) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := f.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -964,6 +1045,9 @@ func (f *jsiiProxy_Function) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 func (f *jsiiProxy_Function) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantInvokeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -977,6 +1061,9 @@ func (f *jsiiProxy_Function) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 func (f *jsiiProxy_Function) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := f.validateGrantInvokeUrlParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -990,6 +1077,9 @@ func (f *jsiiProxy_Function) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Gr
 }
 
 func (f *jsiiProxy_Function) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1003,6 +1093,9 @@ func (f *jsiiProxy_Function) Metric(metricName *string, props *awscloudwatch.Met
 }
 
 func (f *jsiiProxy_Function) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricDurationParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1016,6 +1109,9 @@ func (f *jsiiProxy_Function) MetricDuration(props *awscloudwatch.MetricOptions) 
 }
 
 func (f *jsiiProxy_Function) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricErrorsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1029,6 +1125,9 @@ func (f *jsiiProxy_Function) MetricErrors(props *awscloudwatch.MetricOptions) aw
 }
 
 func (f *jsiiProxy_Function) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricInvocationsParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1042,6 +1141,9 @@ func (f *jsiiProxy_Function) MetricInvocations(props *awscloudwatch.MetricOption
 }
 
 func (f *jsiiProxy_Function) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := f.validateMetricThrottlesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -1063,6 +1165,9 @@ func (f *jsiiProxy_Function) OnPrepare() {
 }
 
 func (f *jsiiProxy_Function) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := f.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"onSynthesize",
@@ -1092,6 +1197,9 @@ func (f *jsiiProxy_Function) Prepare() {
 }
 
 func (f *jsiiProxy_Function) Synthesize(session awscdk.ISynthesisSession) {
+	if err := f.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"synthesize",
@@ -1126,6 +1234,9 @@ func (f *jsiiProxy_Function) Validate() *[]*string {
 }
 
 func (f *jsiiProxy_Function) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+	if err := f.validateWarnInvokeFunctionPermissionsParameters(scope); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		f,
 		"warnInvokeFunctionPermissions",

@@ -200,6 +200,9 @@ func (j *jsiiProxy_DynamoDbDataSource) ServiceRole() awsiam.IRole {
 func NewDynamoDbDataSource(scope constructs.Construct, id *string, props *DynamoDbDataSourceProps) DynamoDbDataSource {
 	_init_.Initialize()
 
+	if err := validateNewDynamoDbDataSourceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_DynamoDbDataSource{}
 
 	_jsii_.Create(
@@ -222,7 +225,10 @@ func NewDynamoDbDataSource_Override(d DynamoDbDataSource, scope constructs.Const
 	)
 }
 
-func (j *jsiiProxy_DynamoDbDataSource) SetApi(val IGraphqlApi) {
+func (j *jsiiProxy_DynamoDbDataSource)SetApi(val IGraphqlApi) {
+	if err := j.validateSetApiParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"api",
@@ -230,7 +236,7 @@ func (j *jsiiProxy_DynamoDbDataSource) SetApi(val IGraphqlApi) {
 	)
 }
 
-func (j *jsiiProxy_DynamoDbDataSource) SetServiceRole(val awsiam.IRole) {
+func (j *jsiiProxy_DynamoDbDataSource)SetServiceRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
@@ -243,6 +249,9 @@ func (j *jsiiProxy_DynamoDbDataSource) SetServiceRole(val awsiam.IRole) {
 func DynamoDbDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateDynamoDbDataSource_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -256,6 +265,9 @@ func DynamoDbDataSource_IsConstruct(x interface{}) *bool {
 }
 
 func (d *jsiiProxy_DynamoDbDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := d.validateCreateFunctionParameters(props); err != nil {
+		panic(err)
+	}
 	var returns AppsyncFunction
 
 	_jsii_.Invoke(
@@ -269,6 +281,9 @@ func (d *jsiiProxy_DynamoDbDataSource) CreateFunction(props *BaseAppsyncFunction
 }
 
 func (d *jsiiProxy_DynamoDbDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := d.validateCreateResolverParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Resolver
 
 	_jsii_.Invoke(
@@ -290,6 +305,9 @@ func (d *jsiiProxy_DynamoDbDataSource) OnPrepare() {
 }
 
 func (d *jsiiProxy_DynamoDbDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"onSynthesize",
@@ -319,6 +337,9 @@ func (d *jsiiProxy_DynamoDbDataSource) Prepare() {
 }
 
 func (d *jsiiProxy_DynamoDbDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		d,
 		"synthesize",

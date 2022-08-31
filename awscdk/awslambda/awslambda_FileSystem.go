@@ -75,6 +75,9 @@ func (j *jsiiProxy_FileSystem) Config() *FileSystemConfig {
 func NewFileSystem(config *FileSystemConfig) FileSystem {
 	_init_.Initialize()
 
+	if err := validateNewFileSystemParameters(config); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_FileSystem{}
 
 	_jsii_.Create(
@@ -102,6 +105,9 @@ func NewFileSystem_Override(f FileSystem, config *FileSystemConfig) {
 func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) FileSystem {
 	_init_.Initialize()
 
+	if err := validateFileSystem_FromEfsAccessPointParameters(ap, mountPath); err != nil {
+		panic(err)
+	}
 	var returns FileSystem
 
 	_jsii_.StaticInvoke(

@@ -110,6 +110,9 @@ func (j *jsiiProxy_ApplicationListenerCertificate) Node() awscdk.ConstructNode {
 func NewApplicationListenerCertificate(scope constructs.Construct, id *string, props *ApplicationListenerCertificateProps) ApplicationListenerCertificate {
 	_init_.Initialize()
 
+	if err := validateNewApplicationListenerCertificateParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ApplicationListenerCertificate{}
 
 	_jsii_.Create(
@@ -137,6 +140,9 @@ func NewApplicationListenerCertificate_Override(a ApplicationListenerCertificate
 func ApplicationListenerCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateApplicationListenerCertificate_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -158,6 +164,9 @@ func (a *jsiiProxy_ApplicationListenerCertificate) OnPrepare() {
 }
 
 func (a *jsiiProxy_ApplicationListenerCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := a.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"onSynthesize",
@@ -187,6 +196,9 @@ func (a *jsiiProxy_ApplicationListenerCertificate) Prepare() {
 }
 
 func (a *jsiiProxy_ApplicationListenerCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	if err := a.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"synthesize",

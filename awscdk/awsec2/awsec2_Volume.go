@@ -262,6 +262,9 @@ func (j *jsiiProxy_Volume) VolumeId() *string {
 func NewVolume(scope constructs.Construct, id *string, props *VolumeProps) Volume {
 	_init_.Initialize()
 
+	if err := validateNewVolumeParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Volume{}
 
 	_jsii_.Create(
@@ -289,6 +292,9 @@ func NewVolume_Override(v Volume, scope constructs.Construct, id *string, props 
 func Volume_FromVolumeAttributes(scope constructs.Construct, id *string, attrs *VolumeAttributes) IVolume {
 	_init_.Initialize()
 
+	if err := validateVolume_FromVolumeAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns IVolume
 
 	_jsii_.StaticInvoke(
@@ -306,6 +312,9 @@ func Volume_FromVolumeAttributes(scope constructs.Construct, id *string, attrs *
 func Volume_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateVolume_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -323,6 +332,9 @@ func Volume_IsConstruct(x interface{}) *bool {
 func Volume_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateVolume_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -336,6 +348,9 @@ func Volume_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (v *jsiiProxy_Volume) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"applyRemovalPolicy",
@@ -357,6 +372,9 @@ func (v *jsiiProxy_Volume) GeneratePhysicalName() *string {
 }
 
 func (v *jsiiProxy_Volume) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := v.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -370,6 +388,9 @@ func (v *jsiiProxy_Volume) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (v *jsiiProxy_Volume) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := v.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -383,6 +404,9 @@ func (v *jsiiProxy_Volume) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 func (v *jsiiProxy_Volume) GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant {
+	if err := v.validateGrantAttachVolumeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -396,6 +420,9 @@ func (v *jsiiProxy_Volume) GrantAttachVolume(grantee awsiam.IGrantable, instance
 }
 
 func (v *jsiiProxy_Volume) GrantAttachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant {
+	if err := v.validateGrantAttachVolumeByResourceTagParameters(grantee, constructs); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -409,6 +436,9 @@ func (v *jsiiProxy_Volume) GrantAttachVolumeByResourceTag(grantee awsiam.IGranta
 }
 
 func (v *jsiiProxy_Volume) GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant {
+	if err := v.validateGrantDetachVolumeParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -422,6 +452,9 @@ func (v *jsiiProxy_Volume) GrantDetachVolume(grantee awsiam.IGrantable, instance
 }
 
 func (v *jsiiProxy_Volume) GrantDetachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant {
+	if err := v.validateGrantDetachVolumeByResourceTagParameters(grantee, constructs); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -443,6 +476,9 @@ func (v *jsiiProxy_Volume) OnPrepare() {
 }
 
 func (v *jsiiProxy_Volume) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"onSynthesize",
@@ -472,6 +508,9 @@ func (v *jsiiProxy_Volume) Prepare() {
 }
 
 func (v *jsiiProxy_Volume) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"synthesize",
@@ -506,6 +545,9 @@ func (v *jsiiProxy_Volume) Validate() *[]*string {
 }
 
 func (v *jsiiProxy_Volume) ValidateProps(props *VolumeProps) {
+	if err := v.validateValidatePropsParameters(props); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		v,
 		"validateProps",

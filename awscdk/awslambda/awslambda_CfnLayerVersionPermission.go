@@ -398,6 +398,9 @@ func (j *jsiiProxy_CfnLayerVersionPermission) UpdatedProperites() *map[string]in
 func NewCfnLayerVersionPermission(scope awscdk.Construct, id *string, props *CfnLayerVersionPermissionProps) CfnLayerVersionPermission {
 	_init_.Initialize()
 
+	if err := validateNewCfnLayerVersionPermissionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnLayerVersionPermission{}
 
 	_jsii_.Create(
@@ -420,7 +423,10 @@ func NewCfnLayerVersionPermission_Override(c CfnLayerVersionPermission, scope aw
 	)
 }
 
-func (j *jsiiProxy_CfnLayerVersionPermission) SetAction(val *string) {
+func (j *jsiiProxy_CfnLayerVersionPermission)SetAction(val *string) {
+	if err := j.validateSetActionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"action",
@@ -428,7 +434,10 @@ func (j *jsiiProxy_CfnLayerVersionPermission) SetAction(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLayerVersionPermission) SetLayerVersionArn(val *string) {
+func (j *jsiiProxy_CfnLayerVersionPermission)SetLayerVersionArn(val *string) {
+	if err := j.validateSetLayerVersionArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"layerVersionArn",
@@ -436,7 +445,7 @@ func (j *jsiiProxy_CfnLayerVersionPermission) SetLayerVersionArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLayerVersionPermission) SetOrganizationId(val *string) {
+func (j *jsiiProxy_CfnLayerVersionPermission)SetOrganizationId(val *string) {
 	_jsii_.Set(
 		j,
 		"organizationId",
@@ -444,7 +453,10 @@ func (j *jsiiProxy_CfnLayerVersionPermission) SetOrganizationId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnLayerVersionPermission) SetPrincipal(val *string) {
+func (j *jsiiProxy_CfnLayerVersionPermission)SetPrincipal(val *string) {
+	if err := j.validateSetPrincipalParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"principal",
@@ -462,6 +474,9 @@ func (j *jsiiProxy_CfnLayerVersionPermission) SetPrincipal(val *string) {
 func CfnLayerVersionPermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLayerVersionPermission_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -479,6 +494,9 @@ func CfnLayerVersionPermission_IsCfnElement(x interface{}) *bool {
 func CfnLayerVersionPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLayerVersionPermission_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -496,6 +514,9 @@ func CfnLayerVersionPermission_IsCfnResource(construct constructs.IConstruct) *b
 func CfnLayerVersionPermission_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnLayerVersionPermission_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -520,6 +541,9 @@ func CfnLayerVersionPermission_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -528,6 +552,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddDeletionOverride(path *string) 
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -536,6 +563,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddDependsOn(target awscdk.CfnReso
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -544,6 +574,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddMetadata(key *string, value int
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -552,6 +585,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddOverride(path *string, value in
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -560,6 +596,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyDeletionOverride(proper
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -568,6 +607,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyOverride(propertyPath *
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -576,6 +618,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ApplyRemovalPolicy(policy awscdk.R
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -589,6 +634,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) GetAtt(attributeName *string) awsc
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -602,6 +650,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) GetMetadata(key *string) interface
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -618,6 +669,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -639,6 +693,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -655,6 +712,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) Prepare() {
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -681,6 +741,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -715,6 +778,9 @@ func (c *jsiiProxy_CfnLayerVersionPermission) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

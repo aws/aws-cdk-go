@@ -253,6 +253,9 @@ func (j *jsiiProxy_HttpRoute) Stack() awscdk.Stack {
 func NewHttpRoute(scope constructs.Construct, id *string, props *HttpRouteProps) HttpRoute {
 	_init_.Initialize()
 
+	if err := validateNewHttpRouteParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_HttpRoute{}
 
 	_jsii_.Create(
@@ -280,6 +283,9 @@ func NewHttpRoute_Override(h HttpRoute, scope constructs.Construct, id *string, 
 func HttpRoute_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpRoute_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -297,6 +303,9 @@ func HttpRoute_IsConstruct(x interface{}) *bool {
 func HttpRoute_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateHttpRoute_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -310,6 +319,9 @@ func HttpRoute_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (h *jsiiProxy_HttpRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := h.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"applyRemovalPolicy",
@@ -331,6 +343,9 @@ func (h *jsiiProxy_HttpRoute) GeneratePhysicalName() *string {
 }
 
 func (h *jsiiProxy_HttpRoute) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := h.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -344,6 +359,9 @@ func (h *jsiiProxy_HttpRoute) GetResourceArnAttribute(arnAttr *string, arnCompon
 }
 
 func (h *jsiiProxy_HttpRoute) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := h.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -357,6 +375,9 @@ func (h *jsiiProxy_HttpRoute) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 func (h *jsiiProxy_HttpRoute) GrantInvoke(grantee awsiam.IGrantable, options *GrantInvokeOptions) awsiam.Grant {
+	if err := h.validateGrantInvokeParameters(grantee, options); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -378,6 +399,9 @@ func (h *jsiiProxy_HttpRoute) OnPrepare() {
 }
 
 func (h *jsiiProxy_HttpRoute) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := h.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"onSynthesize",
@@ -407,6 +431,9 @@ func (h *jsiiProxy_HttpRoute) Prepare() {
 }
 
 func (h *jsiiProxy_HttpRoute) Synthesize(session awscdk.ISynthesisSession) {
+	if err := h.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		h,
 		"synthesize",

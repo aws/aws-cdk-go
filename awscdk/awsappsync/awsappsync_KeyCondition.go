@@ -36,6 +36,9 @@ type jsiiProxy_KeyCondition struct {
 func KeyCondition_BeginsWith(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
+	if err := validateKeyCondition_BeginsWithParameters(keyName, arg); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
@@ -53,6 +56,9 @@ func KeyCondition_BeginsWith(keyName *string, arg *string) KeyCondition {
 func KeyCondition_Between(keyName *string, arg1 *string, arg2 *string) KeyCondition {
 	_init_.Initialize()
 
+	if err := validateKeyCondition_BetweenParameters(keyName, arg1, arg2); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
@@ -70,6 +76,9 @@ func KeyCondition_Between(keyName *string, arg1 *string, arg2 *string) KeyCondit
 func KeyCondition_Eq(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
+	if err := validateKeyCondition_EqParameters(keyName, arg); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
@@ -87,6 +96,9 @@ func KeyCondition_Eq(keyName *string, arg *string) KeyCondition {
 func KeyCondition_Ge(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
+	if err := validateKeyCondition_GeParameters(keyName, arg); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
@@ -104,6 +116,9 @@ func KeyCondition_Ge(keyName *string, arg *string) KeyCondition {
 func KeyCondition_Gt(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
+	if err := validateKeyCondition_GtParameters(keyName, arg); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
@@ -121,6 +136,9 @@ func KeyCondition_Gt(keyName *string, arg *string) KeyCondition {
 func KeyCondition_Le(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
+	if err := validateKeyCondition_LeParameters(keyName, arg); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
@@ -138,6 +156,9 @@ func KeyCondition_Le(keyName *string, arg *string) KeyCondition {
 func KeyCondition_Lt(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 
+	if err := validateKeyCondition_LtParameters(keyName, arg); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.StaticInvoke(
@@ -151,6 +172,9 @@ func KeyCondition_Lt(keyName *string, arg *string) KeyCondition {
 }
 
 func (k *jsiiProxy_KeyCondition) And(keyCond KeyCondition) KeyCondition {
+	if err := k.validateAndParameters(keyCond); err != nil {
+		panic(err)
+	}
 	var returns KeyCondition
 
 	_jsii_.Invoke(

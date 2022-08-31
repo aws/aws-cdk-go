@@ -21,6 +21,9 @@ type jsiiProxy_ITokenMapper struct {
 }
 
 func (i *jsiiProxy_ITokenMapper) MapToken(t IResolvable) interface{} {
+	if err := i.validateMapTokenParameters(t); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(

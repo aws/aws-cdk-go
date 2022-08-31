@@ -378,6 +378,9 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolId() *string {
 func NewCfnUserPoolUserToGroupAttachment(scope awscdk.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) CfnUserPoolUserToGroupAttachment {
 	_init_.Initialize()
 
+	if err := validateNewCfnUserPoolUserToGroupAttachmentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnUserPoolUserToGroupAttachment{}
 
 	_jsii_.Create(
@@ -400,7 +403,10 @@ func NewCfnUserPoolUserToGroupAttachment_Override(c CfnUserPoolUserToGroupAttach
 	)
 }
 
-func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) SetGroupName(val *string) {
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment)SetGroupName(val *string) {
+	if err := j.validateSetGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"groupName",
@@ -408,7 +414,10 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) SetGroupName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) SetUsername(val *string) {
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment)SetUsername(val *string) {
+	if err := j.validateSetUsernameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"username",
@@ -416,7 +425,10 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) SetUsername(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) SetUserPoolId(val *string) {
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment)SetUserPoolId(val *string) {
+	if err := j.validateSetUserPoolIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"userPoolId",
@@ -434,6 +446,9 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) SetUserPoolId(val *string) 
 func CfnUserPoolUserToGroupAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnUserPoolUserToGroupAttachment_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -451,6 +466,9 @@ func CfnUserPoolUserToGroupAttachment_IsCfnElement(x interface{}) *bool {
 func CfnUserPoolUserToGroupAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnUserPoolUserToGroupAttachment_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -468,6 +486,9 @@ func CfnUserPoolUserToGroupAttachment_IsCfnResource(construct constructs.IConstr
 func CfnUserPoolUserToGroupAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnUserPoolUserToGroupAttachment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -492,6 +513,9 @@ func CfnUserPoolUserToGroupAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -500,6 +524,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddDeletionOverride(path *s
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -508,6 +535,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddDependsOn(target awscdk.
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -516,6 +546,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddMetadata(key *string, va
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -524,6 +557,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddOverride(path *string, v
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -532,6 +568,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddPropertyDeletionOverride
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -540,6 +579,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) AddPropertyOverride(propert
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -548,6 +590,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ApplyRemovalPolicy(policy a
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -561,6 +606,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) GetAtt(attributeName *strin
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -574,6 +622,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) GetMetadata(key *string) in
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -590,6 +641,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -611,6 +665,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -627,6 +684,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Prepare() {
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -653,6 +713,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -687,6 +750,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

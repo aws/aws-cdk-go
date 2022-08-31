@@ -42,6 +42,9 @@ type jsiiProxy_RepositoryImage struct {
 func NewRepositoryImage(imageName *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
+	if err := validateNewRepositoryImageParameters(imageName, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_RepositoryImage{}
 
 	_jsii_.Create(
@@ -73,6 +76,9 @@ func NewRepositoryImage_Override(r RepositoryImage, imageName *string, props *Re
 func RepositoryImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
+	if err := validateRepositoryImage_FromAssetParameters(directory, props); err != nil {
+		panic(err)
+	}
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
@@ -90,6 +96,9 @@ func RepositoryImage_FromAsset(directory *string, props *AssetImageProps) AssetI
 func RepositoryImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
+	if err := validateRepositoryImage_FromDockerImageAssetParameters(asset); err != nil {
+		panic(err)
+	}
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
@@ -107,6 +116,9 @@ func RepositoryImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) C
 func RepositoryImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
+	if err := validateRepositoryImage_FromEcrRepositoryParameters(repository); err != nil {
+		panic(err)
+	}
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
@@ -124,6 +136,9 @@ func RepositoryImage_FromEcrRepository(repository awsecr.IRepository, tag *strin
 func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
+	if err := validateRepositoryImage_FromRegistryParameters(name, props); err != nil {
+		panic(err)
+	}
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
@@ -144,6 +159,9 @@ func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) Rep
 func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
+	if err := validateRepositoryImage_FromTarballParameters(tarballFile); err != nil {
+		panic(err)
+	}
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
@@ -157,6 +175,9 @@ func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
 }
 
 func (r *jsiiProxy_RepositoryImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+	if err := r.validateBindParameters(scope, containerDefinition); err != nil {
+		panic(err)
+	}
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(

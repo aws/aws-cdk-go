@@ -294,6 +294,9 @@ func (j *jsiiProxy_CloudFormationStackNotificationCheck) Stack() awscdk.Stack {
 func NewCloudFormationStackNotificationCheck(scope constructs.Construct, id *string, props *CloudFormationStackNotificationCheckProps) CloudFormationStackNotificationCheck {
 	_init_.Initialize()
 
+	if err := validateNewCloudFormationStackNotificationCheckParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CloudFormationStackNotificationCheck{}
 
 	_jsii_.Create(
@@ -316,7 +319,7 @@ func NewCloudFormationStackNotificationCheck_Override(c CloudFormationStackNotif
 	)
 }
 
-func (j *jsiiProxy_CloudFormationStackNotificationCheck) SetIsCustomWithChanges(val *bool) {
+func (j *jsiiProxy_CloudFormationStackNotificationCheck)SetIsCustomWithChanges(val *bool) {
 	_jsii_.Set(
 		j,
 		"isCustomWithChanges",
@@ -324,7 +327,7 @@ func (j *jsiiProxy_CloudFormationStackNotificationCheck) SetIsCustomWithChanges(
 	)
 }
 
-func (j *jsiiProxy_CloudFormationStackNotificationCheck) SetIsManaged(val *bool) {
+func (j *jsiiProxy_CloudFormationStackNotificationCheck)SetIsManaged(val *bool) {
 	_jsii_.Set(
 		j,
 		"isManaged",
@@ -332,7 +335,7 @@ func (j *jsiiProxy_CloudFormationStackNotificationCheck) SetIsManaged(val *bool)
 	)
 }
 
-func (j *jsiiProxy_CloudFormationStackNotificationCheck) SetRuleScope(val RuleScope) {
+func (j *jsiiProxy_CloudFormationStackNotificationCheck)SetRuleScope(val RuleScope) {
 	_jsii_.Set(
 		j,
 		"ruleScope",
@@ -345,6 +348,9 @@ func (j *jsiiProxy_CloudFormationStackNotificationCheck) SetRuleScope(val RuleSc
 func CloudFormationStackNotificationCheck_FromConfigRuleName(scope constructs.Construct, id *string, configRuleName *string) IRule {
 	_init_.Initialize()
 
+	if err := validateCloudFormationStackNotificationCheck_FromConfigRuleNameParameters(scope, id, configRuleName); err != nil {
+		panic(err)
+	}
 	var returns IRule
 
 	_jsii_.StaticInvoke(
@@ -362,6 +368,9 @@ func CloudFormationStackNotificationCheck_FromConfigRuleName(scope constructs.Co
 func CloudFormationStackNotificationCheck_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudFormationStackNotificationCheck_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -379,6 +388,9 @@ func CloudFormationStackNotificationCheck_IsConstruct(x interface{}) *bool {
 func CloudFormationStackNotificationCheck_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCloudFormationStackNotificationCheck_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -392,6 +404,9 @@ func CloudFormationStackNotificationCheck_IsResource(construct awscdk.IConstruct
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -413,6 +428,9 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) GeneratePhysicalName() 
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := c.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -426,6 +444,9 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) GetResourceArnAttribute
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := c.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -439,6 +460,9 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) GetResourceNameAttribut
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := c.validateOnComplianceChangeParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -452,6 +476,9 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnComplianceChange(id *
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := c.validateOnEventParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -473,6 +500,9 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnPrepare() {
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	if err := c.validateOnReEvaluationStatusParameters(id, options); err != nil {
+		panic(err)
+	}
 	var returns awsevents.Rule
 
 	_jsii_.Invoke(
@@ -486,6 +516,9 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnReEvaluationStatus(id
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -515,6 +548,9 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) Prepare() {
 }
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

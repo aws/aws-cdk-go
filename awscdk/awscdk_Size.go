@@ -82,6 +82,9 @@ type jsiiProxy_Size struct {
 func Size_Gibibytes(amount *float64) Size {
 	_init_.Initialize()
 
+	if err := validateSize_GibibytesParameters(amount); err != nil {
+		panic(err)
+	}
 	var returns Size
 
 	_jsii_.StaticInvoke(
@@ -103,6 +106,9 @@ func Size_Gibibytes(amount *float64) Size {
 func Size_Kibibytes(amount *float64) Size {
 	_init_.Initialize()
 
+	if err := validateSize_KibibytesParameters(amount); err != nil {
+		panic(err)
+	}
 	var returns Size
 
 	_jsii_.StaticInvoke(
@@ -124,6 +130,9 @@ func Size_Kibibytes(amount *float64) Size {
 func Size_Mebibytes(amount *float64) Size {
 	_init_.Initialize()
 
+	if err := validateSize_MebibytesParameters(amount); err != nil {
+		panic(err)
+	}
 	var returns Size
 
 	_jsii_.StaticInvoke(
@@ -143,6 +152,9 @@ func Size_Mebibytes(amount *float64) Size {
 func Size_Pebibyte(amount *float64) Size {
 	_init_.Initialize()
 
+	if err := validateSize_PebibyteParameters(amount); err != nil {
+		panic(err)
+	}
 	var returns Size
 
 	_jsii_.StaticInvoke(
@@ -164,6 +176,9 @@ func Size_Pebibyte(amount *float64) Size {
 func Size_Pebibytes(amount *float64) Size {
 	_init_.Initialize()
 
+	if err := validateSize_PebibytesParameters(amount); err != nil {
+		panic(err)
+	}
 	var returns Size
 
 	_jsii_.StaticInvoke(
@@ -185,6 +200,9 @@ func Size_Pebibytes(amount *float64) Size {
 func Size_Tebibytes(amount *float64) Size {
 	_init_.Initialize()
 
+	if err := validateSize_TebibytesParameters(amount); err != nil {
+		panic(err)
+	}
 	var returns Size
 
 	_jsii_.StaticInvoke(
@@ -211,6 +229,9 @@ func (s *jsiiProxy_Size) IsUnresolved() *bool {
 }
 
 func (s *jsiiProxy_Size) ToGibibytes(opts *SizeConversionOptions) *float64 {
+	if err := s.validateToGibibytesParameters(opts); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -224,6 +245,9 @@ func (s *jsiiProxy_Size) ToGibibytes(opts *SizeConversionOptions) *float64 {
 }
 
 func (s *jsiiProxy_Size) ToKibibytes(opts *SizeConversionOptions) *float64 {
+	if err := s.validateToKibibytesParameters(opts); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -237,6 +261,9 @@ func (s *jsiiProxy_Size) ToKibibytes(opts *SizeConversionOptions) *float64 {
 }
 
 func (s *jsiiProxy_Size) ToMebibytes(opts *SizeConversionOptions) *float64 {
+	if err := s.validateToMebibytesParameters(opts); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -250,6 +277,9 @@ func (s *jsiiProxy_Size) ToMebibytes(opts *SizeConversionOptions) *float64 {
 }
 
 func (s *jsiiProxy_Size) ToPebibytes(opts *SizeConversionOptions) *float64 {
+	if err := s.validateToPebibytesParameters(opts); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(
@@ -263,6 +293,9 @@ func (s *jsiiProxy_Size) ToPebibytes(opts *SizeConversionOptions) *float64 {
 }
 
 func (s *jsiiProxy_Size) ToTebibytes(opts *SizeConversionOptions) *float64 {
+	if err := s.validateToTebibytesParameters(opts); err != nil {
+		panic(err)
+	}
 	var returns *float64
 
 	_jsii_.Invoke(

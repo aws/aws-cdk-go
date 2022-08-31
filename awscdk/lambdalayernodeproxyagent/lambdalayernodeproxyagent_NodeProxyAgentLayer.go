@@ -215,6 +215,9 @@ func (j *jsiiProxy_NodeProxyAgentLayer) Stack() awscdk.Stack {
 func NewNodeProxyAgentLayer(scope constructs.Construct, id *string) NodeProxyAgentLayer {
 	_init_.Initialize()
 
+	if err := validateNewNodeProxyAgentLayerParameters(scope, id); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NodeProxyAgentLayer{}
 
 	_jsii_.Create(
@@ -244,6 +247,9 @@ func NewNodeProxyAgentLayer_Override(n NodeProxyAgentLayer, scope constructs.Con
 func NodeProxyAgentLayer_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) awslambda.ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateNodeProxyAgentLayer_FromLayerVersionArnParameters(scope, id, layerVersionArn); err != nil {
+		panic(err)
+	}
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -261,6 +267,9 @@ func NodeProxyAgentLayer_FromLayerVersionArn(scope constructs.Construct, id *str
 func NodeProxyAgentLayer_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *awslambda.LayerVersionAttributes) awslambda.ILayerVersion {
 	_init_.Initialize()
 
+	if err := validateNodeProxyAgentLayer_FromLayerVersionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
@@ -278,6 +287,9 @@ func NodeProxyAgentLayer_FromLayerVersionAttributes(scope constructs.Construct, 
 func NodeProxyAgentLayer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNodeProxyAgentLayer_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -295,6 +307,9 @@ func NodeProxyAgentLayer_IsConstruct(x interface{}) *bool {
 func NodeProxyAgentLayer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateNodeProxyAgentLayer_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -308,6 +323,9 @@ func NodeProxyAgentLayer_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (n *jsiiProxy_NodeProxyAgentLayer) AddPermission(id *string, permission *awslambda.LayerVersionPermission) {
+	if err := n.validateAddPermissionParameters(id, permission); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"addPermission",
@@ -316,6 +334,9 @@ func (n *jsiiProxy_NodeProxyAgentLayer) AddPermission(id *string, permission *aw
 }
 
 func (n *jsiiProxy_NodeProxyAgentLayer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := n.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"applyRemovalPolicy",
@@ -337,6 +358,9 @@ func (n *jsiiProxy_NodeProxyAgentLayer) GeneratePhysicalName() *string {
 }
 
 func (n *jsiiProxy_NodeProxyAgentLayer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := n.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -350,6 +374,9 @@ func (n *jsiiProxy_NodeProxyAgentLayer) GetResourceArnAttribute(arnAttr *string,
 }
 
 func (n *jsiiProxy_NodeProxyAgentLayer) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := n.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -371,6 +398,9 @@ func (n *jsiiProxy_NodeProxyAgentLayer) OnPrepare() {
 }
 
 func (n *jsiiProxy_NodeProxyAgentLayer) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -400,6 +430,9 @@ func (n *jsiiProxy_NodeProxyAgentLayer) Prepare() {
 }
 
 func (n *jsiiProxy_NodeProxyAgentLayer) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

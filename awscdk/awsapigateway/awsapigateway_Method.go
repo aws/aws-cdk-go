@@ -290,6 +290,9 @@ func (j *jsiiProxy_Method) TestMethodArn() *string {
 func NewMethod(scope constructs.Construct, id *string, props *MethodProps) Method {
 	_init_.Initialize()
 
+	if err := validateNewMethodParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Method{}
 
 	_jsii_.Create(
@@ -317,6 +320,9 @@ func NewMethod_Override(m Method, scope constructs.Construct, id *string, props 
 func Method_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateMethod_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -334,6 +340,9 @@ func Method_IsConstruct(x interface{}) *bool {
 func Method_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateMethod_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -347,6 +356,9 @@ func Method_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (m *jsiiProxy_Method) AddMethodResponse(methodResponse *MethodResponse) {
+	if err := m.validateAddMethodResponseParameters(methodResponse); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"addMethodResponse",
@@ -355,6 +367,9 @@ func (m *jsiiProxy_Method) AddMethodResponse(methodResponse *MethodResponse) {
 }
 
 func (m *jsiiProxy_Method) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := m.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"applyRemovalPolicy",
@@ -376,6 +391,9 @@ func (m *jsiiProxy_Method) GeneratePhysicalName() *string {
 }
 
 func (m *jsiiProxy_Method) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := m.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -389,6 +407,9 @@ func (m *jsiiProxy_Method) GetResourceArnAttribute(arnAttr *string, arnComponent
 }
 
 func (m *jsiiProxy_Method) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := m.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -410,6 +431,9 @@ func (m *jsiiProxy_Method) OnPrepare() {
 }
 
 func (m *jsiiProxy_Method) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := m.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"onSynthesize",
@@ -439,6 +463,9 @@ func (m *jsiiProxy_Method) Prepare() {
 }
 
 func (m *jsiiProxy_Method) Synthesize(session awscdk.ISynthesisSession) {
+	if err := m.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		m,
 		"synthesize",

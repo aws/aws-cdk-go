@@ -39,6 +39,9 @@ func NewOriginBase_Override(o OriginBase, domainName *string, props *OriginProps
 }
 
 func (o *jsiiProxy_OriginBase) Bind(_scope awscdk.Construct, options *OriginBindOptions) *OriginBindConfig {
+	if err := o.validateBindParameters(_scope, options); err != nil {
+		panic(err)
+	}
 	var returns *OriginBindConfig
 
 	_jsii_.Invoke(

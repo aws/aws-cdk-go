@@ -443,6 +443,9 @@ func (j *jsiiProxy_CfnDataCellsFilter) UpdatedProperites() *map[string]interface
 func NewCfnDataCellsFilter(scope awscdk.Construct, id *string, props *CfnDataCellsFilterProps) CfnDataCellsFilter {
 	_init_.Initialize()
 
+	if err := validateNewCfnDataCellsFilterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CfnDataCellsFilter{}
 
 	_jsii_.Create(
@@ -465,7 +468,7 @@ func NewCfnDataCellsFilter_Override(c CfnDataCellsFilter, scope awscdk.Construct
 	)
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) SetColumnNames(val *[]*string) {
+func (j *jsiiProxy_CfnDataCellsFilter)SetColumnNames(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"columnNames",
@@ -473,7 +476,10 @@ func (j *jsiiProxy_CfnDataCellsFilter) SetColumnNames(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) SetColumnWildcard(val interface{}) {
+func (j *jsiiProxy_CfnDataCellsFilter)SetColumnWildcard(val interface{}) {
+	if err := j.validateSetColumnWildcardParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"columnWildcard",
@@ -481,7 +487,10 @@ func (j *jsiiProxy_CfnDataCellsFilter) SetColumnWildcard(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) SetDatabaseName(val *string) {
+func (j *jsiiProxy_CfnDataCellsFilter)SetDatabaseName(val *string) {
+	if err := j.validateSetDatabaseNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"databaseName",
@@ -489,7 +498,10 @@ func (j *jsiiProxy_CfnDataCellsFilter) SetDatabaseName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) SetName(val *string) {
+func (j *jsiiProxy_CfnDataCellsFilter)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -497,7 +509,10 @@ func (j *jsiiProxy_CfnDataCellsFilter) SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) SetRowFilter(val interface{}) {
+func (j *jsiiProxy_CfnDataCellsFilter)SetRowFilter(val interface{}) {
+	if err := j.validateSetRowFilterParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"rowFilter",
@@ -505,7 +520,10 @@ func (j *jsiiProxy_CfnDataCellsFilter) SetRowFilter(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) SetTableCatalogId(val *string) {
+func (j *jsiiProxy_CfnDataCellsFilter)SetTableCatalogId(val *string) {
+	if err := j.validateSetTableCatalogIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tableCatalogId",
@@ -513,7 +531,10 @@ func (j *jsiiProxy_CfnDataCellsFilter) SetTableCatalogId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataCellsFilter) SetTableName(val *string) {
+func (j *jsiiProxy_CfnDataCellsFilter)SetTableName(val *string) {
+	if err := j.validateSetTableNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tableName",
@@ -531,6 +552,9 @@ func (j *jsiiProxy_CfnDataCellsFilter) SetTableName(val *string) {
 func CfnDataCellsFilter_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataCellsFilter_IsCfnElementParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -548,6 +572,9 @@ func CfnDataCellsFilter_IsCfnElement(x interface{}) *bool {
 func CfnDataCellsFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataCellsFilter_IsCfnResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -565,6 +592,9 @@ func CfnDataCellsFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 func CfnDataCellsFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCfnDataCellsFilter_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -589,6 +619,9 @@ func CfnDataCellsFilter_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) AddDeletionOverride(path *string) {
+	if err := c.validateAddDeletionOverrideParameters(path); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDeletionOverride",
@@ -597,6 +630,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) AddDeletionOverride(path *string) {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) AddDependsOn(target awscdk.CfnResource) {
+	if err := c.validateAddDependsOnParameters(target); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addDependsOn",
@@ -605,6 +641,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) AddDependsOn(target awscdk.CfnResource) {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) AddMetadata(key *string, value interface{}) {
+	if err := c.validateAddMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addMetadata",
@@ -613,6 +652,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) AddMetadata(key *string, value interface{
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) AddOverride(path *string, value interface{}) {
+	if err := c.validateAddOverrideParameters(path, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addOverride",
@@ -621,6 +663,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) AddOverride(path *string, value interface
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) AddPropertyDeletionOverride(propertyPath *string) {
+	if err := c.validateAddPropertyDeletionOverrideParameters(propertyPath); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyDeletionOverride",
@@ -629,6 +674,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) AddPropertyDeletionOverride(propertyPath 
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) AddPropertyOverride(propertyPath *string, value interface{}) {
+	if err := c.validateAddPropertyOverrideParameters(propertyPath, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"addPropertyOverride",
@@ -637,6 +685,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) AddPropertyOverride(propertyPath *string,
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	if err := c.validateApplyRemovalPolicyParameters(options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"applyRemovalPolicy",
@@ -645,6 +696,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) ApplyRemovalPolicy(policy awscdk.RemovalP
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) GetAtt(attributeName *string) awscdk.Reference {
+	if err := c.validateGetAttParameters(attributeName); err != nil {
+		panic(err)
+	}
 	var returns awscdk.Reference
 
 	_jsii_.Invoke(
@@ -658,6 +712,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) GetAtt(attributeName *string) awscdk.Refe
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) GetMetadata(key *string) interface{} {
+	if err := c.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -671,6 +728,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) GetMetadata(key *string) interface{} {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) Inspect(inspector awscdk.TreeInspector) {
+	if err := c.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"inspect",
@@ -687,6 +747,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) OnPrepare() {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -708,6 +771,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) OnValidate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) OverrideLogicalId(newLogicalId *string) {
+	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
@@ -724,6 +790,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) Prepare() {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	if err := c.validateRenderPropertiesParameters(props); err != nil {
+		panic(err)
+	}
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
@@ -750,6 +819,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) ShouldSynthesize() *bool {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",
@@ -784,6 +856,9 @@ func (c *jsiiProxy_CfnDataCellsFilter) Validate() *[]*string {
 }
 
 func (c *jsiiProxy_CfnDataCellsFilter) ValidateProperties(_properties interface{}) {
+	if err := c.validateValidatePropertiesParameters(_properties); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"validateProperties",

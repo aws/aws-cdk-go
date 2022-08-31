@@ -118,6 +118,9 @@ func SubscriptionFilter_ExistsFilter() SubscriptionFilter {
 func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) SubscriptionFilter {
 	_init_.Initialize()
 
+	if err := validateSubscriptionFilter_NumericFilterParameters(numericConditions); err != nil {
+		panic(err)
+	}
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(
@@ -135,6 +138,9 @@ func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) Subs
 func SubscriptionFilter_StringFilter(stringConditions *StringConditions) SubscriptionFilter {
 	_init_.Initialize()
 
+	if err := validateSubscriptionFilter_StringFilterParameters(stringConditions); err != nil {
+		panic(err)
+	}
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(

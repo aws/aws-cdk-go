@@ -224,6 +224,9 @@ func (j *jsiiProxy_NetworkLoadBalancedEc2Service) TaskDefinition() awsecs.Ec2Tas
 func NewNetworkLoadBalancedEc2Service(scope constructs.Construct, id *string, props *NetworkLoadBalancedEc2ServiceProps) NetworkLoadBalancedEc2Service {
 	_init_.Initialize()
 
+	if err := validateNewNetworkLoadBalancedEc2ServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_NetworkLoadBalancedEc2Service{}
 
 	_jsii_.Create(
@@ -252,6 +255,9 @@ func NewNetworkLoadBalancedEc2Service_Override(n NetworkLoadBalancedEc2Service, 
 func NetworkLoadBalancedEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateNetworkLoadBalancedEc2Service_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -265,6 +271,9 @@ func NetworkLoadBalancedEc2Service_IsConstruct(x interface{}) *bool {
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) AddServiceAsTarget(service awsecs.BaseService) {
+	if err := n.validateAddServiceAsTargetParameters(service); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"addServiceAsTarget",
@@ -273,6 +282,9 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) AddServiceAsTarget(service aws
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver {
+	if err := n.validateCreateAWSLogDriverParameters(prefix); err != nil {
+		panic(err)
+	}
 	var returns awsecs.AwsLogDriver
 
 	_jsii_.Invoke(
@@ -286,6 +298,9 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) CreateAWSLogDriver(prefix *str
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+	if err := n.validateGetDefaultClusterParameters(scope); err != nil {
+		panic(err)
+	}
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -307,6 +322,9 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnPrepare() {
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"onSynthesize",
@@ -336,6 +354,9 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Prepare() {
 }
 
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		n,
 		"synthesize",

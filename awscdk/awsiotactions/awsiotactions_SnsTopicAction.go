@@ -45,6 +45,9 @@ type jsiiProxy_SnsTopicAction struct {
 func NewSnsTopicAction(topic awssns.ITopic, props *SnsTopicActionProps) SnsTopicAction {
 	_init_.Initialize()
 
+	if err := validateNewSnsTopicActionParameters(topic, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsTopicAction{}
 
 	_jsii_.Create(
@@ -68,6 +71,9 @@ func NewSnsTopicAction_Override(s SnsTopicAction, topic awssns.ITopic, props *Sn
 }
 
 func (s *jsiiProxy_SnsTopicAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionConfig {
+	if err := s.validateBindParameters(rule); err != nil {
+		panic(err)
+	}
 	var returns *awsiot.ActionConfig
 
 	_jsii_.Invoke(

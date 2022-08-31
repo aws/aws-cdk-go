@@ -80,6 +80,9 @@ func (j *jsiiProxy_BlockPublicAccess) RestrictPublicBuckets() *bool {
 func NewBlockPublicAccess(options *BlockPublicAccessOptions) BlockPublicAccess {
 	_init_.Initialize()
 
+	if err := validateNewBlockPublicAccessParameters(options); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_BlockPublicAccess{}
 
 	_jsii_.Create(
@@ -102,7 +105,7 @@ func NewBlockPublicAccess_Override(b BlockPublicAccess, options *BlockPublicAcce
 	)
 }
 
-func (j *jsiiProxy_BlockPublicAccess) SetBlockPublicAcls(val *bool) {
+func (j *jsiiProxy_BlockPublicAccess)SetBlockPublicAcls(val *bool) {
 	_jsii_.Set(
 		j,
 		"blockPublicAcls",
@@ -110,7 +113,7 @@ func (j *jsiiProxy_BlockPublicAccess) SetBlockPublicAcls(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_BlockPublicAccess) SetBlockPublicPolicy(val *bool) {
+func (j *jsiiProxy_BlockPublicAccess)SetBlockPublicPolicy(val *bool) {
 	_jsii_.Set(
 		j,
 		"blockPublicPolicy",
@@ -118,7 +121,7 @@ func (j *jsiiProxy_BlockPublicAccess) SetBlockPublicPolicy(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_BlockPublicAccess) SetIgnorePublicAcls(val *bool) {
+func (j *jsiiProxy_BlockPublicAccess)SetIgnorePublicAcls(val *bool) {
 	_jsii_.Set(
 		j,
 		"ignorePublicAcls",
@@ -126,7 +129,7 @@ func (j *jsiiProxy_BlockPublicAccess) SetIgnorePublicAcls(val *bool) {
 	)
 }
 
-func (j *jsiiProxy_BlockPublicAccess) SetRestrictPublicBuckets(val *bool) {
+func (j *jsiiProxy_BlockPublicAccess)SetRestrictPublicBuckets(val *bool) {
 	_jsii_.Set(
 		j,
 		"restrictPublicBuckets",

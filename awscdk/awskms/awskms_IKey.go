@@ -44,6 +44,9 @@ type jsiiProxy_IKey struct {
 }
 
 func (i *jsiiProxy_IKey) AddAlias(alias *string) Alias {
+	if err := i.validateAddAliasParameters(alias); err != nil {
+		panic(err)
+	}
 	var returns Alias
 
 	_jsii_.Invoke(
@@ -57,6 +60,9 @@ func (i *jsiiProxy_IKey) AddAlias(alias *string) Alias {
 }
 
 func (i *jsiiProxy_IKey) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
 	var returns *awsiam.AddToResourcePolicyResult
 
 	_jsii_.Invoke(
@@ -70,6 +76,9 @@ func (i *jsiiProxy_IKey) AddToResourcePolicy(statement awsiam.PolicyStatement, a
 }
 
 func (i *jsiiProxy_IKey) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
 	args := []interface{}{grantee}
 	for _, a := range actions {
 		args = append(args, a)
@@ -88,6 +97,9 @@ func (i *jsiiProxy_IKey) Grant(grantee awsiam.IGrantable, actions ...*string) aw
 }
 
 func (i *jsiiProxy_IKey) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantDecryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -101,6 +113,9 @@ func (i *jsiiProxy_IKey) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (i *jsiiProxy_IKey) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantEncryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(
@@ -114,6 +129,9 @@ func (i *jsiiProxy_IKey) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 func (i *jsiiProxy_IKey) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantEncryptDecryptParameters(grantee); err != nil {
+		panic(err)
+	}
 	var returns awsiam.Grant
 
 	_jsii_.Invoke(

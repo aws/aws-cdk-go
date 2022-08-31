@@ -39,6 +39,9 @@ func (j *jsiiProxy_WebSocketApiKeySelectionExpression) CustomApiKeySelector() *s
 func NewWebSocketApiKeySelectionExpression(customApiKeySelector *string) WebSocketApiKeySelectionExpression {
 	_init_.Initialize()
 
+	if err := validateNewWebSocketApiKeySelectionExpressionParameters(customApiKeySelector); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_WebSocketApiKeySelectionExpression{}
 
 	_jsii_.Create(

@@ -19,6 +19,9 @@ type jsiiProxy_IInspectable struct {
 }
 
 func (i *jsiiProxy_IInspectable) Inspect(inspector TreeInspector) {
+	if err := i.validateInspectParameters(inspector); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		i,
 		"inspect",

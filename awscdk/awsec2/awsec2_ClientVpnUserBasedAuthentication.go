@@ -50,6 +50,9 @@ func NewClientVpnUserBasedAuthentication_Override(c ClientVpnUserBasedAuthentica
 func ClientVpnUserBasedAuthentication_ActiveDirectory(directoryId *string) ClientVpnUserBasedAuthentication {
 	_init_.Initialize()
 
+	if err := validateClientVpnUserBasedAuthentication_ActiveDirectoryParameters(directoryId); err != nil {
+		panic(err)
+	}
 	var returns ClientVpnUserBasedAuthentication
 
 	_jsii_.StaticInvoke(
@@ -67,6 +70,9 @@ func ClientVpnUserBasedAuthentication_ActiveDirectory(directoryId *string) Clien
 func ClientVpnUserBasedAuthentication_Federated(samlProvider awsiam.ISamlProvider, selfServiceSamlProvider awsiam.ISamlProvider) ClientVpnUserBasedAuthentication {
 	_init_.Initialize()
 
+	if err := validateClientVpnUserBasedAuthentication_FederatedParameters(samlProvider); err != nil {
+		panic(err)
+	}
 	var returns ClientVpnUserBasedAuthentication
 
 	_jsii_.StaticInvoke(

@@ -165,6 +165,9 @@ func NewArtifact_Override(a Artifact, artifactName *string) {
 func Artifact_Artifact(name *string) Artifact {
 	_init_.Initialize()
 
+	if err := validateArtifact_ArtifactParameters(name); err != nil {
+		panic(err)
+	}
 	var returns Artifact
 
 	_jsii_.StaticInvoke(
@@ -178,6 +181,9 @@ func Artifact_Artifact(name *string) Artifact {
 }
 
 func (a *jsiiProxy_Artifact) AtPath(fileName *string) ArtifactPath {
+	if err := a.validateAtPathParameters(fileName); err != nil {
+		panic(err)
+	}
 	var returns ArtifactPath
 
 	_jsii_.Invoke(
@@ -191,6 +197,9 @@ func (a *jsiiProxy_Artifact) AtPath(fileName *string) ArtifactPath {
 }
 
 func (a *jsiiProxy_Artifact) GetMetadata(key *string) interface{} {
+	if err := a.validateGetMetadataParameters(key); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.Invoke(
@@ -204,6 +213,9 @@ func (a *jsiiProxy_Artifact) GetMetadata(key *string) interface{} {
 }
 
 func (a *jsiiProxy_Artifact) GetParam(jsonFile *string, keyName *string) *string {
+	if err := a.validateGetParamParameters(jsonFile, keyName); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -217,6 +229,9 @@ func (a *jsiiProxy_Artifact) GetParam(jsonFile *string, keyName *string) *string
 }
 
 func (a *jsiiProxy_Artifact) SetMetadata(key *string, value interface{}) {
+	if err := a.validateSetMetadataParameters(key, value); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		a,
 		"setMetadata",

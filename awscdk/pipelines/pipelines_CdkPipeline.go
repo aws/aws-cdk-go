@@ -156,6 +156,9 @@ func (j *jsiiProxy_CdkPipeline) Node() awscdk.ConstructNode {
 func NewCdkPipeline(scope constructs.Construct, id *string, props *CdkPipelineProps) CdkPipeline {
 	_init_.Initialize()
 
+	if err := validateNewCdkPipelineParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CdkPipeline{}
 
 	_jsii_.Create(
@@ -183,6 +186,9 @@ func NewCdkPipeline_Override(c CdkPipeline, scope constructs.Construct, id *stri
 func CdkPipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCdkPipeline_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -196,6 +202,9 @@ func CdkPipeline_IsConstruct(x interface{}) *bool {
 }
 
 func (c *jsiiProxy_CdkPipeline) AddApplicationStage(appStage awscdk.Stage, options *AddStageOptions) CdkStage {
+	if err := c.validateAddApplicationStageParameters(appStage, options); err != nil {
+		panic(err)
+	}
 	var returns CdkStage
 
 	_jsii_.Invoke(
@@ -209,6 +218,9 @@ func (c *jsiiProxy_CdkPipeline) AddApplicationStage(appStage awscdk.Stage, optio
 }
 
 func (c *jsiiProxy_CdkPipeline) AddStage(stageName *string, options *BaseStageOptions) CdkStage {
+	if err := c.validateAddStageParameters(stageName, options); err != nil {
+		panic(err)
+	}
 	var returns CdkStage
 
 	_jsii_.Invoke(
@@ -230,6 +242,9 @@ func (c *jsiiProxy_CdkPipeline) OnPrepare() {
 }
 
 func (c *jsiiProxy_CdkPipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"onSynthesize",
@@ -259,6 +274,9 @@ func (c *jsiiProxy_CdkPipeline) Prepare() {
 }
 
 func (c *jsiiProxy_CdkPipeline) StackOutput(cfnOutput awscdk.CfnOutput) StackOutput {
+	if err := c.validateStackOutputParameters(cfnOutput); err != nil {
+		panic(err)
+	}
 	var returns StackOutput
 
 	_jsii_.Invoke(
@@ -272,6 +290,9 @@ func (c *jsiiProxy_CdkPipeline) StackOutput(cfnOutput awscdk.CfnOutput) StackOut
 }
 
 func (c *jsiiProxy_CdkPipeline) Stage(stageName *string) awscodepipeline.IStage {
+	if err := c.validateStageParameters(stageName); err != nil {
+		panic(err)
+	}
 	var returns awscodepipeline.IStage
 
 	_jsii_.Invoke(
@@ -285,6 +306,9 @@ func (c *jsiiProxy_CdkPipeline) Stage(stageName *string) awscodepipeline.IStage 
 }
 
 func (c *jsiiProxy_CdkPipeline) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		c,
 		"synthesize",

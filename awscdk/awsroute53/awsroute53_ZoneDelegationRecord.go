@@ -203,6 +203,9 @@ func (j *jsiiProxy_ZoneDelegationRecord) Stack() awscdk.Stack {
 func NewZoneDelegationRecord(scope constructs.Construct, id *string, props *ZoneDelegationRecordProps) ZoneDelegationRecord {
 	_init_.Initialize()
 
+	if err := validateNewZoneDelegationRecordParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ZoneDelegationRecord{}
 
 	_jsii_.Create(
@@ -230,6 +233,9 @@ func NewZoneDelegationRecord_Override(z ZoneDelegationRecord, scope constructs.C
 func ZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateZoneDelegationRecord_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -247,6 +253,9 @@ func ZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 func ZoneDelegationRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
+	if err := validateZoneDelegationRecord_IsResourceParameters(construct); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -260,6 +269,9 @@ func ZoneDelegationRecord_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 func (z *jsiiProxy_ZoneDelegationRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := z.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		z,
 		"applyRemovalPolicy",
@@ -281,6 +293,9 @@ func (z *jsiiProxy_ZoneDelegationRecord) GeneratePhysicalName() *string {
 }
 
 func (z *jsiiProxy_ZoneDelegationRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	if err := z.validateGetResourceArnAttributeParameters(arnAttr, arnComponents); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -294,6 +309,9 @@ func (z *jsiiProxy_ZoneDelegationRecord) GetResourceArnAttribute(arnAttr *string
 }
 
 func (z *jsiiProxy_ZoneDelegationRecord) GetResourceNameAttribute(nameAttr *string) *string {
+	if err := z.validateGetResourceNameAttributeParameters(nameAttr); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -315,6 +333,9 @@ func (z *jsiiProxy_ZoneDelegationRecord) OnPrepare() {
 }
 
 func (z *jsiiProxy_ZoneDelegationRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := z.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		z,
 		"onSynthesize",
@@ -344,6 +365,9 @@ func (z *jsiiProxy_ZoneDelegationRecord) Prepare() {
 }
 
 func (z *jsiiProxy_ZoneDelegationRecord) Synthesize(session awscdk.ISynthesisSession) {
+	if err := z.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		z,
 		"synthesize",

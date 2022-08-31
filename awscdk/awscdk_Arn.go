@@ -32,6 +32,9 @@ type jsiiProxy_Arn struct {
 func Arn_ExtractResourceName(arn *string, resourceType *string) *string {
 	_init_.Initialize()
 
+	if err := validateArn_ExtractResourceNameParameters(arn, resourceType); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -63,6 +66,9 @@ func Arn_ExtractResourceName(arn *string, resourceType *string) *string {
 func Arn_Format(components *ArnComponents, stack Stack) *string {
 	_init_.Initialize()
 
+	if err := validateArn_FormatParameters(components); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.StaticInvoke(
@@ -106,6 +112,9 @@ func Arn_Format(components *ArnComponents, stack Stack) *string {
 func Arn_Parse(arn *string, sepIfToken *string, hasName *bool) *ArnComponents {
 	_init_.Initialize()
 
+	if err := validateArn_ParseParameters(arn); err != nil {
+		panic(err)
+	}
 	var returns *ArnComponents
 
 	_jsii_.StaticInvoke(
@@ -128,6 +137,9 @@ func Arn_Parse(arn *string, sepIfToken *string, hasName *bool) *ArnComponents {
 func Arn_Split(arn *string, arnFormat ArnFormat) *ArnComponents {
 	_init_.Initialize()
 
+	if err := validateArn_SplitParameters(arn, arnFormat); err != nil {
+		panic(err)
+	}
 	var returns *ArnComponents
 
 	_jsii_.StaticInvoke(

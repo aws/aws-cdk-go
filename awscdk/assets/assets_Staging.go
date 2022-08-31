@@ -237,6 +237,9 @@ func (j *jsiiProxy_Staging) StagedPath() *string {
 func NewStaging(scope awscdk.Construct, id *string, props *StagingProps) Staging {
 	_init_.Initialize()
 
+	if err := validateNewStagingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Staging{}
 
 	_jsii_.Create(
@@ -276,6 +279,9 @@ func Staging_ClearAssetHashCache() {
 func Staging_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateStaging_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -319,6 +325,9 @@ func (s *jsiiProxy_Staging) OnPrepare() {
 }
 
 func (s *jsiiProxy_Staging) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"onSynthesize",
@@ -348,6 +357,9 @@ func (s *jsiiProxy_Staging) Prepare() {
 }
 
 func (s *jsiiProxy_Staging) RelativeStagedPath(stack awscdk.Stack) *string {
+	if err := s.validateRelativeStagedPathParameters(stack); err != nil {
+		panic(err)
+	}
 	var returns *string
 
 	_jsii_.Invoke(
@@ -361,6 +373,9 @@ func (s *jsiiProxy_Staging) RelativeStagedPath(stack awscdk.Stack) *string {
 }
 
 func (s *jsiiProxy_Staging) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"synthesize",

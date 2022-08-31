@@ -35,6 +35,9 @@ type jsiiProxy_SortKeyStep struct {
 func NewSortKeyStep(pkey Assign, skey *string) SortKeyStep {
 	_init_.Initialize()
 
+	if err := validateNewSortKeyStepParameters(pkey, skey); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SortKeyStep{}
 
 	_jsii_.Create(
@@ -71,6 +74,9 @@ func (s *jsiiProxy_SortKeyStep) Auto() PrimaryKey {
 }
 
 func (s *jsiiProxy_SortKeyStep) Is(val *string) PrimaryKey {
+	if err := s.validateIsParameters(val); err != nil {
+		panic(err)
+	}
 	var returns PrimaryKey
 
 	_jsii_.Invoke(

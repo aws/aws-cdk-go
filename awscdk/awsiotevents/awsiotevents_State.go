@@ -63,6 +63,9 @@ func (j *jsiiProxy_State) StateName() *string {
 func NewState(props *StateProps) State {
 	_init_.Initialize()
 
+	if err := validateNewStateParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_State{}
 
 	_jsii_.Create(
@@ -86,6 +89,9 @@ func NewState_Override(s State, props *StateProps) {
 }
 
 func (s *jsiiProxy_State) TransitionTo(targetState State, options *TransitionOptions) {
+	if err := s.validateTransitionToParameters(targetState, options); err != nil {
+		panic(err)
+	}
 	_jsii_.InvokeVoid(
 		s,
 		"transitionTo",

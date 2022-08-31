@@ -38,6 +38,9 @@ type jsiiProxy_SnsDlq struct {
 func NewSnsDlq(topic awssns.ITopic) SnsDlq {
 	_init_.Initialize()
 
+	if err := validateNewSnsDlqParameters(topic); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_SnsDlq{}
 
 	_jsii_.Create(
@@ -61,6 +64,9 @@ func NewSnsDlq_Override(s SnsDlq, topic awssns.ITopic) {
 }
 
 func (s *jsiiProxy_SnsDlq) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
+	if err := s.validateBindParameters(_target, targetHandler); err != nil {
+		panic(err)
+	}
 	var returns *awslambda.DlqDestinationConfig
 
 	_jsii_.Invoke(

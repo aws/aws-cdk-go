@@ -44,6 +44,9 @@ type jsiiProxy_IHttpStage struct {
 }
 
 func (i *jsiiProxy_IHttpStage) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricClientErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -57,6 +60,9 @@ func (i *jsiiProxy_IHttpStage) MetricClientError(props *awscloudwatch.MetricOpti
 }
 
 func (i *jsiiProxy_IHttpStage) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricCountParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -70,6 +76,9 @@ func (i *jsiiProxy_IHttpStage) MetricCount(props *awscloudwatch.MetricOptions) a
 }
 
 func (i *jsiiProxy_IHttpStage) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricDataProcessedParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -83,6 +92,9 @@ func (i *jsiiProxy_IHttpStage) MetricDataProcessed(props *awscloudwatch.MetricOp
 }
 
 func (i *jsiiProxy_IHttpStage) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricIntegrationLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -96,6 +108,9 @@ func (i *jsiiProxy_IHttpStage) MetricIntegrationLatency(props *awscloudwatch.Met
 }
 
 func (i *jsiiProxy_IHttpStage) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricLatencyParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
@@ -109,6 +124,9 @@ func (i *jsiiProxy_IHttpStage) MetricLatency(props *awscloudwatch.MetricOptions)
 }
 
 func (i *jsiiProxy_IHttpStage) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricServerErrorParameters(props); err != nil {
+		panic(err)
+	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(

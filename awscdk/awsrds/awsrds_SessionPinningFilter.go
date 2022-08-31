@@ -44,6 +44,9 @@ func (j *jsiiProxy_SessionPinningFilter) FilterName() *string {
 func SessionPinningFilter_Of(filterName *string) SessionPinningFilter {
 	_init_.Initialize()
 
+	if err := validateSessionPinningFilter_OfParameters(filterName); err != nil {
+		panic(err)
+	}
 	var returns SessionPinningFilter
 
 	_jsii_.StaticInvoke(
