@@ -3,23 +3,29 @@ package awsssm
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsssm/internal"
 )
 
 // An SSM Parameter reference.
+// Experimental.
 type IParameter interface {
 	awscdk.IResource
 	// Grants read (DescribeParameter, GetParameter, GetParameterHistory) permissions on the SSM Parameter.
+	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants write (PutParameter) permissions on the SSM Parameter.
+	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the SSM Parameter resource.
+	// Experimental.
 	ParameterArn() *string
 	// The name of the SSM Parameter resource.
+	// Experimental.
 	ParameterName() *string
 	// The type of the SSM Parameter resource.
+	// Experimental.
 	ParameterType() *string
 }
 

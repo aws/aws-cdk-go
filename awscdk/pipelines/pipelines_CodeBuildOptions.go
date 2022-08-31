@@ -1,10 +1,10 @@
 package pipelines
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Options for customizing a single CodeBuild project.
@@ -62,32 +62,38 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CodeBuildOptions struct {
 	// Partial build environment, will be combined with other build environments that apply.
+	// Experimental.
 	BuildEnvironment *awscodebuild.BuildEnvironment `field:"optional" json:"buildEnvironment" yaml:"buildEnvironment"`
-	// Caching strategy to use.
-	Cache awscodebuild.Cache `field:"optional" json:"cache" yaml:"cache"`
 	// Partial buildspec, will be combined with other buildspecs that apply.
 	//
 	// The BuildSpec must be available inline--it cannot reference a file
 	// on disk.
+	// Experimental.
 	PartialBuildSpec awscodebuild.BuildSpec `field:"optional" json:"partialBuildSpec" yaml:"partialBuildSpec"`
 	// Policy statements to add to role.
+	// Experimental.
 	RolePolicy *[]awsiam.PolicyStatement `field:"optional" json:"rolePolicy" yaml:"rolePolicy"`
 	// Which security group(s) to associate with the project network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Which subnets to use.
 	//
 	// Only used if 'vpc' is supplied.
+	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
+	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The VPC where to create the CodeBuild network interfaces in.
+	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

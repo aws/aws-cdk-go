@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -38,9 +38,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type StringAttribute interface {
 	ICustomAttribute
 	// Bind this custom attribute type to the values as expected by CloudFormation.
+	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 
@@ -49,13 +51,14 @@ type jsiiProxy_StringAttribute struct {
 	jsiiProxy_ICustomAttribute
 }
 
+// Experimental.
 func NewStringAttribute(props *StringAttributeProps) StringAttribute {
 	_init_.Initialize()
 
 	j := jsiiProxy_StringAttribute{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cognito.StringAttribute",
+		"monocdk.aws_cognito.StringAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -63,11 +66,12 @@ func NewStringAttribute(props *StringAttributeProps) StringAttribute {
 	return &j
 }
 
+// Experimental.
 func NewStringAttribute_Override(s StringAttribute, props *StringAttributeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cognito.StringAttribute",
+		"monocdk.aws_cognito.StringAttribute",
 		[]interface{}{props},
 		s,
 	)

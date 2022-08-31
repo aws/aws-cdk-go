@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesisfirehose"
 )
 
 // Customize the Firehose Stream Event Target.
@@ -25,9 +25,11 @@ import (
 //   	message: ruleTargetInput,
 //   })
 //
+// Experimental.
 type KinesisFirehoseStream interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Firehose Stream as a result from a Event Bridge event.
+	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -36,13 +38,14 @@ type jsiiProxy_KinesisFirehoseStream struct {
 	internal.Type__awseventsIRuleTarget
 }
 
+// Experimental.
 func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) KinesisFirehoseStream {
 	_init_.Initialize()
 
 	j := jsiiProxy_KinesisFirehoseStream{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
+		"monocdk.aws_events_targets.KinesisFirehoseStream",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -50,11 +53,12 @@ func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props
 	return &j
 }
 
+// Experimental.
 func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
+		"monocdk.aws_events_targets.KinesisFirehoseStream",
 		[]interface{}{stream, props},
 		k,
 	)

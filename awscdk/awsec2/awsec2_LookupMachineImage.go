@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // A machine image whose AMI ID will be searched using DescribeImages.
@@ -41,10 +41,12 @@ import (
 //   	windows: jsii.Boolean(false),
 //   })
 //
+// Experimental.
 type LookupMachineImage interface {
 	IMachineImage
 	// Return the image to use in the given context.
-	GetImage(scope constructs.Construct) *MachineImageConfig
+	// Experimental.
+	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for LookupMachineImage
@@ -52,13 +54,14 @@ type jsiiProxy_LookupMachineImage struct {
 	jsiiProxy_IMachineImage
 }
 
+// Experimental.
 func NewLookupMachineImage(props *LookupMachineImageProps) LookupMachineImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_LookupMachineImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.LookupMachineImage",
+		"monocdk.aws_ec2.LookupMachineImage",
 		[]interface{}{props},
 		&j,
 	)
@@ -66,17 +69,18 @@ func NewLookupMachineImage(props *LookupMachineImageProps) LookupMachineImage {
 	return &j
 }
 
+// Experimental.
 func NewLookupMachineImage_Override(l LookupMachineImage, props *LookupMachineImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.LookupMachineImage",
+		"monocdk.aws_ec2.LookupMachineImage",
 		[]interface{}{props},
 		l,
 	)
 }
 
-func (l *jsiiProxy_LookupMachineImage) GetImage(scope constructs.Construct) *MachineImageConfig {
+func (l *jsiiProxy_LookupMachineImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

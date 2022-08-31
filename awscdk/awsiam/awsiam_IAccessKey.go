@@ -3,18 +3,21 @@ package awsiam
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam/internal"
 )
 
 // Represents an IAM Access Key.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
 //
+// Experimental.
 type IAccessKey interface {
 	awscdk.IResource
 	// The Access Key ID.
+	// Experimental.
 	AccessKeyId() *string
 	// The Secret Access Key.
+	// Experimental.
 	SecretAccessKey() awscdk.SecretValue
 }
 

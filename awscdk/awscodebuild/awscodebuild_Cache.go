@@ -1,10 +1,10 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Cache options for CodeBuild Project.
@@ -44,6 +44,7 @@ import (
 //
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-caching.html
 //
+// Experimental.
 type Cache interface {
 }
 
@@ -52,24 +53,26 @@ type jsiiProxy_Cache struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewCache_Override(c Cache) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codebuild.Cache",
+		"monocdk.aws_codebuild.Cache",
 		nil, // no parameters
 		c,
 	)
 }
 
 // Create an S3 caching strategy.
+// Experimental.
 func Cache_Bucket(bucket awss3.IBucket, options *BucketCacheOptions) Cache {
 	_init_.Initialize()
 
 	var returns Cache
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Cache",
+		"monocdk.aws_codebuild.Cache",
 		"bucket",
 		[]interface{}{bucket, options},
 		&returns,
@@ -79,6 +82,7 @@ func Cache_Bucket(bucket awss3.IBucket, options *BucketCacheOptions) Cache {
 }
 
 // Create a local caching strategy.
+// Experimental.
 func Cache_Local(modes ...LocalCacheMode) Cache {
 	_init_.Initialize()
 
@@ -90,7 +94,7 @@ func Cache_Local(modes ...LocalCacheMode) Cache {
 	var returns Cache
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Cache",
+		"monocdk.aws_codebuild.Cache",
 		"local",
 		args,
 		&returns,
@@ -99,13 +103,14 @@ func Cache_Local(modes ...LocalCacheMode) Cache {
 	return returns
 }
 
+// Experimental.
 func Cache_None() Cache {
 	_init_.Initialize()
 
 	var returns Cache
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Cache",
+		"monocdk.aws_codebuild.Cache",
 		"none",
 		nil, // no parameters
 		&returns,

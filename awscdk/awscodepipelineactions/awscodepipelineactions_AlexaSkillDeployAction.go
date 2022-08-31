@@ -1,18 +1,17 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // Deploys the skill to Alexa.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Read the secrets from ParameterStore
 //   clientId := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientId"))
 //   clientSecret := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientSecret"))
@@ -30,20 +29,27 @@ import (
 //   	skillId: jsii.String("amzn1.ask.skill.12345678-1234-1234-1234-123456789012"),
 //   })
 //
+// Experimental.
 type AlexaSkillDeployAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -73,13 +79,14 @@ func (j *jsiiProxy_AlexaSkillDeployAction) ProvidedActionProperties() *awscodepi
 }
 
 
+// Experimental.
 func NewAlexaSkillDeployAction(props *AlexaSkillDeployActionProps) AlexaSkillDeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_AlexaSkillDeployAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.AlexaSkillDeployAction",
+		"monocdk.aws_codepipeline_actions.AlexaSkillDeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -87,17 +94,18 @@ func NewAlexaSkillDeployAction(props *AlexaSkillDeployActionProps) AlexaSkillDep
 	return &j
 }
 
+// Experimental.
 func NewAlexaSkillDeployAction_Override(a AlexaSkillDeployAction, props *AlexaSkillDeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.AlexaSkillDeployAction",
+		"monocdk.aws_codepipeline_actions.AlexaSkillDeployAction",
 		[]interface{}{props},
 		a,
 	)
 }
 
-func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -110,7 +118,7 @@ func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope constructs.Construct, stag
 	return returns
 }
 
-func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, _options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(

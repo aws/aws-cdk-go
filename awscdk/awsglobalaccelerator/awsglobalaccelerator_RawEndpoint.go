@@ -1,7 +1,7 @@
 package awsglobalaccelerator
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -25,13 +25,16 @@ import (
 //   	weight: jsii.Number(123),
 //   })
 //
+// Experimental.
 type RawEndpoint interface {
 	IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
+	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
+	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -51,13 +54,14 @@ func (j *jsiiProxy_RawEndpoint) Region() *string {
 }
 
 
+// Experimental.
 func NewRawEndpoint(props *RawEndpointProps) RawEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_RawEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_globalaccelerator.RawEndpoint",
+		"monocdk.aws_globalaccelerator.RawEndpoint",
 		[]interface{}{props},
 		&j,
 	)
@@ -65,11 +69,12 @@ func NewRawEndpoint(props *RawEndpointProps) RawEndpoint {
 	return &j
 }
 
+// Experimental.
 func NewRawEndpoint_Override(r RawEndpoint, props *RawEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_globalaccelerator.RawEndpoint",
+		"monocdk.aws_globalaccelerator.RawEndpoint",
 		[]interface{}{props},
 		r,
 	)

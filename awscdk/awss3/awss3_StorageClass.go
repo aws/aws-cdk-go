@@ -1,14 +1,13 @@
 package awss3
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Storage class to move an object to.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 //   	lifecycleRules: []lifecycleRule{
 //   		&lifecycleRule{
@@ -47,8 +46,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type StorageClass interface {
+	// Experimental.
 	Value() *string
+	// Experimental.
 	ToString() *string
 }
 
@@ -68,13 +70,14 @@ func (j *jsiiProxy_StorageClass) Value() *string {
 }
 
 
+// Experimental.
 func NewStorageClass(value *string) StorageClass {
 	_init_.Initialize()
 
 	j := jsiiProxy_StorageClass{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		[]interface{}{value},
 		&j,
 	)
@@ -82,11 +85,12 @@ func NewStorageClass(value *string) StorageClass {
 	return &j
 }
 
+// Experimental.
 func NewStorageClass_Override(s StorageClass, value *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		[]interface{}{value},
 		s,
 	)
@@ -96,7 +100,7 @@ func StorageClass_DEEP_ARCHIVE() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		"DEEP_ARCHIVE",
 		&returns,
 	)
@@ -107,7 +111,7 @@ func StorageClass_GLACIER() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		"GLACIER",
 		&returns,
 	)
@@ -118,7 +122,7 @@ func StorageClass_GLACIER_INSTANT_RETRIEVAL() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		"GLACIER_INSTANT_RETRIEVAL",
 		&returns,
 	)
@@ -129,7 +133,7 @@ func StorageClass_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		"INFREQUENT_ACCESS",
 		&returns,
 	)
@@ -140,7 +144,7 @@ func StorageClass_INTELLIGENT_TIERING() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		"INTELLIGENT_TIERING",
 		&returns,
 	)
@@ -151,7 +155,7 @@ func StorageClass_ONE_ZONE_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		"ONE_ZONE_INFREQUENT_ACCESS",
 		&returns,
 	)

@@ -13,14 +13,17 @@ package awseventstargets
 //   	value: jsii.String("value"),
 //   }
 //
+// Experimental.
 type TaskEnvironmentVariable struct {
 	// Name for the environment variable.
 	//
 	// Exactly one of `name` and `namePath` must be specified.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Value of the environment variable.
 	//
 	// Exactly one of `value` and `valuePath` must be specified.
+	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

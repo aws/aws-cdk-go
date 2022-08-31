@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -32,10 +32,12 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type ReleaseLabel interface {
 	// A literal string that contains the release-version ex.
 	//
 	// 'emr-x.x.x-latest'
+	// Experimental.
 	Label() *string
 }
 
@@ -56,13 +58,14 @@ func (j *jsiiProxy_ReleaseLabel) Label() *string {
 
 
 // Initializes the label string.
+// Experimental.
 func NewReleaseLabel(label *string) ReleaseLabel {
 	_init_.Initialize()
 
 	j := jsiiProxy_ReleaseLabel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
 		[]interface{}{label},
 		&j,
 	)
@@ -71,11 +74,12 @@ func NewReleaseLabel(label *string) ReleaseLabel {
 }
 
 // Initializes the label string.
+// Experimental.
 func NewReleaseLabel_Override(r ReleaseLabel, label *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
 		[]interface{}{label},
 		r,
 	)
@@ -85,7 +89,7 @@ func ReleaseLabel_EMR_5_32_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_5_32_0",
 		&returns,
 	)
@@ -96,7 +100,7 @@ func ReleaseLabel_EMR_5_33_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_5_33_0",
 		&returns,
 	)
@@ -107,7 +111,7 @@ func ReleaseLabel_EMR_6_2_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_6_2_0",
 		&returns,
 	)
@@ -118,7 +122,7 @@ func ReleaseLabel_EMR_6_3_0() ReleaseLabel {
 	_init_.Initialize()
 	var returns ReleaseLabel
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"monocdk.aws_stepfunctions_tasks.ReleaseLabel",
 		"EMR_6_3_0",
 		&returns,
 	)

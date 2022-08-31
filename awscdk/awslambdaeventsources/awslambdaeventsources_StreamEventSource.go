@@ -1,19 +1,23 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdaeventsources/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambdaeventsources/internal"
 )
 
 // Use an stream as an event source for AWS Lambda.
+// Experimental.
 type StreamEventSource interface {
 	awslambda.IEventSource
+	// Experimental.
 	Props() *StreamEventSourceProps
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
+	// Experimental.
 	Bind(_target awslambda.IFunction)
+	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
@@ -33,11 +37,12 @@ func (j *jsiiProxy_StreamEventSource) Props() *StreamEventSourceProps {
 }
 
 
+// Experimental.
 func NewStreamEventSource_Override(s StreamEventSource, props *StreamEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_event_sources.StreamEventSource",
+		"monocdk.aws_lambda_event_sources.StreamEventSource",
 		[]interface{}{props},
 		s,
 	)

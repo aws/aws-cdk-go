@@ -3,20 +3,18 @@ package awscloudfront
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Interface for CloudFront OriginAccessIdentity.
+// Experimental.
 type IOriginAccessIdentity interface {
 	awsiam.IGrantable
 	awscdk.IResource
-	// The Origin Access Identity Id (physical id) This was called originAccessIdentityName before.
-	OriginAccessIdentityId() *string
-	// The Origin Access Identity Id (physical id) It is misnamed and superseded by the correctly named originAccessIdentityId.
-	// Deprecated: use originAccessIdentityId instead.
+	// The Origin Access Identity Name.
+	// Experimental.
 	OriginAccessIdentityName() *string
 }
 
@@ -32,16 +30,6 @@ func (i *jsiiProxy_IOriginAccessIdentity) ApplyRemovalPolicy(policy awscdk.Remov
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
-}
-
-func (j *jsiiProxy_IOriginAccessIdentity) OriginAccessIdentityId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"originAccessIdentityId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_IOriginAccessIdentity) OriginAccessIdentityName() *string {
@@ -74,8 +62,8 @@ func (j *jsiiProxy_IOriginAccessIdentity) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IOriginAccessIdentity) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IOriginAccessIdentity) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

@@ -14,8 +14,10 @@ package awssecretsmanager
 //   	target: secretAttachmentTarget,
 //   }
 //
+// Experimental.
 type AttachedSecretOptions struct {
 	// The target to attach the secret to.
+	// Experimental.
 	Target ISecretAttachmentTarget `field:"required" json:"target" yaml:"target"`
 }
 

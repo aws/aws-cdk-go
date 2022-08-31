@@ -1,10 +1,10 @@
 package awsautoscaling
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Configure whether the AutoScalingGroup waits for signals.
@@ -34,10 +34,13 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type Signals interface {
 	// Helper to render the actual creation policy, as the logic between them is quite similar.
+	// Experimental.
 	DoRender(options *SignalsOptions, count *float64) *awscdk.CfnCreationPolicy
 	// Render the ASG's CreationPolicy.
+	// Experimental.
 	RenderCreationPolicy(renderOptions *RenderSignalsOptions) *awscdk.CfnCreationPolicy
 }
 
@@ -46,11 +49,12 @@ type jsiiProxy_Signals struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewSignals_Override(s Signals) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_autoscaling.Signals",
+		"monocdk.aws_autoscaling.Signals",
 		nil, // no parameters
 		s,
 	)
@@ -62,13 +66,14 @@ func NewSignals_Override(s Signals) {
 //
 // This number is used during initial creation and during replacing updates.
 // During rolling updates, all updated instances must send a signal.
+// Experimental.
 func Signals_WaitForAll(options *SignalsOptions) Signals {
 	_init_.Initialize()
 
 	var returns Signals
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_autoscaling.Signals",
+		"monocdk.aws_autoscaling.Signals",
 		"waitForAll",
 		[]interface{}{options},
 		&returns,
@@ -84,13 +89,14 @@ func Signals_WaitForAll(options *SignalsOptions) Signals {
 //
 // This number is used during initial creation and during replacing updates.
 // During rolling updates, all updated instances must send a signal.
+// Experimental.
 func Signals_WaitForCount(count *float64, options *SignalsOptions) Signals {
 	_init_.Initialize()
 
 	var returns Signals
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_autoscaling.Signals",
+		"monocdk.aws_autoscaling.Signals",
 		"waitForCount",
 		[]interface{}{count, options},
 		&returns,
@@ -103,13 +109,14 @@ func Signals_WaitForCount(count *float64, options *SignalsOptions) Signals {
 //
 // This number is used during initial creation and during replacing updates.
 // During rolling updates, all updated instances must send a signal.
+// Experimental.
 func Signals_WaitForMinCapacity(options *SignalsOptions) Signals {
 	_init_.Initialize()
 
 	var returns Signals
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_autoscaling.Signals",
+		"monocdk.aws_autoscaling.Signals",
 		"waitForMinCapacity",
 		[]interface{}{options},
 		&returns,

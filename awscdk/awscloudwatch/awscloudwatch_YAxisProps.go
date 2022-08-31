@@ -15,14 +15,19 @@ package awscloudwatch
 //   	showUnits: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type YAxisProps struct {
 	// The label.
+	// Experimental.
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The max value.
+	// Experimental.
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The min value.
+	// Experimental.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 	// Whether to show units.
+	// Experimental.
 	ShowUnits *bool `field:"optional" json:"showUnits" yaml:"showUnits"`
 }
 

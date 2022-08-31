@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,7 +14,6 @@ import (
 // value that will resolve to the tags at synthesis time.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cdk "github.com/aws-samples/dummy/awscdkcore"
 //
 //
@@ -23,7 +22,7 @@ import (
 //   	tags
 //   }
 //
-//   func newMyConstruct(scope cdk.Construct, id *string) *myConstruct {
+//   func newMyConstruct(scope construct, id *string) *myConstruct {
 //   	this := &myConstruct{}
 //   	cdk.NewResource_Override(this, scope, id)
 //
@@ -37,25 +36,31 @@ import (
 //   	return this
 //   }
 //
+// Experimental.
 type TagManager interface {
 	// A lazy value that represents the rendered tags at synthesis time.
 	//
 	// If you need to make a custom construct taggable, use the value of this
 	// property to pass to the `tags` property of the underlying construct.
+	// Experimental.
 	RenderedTags() IResolvable
 	// The property name for tag values.
 	//
 	// Normally this is `tags` but some resources choose a different name. Cognito
 	// UserPool uses UserPoolTags.
+	// Experimental.
 	TagPropertyName() *string
 	// Determine if the aspect applies here.
 	//
 	// Looks at the include and exclude resourceTypeName arrays to determine if
 	// the aspect applies here.
+	// Experimental.
 	ApplyTagAspectHere(include *[]*string, exclude *[]*string) *bool
 	// Returns true if there are any tags defined.
+	// Experimental.
 	HasTags() *bool
 	// Removes the specified tag from the array if it exists.
+	// Experimental.
 	RemoveTag(key *string, priority *float64)
 	// Renders tags into the proper format based on TagType.
 	//
@@ -63,10 +68,13 @@ type TagManager interface {
 	// most cases, you should be using `tagManager.renderedTags` instead,
 	// which will return a `Lazy` value that will resolve to the correct
 	// tags at synthesis time.
+	// Experimental.
 	RenderTags() interface{}
 	// Adds the specified tag to the array of tags.
+	// Experimental.
 	SetTag(key *string, value *string, priority *float64, applyToLaunchedInstances *bool)
 	// Render the tags in a readable format.
+	// Experimental.
 	TagValues() *map[string]*string
 }
 
@@ -96,13 +104,14 @@ func (j *jsiiProxy_TagManager) TagPropertyName() *string {
 }
 
 
+// Experimental.
 func NewTagManager(tagType TagType, resourceTypeName *string, tagStructure interface{}, options *TagManagerOptions) TagManager {
 	_init_.Initialize()
 
 	j := jsiiProxy_TagManager{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.TagManager",
+		"monocdk.TagManager",
 		[]interface{}{tagType, resourceTypeName, tagStructure, options},
 		&j,
 	)
@@ -110,24 +119,26 @@ func NewTagManager(tagType TagType, resourceTypeName *string, tagStructure inter
 	return &j
 }
 
+// Experimental.
 func NewTagManager_Override(t TagManager, tagType TagType, resourceTypeName *string, tagStructure interface{}, options *TagManagerOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.TagManager",
+		"monocdk.TagManager",
 		[]interface{}{tagType, resourceTypeName, tagStructure, options},
 		t,
 	)
 }
 
 // Check whether the given construct is Taggable.
+// Experimental.
 func TagManager_IsTaggable(construct interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.TagManager",
+		"monocdk.TagManager",
 		"isTaggable",
 		[]interface{}{construct},
 		&returns,

@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -12,28 +12,35 @@ import (
 // implementations of stack synthesizers. The protected methods give
 // access to functions that are otherwise @_internal to the framework
 // and could not be accessed by external implementors.
+// Experimental.
 type StackSynthesizer interface {
 	IStackSynthesizer
 	// Register a Docker Image Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
+	// Experimental.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
 	// Register a File Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
+	// Experimental.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
 	// Must be called before any of the other methods are called.
+	// Experimental.
 	Bind(stack Stack)
 	// Write the stack artifact to the session.
 	//
 	// Use default settings to add a CloudFormationStackArtifact artifact to
 	// the given synthesis session.
+	// Experimental.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
 	// Synthesize the associated stack to the session.
+	// Experimental.
 	Synthesize(session ISynthesisSession)
 	// Have the stack write out its template.
+	// Experimental.
 	SynthesizeStackTemplate(stack Stack, session ISynthesisSession)
 }
 
@@ -42,11 +49,12 @@ type jsiiProxy_StackSynthesizer struct {
 	jsiiProxy_IStackSynthesizer
 }
 
+// Experimental.
 func NewStackSynthesizer_Override(s StackSynthesizer) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.StackSynthesizer",
+		"monocdk.StackSynthesizer",
 		nil, // no parameters
 		s,
 	)

@@ -1,18 +1,17 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // CodePipeline build action that uses AWS CodeBuild.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //   var distribution distribution
@@ -73,19 +72,25 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CodeBuildAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	// Reference a CodePipeline variable defined by the CodeBuild project this action points to.
 	//
@@ -93,7 +98,9 @@ type CodeBuildAction interface {
 	// section of the buildspec.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-syntax
 	//
+	// Experimental.
 	Variable(variableName *string) *string
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -123,13 +130,14 @@ func (j *jsiiProxy_CodeBuildAction) ProvidedActionProperties() *awscodepipeline.
 }
 
 
+// Experimental.
 func NewCodeBuildAction(props *CodeBuildActionProps) CodeBuildAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeBuildAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeBuildAction",
+		"monocdk.aws_codepipeline_actions.CodeBuildAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -137,17 +145,18 @@ func NewCodeBuildAction(props *CodeBuildActionProps) CodeBuildAction {
 	return &j
 }
 
+// Experimental.
 func NewCodeBuildAction_Override(c CodeBuildAction, props *CodeBuildActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeBuildAction",
+		"monocdk.aws_codepipeline_actions.CodeBuildAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-func (c *jsiiProxy_CodeBuildAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeBuildAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -160,7 +169,7 @@ func (c *jsiiProxy_CodeBuildAction) Bind(scope constructs.Construct, stage awsco
 	return returns
 }
 
-func (c *jsiiProxy_CodeBuildAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeBuildAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(

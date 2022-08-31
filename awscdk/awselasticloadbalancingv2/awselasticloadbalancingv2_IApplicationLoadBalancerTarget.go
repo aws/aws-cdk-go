@@ -5,11 +5,13 @@ import (
 )
 
 // Interface for constructs that can be targets of an application load balancer.
+// Experimental.
 type IApplicationLoadBalancerTarget interface {
 	// Attach load-balanced target to a TargetGroup.
 	//
 	// May return JSON to directly add to the [Targets] list, or return undefined
 	// if the target will register itself with the load balancer.
+	// Experimental.
 	AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps
 }
 

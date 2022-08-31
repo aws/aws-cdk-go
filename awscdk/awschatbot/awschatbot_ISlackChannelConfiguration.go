@@ -3,28 +3,34 @@ package awschatbot
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awschatbot/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awschatbot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Represents a Slack channel configuration.
+// Experimental.
 type ISlackChannelConfiguration interface {
 	awsiam.IGrantable
 	awscodestarnotifications.INotificationRuleTarget
 	awscdk.IResource
 	// Adds a statement to the IAM role.
+	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Return the given named metric for this SlackChannelConfiguration.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The permission role of Slack channel configuration.
+	// Experimental.
 	Role() awsiam.IRole
 	// The ARN of the Slack channel configuration In the form of arn:aws:chatbot:{region}:{account}:chat-configuration/slack-channel/{slackChannelName}.
+	// Experimental.
 	SlackChannelConfigurationArn() *string
 	// The name of Slack channel configuration.
+	// Experimental.
 	SlackChannelConfigurationName() *string
 }
 
@@ -127,8 +133,8 @@ func (j *jsiiProxy_ISlackChannelConfiguration) GrantPrincipal() awsiam.IPrincipa
 	return returns
 }
 
-func (j *jsiiProxy_ISlackChannelConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ISlackChannelConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

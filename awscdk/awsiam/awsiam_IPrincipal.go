@@ -19,13 +19,23 @@ import (
 // A single logical Principal may also map to a set of physical principals.
 // For example, `new OrganizationPrincipal('o-1234')` represents all
 // identities that are part of the given AWS Organization.
+// Experimental.
 type IPrincipal interface {
 	IGrantable
 	// Add to the policy of this principal.
+	//
+	// Returns: true if the statement was added, false if the principal in
+	// question does not have a policy document to add the statement to.
+	// Deprecated: Use `addToPrincipalPolicy` instead.
+	AddToPolicy(statement PolicyStatement) *bool
+	// Add to the policy of this principal.
+	// Experimental.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// When this Principal is used in an AssumeRole policy, the action to use.
+	// Experimental.
 	AssumeRoleAction() *string
 	// Return the policy fragment that identifies this principal in a Policy.
+	// Experimental.
 	PolicyFragment() PrincipalPolicyFragment
 	// The AWS account ID of this principal.
 	//
@@ -33,12 +43,26 @@ type IPrincipal interface {
 	// (for example, for service principals).
 	// Can be a Token - in that case,
 	// it's assumed to be AWS::AccountId.
+	// Experimental.
 	PrincipalAccount() *string
 }
 
 // The jsii proxy for IPrincipal
 type jsiiProxy_IPrincipal struct {
 	jsiiProxy_IGrantable
+}
+
+func (i *jsiiProxy_IPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		i,
+		"addToPolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_IPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {

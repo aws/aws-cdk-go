@@ -1,12 +1,12 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // CodePipeline Source that is provided by an AWS CodeCommit repository.
@@ -74,22 +74,30 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CodeCommitSourceAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The variables emitted by this action.
+	// Experimental.
 	Variables() *CodeCommitSourceVariables
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -129,13 +137,14 @@ func (j *jsiiProxy_CodeCommitSourceAction) Variables() *CodeCommitSourceVariable
 }
 
 
+// Experimental.
 func NewCodeCommitSourceAction(props *CodeCommitSourceActionProps) CodeCommitSourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeCommitSourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeCommitSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -143,17 +152,18 @@ func NewCodeCommitSourceAction(props *CodeCommitSourceActionProps) CodeCommitSou
 	return &j
 }
 
+// Experimental.
 func NewCodeCommitSourceAction_Override(c CodeCommitSourceAction, props *CodeCommitSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeCommitSourceAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -166,7 +176,7 @@ func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope constructs.Construct, stag
 	return returns
 }
 
-func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(

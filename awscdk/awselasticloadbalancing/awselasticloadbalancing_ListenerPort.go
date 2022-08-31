@@ -1,11 +1,11 @@
 package awselasticloadbalancing
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing/internal"
 )
 
 // Reference to a listener's port just created.
@@ -31,9 +31,11 @@ import (
 //
 //   listenerPort := awscdk.Aws_elasticloadbalancing.NewListenerPort(securityGroup, port)
 //
+// Experimental.
 type ListenerPort interface {
 	awsec2.IConnectable
 	// The network connections associated with this resource.
+	// Experimental.
 	Connections() awsec2.Connections
 }
 
@@ -53,13 +55,14 @@ func (j *jsiiProxy_ListenerPort) Connections() awsec2.Connections {
 }
 
 
+// Experimental.
 func NewListenerPort(securityGroup awsec2.ISecurityGroup, defaultPort awsec2.Port) ListenerPort {
 	_init_.Initialize()
 
 	j := jsiiProxy_ListenerPort{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.ListenerPort",
+		"monocdk.aws_elasticloadbalancing.ListenerPort",
 		[]interface{}{securityGroup, defaultPort},
 		&j,
 	)
@@ -67,11 +70,12 @@ func NewListenerPort(securityGroup awsec2.ISecurityGroup, defaultPort awsec2.Por
 	return &j
 }
 
+// Experimental.
 func NewListenerPort_Override(l ListenerPort, securityGroup awsec2.ISecurityGroup, defaultPort awsec2.Port) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.ListenerPort",
+		"monocdk.aws_elasticloadbalancing.ListenerPort",
 		[]interface{}{securityGroup, defaultPort},
 		l,
 	)

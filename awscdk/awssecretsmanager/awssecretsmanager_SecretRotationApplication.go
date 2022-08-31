@@ -1,7 +1,7 @@
 package awssecretsmanager
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -24,22 +24,42 @@ import (
 //   	excludeCharacters: jsii.String(" %+:;{}"),
 //   })
 //
+// Experimental.
 type SecretRotationApplication interface {
+	// The application identifier of the rotation application.
+	// Deprecated: only valid when deploying to the 'aws' partition. Use `applicationArnForPartition` instead.
+	ApplicationId() *string
 	// Whether the rotation application uses the mutli user scheme.
+	// Experimental.
 	IsMultiUser() *bool
+	// The semantic version of the rotation application.
+	// Deprecated: only valid when deploying to the 'aws' partition. Use `semanticVersionForPartition` instead.
+	SemanticVersion() *string
 	// Returns the application ARN for the current partition.
 	//
 	// Can be used in combination with a `CfnMapping` to automatically select the correct ARN based on the current partition.
+	// Experimental.
 	ApplicationArnForPartition(partition *string) *string
 	// The semantic version of the app for the current partition.
 	//
 	// Can be used in combination with a `CfnMapping` to automatically select the correct version based on the current partition.
+	// Experimental.
 	SemanticVersionForPartition(partition *string) *string
 }
 
 // The jsii proxy struct for SecretRotationApplication
 type jsiiProxy_SecretRotationApplication struct {
 	_ byte // padding
+}
+
+func (j *jsiiProxy_SecretRotationApplication) ApplicationId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applicationId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_SecretRotationApplication) IsMultiUser() *bool {
@@ -52,14 +72,25 @@ func (j *jsiiProxy_SecretRotationApplication) IsMultiUser() *bool {
 	return returns
 }
 
+func (j *jsiiProxy_SecretRotationApplication) SemanticVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"semanticVersion",
+		&returns,
+	)
+	return returns
+}
 
+
+// Experimental.
 func NewSecretRotationApplication(applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) SecretRotationApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_SecretRotationApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		[]interface{}{applicationId, semanticVersion, options},
 		&j,
 	)
@@ -67,11 +98,12 @@ func NewSecretRotationApplication(applicationId *string, semanticVersion *string
 	return &j
 }
 
+// Experimental.
 func NewSecretRotationApplication_Override(s SecretRotationApplication, applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		[]interface{}{applicationId, semanticVersion, options},
 		s,
 	)
@@ -81,7 +113,7 @@ func SecretRotationApplication_MARIADB_ROTATION_MULTI_USER() SecretRotationAppli
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"MARIADB_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -92,7 +124,7 @@ func SecretRotationApplication_MARIADB_ROTATION_SINGLE_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"MARIADB_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -103,7 +135,7 @@ func SecretRotationApplication_MONGODB_ROTATION_MULTI_USER() SecretRotationAppli
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"MONGODB_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -114,7 +146,7 @@ func SecretRotationApplication_MONGODB_ROTATION_SINGLE_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"MONGODB_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -125,7 +157,7 @@ func SecretRotationApplication_MYSQL_ROTATION_MULTI_USER() SecretRotationApplica
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"MYSQL_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -136,7 +168,7 @@ func SecretRotationApplication_MYSQL_ROTATION_SINGLE_USER() SecretRotationApplic
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"MYSQL_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -147,7 +179,7 @@ func SecretRotationApplication_ORACLE_ROTATION_MULTI_USER() SecretRotationApplic
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"ORACLE_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -158,7 +190,7 @@ func SecretRotationApplication_ORACLE_ROTATION_SINGLE_USER() SecretRotationAppli
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"ORACLE_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -169,7 +201,7 @@ func SecretRotationApplication_POSTGRES_ROTATION_MULTI_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"POSTGRES_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -180,7 +212,7 @@ func SecretRotationApplication_POSTGRES_ROTATION_SINGLE_USER() SecretRotationApp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"POSTGRES_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -191,7 +223,7 @@ func SecretRotationApplication_REDSHIFT_ROTATION_MULTI_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"REDSHIFT_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -202,7 +234,7 @@ func SecretRotationApplication_REDSHIFT_ROTATION_SINGLE_USER() SecretRotationApp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"REDSHIFT_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -213,7 +245,7 @@ func SecretRotationApplication_SQLSERVER_ROTATION_MULTI_USER() SecretRotationApp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"SQLSERVER_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -224,7 +256,7 @@ func SecretRotationApplication_SQLSERVER_ROTATION_SINGLE_USER() SecretRotationAp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"monocdk.aws_secretsmanager.SecretRotationApplication",
 		"SQLSERVER_ROTATION_SINGLE_USER",
 		&returns,
 	)

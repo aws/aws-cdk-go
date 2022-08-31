@@ -18,11 +18,15 @@ package awsapigateway
 //   	},
 //   })
 //
+// Experimental.
 type Period string
 
 const (
+	// Experimental.
 	Period_DAY Period = "DAY"
+	// Experimental.
 	Period_WEEK Period = "WEEK"
+	// Experimental.
 	Period_MONTH Period = "MONTH"
 )
 

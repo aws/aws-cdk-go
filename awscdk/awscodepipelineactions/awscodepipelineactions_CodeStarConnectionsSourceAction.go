@@ -1,18 +1,17 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // A CodePipeline source action for the CodeStar Connections source, which allows connecting to GitHub and BitBucket.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewCodeStarConnectionsSourceAction(&codeStarConnectionsSourceActionProps{
 //   	actionName: jsii.String("BitBucket_Source"),
@@ -22,22 +21,30 @@ import (
 //   	connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"),
 //   })
 //
+// Experimental.
 type CodeStarConnectionsSourceAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The variables emitted by this action.
+	// Experimental.
 	Variables() *CodeStarSourceVariables
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -77,13 +84,14 @@ func (j *jsiiProxy_CodeStarConnectionsSourceAction) Variables() *CodeStarSourceV
 }
 
 
+// Experimental.
 func NewCodeStarConnectionsSourceAction(props *CodeStarConnectionsSourceActionProps) CodeStarConnectionsSourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeStarConnectionsSourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -91,17 +99,18 @@ func NewCodeStarConnectionsSourceAction(props *CodeStarConnectionsSourceActionPr
 	return &j
 }
 
+// Experimental.
 func NewCodeStarConnectionsSourceAction_Override(c CodeStarConnectionsSourceAction, props *CodeStarConnectionsSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -114,7 +123,7 @@ func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope constructs.Constr
 	return returns
 }
 
-func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(

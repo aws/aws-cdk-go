@@ -5,8 +5,10 @@ import (
 )
 
 // An abstract action for a receipt rule.
+// Experimental.
 type IReceiptRuleAction interface {
 	// Returns the receipt rule action specification.
+	// Experimental.
 	Bind(receiptRule IReceiptRule) *ReceiptRuleActionConfig
 }
 

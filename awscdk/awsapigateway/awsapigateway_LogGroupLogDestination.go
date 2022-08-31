@@ -1,10 +1,10 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
 )
 
 // Use CloudWatch Logs as a custom access log destination for API Gateway.
@@ -19,9 +19,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type LogGroupLogDestination interface {
 	IAccessLogDestination
 	// Binds this destination to the CloudWatch Logs.
+	// Experimental.
 	Bind(_stage IStage) *AccessLogDestinationConfig
 }
 
@@ -30,13 +32,14 @@ type jsiiProxy_LogGroupLogDestination struct {
 	jsiiProxy_IAccessLogDestination
 }
 
+// Experimental.
 func NewLogGroupLogDestination(logGroup awslogs.ILogGroup) LogGroupLogDestination {
 	_init_.Initialize()
 
 	j := jsiiProxy_LogGroupLogDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.LogGroupLogDestination",
+		"monocdk.aws_apigateway.LogGroupLogDestination",
 		[]interface{}{logGroup},
 		&j,
 	)
@@ -44,11 +47,12 @@ func NewLogGroupLogDestination(logGroup awslogs.ILogGroup) LogGroupLogDestinatio
 	return &j
 }
 
+// Experimental.
 func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup awslogs.ILogGroup) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.LogGroupLogDestination",
+		"monocdk.aws_apigateway.LogGroupLogDestination",
 		[]interface{}{logGroup},
 		l,
 	)

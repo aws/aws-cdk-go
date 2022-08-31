@@ -1,7 +1,7 @@
 package awsconfig
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,8 +30,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html
 //
+// Experimental.
 type ResourceType interface {
 	// Valid value of resource type.
+	// Experimental.
 	ComplianceResourceType() *string
 }
 
@@ -52,13 +54,14 @@ func (j *jsiiProxy_ResourceType) ComplianceResourceType() *string {
 
 
 // A custom resource type to support future cases.
+// Experimental.
 func ResourceType_Of(type_ *string) ResourceType {
 	_init_.Initialize()
 
 	var returns ResourceType
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"of",
 		[]interface{}{type_},
 		&returns,
@@ -71,7 +74,7 @@ func ResourceType_ACM_CERTIFICATE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ACM_CERTIFICATE",
 		&returns,
 	)
@@ -82,7 +85,7 @@ func ResourceType_APIGATEWAY_REST_API() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAY_REST_API",
 		&returns,
 	)
@@ -93,7 +96,7 @@ func ResourceType_APIGATEWAY_STAGE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAY_STAGE",
 		&returns,
 	)
@@ -104,7 +107,7 @@ func ResourceType_APIGATEWAYV2_API() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAYV2_API",
 		&returns,
 	)
@@ -115,7 +118,7 @@ func ResourceType_APIGATEWAYV2_STAGE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAYV2_STAGE",
 		&returns,
 	)
@@ -126,7 +129,7 @@ func ResourceType_AUTO_SCALING_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_GROUP",
 		&returns,
 	)
@@ -137,7 +140,7 @@ func ResourceType_AUTO_SCALING_LAUNCH_CONFIGURATION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_LAUNCH_CONFIGURATION",
 		&returns,
 	)
@@ -148,7 +151,7 @@ func ResourceType_AUTO_SCALING_POLICY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_POLICY",
 		&returns,
 	)
@@ -159,74 +162,8 @@ func ResourceType_AUTO_SCALING_SCHEDULED_ACTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_SCHEDULED_ACTION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_BACKUP_BACKUP_PLAN() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"BACKUP_BACKUP_PLAN",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_BACKUP_BACKUP_SELECTION() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"BACKUP_BACKUP_SELECTION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_BACKUP_BACKUP_VAULT() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"BACKUP_BACKUP_VAULT",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_BACKUP_RECOVERY_POINT() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"BACKUP_RECOVERY_POINT",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_BATCH_COMPUTE_ENVIRONMENT() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"BATCH_COMPUTE_ENVIRONMENT",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_BATCH_JOB_QUEUE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"BATCH_JOB_QUEUE",
 		&returns,
 	)
 	return returns
@@ -236,7 +173,7 @@ func ResourceType_CLOUDFORMATION_STACK() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDFORMATION_STACK",
 		&returns,
 	)
@@ -247,7 +184,7 @@ func ResourceType_CLOUDFRONT_DISTRIBUTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDFRONT_DISTRIBUTION",
 		&returns,
 	)
@@ -258,7 +195,7 @@ func ResourceType_CLOUDFRONT_STREAMING_DISTRIBUTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDFRONT_STREAMING_DISTRIBUTION",
 		&returns,
 	)
@@ -269,7 +206,7 @@ func ResourceType_CLOUDTRAIL_TRAIL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDTRAIL_TRAIL",
 		&returns,
 	)
@@ -280,7 +217,7 @@ func ResourceType_CLOUDWATCH_ALARM() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDWATCH_ALARM",
 		&returns,
 	)
@@ -291,41 +228,8 @@ func ResourceType_CODEBUILD_PROJECT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CODEBUILD_PROJECT",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_CODEDEPLOY_APPLICATION() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"CODEDEPLOY_APPLICATION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_CODEDEPLOY_DEPLOYMENT_CONFIG() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"CODEDEPLOY_DEPLOYMENT_CONFIG",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_CODEDEPLOY_DEPLOYMENT_GROUP() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"CODEDEPLOY_DEPLOYMENT_GROUP",
 		&returns,
 	)
 	return returns
@@ -335,52 +239,8 @@ func ResourceType_CODEPIPELINE_PIPELINE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CODEPIPELINE_PIPELINE",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_CONFIG_CONFORMANCE_PACK_COMPLIANCE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"CONFIG_CONFORMANCE_PACK_COMPLIANCE",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_CONFIG_RESOURCE_COMPLIANCE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"CONFIG_RESOURCE_COMPLIANCE",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_DMS_EVENT_SUBSCRIPTION() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"DMS_EVENT_SUBSCRIPTION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_DMS_REPLICATION_SUBNET_GROUP() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"DMS_REPLICATION_SUBNET_GROUP",
 		&returns,
 	)
 	return returns
@@ -390,7 +250,7 @@ func ResourceType_DYNAMODB_TABLE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"DYNAMODB_TABLE",
 		&returns,
 	)
@@ -401,7 +261,7 @@ func ResourceType_EBS_VOLUME() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EBS_VOLUME",
 		&returns,
 	)
@@ -412,7 +272,7 @@ func ResourceType_EC2_CUSTOMER_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_CUSTOMER_GATEWAY",
 		&returns,
 	)
@@ -423,7 +283,7 @@ func ResourceType_EC2_EGRESS_ONLY_INTERNET_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_EGRESS_ONLY_INTERNET_GATEWAY",
 		&returns,
 	)
@@ -434,7 +294,7 @@ func ResourceType_EC2_EIP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_EIP",
 		&returns,
 	)
@@ -445,7 +305,7 @@ func ResourceType_EC2_FLOW_LOG() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_FLOW_LOG",
 		&returns,
 	)
@@ -456,7 +316,7 @@ func ResourceType_EC2_HOST() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_HOST",
 		&returns,
 	)
@@ -467,7 +327,7 @@ func ResourceType_EC2_INSTANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_INSTANCE",
 		&returns,
 	)
@@ -478,19 +338,8 @@ func ResourceType_EC2_INTERNET_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_INTERNET_GATEWAY",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EC2_LAUNCH_TEMPLATE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EC2_LAUNCH_TEMPLATE",
 		&returns,
 	)
 	return returns
@@ -500,7 +349,7 @@ func ResourceType_EC2_NAT_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_NAT_GATEWAY",
 		&returns,
 	)
@@ -511,30 +360,8 @@ func ResourceType_EC2_NETWORK_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_NETWORK_ACL",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EC2_NETWORK_INTERFACE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EC2_NETWORK_INTERFACE",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EC2_REGISTERED_HA_INSTANCE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EC2_REGISTERED_HA_INSTANCE",
 		&returns,
 	)
 	return returns
@@ -544,7 +371,7 @@ func ResourceType_EC2_ROUTE_TABLE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_ROUTE_TABLE",
 		&returns,
 	)
@@ -555,7 +382,7 @@ func ResourceType_EC2_SECURITY_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_SECURITY_GROUP",
 		&returns,
 	)
@@ -566,41 +393,8 @@ func ResourceType_EC2_SUBNET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_SUBNET",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EC2_TRANSIT_GATEWAY() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EC2_TRANSIT_GATEWAY",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EC2_TRANSIT_GATEWAY_ATTACHMENT() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EC2_TRANSIT_GATEWAY_ATTACHMENT",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EC2_TRANSIT_GATEWAY_ROUTE_TABLE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EC2_TRANSIT_GATEWAY_ROUTE_TABLE",
 		&returns,
 	)
 	return returns
@@ -610,7 +404,7 @@ func ResourceType_EC2_VPC() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC",
 		&returns,
 	)
@@ -621,7 +415,7 @@ func ResourceType_EC2_VPC_ENDPOINT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC_ENDPOINT",
 		&returns,
 	)
@@ -632,7 +426,7 @@ func ResourceType_EC2_VPC_ENDPOINT_SERVICE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC_ENDPOINT_SERVICE",
 		&returns,
 	)
@@ -643,7 +437,7 @@ func ResourceType_EC2_VPC_PEERING_CONNECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC_PEERING_CONNECTION",
 		&returns,
 	)
@@ -654,7 +448,7 @@ func ResourceType_EC2_VPN_CONNECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPN_CONNECTION",
 		&returns,
 	)
@@ -665,96 +459,8 @@ func ResourceType_EC2_VPN_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPN_GATEWAY",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ECR_PUBLIC_REPOSITORY() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ECR_PUBLIC_REPOSITORY",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ECR_REPOSITORY() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ECR_REPOSITORY",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ECS_CLUSTER() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ECS_CLUSTER",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ECS_SERVICE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ECS_SERVICE",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ECS_TASK_DEFINITION() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ECS_TASK_DEFINITION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EFS_ACCESS_POINT() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EFS_ACCESS_POINT",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EFS_FILE_SYSTEM() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EFS_FILE_SYSTEM",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EKS_CLUSTER() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EKS_CLUSTER",
 		&returns,
 	)
 	return returns
@@ -764,7 +470,7 @@ func ResourceType_ELASTIC_BEANSTALK_APPLICATION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTIC_BEANSTALK_APPLICATION",
 		&returns,
 	)
@@ -775,7 +481,7 @@ func ResourceType_ELASTIC_BEANSTALK_APPLICATION_VERSION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTIC_BEANSTALK_APPLICATION_VERSION",
 		&returns,
 	)
@@ -786,7 +492,7 @@ func ResourceType_ELASTIC_BEANSTALK_ENVIRONMENT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTIC_BEANSTALK_ENVIRONMENT",
 		&returns,
 	)
@@ -797,7 +503,7 @@ func ResourceType_ELASTICSEARCH_DOMAIN() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTICSEARCH_DOMAIN",
 		&returns,
 	)
@@ -808,19 +514,8 @@ func ResourceType_ELB_LOAD_BALANCER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELB_LOAD_BALANCER",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ELBV2_LISTENER() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ELBV2_LISTENER",
 		&returns,
 	)
 	return returns
@@ -830,74 +525,8 @@ func ResourceType_ELBV2_LOAD_BALANCER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELBV2_LOAD_BALANCER",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_EMR_SECURITY_CONFIGURATION() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"EMR_SECURITY_CONFIGURATION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_GLOBALACCELERATOR_ACCELERATOR() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"GLOBALACCELERATOR_ACCELERATOR",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_GLOBALACCELERATOR_ENDPOINT_GROUP() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"GLOBALACCELERATOR_ENDPOINT_GROUP",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_GLOBALACCELERATOR_LISTENER() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"GLOBALACCELERATOR_LISTENER",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_GUARDDUTY_DETECTOR() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"GUARDDUTY_DETECTOR",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_IAM_ACCESSANALYZER_ANALYZER() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"IAM_ACCESSANALYZER_ANALYZER",
 		&returns,
 	)
 	return returns
@@ -907,7 +536,7 @@ func ResourceType_IAM_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_GROUP",
 		&returns,
 	)
@@ -918,7 +547,7 @@ func ResourceType_IAM_POLICY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_POLICY",
 		&returns,
 	)
@@ -929,7 +558,7 @@ func ResourceType_IAM_ROLE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_ROLE",
 		&returns,
 	)
@@ -940,30 +569,8 @@ func ResourceType_IAM_USER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_USER",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_KINESIS_STREAM() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"KINESIS_STREAM",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_KINESIS_STREAM_CONSUMER() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"KINESIS_STREAM_CONSUMER",
 		&returns,
 	)
 	return returns
@@ -973,7 +580,7 @@ func ResourceType_KMS_KEY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"KMS_KEY",
 		&returns,
 	)
@@ -984,30 +591,8 @@ func ResourceType_LAMBDA_FUNCTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"LAMBDA_FUNCTION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_MSK_CLUSTER() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"MSK_CLUSTER",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_OPENSEARCH_DOMAIN() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"OPENSEARCH_DOMAIN",
 		&returns,
 	)
 	return returns
@@ -1017,7 +602,7 @@ func ResourceType_QLDB_LEDGER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"QLDB_LEDGER",
 		&returns,
 	)
@@ -1028,7 +613,7 @@ func ResourceType_RDS_DB_CLUSTER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_CLUSTER",
 		&returns,
 	)
@@ -1039,7 +624,7 @@ func ResourceType_RDS_DB_CLUSTER_SNAPSHOT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_CLUSTER_SNAPSHOT",
 		&returns,
 	)
@@ -1050,7 +635,7 @@ func ResourceType_RDS_DB_INSTANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_INSTANCE",
 		&returns,
 	)
@@ -1061,7 +646,7 @@ func ResourceType_RDS_DB_SECURITY_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_SECURITY_GROUP",
 		&returns,
 	)
@@ -1072,7 +657,7 @@ func ResourceType_RDS_DB_SNAPSHOT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_SNAPSHOT",
 		&returns,
 	)
@@ -1083,7 +668,7 @@ func ResourceType_RDS_DB_SUBNET_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_SUBNET_GROUP",
 		&returns,
 	)
@@ -1094,7 +679,7 @@ func ResourceType_RDS_EVENT_SUBSCRIPTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_EVENT_SUBSCRIPTION",
 		&returns,
 	)
@@ -1105,7 +690,7 @@ func ResourceType_REDSHIFT_CLUSTER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER",
 		&returns,
 	)
@@ -1116,7 +701,7 @@ func ResourceType_REDSHIFT_CLUSTER_PARAMETER_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_PARAMETER_GROUP",
 		&returns,
 	)
@@ -1127,7 +712,7 @@ func ResourceType_REDSHIFT_CLUSTER_SECURITY_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_SECURITY_GROUP",
 		&returns,
 	)
@@ -1138,7 +723,7 @@ func ResourceType_REDSHIFT_CLUSTER_SNAPSHOT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_SNAPSHOT",
 		&returns,
 	)
@@ -1149,7 +734,7 @@ func ResourceType_REDSHIFT_CLUSTER_SUBNET_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_SUBNET_GROUP",
 		&returns,
 	)
@@ -1160,41 +745,8 @@ func ResourceType_REDSHIFT_EVENT_SUBSCRIPTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_EVENT_SUBSCRIPTION",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ROUTE53_RESOLVER_RESOLVER_ENDPOINT() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ROUTE53_RESOLVER_RESOLVER_ENDPOINT",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ROUTE53_RESOLVER_RESOLVER_RULE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ROUTE53_RESOLVER_RESOLVER_RULE",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_ROUTE53_RESOLVER_RESOLVER_RULE_ASSOCIATION() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"ROUTE53_RESOLVER_RESOLVER_RULE_ASSOCIATION",
 		&returns,
 	)
 	return returns
@@ -1204,7 +756,7 @@ func ResourceType_S3_ACCOUNT_PUBLIC_ACCESS_BLOCK() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"S3_ACCOUNT_PUBLIC_ACCESS_BLOCK",
 		&returns,
 	)
@@ -1215,41 +767,8 @@ func ResourceType_S3_BUCKET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"S3_BUCKET",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_SAGEMAKER_CODE_REPOSITORY() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"SAGEMAKER_CODE_REPOSITORY",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_SAGEMAKER_MODEL() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"SAGEMAKER_MODEL",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_SAGEMAKER_NOTEBOOK_INSTANCE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"SAGEMAKER_NOTEBOOK_INSTANCE",
 		&returns,
 	)
 	return returns
@@ -1259,7 +778,7 @@ func ResourceType_SECRETS_MANAGER_SECRET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SECRETS_MANAGER_SECRET",
 		&returns,
 	)
@@ -1270,7 +789,7 @@ func ResourceType_SERVICE_CATALOG_CLOUDFORMATION_PRODUCT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SERVICE_CATALOG_CLOUDFORMATION_PRODUCT",
 		&returns,
 	)
@@ -1281,7 +800,7 @@ func ResourceType_SERVICE_CATALOG_CLOUDFORMATION_PROVISIONED_PRODUCT() ResourceT
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SERVICE_CATALOG_CLOUDFORMATION_PROVISIONED_PRODUCT",
 		&returns,
 	)
@@ -1292,7 +811,7 @@ func ResourceType_SERVICE_CATALOG_PORTFOLIO() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SERVICE_CATALOG_PORTFOLIO",
 		&returns,
 	)
@@ -1303,7 +822,7 @@ func ResourceType_SHIELD_PROTECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SHIELD_PROTECTION",
 		&returns,
 	)
@@ -1314,7 +833,7 @@ func ResourceType_SHIELD_REGIONAL_PROTECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SHIELD_REGIONAL_PROTECTION",
 		&returns,
 	)
@@ -1325,7 +844,7 @@ func ResourceType_SNS_TOPIC() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SNS_TOPIC",
 		&returns,
 	)
@@ -1336,30 +855,8 @@ func ResourceType_SQS_QUEUE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SQS_QUEUE",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_STEPFUNCTIONS_ACTIVITY() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"STEPFUNCTIONS_ACTIVITY",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_STEPFUNCTIONS_STATE_MACHINE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"STEPFUNCTIONS_STATE_MACHINE",
 		&returns,
 	)
 	return returns
@@ -1369,7 +866,7 @@ func ResourceType_SYSTEMS_MANAGER_ASSOCIATION_COMPLIANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_ASSOCIATION_COMPLIANCE",
 		&returns,
 	)
@@ -1380,7 +877,7 @@ func ResourceType_SYSTEMS_MANAGER_FILE_DATA() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_FILE_DATA",
 		&returns,
 	)
@@ -1391,7 +888,7 @@ func ResourceType_SYSTEMS_MANAGER_MANAGED_INSTANCE_INVENTORY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_MANAGED_INSTANCE_INVENTORY",
 		&returns,
 	)
@@ -1402,7 +899,7 @@ func ResourceType_SYSTEMS_MANAGER_PATCH_COMPLIANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_PATCH_COMPLIANCE",
 		&returns,
 	)
@@ -1413,7 +910,7 @@ func ResourceType_WAF_RATE_BASED_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_RATE_BASED_RULE",
 		&returns,
 	)
@@ -1424,7 +921,7 @@ func ResourceType_WAF_REGIONAL_RATE_BASED_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_RATE_BASED_RULE",
 		&returns,
 	)
@@ -1435,7 +932,7 @@ func ResourceType_WAF_REGIONAL_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_RULE",
 		&returns,
 	)
@@ -1446,7 +943,7 @@ func ResourceType_WAF_REGIONAL_RULE_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_RULE_GROUP",
 		&returns,
 	)
@@ -1457,7 +954,7 @@ func ResourceType_WAF_REGIONAL_WEB_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_WEB_ACL",
 		&returns,
 	)
@@ -1468,7 +965,7 @@ func ResourceType_WAF_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_RULE",
 		&returns,
 	)
@@ -1479,7 +976,7 @@ func ResourceType_WAF_RULE_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_RULE_GROUP",
 		&returns,
 	)
@@ -1490,19 +987,8 @@ func ResourceType_WAF_WEB_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_WEB_ACL",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_WAFV2_IP_SET() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"WAFV2_IP_SET",
 		&returns,
 	)
 	return returns
@@ -1512,19 +998,8 @@ func ResourceType_WAFV2_MANAGED_RULE_SET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAFV2_MANAGED_RULE_SET",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_WAFV2_REGEX_PATTERN_SET() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"WAFV2_REGEX_PATTERN_SET",
 		&returns,
 	)
 	return returns
@@ -1534,7 +1009,7 @@ func ResourceType_WAFV2_RULE_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAFV2_RULE_GROUP",
 		&returns,
 	)
@@ -1545,30 +1020,8 @@ func ResourceType_WAFV2_WEB_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAFV2_WEB_ACL",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_WORKSPACES_CONNECTION_ALIAS() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"WORKSPACES_CONNECTION_ALIAS",
-		&returns,
-	)
-	return returns
-}
-
-func ResourceType_WORKSPACES_WORKSPACE() ResourceType {
-	_init_.Initialize()
-	var returns ResourceType
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
-		"WORKSPACES_WORKSPACE",
 		&returns,
 	)
 	return returns
@@ -1578,7 +1031,7 @@ func ResourceType_XRAY_ENCRYPTION_CONFIGURATION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"XRAY_ENCRYPTION_CONFIGURATION",
 		&returns,
 	)

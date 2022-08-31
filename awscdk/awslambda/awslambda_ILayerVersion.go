@@ -3,10 +3,11 @@ package awslambda
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda/internal"
 )
 
+// Experimental.
 type ILayerVersion interface {
 	awscdk.IResource
 	// Add permission for this layer version to specific entities.
@@ -17,10 +18,13 @@ type ILayerVersion interface {
 	// Lambda function using the layer (for example, a CloudFormation changeset
 	// execution role) also needs to have the ``lambda:GetLayerVersion``
 	// permission on the layer version.
+	// Experimental.
 	AddPermission(id *string, permission *LayerVersionPermission)
 	// The runtimes compatible with this Layer.
+	// Experimental.
 	CompatibleRuntimes() *[]Runtime
 	// The ARN of the Lambda Layer version that this Layer defines.
+	// Experimental.
 	LayerVersionArn() *string
 }
 

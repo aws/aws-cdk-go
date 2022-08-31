@@ -1,10 +1,10 @@
 package awselasticloadbalancingv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // What to do when a client makes a request to a listener.
@@ -21,23 +21,28 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var duration duration
 //   var networkTargetGroup networkTargetGroup
 //
 //   networkListenerAction := awscdk.Aws_elasticloadbalancingv2.networkListenerAction.forward([]iNetworkTargetGroup{
 //   	networkTargetGroup,
 //   }, &networkForwardOptions{
-//   	stickinessDuration: cdk.duration.minutes(jsii.Number(30)),
+//   	stickinessDuration: duration,
 //   })
 //
+// Experimental.
 type NetworkListenerAction interface {
 	IListenerAction
+	// Experimental.
 	Next() NetworkListenerAction
 	// Called when the action is being used in a listener.
-	Bind(scope constructs.Construct, listener INetworkListener)
+	// Experimental.
+	Bind(scope awscdk.Construct, listener INetworkListener)
 	// Render the actions in this chain.
+	// Experimental.
 	RenderActions() *[]*CfnListener_ActionProperty
 	// Renumber the "order" fields in the actions array.
 	//
@@ -46,6 +51,7 @@ type NetworkListenerAction interface {
 	//
 	// Do this in `NetworkListenerAction` instead of in `Listener` so that we give
 	// users the opportunity to override by subclassing and overriding `renderActions`.
+	// Experimental.
 	Renumber(actions *[]*CfnListener_ActionProperty) *[]*CfnListener_ActionProperty
 }
 
@@ -70,13 +76,14 @@ func (j *jsiiProxy_NetworkListenerAction) Next() NetworkListenerAction {
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
+// Experimental.
 func NewNetworkListenerAction(actionJson *CfnListener_ActionProperty, next NetworkListenerAction) NetworkListenerAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_NetworkListenerAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		[]interface{}{actionJson, next},
 		&j,
 	)
@@ -89,24 +96,26 @@ func NewNetworkListenerAction(actionJson *CfnListener_ActionProperty, next Netwo
 // The default class should be good enough for most cases and
 // should be created by using one of the static factory functions,
 // but allow overriding to make sure we allow flexibility for the future.
+// Experimental.
 func NewNetworkListenerAction_Override(n NetworkListenerAction, actionJson *CfnListener_ActionProperty, next NetworkListenerAction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		[]interface{}{actionJson, next},
 		n,
 	)
 }
 
 // Forward to one or more Target Groups.
+// Experimental.
 func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		"forward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -116,13 +125,14 @@ func NetworkListenerAction_Forward(targetGroups *[]INetworkTargetGroup, options 
 }
 
 // Forward to one or more Target Groups which are weighted differently.
+// Experimental.
 func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTargetGroup, options *NetworkForwardOptions) NetworkListenerAction {
 	_init_.Initialize()
 
 	var returns NetworkListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkListenerAction",
+		"monocdk.aws_elasticloadbalancingv2.NetworkListenerAction",
 		"weightedForward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -131,7 +141,7 @@ func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTarge
 	return returns
 }
 
-func (n *jsiiProxy_NetworkListenerAction) Bind(scope constructs.Construct, listener INetworkListener) {
+func (n *jsiiProxy_NetworkListenerAction) Bind(scope awscdk.Construct, listener INetworkListener) {
 	_jsii_.InvokeVoid(
 		n,
 		"bind",

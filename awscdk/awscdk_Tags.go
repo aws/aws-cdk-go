@@ -1,17 +1,14 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Manages AWS tags for all resources within a construct scope.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var service service
 //
@@ -46,10 +43,13 @@ import (
 //
 //   cdk.tags.of(node).add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type Tags interface {
 	// add tags to the node of a construct and all its the taggable children.
+	// Experimental.
 	Add(key *string, value *string, props *TagProps)
 	// remove tags to the node of a construct and all its the taggable children.
+	// Experimental.
 	Remove(key *string, props *TagProps)
 }
 
@@ -59,13 +59,14 @@ type jsiiProxy_Tags struct {
 }
 
 // Returns the tags API for this scope.
-func Tags_Of(scope constructs.IConstruct) Tags {
+// Experimental.
+func Tags_Of(scope IConstruct) Tags {
 	_init_.Initialize()
 
 	var returns Tags
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Tags",
+		"monocdk.Tags",
 		"of",
 		[]interface{}{scope},
 		&returns,

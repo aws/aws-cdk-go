@@ -3,21 +3,26 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
 )
 
 // DB Proxy.
+// Experimental.
 type IDatabaseProxy interface {
 	awscdk.IResource
 	// Grant the given identity connection access to the proxy.
+	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// DB Proxy ARN.
+	// Experimental.
 	DbProxyArn() *string
 	// DB Proxy Name.
+	// Experimental.
 	DbProxyName() *string
 	// Endpoint.
+	// Experimental.
 	Endpoint() *string
 }
 

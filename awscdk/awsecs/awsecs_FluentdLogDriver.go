@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // A log driver that sends log information to journald Logs.
@@ -12,8 +12,10 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var duration duration
 //
 //   fluentdLogDriver := awscdk.Aws_ecs.NewFluentdLogDriver(&fluentdLogDriverProps{
 //   	address: jsii.String("address"),
@@ -27,15 +29,17 @@ import (
 //   		jsii.String("labels"),
 //   	},
 //   	maxRetries: jsii.Number(123),
-//   	retryWait: cdk.duration.minutes(jsii.Number(30)),
+//   	retryWait: duration,
 //   	subSecondPrecision: jsii.Boolean(false),
 //   	tag: jsii.String("tag"),
 //   })
 //
+// Experimental.
 type FluentdLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for FluentdLogDriver
@@ -44,13 +48,14 @@ type jsiiProxy_FluentdLogDriver struct {
 }
 
 // Constructs a new instance of the FluentdLogDriver class.
+// Experimental.
 func NewFluentdLogDriver(props *FluentdLogDriverProps) FluentdLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_FluentdLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriver",
+		"monocdk.aws_ecs.FluentdLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -59,24 +64,26 @@ func NewFluentdLogDriver(props *FluentdLogDriverProps) FluentdLogDriver {
 }
 
 // Constructs a new instance of the FluentdLogDriver class.
+// Experimental.
 func NewFluentdLogDriver_Override(f FluentdLogDriver, props *FluentdLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriver",
+		"monocdk.aws_ecs.FluentdLogDriver",
 		[]interface{}{props},
 		f,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func FluentdLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriver",
+		"monocdk.aws_ecs.FluentdLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -85,7 +92,7 @@ func FluentdLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (f *jsiiProxy_FluentdLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (f *jsiiProxy_FluentdLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

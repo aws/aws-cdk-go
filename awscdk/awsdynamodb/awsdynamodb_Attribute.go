@@ -24,10 +24,13 @@ package awsdynamodb
 //   	targetUtilizationPercent: jsii.Number(75),
 //   })
 //
+// Experimental.
 type Attribute struct {
 	// The name of an attribute.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The data type of an attribute.
+	// Experimental.
 	Type AttributeType `field:"required" json:"type" yaml:"type"`
 }
 

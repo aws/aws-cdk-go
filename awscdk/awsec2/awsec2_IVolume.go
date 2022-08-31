@@ -3,14 +3,15 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An EBS Volume in AWS EC2.
+// Experimental.
 type IVolume interface {
 	awscdk.IResource
 	// Grants permission to attach this Volume to an instance.
@@ -19,6 +20,7 @@ type IVolume interface {
 	// an unresolvable circular reference between the instance role and the instance.
 	// Use {@link IVolume.grantAttachVolumeToSelf} to grant an instance permission to attach this
 	// volume to itself.
+	// Experimental.
 	GrantAttachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant
 	// Grants permission to attach the Volume by a ResourceTag condition.
 	//
@@ -30,22 +32,28 @@ type IVolume interface {
 	// constructs and this Volume, and then conditioning the Grant such that the grantee is only
 	// given the ability to AttachVolume if both the Volume and the destination Instance have that
 	// tag applied to them.
+	// Experimental.
 	GrantAttachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant
 	// Grants permission to detach this Volume from an instance CAUTION: Granting an instance permission to detach from itself using this method will lead to an unresolvable circular reference between the instance role and the instance.
 	//
 	// Use {@link IVolume.grantDetachVolumeFromSelf} to grant an instance permission to detach this
 	// volume from itself.
+	// Experimental.
 	GrantDetachVolume(grantee awsiam.IGrantable, instances *[]IInstance) awsiam.Grant
 	// Grants permission to detach the Volume by a ResourceTag condition.
 	//
 	// This is implemented via the same mechanism as {@link IVolume.grantAttachVolumeByResourceTag},
 	// and is subject to the same conditions.
+	// Experimental.
 	GrantDetachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant
 	// The availability zone that the EBS Volume is contained within (ex: us-west-2a).
+	// Experimental.
 	AvailabilityZone() *string
 	// The customer-managed encryption key that is used to encrypt the Volume.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The EBS Volume's ID.
+	// Experimental.
 	VolumeId() *string
 }
 

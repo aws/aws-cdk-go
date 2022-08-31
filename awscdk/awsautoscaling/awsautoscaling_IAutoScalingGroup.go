@@ -3,45 +3,57 @@ package awsautoscaling
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // An AutoScalingGroup.
+// Experimental.
 type IAutoScalingGroup interface {
 	awsiam.IGrantable
 	awscdk.IResource
 	// Send a message to either an SQS queue or SNS topic when instances launch or terminate.
+	// Experimental.
 	AddLifecycleHook(id *string, props *BasicLifecycleHookProps) LifecycleHook
 	// Add command to the startup script of fleet instances.
 	//
 	// The command must be in the scripting language supported by the fleet's OS (i.e. Linux/Windows).
 	// Does nothing for imported ASGs.
+	// Experimental.
 	AddUserData(commands ...*string)
 	// Add a pool of pre-initialized EC2 instances that sits alongside an Auto Scaling group.
+	// Experimental.
 	AddWarmPool(options *WarmPoolOptions) WarmPool
 	// Scale out or in to achieve a target CPU utilization.
+	// Experimental.
 	ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps) TargetTrackingScalingPolicy
 	// Scale out or in to achieve a target network ingress rate.
+	// Experimental.
 	ScaleOnIncomingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy
 	// Scale out or in, in response to a metric.
+	// Experimental.
 	ScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) StepScalingPolicy
 	// Scale out or in to achieve a target network egress rate.
+	// Experimental.
 	ScaleOnOutgoingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy
 	// Scale out or in based on time.
+	// Experimental.
 	ScaleOnSchedule(id *string, props *BasicScheduledActionProps) ScheduledAction
 	// Scale out or in in order to keep a metric around a target value.
+	// Experimental.
 	ScaleToTrackMetric(id *string, props *MetricTargetTrackingProps) TargetTrackingScalingPolicy
 	// The arn of the AutoScalingGroup.
+	// Experimental.
 	AutoScalingGroupArn() *string
 	// The name of the AutoScalingGroup.
+	// Experimental.
 	AutoScalingGroupName() *string
 	// The operating system family that the instances in this auto-scaling group belong to.
 	//
 	// Is 'UNKNOWN' for imported ASGs.
+	// Experimental.
 	OsType() awsec2.OperatingSystemType
 }
 
@@ -226,8 +238,8 @@ func (j *jsiiProxy_IAutoScalingGroup) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IAutoScalingGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IAutoScalingGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

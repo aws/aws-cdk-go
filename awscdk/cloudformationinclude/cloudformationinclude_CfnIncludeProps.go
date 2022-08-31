@@ -13,10 +13,12 @@ package cloudformationinclude
 //   	},
 //   })
 //
+// Experimental.
 type CfnIncludeProps struct {
 	// Path to the template file.
 	//
 	// Both JSON and YAML template formats are supported.
+	// Experimental.
 	TemplateFile *string `field:"required" json:"templateFile" yaml:"templateFile"`
 	// Specifies the template files that define nested stacks that should be included.
 	//
@@ -27,16 +29,14 @@ type CfnIncludeProps struct {
 	// If you include a stack here with an ID that isn't in the template,
 	// or is in the template but is not a nested stack,
 	// template creation will fail and an error will be thrown.
+	// Experimental.
 	LoadNestedStacks *map[string]*CfnIncludeProps `field:"optional" json:"loadNestedStacks" yaml:"loadNestedStacks"`
 	// Specifies parameters to be replaced by the values in this mapping.
 	//
 	// Any parameters in the template that aren't specified here will be left unmodified.
 	// If you include a parameter here with an ID that isn't in the template,
 	// template creation will fail and an error will be thrown.
-	//
-	// If you are importing a parameter from a live stack, we cannot know the value of that
-	// parameter. You will need to supply a value for your parameters, else the default
-	// value will be used.
+	// Experimental.
 	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Whether the resources should have the same logical IDs in the resulting CDK template as they did in the original CloudFormation template file.
 	//
@@ -46,6 +46,7 @@ type CfnIncludeProps struct {
 	// **Note**: regardless of whether this option is true or false,
 	// the {@link CfnInclude.getResource} and related methods always uses the original logical ID of the resource/element,
 	// as specified in the template file.
+	// Experimental.
 	PreserveLogicalIds *bool `field:"optional" json:"preserveLogicalIds" yaml:"preserveLogicalIds"`
 }
 

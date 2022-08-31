@@ -1,7 +1,7 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -22,6 +22,7 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type FileSystemLocation interface {
 }
 
@@ -30,13 +31,14 @@ type jsiiProxy_FileSystemLocation struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewFileSystemLocation() FileSystemLocation {
 	_init_.Initialize()
 
 	j := jsiiProxy_FileSystemLocation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codebuild.FileSystemLocation",
+		"monocdk.aws_codebuild.FileSystemLocation",
 		nil, // no parameters
 		&j,
 	)
@@ -44,24 +46,26 @@ func NewFileSystemLocation() FileSystemLocation {
 	return &j
 }
 
+// Experimental.
 func NewFileSystemLocation_Override(f FileSystemLocation) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codebuild.FileSystemLocation",
+		"monocdk.aws_codebuild.FileSystemLocation",
 		nil, // no parameters
 		f,
 	)
 }
 
 // EFS file system provider.
+// Experimental.
 func FileSystemLocation_Efs(props *EfsFileSystemLocationProps) IFileSystemLocation {
 	_init_.Initialize()
 
 	var returns IFileSystemLocation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.FileSystemLocation",
+		"monocdk.aws_codebuild.FileSystemLocation",
 		"efs",
 		[]interface{}{props},
 		&returns,

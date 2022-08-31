@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -47,10 +47,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type ResourceServerScope interface {
 	// A description of the scope.
+	// Experimental.
 	ScopeDescription() *string
 	// The name of the scope.
+	// Experimental.
 	ScopeName() *string
 }
 
@@ -80,13 +83,14 @@ func (j *jsiiProxy_ResourceServerScope) ScopeName() *string {
 }
 
 
+// Experimental.
 func NewResourceServerScope(props *ResourceServerScopeProps) ResourceServerScope {
 	_init_.Initialize()
 
 	j := jsiiProxy_ResourceServerScope{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cognito.ResourceServerScope",
+		"monocdk.aws_cognito.ResourceServerScope",
 		[]interface{}{props},
 		&j,
 	)
@@ -94,11 +98,12 @@ func NewResourceServerScope(props *ResourceServerScopeProps) ResourceServerScope
 	return &j
 }
 
+// Experimental.
 func NewResourceServerScope_Override(r ResourceServerScope, props *ResourceServerScopeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cognito.ResourceServerScope",
+		"monocdk.aws_cognito.ResourceServerScope",
 		[]interface{}{props},
 		r,
 	)

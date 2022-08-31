@@ -1,13 +1,13 @@
 package awscloudwatchactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatchactions/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatchactions/internal"
 )
 
 // Use an AutoScaling StepScalingAction as an Alarm Action.
@@ -22,10 +22,12 @@ import (
 //
 //   autoScalingAction := awscdk.Aws_cloudwatch_actions.NewAutoScalingAction(stepScalingAction)
 //
+// Experimental.
 type AutoScalingAction interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an AutoScaling StepScalingAction as an alarm action.
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for AutoScalingAction
@@ -33,13 +35,14 @@ type jsiiProxy_AutoScalingAction struct {
 	internal.Type__awscloudwatchIAlarmAction
 }
 
+// Experimental.
 func NewAutoScalingAction(stepScalingAction awsautoscaling.StepScalingAction) AutoScalingAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_AutoScalingAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.AutoScalingAction",
+		"monocdk.aws_cloudwatch_actions.AutoScalingAction",
 		[]interface{}{stepScalingAction},
 		&j,
 	)
@@ -47,17 +50,18 @@ func NewAutoScalingAction(stepScalingAction awsautoscaling.StepScalingAction) Au
 	return &j
 }
 
+// Experimental.
 func NewAutoScalingAction_Override(a AutoScalingAction, stepScalingAction awsautoscaling.StepScalingAction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.AutoScalingAction",
+		"monocdk.aws_cloudwatch_actions.AutoScalingAction",
 		[]interface{}{stepScalingAction},
 		a,
 	)
 }
 
-func (a *jsiiProxy_AutoScalingAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (a *jsiiProxy_AutoScalingAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(

@@ -1,10 +1,10 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
 )
 
 // Metrics on the rate limiting performed on state machine execution.
@@ -18,6 +18,7 @@ import (
 //   	evaluationPeriods: jsii.Number(2),
 //   })
 //
+// Experimental.
 type StateTransitionMetric interface {
 }
 
@@ -26,13 +27,14 @@ type jsiiProxy_StateTransitionMetric struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewStateTransitionMetric() StateTransitionMetric {
 	_init_.Initialize()
 
 	j := jsiiProxy_StateTransitionMetric{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		nil, // no parameters
 		&j,
 	)
@@ -40,24 +42,26 @@ func NewStateTransitionMetric() StateTransitionMetric {
 	return &j
 }
 
+// Experimental.
 func NewStateTransitionMetric_Override(s StateTransitionMetric) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Return the given named metric for the service's state transition metrics.
+// Experimental.
 func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metric",
 		[]interface{}{metricName, props},
 		&returns,
@@ -67,13 +71,14 @@ func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 // Metric for the number of available state transitions per second.
+// Experimental.
 func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricConsumedCapacity",
 		[]interface{}{props},
 		&returns,
@@ -83,13 +88,14 @@ func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the number of available state transitions.
+// Experimental.
 func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricProvisionedBucketSize",
 		[]interface{}{props},
 		&returns,
@@ -99,13 +105,14 @@ func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.Metr
 }
 
 // Metric for the provisioned steady-state execution rate.
+// Experimental.
 func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricProvisionedRefillRate",
 		[]interface{}{props},
 		&returns,
@@ -115,13 +122,14 @@ func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.Metr
 }
 
 // Metric for the number of throttled state transitions.
+// Experimental.
 func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricThrottledEvents",
 		[]interface{}{props},
 		&returns,

@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
 )
 
 // Example:
@@ -67,23 +67,32 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type TreeCloudArtifact interface {
 	CloudArtifact
+	// Experimental.
 	Assembly() CloudAssembly
 	// Returns all the artifacts that this artifact depends on.
+	// Experimental.
 	Dependencies() *[]CloudArtifact
+	// Experimental.
 	File() *string
 	// An identifier that shows where this artifact is located in the tree of nested assemblies, based on their manifests.
 	//
 	// Defaults to the normal
 	// id. Should only be used in user interfaces.
+	// Experimental.
 	HierarchicalId() *string
+	// Experimental.
 	Id() *string
 	// The artifact's manifest.
+	// Experimental.
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
+	// Experimental.
 	Messages() *[]*SynthesisMessage
 	// Returns: all the metadata entries of a specific type in this artifact.
+	// Experimental.
 	FindMetadataByType(type_ *string) *[]*MetadataEntryResult
 }
 
@@ -163,13 +172,14 @@ func (j *jsiiProxy_TreeCloudArtifact) Messages() *[]*SynthesisMessage {
 }
 
 
+// Experimental.
 func NewTreeCloudArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) TreeCloudArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_TreeCloudArtifact{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.TreeCloudArtifact",
+		"monocdk.cx_api.TreeCloudArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -177,11 +187,12 @@ func NewTreeCloudArtifact(assembly CloudAssembly, name *string, artifact *clouda
 	return &j
 }
 
+// Experimental.
 func NewTreeCloudArtifact_Override(t TreeCloudArtifact, assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.TreeCloudArtifact",
+		"monocdk.cx_api.TreeCloudArtifact",
 		[]interface{}{assembly, name, artifact},
 		t,
 	)
@@ -190,13 +201,14 @@ func NewTreeCloudArtifact_Override(t TreeCloudArtifact, assembly CloudAssembly, 
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
+// Experimental.
 func TreeCloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cx_api.TreeCloudArtifact",
+		"monocdk.cx_api.TreeCloudArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,

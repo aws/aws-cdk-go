@@ -1,12 +1,12 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
 )
 
 // Use an SQS queue as a subscription target.
@@ -18,9 +18,11 @@ import (
 //
 //   myTopic.addSubscription(subscriptions.NewSqsSubscription(queue))
 //
+// Experimental.
 type SqsSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for an SQS queue to subscribe to an SNS topic.
+	// Experimental.
 	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -29,13 +31,14 @@ type jsiiProxy_SqsSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
+// Experimental.
 func NewSqsSubscription(queue awssqs.IQueue, props *SqsSubscriptionProps) SqsSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_SqsSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
+		"monocdk.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -43,11 +46,12 @@ func NewSqsSubscription(queue awssqs.IQueue, props *SqsSubscriptionProps) SqsSub
 	return &j
 }
 
+// Experimental.
 func NewSqsSubscription_Override(s SqsSubscription, queue awssqs.IQueue, props *SqsSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
+		"monocdk.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		s,
 	)

@@ -1,16 +1,15 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Used to generate host name matching methods.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //
@@ -24,9 +23,11 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type GatewayRouteHostnameMatch interface {
 	// Returns the gateway route host name match configuration.
-	Bind(scope constructs.Construct) *GatewayRouteHostnameMatchConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *GatewayRouteHostnameMatchConfig
 }
 
 // The jsii proxy struct for GatewayRouteHostnameMatch
@@ -34,24 +35,26 @@ type jsiiProxy_GatewayRouteHostnameMatch struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewGatewayRouteHostnameMatch_Override(g GatewayRouteHostnameMatch) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteHostnameMatch",
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
 		nil, // no parameters
 		g,
 	)
 }
 
 // The value of the host name with the given name must end with the specified characters.
+// Experimental.
 func GatewayRouteHostnameMatch_EndsWith(suffix *string) GatewayRouteHostnameMatch {
 	_init_.Initialize()
 
 	var returns GatewayRouteHostnameMatch
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteHostnameMatch",
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
 		"endsWith",
 		[]interface{}{suffix},
 		&returns,
@@ -61,13 +64,14 @@ func GatewayRouteHostnameMatch_EndsWith(suffix *string) GatewayRouteHostnameMatc
 }
 
 // The value of the host name must match the specified value exactly.
+// Experimental.
 func GatewayRouteHostnameMatch_Exactly(name *string) GatewayRouteHostnameMatch {
 	_init_.Initialize()
 
 	var returns GatewayRouteHostnameMatch
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteHostnameMatch",
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
 		"exactly",
 		[]interface{}{name},
 		&returns,
@@ -76,7 +80,7 @@ func GatewayRouteHostnameMatch_Exactly(name *string) GatewayRouteHostnameMatch {
 	return returns
 }
 
-func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope constructs.Construct) *GatewayRouteHostnameMatchConfig {
+func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope awscdk.Construct) *GatewayRouteHostnameMatchConfig {
 	var returns *GatewayRouteHostnameMatchConfig
 
 	_jsii_.Invoke(

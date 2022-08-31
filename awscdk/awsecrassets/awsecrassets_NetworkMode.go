@@ -1,7 +1,7 @@
 package awsecrassets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,8 +16,10 @@ import (
 //   	networkMode: awscdk.NetworkMode_HOST(),
 //   })
 //
+// Experimental.
 type NetworkMode interface {
 	// The networking mode to use for docker build.
+	// Experimental.
 	Mode() *string
 }
 
@@ -38,13 +40,14 @@ func (j *jsiiProxy_NetworkMode) Mode() *string {
 
 
 // Used to specify a custom networking mode Use this if the networking mode name is not yet supported by the CDK.
+// Experimental.
 func NetworkMode_Custom(mode *string) NetworkMode {
 	_init_.Initialize()
 
 	var returns NetworkMode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecr_assets.NetworkMode",
+		"monocdk.aws_ecr_assets.NetworkMode",
 		"custom",
 		[]interface{}{mode},
 		&returns,
@@ -54,13 +57,14 @@ func NetworkMode_Custom(mode *string) NetworkMode {
 }
 
 // Reuse another container's network stack.
+// Experimental.
 func NetworkMode_FromContainer(containerId *string) NetworkMode {
 	_init_.Initialize()
 
 	var returns NetworkMode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecr_assets.NetworkMode",
+		"monocdk.aws_ecr_assets.NetworkMode",
 		"fromContainer",
 		[]interface{}{containerId},
 		&returns,
@@ -73,7 +77,7 @@ func NetworkMode_DEFAULT() NetworkMode {
 	_init_.Initialize()
 	var returns NetworkMode
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecr_assets.NetworkMode",
+		"monocdk.aws_ecr_assets.NetworkMode",
 		"DEFAULT",
 		&returns,
 	)
@@ -84,7 +88,7 @@ func NetworkMode_HOST() NetworkMode {
 	_init_.Initialize()
 	var returns NetworkMode
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecr_assets.NetworkMode",
+		"monocdk.aws_ecr_assets.NetworkMode",
 		"HOST",
 		&returns,
 	)
@@ -95,7 +99,7 @@ func NetworkMode_NONE() NetworkMode {
 	_init_.Initialize()
 	var returns NetworkMode
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecr_assets.NetworkMode",
+		"monocdk.aws_ecr_assets.NetworkMode",
 		"NONE",
 		&returns,
 	)

@@ -56,28 +56,39 @@ package awscognito
 //   	},
 //   }
 //
+// Experimental.
 type UserPoolIdentityProviderOidcProps struct {
 	// The user pool to which this construct provides identities.
+	// Experimental.
 	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
+	// Experimental.
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id.
+	// Experimental.
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret.
+	// Experimental.
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// Issuer URL.
+	// Experimental.
 	IssuerUrl *string `field:"required" json:"issuerUrl" yaml:"issuerUrl"`
 	// The method to use to request attributes.
+	// Experimental.
 	AttributeRequestMethod OidcAttributeRequestMethod `field:"optional" json:"attributeRequestMethod" yaml:"attributeRequestMethod"`
 	// OpenID connect endpoints.
+	// Experimental.
 	Endpoints *OidcEndpoints `field:"optional" json:"endpoints" yaml:"endpoints"`
 	// Identifiers.
 	//
 	// Identifiers can be used to redirect users to the correct IdP in multitenant apps.
+	// Experimental.
 	Identifiers *[]*string `field:"optional" json:"identifiers" yaml:"identifiers"`
 	// The name of the provider.
+	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The OAuth 2.0 scopes that you will request from OpenID Connect. Scopes are groups of OpenID Connect user attributes to exchange with your app.
+	// Experimental.
 	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }
 

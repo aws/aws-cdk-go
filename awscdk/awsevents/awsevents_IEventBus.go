@@ -3,28 +3,35 @@ package awsevents
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Interface which all EventBus based classes MUST implement.
+// Experimental.
 type IEventBus interface {
 	awscdk.IResource
 	// Create an EventBridge archive to send events to.
 	//
 	// When you create an archive, incoming events might not immediately start being sent to the archive.
 	// Allow a short period of time for changes to take effect.
+	// Experimental.
 	Archive(id *string, props *BaseArchiveProps) Archive
 	// Grants an IAM Principal to send custom events to the eventBus so that they can be matched to rules.
+	// Experimental.
 	GrantPutEventsTo(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of this event bus resource.
+	// Experimental.
 	EventBusArn() *string
 	// The physical ID of this event bus resource.
+	// Experimental.
 	EventBusName() *string
 	// The JSON policy of this event bus resource.
+	// Experimental.
 	EventBusPolicy() *string
 	// The partner event source to associate with this event bus resource.
+	// Experimental.
 	EventSourceName() *string
 }
 

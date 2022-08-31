@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
 )
 
 // Use an SQS Queue as a target for Amazon EventBridge rules.
@@ -18,12 +18,15 @@ import (
 //   	target: targets.NewSqsQueue(queue),
 //   })
 //
+// Experimental.
 type SqsQueue interface {
 	awsevents.IRuleTarget
+	// Experimental.
 	Queue() awssqs.IQueue
 	// Returns a RuleTarget that can be used to trigger this SQS queue as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
 	//
+	// Experimental.
 	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -43,13 +46,14 @@ func (j *jsiiProxy_SqsQueue) Queue() awssqs.IQueue {
 }
 
 
+// Experimental.
 func NewSqsQueue(queue awssqs.IQueue, props *SqsQueueProps) SqsQueue {
 	_init_.Initialize()
 
 	j := jsiiProxy_SqsQueue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SqsQueue",
+		"monocdk.aws_events_targets.SqsQueue",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -57,11 +61,12 @@ func NewSqsQueue(queue awssqs.IQueue, props *SqsQueueProps) SqsQueue {
 	return &j
 }
 
+// Experimental.
 func NewSqsQueue_Override(s SqsQueue, queue awssqs.IQueue, props *SqsQueueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SqsQueue",
+		"monocdk.aws_events_targets.SqsQueue",
 		[]interface{}{queue, props},
 		s,
 	)

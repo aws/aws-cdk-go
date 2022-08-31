@@ -1,11 +1,11 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
 )
 
 // Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
@@ -28,9 +28,11 @@ import (
 //   	topic: topic,
 //   })
 //
+// Experimental.
 type Lambda interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
+	// Experimental.
 	Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -39,13 +41,14 @@ type jsiiProxy_Lambda struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
+// Experimental.
 func NewLambda(props *LambdaProps) Lambda {
 	_init_.Initialize()
 
 	j := jsiiProxy_Lambda{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Lambda",
+		"monocdk.aws_ses_actions.Lambda",
 		[]interface{}{props},
 		&j,
 	)
@@ -53,11 +56,12 @@ func NewLambda(props *LambdaProps) Lambda {
 	return &j
 }
 
+// Experimental.
 func NewLambda_Override(l Lambda, props *LambdaProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Lambda",
+		"monocdk.aws_ses_actions.Lambda",
 		[]interface{}{props},
 		l,
 	)

@@ -1,12 +1,13 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Service Account.
@@ -31,32 +32,93 @@ import (
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   bucket.grantReadWrite(serviceAccount)
 //
+// Experimental.
 type ServiceAccount interface {
-	constructs.Construct
+	awscdk.Construct
 	awsiam.IPrincipal
 	// When this Principal is used in an AssumeRole policy, the action to use.
+	// Experimental.
 	AssumeRoleAction() *string
 	// The principal to grant permissions to.
+	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return the policy fragment that identifies this principal in a Policy.
+	// Experimental.
 	PolicyFragment() awsiam.PrincipalPolicyFragment
 	// The role which is linked to the service account.
+	// Experimental.
 	Role() awsiam.IRole
 	// The name of the service account.
+	// Experimental.
 	ServiceAccountName() *string
 	// The namespace where the service account is located in.
+	// Experimental.
 	ServiceAccountNamespace() *string
 	// Add to the policy of this principal.
+	// Deprecated: use `addToPrincipalPolicy()`.
+	AddToPolicy(statement awsiam.PolicyStatement) *bool
+	// Add to the policy of this principal.
+	// Experimental.
 	AddToPrincipalPolicy(statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServiceAccount
 type jsiiProxy_ServiceAccount struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	internal.Type__awsiamIPrincipal
 }
 
@@ -80,8 +142,8 @@ func (j *jsiiProxy_ServiceAccount) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_ServiceAccount) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServiceAccount) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -131,13 +193,14 @@ func (j *jsiiProxy_ServiceAccount) ServiceAccountNamespace() *string {
 }
 
 
+// Experimental.
 func NewServiceAccount(scope constructs.Construct, id *string, props *ServiceAccountProps) ServiceAccount {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServiceAccount{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.ServiceAccount",
+		"monocdk.aws_eks.ServiceAccount",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -145,42 +208,41 @@ func NewServiceAccount(scope constructs.Construct, id *string, props *ServiceAcc
 	return &j
 }
 
+// Experimental.
 func NewServiceAccount_Override(s ServiceAccount, scope constructs.Construct, id *string, props *ServiceAccountProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.ServiceAccount",
+		"monocdk.aws_eks.ServiceAccount",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func ServiceAccount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.ServiceAccount",
+		"monocdk.aws_eks.ServiceAccount",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServiceAccount) AddToPolicy(statement awsiam.PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		s,
+		"addToPolicy",
+		[]interface{}{statement},
 		&returns,
 	)
 
@@ -200,12 +262,70 @@ func (s *jsiiProxy_ServiceAccount) AddToPrincipalPolicy(statement awsiam.PolicyS
 	return returns
 }
 
+func (s *jsiiProxy_ServiceAccount) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServiceAccount) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ServiceAccount) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServiceAccount) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ServiceAccount) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ServiceAccount) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServiceAccount) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

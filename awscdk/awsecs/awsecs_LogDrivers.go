@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -18,6 +18,7 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type LogDrivers interface {
 }
 
@@ -26,13 +27,14 @@ type jsiiProxy_LogDrivers struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewLogDrivers() LogDrivers {
 	_init_.Initialize()
 
 	j := jsiiProxy_LogDrivers{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		nil, // no parameters
 		&j,
 	)
@@ -40,24 +42,26 @@ func NewLogDrivers() LogDrivers {
 	return &j
 }
 
+// Experimental.
 func NewLogDrivers_Override(l LogDrivers) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func LogDrivers_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -70,13 +74,14 @@ func LogDrivers_AwsLogs(props *AwsLogDriverProps) LogDriver {
 //
 // For detail configurations, please refer to Amazon ECS FireLens Examples:
 // https://github.com/aws-samples/amazon-ecs-firelens-examples
+// Experimental.
 func LogDrivers_Firelens(props *FireLensLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"firelens",
 		[]interface{}{props},
 		&returns,
@@ -86,13 +91,14 @@ func LogDrivers_Firelens(props *FireLensLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to fluentd Logs.
+// Experimental.
 func LogDrivers_Fluentd(props *FluentdLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"fluentd",
 		[]interface{}{props},
 		&returns,
@@ -102,13 +108,14 @@ func LogDrivers_Fluentd(props *FluentdLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to gelf Logs.
+// Experimental.
 func LogDrivers_Gelf(props *GelfLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"gelf",
 		[]interface{}{props},
 		&returns,
@@ -118,13 +125,14 @@ func LogDrivers_Gelf(props *GelfLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to journald Logs.
+// Experimental.
 func LogDrivers_Journald(props *JournaldLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"journald",
 		[]interface{}{props},
 		&returns,
@@ -134,13 +142,14 @@ func LogDrivers_Journald(props *JournaldLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to json-file Logs.
+// Experimental.
 func LogDrivers_JsonFile(props *JsonFileLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"jsonFile",
 		[]interface{}{props},
 		&returns,
@@ -150,13 +159,14 @@ func LogDrivers_JsonFile(props *JsonFileLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to splunk Logs.
+// Experimental.
 func LogDrivers_Splunk(props *SplunkLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"splunk",
 		[]interface{}{props},
 		&returns,
@@ -166,13 +176,14 @@ func LogDrivers_Splunk(props *SplunkLogDriverProps) LogDriver {
 }
 
 // Creates a log driver configuration that sends log information to syslog Logs.
+// Experimental.
 func LogDrivers_Syslog(props *SyslogLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		"syslog",
 		[]interface{}{props},
 		&returns,

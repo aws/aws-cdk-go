@@ -47,12 +47,16 @@ package awsstepfunctions
 //   	timeout: awscdk.Duration.minutes(jsii.Number(5)),
 //   })
 //
+// Experimental.
 type FailProps struct {
 	// A description for the cause of the failure.
+	// Experimental.
 	Cause *string `field:"optional" json:"cause" yaml:"cause"`
 	// An optional description for this state.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Error code used to represent this failure.
+	// Experimental.
 	Error *string `field:"optional" json:"error" yaml:"error"`
 }
 

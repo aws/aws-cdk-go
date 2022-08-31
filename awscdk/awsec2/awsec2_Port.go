@@ -1,31 +1,34 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Interface for classes that provide the connection-specification parts of a security group rule.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var instanceType instanceType
+//   var loadBalancer applicationLoadBalancer
 //
 //
-//   provider := ec2.natProvider.instance(&natInstanceProps{
-//   	instanceType: instanceType,
-//   	defaultAllowedTraffic: ec2.natTrafficDirection_OUTBOUND_ONLY,
+//   vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
+//   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
+//   	vpc: vpc,
+//   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+//   	}),
 //   })
-//   ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
-//   	natGatewayProvider: provider,
-//   })
-//   provider.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(80)))
 //
+//   project.connections.allowTo(loadBalancer, ec2.port.tcp(jsii.Number(443)))
+//
+// Experimental.
 type Port interface {
 	// Whether the rule containing this port range can be inlined into a securitygroup or not.
+	// Experimental.
 	CanInlineRule() *bool
 	// Produce the ingress/egress rule JSON for the given connection.
+	// Experimental.
 	ToRuleJson() interface{}
+	// Experimental.
 	ToString() *string
 }
 
@@ -45,13 +48,14 @@ func (j *jsiiProxy_Port) CanInlineRule() *bool {
 }
 
 
+// Experimental.
 func NewPort(props *PortProps) Port {
 	_init_.Initialize()
 
 	j := jsiiProxy_Port{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		[]interface{}{props},
 		&j,
 	)
@@ -59,24 +63,26 @@ func NewPort(props *PortProps) Port {
 	return &j
 }
 
+// Experimental.
 func NewPort_Override(p Port, props *PortProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		[]interface{}{props},
 		p,
 	)
 }
 
 // A single AH port.
+// Experimental.
 func Port_Ah() Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"ah",
 		nil, // no parameters
 		&returns,
@@ -86,13 +92,14 @@ func Port_Ah() Port {
 }
 
 // All ICMP traffic.
+// Experimental.
 func Port_AllIcmp() Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"allIcmp",
 		nil, // no parameters
 		&returns,
@@ -101,30 +108,15 @@ func Port_AllIcmp() Port {
 	return returns
 }
 
-// All ICMPv6 traffic.
-func Port_AllIcmpV6() Port {
-	_init_.Initialize()
-
-	var returns Port
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
-		"allIcmpV6",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Any TCP traffic.
+// Experimental.
 func Port_AllTcp() Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"allTcp",
 		nil, // no parameters
 		&returns,
@@ -134,13 +126,14 @@ func Port_AllTcp() Port {
 }
 
 // All traffic.
+// Experimental.
 func Port_AllTraffic() Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"allTraffic",
 		nil, // no parameters
 		&returns,
@@ -150,13 +143,14 @@ func Port_AllTraffic() Port {
 }
 
 // Any UDP traffic.
+// Experimental.
 func Port_AllUdp() Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"allUdp",
 		nil, // no parameters
 		&returns,
@@ -166,13 +160,14 @@ func Port_AllUdp() Port {
 }
 
 // A single ESP port.
+// Experimental.
 func Port_Esp() Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"esp",
 		nil, // no parameters
 		&returns,
@@ -182,13 +177,14 @@ func Port_Esp() Port {
 }
 
 // ICMP ping (echo) traffic.
+// Experimental.
 func Port_IcmpPing() Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"icmpPing",
 		nil, // no parameters
 		&returns,
@@ -198,13 +194,14 @@ func Port_IcmpPing() Port {
 }
 
 // All codes for a single ICMP type.
+// Experimental.
 func Port_IcmpType(type_ *float64) Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"icmpType",
 		[]interface{}{type_},
 		&returns,
@@ -216,13 +213,14 @@ func Port_IcmpType(type_ *float64) Port {
 // A specific combination of ICMP type and code.
 // See: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 //
+// Experimental.
 func Port_IcmpTypeAndCode(type_ *float64, code *float64) Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"icmpTypeAndCode",
 		[]interface{}{type_, code},
 		&returns,
@@ -232,13 +230,14 @@ func Port_IcmpTypeAndCode(type_ *float64, code *float64) Port {
 }
 
 // A single TCP port.
+// Experimental.
 func Port_Tcp(port *float64) Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"tcp",
 		[]interface{}{port},
 		&returns,
@@ -248,13 +247,14 @@ func Port_Tcp(port *float64) Port {
 }
 
 // A TCP port range.
+// Experimental.
 func Port_TcpRange(startPort *float64, endPort *float64) Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"tcpRange",
 		[]interface{}{startPort, endPort},
 		&returns,
@@ -264,13 +264,14 @@ func Port_TcpRange(startPort *float64, endPort *float64) Port {
 }
 
 // A single UDP port.
+// Experimental.
 func Port_Udp(port *float64) Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"udp",
 		[]interface{}{port},
 		&returns,
@@ -280,13 +281,14 @@ func Port_Udp(port *float64) Port {
 }
 
 // A UDP port range.
+// Experimental.
 func Port_UdpRange(startPort *float64, endPort *float64) Port {
 	_init_.Initialize()
 
 	var returns Port
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Port",
+		"monocdk.aws_ec2.Port",
 		"udpRange",
 		[]interface{}{startPort, endPort},
 		&returns,

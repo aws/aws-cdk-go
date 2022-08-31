@@ -5,13 +5,16 @@ import (
 )
 
 // A network target group.
+// Experimental.
 type INetworkTargetGroup interface {
 	ITargetGroup
 	// Add a load balancing target to this target group.
+	// Experimental.
 	AddTarget(targets ...INetworkLoadBalancerTarget)
 	// Register a listener that is load balancing to this target group.
 	//
 	// Don't call this directly. It will be called by listeners.
+	// Experimental.
 	RegisterListener(listener INetworkListener)
 }
 

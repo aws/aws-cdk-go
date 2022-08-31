@@ -23,6 +23,7 @@ package awseks
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   bucket.grantReadWrite(serviceAccount)
 //
+// Experimental.
 type OpenIdConnectProviderProps struct {
 	// The URL of the identity provider.
 	//
@@ -34,6 +35,7 @@ type OpenIdConnectProviderProps struct {
 	//
 	// You can find your OIDC Issuer URL by:
 	// aws eks describe-cluster --name %cluster_name% --query "cluster.identity.oidc.issuer" --output text
+	// Experimental.
 	Url *string `field:"required" json:"url" yaml:"url"`
 }
 

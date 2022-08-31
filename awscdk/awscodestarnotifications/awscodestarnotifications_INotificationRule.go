@@ -3,18 +3,21 @@ package awscodestarnotifications
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications/internal"
 )
 
 // Represents a notification rule.
+// Experimental.
 type INotificationRule interface {
 	awscdk.IResource
 	// Adds target to notification rule.
 	//
 	// Returns: boolean - return true if it had any effect.
+	// Experimental.
 	AddTarget(target INotificationRuleTarget) *bool
 	// The ARN of the notification rule (i.e. arn:aws:codestar-notifications:::notificationrule/01234abcde).
+	// Experimental.
 	NotificationRuleArn() *string
 }
 

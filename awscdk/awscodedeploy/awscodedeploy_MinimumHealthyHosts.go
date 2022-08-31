@@ -1,7 +1,7 @@
 package awscodedeploy
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -15,6 +15,7 @@ import (
 //   	minimumHealthyHosts: codedeploy.minimumHealthyHosts.count(jsii.Number(2)),
 //   })
 //
+// Experimental.
 type MinimumHealthyHosts interface {
 }
 
@@ -24,13 +25,14 @@ type jsiiProxy_MinimumHealthyHosts struct {
 }
 
 // The minimum healhty hosts threshold expressed as an absolute number.
+// Experimental.
 func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 
 	var returns MinimumHealthyHosts
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.MinimumHealthyHosts",
+		"monocdk.aws_codedeploy.MinimumHealthyHosts",
 		"count",
 		[]interface{}{value},
 		&returns,
@@ -40,13 +42,14 @@ func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 }
 
 // The minmum healhty hosts threshold expressed as a percentage of the fleet.
+// Experimental.
 func MinimumHealthyHosts_Percentage(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 
 	var returns MinimumHealthyHosts
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.MinimumHealthyHosts",
+		"monocdk.aws_codedeploy.MinimumHealthyHosts",
 		"percentage",
 		[]interface{}{value},
 		&returns,
