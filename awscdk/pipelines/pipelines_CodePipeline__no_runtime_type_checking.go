@@ -13,15 +13,11 @@ func (c *jsiiProxy_CodePipeline) validateAddWaveParameters(id *string, options *
 	return nil
 }
 
-func (c *jsiiProxy_CodePipeline) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CodePipeline) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCodePipeline_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func validateCodePipeline_IsPipelineParameters(x interface{}) error {
 	return nil
 }
 

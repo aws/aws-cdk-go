@@ -1,10 +1,10 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Suite of assertions that can be run on a CDK stack.
@@ -20,67 +20,52 @@ import (
 //   // ...
 //   template := awscdk.Template.fromStack(stack)
 //
-// Experimental.
 type Template interface {
 	// Get the set of matching Conditions that match the given properties in the CloudFormation template.
-	// Experimental.
 	FindConditions(logicalId *string, props interface{}) *map[string]*map[string]interface{}
 	// Get the set of matching Mappings that match the given properties in the CloudFormation template.
-	// Experimental.
 	FindMappings(logicalId *string, props interface{}) *map[string]*map[string]interface{}
 	// Get the set of matching Outputs that match the given properties in the CloudFormation template.
-	// Experimental.
 	FindOutputs(logicalId *string, props interface{}) *map[string]*map[string]interface{}
 	// Get the set of matching Parameters that match the given properties in the CloudFormation template.
-	// Experimental.
 	FindParameters(logicalId *string, props interface{}) *map[string]*map[string]interface{}
 	// Get the set of matching resources of a given type and properties in the CloudFormation template.
-	// Experimental.
 	FindResources(type_ *string, props interface{}) *map[string]*map[string]interface{}
 	// Assert that a Condition with the given properties exists in the CloudFormation template.
 	//
 	// By default, performs partial matching on the resource, via the `Match.objectLike()`.
 	// To configure different behavour, use other matchers in the `Match` class.
-	// Experimental.
 	HasCondition(logicalId *string, props interface{})
 	// Assert that a Mapping with the given properties exists in the CloudFormation template.
 	//
 	// By default, performs partial matching on the resource, via the `Match.objectLike()`.
 	// To configure different behavour, use other matchers in the `Match` class.
-	// Experimental.
 	HasMapping(logicalId *string, props interface{})
 	// Assert that an Output with the given properties exists in the CloudFormation template.
 	//
 	// By default, performs partial matching on the resource, via the `Match.objectLike()`.
 	// To configure different behavour, use other matchers in the `Match` class.
-	// Experimental.
 	HasOutput(logicalId *string, props interface{})
 	// Assert that a Parameter with the given properties exists in the CloudFormation template.
 	//
 	// By default, performs partial matching on the parameter, via the `Match.objectLike()`.
 	// To configure different behavior, use other matchers in the `Match` class.
-	// Experimental.
 	HasParameter(logicalId *string, props interface{})
 	// Assert that a resource of the given type and given definition exists in the CloudFormation template.
 	//
 	// By default, performs partial matching on the resource, via the `Match.objectLike()`.
 	// To configure different behavour, use other matchers in the `Match` class.
-	// Experimental.
 	HasResource(type_ *string, props interface{})
 	// Assert that a resource of the given type and properties exists in the CloudFormation template.
 	//
 	// By default, performs partial matching on the `Properties` key of the resource, via the
 	// `Match.objectLike()`. To configure different behavour, use other matchers in the `Match` class.
-	// Experimental.
 	HasResourceProperties(type_ *string, props interface{})
 	// Assert that the given number of resources of the given type exist in the template.
-	// Experimental.
 	ResourceCountIs(type_ *string, count *float64)
 	// Assert that the CloudFormation template matches the given value.
-	// Experimental.
 	TemplateMatches(expected interface{})
 	// The CloudFormation template deserialized into an object.
-	// Experimental.
 	ToJSON() *map[string]interface{}
 }
 
@@ -90,7 +75,6 @@ type jsiiProxy_Template struct {
 }
 
 // Base your assertions from an existing CloudFormation template formatted as an in-memory JSON object.
-// Experimental.
 func Template_FromJSON(template *map[string]interface{}) Template {
 	_init_.Initialize()
 
@@ -100,7 +84,7 @@ func Template_FromJSON(template *map[string]interface{}) Template {
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Template",
+		"aws-cdk-lib.assertions.Template",
 		"fromJSON",
 		[]interface{}{template},
 		&returns,
@@ -110,7 +94,6 @@ func Template_FromJSON(template *map[string]interface{}) Template {
 }
 
 // Base your assertions on the CloudFormation template synthesized by a CDK `Stack`.
-// Experimental.
 func Template_FromStack(stack awscdk.Stack) Template {
 	_init_.Initialize()
 
@@ -120,7 +103,7 @@ func Template_FromStack(stack awscdk.Stack) Template {
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Template",
+		"aws-cdk-lib.assertions.Template",
 		"fromStack",
 		[]interface{}{stack},
 		&returns,
@@ -130,7 +113,6 @@ func Template_FromStack(stack awscdk.Stack) Template {
 }
 
 // Base your assertions from an existing CloudFormation template formatted as a JSON string.
-// Experimental.
 func Template_FromString(template *string) Template {
 	_init_.Initialize()
 
@@ -140,7 +122,7 @@ func Template_FromString(template *string) Template {
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Template",
+		"aws-cdk-lib.assertions.Template",
 		"fromString",
 		[]interface{}{template},
 		&returns,

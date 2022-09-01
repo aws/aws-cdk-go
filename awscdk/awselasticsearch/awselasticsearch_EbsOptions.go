@@ -1,7 +1,7 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon ES domain.

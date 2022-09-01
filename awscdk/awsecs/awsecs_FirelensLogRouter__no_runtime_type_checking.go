@@ -45,14 +45,6 @@ func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingParameters(containe
 	return nil
 }
 
-func (f *jsiiProxy_FirelensLogRouter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (f *jsiiProxy_FirelensLogRouter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateFirelensLogRouter_IsConstructParameters(x interface{}) error {
 	return nil
 }

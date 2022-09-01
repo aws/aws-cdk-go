@@ -12,10 +12,8 @@ package awscloudfront
 //   	filePath: jsii.String("filePath"),
 //   }
 //
-// Experimental.
 type FileCodeOptions struct {
 	// The path of the file to read the code from.
-	// Experimental.
 	FilePath *string `field:"required" json:"filePath" yaml:"filePath"`
 }
 

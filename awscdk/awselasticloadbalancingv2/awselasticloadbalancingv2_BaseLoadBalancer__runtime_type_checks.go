@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (b *jsiiProxy_BaseLoadBalancer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -52,14 +52,6 @@ func (b *jsiiProxy_BaseLoadBalancer) validateLogAccessLogsParameters(bucket awss
 	return nil
 }
 
-func (b *jsiiProxy_BaseLoadBalancer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (b *jsiiProxy_BaseLoadBalancer) validateRemoveAttributeParameters(key *string) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
@@ -76,14 +68,6 @@ func (b *jsiiProxy_BaseLoadBalancer) validateSetAttributeParameters(key *string)
 	return nil
 }
 
-func (b *jsiiProxy_BaseLoadBalancer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateBaseLoadBalancer_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -92,7 +76,15 @@ func validateBaseLoadBalancer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBaseLoadBalancer_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateBaseLoadBalancer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateBaseLoadBalancer_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

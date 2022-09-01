@@ -1,7 +1,7 @@
 //go:build no_runtime_type_checking
 // +build no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -14,7 +14,7 @@ func (t *jsiiProxy_Tags) validateRemoveParameters(key *string, props *TagProps) 
 	return nil
 }
 
-func validateTags_OfParameters(scope IConstruct) error {
+func validateTags_OfParameters(scope constructs.IConstruct) error {
 	return nil
 }
 

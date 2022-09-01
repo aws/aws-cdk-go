@@ -2,7 +2,6 @@ package awscodebuild
 
 
 // The type of principal CodeBuild will use to pull your build Docker image.
-// Experimental.
 type ImagePullPrincipalType string
 
 const (
@@ -11,12 +10,10 @@ const (
 	// This means the resource policy of the ECR repository that hosts the image will be modified to trust
 	// CodeBuild's service principal.
 	// This is the required principal type when using CodeBuild's pre-defined images.
-	// Experimental.
 	ImagePullPrincipalType_CODEBUILD ImagePullPrincipalType = "CODEBUILD"
 	// SERVICE_ROLE specifies that AWS CodeBuild uses the project's role when pulling the image.
 	//
 	// The role will be granted pull permissions on the ECR repository hosting the image.
-	// Experimental.
 	ImagePullPrincipalType_SERVICE_ROLE ImagePullPrincipalType = "SERVICE_ROLE"
 )
 

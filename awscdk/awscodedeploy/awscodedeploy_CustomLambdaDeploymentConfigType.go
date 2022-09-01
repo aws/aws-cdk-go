@@ -17,15 +17,12 @@ package awscodedeploy
 //   	deploymentConfig: config,
 //   })
 //
-// Experimental.
 type CustomLambdaDeploymentConfigType string
 
 const (
 	// Canary deployment type.
-	// Experimental.
 	CustomLambdaDeploymentConfigType_CANARY CustomLambdaDeploymentConfigType = "CANARY"
 	// Linear deployment type.
-	// Experimental.
 	CustomLambdaDeploymentConfigType_LINEAR CustomLambdaDeploymentConfigType = "LINEAR"
 )
 

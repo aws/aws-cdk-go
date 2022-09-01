@@ -4,6 +4,7 @@ package awss3
 // All supported inventory frequencies.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 //
 //   dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &bucketProps{
@@ -26,15 +27,12 @@ package awss3
 //   	},
 //   })
 //
-// Experimental.
 type InventoryFrequency string
 
 const (
 	// A report is generated every day.
-	// Experimental.
 	InventoryFrequency_DAILY InventoryFrequency = "DAILY"
 	// A report is generated every Sunday (UTC timezone) after the initial report.
-	// Experimental.
 	InventoryFrequency_WEEKLY InventoryFrequency = "WEEKLY"
 )
 

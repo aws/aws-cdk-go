@@ -9,15 +9,12 @@ package awseks
 //   	defaultCapacityType: eks.defaultCapacityType_EC2,
 //   })
 //
-// Experimental.
 type DefaultCapacityType string
 
 const (
 	// managed node group.
-	// Experimental.
 	DefaultCapacityType_NODEGROUP DefaultCapacityType = "NODEGROUP"
 	// EC2 autoscaling group.
-	// Experimental.
 	DefaultCapacityType_EC2 DefaultCapacityType = "EC2"
 )
 

@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnConformancePack) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnConformancePack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnConformancePack) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnConformancePack) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnConformancePack) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnConformancePack) validateSetConformancePackNameParameters(
 	return nil
 }
 
-func validateNewCfnConformancePackParameters(scope awscdk.Construct, id *string, props *CfnConformancePackProps) error {
+func validateNewCfnConformancePackParameters(scope constructs.Construct, id *string, props *CfnConformancePackProps) error {
 	return nil
 }
 

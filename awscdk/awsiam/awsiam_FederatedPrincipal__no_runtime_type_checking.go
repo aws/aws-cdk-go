@@ -21,7 +21,7 @@ func (f *jsiiProxy_FederatedPrincipal) validateWithConditionsParameters(conditio
 	return nil
 }
 
-func validateNewFederatedPrincipalParameters(federated *string, conditions *map[string]interface{}) error {
+func validateNewFederatedPrincipalParameters(federated *string) error {
 	return nil
 }
 

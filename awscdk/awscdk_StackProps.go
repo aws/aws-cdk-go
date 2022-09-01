@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -17,7 +17,7 @@ package awscdk
 //   	newStack_Override(this, scope, id, props)
 //
 //   	lambda.NewFunction(this, jsii.String("Handler"), &functionProps{
-//   		runtime: lambda.runtime_NODEJS_12_X(),
+//   		runtime: lambda.runtime_NODEJS_14_X(),
 //   		handler: jsii.String("index.handler"),
 //   		code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   		architecture: props.architecture,
@@ -28,7 +28,7 @@ package awscdk
 //   // Beginning of the test suite
 //   app := awscdk.NewApp()
 //
-//   awscdk.NewIntegTest(app, jsii.String("DifferentArchitectures"), &integTestProps{
+//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("DifferentArchitectures"), &integTestProps{
 //   	testCases: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -39,13 +39,10 @@ package awscdk
 //   	},
 //   })
 //
-// Experimental.
 type StackProps struct {
 	// Include runtime versioning information in this Stack.
-	// Experimental.
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
 	// A description of the stack.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS environment (account/region) where this stack will be deployed.
 	//
@@ -69,6 +66,7 @@ type StackProps struct {
 	// environment's AWS partition, and other such enhancements.
 	//
 	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // Use a concrete account and region to deploy this stack to:
 	//   // `.account` and `.region` will simply return these values.
 	//   // Use a concrete account and region to deploy this stack to:
@@ -116,19 +114,14 @@ type StackProps struct {
 	//   // which will only resolve to actual values by CloudFormation during deployment.
 	//   NewMyStack(app, jsii.String("Stack1"))
 	//
-	// Experimental.
 	Env *Environment `field:"optional" json:"env" yaml:"env"`
 	// Name to deploy the stack with.
-	// Experimental.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Synthesis method to use while deploying this stack.
-	// Experimental.
 	Synthesizer IStackSynthesizer `field:"optional" json:"synthesizer" yaml:"synthesizer"`
 	// Stack tags that will be applied to all the taggable resources and the stack itself.
-	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
-	// Experimental.
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }
 

@@ -12,18 +12,14 @@ package awsssm
 //   	tier: ssm.parameterTier_ADVANCED,
 //   })
 //
-// Experimental.
 type ParameterTier string
 
 const (
 	// String.
-	// Experimental.
 	ParameterTier_ADVANCED ParameterTier = "ADVANCED"
 	// String.
-	// Experimental.
 	ParameterTier_INTELLIGENT_TIERING ParameterTier = "INTELLIGENT_TIERING"
 	// String.
-	// Experimental.
 	ParameterTier_STANDARD ParameterTier = "STANDARD"
 )
 

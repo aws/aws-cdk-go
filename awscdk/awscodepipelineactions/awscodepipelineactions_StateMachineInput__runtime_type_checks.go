@@ -6,7 +6,7 @@ package awscodepipelineactions
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 )
 
 func validateStateMachineInput_FilePathParameters(inputFile awscodepipeline.ArtifactPath) error {

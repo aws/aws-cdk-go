@@ -1,0 +1,41 @@
+//go:build !no_runtime_type_checking
+// +build !no_runtime_type_checking
+
+// The CDK Construct Library for AWS::ServiceCatalogAppRegistry
+package awscdkservicecatalogappregistryalpha
+
+import (
+	"fmt"
+
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+func (i *jsiiProxy_IApplication) validateAssociateAttributeGroupParameters(attributeGroup IAttributeGroup) error {
+	if attributeGroup == nil {
+		return fmt.Errorf("parameter attributeGroup is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IApplication) validateAssociateStackParameters(stack awscdk.Stack) error {
+	if stack == nil {
+		return fmt.Errorf("parameter stack is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IApplication) validateShareApplicationParameters(shareOptions *ShareOptions) error {
+	if shareOptions == nil {
+		return fmt.Errorf("parameter shareOptions is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(shareOptions, func() string { return "parameter shareOptions" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+

@@ -60,21 +60,16 @@ package awslambdanodejs
 //   	},
 //   })
 //
-// Experimental.
 type LogLevel string
 
 const (
 	// Show everything.
-	// Experimental.
 	LogLevel_INFO LogLevel = "INFO"
 	// Show warnings and errors.
-	// Experimental.
 	LogLevel_WARNING LogLevel = "WARNING"
 	// Show errors only.
-	// Experimental.
 	LogLevel_ERROR LogLevel = "ERROR"
 	// Show nothing.
-	// Experimental.
 	LogLevel_SILENT LogLevel = "SILENT"
 )
 

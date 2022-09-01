@@ -45,14 +45,6 @@ func (c *jsiiProxy_ContainerDefinition) validateFindPortMappingParameters(contai
 	return nil
 }
 
-func (c *jsiiProxy_ContainerDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_ContainerDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateContainerDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }

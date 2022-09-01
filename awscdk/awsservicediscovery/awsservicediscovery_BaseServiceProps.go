@@ -13,7 +13,7 @@ package awsservicediscovery
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 //
 //   namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &httpNamespaceProps{
-//   	name: jsii.String("covfefe"),
+//   	name: jsii.String("MyHTTPNamespace"),
 //   })
 //
 //   service1 := namespace.createService(jsii.String("NonIpService"), &baseServiceProps{
@@ -40,16 +40,13 @@ package awsservicediscovery
 //
 //   app.synth()
 //
-// Experimental.
 type BaseServiceProps struct {
 	// Structure containing failure threshold for a custom health checker.
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
-	// Experimental.
 	CustomHealthCheck *HealthCheckCustomConfig `field:"optional" json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
@@ -57,10 +54,8 @@ type BaseServiceProps struct {
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
-	// Experimental.
 	HealthCheck *HealthCheckConfig `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
-	// Experimental.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -1,4 +1,4 @@
-# CDK Construct Libray for AWS XXX
+# AWS CloudWatch Logs Subscription Destination Library
 
 This library contains destinations for AWS CloudWatch Logs SubscriptionFilters. You
 can send log data to Kinesis Streams or Lambda Functions.

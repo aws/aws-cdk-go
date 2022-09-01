@@ -37,7 +37,7 @@ func (v *jsiiProxy_Version) validateConfigureAsyncInvokeParameters(options *Even
 	return nil
 }
 
-func (v *jsiiProxy_Version) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope awscdk.Construct, _action *string) error {
+func (v *jsiiProxy_Version) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope constructs.Construct, _action *string) error {
 	return nil
 }
 
@@ -77,15 +77,7 @@ func (v *jsiiProxy_Version) validateMetricThrottlesParameters(props *awscloudwat
 	return nil
 }
 
-func (v *jsiiProxy_Version) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (v *jsiiProxy_Version) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
-func (v *jsiiProxy_Version) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
+func (v *jsiiProxy_Version) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
 	return nil
 }
 
@@ -101,7 +93,11 @@ func validateVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVersion_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateVersion_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateVersion_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

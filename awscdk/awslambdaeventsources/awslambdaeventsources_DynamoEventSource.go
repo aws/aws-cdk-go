@@ -1,11 +1,11 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Use an Amazon DynamoDB stream as an event source for AWS Lambda.
@@ -28,18 +28,13 @@ import (
 //   	retryAttempts: jsii.Number(10),
 //   }))
 //
-// Experimental.
 type DynamoEventSource interface {
 	StreamEventSource
 	// The identifier for this EventSourceMapping.
-	// Experimental.
 	EventSourceMappingId() *string
-	// Experimental.
 	Props() *StreamEventSourceProps
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target awslambda.IFunction)
-	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
@@ -69,7 +64,6 @@ func (j *jsiiProxy_DynamoEventSource) Props() *StreamEventSourceProps {
 }
 
 
-// Experimental.
 func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProps) DynamoEventSource {
 	_init_.Initialize()
 
@@ -79,7 +73,7 @@ func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProp
 	j := jsiiProxy_DynamoEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.DynamoEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSource",
 		[]interface{}{table, props},
 		&j,
 	)
@@ -87,12 +81,11 @@ func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProp
 	return &j
 }
 
-// Experimental.
 func NewDynamoEventSource_Override(d DynamoEventSource, table awsdynamodb.ITable, props *DynamoEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.DynamoEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSource",
 		[]interface{}{table, props},
 		d,
 	)

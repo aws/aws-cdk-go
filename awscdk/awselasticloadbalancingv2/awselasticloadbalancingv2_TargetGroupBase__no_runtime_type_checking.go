@@ -13,15 +13,7 @@ func (t *jsiiProxy_TargetGroupBase) validateConfigureHealthCheckParameters(healt
 	return nil
 }
 
-func (t *jsiiProxy_TargetGroupBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (t *jsiiProxy_TargetGroupBase) validateSetAttributeParameters(key *string) error {
-	return nil
-}
-
-func (t *jsiiProxy_TargetGroupBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

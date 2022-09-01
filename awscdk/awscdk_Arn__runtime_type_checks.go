@@ -1,7 +1,7 @@
 //go:build !no_runtime_type_checking
 // +build !no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -28,14 +28,6 @@ func validateArn_FormatParameters(components *ArnComponents) error {
 	}
 	if err := _jsii_.ValidateStruct(components, func() string { return "parameter components" }); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func validateArn_ParseParameters(arn *string) error {
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
 	}
 
 	return nil

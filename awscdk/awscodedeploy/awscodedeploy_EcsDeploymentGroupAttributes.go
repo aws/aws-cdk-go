@@ -21,16 +21,12 @@ package awscodedeploy
 //
 // See: EcsDeploymentGroup#fromEcsDeploymentGroupAttributes.
 //
-// Experimental.
 type EcsDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
-	// Experimental.
 	Application IEcsApplication `field:"required" json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy ECS Deployment Group that we are referencing.
-	// Experimental.
 	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
-	// Experimental.
 	DeploymentConfig IEcsDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 

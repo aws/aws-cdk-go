@@ -5,7 +5,7 @@ package awselasticloadbalancingv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (n *jsiiProxy_NetworkListenerAction) validateBindParameters(scope awscdk.Construct, listener INetworkListener) error {
+func (n *jsiiProxy_NetworkListenerAction) validateBindParameters(scope constructs.Construct, listener INetworkListener) error {
 	return nil
 }
 

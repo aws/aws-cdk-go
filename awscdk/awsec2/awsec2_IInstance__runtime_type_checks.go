@@ -6,7 +6,7 @@ package awsec2
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func (i *jsiiProxy_IInstance) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {

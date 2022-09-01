@@ -4,6 +4,7 @@ package awsappmesh
 // Supported values for matching routes based on the HTTP request method.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -30,36 +31,26 @@ package awsappmesh
 //   	}),
 //   })
 //
-// Experimental.
 type HttpRouteMethod string
 
 const (
 	// GET request.
-	// Experimental.
 	HttpRouteMethod_GET HttpRouteMethod = "GET"
 	// HEAD request.
-	// Experimental.
 	HttpRouteMethod_HEAD HttpRouteMethod = "HEAD"
 	// POST request.
-	// Experimental.
 	HttpRouteMethod_POST HttpRouteMethod = "POST"
 	// PUT request.
-	// Experimental.
 	HttpRouteMethod_PUT HttpRouteMethod = "PUT"
 	// DELETE request.
-	// Experimental.
 	HttpRouteMethod_DELETE HttpRouteMethod = "DELETE"
 	// CONNECT request.
-	// Experimental.
 	HttpRouteMethod_CONNECT HttpRouteMethod = "CONNECT"
 	// OPTIONS request.
-	// Experimental.
 	HttpRouteMethod_OPTIONS HttpRouteMethod = "OPTIONS"
 	// TRACE request.
-	// Experimental.
 	HttpRouteMethod_TRACE HttpRouteMethod = "TRACE"
 	// PATCH request.
-	// Experimental.
 	HttpRouteMethod_PATCH HttpRouteMethod = "PATCH"
 )
 

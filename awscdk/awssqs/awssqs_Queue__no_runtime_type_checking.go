@@ -77,14 +77,6 @@ func (q *jsiiProxy_Queue) validateMetricSentMessageSizeParameters(props *awsclou
 	return nil
 }
 
-func (q *jsiiProxy_Queue) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (q *jsiiProxy_Queue) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateQueue_FromQueueArnParameters(scope constructs.Construct, id *string, queueArn *string) error {
 	return nil
 }
@@ -97,7 +89,11 @@ func validateQueue_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateQueue_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateQueue_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateQueue_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

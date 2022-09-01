@@ -5,10 +5,8 @@ import (
 )
 
 // Any object that has an associated principal that a permission can be granted to.
-// Experimental.
 type IGrantable interface {
 	// The principal to grant permissions to.
-	// Experimental.
 	GrantPrincipal() IPrincipal
 }
 

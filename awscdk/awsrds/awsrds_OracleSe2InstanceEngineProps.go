@@ -22,10 +22,8 @@ package awsrds
 //   	},
 //   })
 //
-// Experimental.
 type OracleSe2InstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version OracleEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -23,16 +23,13 @@ import (
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html
 //
-// Experimental.
 type DynamoAttributeValue interface {
 	// Represents the data for the attribute.
 	//
 	// Data can be
 	// i.e. "S": "Hello"
-	// Experimental.
 	AttributeValue() interface{}
 	// Returns the DynamoDB attribute value.
-	// Experimental.
 	ToObject() interface{}
 }
 
@@ -55,7 +52,6 @@ func (j *jsiiProxy_DynamoAttributeValue) AttributeValue() interface{} {
 // Sets an attribute of type Boolean from state input through Json path.
 //
 // For example:  "BOOL": true.
-// Experimental.
 func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -65,7 +61,7 @@ func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValu
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"booleanFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -77,7 +73,6 @@ func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValu
 // Sets an attribute of type Binary.
 //
 // For example:  "B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk".
-// Experimental.
 func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -87,7 +82,7 @@ func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBinary",
 		[]interface{}{value},
 		&returns,
@@ -99,7 +94,6 @@ func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 // Sets an attribute of type Binary Set.
 //
 // For example:  "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="].
-// Experimental.
 func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -109,7 +103,7 @@ func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBinarySet",
 		[]interface{}{value},
 		&returns,
@@ -121,7 +115,6 @@ func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 // Sets an attribute of type Boolean.
 //
 // For example:  "BOOL": true.
-// Experimental.
 func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -131,7 +124,7 @@ func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBoolean",
 		[]interface{}{value},
 		&returns,
@@ -143,7 +136,6 @@ func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 // Sets an attribute of type List.
 //
 // For example:  "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
-// Experimental.
 func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -153,7 +145,7 @@ func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttribut
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromList",
 		[]interface{}{value},
 		&returns,
@@ -165,7 +157,6 @@ func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttribut
 // Sets an attribute of type Map.
 //
 // For example:  "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}.
-// Experimental.
 func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -175,7 +166,7 @@ func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) Dynamo
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromMap",
 		[]interface{}{value},
 		&returns,
@@ -187,7 +178,6 @@ func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) Dynamo
 // Sets an attribute of type Null.
 //
 // For example:  "NULL": true.
-// Experimental.
 func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -197,7 +187,7 @@ func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNull",
 		[]interface{}{value},
 		&returns,
@@ -212,7 +202,6 @@ func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 // Numbers are sent across the network to DynamoDB as strings,
 // to maximize compatibility across languages and libraries.
 // However, DynamoDB treats them as number type attributes for mathematical operations.
-// Experimental.
 func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -222,7 +211,7 @@ func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -237,7 +226,6 @@ func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 // Numbers are sent across the network to DynamoDB as strings,
 // to maximize compatibility across languages and libraries.
 // However, DynamoDB treats them as number type attributes for mathematical operations.
-// Experimental.
 func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -247,7 +235,7 @@ func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNumberSet",
 		[]interface{}{value},
 		&returns,
@@ -263,7 +251,6 @@ func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue 
 //
 // - `DynamoAttributeValue.fromString('someValue')`
 // - `DynamoAttributeValue.fromString(JsonPath.stringAt('$.bar'))`
-// Experimental.
 func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -273,7 +260,7 @@ func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromString",
 		[]interface{}{value},
 		&returns,
@@ -285,7 +272,6 @@ func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 // Sets an attribute of type String Set.
 //
 // For example:  "SS": ["Giraffe", "Hippo" ,"Zebra"].
-// Experimental.
 func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -295,7 +281,7 @@ func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromStringSet",
 		[]interface{}{value},
 		&returns,
@@ -307,7 +293,6 @@ func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 // Sets an attribute of type List.
 //
 // For example:  "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"S", "Veggies"}].
-// Experimental.
 func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -317,7 +302,7 @@ func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"listFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -329,7 +314,6 @@ func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 // Sets an attribute of type Map.
 //
 // For example:  "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}.
-// Experimental.
 func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -339,7 +323,7 @@ func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"mapFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -356,7 +340,6 @@ func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 // However, DynamoDB treats them as number type attributes for mathematical operations.
 //
 // Numbers may be expressed as literal strings or as JsonPath.
-// Experimental.
 func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -366,7 +349,7 @@ func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"numberFromString",
 		[]interface{}{value},
 		&returns,
@@ -383,7 +366,6 @@ func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 // However, DynamoDB treats them as number type attributes for mathematical operations.
 //
 // Numbers may be expressed as literal strings or as JsonPath.
-// Experimental.
 func DynamoAttributeValue_NumberSetFromStrings(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -393,7 +375,7 @@ func DynamoAttributeValue_NumberSetFromStrings(value *[]*string) DynamoAttribute
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"numberSetFromStrings",
 		[]interface{}{value},
 		&returns,

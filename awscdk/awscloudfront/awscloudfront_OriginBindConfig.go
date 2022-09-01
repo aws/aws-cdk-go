@@ -55,13 +55,10 @@ package awscloudfront
 //   	},
 //   }
 //
-// Experimental.
 type OriginBindConfig struct {
 	// The failover configuration for this Origin.
-	// Experimental.
 	FailoverConfig *OriginFailoverConfig `field:"optional" json:"failoverConfig" yaml:"failoverConfig"`
 	// The CloudFormation OriginProperty configuration for this Origin.
-	// Experimental.
 	OriginProperty *CfnDistribution_OriginProperty `field:"optional" json:"originProperty" yaml:"originProperty"`
 }
 
