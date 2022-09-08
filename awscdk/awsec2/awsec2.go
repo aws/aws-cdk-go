@@ -6811,6 +6811,7 @@ func init() {
 		reflect.TypeOf((*SubnetType)(nil)).Elem(),
 		map[string]interface{}{
 			"PRIVATE_ISOLATED": SubnetType_PRIVATE_ISOLATED,
+			"PRIVATE_WITH_EGRESS": SubnetType_PRIVATE_WITH_EGRESS,
 			"PRIVATE_WITH_NAT": SubnetType_PRIVATE_WITH_NAT,
 			"PUBLIC": SubnetType_PUBLIC,
 		},

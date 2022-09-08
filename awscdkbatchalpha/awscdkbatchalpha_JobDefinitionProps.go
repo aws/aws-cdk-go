@@ -43,6 +43,14 @@ type JobDefinitionProps struct {
 	// The platform capabilities required by the job definition.
 	// Experimental.
 	PlatformCapabilities *[]PlatformCapabilities `field:"optional" json:"platformCapabilities" yaml:"platformCapabilities"`
+	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task.
+	//
+	// If no value is specified, the tags aren't propagated.
+	// Tags can only be propagated to the tasks during task creation. For tags with the same name,
+	// job tags are given priority over job definitions tags.
+	// If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+	// Experimental.
+	PropagateTags *bool `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// The number of times to move a job to the RUNNABLE status.
 	//
 	// You may specify between 1 and

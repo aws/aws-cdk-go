@@ -491,11 +491,34 @@ newContainer := taskDefinition.addContainer(jsii.String("container"), &container
 	},
 })
 newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+newContainer.addSecret(jsii.String("API_KEY"), ecs.secret.fromSecretsManager(secret))
+newContainer.addSecret(jsii.String("DB_PASSWORD"), ecs.secret.fromSecretsManager(secret, jsii.String("password")))
 ```
 
 The task execution role is automatically granted read permissions on the secrets/parameters. Support for environment
 files is restricted to the EC2 launch type for files hosted on S3. Further details provided in the AWS documentation
 about [specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html).
+
+### Linux parameters
+
+To apply additional linux-specific options related to init process and memory management to the container, use the `linuxParameters` property:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var taskDefinition taskDefinition
+
+
+taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
+	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	memoryLimitMiB: jsii.Number(1024),
+	linuxParameters: ecs.NewLinuxParameters(this, jsii.String("LinuxParameters"), &linuxParametersProps{
+		initProcessEnabled: jsii.Boolean(true),
+		sharedMemorySize: jsii.Number(1024),
+		maxSwap: jsii.Number(5000),
+		swappiness: jsii.Number(90),
+	}),
+})
+```
 
 ### System controls
 

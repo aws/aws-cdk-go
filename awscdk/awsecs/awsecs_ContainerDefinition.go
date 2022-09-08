@@ -107,6 +107,8 @@ type ContainerDefinition interface {
 	//
 	// This adds the correct container mountPoint and task definition volume.
 	AddScratch(scratch *ScratchSpace)
+	// This method adds a secret as environment variable to the container.
+	AddSecret(name *string, secret Secret)
 	// This method adds the specified statement to the IAM task execution policy in the task definition.
 	AddToExecutionPolicy(statement awsiam.PolicyStatement)
 	// This method adds one or more ulimits to the container.
@@ -452,6 +454,17 @@ func (c *jsiiProxy_ContainerDefinition) AddScratch(scratch *ScratchSpace) {
 		c,
 		"addScratch",
 		[]interface{}{scratch},
+	)
+}
+
+func (c *jsiiProxy_ContainerDefinition) AddSecret(name *string, secret Secret) {
+	if err := c.validateAddSecretParameters(name, secret); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addSecret",
+		[]interface{}{name, secret},
 	)
 }
 

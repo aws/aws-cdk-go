@@ -2,6 +2,7 @@ package customresources
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
@@ -72,5 +73,12 @@ type AwsCustomResourceProps struct {
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The timeout for the singleton Lambda function implementing this custom resource.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
+	// The vpc to provision the lambda function in.
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
+	// Which subnets from the VPC to place the lambda function in.
+	//
+	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
+	// requires a NAT gateway, so picking Public subnets is not allowed.
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

@@ -23,7 +23,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseCluste
 		// optional , defaults to t3.medium
 		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
 		vpcSubnets: &subnetSelection{
-			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 		},
 		vpc: vpc,
 	},
@@ -101,7 +101,7 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInst
 	 // Optional - will default to 'admin' username and generated password
 	vpc: vpc,
 	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 	},
 })
 ```
@@ -371,7 +371,7 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
 	}),
 	vpc: vpc,
 	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 	},
 	publiclyAccessible: jsii.Boolean(true),
 })
@@ -383,7 +383,7 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &databaseClusterPro
 	instanceProps: &instanceProps{
 		vpc: vpc,
 		vpcSubnets: &subnetSelection{
-			subnetType: ec2.*subnetType_PRIVATE_WITH_NAT,
+			subnetType: ec2.*subnetType_PRIVATE_WITH_EGRESS,
 		},
 		publiclyAccessible: jsii.Boolean(true),
 	},
@@ -599,7 +599,7 @@ var myEndpoint interfaceVpcEndpoint
 
 instance.addRotationSingleUser(&rotationSingleUserOptions{
 	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 	},
 	 // Place rotation Lambda in private subnets
 	endpoint: myEndpoint,

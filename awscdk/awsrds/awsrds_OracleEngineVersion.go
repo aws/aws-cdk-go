@@ -26,7 +26,7 @@ import (
 //   	 // Optional - will default to 'admin' username and generated password
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 //   	},
 //   })
 //

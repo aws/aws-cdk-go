@@ -11,13 +11,19 @@ import (
 // Linux-specific options that are applied to the container.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var taskDefinition taskDefinition
 //
-//   linuxParameters := awscdk.Aws_ecs.NewLinuxParameters(this, jsii.String("MyLinuxParameters"), &linuxParametersProps{
-//   	initProcessEnabled: jsii.Boolean(false),
-//   	sharedMemorySize: jsii.Number(123),
+//
+//   taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	linuxParameters: ecs.NewLinuxParameters(this, jsii.String("LinuxParameters"), &linuxParametersProps{
+//   		initProcessEnabled: jsii.Boolean(true),
+//   		sharedMemorySize: jsii.Number(1024),
+//   		maxSwap: jsii.Number(5000),
+//   		swappiness: jsii.Number(90),
+//   	}),
 //   })
 //
 type LinuxParameters interface {

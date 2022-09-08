@@ -105,6 +105,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "hasResource", GoMethod: "HasResource"},
 			_jsii_.MemberMethod{JsiiMethod: "hasResourceProperties", GoMethod: "HasResourceProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "resourceCountIs", GoMethod: "ResourceCountIs"},
+			_jsii_.MemberMethod{JsiiMethod: "resourcePropertiesCountIs", GoMethod: "ResourcePropertiesCountIs"},
 			_jsii_.MemberMethod{JsiiMethod: "templateMatches", GoMethod: "TemplateMatches"},
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 		},

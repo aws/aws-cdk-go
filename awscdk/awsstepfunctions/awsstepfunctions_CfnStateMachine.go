@@ -19,7 +19,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
-//   var definitionSubstitutions interface{}
 //
 //   cfnStateMachine := awscdk.Aws_stepfunctions.NewCfnStateMachine(this, jsii.String("MyCfnStateMachine"), &cfnStateMachineProps{
 //   	roleArn: jsii.String("roleArn"),
@@ -34,8 +33,8 @@ import (
 //   		version: jsii.String("version"),
 //   	},
 //   	definitionString: jsii.String("definitionString"),
-//   	definitionSubstitutions: map[string]interface{}{
-//   		"definitionSubstitutionsKey": definitionSubstitutions,
+//   	definitionSubstitutions: map[string]*string{
+//   		"definitionSubstitutionsKey": jsii.String("definitionSubstitutions"),
 //   	},
 //   	loggingConfiguration: &loggingConfigurationProperty{
 //   		destinations: []interface{}{

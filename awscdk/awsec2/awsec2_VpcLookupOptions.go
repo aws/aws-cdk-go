@@ -30,7 +30,7 @@ package awsec2
 //   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
 //   	vpc: vpc,
 //   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 //   	},
 //   	imageId: cloud9.*imageId_AMAZON_LINUX_2,
 //   })

@@ -35,7 +35,7 @@ package awscodebuild
 //   	// Control Elastic Network Interface creation
 //   	vpc: vpc,
 //   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 //   	},
 //   	securityGroups: []iSecurityGroup{
 //   		mySecurityGroup,

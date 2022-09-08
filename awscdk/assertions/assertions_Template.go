@@ -63,6 +63,8 @@ type Template interface {
 	HasResourceProperties(type_ *string, props interface{})
 	// Assert that the given number of resources of the given type exist in the template.
 	ResourceCountIs(type_ *string, count *float64)
+	// Assert that the given number of resources of the given type and properties exists in the CloudFormation template.
+	ResourcePropertiesCountIs(type_ *string, props interface{}, count *float64)
 	// Assert that the CloudFormation template matches the given value.
 	TemplateMatches(expected interface{})
 	// The CloudFormation template deserialized into an object.
@@ -285,6 +287,17 @@ func (t *jsiiProxy_Template) ResourceCountIs(type_ *string, count *float64) {
 		t,
 		"resourceCountIs",
 		[]interface{}{type_, count},
+	)
+}
+
+func (t *jsiiProxy_Template) ResourcePropertiesCountIs(type_ *string, props interface{}, count *float64) {
+	if err := t.validateResourcePropertiesCountIsParameters(type_, props, count); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"resourcePropertiesCountIs",
+		[]interface{}{type_, props, count},
 	)
 }
 

@@ -281,9 +281,13 @@ bootstrapServers := []*string{
 
 // The Kafka topic you want to subscribe to
 topic := "some-cool-topic"
+
+// (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
+var consumerGroupId string
 myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
 	bootstrapServers: bootstrapServers,
 	topic: topic,
+	consumerGroupId: consumerGroupId,
 	secret: secret,
 	batchSize: jsii.Number(100),
 	 // default

@@ -43,6 +43,8 @@ import (
 //   	},
 //   })
 //   newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+//   newContainer.addSecret(jsii.String("API_KEY"), ecs.secret.fromSecretsManager(secret))
+//   newContainer.addSecret(jsii.String("DB_PASSWORD"), ecs.secret.fromSecretsManager(secret, jsii.String("password")))
 //
 type EnvironmentFile interface {
 	// Called when the container is initialized to allow this object to bind to the stack.

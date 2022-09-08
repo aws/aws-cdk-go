@@ -543,6 +543,28 @@ cr.NewAwsCustomResource(this, jsii.String("Customized"), &awsCustomResourceProps
 })
 ```
 
+Additionally, the Lambda function can be placed in a private VPC by using the `vpc`
+and `vpcSubnets` properties.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var myVpc ec2.Vpc
+
+cr.NewAwsCustomResource(this, jsii.String("CustomizedInVpc"), &awsCustomResourceProps{
+	vpc: vpc,
+	vpcSubnets: &subnetSelection{
+		subnetType: ec2.subnetType_PRIVATE_NAT,
+	},
+	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
+		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
+	}),
+})
+```
+
+Note that Lambda functions in a VPC
+[require Network Address Translation (NAT) in order to access the internet](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html#vpc-internet).
+The subnets specified in `vpcSubnets` must be private subnets.
+
 ### Restricting the output of the Custom Resource
 
 CloudFormation imposes a hard limit of 4096 bytes for custom resources response

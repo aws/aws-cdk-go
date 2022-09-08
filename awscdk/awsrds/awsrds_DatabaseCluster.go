@@ -26,7 +26,7 @@ import (
 //   		// optional , defaults to t3.medium
 //   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
 //   		vpcSubnets: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 //   		},
 //   		vpc: vpc,
 //   	},

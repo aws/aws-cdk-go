@@ -29,6 +29,10 @@ func (c *jsiiProxy_ContainerDefinition) validateAddScratchParameters(scratch *Sc
 	return nil
 }
 
+func (c *jsiiProxy_ContainerDefinition) validateAddSecretParameters(name *string, secret Secret) error {
+	return nil
+}
+
 func (c *jsiiProxy_ContainerDefinition) validateAddToExecutionPolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }

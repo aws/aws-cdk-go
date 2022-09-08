@@ -63,7 +63,7 @@ type Duration interface {
 	// Return an ISO 8601 representation of this period.
 	//
 	// Returns: a string starting with 'P' describing the period.
-	// See: https://www.iso.org/fr/standard/70907.html
+	// See: https://www.iso.org/standard/70907.html
 	//
 	ToIsoString() *string
 	// Return the total number of milliseconds in this Duration.
@@ -179,7 +179,7 @@ func Duration_Minutes(amount *float64) Duration {
 // Parse a period formatted according to the ISO 8601 standard.
 //
 // Returns: the parsed `Duration`.
-// See: https://www.iso.org/fr/standard/70907.html
+// See: https://www.iso.org/standard/70907.html
 //
 func Duration_Parse(duration *string) Duration {
 	_init_.Initialize()

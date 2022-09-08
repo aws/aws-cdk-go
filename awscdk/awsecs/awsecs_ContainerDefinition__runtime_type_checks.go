@@ -73,6 +73,18 @@ func (c *jsiiProxy_ContainerDefinition) validateAddScratchParameters(scratch *Sc
 	return nil
 }
 
+func (c *jsiiProxy_ContainerDefinition) validateAddSecretParameters(name *string, secret Secret) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if secret == nil {
+		return fmt.Errorf("parameter secret is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_ContainerDefinition) validateAddToExecutionPolicyParameters(statement awsiam.PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")

@@ -67,6 +67,20 @@ in a template.
 template.resourceCountIs(jsii.String("Foo::Bar"), jsii.Number(2))
 ```
 
+You can also count the number of resources of a specific type whose `Properties`
+section contains the specified properties:
+
+```go
+template.resourcePropertiesCountIs(jsii.String("Foo::Bar"), map[string]interface{}{
+	"Foo": jsii.String("Bar"),
+	"Baz": jsii.Number(5),
+	"Qux": []*string{
+		jsii.String("Waldo"),
+		jsii.String("Fred"),
+	},
+}, jsii.Number(1))
+```
+
 ## Resource Matching & Retrieval
 
 Beyond resource counting, the module also allows asserting that a resource with

@@ -41,6 +41,7 @@ import (
 //   	kafkaBootstrapServers: []*string{
 //   		jsii.String("kafkaBootstrapServers"),
 //   	},
+//   	kafkaConsumerGroupId: jsii.String("kafkaConsumerGroupId"),
 //   	kafkaTopic: jsii.String("kafkaTopic"),
 //   	maxBatchingWindow: cdk.duration.minutes(jsii.Number(30)),
 //   	maxRecordAge: cdk.*duration.minutes(jsii.Number(30)),

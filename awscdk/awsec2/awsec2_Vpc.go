@@ -23,7 +23,7 @@ import (
 //
 // // Iterate the private subnets
 // const selection = vpc.selectSubnets({
-//    subnetType: ec2.SubnetType.PRIVATE_WITH_NAT
+//    subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS
 // });
 //
 // for (const subnet of selection.subnets) {

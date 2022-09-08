@@ -27,6 +27,7 @@ import (
 //   	kafkaBootstrapServers: []*string{
 //   		jsii.String("kafkaBootstrapServers"),
 //   	},
+//   	kafkaConsumerGroupId: jsii.String("kafkaConsumerGroupId"),
 //   	kafkaTopic: jsii.String("kafkaTopic"),
 //   	maxBatchingWindow: cdk.duration.minutes(jsii.Number(30)),
 //   	maxRecordAge: cdk.*duration.minutes(jsii.Number(30)),
@@ -66,6 +67,12 @@ type EventSourceMappingProps struct {
 	//
 	// They are in the format `abc.example.com:9096`.
 	KafkaBootstrapServers *[]*string `field:"optional" json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
+	// The identifier for the Kafka consumer group to join.
+	//
+	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. The value must have a lenght between 1 and 200 and full the pattern '[a-zA-Z0-9-\/*:_+=.@-]*'. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html
+	//
+	KafkaConsumerGroupId *string `field:"optional" json:"kafkaConsumerGroupId" yaml:"kafkaConsumerGroupId"`
 	// The name of the Kafka topic.
 	KafkaTopic *string `field:"optional" json:"kafkaTopic" yaml:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.

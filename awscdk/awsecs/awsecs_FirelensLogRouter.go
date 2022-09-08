@@ -184,6 +184,8 @@ type FirelensLogRouter interface {
 	//
 	// This adds the correct container mountPoint and task definition volume.
 	AddScratch(scratch *ScratchSpace)
+	// This method adds a secret as environment variable to the container.
+	AddSecret(name *string, secret Secret)
 	// This method adds the specified statement to the IAM task execution policy in the task definition.
 	AddToExecutionPolicy(statement awsiam.PolicyStatement)
 	// This method adds one or more ulimits to the container.
@@ -539,6 +541,17 @@ func (f *jsiiProxy_FirelensLogRouter) AddScratch(scratch *ScratchSpace) {
 		f,
 		"addScratch",
 		[]interface{}{scratch},
+	)
+}
+
+func (f *jsiiProxy_FirelensLogRouter) AddSecret(name *string, secret Secret) {
+	if err := f.validateAddSecretParameters(name, secret); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"addSecret",
+		[]interface{}{name, secret},
 	)
 }
 

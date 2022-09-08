@@ -19,7 +19,7 @@ import (
 //   	vpc: vpc,
 //   	vpcSubnets: []subnetSelection{
 //   		&subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 //   		},
 //   	},
 //   })
@@ -48,7 +48,7 @@ type ClusterProps struct {
 	//
 	// For example, to only select private subnets, supply the following:
 	//
-	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }]`
+	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS }]`
 	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller

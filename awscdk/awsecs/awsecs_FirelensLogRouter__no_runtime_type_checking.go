@@ -29,6 +29,10 @@ func (f *jsiiProxy_FirelensLogRouter) validateAddScratchParameters(scratch *Scra
 	return nil
 }
 
+func (f *jsiiProxy_FirelensLogRouter) validateAddSecretParameters(name *string, secret Secret) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirelensLogRouter) validateAddToExecutionPolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }
