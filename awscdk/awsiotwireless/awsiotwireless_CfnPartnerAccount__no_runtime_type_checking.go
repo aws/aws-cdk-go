@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnPartnerAccount) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnPartnerAccount) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPartnerAccount) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPartnerAccount) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPartnerAccount) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +89,7 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkUpdateParameters(val in
 	return nil
 }
 
-func validateNewCfnPartnerAccountParameters(scope constructs.Construct, id *string, props *CfnPartnerAccountProps) error {
+func validateNewCfnPartnerAccountParameters(scope awscdk.Construct, id *string, props *CfnPartnerAccountProps) error {
 	return nil
 }
 

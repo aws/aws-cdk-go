@@ -33,6 +33,14 @@ func (s *jsiiProxy_SlackChannelConfiguration) validateMetricParameters(metricNam
 	return nil
 }
 
+func (s *jsiiProxy_SlackChannelConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SlackChannelConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateSlackChannelConfiguration_FromSlackChannelConfigurationArnParameters(scope constructs.Construct, id *string, slackChannelConfigurationArn *string) error {
 	return nil
 }
@@ -41,11 +49,7 @@ func validateSlackChannelConfiguration_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
-func validateSlackChannelConfiguration_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSlackChannelConfiguration_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSlackChannelConfiguration_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

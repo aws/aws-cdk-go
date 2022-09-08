@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnVoiceChannel) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnVoiceChannel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVoiceChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVoiceChannel) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVoiceChannel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnVoiceChannel) validateSetEnabledParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnVoiceChannelParameters(scope constructs.Construct, id *string, props *CfnVoiceChannelProps) error {
+func validateNewCfnVoiceChannelParameters(scope awscdk.Construct, id *string, props *CfnVoiceChannelProps) error {
 	return nil
 }
 

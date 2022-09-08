@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnMountTarget) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnMountTarget) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMountTarget) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMountTarget) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMountTarget) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +89,7 @@ func (j *jsiiProxy_CfnMountTarget) validateSetSubnetIdParameters(val *string) er
 	return nil
 }
 
-func validateNewCfnMountTargetParameters(scope constructs.Construct, id *string, props *CfnMountTargetProps) error {
+func validateNewCfnMountTargetParameters(scope awscdk.Construct, id *string, props *CfnMountTargetProps) error {
 	return nil
 }
 

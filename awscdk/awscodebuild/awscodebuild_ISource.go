@@ -3,16 +3,21 @@ package awscodebuild
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // The abstract interface of a CodeBuild source.
 //
 // Implemented by {@link Source}.
+// Experimental.
 type ISource interface {
-	Bind(scope constructs.Construct, project IProject) *SourceConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, project IProject) *SourceConfig
+	// Experimental.
 	BadgeSupported() *bool
+	// Experimental.
 	Identifier() *string
+	// Experimental.
 	Type() *string
 }
 
@@ -21,7 +26,7 @@ type jsiiProxy_ISource struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ISource) Bind(scope constructs.Construct, project IProject) *SourceConfig {
+func (i *jsiiProxy_ISource) Bind(scope awscdk.Construct, project IProject) *SourceConfig {
 	if err := i.validateBindParameters(scope, project); err != nil {
 		panic(err)
 	}

@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func validateLambdaDeploymentConfig_ImportParameters(_scope constructs.Construct, _id *string, props *LambdaDeploymentConfigImportProps) error {

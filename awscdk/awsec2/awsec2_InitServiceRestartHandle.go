@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -24,7 +24,6 @@ import (
 // ```.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //
@@ -42,6 +41,7 @@ import (
 //   	serviceRestartHandle: handle,
 //   }))
 //
+// Experimental.
 type InitServiceRestartHandle interface {
 }
 
@@ -50,13 +50,14 @@ type jsiiProxy_InitServiceRestartHandle struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewInitServiceRestartHandle() InitServiceRestartHandle {
 	_init_.Initialize()
 
 	j := jsiiProxy_InitServiceRestartHandle{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InitServiceRestartHandle",
+		"monocdk.aws_ec2.InitServiceRestartHandle",
 		nil, // no parameters
 		&j,
 	)
@@ -64,11 +65,12 @@ func NewInitServiceRestartHandle() InitServiceRestartHandle {
 	return &j
 }
 
+// Experimental.
 func NewInitServiceRestartHandle_Override(i InitServiceRestartHandle) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InitServiceRestartHandle",
+		"monocdk.aws_ec2.InitServiceRestartHandle",
 		nil, // no parameters
 		i,
 	)

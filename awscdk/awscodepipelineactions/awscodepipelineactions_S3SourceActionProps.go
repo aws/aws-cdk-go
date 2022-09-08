@@ -1,15 +1,14 @@
 package awscodepipelineactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Construction properties of the {@link S3SourceAction S3 source Action}.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
@@ -33,18 +32,22 @@ import (
 //   	trigger: codepipeline_actions.s3Trigger_EVENTS,
 //   })
 //
+// Experimental.
 type S3SourceActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -53,19 +56,22 @@ type S3SourceActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Amazon S3 bucket that stores the source code.
 	//
 	// If you import an encrypted bucket in your stack, please specify
 	// the encryption key at import time by using `Bucket.fromBucketAttributes()` method.
+	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The key within the S3 bucket that stores the source code.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "path/to/file.zip"
 	//
+	// Experimental.
 	BucketKey *string `field:"required" json:"bucketKey" yaml:"bucketKey"`
+	// Experimental.
 	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// How should CodePipeline detect source changes for this Action.
 	//
@@ -73,6 +79,7 @@ type S3SourceActionProps struct {
 	// as otherwise the CloudWatch Events will not be emitted.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/log-s3-data-events.html
 	//
+	// Experimental.
 	Trigger S3Trigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 

@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateInspectParameters(i
 	return nil
 }
 
+func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) validateSetLayerIdParameter
 	return nil
 }
 
-func validateNewCfnElasticLoadBalancerAttachmentParameters(scope constructs.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) error {
+func validateNewCfnElasticLoadBalancerAttachmentParameters(scope awscdk.Construct, id *string, props *CfnElasticLoadBalancerAttachmentProps) error {
 	return nil
 }
 

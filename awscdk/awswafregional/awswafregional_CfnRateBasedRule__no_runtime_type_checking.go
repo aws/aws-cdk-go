@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnRateBasedRule) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnRateBasedRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRateBasedRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRateBasedRule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRateBasedRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +97,7 @@ func (j *jsiiProxy_CfnRateBasedRule) validateSetRateLimitParameters(val *float64
 	return nil
 }
 
-func validateNewCfnRateBasedRuleParameters(scope constructs.Construct, id *string, props *CfnRateBasedRuleProps) error {
+func validateNewCfnRateBasedRuleParameters(scope awscdk.Construct, id *string, props *CfnRateBasedRuleProps) error {
 	return nil
 }
 

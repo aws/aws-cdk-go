@@ -3,16 +3,19 @@ package awsevents
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents/internal"
 )
 
 // Interface for API Destinations.
+// Experimental.
 type IApiDestination interface {
 	awscdk.IResource
 	// The ARN of the Api Destination created.
+	// Experimental.
 	ApiDestinationArn() *string
 	// The Name of the Api Destination created.
+	// Experimental.
 	ApiDestinationName() *string
 }
 

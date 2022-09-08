@@ -1,8 +1,8 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // Basic properties for ECS Tasks.
@@ -45,22 +45,27 @@ import (
 //   	integrationPattern: awscdk.Aws_stepfunctions.serviceIntegrationPattern_FIRE_AND_FORGET,
 //   }
 //
+// Experimental.
 type CommonEcsRunTaskProps struct {
 	// The topic to run the task on.
+	// Experimental.
 	Cluster awsecs.ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// Task Definition used for running tasks in the service.
 	//
 	// Note: this must be TaskDefinition, and not ITaskDefinition,
 	// as it requires properties that are not known for imported task definitions.
+	// Experimental.
 	TaskDefinition awsecs.TaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
 	// values you want to override.
+	// Experimental.
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
 	// The service integration pattern indicates different ways to call RunTask in ECS.
 	//
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+	// Experimental.
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `field:"optional" json:"integrationPattern" yaml:"integrationPattern"`
 }
 

@@ -18,16 +18,22 @@ package awscloudwatch
 //   	visible: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type HorizontalAnnotation struct {
 	// The value of the annotation.
+	// Experimental.
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to be used for the annotation. The `Color` class has a set of standard colors that can be used here.
+	// Experimental.
 	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Add shading above or below the annotation.
+	// Experimental.
 	Fill Shading `field:"optional" json:"fill" yaml:"fill"`
 	// Label for the annotation.
+	// Experimental.
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// Whether the annotation is visible.
+	// Experimental.
 	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 }
 

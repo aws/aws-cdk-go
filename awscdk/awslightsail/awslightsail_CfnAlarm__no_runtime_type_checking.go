@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnAlarm) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
+func (c *jsiiProxy_CfnAlarm) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAlarm) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAlarm) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAlarm) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +105,7 @@ func (j *jsiiProxy_CfnAlarm) validateSetThresholdParameters(val *float64) error 
 	return nil
 }
 
-func validateNewCfnAlarmParameters(scope constructs.Construct, id *string, props *CfnAlarmProps) error {
+func validateNewCfnAlarmParameters(scope awscdk.Construct, id *string, props *CfnAlarmProps) error {
 	return nil
 }
 

@@ -1,13 +1,13 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // CodePipeline action to deploy a stack.
@@ -24,7 +24,6 @@ import (
 // troubleshooting them. You would typically choose this mode for testing.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // in stack for account 123456789012...
@@ -46,23 +45,32 @@ import (
 //   	role: actionRole,
 //   })
 //
+// Experimental.
 type CloudFormationCreateUpdateStackAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
+	// Experimental.
 	DeploymentRole() awsiam.IRole
 	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// Add statement to the service role assumed by CloudFormation while executing this action.
+	// Experimental.
 	AddToDeploymentRolePolicy(statement awsiam.PolicyStatement) *bool
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -102,6 +110,7 @@ func (j *jsiiProxy_CloudFormationCreateUpdateStackAction) ProvidedActionProperti
 }
 
 
+// Experimental.
 func NewCloudFormationCreateUpdateStackAction(props *CloudFormationCreateUpdateStackActionProps) CloudFormationCreateUpdateStackAction {
 	_init_.Initialize()
 
@@ -111,7 +120,7 @@ func NewCloudFormationCreateUpdateStackAction(props *CloudFormationCreateUpdateS
 	j := jsiiProxy_CloudFormationCreateUpdateStackAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -119,11 +128,12 @@ func NewCloudFormationCreateUpdateStackAction(props *CloudFormationCreateUpdateS
 	return &j
 }
 
+// Experimental.
 func NewCloudFormationCreateUpdateStackAction_Override(c CloudFormationCreateUpdateStackAction, props *CloudFormationCreateUpdateStackActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
 		[]interface{}{props},
 		c,
 	)
@@ -145,7 +155,7 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) AddToDeploymentRolePol
 	return returns
 }
 
-func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := c.validateBindParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
@@ -161,7 +171,7 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bind(scope constructs.
 	return returns
 }
 
-func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bound(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := c.validateBoundParameters(scope, stage, options); err != nil {
 		panic(err)
 	}

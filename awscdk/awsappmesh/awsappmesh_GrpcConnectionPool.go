@@ -4,7 +4,6 @@ package awsappmesh
 // Connection pool properties for gRPC listeners.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
 //
@@ -40,8 +39,10 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("gateway"),
 //   })
 //
+// Experimental.
 type GrpcConnectionPool struct {
 	// The maximum requests in the pool.
+	// Experimental.
 	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 

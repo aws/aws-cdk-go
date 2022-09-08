@@ -17,6 +17,14 @@ func (d *jsiiProxy_DatabaseInstance) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDatabaseInstance_FromDatabaseInstanceAttributesParameters(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) error {
 	return nil
 }
@@ -25,11 +33,7 @@ func validateDatabaseInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDatabaseInstance_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDatabaseInstance_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDatabaseInstance_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

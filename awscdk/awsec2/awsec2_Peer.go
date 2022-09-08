@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -18,7 +18,6 @@ import (
 // directly, as it already implements `IPeer`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var instanceType instanceType
 //
 //
@@ -31,6 +30,7 @@ import (
 //   })
 //   provider.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(80)))
 //
+// Experimental.
 type Peer interface {
 }
 
@@ -39,13 +39,14 @@ type jsiiProxy_Peer struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewPeer() Peer {
 	_init_.Initialize()
 
 	j := jsiiProxy_Peer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		nil, // no parameters
 		&j,
 	)
@@ -53,24 +54,26 @@ func NewPeer() Peer {
 	return &j
 }
 
+// Experimental.
 func NewPeer_Override(p Peer) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		nil, // no parameters
 		p,
 	)
 }
 
 // Any IPv4 address.
+// Experimental.
 func Peer_AnyIpv4() IPeer {
 	_init_.Initialize()
 
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		"anyIpv4",
 		nil, // no parameters
 		&returns,
@@ -80,13 +83,14 @@ func Peer_AnyIpv4() IPeer {
 }
 
 // Any IPv6 address.
+// Experimental.
 func Peer_AnyIpv6() IPeer {
 	_init_.Initialize()
 
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		"anyIpv6",
 		nil, // no parameters
 		&returns,
@@ -96,6 +100,7 @@ func Peer_AnyIpv6() IPeer {
 }
 
 // Create an IPv4 peer from a CIDR.
+// Experimental.
 func Peer_Ipv4(cidrIp *string) IPeer {
 	_init_.Initialize()
 
@@ -105,7 +110,7 @@ func Peer_Ipv4(cidrIp *string) IPeer {
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		"ipv4",
 		[]interface{}{cidrIp},
 		&returns,
@@ -115,6 +120,7 @@ func Peer_Ipv4(cidrIp *string) IPeer {
 }
 
 // Create an IPv6 peer from a CIDR.
+// Experimental.
 func Peer_Ipv6(cidrIp *string) IPeer {
 	_init_.Initialize()
 
@@ -124,7 +130,7 @@ func Peer_Ipv6(cidrIp *string) IPeer {
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		"ipv6",
 		[]interface{}{cidrIp},
 		&returns,
@@ -134,6 +140,7 @@ func Peer_Ipv6(cidrIp *string) IPeer {
 }
 
 // A prefix list.
+// Experimental.
 func Peer_PrefixList(prefixListId *string) IPeer {
 	_init_.Initialize()
 
@@ -143,7 +150,7 @@ func Peer_PrefixList(prefixListId *string) IPeer {
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		"prefixList",
 		[]interface{}{prefixListId},
 		&returns,
@@ -153,6 +160,7 @@ func Peer_PrefixList(prefixListId *string) IPeer {
 }
 
 // A security group ID.
+// Experimental.
 func Peer_SecurityGroupId(securityGroupId *string, sourceSecurityGroupOwnerId *string) IPeer {
 	_init_.Initialize()
 
@@ -162,7 +170,7 @@ func Peer_SecurityGroupId(securityGroupId *string, sourceSecurityGroupOwnerId *s
 	var returns IPeer
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.Peer",
+		"monocdk.aws_ec2.Peer",
 		"securityGroupId",
 		[]interface{}{securityGroupId, sourceSecurityGroupOwnerId},
 		&returns,

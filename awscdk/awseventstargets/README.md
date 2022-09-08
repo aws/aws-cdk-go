@@ -27,7 +27,7 @@ EventBridge.
 
 ## Event retry policy and using dead-letter queues
 
-The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup, SQSQueue, SNSTopic and ECSTask targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
+The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup and SQSQueue targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
 Use [escape hatches](https://docs.aws.amazon.com/cdk/latest/guide/cfn_layer.html) for the other target types.
 
 ## Invoke a Lambda function
@@ -43,7 +43,7 @@ import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromInline(jsii.String("exports.handler = handler.toString()")),
 })
@@ -91,43 +91,6 @@ rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
 })
 
 rule.addTarget(targets.NewCloudWatchLogGroup(logGroup))
-```
-
-A rule target input can also be specified to modify the event that is sent to the log group.
-Unlike other event targets, CloudWatchLogs requires a specific input template format.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import logs "github.com/aws/aws-cdk-go/awscdk"
-var logGroup logGroup
-var rule rule
-
-
-rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
-	logEvent: targets.logGroupTargetInput(map[string]interface{}{
-		"timestamp": events.EventField.from(jsii.String("$.time")),
-		"message": events.EventField.from(jsii.String("$.detail-type")),
-	}),
-}))
-```
-
-If you want to use static values to overwrite the `message` make sure that you provide a `string`
-value.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import logs "github.com/aws/aws-cdk-go/awscdk"
-var logGroup logGroup
-var rule rule
-
-
-rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
-	logEvent: targets.logGroupTargetInput(map[string]*string{
-		"message": JSON.stringify(map[string]*string{
-			"CustomField": jsii.String("CustomValue"),
-		}),
-	}),
-}))
 ```
 
 ## Start a CodeBuild build
@@ -235,25 +198,24 @@ You can optionally attach a
 to the target.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import batch "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), map[string][]map[string]interface{}{
-	"computeEnvironments": []map[string]interface{}{
-		map[string]interface{}{
-			"computeEnvironment": batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), map[string]*bool{
-				"managed": jsii.Boolean(false),
+jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), &jobQueueProps{
+	computeEnvironments: []jobQueueComputeEnvironment{
+		&jobQueueComputeEnvironment{
+			computeEnvironment: batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), &computeEnvironmentProps{
+				managed: jsii.Boolean(false),
 			}),
-			"order": jsii.Number(1),
+			order: jsii.Number(1),
 		},
 	},
 })
 
-jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), map[string]map[string]repositoryImage{
-	"container": map[string]repositoryImage{
-		"image": awscdk.ContainerImage.fromRegistry(jsii.String("test-repo")),
+jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), &jobDefinitionProps{
+	container: &jobDefinitionContainer{
+		image: awscdk.ContainerImage.fromRegistry(jsii.String("test-repo")),
 	},
 })
 
@@ -290,7 +252,7 @@ rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
 
 fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
 	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	code: lambda.code.fromInline(jsii.String("exports.handler = e => {}")),
 })
 

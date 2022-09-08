@@ -31,8 +31,10 @@ package awsrds
 //   	}),
 //   })
 //
+// Experimental.
 type PostgresInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version PostgresEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

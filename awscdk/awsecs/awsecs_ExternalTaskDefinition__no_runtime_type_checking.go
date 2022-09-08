@@ -53,7 +53,11 @@ func (e *jsiiProxy_ExternalTaskDefinition) validateGetResourceNameAttributeParam
 	return nil
 }
 
-func (e *jsiiProxy_ExternalTaskDefinition) validateGrantRunParameters(grantee awsiam.IGrantable) error {
+func (e *jsiiProxy_ExternalTaskDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_ExternalTaskDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,11 +81,7 @@ func validateExternalTaskDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateExternalTaskDefinition_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateExternalTaskDefinition_IsResourceParameters(construct constructs.IConstruct) error {
+func validateExternalTaskDefinition_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -16,6 +16,7 @@ package awsec2
 //   	target: ec2.clientVpnRouteTarget.local(),
 //   })
 //
+// Experimental.
 type ClientVpnRouteOptions struct {
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	//
@@ -25,10 +26,13 @@ type ClientVpnRouteOptions struct {
 	//    - To add a route for an on-premises network, enter the AWS Site-to-Site VPN
 	//      connection's IPv4 CIDR range
 	// - To add a route for the local network, enter the client CIDR range.
+	// Experimental.
 	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// The target for the route.
+	// Experimental.
 	Target ClientVpnRouteTarget `field:"required" json:"target" yaml:"target"`
 	// A brief description of the authorization rule.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

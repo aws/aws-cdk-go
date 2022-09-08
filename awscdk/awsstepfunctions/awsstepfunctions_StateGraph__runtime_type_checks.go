@@ -6,7 +6,7 @@ package awsstepfunctions
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 func (s *jsiiProxy_StateGraph) validateRegisterPolicyStatementParameters(statement awsiam.PolicyStatement) error {

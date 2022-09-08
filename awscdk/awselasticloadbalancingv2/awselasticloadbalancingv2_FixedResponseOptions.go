@@ -20,12 +20,15 @@ package awselasticloadbalancingv2
 //   	}),
 //   })
 //
+// Experimental.
 type FixedResponseOptions struct {
 	// Content Type of the response.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
+	// Experimental.
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The response body.
+	// Experimental.
 	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 

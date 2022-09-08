@@ -19,14 +19,18 @@ package awsrds
 //   	port: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ClusterEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
+	// Experimental.
 	Features *ClusterEngineFeatures `field:"optional" json:"features" yaml:"features"`
 	// The ParameterGroup to use for the cluster.
+	// Experimental.
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The port to use for this cluster, unless the customer specified the port directly.
+	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

@@ -1,13 +1,14 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // User pool third-party identity providers.
+// Experimental.
 type UserPoolIdentityProvider interface {
 }
 
@@ -17,6 +18,7 @@ type jsiiProxy_UserPoolIdentityProvider struct {
 }
 
 // Import an existing UserPoolIdentityProvider.
+// Experimental.
 func UserPoolIdentityProvider_FromProviderName(scope constructs.Construct, id *string, providerName *string) IUserPoolIdentityProvider {
 	_init_.Initialize()
 
@@ -26,7 +28,7 @@ func UserPoolIdentityProvider_FromProviderName(scope constructs.Construct, id *s
 	var returns IUserPoolIdentityProvider
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cognito.UserPoolIdentityProvider",
+		"monocdk.aws_cognito.UserPoolIdentityProvider",
 		"fromProviderName",
 		[]interface{}{scope, id, providerName},
 		&returns,

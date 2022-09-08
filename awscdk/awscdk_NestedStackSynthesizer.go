@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,34 +16,41 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var stackSynthesizer stackSynthesizer
 //
-//   nestedStackSynthesizer := cdk.NewNestedStackSynthesizer(stackSynthesizer)
+//   nestedStackSynthesizer := monocdk.NewNestedStackSynthesizer(stackSynthesizer)
 //
+// Experimental.
 type NestedStackSynthesizer interface {
 	StackSynthesizer
 	// Register a Docker Image Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
+	// Experimental.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
 	// Register a File Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
+	// Experimental.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
 	// Must be called before any of the other methods are called.
+	// Experimental.
 	Bind(stack Stack)
 	// Write the stack artifact to the session.
 	//
 	// Use default settings to add a CloudFormationStackArtifact artifact to
 	// the given synthesis session.
+	// Experimental.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
 	// Synthesize the associated stack to the session.
+	// Experimental.
 	Synthesize(session ISynthesisSession)
 	// Have the stack write out its template.
+	// Experimental.
 	SynthesizeStackTemplate(stack Stack, session ISynthesisSession)
 }
 
@@ -52,6 +59,7 @@ type jsiiProxy_NestedStackSynthesizer struct {
 	jsiiProxy_StackSynthesizer
 }
 
+// Experimental.
 func NewNestedStackSynthesizer(parentDeployment IStackSynthesizer) NestedStackSynthesizer {
 	_init_.Initialize()
 
@@ -61,7 +69,7 @@ func NewNestedStackSynthesizer(parentDeployment IStackSynthesizer) NestedStackSy
 	j := jsiiProxy_NestedStackSynthesizer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.NestedStackSynthesizer",
+		"monocdk.NestedStackSynthesizer",
 		[]interface{}{parentDeployment},
 		&j,
 	)
@@ -69,11 +77,12 @@ func NewNestedStackSynthesizer(parentDeployment IStackSynthesizer) NestedStackSy
 	return &j
 }
 
+// Experimental.
 func NewNestedStackSynthesizer_Override(n NestedStackSynthesizer, parentDeployment IStackSynthesizer) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.NestedStackSynthesizer",
+		"monocdk.NestedStackSynthesizer",
 		[]interface{}{parentDeployment},
 		n,
 	)

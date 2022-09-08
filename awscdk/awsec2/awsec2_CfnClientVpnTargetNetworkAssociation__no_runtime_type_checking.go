@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateInspectParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateSetSubnetIdPara
 	return nil
 }
 
-func validateNewCfnClientVpnTargetNetworkAssociationParameters(scope constructs.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) error {
+func validateNewCfnClientVpnTargetNetworkAssociationParameters(scope awscdk.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) error {
 	return nil
 }
 

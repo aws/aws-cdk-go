@@ -49,6 +49,10 @@ func (a *jsiiProxy_AutoScalingGroup) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (a *jsiiProxy_AutoScalingGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (a *jsiiProxy_AutoScalingGroup) validateScaleOnCpuUtilizationParameters(id *string, props *CpuUtilizationScalingProps) error {
 	return nil
 }
@@ -77,6 +81,10 @@ func (a *jsiiProxy_AutoScalingGroup) validateScaleToTrackMetricParameters(id *st
 	return nil
 }
 
+func (a *jsiiProxy_AutoScalingGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAutoScalingGroup_FromAutoScalingGroupNameParameters(scope constructs.Construct, id *string, autoScalingGroupName *string) error {
 	return nil
 }
@@ -85,11 +93,7 @@ func validateAutoScalingGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAutoScalingGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAutoScalingGroup_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAutoScalingGroup_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

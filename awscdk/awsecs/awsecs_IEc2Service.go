@@ -2,6 +2,7 @@ package awsecs
 
 
 // The interface for a service using the EC2 launch type on an ECS cluster.
+// Experimental.
 type IEc2Service interface {
 	IService
 }

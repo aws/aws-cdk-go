@@ -3,18 +3,22 @@ package awsefs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsefs/internal"
 )
 
 // Represents an EFS AccessPoint.
+// Experimental.
 type IAccessPoint interface {
 	awscdk.IResource
 	// The ARN of the AccessPoint.
+	// Experimental.
 	AccessPointArn() *string
 	// The ID of the AccessPoint.
+	// Experimental.
 	AccessPointId() *string
 	// The EFS file system.
+	// Experimental.
 	FileSystem() IFileSystem
 }
 

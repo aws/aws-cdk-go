@@ -8,7 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (s *jsiiProxy_StepScalingAction) validateAddAdjustmentParameters(adjustment *AdjustmentTier) error {
@@ -17,6 +18,22 @@ func (s *jsiiProxy_StepScalingAction) validateAddAdjustmentParameters(adjustment
 	}
 	if err := _jsii_.ValidateStruct(adjustment, func() string { return "parameter adjustment" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_StepScalingAction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_StepScalingAction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

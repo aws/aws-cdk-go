@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnUserPoolClient) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolClient) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolClient) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnUserPoolClient) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPoolClient) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +105,7 @@ func (j *jsiiProxy_CfnUserPoolClient) validateSetUserPoolIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnUserPoolClientParameters(scope constructs.Construct, id *string, props *CfnUserPoolClientProps) error {
+func validateNewCfnUserPoolClientParameters(scope awscdk.Construct, id *string, props *CfnUserPoolClientProps) error {
 	return nil
 }
 

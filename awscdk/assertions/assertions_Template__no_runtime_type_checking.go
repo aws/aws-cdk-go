@@ -53,10 +53,6 @@ func (t *jsiiProxy_Template) validateResourceCountIsParameters(type_ *string, co
 	return nil
 }
 
-func (t *jsiiProxy_Template) validateResourcePropertiesCountIsParameters(type_ *string, props interface{}, count *float64) error {
-	return nil
-}
-
 func (t *jsiiProxy_Template) validateTemplateMatchesParameters(expected interface{}) error {
 	return nil
 }

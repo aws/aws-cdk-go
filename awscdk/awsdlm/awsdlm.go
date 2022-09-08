@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
+		"monocdk.aws_dlm.CfnLifecyclePolicy",
 		reflect.TypeOf((*CfnLifecyclePolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -30,17 +30,22 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDetails", GoGetter: "PolicyDetails"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -51,71 +56,71 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.ActionProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.ActionProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_ActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.CreateRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.CreateRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_CreateRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyActionProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyActionProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_CrossRegionCopyActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyDeprecateRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyDeprecateRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyRetainRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyRetainRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_CrossRegionCopyRetainRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_CrossRegionCopyRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.DeprecateRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.DeprecateRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_DeprecateRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.EncryptionConfigurationProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.EventParametersProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.EventParametersProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_EventParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.EventSourceProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.EventSourceProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_EventSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.FastRestoreRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.FastRestoreRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_FastRestoreRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.ParametersProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.ParametersProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_ParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.PolicyDetailsProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.PolicyDetailsProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_PolicyDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.RetainRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.RetainRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_RetainRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.ScheduleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.ScheduleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_ScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.ShareRuleProperty",
+		"monocdk.aws_dlm.CfnLifecyclePolicy.ShareRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_ShareRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicyProps",
+		"monocdk.aws_dlm.CfnLifecyclePolicyProps",
 		reflect.TypeOf((*CfnLifecyclePolicyProps)(nil)).Elem(),
 	)
 }

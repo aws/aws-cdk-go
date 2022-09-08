@@ -21,15 +21,19 @@ func (d *jsiiProxy_DnsValidatedCertificate) validateMetricDaysToExpiryParameters
 	return nil
 }
 
+func (d *jsiiProxy_DnsValidatedCertificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DnsValidatedCertificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDnsValidatedCertificate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDnsValidatedCertificate_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDnsValidatedCertificate_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDnsValidatedCertificate_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

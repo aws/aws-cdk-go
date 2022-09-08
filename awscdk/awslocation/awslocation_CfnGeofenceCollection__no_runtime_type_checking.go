@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnGeofenceCollection) validateInspectParameters(inspector aw
 	return nil
 }
 
+func (c *jsiiProxy_CfnGeofenceCollection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGeofenceCollection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGeofenceCollection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +81,7 @@ func (j *jsiiProxy_CfnGeofenceCollection) validateSetCollectionNameParameters(va
 	return nil
 }
 
-func validateNewCfnGeofenceCollectionParameters(scope constructs.Construct, id *string, props *CfnGeofenceCollectionProps) error {
+func validateNewCfnGeofenceCollectionParameters(scope awscdk.Construct, id *string, props *CfnGeofenceCollectionProps) error {
 	return nil
 }
 

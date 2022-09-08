@@ -8,11 +8,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (l *jsiiProxy_LambdaDeploymentGroup) validateAddAlarmParameters(alarm awscloudwatch.IAlarm) error {
@@ -78,6 +78,22 @@ func (l *jsiiProxy_LambdaDeploymentGroup) validateGrantPutLifecycleEventHookExec
 	return nil
 }
 
+func (l *jsiiProxy_LambdaDeploymentGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (l *jsiiProxy_LambdaDeploymentGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateLambdaDeploymentGroup_FromLambdaDeploymentGroupAttributesParameters(scope constructs.Construct, id *string, attrs *LambdaDeploymentGroupAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -105,15 +121,7 @@ func validateLambdaDeploymentGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLambdaDeploymentGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateLambdaDeploymentGroup_IsResourceParameters(construct constructs.IConstruct) error {
+func validateLambdaDeploymentGroup_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

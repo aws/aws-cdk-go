@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -23,26 +23,32 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type DockerImage interface {
+	BundlingDockerImage
 	// The Docker image.
+	// Experimental.
 	Image() *string
 	// Copies a file or directory out of the Docker image to the local filesystem.
 	//
 	// If `outputPath` is omitted the destination path is a temporary directory.
 	//
 	// Returns: the destination path.
+	// Experimental.
 	Cp(imagePath *string, outputPath *string) *string
 	// Runs a Docker image.
+	// Experimental.
 	Run(options *DockerRunOptions)
 	// Provides a stable representation of this image for JSON serialization.
 	//
 	// Returns: The overridden image name if set or image hash name in that order.
+	// Experimental.
 	ToJSON() *string
 }
 
 // The jsii proxy struct for DockerImage
 type jsiiProxy_DockerImage struct {
-	_ byte // padding
+	jsiiProxy_BundlingDockerImage
 }
 
 func (j *jsiiProxy_DockerImage) Image() *string {
@@ -56,6 +62,7 @@ func (j *jsiiProxy_DockerImage) Image() *string {
 }
 
 
+// Experimental.
 func NewDockerImage(image *string, _imageHash *string) DockerImage {
 	_init_.Initialize()
 
@@ -65,7 +72,7 @@ func NewDockerImage(image *string, _imageHash *string) DockerImage {
 	j := jsiiProxy_DockerImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.DockerImage",
+		"monocdk.DockerImage",
 		[]interface{}{image, _imageHash},
 		&j,
 	)
@@ -73,17 +80,39 @@ func NewDockerImage(image *string, _imageHash *string) DockerImage {
 	return &j
 }
 
+// Experimental.
 func NewDockerImage_Override(d DockerImage, image *string, _imageHash *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.DockerImage",
+		"monocdk.DockerImage",
 		[]interface{}{image, _imageHash},
 		d,
 	)
 }
 
+// Reference an image that's built directly from sources on disk.
+// Deprecated: use DockerImage.fromBuild()
+func DockerImage_FromAsset(path *string, options *DockerBuildOptions) BundlingDockerImage {
+	_init_.Initialize()
+
+	if err := validateDockerImage_FromAssetParameters(path, options); err != nil {
+		panic(err)
+	}
+	var returns BundlingDockerImage
+
+	_jsii_.StaticInvoke(
+		"monocdk.DockerImage",
+		"fromAsset",
+		[]interface{}{path, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Builds a Docker image.
+// Experimental.
 func DockerImage_FromBuild(path *string, options *DockerBuildOptions) DockerImage {
 	_init_.Initialize()
 
@@ -93,7 +122,7 @@ func DockerImage_FromBuild(path *string, options *DockerBuildOptions) DockerImag
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.DockerImage",
+		"monocdk.DockerImage",
 		"fromBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -103,6 +132,7 @@ func DockerImage_FromBuild(path *string, options *DockerBuildOptions) DockerImag
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func DockerImage_FromRegistry(image *string) DockerImage {
 	_init_.Initialize()
 
@@ -112,7 +142,7 @@ func DockerImage_FromRegistry(image *string) DockerImage {
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.DockerImage",
+		"monocdk.DockerImage",
 		"fromRegistry",
 		[]interface{}{image},
 		&returns,

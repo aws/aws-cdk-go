@@ -8,11 +8,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (p *jsiiProxy_Pipeline) validateAddStageParameters(props *StageOptions) error {
@@ -180,9 +180,25 @@ func (p *jsiiProxy_Pipeline) validateOnStateChangeParameters(id *string, options
 	return nil
 }
 
+func (p *jsiiProxy_Pipeline) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_Pipeline) validateStageParameters(stageName *string) error {
 	if stageName == nil {
 		return fmt.Errorf("parameter stageName is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_Pipeline) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -212,15 +228,7 @@ func validatePipeline_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePipeline_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validatePipeline_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePipeline_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -26,10 +26,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type OriginRequestHeaderBehavior interface {
 	// The behavior of headers: allow all, none or an allow list.
+	// Experimental.
 	Behavior() *string
 	// The headers for the allow list or the included CloudFront headers, if applicable.
+	// Experimental.
 	Headers() *[]*string
 }
 
@@ -64,6 +67,7 @@ func (j *jsiiProxy_OriginRequestHeaderBehavior) Headers() *[]*string {
 // Additionally, any additional CloudFront headers provided are included; the additional headers are added by CloudFront.
 // See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-cloudfront-headers.html
 //
+// Experimental.
 func OriginRequestHeaderBehavior_All(cloudfrontHeaders ...*string) OriginRequestHeaderBehavior {
 	_init_.Initialize()
 
@@ -75,7 +79,7 @@ func OriginRequestHeaderBehavior_All(cloudfrontHeaders ...*string) OriginRequest
 	var returns OriginRequestHeaderBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.OriginRequestHeaderBehavior",
+		"monocdk.aws_cloudfront.OriginRequestHeaderBehavior",
 		"all",
 		args,
 		&returns,
@@ -85,6 +89,7 @@ func OriginRequestHeaderBehavior_All(cloudfrontHeaders ...*string) OriginRequest
 }
 
 // Listed headers are included in requests that CloudFront sends to the origin.
+// Experimental.
 func OriginRequestHeaderBehavior_AllowList(headers ...*string) OriginRequestHeaderBehavior {
 	_init_.Initialize()
 
@@ -96,7 +101,7 @@ func OriginRequestHeaderBehavior_AllowList(headers ...*string) OriginRequestHead
 	var returns OriginRequestHeaderBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.OriginRequestHeaderBehavior",
+		"monocdk.aws_cloudfront.OriginRequestHeaderBehavior",
 		"allowList",
 		args,
 		&returns,
@@ -108,13 +113,14 @@ func OriginRequestHeaderBehavior_AllowList(headers ...*string) OriginRequestHead
 // HTTP headers are not included in requests that CloudFront sends to the origin.
 //
 // Any headers that are listed in a CachePolicy are still included in origin requests.
+// Experimental.
 func OriginRequestHeaderBehavior_None() OriginRequestHeaderBehavior {
 	_init_.Initialize()
 
 	var returns OriginRequestHeaderBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.OriginRequestHeaderBehavior",
+		"monocdk.aws_cloudfront.OriginRequestHeaderBehavior",
 		"none",
 		nil, // no parameters
 		&returns,

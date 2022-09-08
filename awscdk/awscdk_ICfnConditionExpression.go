@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
@@ -33,6 +33,7 @@ package awscdk
 //    queueName: Fn.conditionIf('Condition', 'Hello', 'World').toString()
 // });
 // ```.
+// Experimental.
 type ICfnConditionExpression interface {
 	IResolvable
 }

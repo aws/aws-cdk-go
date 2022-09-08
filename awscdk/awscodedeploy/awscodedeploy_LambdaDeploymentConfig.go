@@ -1,17 +1,17 @@
 package awscodedeploy
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A custom Deployment Configuration for a Lambda Deployment Group.
 //
 // Note: This class currently stands as namespaced container of the default configurations
 // until CloudFormation supports custom Lambda Deployment Configs. Until then it is closed
-// (private constructor) and does not extend {@link Construct}.
+// (private constructor) and does not extend {@link cdk.Construct}
 //
 // Example:
 //   var myApplication lambdaApplication
@@ -30,6 +30,7 @@ import (
 //   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 //   })
 //
+// Experimental.
 type LambdaDeploymentConfig interface {
 }
 
@@ -41,6 +42,7 @@ type jsiiProxy_LambdaDeploymentConfig struct {
 // Import a custom Deployment Configuration for a Lambda Deployment Group defined outside the CDK.
 //
 // Returns: a Construct representing a reference to an existing custom Deployment Configuration.
+// Experimental.
 func LambdaDeploymentConfig_Import(_scope constructs.Construct, _id *string, props *LambdaDeploymentConfigImportProps) ILambdaDeploymentConfig {
 	_init_.Initialize()
 
@@ -50,7 +52,7 @@ func LambdaDeploymentConfig_Import(_scope constructs.Construct, _id *string, pro
 	var returns ILambdaDeploymentConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"import",
 		[]interface{}{_scope, _id, props},
 		&returns,
@@ -63,7 +65,7 @@ func LambdaDeploymentConfig_ALL_AT_ONCE() ILambdaDeploymentConfig {
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"ALL_AT_ONCE",
 		&returns,
 	)
@@ -74,7 +76,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_10MINUTES() ILambdaDeploymentConfig
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_10MINUTES",
 		&returns,
 	)
@@ -85,7 +87,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_15MINUTES() ILambdaDeploymentConfig
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_15MINUTES",
 		&returns,
 	)
@@ -96,7 +98,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_30MINUTES() ILambdaDeploymentConfig
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_30MINUTES",
 		&returns,
 	)
@@ -107,7 +109,7 @@ func LambdaDeploymentConfig_CANARY_10PERCENT_5MINUTES() ILambdaDeploymentConfig 
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"CANARY_10PERCENT_5MINUTES",
 		&returns,
 	)
@@ -118,7 +120,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_10MINUTES() ILambdaDeployment
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_10MINUTES",
 		&returns,
 	)
@@ -129,7 +131,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE() ILambdaDeploymentCo
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_1MINUTE",
 		&returns,
 	)
@@ -140,7 +142,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_2MINUTES() ILambdaDeploymentC
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_2MINUTES",
 		&returns,
 	)
@@ -151,7 +153,7 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_3MINUTES() ILambdaDeploymentC
 	_init_.Initialize()
 	var returns ILambdaDeploymentConfig
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codedeploy.LambdaDeploymentConfig",
+		"monocdk.aws_codedeploy.LambdaDeploymentConfig",
 		"LINEAR_10PERCENT_EVERY_3MINUTES",
 		&returns,
 	)
