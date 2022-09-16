@@ -33,14 +33,6 @@ func (l *jsiiProxy_LambdaRestApi) validateApplyRemovalPolicyParameters(policy aw
 	return nil
 }
 
-func (l *jsiiProxy_LambdaRestApi) validateConfigureCloudWatchRoleParameters(apiResource CfnRestApi) error {
-	return nil
-}
-
-func (l *jsiiProxy_LambdaRestApi) validateConfigureDeploymentParameters(props *RestApiBaseProps) error {
-	return nil
-}
-
 func (l *jsiiProxy_LambdaRestApi) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }
@@ -81,14 +73,6 @@ func (l *jsiiProxy_LambdaRestApi) validateMetricServerErrorParameters(props *aws
 	return nil
 }
 
-func (l *jsiiProxy_LambdaRestApi) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (l *jsiiProxy_LambdaRestApi) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateLambdaRestApi_FromRestApiAttributesParameters(scope constructs.Construct, id *string, attrs *RestApiAttributes) error {
 	return nil
 }
@@ -101,7 +85,11 @@ func validateLambdaRestApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLambdaRestApi_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLambdaRestApi_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateLambdaRestApi_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

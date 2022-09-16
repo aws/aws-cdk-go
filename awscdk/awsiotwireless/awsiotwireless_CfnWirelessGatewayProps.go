@@ -1,7 +1,7 @@
 package awsiotwireless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnWirelessGateway`.
@@ -28,6 +28,7 @@ import (
 //   		},
 //   	},
 //   	thingArn: jsii.String("thingArn"),
+//   	thingName: jsii.String("thingName"),
 //   }
 //
 type CfnWirelessGatewayProps struct {
@@ -47,5 +48,7 @@ type CfnWirelessGatewayProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the thing to associate with the wireless gateway.
 	ThingArn *string `field:"optional" json:"thingArn" yaml:"thingArn"`
+	// `AWS::IoTWireless::WirelessGateway.ThingName`.
+	ThingName *string `field:"optional" json:"thingName" yaml:"thingName"`
 }
 

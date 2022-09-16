@@ -33,14 +33,6 @@ func (f *jsiiProxy_Fail) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (f *jsiiProxy_Fail) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (f *jsiiProxy_Fail) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (f *jsiiProxy_Fail) validateWhenBoundToGraphParameters(graph StateGraph) error {
 	return nil
 }

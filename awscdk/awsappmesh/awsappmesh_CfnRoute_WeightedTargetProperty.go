@@ -13,6 +13,9 @@ package awsappmesh
 //   weightedTargetProperty := &weightedTargetProperty{
 //   	virtualNode: jsii.String("virtualNode"),
 //   	weight: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	port: jsii.Number(123),
 //   }
 //
 type CfnRoute_WeightedTargetProperty struct {
@@ -20,5 +23,7 @@ type CfnRoute_WeightedTargetProperty struct {
 	VirtualNode *string `field:"required" json:"virtualNode" yaml:"virtualNode"`
 	// The relative weight of the weighted target.
 	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
+	// `CfnRoute.WeightedTargetProperty.Port`.
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

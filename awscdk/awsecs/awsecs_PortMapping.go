@@ -11,7 +11,6 @@ package awsecs
 //   	containerPort: jsii.Number(3000),
 //   })
 //
-// Experimental.
 type PortMapping struct {
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
 	//
@@ -21,7 +20,6 @@ type PortMapping struct {
 	//
 	// For more information, see hostPort.
 	// Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
-	// Experimental.
 	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
 	// The port number on the container instance to reserve for your container.
 	//
@@ -33,12 +31,10 @@ type PortMapping struct {
 	// you can omit the hostPort (or set it to 0) while specifying a containerPort and
 	// your container automatically receives a port in the ephemeral port range for
 	// your container instance operating system and Docker version.
-	// Experimental.
 	HostPort *float64 `field:"optional" json:"hostPort" yaml:"hostPort"`
 	// The protocol used for the port mapping.
 	//
 	// Valid values are Protocol.TCP and Protocol.UDP.
-	// Experimental.
 	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

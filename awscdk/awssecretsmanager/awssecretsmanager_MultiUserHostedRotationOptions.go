@@ -1,7 +1,7 @@
 package awssecretsmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Multi user hosted rotation options.
@@ -22,6 +22,7 @@ import (
 //   	masterSecret: secret,
 //
 //   	// the properties below are optional
+//   	excludeCharacters: jsii.String("excludeCharacters"),
 //   	functionName: jsii.String("functionName"),
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
@@ -36,30 +37,25 @@ import (
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
 //   	},
 //   }
 //
-// Experimental.
 type MultiUserHostedRotationOptions struct {
+	// A string of the characters that you don't want in the password.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A name for the Lambda created to rotate the secret.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The master secret for a multi user rotation scheme.
-	// Experimental.
 	MasterSecret ISecret `field:"required" json:"masterSecret" yaml:"masterSecret"`
 }
 

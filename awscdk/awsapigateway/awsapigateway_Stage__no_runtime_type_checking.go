@@ -17,11 +17,35 @@ func (s *jsiiProxy_Stage) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func (s *jsiiProxy_Stage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (s *jsiiProxy_Stage) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }
 
-func (s *jsiiProxy_Stage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (s *jsiiProxy_Stage) validateMetricCacheHitCountParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stage) validateMetricCacheMissCountParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stage) validateMetricClientErrorParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stage) validateMetricCountParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stage) validateMetricIntegrationLatencyParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stage) validateMetricLatencyParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stage) validateMetricServerErrorParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
 
@@ -29,7 +53,11 @@ func validateStage_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStage_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateStage_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateStage_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

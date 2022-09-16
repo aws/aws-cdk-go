@@ -3,19 +3,16 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 )
 
 // API keys are alphanumeric string values that you distribute to app developer customers to grant access to your API.
-// Experimental.
 type IApiKey interface {
 	awscdk.IResource
 	// The API key ARN.
-	// Experimental.
 	KeyArn() *string
 	// The API key ID.
-	// Experimental.
 	KeyId() *string
 }
 

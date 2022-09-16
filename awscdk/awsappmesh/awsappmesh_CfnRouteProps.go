@@ -1,7 +1,7 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRoute`.
@@ -20,6 +20,9 @@ import (
 //   					&weightedTargetProperty{
 //   						virtualNode: jsii.String("virtualNode"),
 //   						weight: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						port: jsii.Number(123),
 //   					},
 //   				},
 //   			},
@@ -43,6 +46,7 @@ import (
 //   					},
 //   				},
 //   				methodName: jsii.String("methodName"),
+//   				port: jsii.Number(123),
 //   				serviceName: jsii.String("serviceName"),
 //   			},
 //
@@ -82,6 +86,9 @@ import (
 //   					&weightedTargetProperty{
 //   						virtualNode: jsii.String("virtualNode"),
 //   						weight: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						port: jsii.Number(123),
 //   					},
 //   				},
 //   			},
@@ -109,6 +116,7 @@ import (
 //   					exact: jsii.String("exact"),
 //   					regex: jsii.String("regex"),
 //   				},
+//   				port: jsii.Number(123),
 //   				prefix: jsii.String("prefix"),
 //   				queryParameters: []interface{}{
 //   					&queryParameterProperty{
@@ -156,6 +164,9 @@ import (
 //   					&weightedTargetProperty{
 //   						virtualNode: jsii.String("virtualNode"),
 //   						weight: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						port: jsii.Number(123),
 //   					},
 //   				},
 //   			},
@@ -183,6 +194,7 @@ import (
 //   					exact: jsii.String("exact"),
 //   					regex: jsii.String("regex"),
 //   				},
+//   				port: jsii.Number(123),
 //   				prefix: jsii.String("prefix"),
 //   				queryParameters: []interface{}{
 //   					&queryParameterProperty{
@@ -231,11 +243,17 @@ import (
 //   					&weightedTargetProperty{
 //   						virtualNode: jsii.String("virtualNode"),
 //   						weight: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						port: jsii.Number(123),
 //   					},
 //   				},
 //   			},
 //
 //   			// the properties below are optional
+//   			match: &tcpRouteMatchProperty{
+//   				port: jsii.Number(123),
+//   			},
 //   			timeout: &tcpTimeoutProperty{
 //   				idle: &durationProperty{
 //   					unit: jsii.String("unit"),

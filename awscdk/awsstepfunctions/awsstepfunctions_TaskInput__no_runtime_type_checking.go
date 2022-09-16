@@ -5,14 +5,6 @@ package awsstepfunctions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateTaskInput_FromContextAtParameters(path *string) error {
-	return nil
-}
-
-func validateTaskInput_FromDataAtParameters(path *string) error {
-	return nil
-}
-
 func validateTaskInput_FromJsonPathAtParameters(path *string) error {
 	return nil
 }

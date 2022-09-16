@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (s *jsiiProxy_StringListParameter) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -60,17 +60,20 @@ func (s *jsiiProxy_StringListParameter) validateGrantWriteParameters(grantee aws
 	return nil
 }
 
-func (s *jsiiProxy_StringListParameter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func validateStringListParameter_FromListParameterAttributesParameters(scope constructs.Construct, id *string, attrs *ListParameterAttributes) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	return nil
-}
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
 
-func (s *jsiiProxy_StringListParameter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+	if attrs == nil {
+		return fmt.Errorf("parameter attrs is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
+		return err
 	}
 
 	return nil
@@ -100,9 +103,29 @@ func validateStringListParameter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStringListParameter_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateStringListParameter_IsOwnedResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateStringListParameter_IsResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateStringListParameter_ValueForTypedListParameterParameters(scope constructs.Construct, parameterName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if parameterName == nil {
+		return fmt.Errorf("parameter parameterName is required, but nil was provided")
 	}
 
 	return nil

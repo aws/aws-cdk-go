@@ -10,6 +10,17 @@ package awsappmesh
 //
 //   fileAccessLogProperty := &fileAccessLogProperty{
 //   	path: jsii.String("path"),
+//
+//   	// the properties below are optional
+//   	format: &loggingFormatProperty{
+//   		json: []interface{}{
+//   			&jsonFormatRefProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   		text: jsii.String("text"),
+//   	},
 //   }
 //
 type CfnVirtualNode_FileAccessLogProperty struct {
@@ -19,5 +30,7 @@ type CfnVirtualNode_FileAccessLogProperty struct {
 	//
 	// > The Envoy process must have write permissions to the path that you specify here. Otherwise, Envoy fails to bootstrap properly.
 	Path *string `field:"required" json:"path" yaml:"path"`
+	// `CfnVirtualNode.FileAccessLogProperty.Format`.
+	Format interface{} `field:"optional" json:"format" yaml:"format"`
 }
 

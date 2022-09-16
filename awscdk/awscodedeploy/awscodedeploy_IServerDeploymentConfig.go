@@ -10,11 +10,8 @@ import (
 // (`ServerDeploymentConfig.HALF_AT_A_TIME`, `ServerDeploymentConfig.ALL_AT_ONCE`, etc.).
 // To create a custom Deployment Configuration,
 // instantiate the {@link ServerDeploymentConfig} Construct.
-// Experimental.
 type IServerDeploymentConfig interface {
-	// Experimental.
 	DeploymentConfigArn() *string
-	// Experimental.
 	DeploymentConfigName() *string
 }
 

@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBParameterGroup`.
@@ -11,14 +11,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var parameters interface{}
+//
 //   cfnDBParameterGroupProps := &cfnDBParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
 //
 //   	// the properties below are optional
-//   	parameters: map[string]*string{
-//   		"parametersKey": jsii.String("parameters"),
-//   	},
+//   	parameters: parameters,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),

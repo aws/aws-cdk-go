@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnCACertificate) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnCACertificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCACertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCACertificate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCACertificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +81,7 @@ func (j *jsiiProxy_CfnCACertificate) validateSetStatusParameters(val *string) er
 	return nil
 }
 
-func validateNewCfnCACertificateParameters(scope awscdk.Construct, id *string, props *CfnCACertificateProps) error {
+func validateNewCfnCACertificateParameters(scope constructs.Construct, id *string, props *CfnCACertificateProps) error {
 	return nil
 }
 

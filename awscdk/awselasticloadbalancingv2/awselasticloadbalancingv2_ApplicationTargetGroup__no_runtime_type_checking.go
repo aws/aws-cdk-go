@@ -57,10 +57,6 @@ func (a *jsiiProxy_ApplicationTargetGroup) validateMetricUnhealthyHostCountParam
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationTargetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (a *jsiiProxy_ApplicationTargetGroup) validateRegisterConnectableParameters(connectable awsec2.IConnectable) error {
 	return nil
 }
@@ -73,15 +69,7 @@ func (a *jsiiProxy_ApplicationTargetGroup) validateSetAttributeParameters(key *s
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationTargetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateApplicationTargetGroup_FromTargetGroupAttributesParameters(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) error {
-	return nil
-}
-
-func validateApplicationTargetGroup_ImportParameters(scope constructs.Construct, id *string, props *TargetGroupImportProps) error {
 	return nil
 }
 

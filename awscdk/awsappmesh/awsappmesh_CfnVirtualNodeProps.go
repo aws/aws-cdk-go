@@ -1,7 +1,7 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnVirtualNode`.
@@ -239,6 +239,17 @@ import (
 //   			accessLog: &accessLogProperty{
 //   				file: &fileAccessLogProperty{
 //   					path: jsii.String("path"),
+//
+//   					// the properties below are optional
+//   					format: &loggingFormatProperty{
+//   						json: []interface{}{
+//   							&jsonFormatRefProperty{
+//   								key: jsii.String("key"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						text: jsii.String("text"),
+//   					},
 //   				},
 //   			},
 //   		},

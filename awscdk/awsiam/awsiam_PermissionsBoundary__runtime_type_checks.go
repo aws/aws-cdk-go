@@ -6,7 +6,7 @@ package awsiam
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (p *jsiiProxy_PermissionsBoundary) validateApplyParameters(boundaryPolicy IManagedPolicy) error {

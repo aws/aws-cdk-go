@@ -22,25 +22,18 @@ package awsevents
 //   	},
 //   })
 //
-// Experimental.
 type ApiDestinationProps struct {
 	// The ARN of the connection to use for the API destination.
-	// Experimental.
 	Connection IConnection `field:"required" json:"connection" yaml:"connection"`
 	// The URL to the HTTP invocation endpoint for the API destination..
-	// Experimental.
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The name for the API destination.
-	// Experimental.
 	ApiDestinationName *string `field:"optional" json:"apiDestinationName" yaml:"apiDestinationName"`
 	// A description for the API destination.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The method to use for the request to the HTTP invocation endpoint.
-	// Experimental.
 	HttpMethod HttpMethod `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The maximum number of requests per second to send to the HTTP invocation endpoint.
-	// Experimental.
 	RateLimitPerSecond *float64 `field:"optional" json:"rateLimitPerSecond" yaml:"rateLimitPerSecond"`
 }
 

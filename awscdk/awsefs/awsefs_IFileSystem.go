@@ -3,29 +3,25 @@ package awsefs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsefs/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an Amazon EFS file system.
-// Experimental.
 type IFileSystem interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	// Grant the actions defined in actions to the given grantee on this File System resource.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// The ARN of the file system.
-	// Experimental.
 	FileSystemArn() *string
 	// The ID of the file system, assigned by Amazon EFS.
-	// Experimental.
 	FileSystemId() *string
 	// Dependable that can be depended upon to ensure the mount targets of the filesystem are ready.
-	// Experimental.
-	MountTargetsAvailable() awscdk.IDependable
+	MountTargetsAvailable() constructs.IDependable
 }
 
 // The jsii proxy for IFileSystem
@@ -86,8 +82,8 @@ func (j *jsiiProxy_IFileSystem) FileSystemId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IFileSystem) MountTargetsAvailable() awscdk.IDependable {
-	var returns awscdk.IDependable
+func (j *jsiiProxy_IFileSystem) MountTargetsAvailable() constructs.IDependable {
+	var returns constructs.IDependable
 	_jsii_.Get(
 		j,
 		"mountTargetsAvailable",
@@ -116,8 +112,8 @@ func (j *jsiiProxy_IFileSystem) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IFileSystem) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IFileSystem) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

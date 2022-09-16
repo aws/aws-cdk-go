@@ -1,7 +1,7 @@
 package awssns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTopic`.
@@ -11,8 +11,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dataProtectionPolicy interface{}
+//
 //   cfnTopicProps := &cfnTopicProps{
 //   	contentBasedDeduplication: jsii.Boolean(false),
+//   	dataProtectionPolicy: dataProtectionPolicy,
 //   	displayName: jsii.String("displayName"),
 //   	fifoTopic: jsii.Boolean(false),
 //   	kmsMasterKeyId: jsii.String("kmsMasterKeyId"),
@@ -39,6 +42,8 @@ type CfnTopicProps struct {
 	//
 	// (Optional) To override the generated value, you can specify a value for the the `MessageDeduplicationId` parameter for the `Publish` action.
 	ContentBasedDeduplication interface{} `field:"optional" json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
+	// `AWS::SNS::Topic.DataProtectionPolicy`.
+	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Set to true to create a FIFO topic.

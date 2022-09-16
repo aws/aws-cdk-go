@@ -5,10 +5,8 @@ import (
 )
 
 // An object that has a Connections object.
-// Experimental.
 type IConnectable interface {
 	// The network connections associated with this resource.
-	// Experimental.
 	Connections() Connections
 }
 

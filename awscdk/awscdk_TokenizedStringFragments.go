@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,34 +11,24 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   tokenizedStringFragments := monocdk.NewTokenizedStringFragments()
+//   tokenizedStringFragments := cdk.NewTokenizedStringFragments()
 //
-// Experimental.
 type TokenizedStringFragments interface {
-	// Experimental.
 	FirstToken() IResolvable
-	// Experimental.
 	FirstValue() interface{}
-	// Experimental.
 	Length() *float64
 	// Return all Tokens from this string.
-	// Experimental.
 	Tokens() *[]IResolvable
-	// Experimental.
 	AddIntrinsic(value interface{})
-	// Experimental.
 	AddLiteral(lit interface{})
-	// Experimental.
 	AddToken(token IResolvable)
 	// Combine the string fragments using the given joiner.
 	//
 	// If there are any.
-	// Experimental.
 	Join(concat IFragmentConcatenator) interface{}
 	// Apply a transformation function to all tokens in the string.
-	// Experimental.
 	MapTokens(mapper ITokenMapper) TokenizedStringFragments
 }
 
@@ -88,14 +78,13 @@ func (j *jsiiProxy_TokenizedStringFragments) Tokens() *[]IResolvable {
 }
 
 
-// Experimental.
 func NewTokenizedStringFragments() TokenizedStringFragments {
 	_init_.Initialize()
 
 	j := jsiiProxy_TokenizedStringFragments{}
 
 	_jsii_.Create(
-		"monocdk.TokenizedStringFragments",
+		"aws-cdk-lib.TokenizedStringFragments",
 		nil, // no parameters
 		&j,
 	)
@@ -103,12 +92,11 @@ func NewTokenizedStringFragments() TokenizedStringFragments {
 	return &j
 }
 
-// Experimental.
 func NewTokenizedStringFragments_Override(t TokenizedStringFragments) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.TokenizedStringFragments",
+		"aws-cdk-lib.TokenizedStringFragments",
 		nil, // no parameters
 		t,
 	)

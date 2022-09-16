@@ -32,6 +32,7 @@ package awsappmesh
 //   		exact: jsii.String("exact"),
 //   		regex: jsii.String("regex"),
 //   	},
+//   	port: jsii.Number(123),
 //   	prefix: jsii.String("prefix"),
 //   	queryParameters: []interface{}{
 //   		&queryParameterProperty{
@@ -55,6 +56,8 @@ type CfnRoute_HttpRouteMatchProperty struct {
 	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The client request path to match on.
 	Path interface{} `field:"optional" json:"path" yaml:"path"`
+	// `CfnRoute.HttpRouteMatchProperty.Port`.
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Specifies the path to match requests with.
 	//
 	// This parameter must always start with `/` , which by itself matches all requests to the virtual service name. You can also match for path-based routing of requests. For example, if your virtual service name is `my-service.local` and you want the route to match requests to `my-service.local/metrics` , your prefix should be `/metrics` .

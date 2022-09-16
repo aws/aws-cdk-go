@@ -28,6 +28,7 @@ package awsappmesh
 //   		},
 //   	},
 //   	methodName: jsii.String("methodName"),
+//   	port: jsii.Number(123),
 //   	serviceName: jsii.String("serviceName"),
 //   }
 //
@@ -38,6 +39,8 @@ type CfnRoute_GrpcRouteMatchProperty struct {
 	//
 	// If you specify a name, you must also specify a `serviceName` .
 	MethodName *string `field:"optional" json:"methodName" yaml:"methodName"`
+	// `CfnRoute.GrpcRouteMatchProperty.Port`.
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The fully qualified domain name for the service to match from the request.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }

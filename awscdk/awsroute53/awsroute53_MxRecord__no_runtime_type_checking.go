@@ -17,19 +17,15 @@ func (m *jsiiProxy_MxRecord) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
-func (m *jsiiProxy_MxRecord) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (m *jsiiProxy_MxRecord) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateMxRecord_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateMxRecord_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateMxRecord_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateMxRecord_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

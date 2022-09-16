@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,14 +104,6 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateInspectParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -123,14 +115,6 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateOverrideLogi
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -184,7 +168,7 @@ func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateSetRoleArnPa
 	return nil
 }
 
-func validateNewCfnEnclaveCertificateIamRoleAssociationParameters(scope awscdk.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) error {
+func validateNewCfnEnclaveCertificateIamRoleAssociationParameters(scope constructs.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

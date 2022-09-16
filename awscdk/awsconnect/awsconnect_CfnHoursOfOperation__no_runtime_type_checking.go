@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnHoursOfOperation) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnHoursOfOperation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnHoursOfOperation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnHoursOfOperation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnHoursOfOperation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +85,7 @@ func (j *jsiiProxy_CfnHoursOfOperation) validateSetTimeZoneParameters(val *strin
 	return nil
 }
 
-func validateNewCfnHoursOfOperationParameters(scope awscdk.Construct, id *string, props *CfnHoursOfOperationProps) error {
+func validateNewCfnHoursOfOperationParameters(scope constructs.Construct, id *string, props *CfnHoursOfOperationProps) error {
 	return nil
 }
 

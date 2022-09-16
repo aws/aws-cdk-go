@@ -17,15 +17,15 @@ func validateDatabaseInstanceEngine_OracleEeParameters(props *OracleEeInstanceEn
 	return nil
 }
 
-func validateDatabaseInstanceEngine_OracleSeParameters(props *OracleSeInstanceEngineProps) error {
-	return nil
-}
-
-func validateDatabaseInstanceEngine_OracleSe1Parameters(props *OracleSe1InstanceEngineProps) error {
+func validateDatabaseInstanceEngine_OracleEeCdbParameters(props *OracleEeCdbInstanceEngineProps) error {
 	return nil
 }
 
 func validateDatabaseInstanceEngine_OracleSe2Parameters(props *OracleSe2InstanceEngineProps) error {
+	return nil
+}
+
+func validateDatabaseInstanceEngine_OracleSe2CdbParameters(props *OracleSe2CdbInstanceEngineProps) error {
 	return nil
 }
 

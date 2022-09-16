@@ -12,22 +12,41 @@ package awsappmesh
 //   	virtualGatewayAccessLog: &virtualGatewayAccessLogProperty{
 //   		file: &virtualGatewayFileAccessLogProperty{
 //   			path: jsii.String("path"),
+//
+//   			// the properties below are optional
+//   			format: &loggingFormatProperty{
+//   				json: []interface{}{
+//   					&jsonFormatRefProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   				text: jsii.String("text"),
+//   			},
 //   		},
 //   	},
 //   	virtualNodeAccessLog: &accessLogProperty{
 //   		file: &fileAccessLogProperty{
 //   			path: jsii.String("path"),
+//
+//   			// the properties below are optional
+//   			format: &loggingFormatProperty{
+//   				json: []interface{}{
+//   					&jsonFormatRefProperty{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   				text: jsii.String("text"),
+//   			},
 //   		},
 //   	},
 //   }
 //
-// Experimental.
 type AccessLogConfig struct {
 	// VirtualGateway CFN configuration for Access Logging.
-	// Experimental.
 	VirtualGatewayAccessLog *CfnVirtualGateway_VirtualGatewayAccessLogProperty `field:"optional" json:"virtualGatewayAccessLog" yaml:"virtualGatewayAccessLog"`
 	// VirtualNode CFN configuration for Access Logging.
-	// Experimental.
 	VirtualNodeAccessLog *CfnVirtualNode_AccessLogProperty `field:"optional" json:"virtualNodeAccessLog" yaml:"virtualNodeAccessLog"`
 }
 

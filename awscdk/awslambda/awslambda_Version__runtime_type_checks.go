@@ -8,10 +8,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (v *jsiiProxy_Version) validateAddAliasParameters(aliasName *string, options *AliasOptions) error {
@@ -99,7 +99,7 @@ func (v *jsiiProxy_Version) validateConfigureAsyncInvokeParameters(options *Even
 	return nil
 }
 
-func (v *jsiiProxy_Version) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope awscdk.Construct, _action *string) error {
+func (v *jsiiProxy_Version) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope constructs.Construct, _action *string) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}
@@ -194,23 +194,7 @@ func (v *jsiiProxy_Version) validateMetricThrottlesParameters(props *awscloudwat
 	return nil
 }
 
-func (v *jsiiProxy_Version) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (v *jsiiProxy_Version) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (v *jsiiProxy_Version) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
+func (v *jsiiProxy_Version) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -261,7 +245,15 @@ func validateVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVersion_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateVersion_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateVersion_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

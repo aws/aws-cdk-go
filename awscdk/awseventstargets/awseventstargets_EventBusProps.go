@@ -1,8 +1,8 @@
 package awseventstargets
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
 // Configuration properties of an Event Bus event.
@@ -24,17 +24,14 @@ import (
 //   	role: role,
 //   }
 //
-// Experimental.
 type EventBusProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Role to be used to publish the event.
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

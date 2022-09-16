@@ -40,6 +40,7 @@ package awscloudfront
 //   			jsii.String("originSslProtocols"),
 //   		},
 //   	},
+//   	originAccessControlId: jsii.String("originAccessControlId"),
 //   	originCustomHeaders: []interface{}{
 //   		&originCustomHeaderProperty{
 //   			headerName: jsii.String("headerName"),
@@ -83,6 +84,8 @@ type CfnDistribution_OriginProperty struct {
 	//
 	// If the Amazon S3 bucket is configured with static website hosting, use this type. If the Amazon S3 bucket is not configured with static website hosting, use the `S3OriginConfig` type instead.
 	CustomOriginConfig interface{} `field:"optional" json:"customOriginConfig" yaml:"customOriginConfig"`
+	// `CfnDistribution.OriginProperty.OriginAccessControlId`.
+	OriginAccessControlId *string `field:"optional" json:"originAccessControlId" yaml:"originAccessControlId"`
 	// A list of HTTP header names and values that CloudFront adds to the requests that it sends to the origin.
 	//
 	// For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) in the *Amazon CloudFront Developer Guide* .

@@ -14,6 +14,9 @@ package awsappmesh
 //   			virtualService: &gatewayRouteVirtualServiceProperty{
 //   				virtualServiceName: jsii.String("virtualServiceName"),
 //   			},
+//
+//   			// the properties below are optional
+//   			port: jsii.Number(123),
 //   		},
 //
 //   		// the properties below are optional
@@ -46,6 +49,7 @@ package awsappmesh
 //   				},
 //   			},
 //   		},
+//   		port: jsii.Number(123),
 //   		serviceName: jsii.String("serviceName"),
 //   	},
 //   }

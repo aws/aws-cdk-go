@@ -219,6 +219,7 @@ package awscloudfront
 //   					jsii.String("originSslProtocols"),
 //   				},
 //   			},
+//   			originAccessControlId: jsii.String("originAccessControlId"),
 //   			originCustomHeaders: []interface{}{
 //   				&originCustomHeaderProperty{
 //   					headerName: jsii.String("headerName"),

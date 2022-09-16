@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CustomLambdaDeploymentConfig) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -43,22 +43,6 @@ func (c *jsiiProxy_CustomLambdaDeploymentConfig) validateGetResourceNameAttribut
 	return nil
 }
 
-func (c *jsiiProxy_CustomLambdaDeploymentConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CustomLambdaDeploymentConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCustomLambdaDeploymentConfig_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -67,7 +51,15 @@ func validateCustomLambdaDeploymentConfig_IsConstructParameters(x interface{}) e
 	return nil
 }
 
-func validateCustomLambdaDeploymentConfig_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCustomLambdaDeploymentConfig_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCustomLambdaDeploymentConfig_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

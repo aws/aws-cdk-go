@@ -5,7 +5,7 @@ package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (f *jsiiProxy_FluentdLogDriver) validateBindParameters(_scope awscdk.Construct, _containerDefinition ContainerDefinition) error {
+func (f *jsiiProxy_FluentdLogDriver) validateBindParameters(_scope constructs.Construct, _containerDefinition ContainerDefinition) error {
 	return nil
 }
 

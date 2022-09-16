@@ -12,7 +12,6 @@ package awsecs
 //   	sourcePath: jsii.String("sourcePath"),
 //   }
 //
-// Experimental.
 type Host struct {
 	// Specifies the path on the host container instance that is presented to the container.
 	//
@@ -20,7 +19,6 @@ type Host struct {
 	// If the location does exist, the contents of the source path folder are exported.
 	//
 	// This property is not supported for tasks that use the Fargate launch type.
-	// Experimental.
 	SourcePath *string `field:"optional" json:"sourcePath" yaml:"sourcePath"`
 }
 

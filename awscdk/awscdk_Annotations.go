@@ -1,11 +1,11 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Includes API for attaching annotations such as warning messages to constructs.
@@ -46,7 +46,6 @@ import (
 //   	return this
 //   }
 //
-// Experimental.
 type Annotations interface {
 	// Adds a deprecation warning for a specific API.
 	//
@@ -55,23 +54,19 @@ type Annotations interface {
 	//
 	// If the environment variable `CDK_BLOCK_DEPRECATIONS` is set, this method
 	// will throw an error instead with the deprecation message.
-	// Experimental.
 	AddDeprecation(api *string, message *string)
 	// Adds an { "error": <message> } metadata entry to this construct.
 	//
 	// The toolkit will fail deployment of any stack that has errors reported against it.
-	// Experimental.
 	AddError(message *string)
 	// Adds an info metadata entry to this construct.
 	//
 	// The CLI will display the info message when apps are synthesized.
-	// Experimental.
 	AddInfo(message *string)
 	// Adds a warning metadata entry to this construct.
 	//
 	// The CLI will display the warning when an app is synthesized, or fail if run
 	// in --strict mode.
-	// Experimental.
 	AddWarning(message *string)
 }
 
@@ -81,7 +76,6 @@ type jsiiProxy_Annotations struct {
 }
 
 // Returns the annotations API for a construct scope.
-// Experimental.
 func Annotations_Of(scope constructs.IConstruct) Annotations {
 	_init_.Initialize()
 
@@ -91,7 +85,7 @@ func Annotations_Of(scope constructs.IConstruct) Annotations {
 	var returns Annotations
 
 	_jsii_.StaticInvoke(
-		"monocdk.Annotations",
+		"aws-cdk-lib.Annotations",
 		"of",
 		[]interface{}{scope},
 		&returns,

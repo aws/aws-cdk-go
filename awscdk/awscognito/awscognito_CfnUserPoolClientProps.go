@@ -27,6 +27,7 @@ package awscognito
 //   		roleArn: jsii.String("roleArn"),
 //   		userDataShared: jsii.Boolean(false),
 //   	},
+//   	authSessionValidity: jsii.Number(123),
 //   	callbackUrLs: []*string{
 //   		jsii.String("callbackUrLs"),
 //   	},
@@ -87,6 +88,8 @@ type CfnUserPoolClientProps struct {
 	//
 	// > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
 	AnalyticsConfiguration interface{} `field:"optional" json:"analyticsConfiguration" yaml:"analyticsConfiguration"`
+	// `AWS::Cognito::UserPoolClient.AuthSessionValidity`.
+	AuthSessionValidity *float64 `field:"optional" json:"authSessionValidity" yaml:"authSessionValidity"`
 	// A list of allowed redirect (callback) URLs for the IdPs.
 	//
 	// A redirect URI must:

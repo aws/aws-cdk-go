@@ -26,15 +26,12 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingAction.html
 //
-// Experimental.
 type EmrCreateCluster_ScalingActionProperty struct {
 	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-	// Experimental.
 	SimpleScalingPolicyConfiguration *EmrCreateCluster_SimpleScalingPolicyConfigurationProperty `field:"required" json:"simpleScalingPolicyConfiguration" yaml:"simpleScalingPolicyConfiguration"`
 	// Not available for instance groups.
 	//
 	// Instance groups use the market type specified for the group.
-	// Experimental.
 	Market EmrCreateCluster_InstanceMarket `field:"optional" json:"market" yaml:"market"`
 }
 

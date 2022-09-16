@@ -38,6 +38,7 @@ package awscloudfront
 //   				jsii.String("originSslProtocols"),
 //   			},
 //   		},
+//   		originAccessControlId: jsii.String("originAccessControlId"),
 //   		originCustomHeaders: []interface{}{
 //   			&originCustomHeaderProperty{
 //   				headerName: jsii.String("headerName"),
@@ -55,13 +56,10 @@ package awscloudfront
 //   	},
 //   }
 //
-// Experimental.
 type OriginBindConfig struct {
 	// The failover configuration for this Origin.
-	// Experimental.
 	FailoverConfig *OriginFailoverConfig `field:"optional" json:"failoverConfig" yaml:"failoverConfig"`
 	// The CloudFormation OriginProperty configuration for this Origin.
-	// Experimental.
 	OriginProperty *CfnDistribution_OriginProperty `field:"optional" json:"originProperty" yaml:"originProperty"`
 }
 

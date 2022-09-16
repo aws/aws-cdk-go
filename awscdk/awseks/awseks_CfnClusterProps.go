@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -55,6 +55,12 @@ import (
 //   		},
 //   	},
 //   	name: jsii.String("name"),
+//   	outpostConfig: &outpostConfigProperty{
+//   		controlPlaneInstanceType: jsii.String("controlPlaneInstanceType"),
+//   		outpostArns: []*string{
+//   			jsii.String("outpostArns"),
+//   		},
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -83,6 +89,8 @@ type CfnClusterProps struct {
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 	// The unique name to give to your cluster.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `AWS::EKS::Cluster.OutpostConfig`.
+	OutpostConfig interface{} `field:"optional" json:"outpostConfig" yaml:"outpostConfig"`
 	// The metadata that you apply to the cluster to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Cluster tags don't propagate to any other resources associated with the cluster.

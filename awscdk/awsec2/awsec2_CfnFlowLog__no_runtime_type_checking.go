@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnFlowLog) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowLog) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnFlowLog) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFlowLog) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnFlowLog) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +85,7 @@ func (j *jsiiProxy_CfnFlowLog) validateSetTrafficTypeParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnFlowLogParameters(scope awscdk.Construct, id *string, props *CfnFlowLogProps) error {
+func validateNewCfnFlowLogParameters(scope constructs.Construct, id *string, props *CfnFlowLogProps) error {
 	return nil
 }
 

@@ -8,27 +8,33 @@ package awssam
 //
 //   corsConfigurationObjectProperty := &corsConfigurationObjectProperty{
 //   	allowCredentials: jsii.Boolean(false),
-//   	allowHeaders: jsii.String("allowHeaders"),
-//   	allowMethods: jsii.String("allowMethods"),
-//   	allowOrigin: jsii.String("allowOrigin"),
+//   	allowHeaders: []*string{
+//   		jsii.String("allowHeaders"),
+//   	},
+//   	allowMethods: []*string{
+//   		jsii.String("allowMethods"),
+//   	},
+//   	allowOrigins: []*string{
+//   		jsii.String("allowOrigins"),
+//   	},
 //   	exposeHeaders: []*string{
 //   		jsii.String("exposeHeaders"),
 //   	},
-//   	maxAge: jsii.String("maxAge"),
+//   	maxAge: jsii.Number(123),
 //   }
 //
 type CfnHttpApi_CorsConfigurationObjectProperty struct {
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowCredentials`.
 	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowHeaders`.
-	AllowHeaders *string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowMethods`.
-	AllowMethods *string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
-	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowOrigin`.
-	AllowOrigin *string `field:"optional" json:"allowOrigin" yaml:"allowOrigin"`
+	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
+	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowOrigins`.
+	AllowOrigins *[]*string `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.ExposeHeaders`.
 	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.MaxAge`.
-	MaxAge *string `field:"optional" json:"maxAge" yaml:"maxAge"`
+	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 

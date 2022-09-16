@@ -99,8 +99,9 @@ myTopic.addSubscription(subscriptions.NewLambdaSubscription(fn, &lambdaSubscript
 ### Example of Firehose Subscription
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-var stream deliveryStream
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws-samples/dummy/awscdklibawskinesisfirehose"
+var stream DeliveryStream
 
 
 topic := sns.NewTopic(this, jsii.String("Topic"))

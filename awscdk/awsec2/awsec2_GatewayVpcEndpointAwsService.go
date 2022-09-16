@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -43,11 +43,9 @@ import (
 //   	service: ec2.interfaceVpcEndpointAwsService_ECR_DOCKER(),
 //   })
 //
-// Experimental.
 type GatewayVpcEndpointAwsService interface {
 	IGatewayVpcEndpointService
 	// The name of the service.
-	// Experimental.
 	Name() *string
 }
 
@@ -67,7 +65,6 @@ func (j *jsiiProxy_GatewayVpcEndpointAwsService) Name() *string {
 }
 
 
-// Experimental.
 func NewGatewayVpcEndpointAwsService(name *string, prefix *string) GatewayVpcEndpointAwsService {
 	_init_.Initialize()
 
@@ -77,7 +74,7 @@ func NewGatewayVpcEndpointAwsService(name *string, prefix *string) GatewayVpcEnd
 	j := jsiiProxy_GatewayVpcEndpointAwsService{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.GatewayVpcEndpointAwsService",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointAwsService",
 		[]interface{}{name, prefix},
 		&j,
 	)
@@ -85,12 +82,11 @@ func NewGatewayVpcEndpointAwsService(name *string, prefix *string) GatewayVpcEnd
 	return &j
 }
 
-// Experimental.
 func NewGatewayVpcEndpointAwsService_Override(g GatewayVpcEndpointAwsService, name *string, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.GatewayVpcEndpointAwsService",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointAwsService",
 		[]interface{}{name, prefix},
 		g,
 	)
@@ -100,7 +96,7 @@ func GatewayVpcEndpointAwsService_DYNAMODB() GatewayVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns GatewayVpcEndpointAwsService
 	_jsii_.StaticGet(
-		"monocdk.aws_ec2.GatewayVpcEndpointAwsService",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointAwsService",
 		"DYNAMODB",
 		&returns,
 	)
@@ -111,7 +107,7 @@ func GatewayVpcEndpointAwsService_S3() GatewayVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns GatewayVpcEndpointAwsService
 	_jsii_.StaticGet(
-		"monocdk.aws_ec2.GatewayVpcEndpointAwsService",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointAwsService",
 		"S3",
 		&returns,
 	)

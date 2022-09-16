@@ -15,6 +15,9 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
@@ -38,6 +41,7 @@ package awsappmesh
 //   				},
 //   			},
 //   			methodName: jsii.String("methodName"),
+//   			port: jsii.Number(123),
 //   			serviceName: jsii.String("serviceName"),
 //   		},
 //
@@ -77,6 +81,9 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
@@ -104,6 +111,7 @@ package awsappmesh
 //   				exact: jsii.String("exact"),
 //   				regex: jsii.String("regex"),
 //   			},
+//   			port: jsii.Number(123),
 //   			prefix: jsii.String("prefix"),
 //   			queryParameters: []interface{}{
 //   				&queryParameterProperty{
@@ -151,6 +159,9 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
@@ -178,6 +189,7 @@ package awsappmesh
 //   				exact: jsii.String("exact"),
 //   				regex: jsii.String("regex"),
 //   			},
+//   			port: jsii.Number(123),
 //   			prefix: jsii.String("prefix"),
 //   			queryParameters: []interface{}{
 //   				&queryParameterProperty{
@@ -226,11 +238,17 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
 //
 //   		// the properties below are optional
+//   		match: &tcpRouteMatchProperty{
+//   			port: jsii.Number(123),
+//   		},
 //   		timeout: &tcpTimeoutProperty{
 //   			idle: &durationProperty{
 //   				unit: jsii.String("unit"),
@@ -240,25 +258,19 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type RouteSpecConfig struct {
 	// The spec for a grpc route.
-	// Experimental.
 	GrpcRouteSpec *CfnRoute_GrpcRouteProperty `field:"optional" json:"grpcRouteSpec" yaml:"grpcRouteSpec"`
 	// The spec for an http2 route.
-	// Experimental.
 	Http2RouteSpec *CfnRoute_HttpRouteProperty `field:"optional" json:"http2RouteSpec" yaml:"http2RouteSpec"`
 	// The spec for an http route.
-	// Experimental.
 	HttpRouteSpec *CfnRoute_HttpRouteProperty `field:"optional" json:"httpRouteSpec" yaml:"httpRouteSpec"`
 	// The priority for the route.
 	//
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
-	// Experimental.
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The spec for a tcp route.
-	// Experimental.
 	TcpRouteSpec *CfnRoute_TcpRouteProperty `field:"optional" json:"tcpRouteSpec" yaml:"tcpRouteSpec"`
 }
 

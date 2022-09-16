@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnPricingPlan) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnPricingPlan) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnPricingPlan) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPricingPlan) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnPricingPlan) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +73,7 @@ func (j *jsiiProxy_CfnPricingPlan) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnPricingPlanParameters(scope awscdk.Construct, id *string, props *CfnPricingPlanProps) error {
+func validateNewCfnPricingPlanParameters(scope constructs.Construct, id *string, props *CfnPricingPlanProps) error {
 	return nil
 }
 

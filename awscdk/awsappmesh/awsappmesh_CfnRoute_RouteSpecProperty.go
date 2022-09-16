@@ -17,6 +17,9 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
@@ -40,6 +43,7 @@ package awsappmesh
 //   				},
 //   			},
 //   			methodName: jsii.String("methodName"),
+//   			port: jsii.Number(123),
 //   			serviceName: jsii.String("serviceName"),
 //   		},
 //
@@ -79,6 +83,9 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
@@ -106,6 +113,7 @@ package awsappmesh
 //   				exact: jsii.String("exact"),
 //   				regex: jsii.String("regex"),
 //   			},
+//   			port: jsii.Number(123),
 //   			prefix: jsii.String("prefix"),
 //   			queryParameters: []interface{}{
 //   				&queryParameterProperty{
@@ -153,6 +161,9 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
@@ -180,6 +191,7 @@ package awsappmesh
 //   				exact: jsii.String("exact"),
 //   				regex: jsii.String("regex"),
 //   			},
+//   			port: jsii.Number(123),
 //   			prefix: jsii.String("prefix"),
 //   			queryParameters: []interface{}{
 //   				&queryParameterProperty{
@@ -228,11 +240,17 @@ package awsappmesh
 //   				&weightedTargetProperty{
 //   					virtualNode: jsii.String("virtualNode"),
 //   					weight: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //   			},
 //   		},
 //
 //   		// the properties below are optional
+//   		match: &tcpRouteMatchProperty{
+//   			port: jsii.Number(123),
+//   		},
 //   		timeout: &tcpTimeoutProperty{
 //   			idle: &durationProperty{
 //   				unit: jsii.String("unit"),

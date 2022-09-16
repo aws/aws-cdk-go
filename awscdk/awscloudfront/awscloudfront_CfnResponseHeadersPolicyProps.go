@@ -83,6 +83,12 @@ package awscloudfront
 //   				reportUri: jsii.String("reportUri"),
 //   			},
 //   		},
+//   		serverTimingHeadersConfig: &serverTimingHeadersConfigProperty{
+//   			enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			samplingRate: jsii.Number(123),
+//   		},
 //   	},
 //   }
 //

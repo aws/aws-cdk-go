@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnFirewallDomainList) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallDomainList) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnFirewallDomainList) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFirewallDomainList) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnFirewallDomainList) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +69,7 @@ func validateCfnFirewallDomainList_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnFirewallDomainListParameters(scope awscdk.Construct, id *string, props *CfnFirewallDomainListProps) error {
+func validateNewCfnFirewallDomainListParameters(scope constructs.Construct, id *string, props *CfnFirewallDomainListProps) error {
 	return nil
 }
 

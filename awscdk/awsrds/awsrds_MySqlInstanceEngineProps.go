@@ -24,10 +24,8 @@ package awsrds
 //   	domainRole: role,
 //   })
 //
-// Experimental.
 type MySqlInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version MysqlEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

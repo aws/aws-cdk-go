@@ -11,6 +11,17 @@ package awsappmesh
 //   virtualGatewayAccessLogProperty := &virtualGatewayAccessLogProperty{
 //   	file: &virtualGatewayFileAccessLogProperty{
 //   		path: jsii.String("path"),
+//
+//   		// the properties below are optional
+//   		format: &loggingFormatProperty{
+//   			json: []interface{}{
+//   				&jsonFormatRefProperty{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			text: jsii.String("text"),
+//   		},
 //   	},
 //   }
 //

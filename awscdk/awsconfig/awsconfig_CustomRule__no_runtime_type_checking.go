@@ -29,14 +29,6 @@ func (c *jsiiProxy_CustomRule) validateOnReEvaluationStatusParameters(id *string
 	return nil
 }
 
-func (c *jsiiProxy_CustomRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CustomRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCustomRule_FromConfigRuleNameParameters(scope constructs.Construct, id *string, configRuleName *string) error {
 	return nil
 }
@@ -45,7 +37,11 @@ func validateCustomRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCustomRule_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCustomRule_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCustomRule_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -10,6 +10,8 @@ package awssam
 //
 //   iAMPolicyDocumentProperty := map[string]interface{}{
 //   	"statement": statement,
+//
+//   	// the properties below are optional
 //   	"version": jsii.String("version"),
 //   }
 //
@@ -17,6 +19,6 @@ type CfnFunction_IAMPolicyDocumentProperty struct {
 	// `CfnFunction.IAMPolicyDocumentProperty.Statement`.
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 	// `CfnFunction.IAMPolicyDocumentProperty.Version`.
-	Version *string `field:"required" json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

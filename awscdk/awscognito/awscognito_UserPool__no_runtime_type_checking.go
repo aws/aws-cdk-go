@@ -37,15 +37,7 @@ func (u *jsiiProxy_UserPool) validateGrantParameters(grantee awsiam.IGrantable) 
 	return nil
 }
 
-func (u *jsiiProxy_UserPool) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (u *jsiiProxy_UserPool) validateRegisterIdentityProviderParameters(provider IUserPoolIdentityProvider) error {
-	return nil
-}
-
-func (u *jsiiProxy_UserPool) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -61,7 +53,11 @@ func validateUserPool_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateUserPool_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateUserPool_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateUserPool_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

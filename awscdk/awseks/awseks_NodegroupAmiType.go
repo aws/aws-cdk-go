@@ -22,24 +22,18 @@ package awseks
 //   	amiType: eks.nodegroupAmiType_AL2_X86_64_GPU,
 //   })
 //
-// Experimental.
 type NodegroupAmiType string
 
 const (
 	// Amazon Linux 2 (x86-64).
-	// Experimental.
 	NodegroupAmiType_AL2_X86_64 NodegroupAmiType = "AL2_X86_64"
 	// Amazon Linux 2 with GPU support.
-	// Experimental.
 	NodegroupAmiType_AL2_X86_64_GPU NodegroupAmiType = "AL2_X86_64_GPU"
 	// Amazon Linux 2 (ARM-64).
-	// Experimental.
 	NodegroupAmiType_AL2_ARM_64 NodegroupAmiType = "AL2_ARM_64"
 	// Bottlerocket Linux(ARM-64).
-	// Experimental.
 	NodegroupAmiType_BOTTLEROCKET_ARM_64 NodegroupAmiType = "BOTTLEROCKET_ARM_64"
 	// Bottlerocket(x86-64).
-	// Experimental.
 	NodegroupAmiType_BOTTLEROCKET_X86_64 NodegroupAmiType = "BOTTLEROCKET_X86_64"
 )
 

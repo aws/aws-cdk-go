@@ -3,11 +3,10 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 )
 
-// Experimental.
 type IResource interface {
 	awscdk.IResource
 	// Adds an OPTIONS method to this resource which responds to Cross-Origin Resource Sharing (CORS) preflight requests.
@@ -22,25 +21,20 @@ type IResource interface {
 	// Returns: a `Method` object.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 	//
-	// Experimental.
 	AddCorsPreflight(options *CorsOptions) Method
 	// Defines a new method for this resource.
 	//
 	// Returns: The newly created `Method` object.
-	// Experimental.
 	AddMethod(httpMethod *string, target Integration, options *MethodOptions) Method
 	// Adds a greedy proxy resource ("{proxy+}") and an ANY method to this route.
-	// Experimental.
 	AddProxy(options *ProxyResourceOptions) ProxyResource
 	// Defines a new child resource where this resource is the parent.
 	//
 	// Returns: A Resource object.
-	// Experimental.
 	AddResource(pathPart *string, options *ResourceOptions) Resource
 	// Retrieves a child resource by path part.
 	//
 	// Returns: the child resource or undefined if not found.
-	// Experimental.
 	GetResource(pathPart *string) IResource
 	// Gets or create all resources leading up to the specified path.
 	//
@@ -48,7 +42,6 @@ type IResource interface {
 	// - All resources are created using default options.
 	//
 	// Returns: a new or existing resource.
-	// Experimental.
 	ResourceForPath(path *string) Resource
 	// The rest API that this resource is part of.
 	//
@@ -56,29 +49,19 @@ type IResource interface {
 	// is being tracked by the top-level RestApi object for the purpose of calculating it's
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
-	// Experimental.
 	Api() IRestApi
 	// Default options for CORS preflight OPTIONS method.
-	// Experimental.
 	DefaultCorsPreflightOptions() *CorsOptions
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration() Integration
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions() *MethodOptions
 	// The parent of this resource or undefined for the root resource.
-	// Experimental.
 	ParentResource() IResource
 	// The full path of this resource.
-	// Experimental.
 	Path() *string
 	// The ID of the resource.
-	// Experimental.
 	ResourceId() *string
-	// The rest API that this resource is part of.
-	// Deprecated: - Throws an error if this Resource is not associated with an instance of `RestApi`. Use `api` instead.
-	RestApi() RestApi
 }
 
 // The jsii proxy for IResource
@@ -247,16 +230,6 @@ func (j *jsiiProxy_IResource) ResourceId() *string {
 	_jsii_.Get(
 		j,
 		"resourceId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IResource) RestApi() RestApi {
-	var returns RestApi
-	_jsii_.Get(
-		j,
-		"restApi",
 		&returns,
 	)
 	return returns

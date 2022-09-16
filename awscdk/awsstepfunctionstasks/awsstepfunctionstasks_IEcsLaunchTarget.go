@@ -7,10 +7,8 @@ import (
 // An Amazon ECS launch type determines the type of infrastructure on which your tasks and services are hosted.
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html
 //
-// Experimental.
 type IEcsLaunchTarget interface {
 	// called when the ECS launch target is configured on RunTask.
-	// Experimental.
 	Bind(task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig
 }
 

@@ -19,13 +19,10 @@ package awsec2
 //   	},
 //   }
 //
-// Experimental.
 type NamedPackageOptions struct {
 	// Restart the given services after this command has run.
-	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 	// Specify the versions to install.
-	// Experimental.
 	Version *[]*string `field:"optional" json:"version" yaml:"version"`
 }
 

@@ -10,10 +10,15 @@ package awslex
 //
 //   voiceSettingsProperty := &voiceSettingsProperty{
 //   	voiceId: jsii.String("voiceId"),
+//
+//   	// the properties below are optional
+//   	engine: jsii.String("engine"),
 //   }
 //
 type CfnBot_VoiceSettingsProperty struct {
 	// The Amazon Polly voice used for voice interaction with the user.
 	VoiceId *string `field:"required" json:"voiceId" yaml:"voiceId"`
+	// `CfnBot.VoiceSettingsProperty.Engine`.
+	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 }
 

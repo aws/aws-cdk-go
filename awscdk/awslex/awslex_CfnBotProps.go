@@ -932,6 +932,9 @@ package awslex
 //   			},
 //   			voiceSettings: &voiceSettingsProperty{
 //   				voiceId: jsii.String("voiceId"),
+//
+//   				// the properties below are optional
+//   				engine: jsii.String("engine"),
 //   			},
 //   		},
 //   	},

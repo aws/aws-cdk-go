@@ -8,7 +8,7 @@ package awscloudfront
 //   // A Lambda@Edge function added to default behavior of a Distribution
 //   // and triggered on every request
 //   myFunc := #error#.NewEdgeFunction(this, jsii.String("MyFunction"), &edgeFunctionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -24,21 +24,16 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type LambdaEdgeEventType string
 
 const (
 	// The origin-request specifies the request to the origin location (e.g. S3).
-	// Experimental.
 	LambdaEdgeEventType_ORIGIN_REQUEST LambdaEdgeEventType = "ORIGIN_REQUEST"
 	// The origin-response specifies the response from the origin location (e.g. S3).
-	// Experimental.
 	LambdaEdgeEventType_ORIGIN_RESPONSE LambdaEdgeEventType = "ORIGIN_RESPONSE"
 	// The viewer-request specifies the incoming request.
-	// Experimental.
 	LambdaEdgeEventType_VIEWER_REQUEST LambdaEdgeEventType = "VIEWER_REQUEST"
 	// The viewer-response specifies the outgoing response.
-	// Experimental.
 	LambdaEdgeEventType_VIEWER_RESPONSE LambdaEdgeEventType = "VIEWER_RESPONSE"
 )
 

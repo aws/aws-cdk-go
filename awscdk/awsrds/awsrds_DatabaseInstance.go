@@ -1,16 +1,16 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A database instance.
@@ -18,50 +18,49 @@ import (
 // Example:
 //   var vpc vpc
 //
-//   engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
-//   	version: rds.postgresEngineVersion_VER_12_3(),
-//   })
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsername"), &databaseInstanceProps{
-//   	engine: engine,
+//
+//   // Simple secret
+//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
+//   // Using the secret
+//   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine_POSTGRES(),
+//   	credentials: rds.credentials.fromSecret(secret),
 //   	vpc: vpc,
-//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("postgres")),
+//   })
+//   // Templated secret with username and password fields
+//   templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &secretProps{
+//   	generateSecretString: &secretStringGenerator{
+//   		secretStringTemplate: jSON.stringify(map[string]*string{
+//   			"username": jsii.String("postgres"),
+//   		}),
+//   		generateStringKey: jsii.String("password"),
+//   	},
+//   })
+//   // Using the templated secret as credentials
+//   instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &databaseInstanceProps{
+//   	engine: rds.*databaseInstanceEngine_POSTGRES(),
+//   	credentials: map[string]interface{}{
+//   		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
+//   		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
+//   	},
+//   	vpc: vpc,
 //   })
 //
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsernameAndPassword"), &databaseInstanceProps{
-//   	engine: engine,
-//   	vpc: vpc,
-//   	credentials: rds.*credentials.fromPassword(jsii.String("postgres"), awscdk.SecretValue.ssmSecure(jsii.String("/dbPassword"), jsii.String("1"))),
-//   })
-//
-//   mySecret := secretsmanager.secret.fromSecretName(this, jsii.String("DBSecret"), jsii.String("myDBLoginInfo"))
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithSecretLogin"), &databaseInstanceProps{
-//   	engine: engine,
-//   	vpc: vpc,
-//   	credentials: rds.*credentials.fromSecret(mySecret),
-//   })
-//
-// Experimental.
 type DatabaseInstance interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
 	// Access to network connections.
-	// Experimental.
 	Connections() awsec2.Connections
 	// The instance endpoint address.
-	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
-	// Experimental.
 	DbInstanceEndpointPort() *string
-	// Experimental.
 	EnableIamAuthentication() *bool
-	// Experimental.
 	SetEnableIamAuthentication(val *bool)
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
-	// Experimental.
 	Engine() IInstanceEngine
 	// The environment this resource belongs to.
 	//
@@ -71,24 +70,17 @@ type DatabaseInstance interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The instance arn.
-	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
-	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
-	// Experimental.
 	InstanceIdentifier() *string
-	// Experimental.
 	InstanceType() awsec2.InstanceType
-	// Experimental.
 	NewCfnProps() *CfnDBInstanceProps
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -96,29 +88,20 @@ type DatabaseInstance interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The AWS Secrets Manager secret attached to the instance.
-	// Experimental.
 	Secret() awssecretsmanager.ISecret
-	// Experimental.
 	SourceCfnProps() *CfnDBInstanceProps
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The VPC where this database instance is deployed.
-	// Experimental.
 	Vpc() awsec2.IVpc
-	// Experimental.
 	VpcPlacement() *awsec2.SubnetSelection
 	// Add a new db proxy to this instance.
-	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Adds the multi user rotation to this instance.
-	// Experimental.
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
 	// Adds the single user rotation of the master password to this instance.
-	// Experimental.
 	AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation
 	// Apply the given removal policy to this resource.
 	//
@@ -129,12 +112,9 @@ type DatabaseInstance interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Renders the secret attachment target specifications.
-	// Experimental.
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -142,112 +122,51 @@ type DatabaseInstance interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the database.
 	//
 	// **Note**: this method does not currently work, see https://github.com/aws/aws-cdk/issues/11851 for details.
-	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBInstance.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
-	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Experimental.
 	SetLogRetention()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstance
@@ -366,8 +285,8 @@ func (j *jsiiProxy_DatabaseInstance) NewCfnProps() *CfnDBInstanceProps {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstance) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_DatabaseInstance) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -437,7 +356,6 @@ func (j *jsiiProxy_DatabaseInstance) VpcPlacement() *awsec2.SubnetSelection {
 }
 
 
-// Experimental.
 func NewDatabaseInstance(scope constructs.Construct, id *string, props *DatabaseInstanceProps) DatabaseInstance {
 	_init_.Initialize()
 
@@ -447,7 +365,7 @@ func NewDatabaseInstance(scope constructs.Construct, id *string, props *Database
 	j := jsiiProxy_DatabaseInstance{}
 
 	_jsii_.Create(
-		"monocdk.aws_rds.DatabaseInstance",
+		"aws-cdk-lib.aws_rds.DatabaseInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -455,12 +373,11 @@ func NewDatabaseInstance(scope constructs.Construct, id *string, props *Database
 	return &j
 }
 
-// Experimental.
 func NewDatabaseInstance_Override(d DatabaseInstance, scope constructs.Construct, id *string, props *DatabaseInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_rds.DatabaseInstance",
+		"aws-cdk-lib.aws_rds.DatabaseInstance",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -475,7 +392,6 @@ func (j *jsiiProxy_DatabaseInstance)SetEnableIamAuthentication(val *bool) {
 }
 
 // Import an existing database instance.
-// Experimental.
 func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
@@ -485,7 +401,7 @@ func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct,
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.DatabaseInstance",
+		"aws-cdk-lib.aws_rds.DatabaseInstance",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -494,8 +410,23 @@ func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct,
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func DatabaseInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -505,7 +436,7 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.DatabaseInstance",
+		"aws-cdk-lib.aws_rds.DatabaseInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -514,9 +445,27 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseInstance_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	if err := validateDatabaseInstance_IsOwnedResourceParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
-// Experimental.
-func DatabaseInstance_IsResource(construct awscdk.IConstruct) *bool {
+func DatabaseInstance_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	if err := validateDatabaseInstance_IsResourceParameters(construct); err != nil {
@@ -525,7 +474,7 @@ func DatabaseInstance_IsResource(construct awscdk.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.DatabaseInstance",
+		"aws-cdk-lib.aws_rds.DatabaseInstance",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -795,62 +744,11 @@ func (d *jsiiProxy_DatabaseInstance) OnEvent(id *string, options *awsevents.OnEv
 	return returns
 }
 
-func (d *jsiiProxy_DatabaseInstance) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DatabaseInstance) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := d.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DatabaseInstance) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DatabaseInstance) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (d *jsiiProxy_DatabaseInstance) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
 		"setLogRetention",
 		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DatabaseInstance) Synthesize(session awscdk.ISynthesisSession) {
-	if err := d.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
 	)
 }
 
@@ -860,19 +758,6 @@ func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

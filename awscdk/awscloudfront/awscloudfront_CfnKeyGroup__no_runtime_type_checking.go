@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnKeyGroup) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnKeyGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnKeyGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnKeyGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnKeyGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +73,7 @@ func (j *jsiiProxy_CfnKeyGroup) validateSetKeyGroupConfigParameters(val interfac
 	return nil
 }
 
-func validateNewCfnKeyGroupParameters(scope awscdk.Construct, id *string, props *CfnKeyGroupProps) error {
+func validateNewCfnKeyGroupParameters(scope constructs.Construct, id *string, props *CfnKeyGroupProps) error {
 	return nil
 }
 

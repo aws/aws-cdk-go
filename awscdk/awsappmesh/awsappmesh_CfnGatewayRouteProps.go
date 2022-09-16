@@ -1,7 +1,7 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnGatewayRoute`.
@@ -20,6 +20,9 @@ import (
 //   					virtualService: &gatewayRouteVirtualServiceProperty{
 //   						virtualServiceName: jsii.String("virtualServiceName"),
 //   					},
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //
 //   				// the properties below are optional
@@ -52,6 +55,7 @@ import (
 //   						},
 //   					},
 //   				},
+//   				port: jsii.Number(123),
 //   				serviceName: jsii.String("serviceName"),
 //   			},
 //   		},
@@ -61,6 +65,9 @@ import (
 //   					virtualService: &gatewayRouteVirtualServiceProperty{
 //   						virtualServiceName: jsii.String("virtualServiceName"),
 //   					},
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //
 //   				// the properties below are optional
@@ -105,6 +112,7 @@ import (
 //   					exact: jsii.String("exact"),
 //   					regex: jsii.String("regex"),
 //   				},
+//   				port: jsii.Number(123),
 //   				prefix: jsii.String("prefix"),
 //   				queryParameters: []interface{}{
 //   					&queryParameterProperty{
@@ -124,6 +132,9 @@ import (
 //   					virtualService: &gatewayRouteVirtualServiceProperty{
 //   						virtualServiceName: jsii.String("virtualServiceName"),
 //   					},
+//
+//   					// the properties below are optional
+//   					port: jsii.Number(123),
 //   				},
 //
 //   				// the properties below are optional
@@ -168,6 +179,7 @@ import (
 //   					exact: jsii.String("exact"),
 //   					regex: jsii.String("regex"),
 //   				},
+//   				port: jsii.Number(123),
 //   				prefix: jsii.String("prefix"),
 //   				queryParameters: []interface{}{
 //   					&queryParameterProperty{

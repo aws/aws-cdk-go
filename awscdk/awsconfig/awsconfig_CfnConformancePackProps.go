@@ -8,6 +8,8 @@ package awsconfig
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var templateSsmDocumentDetails interface{}
+//
 //   cfnConformancePackProps := &cfnConformancePackProps{
 //   	conformancePackName: jsii.String("conformancePackName"),
 //
@@ -22,6 +24,7 @@ package awsconfig
 //   	deliveryS3KeyPrefix: jsii.String("deliveryS3KeyPrefix"),
 //   	templateBody: jsii.String("templateBody"),
 //   	templateS3Uri: jsii.String("templateS3Uri"),
+//   	templateSsmDocumentDetails: templateSsmDocumentDetails,
 //   }
 //
 type CfnConformancePackProps struct {
@@ -45,5 +48,7 @@ type CfnConformancePackProps struct {
 	//
 	// > You must have access to read Amazon S3 bucket.
 	TemplateS3Uri *string `field:"optional" json:"templateS3Uri" yaml:"templateS3Uri"`
+	// `AWS::Config::ConformancePack.TemplateSSMDocumentDetails`.
+	TemplateSsmDocumentDetails interface{} `field:"optional" json:"templateSsmDocumentDetails" yaml:"templateSsmDocumentDetails"`
 }
 

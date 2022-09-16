@@ -14,6 +14,9 @@ package awsappmesh
 //   			&weightedTargetProperty{
 //   				virtualNode: jsii.String("virtualNode"),
 //   				weight: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				port: jsii.Number(123),
 //   			},
 //   		},
 //   	},
@@ -41,6 +44,7 @@ package awsappmesh
 //   			exact: jsii.String("exact"),
 //   			regex: jsii.String("regex"),
 //   		},
+//   		port: jsii.Number(123),
 //   		prefix: jsii.String("prefix"),
 //   		queryParameters: []interface{}{
 //   			&queryParameterProperty{

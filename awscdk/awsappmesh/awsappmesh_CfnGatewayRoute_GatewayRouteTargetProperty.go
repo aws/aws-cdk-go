@@ -12,10 +12,15 @@ package awsappmesh
 //   	virtualService: &gatewayRouteVirtualServiceProperty{
 //   		virtualServiceName: jsii.String("virtualServiceName"),
 //   	},
+//
+//   	// the properties below are optional
+//   	port: jsii.Number(123),
 //   }
 //
 type CfnGatewayRoute_GatewayRouteTargetProperty struct {
 	// An object that represents a virtual service gateway route target.
 	VirtualService interface{} `field:"required" json:"virtualService" yaml:"virtualService"`
+	// `CfnGatewayRoute.GatewayRouteTargetProperty.Port`.
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

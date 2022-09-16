@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (e *jsiiProxy_Ec2TaskDefinition) validateAddContainerParameters(id *string, props *ContainerDefinitionOptions) error {
@@ -136,17 +136,9 @@ func (e *jsiiProxy_Ec2TaskDefinition) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (e *jsiiProxy_Ec2TaskDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (e *jsiiProxy_Ec2TaskDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (e *jsiiProxy_Ec2TaskDefinition) validateGrantRunParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil
@@ -230,7 +222,15 @@ func validateEc2TaskDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEc2TaskDefinition_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateEc2TaskDefinition_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateEc2TaskDefinition_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

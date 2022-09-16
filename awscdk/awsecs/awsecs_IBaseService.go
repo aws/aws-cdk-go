@@ -5,11 +5,9 @@ import (
 )
 
 // The interface for BaseService.
-// Experimental.
 type IBaseService interface {
 	IService
 	// The cluster that hosts the service.
-	// Experimental.
 	Cluster() ICluster
 }
 
