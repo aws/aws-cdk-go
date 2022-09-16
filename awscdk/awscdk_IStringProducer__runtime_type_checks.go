@@ -1,7 +1,7 @@
 //go:build !no_runtime_type_checking
 // +build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (

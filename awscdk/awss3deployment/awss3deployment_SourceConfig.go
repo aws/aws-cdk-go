@@ -1,7 +1,7 @@
 package awss3deployment
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Source information.
@@ -25,12 +25,16 @@ import (
 //   	},
 //   }
 //
+// Experimental.
 type SourceConfig struct {
 	// The source bucket to deploy from.
+	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// An S3 object key in the source bucket that points to a zip file.
+	// Experimental.
 	ZipObjectKey *string `field:"required" json:"zipObjectKey" yaml:"zipObjectKey"`
 	// A set of markers to substitute in the source content.
+	// Experimental.
 	Markers *map[string]interface{} `field:"optional" json:"markers" yaml:"markers"`
 }
 

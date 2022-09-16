@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnNotebookInstance) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnNotebookInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNotebookInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNotebookInstance) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNotebookInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnNotebookInstance) validateSetRoleArnParameters(val *string
 	return nil
 }
 
-func validateNewCfnNotebookInstanceParameters(scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) error {
+func validateNewCfnNotebookInstanceParameters(scope awscdk.Construct, id *string, props *CfnNotebookInstanceProps) error {
 	return nil
 }
 

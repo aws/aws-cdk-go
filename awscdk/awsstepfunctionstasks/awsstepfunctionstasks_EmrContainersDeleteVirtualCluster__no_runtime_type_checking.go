@@ -85,6 +85,14 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateNextParameters(nex
 	return nil
 }
 
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

@@ -1,8 +1,8 @@
 package awscodepipelineactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Properties for the CloudFormationExecuteChangeSetAction.
@@ -61,18 +61,22 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CloudFormationExecuteChangeSetActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -81,19 +85,24 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Name of the change set to execute.
+	// Experimental.
 	ChangeSetName *string `field:"required" json:"changeSetName" yaml:"changeSetName"`
 	// The name of the stack to apply this action to.
+	// Experimental.
 	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
+	// Experimental.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
+	// Experimental.
 	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
@@ -102,6 +111,7 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	//
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
+	// Experimental.
 	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// The AWS region the given Action resides in.
 	//
@@ -109,6 +119,7 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

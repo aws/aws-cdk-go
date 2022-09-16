@@ -21,6 +21,14 @@ func (c *jsiiProxy_Certificate) validateMetricDaysToExpiryParameters(props *awsc
 	return nil
 }
 
+func (c *jsiiProxy_Certificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_Certificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateCertificate_FromCertificateArnParameters(scope constructs.Construct, id *string, certificateArn *string) error {
 	return nil
 }
@@ -29,11 +37,7 @@ func validateCertificate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCertificate_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateCertificate_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCertificate_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

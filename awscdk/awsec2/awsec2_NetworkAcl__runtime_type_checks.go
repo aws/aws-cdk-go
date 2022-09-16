@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (n *jsiiProxy_NetworkAcl) validateAddEntryParameters(id *string, options *CommonNetworkAclEntryOptions) error {
@@ -73,6 +73,22 @@ func (n *jsiiProxy_NetworkAcl) validateGetResourceNameAttributeParameters(nameAt
 	return nil
 }
 
+func (n *jsiiProxy_NetworkAcl) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NetworkAcl) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNetworkAcl_FromNetworkAclIdParameters(scope constructs.Construct, id *string, networkAclId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -97,15 +113,7 @@ func validateNetworkAcl_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNetworkAcl_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateNetworkAcl_IsResourceParameters(construct constructs.IConstruct) error {
+func validateNetworkAcl_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

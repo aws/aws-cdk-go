@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnLocationHDFS) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationHDFS) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationHDFS) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLocationHDFS) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLocationHDFS) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +93,7 @@ func (j *jsiiProxy_CfnLocationHDFS) validateSetQopConfigurationParameters(val in
 	return nil
 }
 
-func validateNewCfnLocationHDFSParameters(scope constructs.Construct, id *string, props *CfnLocationHDFSProps) error {
+func validateNewCfnLocationHDFSParameters(scope awscdk.Construct, id *string, props *CfnLocationHDFSProps) error {
 	return nil
 }
 

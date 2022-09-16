@@ -21,6 +21,14 @@ func (r *jsiiProxy_ReportGroup) validateGrantWriteParameters(identity awsiam.IGr
 	return nil
 }
 
+func (r *jsiiProxy_ReportGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_ReportGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateReportGroup_FromReportGroupNameParameters(scope constructs.Construct, id *string, reportGroupName *string) error {
 	return nil
 }
@@ -29,11 +37,7 @@ func validateReportGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateReportGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateReportGroup_IsResourceParameters(construct constructs.IConstruct) error {
+func validateReportGroup_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

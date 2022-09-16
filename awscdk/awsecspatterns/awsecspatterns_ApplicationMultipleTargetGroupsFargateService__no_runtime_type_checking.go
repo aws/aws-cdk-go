@@ -17,11 +17,27 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) validateGetDef
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) validateRegisterECSTargetsParameters(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) error {
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateApplicationMultipleTargetGroupsFargateService_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) validateSetListenersParameters(val *[]awselasticloadbalancingv2.ApplicationListener) error {
+	return nil
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) validateSetTargetGroupsParameters(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) error {
 	return nil
 }
 

@@ -89,15 +89,19 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricVolumeWriteIOPsPar
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDatabaseClusterFromSnapshot_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDatabaseClusterFromSnapshot_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDatabaseClusterFromSnapshot_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDatabaseClusterFromSnapshot_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

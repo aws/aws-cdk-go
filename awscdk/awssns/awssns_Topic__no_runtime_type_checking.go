@@ -73,6 +73,14 @@ func (t *jsiiProxy_Topic) validateMetricSMSSuccessRateParameters(props *awscloud
 	return nil
 }
 
+func (t *jsiiProxy_Topic) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (t *jsiiProxy_Topic) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateTopic_FromTopicArnParameters(scope constructs.Construct, id *string, topicArn *string) error {
 	return nil
 }
@@ -81,11 +89,7 @@ func validateTopic_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTopic_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateTopic_IsResourceParameters(construct constructs.IConstruct) error {
+func validateTopic_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

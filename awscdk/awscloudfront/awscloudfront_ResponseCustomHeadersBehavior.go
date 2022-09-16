@@ -88,8 +88,10 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ResponseCustomHeadersBehavior struct {
 	// The list of HTTP response headers and their values.
+	// Experimental.
 	CustomHeaders *[]*ResponseCustomHeader `field:"required" json:"customHeaders" yaml:"customHeaders"`
 }
 

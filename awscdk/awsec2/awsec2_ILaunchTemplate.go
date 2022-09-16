@@ -3,22 +3,26 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
 )
 
 // Interface for LaunchTemplate-like objects.
+// Experimental.
 type ILaunchTemplate interface {
 	awscdk.IResource
 	// The identifier of the Launch Template.
 	//
 	// Exactly one of `launchTemplateId` and `launchTemplateName` will be set.
+	// Experimental.
 	LaunchTemplateId() *string
 	// The name of the Launch Template.
 	//
 	// Exactly one of `launchTemplateId` and `launchTemplateName` will be set.
+	// Experimental.
 	LaunchTemplateName() *string
 	// The version number of this launch template to use.
+	// Experimental.
 	VersionNumber() *string
 }
 

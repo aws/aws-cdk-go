@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnVPCCidrBlock) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCCidrBlock) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCCidrBlock) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVPCCidrBlock) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPCCidrBlock) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnVPCCidrBlock) validateSetVpcIdParameters(val *string) erro
 	return nil
 }
 
-func validateNewCfnVPCCidrBlockParameters(scope constructs.Construct, id *string, props *CfnVPCCidrBlockProps) error {
+func validateNewCfnVPCCidrBlockParameters(scope awscdk.Construct, id *string, props *CfnVPCCidrBlockProps) error {
 	return nil
 }
 

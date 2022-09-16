@@ -1,10 +1,10 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // Options to integrate with various StepFunction API.
@@ -20,6 +20,7 @@ import (
 //   })
 //   api.root.addMethod(jsii.String("GET"), apigateway.stepFunctionsIntegration.startExecution(stateMachine))
 //
+// Experimental.
 type StepFunctionsIntegration interface {
 }
 
@@ -28,13 +29,14 @@ type jsiiProxy_StepFunctionsIntegration struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewStepFunctionsIntegration() StepFunctionsIntegration {
 	_init_.Initialize()
 
 	j := jsiiProxy_StepFunctionsIntegration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.StepFunctionsIntegration",
+		"monocdk.aws_apigateway.StepFunctionsIntegration",
 		nil, // no parameters
 		&j,
 	)
@@ -42,11 +44,12 @@ func NewStepFunctionsIntegration() StepFunctionsIntegration {
 	return &j
 }
 
+// Experimental.
 func NewStepFunctionsIntegration_Override(s StepFunctionsIntegration) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.StepFunctionsIntegration",
+		"monocdk.aws_apigateway.StepFunctionsIntegration",
 		nil, // no parameters
 		s,
 	)
@@ -65,6 +68,7 @@ func NewStepFunctionsIntegration_Override(s StepFunctionsIntegration) {
 //   })
 //   api.root.addMethod(jsii.String("GET"), apigateway.stepFunctionsIntegration.startExecution(stateMachine))
 //
+// Experimental.
 func StepFunctionsIntegration_StartExecution(stateMachine awsstepfunctions.IStateMachine, options *StepFunctionsExecutionIntegrationOptions) AwsIntegration {
 	_init_.Initialize()
 
@@ -74,7 +78,7 @@ func StepFunctionsIntegration_StartExecution(stateMachine awsstepfunctions.IStat
 	var returns AwsIntegration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.StepFunctionsIntegration",
+		"monocdk.aws_apigateway.StepFunctionsIntegration",
 		"startExecution",
 		[]interface{}{stateMachine, options},
 		&returns,

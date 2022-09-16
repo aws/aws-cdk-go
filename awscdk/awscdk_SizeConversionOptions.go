@@ -1,18 +1,22 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
 // Options for how to convert time to a different unit.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   awscdk.Size.mebibytes(jsii.Number(2)).toKibibytes() // yields 2048
-//   awscdk.Size.kibibytes(jsii.Number(2050)).toMebibytes(&sizeConversionOptions{
-//   	rounding: awscdk.SizeRoundingBehavior_FLOOR,
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   sizeConversionOptions := &sizeConversionOptions{
+//   	rounding: monocdk.sizeRoundingBehavior_FAIL,
+//   }
+//
+// Experimental.
 type SizeConversionOptions struct {
 	// How conversions should behave when it encounters a non-integer result.
+	// Experimental.
 	Rounding SizeRoundingBehavior `field:"optional" json:"rounding" yaml:"rounding"`
 }
 

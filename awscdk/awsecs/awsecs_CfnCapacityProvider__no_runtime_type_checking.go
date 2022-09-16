@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnCapacityProvider) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnCapacityProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCapacityProvider) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCapacityProvider) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCapacityProvider) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +81,7 @@ func (j *jsiiProxy_CfnCapacityProvider) validateSetAutoScalingGroupProviderParam
 	return nil
 }
 
-func validateNewCfnCapacityProviderParameters(scope constructs.Construct, id *string, props *CfnCapacityProviderProps) error {
+func validateNewCfnCapacityProviderParameters(scope awscdk.Construct, id *string, props *CfnCapacityProviderProps) error {
 	return nil
 }
 

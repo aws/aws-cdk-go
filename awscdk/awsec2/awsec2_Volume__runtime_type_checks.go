@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (v *jsiiProxy_Volume) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -84,6 +84,22 @@ func (v *jsiiProxy_Volume) validateGrantDetachVolumeByResourceTagParameters(gran
 	return nil
 }
 
+func (v *jsiiProxy_Volume) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_Volume) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_Volume) validateValidatePropsParameters(props *VolumeProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
@@ -122,15 +138,7 @@ func validateVolume_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVolume_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateVolume_IsResourceParameters(construct constructs.IConstruct) error {
+func validateVolume_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

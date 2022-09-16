@@ -13,10 +13,13 @@ package awsglobalaccelerator
 //   	dnsName: jsii.String("dnsName"),
 //   }
 //
+// Experimental.
 type AcceleratorAttributes struct {
 	// The ARN of the accelerator.
+	// Experimental.
 	AcceleratorArn *string `field:"required" json:"acceleratorArn" yaml:"acceleratorArn"`
 	// The DNS name of the accelerator.
+	// Experimental.
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 }
 

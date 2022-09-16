@@ -18,12 +18,15 @@ package awsstepfunctions
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html
 //
+// Experimental.
 type StateMachineType string
 
 const (
 	// Express Workflows are ideal for high-volume, event processing workloads.
+	// Experimental.
 	StateMachineType_EXPRESS StateMachineType = "EXPRESS"
 	// Standard Workflows are ideal for long-running, durable, and auditable workflows.
+	// Experimental.
 	StateMachineType_STANDARD StateMachineType = "STANDARD"
 )
 

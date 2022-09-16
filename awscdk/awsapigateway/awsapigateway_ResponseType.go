@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -23,8 +23,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html
 //
+// Experimental.
 type ResponseType interface {
 	// Valid value of response type.
+	// Experimental.
 	ResponseType() *string
 }
 
@@ -45,6 +47,7 @@ func (j *jsiiProxy_ResponseType) ResponseType() *string {
 
 
 // A custom response type to support future cases.
+// Experimental.
 func ResponseType_Of(type_ *string) ResponseType {
 	_init_.Initialize()
 
@@ -54,7 +57,7 @@ func ResponseType_Of(type_ *string) ResponseType {
 	var returns ResponseType
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"of",
 		[]interface{}{type_},
 		&returns,
@@ -67,7 +70,7 @@ func ResponseType_ACCESS_DENIED() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"ACCESS_DENIED",
 		&returns,
 	)
@@ -78,7 +81,7 @@ func ResponseType_API_CONFIGURATION_ERROR() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"API_CONFIGURATION_ERROR",
 		&returns,
 	)
@@ -89,7 +92,7 @@ func ResponseType_AUTHORIZER_CONFIGURATION_ERROR() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"AUTHORIZER_CONFIGURATION_ERROR",
 		&returns,
 	)
@@ -100,7 +103,7 @@ func ResponseType_AUTHORIZER_FAILURE() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"AUTHORIZER_FAILURE",
 		&returns,
 	)
@@ -111,7 +114,7 @@ func ResponseType_BAD_REQUEST_BODY() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"BAD_REQUEST_BODY",
 		&returns,
 	)
@@ -122,7 +125,7 @@ func ResponseType_BAD_REQUEST_PARAMETERS() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"BAD_REQUEST_PARAMETERS",
 		&returns,
 	)
@@ -133,7 +136,7 @@ func ResponseType_DEFAULT_4XX() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"DEFAULT_4XX",
 		&returns,
 	)
@@ -144,7 +147,7 @@ func ResponseType_DEFAULT_5XX() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"DEFAULT_5XX",
 		&returns,
 	)
@@ -155,7 +158,7 @@ func ResponseType_EXPIRED_TOKEN() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"EXPIRED_TOKEN",
 		&returns,
 	)
@@ -166,7 +169,7 @@ func ResponseType_INTEGRATION_FAILURE() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"INTEGRATION_FAILURE",
 		&returns,
 	)
@@ -177,7 +180,7 @@ func ResponseType_INTEGRATION_TIMEOUT() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"INTEGRATION_TIMEOUT",
 		&returns,
 	)
@@ -188,7 +191,7 @@ func ResponseType_INVALID_API_KEY() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"INVALID_API_KEY",
 		&returns,
 	)
@@ -199,7 +202,7 @@ func ResponseType_INVALID_SIGNATURE() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"INVALID_SIGNATURE",
 		&returns,
 	)
@@ -210,7 +213,7 @@ func ResponseType_MISSING_AUTHENTICATION_TOKEN() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"MISSING_AUTHENTICATION_TOKEN",
 		&returns,
 	)
@@ -221,7 +224,7 @@ func ResponseType_QUOTA_EXCEEDED() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"QUOTA_EXCEEDED",
 		&returns,
 	)
@@ -232,7 +235,7 @@ func ResponseType_REQUEST_TOO_LARGE() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"REQUEST_TOO_LARGE",
 		&returns,
 	)
@@ -243,7 +246,7 @@ func ResponseType_RESOURCE_NOT_FOUND() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"RESOURCE_NOT_FOUND",
 		&returns,
 	)
@@ -254,7 +257,7 @@ func ResponseType_THROTTLED() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"THROTTLED",
 		&returns,
 	)
@@ -265,7 +268,7 @@ func ResponseType_UNAUTHORIZED() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"UNAUTHORIZED",
 		&returns,
 	)
@@ -276,7 +279,7 @@ func ResponseType_UNSUPPORTED_MEDIA_TYPE() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"UNSUPPORTED_MEDIA_TYPE",
 		&returns,
 	)
@@ -287,7 +290,7 @@ func ResponseType_WAF_FILTERED() ResponseType {
 	_init_.Initialize()
 	var returns ResponseType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_apigateway.ResponseType",
+		"monocdk.aws_apigateway.ResponseType",
 		"WAF_FILTERED",
 		&returns,
 	)

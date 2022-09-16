@@ -5,7 +5,7 @@ package awscodebuild
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (l *jsiiProxy_LinuxGpuBuildImage) validateBindParameters(scope constructs.Construct, project IProject, _options *BuildImageBindOptions) error {
+func (l *jsiiProxy_LinuxGpuBuildImage) validateBindParameters(scope awscdk.Construct, project IProject, _options *BuildImageBindOptions) error {
 	return nil
 }
 

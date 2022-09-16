@@ -12,8 +12,10 @@ package awscognito
 //   	fips: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type BaseUrlOptions struct {
 	// Whether to return the FIPS-compliant endpoint.
+	// Experimental.
 	Fips *bool `field:"optional" json:"fips" yaml:"fips"`
 }
 

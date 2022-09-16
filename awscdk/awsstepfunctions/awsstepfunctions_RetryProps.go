@@ -1,7 +1,7 @@
 package awsstepfunctions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Retry details.
@@ -30,20 +30,25 @@ import (
 //   closeOrder := sfn.NewPass(this, jsii.String("CloseOrder"))
 //   parallel.next(closeOrder)
 //
+// Experimental.
 type RetryProps struct {
 	// Multiplication for how much longer the wait interval gets on every retry.
+	// Experimental.
 	BackoffRate *float64 `field:"optional" json:"backoffRate" yaml:"backoffRate"`
 	// Errors to retry.
 	//
 	// A list of error strings to retry, which can be either predefined errors
 	// (for example Errors.NoChoiceMatched) or a self-defined error.
+	// Experimental.
 	Errors *[]*string `field:"optional" json:"errors" yaml:"errors"`
 	// How many seconds to wait initially before retrying.
+	// Experimental.
 	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// How many times to retry this particular error.
 	//
 	// May be 0 to disable retry for specific errors (in case you have
 	// a catch-all retry policy).
+	// Experimental.
 	MaxAttempts *float64 `field:"optional" json:"maxAttempts" yaml:"maxAttempts"`
 }
 

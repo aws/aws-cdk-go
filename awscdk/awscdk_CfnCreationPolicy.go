@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
@@ -21,7 +21,7 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCreationPolicy := &cfnCreationPolicy{
 //   	autoScalingCreationPolicy: &cfnResourceAutoScalingCreationPolicy{
@@ -33,10 +33,13 @@ package awscdk
 //   	},
 //   }
 //
+// Experimental.
 type CfnCreationPolicy struct {
 	// For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.
+	// Experimental.
 	AutoScalingCreationPolicy *CfnResourceAutoScalingCreationPolicy `field:"optional" json:"autoScalingCreationPolicy" yaml:"autoScalingCreationPolicy"`
 	// When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.
+	// Experimental.
 	ResourceSignal *CfnResourceSignal `field:"optional" json:"resourceSignal" yaml:"resourceSignal"`
 }
 

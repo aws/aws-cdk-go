@@ -21,15 +21,19 @@ func (f *jsiiProxy_FunctionUrl) validateGrantInvokeUrlParameters(grantee awsiam.
 	return nil
 }
 
+func (f *jsiiProxy_FunctionUrl) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (f *jsiiProxy_FunctionUrl) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateFunctionUrl_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFunctionUrl_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateFunctionUrl_IsResourceParameters(construct constructs.IConstruct) error {
+func validateFunctionUrl_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

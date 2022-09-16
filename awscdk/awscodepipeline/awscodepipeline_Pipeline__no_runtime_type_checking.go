@@ -57,7 +57,15 @@ func (p *jsiiProxy_Pipeline) validateOnStateChangeParameters(id *string, options
 	return nil
 }
 
+func (p *jsiiProxy_Pipeline) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (p *jsiiProxy_Pipeline) validateStageParameters(stageName *string) error {
+	return nil
+}
+
+func (p *jsiiProxy_Pipeline) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -69,11 +77,7 @@ func validatePipeline_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePipeline_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validatePipeline_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePipeline_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (o *jsiiProxy_OriginRequestPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -43,6 +43,22 @@ func (o *jsiiProxy_OriginRequestPolicy) validateGetResourceNameAttributeParamete
 	return nil
 }
 
+func (o *jsiiProxy_OriginRequestPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (o *jsiiProxy_OriginRequestPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateOriginRequestPolicy_FromOriginRequestPolicyIdParameters(scope constructs.Construct, id *string, originRequestPolicyId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -67,15 +83,7 @@ func validateOriginRequestPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateOriginRequestPolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateOriginRequestPolicy_IsResourceParameters(construct constructs.IConstruct) error {
+func validateOriginRequestPolicy_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

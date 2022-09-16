@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateInspectParameters(in
 	return nil
 }
 
+func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +89,7 @@ func (j *jsiiProxy_CfnFirewallRuleGroupAssociation) validateSetVpcIdParameters(v
 	return nil
 }
 
-func validateNewCfnFirewallRuleGroupAssociationParameters(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupAssociationProps) error {
+func validateNewCfnFirewallRuleGroupAssociationParameters(scope awscdk.Construct, id *string, props *CfnFirewallRuleGroupAssociationProps) error {
 	return nil
 }
 

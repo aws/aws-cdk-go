@@ -9,27 +9,33 @@ import (
 // Don't implement this interface directly,
 // instead implement one of the known sub-interfaces,
 // like IClusterEngine and IInstanceEngine.
+// Experimental.
 type IEngine interface {
 	// The default name of the master database user if one was not provided explicitly.
 	//
 	// The global default of 'admin' will be used if this is `undefined`.
 	// Note that 'admin' is a reserved word in PostgreSQL and cannot be used.
+	// Experimental.
 	DefaultUsername() *string
 	// The family this engine belongs to, like "MYSQL", or "POSTGRESQL".
 	//
 	// This property is used when creating a Database Proxy.
 	// Most engines don't belong to any family
 	// (and because of that, you can't create Database Proxies for their Clusters or Instances).
+	// Experimental.
 	EngineFamily() *string
 	// The type of the engine, for example "mysql".
+	// Experimental.
 	EngineType() *string
 	// The exact version of the engine that is used, for example "5.1.42".
+	// Experimental.
 	EngineVersion() *EngineVersion
 	// The family to use for ParameterGroups using this engine.
 	//
 	// This is usually equal to "<engineType><engineMajorVersion>",
 	// but can sometimes be a variation of that.
 	// You can pass this property when creating new ParameterGroup.
+	// Experimental.
 	ParameterGroupFamily() *string
 }
 

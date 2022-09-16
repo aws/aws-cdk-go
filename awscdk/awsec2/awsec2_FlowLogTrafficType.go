@@ -4,7 +4,6 @@ package awsec2
 // The type of VPC traffic to log.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.NewVpc(this, jsii.String("Vpc"))
 //
 //   vpc.addFlowLog(jsii.String("FlowLogS3"), &flowLogOptions{
@@ -15,14 +14,18 @@ package awsec2
 //   	trafficType: ec2.flowLogTrafficType_REJECT,
 //   })
 //
+// Experimental.
 type FlowLogTrafficType string
 
 const (
 	// Only log accepts.
+	// Experimental.
 	FlowLogTrafficType_ACCEPT FlowLogTrafficType = "ACCEPT"
 	// Log all requests.
+	// Experimental.
 	FlowLogTrafficType_ALL FlowLogTrafficType = "ALL"
 	// Only log rejects.
+	// Experimental.
 	FlowLogTrafficType_REJECT FlowLogTrafficType = "REJECT"
 )
 

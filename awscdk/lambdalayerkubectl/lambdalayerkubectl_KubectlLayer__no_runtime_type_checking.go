@@ -21,6 +21,14 @@ func (k *jsiiProxy_KubectlLayer) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
+func (k *jsiiProxy_KubectlLayer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (k *jsiiProxy_KubectlLayer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateKubectlLayer_FromLayerVersionArnParameters(scope constructs.Construct, id *string, layerVersionArn *string) error {
 	return nil
 }
@@ -33,11 +41,7 @@ func validateKubectlLayer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateKubectlLayer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateKubectlLayer_IsResourceParameters(construct constructs.IConstruct) error {
+func validateKubectlLayer_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

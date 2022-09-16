@@ -1,8 +1,8 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery"
 )
 
 // The options for creating an AWS Cloud Map namespace.
@@ -24,14 +24,18 @@ import (
 //   	vpc: vpc,
 //   }
 //
+// Experimental.
 type CloudMapNamespaceOptions struct {
 	// The name of the namespace, such as example.com.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of CloudMap Namespace to create.
+	// Experimental.
 	Type awsservicediscovery.NamespaceType `field:"optional" json:"type" yaml:"type"`
 	// The VPC to associate the namespace with.
 	//
 	// This property is required for private DNS namespaces.
+	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

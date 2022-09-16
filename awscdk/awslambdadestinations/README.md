@@ -22,7 +22,7 @@ import sns "github.com/aws/aws-cdk-go/awscdk"
 myTopic := sns.NewTopic(this, jsii.String("Topic"))
 
 myFn := lambda.NewFunction(this, jsii.String("Fn"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 	// sns topic for successful invocations
@@ -40,7 +40,7 @@ import sqs "github.com/aws/aws-cdk-go/awscdk"
 deadLetterQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 
 myFn := lambda.NewFunction(this, jsii.String("Fn"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromInline(jsii.String("// your code")),
 	// sqs queue for unsuccessful invocations
@@ -129,7 +129,7 @@ var destinationFn function
 
 
 sourceFn := lambda.NewFunction(this, jsii.String("Source"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 	// auto-extract on success

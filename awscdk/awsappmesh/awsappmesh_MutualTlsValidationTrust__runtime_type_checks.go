@@ -6,11 +6,11 @@ package awsappmesh
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsacmpca"
 )
 
-func (m *jsiiProxy_MutualTlsValidationTrust) validateBindParameters(scope constructs.Construct) error {
+func (m *jsiiProxy_MutualTlsValidationTrust) validateBindParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

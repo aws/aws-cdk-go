@@ -1,17 +1,17 @@
 package awsroute53
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A Private DNS configuration for a VPC endpoint service.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   var zone hostedZone
 //   var vpces vpcEndpointService
@@ -23,20 +23,73 @@ import (
 //   	publicHostedZone: zone,
 //   })
 //
+// Experimental.
 type VpcEndpointServiceDomainName interface {
-	constructs.Construct
+	awscdk.Construct
 	// The domain name associated with the private DNS configuration.
+	// Experimental.
 	DomainName() *string
+	// Experimental.
 	SetDomainName(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for VpcEndpointServiceDomainName
 type jsiiProxy_VpcEndpointServiceDomainName struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_VpcEndpointServiceDomainName) DomainName() *string {
@@ -49,8 +102,8 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -60,6 +113,7 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, props *VpcEndpointServiceDomainNameProps) VpcEndpointServiceDomainName {
 	_init_.Initialize()
 
@@ -69,7 +123,7 @@ func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, pro
 	j := jsiiProxy_VpcEndpointServiceDomainName{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
+		"monocdk.aws_route53.VpcEndpointServiceDomainName",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -77,11 +131,12 @@ func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Experimental.
 func NewVpcEndpointServiceDomainName_Override(v VpcEndpointServiceDomainName, scope constructs.Construct, id *string, props *VpcEndpointServiceDomainNameProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
+		"monocdk.aws_route53.VpcEndpointServiceDomainName",
 		[]interface{}{scope, id, props},
 		v,
 	)
@@ -98,23 +153,8 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName)SetDomainName(val *string) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func VpcEndpointServiceDomainName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -124,7 +164,7 @@ func VpcEndpointServiceDomainName_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
+		"monocdk.aws_route53.VpcEndpointServiceDomainName",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -133,12 +173,76 @@ func VpcEndpointServiceDomainName_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func (v *jsiiProxy_VpcEndpointServiceDomainName) OnPrepare() {
+	_jsii_.InvokeVoid(
+		v,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (v *jsiiProxy_VpcEndpointServiceDomainName) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := v.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		v,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (v *jsiiProxy_VpcEndpointServiceDomainName) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		v,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcEndpointServiceDomainName) Prepare() {
+	_jsii_.InvokeVoid(
+		v,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (v *jsiiProxy_VpcEndpointServiceDomainName) Synthesize(session awscdk.ISynthesisSession) {
+	if err := v.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		v,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (v *jsiiProxy_VpcEndpointServiceDomainName) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		v,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcEndpointServiceDomainName) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		v,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

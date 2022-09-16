@@ -1,10 +1,10 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 )
 
 // Use a MSK cluster as a streaming source for AWS Lambda.
@@ -36,13 +36,18 @@ import (
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
 //   }))
 //
+// Experimental.
 type ManagedKafkaEventSource interface {
 	StreamEventSource
 	// The identifier for this EventSourceMapping.
+	// Experimental.
 	EventSourceMappingId() *string
+	// Experimental.
 	Props() *StreamEventSourceProps
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
+	// Experimental.
 	Bind(target awslambda.IFunction)
+	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
@@ -72,6 +77,7 @@ func (j *jsiiProxy_ManagedKafkaEventSource) Props() *StreamEventSourceProps {
 }
 
 
+// Experimental.
 func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafkaEventSource {
 	_init_.Initialize()
 
@@ -81,7 +87,7 @@ func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafk
 	j := jsiiProxy_ManagedKafkaEventSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSource",
+		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSource",
 		[]interface{}{props},
 		&j,
 	)
@@ -89,11 +95,12 @@ func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafk
 	return &j
 }
 
+// Experimental.
 func NewManagedKafkaEventSource_Override(m ManagedKafkaEventSource, props *ManagedKafkaEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSource",
+		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSource",
 		[]interface{}{props},
 		m,
 	)

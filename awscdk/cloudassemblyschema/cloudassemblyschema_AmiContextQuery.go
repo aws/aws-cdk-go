@@ -24,16 +24,22 @@ package cloudassemblyschema
 //   	},
 //   }
 //
+// Experimental.
 type AmiContextQuery struct {
 	// Account to query.
+	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Filters to DescribeImages call.
+	// Experimental.
 	Filters *map[string]*[]*string `field:"required" json:"filters" yaml:"filters"`
 	// Region to query.
+	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Owners to DescribeImages call.
+	// Experimental.
 	Owners *[]*string `field:"optional" json:"owners" yaml:"owners"`
 }
 

@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnPrincipalPermissions) validateInspectParameters(inspector 
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrincipalPermissions) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrincipalPermissions) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPrincipalPermissions) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +93,7 @@ func (j *jsiiProxy_CfnPrincipalPermissions) validateSetResourceParameters(val in
 	return nil
 }
 
-func validateNewCfnPrincipalPermissionsParameters(scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) error {
+func validateNewCfnPrincipalPermissionsParameters(scope awscdk.Construct, id *string, props *CfnPrincipalPermissionsProps) error {
 	return nil
 }
 

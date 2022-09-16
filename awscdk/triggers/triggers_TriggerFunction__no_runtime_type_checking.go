@@ -33,6 +33,10 @@ func (t *jsiiProxy_TriggerFunction) validateAddToRolePolicyParameters(statement 
 	return nil
 }
 
+func (t *jsiiProxy_TriggerFunction) validateAddVersionParameters(name *string, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) error {
+	return nil
+}
+
 func (t *jsiiProxy_TriggerFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
@@ -41,7 +45,7 @@ func (t *jsiiProxy_TriggerFunction) validateConfigureAsyncInvokeParameters(optio
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (t *jsiiProxy_TriggerFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	return nil
 }
 
@@ -81,7 +85,15 @@ func (t *jsiiProxy_TriggerFunction) validateMetricThrottlesParameters(props *aws
 	return nil
 }
 
-func (t *jsiiProxy_TriggerFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (t *jsiiProxy_TriggerFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (t *jsiiProxy_TriggerFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func (t *jsiiProxy_TriggerFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	return nil
 }
 
@@ -105,11 +117,7 @@ func validateTriggerFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTriggerFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateTriggerFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateTriggerFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

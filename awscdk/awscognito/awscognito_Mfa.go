@@ -15,14 +15,18 @@ package awscognito
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html
 //
+// Experimental.
 type Mfa string
 
 const (
 	// Users are not required to use MFA for sign in, and cannot configure one.
+	// Experimental.
 	Mfa_OFF Mfa = "OFF"
 	// Users are not required to use MFA for sign in, but can configure one if they so choose to.
+	// Experimental.
 	Mfa_OPTIONAL Mfa = "OPTIONAL"
 	// Users are required to configure an MFA, and have to use it to sign in.
+	// Experimental.
 	Mfa_REQUIRED Mfa = "REQUIRED"
 )
 

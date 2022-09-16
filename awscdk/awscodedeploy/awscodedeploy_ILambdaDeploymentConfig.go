@@ -12,8 +12,11 @@ import (
 // Note: CloudFormation does not currently support creating custom lambda configs outside
 // of using a custom resource. You can import custom deployment config created outside the
 // CDK or via a custom resource with {@link LambdaDeploymentConfig#import}.
+// Experimental.
 type ILambdaDeploymentConfig interface {
+	// Experimental.
 	DeploymentConfigArn() *string
+	// Experimental.
 	DeploymentConfigName() *string
 }
 
