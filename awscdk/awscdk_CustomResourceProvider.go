@@ -1,11 +1,12 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An AWS-Lambda backed custom resource provider, for CDK Construct Library constructs.
@@ -13,11 +14,12 @@ import (
 // This is a provider for `CustomResource` constructs, backed by an AWS Lambda
 // Function. It only supports NodeJS runtimes.
 //
-// **This is not a generic custom resource provider class**. It is specifically
-// intended to be used only by constructs in the AWS CDK Construct Library, and
-// only exists here because of reverse dependency issues (for example, it cannot
-// use `iam.PolicyStatement` objects, since the `iam` library already depends on
-// the CDK `core` library and we cannot have cyclic dependencies).
+// > **Application builders do not need to use this provider type**. This is not
+// > a generic custom resource provider class. It is specifically
+// > intended to be used only by constructs in the AWS CDK Construct Library, and
+// > only exists here because of reverse dependency issues (for example, it cannot
+// > use `iam.PolicyStatement` objects, since the `iam` library already depends on
+// > the CDK `core` library and we cannot have cyclic dependencies).
 //
 // If you are not writing constructs for the AWS Construct Library, you should
 // use the `Provider` class in the `custom-resources` module instead, which has
@@ -30,30 +32,27 @@ import (
 // class in there or this one.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   provider := awscdk.CustomResourceProvider.getOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &customResourceProviderProps{
 //   	codeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	runtime: awscdk.CustomResourceProviderRuntime_NODEJS_14_X,
-//   	policyStatements: []interface{}{
-//   		map[string]*string{
-//   			"Effect": jsii.String("Allow"),
-//   			"Action": jsii.String("s3:PutObject*"),
-//   			"Resource": jsii.String("*"),
-//   		},
-//   	},
+//   })
+//   provider.addToRolePolicy(map[string]*string{
+//   	"Effect": jsii.String("Allow"),
+//   	"Action": jsii.String("s3:GetObject"),
+//   	"Resource": jsii.String("*"),
 //   })
 //
-// Experimental.
 type CustomResourceProvider interface {
-	Construct
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() ConstructNode
+	constructs.Construct
+	// The tree node.
+	Node() constructs.Node
 	// The ARN of the provider's AWS Lambda function role.
-	// Experimental.
 	RoleArn() *string
 	// The ARN of the provider's AWS Lambda function which should be used as the `serviceToken` when defining a custom resource.
 	//
 	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var myProvider customResourceProvider
 	//
 	//
@@ -65,68 +64,35 @@ type CustomResourceProvider interface {
 	//   	},
 	//   })
 	//
-	// Experimental.
 	ServiceToken() *string
-	// Perform final modifications before synthesis.
+	// Add an IAM policy statement to the inline policy of the provider's lambda function's role.
 	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
+	// **Please note**: this is a direct IAM JSON policy blob, *not* a `iam.PolicyStatement`
+	// object like you will see in the rest of the CDK.
 	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
+	//   var myProvider customResourceProvider
 	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
 	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
+	//   myProvider.addToRolePolicy(map[string]*string{
+	//   	"Effect": jsii.String("Allow"),
+	//   	"Action": jsii.String("s3:GetObject"),
+	//   	"Resource": jsii.String("*"),
+	//   })
 	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session ISynthesisSession)
+	AddToRolePolicy(statement interface{})
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CustomResourceProvider
 type jsiiProxy_CustomResourceProvider struct {
-	jsiiProxy_Construct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_CustomResourceProvider) Node() ConstructNode {
-	var returns ConstructNode
+func (j *jsiiProxy_CustomResourceProvider) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -156,7 +122,6 @@ func (j *jsiiProxy_CustomResourceProvider) ServiceToken() *string {
 }
 
 
-// Experimental.
 func NewCustomResourceProvider(scope constructs.Construct, id *string, props *CustomResourceProviderProps) CustomResourceProvider {
 	_init_.Initialize()
 
@@ -166,7 +131,7 @@ func NewCustomResourceProvider(scope constructs.Construct, id *string, props *Cu
 	j := jsiiProxy_CustomResourceProvider{}
 
 	_jsii_.Create(
-		"monocdk.CustomResourceProvider",
+		"aws-cdk-lib.CustomResourceProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -174,12 +139,11 @@ func NewCustomResourceProvider(scope constructs.Construct, id *string, props *Cu
 	return &j
 }
 
-// Experimental.
 func NewCustomResourceProvider_Override(c CustomResourceProvider, scope constructs.Construct, id *string, props *CustomResourceProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.CustomResourceProvider",
+		"aws-cdk-lib.CustomResourceProvider",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -189,7 +153,6 @@ func NewCustomResourceProvider_Override(c CustomResourceProvider, scope construc
 //
 // Returns: the service token of the custom resource provider, which should be
 // used when defining a `CustomResource`.
-// Experimental.
 func CustomResourceProvider_GetOrCreate(scope constructs.Construct, uniqueid *string, props *CustomResourceProviderProps) *string {
 	_init_.Initialize()
 
@@ -199,7 +162,7 @@ func CustomResourceProvider_GetOrCreate(scope constructs.Construct, uniqueid *st
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.CustomResourceProvider",
+		"aws-cdk-lib.CustomResourceProvider",
 		"getOrCreate",
 		[]interface{}{scope, uniqueid, props},
 		&returns,
@@ -212,7 +175,6 @@ func CustomResourceProvider_GetOrCreate(scope constructs.Construct, uniqueid *st
 //
 // Returns: the service token of the custom resource provider, which should be
 // used when defining a `CustomResource`.
-// Experimental.
 func CustomResourceProvider_GetOrCreateProvider(scope constructs.Construct, uniqueid *string, props *CustomResourceProviderProps) CustomResourceProvider {
 	_init_.Initialize()
 
@@ -222,7 +184,7 @@ func CustomResourceProvider_GetOrCreateProvider(scope constructs.Construct, uniq
 	var returns CustomResourceProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.CustomResourceProvider",
+		"aws-cdk-lib.CustomResourceProvider",
 		"getOrCreateProvider",
 		[]interface{}{scope, uniqueid, props},
 		&returns,
@@ -231,8 +193,23 @@ func CustomResourceProvider_GetOrCreateProvider(scope constructs.Construct, uniq
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CustomResourceProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -242,7 +219,7 @@ func CustomResourceProvider_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.CustomResourceProvider",
+		"aws-cdk-lib.CustomResourceProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -251,54 +228,14 @@ func CustomResourceProvider_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CustomResourceProvider) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CustomResourceProvider) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := c.validateOnSynthesizeParameters(session); err != nil {
+func (c *jsiiProxy_CustomResourceProvider) AddToRolePolicy(statement interface{}) {
+	if err := c.validateAddToRolePolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CustomResourceProvider) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CustomResourceProvider) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CustomResourceProvider) Synthesize(session ISynthesisSession) {
-	if err := c.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
+		"addToRolePolicy",
+		[]interface{}{statement},
 	)
 }
 
@@ -308,19 +245,6 @@ func (c *jsiiProxy_CustomResourceProvider) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CustomResourceProvider) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

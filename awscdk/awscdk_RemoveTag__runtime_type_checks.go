@@ -1,13 +1,15 @@
 //go:build !no_runtime_type_checking
 // +build !no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (r *jsiiProxy_RemoveTag) validateApplyTagParameters(resource ITaggable) error {
@@ -18,7 +20,7 @@ func (r *jsiiProxy_RemoveTag) validateApplyTagParameters(resource ITaggable) err
 	return nil
 }
 
-func (r *jsiiProxy_RemoveTag) validateVisitParameters(construct IConstruct) error {
+func (r *jsiiProxy_RemoveTag) validateVisitParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

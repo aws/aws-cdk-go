@@ -17,14 +17,6 @@ func (l *jsiiProxy_LaunchTemplate) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (l *jsiiProxy_LaunchTemplate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (l *jsiiProxy_LaunchTemplate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateLaunchTemplate_FromLaunchTemplateAttributesParameters(scope constructs.Construct, id *string, attrs *LaunchTemplateAttributes) error {
 	return nil
 }
@@ -33,7 +25,11 @@ func validateLaunchTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLaunchTemplate_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLaunchTemplate_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateLaunchTemplate_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

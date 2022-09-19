@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnIPAMAllocation) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMAllocation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnIPAMAllocation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnIPAMAllocation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnIPAMAllocation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +73,7 @@ func (j *jsiiProxy_CfnIPAMAllocation) validateSetIpamPoolIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnIPAMAllocationParameters(scope awscdk.Construct, id *string, props *CfnIPAMAllocationProps) error {
+func validateNewCfnIPAMAllocationParameters(scope constructs.Construct, id *string, props *CfnIPAMAllocationProps) error {
 	return nil
 }
 

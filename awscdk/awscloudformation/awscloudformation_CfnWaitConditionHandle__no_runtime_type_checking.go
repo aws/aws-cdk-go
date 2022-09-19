@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnWaitConditionHandle) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnWaitConditionHandle) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnWaitConditionHandle) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWaitConditionHandle) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnWaitConditionHandle) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +69,7 @@ func validateCfnWaitConditionHandle_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnWaitConditionHandleParameters(scope awscdk.Construct, id *string) error {
+func validateNewCfnWaitConditionHandleParameters(scope constructs.Construct, id *string) error {
 	return nil
 }
 

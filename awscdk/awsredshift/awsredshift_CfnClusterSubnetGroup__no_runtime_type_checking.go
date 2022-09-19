@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnClusterSubnetGroup) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnClusterSubnetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnClusterSubnetGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnClusterSubnetGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnClusterSubnetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnClusterSubnetGroup) validateSetSubnetIdsParameters(val *[]
 	return nil
 }
 
-func validateNewCfnClusterSubnetGroupParameters(scope awscdk.Construct, id *string, props *CfnClusterSubnetGroupProps) error {
+func validateNewCfnClusterSubnetGroupParameters(scope constructs.Construct, id *string, props *CfnClusterSubnetGroupProps) error {
 	return nil
 }
 

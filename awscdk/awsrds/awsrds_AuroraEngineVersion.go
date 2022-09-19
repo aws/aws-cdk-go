@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -20,15 +20,12 @@ import (
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
-// Experimental.
 type AuroraEngineVersion interface {
 	// The full version string, for example, "5.6.mysql_aurora.1.78.3.6".
-	// Experimental.
 	AuroraFullVersion() *string
 	// The major version of the engine.
 	//
 	// Currently, it's always "5.6".
-	// Experimental.
 	AuroraMajorVersion() *string
 }
 
@@ -59,7 +56,6 @@ func (j *jsiiProxy_AuroraEngineVersion) AuroraMajorVersion() *string {
 
 
 // Create a new AuroraEngineVersion with an arbitrary version.
-// Experimental.
 func AuroraEngineVersion_Of(auroraFullVersion *string, auroraMajorVersion *string) AuroraEngineVersion {
 	_init_.Initialize()
 
@@ -69,7 +65,7 @@ func AuroraEngineVersion_Of(auroraFullVersion *string, auroraMajorVersion *strin
 	var returns AuroraEngineVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"of",
 		[]interface{}{auroraFullVersion, auroraMajorVersion},
 		&returns,
@@ -82,7 +78,7 @@ func AuroraEngineVersion_VER_1_17_9() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_17_9",
 		&returns,
 	)
@@ -93,7 +89,7 @@ func AuroraEngineVersion_VER_1_19_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_19_0",
 		&returns,
 	)
@@ -104,7 +100,7 @@ func AuroraEngineVersion_VER_1_19_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_19_1",
 		&returns,
 	)
@@ -115,7 +111,7 @@ func AuroraEngineVersion_VER_1_19_2() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_19_2",
 		&returns,
 	)
@@ -126,7 +122,7 @@ func AuroraEngineVersion_VER_1_19_5() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_19_5",
 		&returns,
 	)
@@ -137,7 +133,7 @@ func AuroraEngineVersion_VER_1_19_6() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_19_6",
 		&returns,
 	)
@@ -148,7 +144,7 @@ func AuroraEngineVersion_VER_1_20_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_20_0",
 		&returns,
 	)
@@ -159,7 +155,7 @@ func AuroraEngineVersion_VER_1_20_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_20_1",
 		&returns,
 	)
@@ -170,7 +166,7 @@ func AuroraEngineVersion_VER_1_21_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_21_0",
 		&returns,
 	)
@@ -181,7 +177,7 @@ func AuroraEngineVersion_VER_1_22_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_22_0",
 		&returns,
 	)
@@ -192,7 +188,7 @@ func AuroraEngineVersion_VER_1_22_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_22_1",
 		&returns,
 	)
@@ -203,7 +199,7 @@ func AuroraEngineVersion_VER_1_22_1_3() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_22_1_3",
 		&returns,
 	)
@@ -214,8 +210,41 @@ func AuroraEngineVersion_VER_1_22_2() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_1_22_2",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraEngineVersion_VER_1_22_3() AuroraEngineVersion {
+	_init_.Initialize()
+	var returns AuroraEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"VER_1_22_3",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraEngineVersion_VER_1_22_4() AuroraEngineVersion {
+	_init_.Initialize()
+	var returns AuroraEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"VER_1_22_4",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraEngineVersion_VER_1_22_5() AuroraEngineVersion {
+	_init_.Initialize()
+	var returns AuroraEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"VER_1_22_5",
 		&returns,
 	)
 	return returns
@@ -225,7 +254,7 @@ func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.AuroraEngineVersion",
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
 		"VER_10A",
 		&returns,
 	)

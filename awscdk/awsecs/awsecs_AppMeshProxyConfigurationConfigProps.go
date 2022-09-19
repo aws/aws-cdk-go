@@ -29,13 +29,10 @@ package awsecs
 //   	},
 //   }
 //
-// Experimental.
 type AppMeshProxyConfigurationConfigProps struct {
 	// The name of the container that will serve as the App Mesh proxy.
-	// Experimental.
 	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
 	// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin.
-	// Experimental.
 	Properties *AppMeshProxyConfigurationProps `field:"required" json:"properties" yaml:"properties"`
 }
 

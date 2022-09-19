@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnReplicationConfiguration) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,14 +104,6 @@ func (c *jsiiProxy_CfnReplicationConfiguration) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnReplicationConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnReplicationConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -123,14 +115,6 @@ func (c *jsiiProxy_CfnReplicationConfiguration) validateOverrideLogicalIdParamet
 func (c *jsiiProxy_CfnReplicationConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnReplicationConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -195,7 +179,7 @@ func (j *jsiiProxy_CfnReplicationConfiguration) validateSetReplicationConfigurat
 	return nil
 }
 
-func validateNewCfnReplicationConfigurationParameters(scope awscdk.Construct, id *string, props *CfnReplicationConfigurationProps) error {
+func validateNewCfnReplicationConfigurationParameters(scope constructs.Construct, id *string, props *CfnReplicationConfigurationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

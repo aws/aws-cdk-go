@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
 func (e *jsiiProxy_EmailSubscription) validateBindParameters(_topic awssns.ITopic) error {

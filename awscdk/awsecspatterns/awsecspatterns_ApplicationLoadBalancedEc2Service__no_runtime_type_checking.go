@@ -13,15 +13,7 @@ func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) validateCreateAWSLogDriver
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
-	return nil
-}
-
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) validateGetDefaultClusterParameters(scope constructs.Construct) error {
 	return nil
 }
 

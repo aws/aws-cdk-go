@@ -6,7 +6,7 @@ package awscodestarnotifications
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (i *jsiiProxy_INotificationRuleTarget) validateBindAsNotificationRuleTargetParameters(scope constructs.Construct) error {

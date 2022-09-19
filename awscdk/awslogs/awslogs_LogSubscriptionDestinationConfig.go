@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties returned by a Subscription destination.
@@ -21,13 +21,10 @@ import (
 //   	role: role,
 //   }
 //
-// Experimental.
 type LogSubscriptionDestinationConfig struct {
 	// The ARN of the subscription's destination.
-	// Experimental.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The role to assume to write log events to the destination.
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

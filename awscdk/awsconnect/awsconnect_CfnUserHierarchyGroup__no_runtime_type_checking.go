@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserHierarchyGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnUserHierarchyGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnUserHierarchyGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnUserHierarchyGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) validateSetNameParameters(val *string)
 	return nil
 }
 
-func validateNewCfnUserHierarchyGroupParameters(scope awscdk.Construct, id *string, props *CfnUserHierarchyGroupProps) error {
+func validateNewCfnUserHierarchyGroupParameters(scope constructs.Construct, id *string, props *CfnUserHierarchyGroupProps) error {
 	return nil
 }
 

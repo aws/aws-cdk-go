@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnMicrosoftAD) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftAD) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnMicrosoftAD) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMicrosoftAD) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnMicrosoftAD) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +89,7 @@ func (j *jsiiProxy_CfnMicrosoftAD) validateSetVpcSettingsParameters(val interfac
 	return nil
 }
 
-func validateNewCfnMicrosoftADParameters(scope awscdk.Construct, id *string, props *CfnMicrosoftADProps) error {
+func validateNewCfnMicrosoftADParameters(scope constructs.Construct, id *string, props *CfnMicrosoftADProps) error {
 	return nil
 }
 

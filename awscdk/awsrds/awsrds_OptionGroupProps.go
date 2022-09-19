@@ -95,16 +95,12 @@ package awsrds
 //   	},
 //   })
 //
-// Experimental.
 type OptionGroupProps struct {
 	// The configurations for this option group.
-	// Experimental.
 	Configurations *[]*OptionConfiguration `field:"required" json:"configurations" yaml:"configurations"`
 	// The database engine that this option group is associated with.
-	// Experimental.
 	Engine IInstanceEngine `field:"required" json:"engine" yaml:"engine"`
 	// A description of the option group.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

@@ -6,7 +6,7 @@ package awsappmesh
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (v *jsiiProxy_VirtualServiceProvider) validateBindParameters(_construct constructs.Construct) error {

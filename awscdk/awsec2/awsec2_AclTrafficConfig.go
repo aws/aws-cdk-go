@@ -22,7 +22,6 @@ package awsec2
 //   	},
 //   }
 //
-// Experimental.
 type AclTrafficConfig struct {
 	// The protocol number.
 	//
@@ -36,13 +35,10 @@ type AclTrafficConfig struct {
 	// block, traffic for all ICMP types and codes allowed, regardless of any that
 	// you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR
 	// block, you must specify an ICMP type and code.
-	// Experimental.
 	Protocol *float64 `field:"required" json:"protocol" yaml:"protocol"`
 	// The Internet Control Message Protocol (ICMP) code and type.
-	// Experimental.
 	Icmp *AclIcmp `field:"optional" json:"icmp" yaml:"icmp"`
 	// The range of port numbers for the UDP/TCP protocol.
-	// Experimental.
 	PortRange *AclPortRange `field:"optional" json:"portRange" yaml:"portRange"`
 }
 

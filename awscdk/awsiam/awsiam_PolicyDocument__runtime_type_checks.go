@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func (p *jsiiProxy_PolicyDocument) validateResolveParameters(context awscdk.IResolveContext) error {

@@ -13,13 +13,10 @@ package awsglobalaccelerator
 //   	enabled: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type AcceleratorProps struct {
 	// The name of the accelerator.
-	// Experimental.
 	AcceleratorName *string `field:"optional" json:"acceleratorName" yaml:"acceleratorName"`
 	// Indicates whether the accelerator is enabled.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

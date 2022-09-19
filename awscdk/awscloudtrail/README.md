@@ -81,7 +81,7 @@ The following code filters events for S3 from a specific AWS account and trigger
 ```go
 myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
 	code: lambda.code.fromAsset(jsii.String("resource/myfunction")),
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 })
 
@@ -175,7 +175,7 @@ configures logging of Lambda data events for a specific Function.
 ```go
 trail := cloudtrail.NewTrail(this, jsii.String("MyAmazingCloudTrail"))
 amazingFunction := lambda.NewFunction(this, jsii.String("AnAmazingFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("hello.handler"),
 	code: lambda.code.fromAsset(jsii.String("lambda")),
 })
@@ -183,5 +183,16 @@ amazingFunction := lambda.NewFunction(this, jsii.String("AnAmazingFunction"), &f
 // Add an event selector to log data events for the provided Lambda functions.
 trail.addLambdaEventSelector([]iFunction{
 	amazingFunction,
+})
+```
+
+## Organization Trail
+
+It is possible to create a trail that will be applied to all accounts in an organization if the current account manages an organization.
+To enable this, the property `isOrganizationTrail` must be set. If this property is set and the current account does not manage an organization, the stack will fail to deploy.
+
+```go
+cloudtrail.NewTrail(this, jsii.String("OrganizationTrail"), &trailProps{
+	isOrganizationTrail: jsii.Boolean(true),
 })
 ```

@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Specifies the tags to apply to the launch template during creation.

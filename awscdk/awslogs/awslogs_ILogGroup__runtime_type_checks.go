@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (i *jsiiProxy_ILogGroup) validateAddMetricFilterParameters(id *string, props *MetricFilterOptions) error {

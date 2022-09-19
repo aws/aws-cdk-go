@@ -1,13 +1,13 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CDK Pipeline that uses CodePipeline to deploy CDK apps.
@@ -39,39 +39,31 @@ import (
 //   	cloudAssemblyArtifact: cloudAssemblyArtifact,
 //   })
 //
-// Experimental.
 type CodePipeline interface {
 	PipelineBase
 	// The FileSet tha contains the cloud assembly.
 	//
 	// This is the primary output of the synth step.
-	// Experimental.
 	CloudAssemblyFileSet() FileSet
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The CodePipeline pipeline that deploys the CDK app.
 	//
 	// Only available after the pipeline has been built.
-	// Experimental.
 	Pipeline() awscodepipeline.Pipeline
 	// The build step that produces the CDK Cloud Assembly.
-	// Experimental.
 	Synth() IFileSetProducer
 	// The CodeBuild project that performs the Synth.
 	//
 	// Only available after the pipeline has been built.
-	// Experimental.
 	SynthProject() awscodebuild.IProject
 	// The waves in this pipeline.
-	// Experimental.
 	Waves() *[]Wave
 	// Deploy a single Stage by itself.
 	//
 	// Add a Stage to the pipeline, to be deployed in sequence with other
 	// Stages added to the pipeline. All Stacks in the stage will be deployed
 	// in an order automatically determined by their relative dependencies.
-	// Experimental.
 	AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment
 	// Add a Wave to the pipeline, for deploying multiple Stages in parallel.
 	//
@@ -86,67 +78,15 @@ type CodePipeline interface {
 	// wave.addStage(new MyApplicationStage(this, 'Stage1'));
 	// wave.addStage(new MyApplicationStage(this, 'Stage2'));
 	// ```.
-	// Experimental.
 	AddWave(id *string, options *WaveOptions) Wave
 	// Send the current pipeline definition to the engine, and construct the pipeline.
 	//
 	// It is not possible to modify the pipeline after calling this method.
-	// Experimental.
 	BuildPipeline()
 	// Implemented by subclasses to do the actual pipeline construction.
-	// Experimental.
 	DoBuildPipeline()
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CodePipeline
@@ -164,8 +104,8 @@ func (j *jsiiProxy_CodePipeline) CloudAssemblyFileSet() FileSet {
 	return returns
 }
 
-func (j *jsiiProxy_CodePipeline) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CodePipeline) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -215,7 +155,6 @@ func (j *jsiiProxy_CodePipeline) Waves() *[]Wave {
 }
 
 
-// Experimental.
 func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipelineProps) CodePipeline {
 	_init_.Initialize()
 
@@ -225,7 +164,7 @@ func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipeline
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.CodePipeline",
+		"aws-cdk-lib.pipelines.CodePipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -233,19 +172,33 @@ func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipeline
 	return &j
 }
 
-// Experimental.
 func NewCodePipeline_Override(c CodePipeline, scope constructs.Construct, id *string, props *CodePipelineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.CodePipeline",
+		"aws-cdk-lib.pipelines.CodePipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CodePipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -255,8 +208,29 @@ func CodePipeline_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CodePipeline",
+		"aws-cdk-lib.pipelines.CodePipeline",
 		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object extends {@link PipelineBase}.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func CodePipeline_IsPipeline(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCodePipeline_IsPipelineParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.pipelines.CodePipeline",
+		"isPipeline",
 		[]interface{}{x},
 		&returns,
 	)
@@ -312,76 +286,12 @@ func (c *jsiiProxy_CodePipeline) DoBuildPipeline() {
 	)
 }
 
-func (c *jsiiProxy_CodePipeline) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CodePipeline) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := c.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CodePipeline) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CodePipeline) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CodePipeline) Synthesize(session awscdk.ISynthesisSession) {
-	if err := c.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CodePipeline) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CodePipeline) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

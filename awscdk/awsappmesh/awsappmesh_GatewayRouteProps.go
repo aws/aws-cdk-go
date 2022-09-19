@@ -19,16 +19,12 @@ package awsappmesh
 //   	gatewayRouteName: jsii.String("gatewayRouteName"),
 //   }
 //
-// Experimental.
 type GatewayRouteProps struct {
 	// What protocol the route uses.
-	// Experimental.
 	RouteSpec GatewayRouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the GatewayRoute.
-	// Experimental.
 	GatewayRouteName *string `field:"optional" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 	// The VirtualGateway this GatewayRoute is associated with.
-	// Experimental.
 	VirtualGateway IVirtualGateway `field:"required" json:"virtualGateway" yaml:"virtualGateway"`
 }
 

@@ -6,10 +6,10 @@ package awsecs
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (p *jsiiProxy_ProxyConfiguration) validateBindParameters(_scope awscdk.Construct, _taskDefinition TaskDefinition) error {
+func (p *jsiiProxy_ProxyConfiguration) validateBindParameters(_scope constructs.Construct, _taskDefinition TaskDefinition) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

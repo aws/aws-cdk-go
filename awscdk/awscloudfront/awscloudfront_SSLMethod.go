@@ -41,13 +41,10 @@ package awscloudfront
 //   	}),
 //   })
 //
-// Experimental.
 type SSLMethod string
 
 const (
-	// Experimental.
 	SSLMethod_SNI SSLMethod = "SNI"
-	// Experimental.
 	SSLMethod_VIP SSLMethod = "VIP"
 )
 

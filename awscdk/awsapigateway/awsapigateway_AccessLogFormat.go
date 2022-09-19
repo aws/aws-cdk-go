@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -17,10 +17,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type AccessLogFormat interface {
 	// Output a format string to be used with CloudFormation.
-	// Experimental.
 	ToString() *string
 }
 
@@ -30,14 +28,13 @@ type jsiiProxy_AccessLogFormat struct {
 }
 
 // Generate Common Log Format.
-// Experimental.
 func AccessLogFormat_Clf() AccessLogFormat {
 	_init_.Initialize()
 
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_apigateway.AccessLogFormat",
+		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
 		"clf",
 		nil, // no parameters
 		&returns,
@@ -61,7 +58,6 @@ func AccessLogFormat_Clf() AccessLogFormat {
 //   	},
 //   }))
 //
-// Experimental.
 func AccessLogFormat_Custom(format *string) AccessLogFormat {
 	_init_.Initialize()
 
@@ -71,7 +67,7 @@ func AccessLogFormat_Custom(format *string) AccessLogFormat {
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_apigateway.AccessLogFormat",
+		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
 		"custom",
 		[]interface{}{format},
 		&returns,
@@ -84,7 +80,6 @@ func AccessLogFormat_Custom(format *string) AccessLogFormat {
 //
 // All fields are turned on by default with the
 // option to turn off specific fields.
-// Experimental.
 func AccessLogFormat_JsonWithStandardFields(fields *JsonWithStandardFieldProps) AccessLogFormat {
 	_init_.Initialize()
 
@@ -94,7 +89,7 @@ func AccessLogFormat_JsonWithStandardFields(fields *JsonWithStandardFieldProps) 
 	var returns AccessLogFormat
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_apigateway.AccessLogFormat",
+		"aws-cdk-lib.aws_apigateway.AccessLogFormat",
 		"jsonWithStandardFields",
 		[]interface{}{fields},
 		&returns,

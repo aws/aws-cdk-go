@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateInspectParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateSetCloudWatc
 	return nil
 }
 
-func validateNewCfnApplicationCloudWatchLoggingOptionV2Parameters(scope awscdk.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionV2Props) error {
+func validateNewCfnApplicationCloudWatchLoggingOptionV2Parameters(scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionV2Props) error {
 	return nil
 }
 

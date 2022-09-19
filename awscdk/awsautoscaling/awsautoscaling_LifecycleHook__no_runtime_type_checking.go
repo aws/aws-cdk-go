@@ -17,19 +17,15 @@ func (l *jsiiProxy_LifecycleHook) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
-func (l *jsiiProxy_LifecycleHook) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (l *jsiiProxy_LifecycleHook) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateLifecycleHook_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLifecycleHook_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLifecycleHook_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateLifecycleHook_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

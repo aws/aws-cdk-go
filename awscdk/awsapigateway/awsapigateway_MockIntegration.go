@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -39,7 +39,9 @@ import (
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
+//   	cloudWatchRole: jsii.Boolean(true),
+//   })
 //
 //   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
@@ -68,11 +70,9 @@ import (
 //   	authorizer: authorizer,
 //   })
 //
-// Experimental.
 type MockIntegration interface {
 	Integration
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-	// Experimental.
 	Bind(_method Method) *IntegrationConfig
 }
 
@@ -81,7 +81,6 @@ type jsiiProxy_MockIntegration struct {
 	jsiiProxy_Integration
 }
 
-// Experimental.
 func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	_init_.Initialize()
 
@@ -91,7 +90,7 @@ func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	j := jsiiProxy_MockIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.MockIntegration",
+		"aws-cdk-lib.aws_apigateway.MockIntegration",
 		[]interface{}{options},
 		&j,
 	)
@@ -99,12 +98,11 @@ func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	return &j
 }
 
-// Experimental.
 func NewMockIntegration_Override(m MockIntegration, options *IntegrationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.MockIntegration",
+		"aws-cdk-lib.aws_apigateway.MockIntegration",
 		[]interface{}{options},
 		m,
 	)

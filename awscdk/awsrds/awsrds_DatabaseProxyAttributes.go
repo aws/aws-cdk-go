@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Properties that describe an existing DB Proxy.
@@ -23,19 +23,14 @@ import (
 //   	},
 //   }
 //
-// Experimental.
 type DatabaseProxyAttributes struct {
 	// DB Proxy ARN.
-	// Experimental.
 	DbProxyArn *string `field:"required" json:"dbProxyArn" yaml:"dbProxyArn"`
 	// DB Proxy Name.
-	// Experimental.
 	DbProxyName *string `field:"required" json:"dbProxyName" yaml:"dbProxyName"`
 	// Endpoint.
-	// Experimental.
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The security groups of the instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"required" json:"securityGroups" yaml:"securityGroups"`
 }
 

@@ -2,7 +2,6 @@ package awsecs
 
 
 // The interface of a task definition run on an EC2 cluster.
-// Experimental.
 type IEc2TaskDefinition interface {
 	ITaskDefinition
 }

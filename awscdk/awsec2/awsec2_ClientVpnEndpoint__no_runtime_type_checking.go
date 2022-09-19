@@ -25,14 +25,6 @@ func (c *jsiiProxy_ClientVpnEndpoint) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (c *jsiiProxy_ClientVpnEndpoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_ClientVpnEndpoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateClientVpnEndpoint_FromEndpointAttributesParameters(scope constructs.Construct, id *string, attrs *ClientVpnEndpointAttributes) error {
 	return nil
 }
@@ -41,7 +33,11 @@ func validateClientVpnEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateClientVpnEndpoint_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateClientVpnEndpoint_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateClientVpnEndpoint_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

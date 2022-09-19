@@ -25,14 +25,6 @@ func (e *jsiiProxy_EndpointGroup) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
-func (e *jsiiProxy_EndpointGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (e *jsiiProxy_EndpointGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateEndpointGroup_FromEndpointGroupArnParameters(scope constructs.Construct, id *string, endpointGroupArn *string) error {
 	return nil
 }
@@ -41,7 +33,11 @@ func validateEndpointGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEndpointGroup_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateEndpointGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateEndpointGroup_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

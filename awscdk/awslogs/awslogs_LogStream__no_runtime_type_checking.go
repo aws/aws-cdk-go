@@ -17,14 +17,6 @@ func (l *jsiiProxy_LogStream) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
-func (l *jsiiProxy_LogStream) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (l *jsiiProxy_LogStream) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateLogStream_FromLogStreamNameParameters(scope constructs.Construct, id *string, logStreamName *string) error {
 	return nil
 }
@@ -33,7 +25,11 @@ func validateLogStream_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLogStream_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLogStream_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateLogStream_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
