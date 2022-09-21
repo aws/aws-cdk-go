@@ -20,9 +20,11 @@ import (
 //
 //   cfnDestination := awscdk.Aws_logs.NewCfnDestination(this, jsii.String("MyCfnDestination"), &cfnDestinationProps{
 //   	destinationName: jsii.String("destinationName"),
-//   	destinationPolicy: jsii.String("destinationPolicy"),
 //   	roleArn: jsii.String("roleArn"),
 //   	targetArn: jsii.String("targetArn"),
+//
+//   	// the properties below are optional
+//   	destinationPolicy: jsii.String("destinationPolicy"),
 //   })
 //
 type CfnDestination interface {
@@ -393,9 +395,6 @@ func (j *jsiiProxy_CfnDestination)SetDestinationName(val *string) {
 }
 
 func (j *jsiiProxy_CfnDestination)SetDestinationPolicy(val *string) {
-	if err := j.validateSetDestinationPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"destinationPolicy",

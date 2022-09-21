@@ -15,6 +15,10 @@ import (
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	appConfigResource: &appConfigResourceObjectProperty{
+//   		applicationId: jsii.String("applicationId"),
+//   		environmentId: jsii.String("environmentId"),
+//   	},
 //   	dataDelivery: &dataDeliveryObjectProperty{
 //   		logGroup: jsii.String("logGroup"),
 //   		s3: &s3DestinationProperty{
@@ -38,6 +42,8 @@ type CfnProjectProps struct {
 	//
 	// It can include up to 127 characters.
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// `AWS::Evidently::Project.AppConfigResource`.
+	AppConfigResource interface{} `field:"optional" json:"appConfigResource" yaml:"appConfigResource"`
 	// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so.
 	//
 	// If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.

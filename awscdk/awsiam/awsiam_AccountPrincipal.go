@@ -22,7 +22,7 @@ import (
 //
 type AccountPrincipal interface {
 	ArnPrincipal
-	// AWS account ID (i.e. 123456789012).
+	// AWS account ID (i.e. '123456789012').
 	AccountId() interface{}
 	// Amazon Resource Name (ARN) of the principal entity (i.e. arn:aws:iam::123456789012:user/user-name).
 	Arn() *string

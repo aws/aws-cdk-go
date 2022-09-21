@@ -77,6 +77,10 @@ func (j *jsiiProxy_CfnCACertificate) validateSetRegistrationConfigParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnCACertificate) validateSetRemoveAutoRegistrationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCACertificate) validateSetStatusParameters(val *string) error {
 	return nil
 }

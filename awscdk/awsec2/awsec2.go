@@ -4420,6 +4420,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpnConnectionId", GoGetter: "AttrVpnConnectionId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -4982,6 +4983,14 @@ func init() {
 		map[string]interface{}{
 			"PLAIN_TEXT": FlowLogFileFormat_PLAIN_TEXT,
 			"PARQUET": FlowLogFileFormat_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval",
+		reflect.TypeOf((*FlowLogMaxAggregationInterval)(nil)).Elem(),
+		map[string]interface{}{
+			"ONE_MINUTE": FlowLogMaxAggregationInterval_ONE_MINUTE,
+			"TEN_MINUTES": FlowLogMaxAggregationInterval_TEN_MINUTES,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -7028,6 +7037,38 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_VpnConnection{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_VpnConnectionBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.VpnConnectionAttributes",
+		reflect.TypeOf((*VpnConnectionAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.VpnConnectionBase",
+		reflect.TypeOf((*VpnConnectionBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "customerGatewayAsn", GoGetter: "CustomerGatewayAsn"},
+			_jsii_.MemberProperty{JsiiProperty: "customerGatewayId", GoGetter: "CustomerGatewayId"},
+			_jsii_.MemberProperty{JsiiProperty: "customerGatewayIp", GoGetter: "CustomerGatewayIp"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTunnelDataIn", GoMethod: "MetricTunnelDataIn"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTunnelDataOut", GoMethod: "MetricTunnelDataOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTunnelState", GoMethod: "MetricTunnelState"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "vpnId", GoGetter: "VpnId"},
+		},
+		func() interface{} {
+			j := jsiiProxy_VpnConnectionBase{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpnConnection)
 			return &j

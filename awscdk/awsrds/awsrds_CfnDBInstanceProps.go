@@ -26,6 +26,7 @@ import (
 //   	caCertificateIdentifier: jsii.String("caCertificateIdentifier"),
 //   	characterSetName: jsii.String("characterSetName"),
 //   	copyTagsToSnapshot: jsii.Boolean(false),
+//   	customIamInstanceProfile: jsii.String("customIamInstanceProfile"),
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //   	dbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
@@ -56,6 +57,7 @@ import (
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
 //   	multiAz: jsii.Boolean(false),
+//   	ncharCharacterSetName: jsii.String("ncharCharacterSetName"),
 //   	optionGroupName: jsii.String("optionGroupName"),
 //   	performanceInsightsKmsKeyId: jsii.String("performanceInsightsKmsKeyId"),
 //   	performanceInsightsRetentionPeriod: jsii.Number(123),
@@ -212,6 +214,8 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
+	// `AWS::RDS::DBInstance.CustomIAMInstanceProfile`.
+	CustomIamInstanceProfile *string `field:"optional" json:"customIamInstanceProfile" yaml:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -630,6 +634,8 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
+	// `AWS::RDS::DBInstance.NcharCharacterSetName`.
+	NcharCharacterSetName *string `field:"optional" json:"ncharCharacterSetName" yaml:"ncharCharacterSetName"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	//
 	// Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.

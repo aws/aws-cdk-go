@@ -1549,8 +1549,10 @@ vpc.addFlowLog(jsii.String("FlowLogS3"), &flowLogOptions{
 	destination: ec2.flowLogDestination.toS3(),
 })
 
+// Only reject traffic and interval every minute.
 vpc.addFlowLog(jsii.String("FlowLogCloudWatch"), &flowLogOptions{
 	trafficType: ec2.flowLogTrafficType_REJECT,
+	maxAggregationInterval: flowLogMaxAggregationInterval_ONE_MINUTE,
 })
 ```
 

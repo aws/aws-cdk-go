@@ -33,6 +33,10 @@ func (v *jsiiProxy_VpnConnection) validateMetricTunnelStateParameters(props *aws
 	return nil
 }
 
+func validateVpnConnection_FromVpnConnectionAttributesParameters(scope constructs.Construct, id *string, attrs *VpnConnectionAttributes) error {
+	return nil
+}
+
 func validateVpnConnection_IsConstructParameters(x interface{}) error {
 	return nil
 }

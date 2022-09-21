@@ -69,6 +69,10 @@ func validateCfnProject_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetAppConfigResourceParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProject) validateSetDataDeliveryParameters(val interface{}) error {
 	return nil
 }

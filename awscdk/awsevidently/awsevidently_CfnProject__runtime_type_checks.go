@@ -152,6 +152,30 @@ func validateCfnProject_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetAppConfigResourceParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnProject_AppConfigResourceObjectProperty:
+		val := val.(*CfnProject_AppConfigResourceObjectProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnProject_AppConfigResourceObjectProperty:
+		val_ := val.(CfnProject_AppConfigResourceObjectProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnProject_AppConfigResourceObjectProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnProject) validateSetDataDeliveryParameters(val interface{}) error {
 	switch val.(type) {
 	case *CfnProject_DataDeliveryObjectProperty:

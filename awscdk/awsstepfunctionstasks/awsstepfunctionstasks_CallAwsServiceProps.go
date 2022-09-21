@@ -2,23 +2,29 @@ package awsstepfunctionstasks
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
 
 // Properties for calling an AWS service's API action from your state machine.
 //
 // Example:
-//   var myBucket bucket
-//
-//   getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &callAwsServiceProps{
-//   	service: jsii.String("s3"),
-//   	action: jsii.String("getObject"),
-//   	parameters: map[string]interface{}{
-//   		"Bucket": myBucket.bucketName,
-//   		"Key": sfn.JsonPath.stringAt(jsii.String("$.key")),
-//   	},
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   detectLabels := tasks.NewCallAwsService(stack, jsii.String("DetectLabels"), &callAwsServiceProps{
+//   	service: jsii.String("rekognition"),
+//   	action: jsii.String("detectLabels"),
 //   	iamResources: []*string{
-//   		myBucket.arnForObjects(jsii.String("*")),
+//   		jsii.String("*"),
+//   	},
+//   	additionalIamStatements: []policyStatement{
+//   		iam.NewPolicyStatement(&policyStatementProps{
+//   			actions: []*string{
+//   				jsii.String("s3:getObject"),
+//   			},
+//   			resources: []*string{
+//   				jsii.String("arn:aws:s3:::my-bucket/*"),
+//   			},
+//   		}),
 //   	},
 //   })
 //
@@ -71,6 +77,12 @@ type CallAwsServiceProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html
 	//
 	Service *string `field:"required" json:"service" yaml:"service"`
+	// Additional IAM statements that will be added to the state machine role's policy.
+	//
+	// Use in the case where the call requires more than a single statement to
+	// be executed, e.g. `rekognition:detectLabels` requires also S3 permissions
+	// to read the object on which it must act.
+	AdditionalIamStatements *[]awsiam.PolicyStatement `field:"optional" json:"additionalIamStatements" yaml:"additionalIamStatements"`
 	// The action for the IAM statement that will be added to the state machine role's policy to allow the state machine to make the API call.
 	//
 	// Use in the case where the IAM action name does not match with the

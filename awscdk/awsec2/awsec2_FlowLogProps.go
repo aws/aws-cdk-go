@@ -24,6 +24,8 @@ type FlowLogProps struct {
 	//
 	// Flow log data can be published to CloudWatch Logs or Amazon S3.
 	Destination FlowLogDestination `field:"optional" json:"destination" yaml:"destination"`
+	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+	MaxAggregationInterval FlowLogMaxAggregationInterval `field:"optional" json:"maxAggregationInterval" yaml:"maxAggregationInterval"`
 	// The type of traffic to log.
 	//
 	// You can log traffic that the resource accepts or rejects, or all traffic.

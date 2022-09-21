@@ -6,7 +6,6 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,8 +22,7 @@ import (
 //   state := vpnConnection.metricTunnelState()
 //
 type VpnConnection interface {
-	awscdk.Resource
-	IVpnConnection
+	VpnConnectionBase
 	// The ASN of the customer gateway.
 	CustomerGatewayAsn() *float64
 	// The id of the customer gateway.
@@ -98,8 +96,7 @@ type VpnConnection interface {
 
 // The jsii proxy struct for VpnConnection
 type jsiiProxy_VpnConnection struct {
-	internal.Type__awscdkResource
-	jsiiProxy_IVpnConnection
+	jsiiProxy_VpnConnectionBase
 }
 
 func (j *jsiiProxy_VpnConnection) CustomerGatewayAsn() *float64 {
@@ -208,6 +205,25 @@ func NewVpnConnection_Override(v VpnConnection, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		v,
 	)
+}
+
+// Import a VPN connection by supplying all attributes directly.
+func VpnConnection_FromVpnConnectionAttributes(scope constructs.Construct, id *string, attrs *VpnConnectionAttributes) IVpnConnection {
+	_init_.Initialize()
+
+	if err := validateVpnConnection_FromVpnConnectionAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns IVpnConnection
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.VpnConnection",
+		"fromVpnConnectionAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

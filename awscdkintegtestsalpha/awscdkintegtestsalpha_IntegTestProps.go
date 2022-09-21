@@ -63,5 +63,13 @@ type IntegTestProps struct {
 	// List of test cases that make up this test.
 	// Experimental.
 	TestCases *[]awscdk.Stack `field:"required" json:"testCases" yaml:"testCases"`
+	// Enable lookups for this test.
+	//
+	// If lookups are enabled
+	// then `stackUpdateWorkflow` must be set to false.
+	// Lookups should only be enabled when you are explicitely testing
+	// lookups.
+	// Experimental.
+	EnableLookups *bool `field:"optional" json:"enableLookups" yaml:"enableLookups"`
 }
 

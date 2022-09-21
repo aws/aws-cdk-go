@@ -23,6 +23,7 @@ import (
 //   		templateBody: jsii.String("templateBody"),
 //   		templateName: jsii.String("templateName"),
 //   	},
+//   	removeAutoRegistration: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -43,6 +44,8 @@ type CfnCACertificateProps struct {
 	CertificateMode *string `field:"optional" json:"certificateMode" yaml:"certificateMode"`
 	// `AWS::IoT::CACertificate.RegistrationConfig`.
 	RegistrationConfig interface{} `field:"optional" json:"registrationConfig" yaml:"registrationConfig"`
+	// `AWS::IoT::CACertificate.RemoveAutoRegistration`.
+	RemoveAutoRegistration interface{} `field:"optional" json:"removeAutoRegistration" yaml:"removeAutoRegistration"`
 	// `AWS::IoT::CACertificate.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::IoT::CACertificate.VerificationCertificatePem`.

@@ -430,3 +430,14 @@ func MysqlEngineVersion_VER_8_0_28() MysqlEngineVersion {
 	return returns
 }
 
+func MysqlEngineVersion_VER_8_0_30() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_8_0_30",
+		&returns,
+	)
+	return returns
+}
+

@@ -27,6 +27,7 @@ package awsmediapackage
 //
 //   	// the properties below are optional
 //   	constantInitializationVector: jsii.String("constantInitializationVector"),
+//   	encryptionMethod: jsii.String("encryptionMethod"),
 //   	keyRotationIntervalSeconds: jsii.Number(123),
 //   }
 //
@@ -37,6 +38,8 @@ type CfnOriginEndpoint_CmafEncryptionProperty struct {
 	//
 	// If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 	ConstantInitializationVector *string `field:"optional" json:"constantInitializationVector" yaml:"constantInitializationVector"`
+	// `CfnOriginEndpoint.CmafEncryptionProperty.EncryptionMethod`.
+	EncryptionMethod *string `field:"optional" json:"encryptionMethod" yaml:"encryptionMethod"`
 	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
 	//
 	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.

@@ -234,6 +234,31 @@ listBuckets := tasks.NewCallAwsService(this, jsii.String("ListBuckets"), &callAw
 })
 ```
 
+Use the `additionalIamStatements` prop to pass additional IAM statements that will be added to the
+state machine role's policy. Use it in the case where the call requires more than a single statement
+to be executed:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+detectLabels := tasks.NewCallAwsService(stack, jsii.String("DetectLabels"), &callAwsServiceProps{
+	service: jsii.String("rekognition"),
+	action: jsii.String("detectLabels"),
+	iamResources: []*string{
+		jsii.String("*"),
+	},
+	additionalIamStatements: []policyStatement{
+		iam.NewPolicyStatement(&policyStatementProps{
+			actions: []*string{
+				jsii.String("s3:getObject"),
+			},
+			resources: []*string{
+				jsii.String("arn:aws:s3:::my-bucket/*"),
+			},
+		}),
+	},
+})
+```
+
 ## Athena
 
 Step Functions supports [Athena](https://docs.aws.amazon.com/step-functions/latest/dg/connect-athena.html) through the service integration pattern.

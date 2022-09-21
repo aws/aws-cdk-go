@@ -22,6 +22,10 @@ import (
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	appConfigResource: &appConfigResourceObjectProperty{
+//   		applicationId: jsii.String("applicationId"),
+//   		environmentId: jsii.String("environmentId"),
+//   	},
 //   	dataDelivery: &dataDeliveryObjectProperty{
 //   		logGroup: jsii.String("logGroup"),
 //   		s3: &s3DestinationProperty{
@@ -43,6 +47,9 @@ import (
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// `AWS::Evidently::Project.AppConfigResource`.
+	AppConfigResource() interface{}
+	SetAppConfigResource(val interface{})
 	// The ARN of the project.
 	//
 	// For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`.
@@ -231,6 +238,16 @@ type jsiiProxy_CfnProject struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnProject) AppConfigResource() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"appConfigResource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -408,6 +425,17 @@ func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_evidently.CfnProject",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetAppConfigResource(val interface{}) {
+	if err := j.validateSetAppConfigResourceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"appConfigResource",
+		val,
 	)
 }
 

@@ -40,6 +40,7 @@ import (
 //
 //   			// the properties below are optional
 //   			constantInitializationVector: jsii.String("constantInitializationVector"),
+//   			encryptionMethod: jsii.String("encryptionMethod"),
 //   			keyRotationIntervalSeconds: jsii.Number(123),
 //   		},
 //   		hlsManifests: []interface{}{

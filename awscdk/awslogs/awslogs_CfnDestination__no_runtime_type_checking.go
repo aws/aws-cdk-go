@@ -73,10 +73,6 @@ func (j *jsiiProxy_CfnDestination) validateSetDestinationNameParameters(val *str
 	return nil
 }
 
-func (j *jsiiProxy_CfnDestination) validateSetDestinationPolicyParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDestination) validateSetRoleArnParameters(val *string) error {
 	return nil
 }

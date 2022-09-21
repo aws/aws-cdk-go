@@ -63,6 +63,7 @@ import (
 //   	caCertificateIdentifier: jsii.String("caCertificateIdentifier"),
 //   	characterSetName: jsii.String("characterSetName"),
 //   	copyTagsToSnapshot: jsii.Boolean(false),
+//   	customIamInstanceProfile: jsii.String("customIamInstanceProfile"),
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //   	dbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
@@ -93,6 +94,7 @@ import (
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
 //   	multiAz: jsii.Boolean(false),
+//   	ncharCharacterSetName: jsii.String("ncharCharacterSetName"),
 //   	optionGroupName: jsii.String("optionGroupName"),
 //   	performanceInsightsKmsKeyId: jsii.String("performanceInsightsKmsKeyId"),
 //   	performanceInsightsRetentionPeriod: jsii.Number(123),
@@ -278,6 +280,9 @@ type CfnDBInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::RDS::DBInstance.CustomIAMInstanceProfile`.
+	CustomIamInstanceProfile() *string
+	SetCustomIamInstanceProfile(val *string)
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
@@ -732,6 +737,9 @@ type CfnDBInstance interface {
 	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
+	// `AWS::RDS::DBInstance.NcharCharacterSetName`.
+	NcharCharacterSetName() *string
+	SetNcharCharacterSetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Indicates that the DB instance should be associated with the specified option group.
@@ -1196,6 +1204,16 @@ func (j *jsiiProxy_CfnDBInstance) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) CustomIamInstanceProfile() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"customIamInstanceProfile",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) DbClusterIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1461,6 +1479,16 @@ func (j *jsiiProxy_CfnDBInstance) MultiAz() interface{} {
 	_jsii_.Get(
 		j,
 		"multiAz",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) NcharCharacterSetName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ncharCharacterSetName",
 		&returns,
 	)
 	return returns
@@ -1800,6 +1828,14 @@ func (j *jsiiProxy_CfnDBInstance)SetCopyTagsToSnapshot(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBInstance)SetCustomIamInstanceProfile(val *string) {
+	_jsii_.Set(
+		j,
+		"customIamInstanceProfile",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBInstance)SetDbClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
@@ -2019,6 +2055,14 @@ func (j *jsiiProxy_CfnDBInstance)SetMultiAz(val interface{}) {
 	_jsii_.Set(
 		j,
 		"multiAz",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetNcharCharacterSetName(val *string) {
+	_jsii_.Set(
+		j,
+		"ncharCharacterSetName",
 		val,
 	)
 }

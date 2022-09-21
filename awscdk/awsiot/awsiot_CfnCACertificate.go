@@ -28,6 +28,7 @@ import (
 //   		templateBody: jsii.String("templateBody"),
 //   		templateName: jsii.String("templateName"),
 //   	},
+//   	removeAutoRegistration: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -80,6 +81,9 @@ type CfnCACertificate interface {
 	// `AWS::IoT::CACertificate.RegistrationConfig`.
 	RegistrationConfig() interface{}
 	SetRegistrationConfig(val interface{})
+	// `AWS::IoT::CACertificate.RemoveAutoRegistration`.
+	RemoveAutoRegistration() interface{}
+	SetRemoveAutoRegistration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -351,6 +355,16 @@ func (j *jsiiProxy_CfnCACertificate) RegistrationConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCACertificate) RemoveAutoRegistration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"removeAutoRegistration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCACertificate) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -475,6 +489,17 @@ func (j *jsiiProxy_CfnCACertificate)SetRegistrationConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"registrationConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCACertificate)SetRemoveAutoRegistration(val interface{}) {
+	if err := j.validateSetRemoveAutoRegistrationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"removeAutoRegistration",
 		val,
 	)
 }

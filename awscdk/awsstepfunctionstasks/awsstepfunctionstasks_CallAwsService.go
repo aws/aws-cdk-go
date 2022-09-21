@@ -14,17 +14,22 @@ import (
 // A StepFunctions task to call an AWS service API.
 //
 // Example:
-//   var myBucket bucket
-//
-//   getObject := tasks.NewCallAwsService(this, jsii.String("GetObject"), &callAwsServiceProps{
-//   	service: jsii.String("s3"),
-//   	action: jsii.String("getObject"),
-//   	parameters: map[string]interface{}{
-//   		"Bucket": myBucket.bucketName,
-//   		"Key": sfn.JsonPath.stringAt(jsii.String("$.key")),
-//   	},
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   detectLabels := tasks.NewCallAwsService(stack, jsii.String("DetectLabels"), &callAwsServiceProps{
+//   	service: jsii.String("rekognition"),
+//   	action: jsii.String("detectLabels"),
 //   	iamResources: []*string{
-//   		myBucket.arnForObjects(jsii.String("*")),
+//   		jsii.String("*"),
+//   	},
+//   	additionalIamStatements: []policyStatement{
+//   		iam.NewPolicyStatement(&policyStatementProps{
+//   			actions: []*string{
+//   				jsii.String("s3:getObject"),
+//   			},
+//   			resources: []*string{
+//   				jsii.String("arn:aws:s3:::my-bucket/*"),
+//   			},
+//   		}),
 //   	},
 //   })
 //
