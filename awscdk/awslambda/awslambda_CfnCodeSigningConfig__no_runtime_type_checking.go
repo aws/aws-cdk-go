@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnCodeSigningConfig) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnCodeSigningConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCodeSigningConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCodeSigningConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCodeSigningConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnCodeSigningConfig) validateSetCodeSigningPoliciesParameter
 	return nil
 }
 
-func validateNewCfnCodeSigningConfigParameters(scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) error {
+func validateNewCfnCodeSigningConfigParameters(scope awscdk.Construct, id *string, props *CfnCodeSigningConfigProps) error {
 	return nil
 }
 

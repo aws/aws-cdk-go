@@ -13,10 +13,13 @@ package awsstepfunctionstasks
 //   	regex: jsii.String("regex"),
 //   }
 //
+// Experimental.
 type MetricDefinition struct {
 	// Name of the metric.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Regular expression that searches the output of a training job and gets the value of the metric.
+	// Experimental.
 	Regex *string `field:"required" json:"regex" yaml:"regex"`
 }
 

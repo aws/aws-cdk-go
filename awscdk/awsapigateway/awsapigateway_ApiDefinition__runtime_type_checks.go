@@ -8,12 +8,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
-func (a *jsiiProxy_ApiDefinition) validateBindParameters(scope constructs.Construct) error {
+func (a *jsiiProxy_ApiDefinition) validateBindParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -21,7 +21,7 @@ func (a *jsiiProxy_ApiDefinition) validateBindParameters(scope constructs.Constr
 	return nil
 }
 
-func (a *jsiiProxy_ApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi IRestApi) error {
+func (a *jsiiProxy_ApiDefinition) validateBindAfterCreateParameters(_scope awscdk.Construct, _restApi IRestApi) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

@@ -5,7 +5,9 @@ import (
 )
 
 // Interface for objects that can render themselves to log patterns.
+// Experimental.
 type IFilterPattern interface {
+	// Experimental.
 	LogPatternString() *string
 }
 

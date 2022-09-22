@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateInspectParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +93,7 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateSetTransitGateway
 	return nil
 }
 
-func validateNewCfnTransitGatewayPeeringAttachmentParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) error {
+func validateNewCfnTransitGatewayPeeringAttachmentParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) error {
 	return nil
 }
 

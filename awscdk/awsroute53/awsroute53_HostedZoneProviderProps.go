@@ -32,15 +32,19 @@ package awsroute53
 //   	target: route53.recordTarget.fromAlias(targets.NewBucketWebsiteTarget(bucketWebsite)),
 //   })
 //
+// Experimental.
 type HostedZoneProviderProps struct {
 	// The zone domain e.g. example.com.
+	// Experimental.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Whether the zone that is being looked up is a private hosted zone.
+	// Experimental.
 	PrivateZone *bool `field:"optional" json:"privateZone" yaml:"privateZone"`
 	// Specifies the ID of the VPC associated with a private hosted zone.
 	//
 	// If a VPC ID is provided and privateZone is false, no results will be returned
 	// and an error will be raised.
+	// Experimental.
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

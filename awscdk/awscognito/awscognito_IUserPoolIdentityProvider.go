@@ -3,14 +3,16 @@ package awscognito
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscognito/internal"
 )
 
 // Represents a UserPoolIdentityProvider.
+// Experimental.
 type IUserPoolIdentityProvider interface {
 	awscdk.IResource
 	// The primary identifier of this identity provider.
+	// Experimental.
 	ProviderName() *string
 }
 

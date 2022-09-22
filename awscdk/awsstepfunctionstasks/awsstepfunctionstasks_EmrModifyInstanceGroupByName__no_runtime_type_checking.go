@@ -85,6 +85,14 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateNextParameters(next aws
 	return nil
 }
 
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

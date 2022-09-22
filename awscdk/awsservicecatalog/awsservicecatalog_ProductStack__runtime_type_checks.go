@@ -8,14 +8,37 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (p *jsiiProxy_ProductStack) validateAddDependencyParameters(target awscdk.Stack) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateAddDockerImageAssetParameters(asset *awscdk.DockerImageAssetSource) error {
+	if asset == nil {
+		return fmt.Errorf("parameter asset is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateAddFileAssetParameters(asset *awscdk.FileAssetSource) error {
+	if asset == nil {
+		return fmt.Errorf("parameter asset is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
+		return err
 	}
 
 	return nil
@@ -68,6 +91,34 @@ func (p *jsiiProxy_ProductStack) validateGetLogicalIdParameters(element awscdk.C
 	return nil
 }
 
+func (p *jsiiProxy_ProductStack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateParseArnParameters(arn *string) error {
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validatePrepareCrossReferenceParameters(_sourceStack awscdk.Stack, reference awscdk.Reference) error {
+	if _sourceStack == nil {
+		return fmt.Errorf("parameter _sourceStack is required, but nil was provided")
+	}
+
+	if reference == nil {
+		return fmt.Errorf("parameter reference is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_ProductStack) validateRegionalFactParameters(factName *string) error {
 	if factName == nil {
 		return fmt.Errorf("parameter factName is required, but nil was provided")
@@ -83,6 +134,17 @@ func (p *jsiiProxy_ProductStack) validateRenameLogicalIdParameters(oldId *string
 
 	if newId == nil {
 		return fmt.Errorf("parameter newId is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
+	if report == nil {
+		return fmt.Errorf("parameter report is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(report, func() string { return "parameter report" }); err != nil {
+		return err
 	}
 
 	return nil
@@ -114,6 +176,14 @@ func (p *jsiiProxy_ProductStack) validateSplitArnParameters(arn *string, arnForm
 
 	if arnFormat == "" {
 		return fmt.Errorf("parameter arnFormat is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

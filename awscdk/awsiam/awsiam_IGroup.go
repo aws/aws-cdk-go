@@ -7,11 +7,14 @@ import (
 // Represents an IAM Group.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html
 //
+// Experimental.
 type IGroup interface {
 	IIdentity
 	// Returns the IAM Group ARN.
+	// Experimental.
 	GroupArn() *string
 	// Returns the IAM Group Name.
+	// Experimental.
 	GroupName() *string
 }
 

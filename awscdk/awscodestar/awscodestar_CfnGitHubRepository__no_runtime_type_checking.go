@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnGitHubRepository) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnGitHubRepository) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGitHubRepository) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGitHubRepository) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGitHubRepository) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +97,7 @@ func (j *jsiiProxy_CfnGitHubRepository) validateSetRepositoryOwnerParameters(val
 	return nil
 }
 
-func validateNewCfnGitHubRepositoryParameters(scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) error {
+func validateNewCfnGitHubRepositoryParameters(scope awscdk.Construct, id *string, props *CfnGitHubRepositoryProps) error {
 	return nil
 }
 

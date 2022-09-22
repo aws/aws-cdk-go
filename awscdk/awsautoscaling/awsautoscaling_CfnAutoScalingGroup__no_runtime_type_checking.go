@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnAutoScalingGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAutoScalingGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAutoScalingGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -105,7 +113,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 	return nil
 }
 
-func validateNewCfnAutoScalingGroupParameters(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) error {
+func validateNewCfnAutoScalingGroupParameters(scope awscdk.Construct, id *string, props *CfnAutoScalingGroupProps) error {
 	return nil
 }
 

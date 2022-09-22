@@ -17,15 +17,19 @@ func (f *jsiiProxy_FileSystemBase) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func (f *jsiiProxy_FileSystemBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (f *jsiiProxy_FileSystemBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateFileSystemBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFileSystemBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateFileSystemBase_IsResourceParameters(construct constructs.IConstruct) error {
+func validateFileSystemBase_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

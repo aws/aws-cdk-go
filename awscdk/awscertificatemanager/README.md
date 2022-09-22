@@ -122,17 +122,6 @@ acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &privateCerti
 })
 ```
 
-## Requesting certificates without transparency logging
-
-Transparency logging can be opted out of for AWS Certificate Manager certificates. See [opting out of certifiacte transparency logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency) for limits.
-
-```go
-acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
-	domainName: jsii.String("test.example.com"),
-	transparencyLoggingEnabled: jsii.Boolean(false),
-})
-```
-
 ## Importing
 
 If you want to import an existing certificate, you can do so from its ARN:

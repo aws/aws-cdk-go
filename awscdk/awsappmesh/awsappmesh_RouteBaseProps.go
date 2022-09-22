@@ -4,7 +4,6 @@ package awsappmesh
 // Base interface properties for all Routes.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -33,10 +32,13 @@ package awsappmesh
 //   	}),
 //   })
 //
+// Experimental.
 type RouteBaseProps struct {
 	// Protocol specific spec.
+	// Experimental.
 	RouteSpec RouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the route.
+	// Experimental.
 	RouteName *string `field:"optional" json:"routeName" yaml:"routeName"`
 }
 

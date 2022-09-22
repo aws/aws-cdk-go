@@ -11,10 +11,13 @@ package awscodedeploy
 //   	minimumHealthyHosts: codedeploy.minimumHealthyHosts.count(jsii.Number(2)),
 //   })
 //
+// Experimental.
 type ServerDeploymentConfigProps struct {
 	// Minimum number of healthy hosts.
+	// Experimental.
 	MinimumHealthyHosts MinimumHealthyHosts `field:"required" json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
 	// The physical, human-readable name of the Deployment Configuration.
+	// Experimental.
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 

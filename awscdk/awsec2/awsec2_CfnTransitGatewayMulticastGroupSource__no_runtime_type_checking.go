@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateInspectParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +89,7 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateSetTransitGate
 	return nil
 }
 
-func validateNewCfnTransitGatewayMulticastGroupSourceParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) error {
+func validateNewCfnTransitGatewayMulticastGroupSourceParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) error {
 	return nil
 }
 

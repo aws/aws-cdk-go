@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) validateInspectParameters(inspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnDomainNameApiAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDomainNameApiAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDomainNameApiAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDomainNameApiAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnDomainNameApiAssociation) validateSetDomainNameParameters(
 	return nil
 }
 
-func validateNewCfnDomainNameApiAssociationParameters(scope constructs.Construct, id *string, props *CfnDomainNameApiAssociationProps) error {
+func validateNewCfnDomainNameApiAssociationParameters(scope awscdk.Construct, id *string, props *CfnDomainNameApiAssociationProps) error {
 	return nil
 }
 

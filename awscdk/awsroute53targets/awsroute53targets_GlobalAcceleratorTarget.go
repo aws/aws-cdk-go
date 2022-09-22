@@ -1,11 +1,11 @@
 package awsroute53targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 // Use a Global Accelerator instance domain name as an alias record target.
@@ -22,9 +22,11 @@ import (
 //   	target: route53.recordTarget.fromAlias(targets.NewGlobalAcceleratorTarget(accelerator)),
 //   })
 //
+// Experimental.
 type GlobalAcceleratorTarget interface {
 	GlobalAcceleratorDomainTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
+	// Experimental.
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
@@ -34,6 +36,7 @@ type jsiiProxy_GlobalAcceleratorTarget struct {
 }
 
 // Create an Alias Target for a Global Accelerator instance.
+// Experimental.
 func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) GlobalAcceleratorTarget {
 	_init_.Initialize()
 
@@ -43,7 +46,7 @@ func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) G
 	j := jsiiProxy_GlobalAcceleratorTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
+		"monocdk.aws_route53_targets.GlobalAcceleratorTarget",
 		[]interface{}{accelerator},
 		&j,
 	)
@@ -52,11 +55,12 @@ func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) G
 }
 
 // Create an Alias Target for a Global Accelerator instance.
+// Experimental.
 func NewGlobalAcceleratorTarget_Override(g GlobalAcceleratorTarget, accelerator awsglobalaccelerator.IAccelerator) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
+		"monocdk.aws_route53_targets.GlobalAcceleratorTarget",
 		[]interface{}{accelerator},
 		g,
 	)
@@ -66,7 +70,7 @@ func GlobalAcceleratorTarget_GLOBAL_ACCELERATOR_ZONE_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
+		"monocdk.aws_route53_targets.GlobalAcceleratorTarget",
 		"GLOBAL_ACCELERATOR_ZONE_ID",
 		&returns,
 	)

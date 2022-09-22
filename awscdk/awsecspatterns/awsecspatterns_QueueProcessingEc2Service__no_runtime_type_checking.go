@@ -17,6 +17,14 @@ func (q *jsiiProxy_QueueProcessingEc2Service) validateGrantPermissionsToServiceP
 	return nil
 }
 
+func (q *jsiiProxy_QueueProcessingEc2Service) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (q *jsiiProxy_QueueProcessingEc2Service) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateQueueProcessingEc2Service_IsConstructParameters(x interface{}) error {
 	return nil
 }

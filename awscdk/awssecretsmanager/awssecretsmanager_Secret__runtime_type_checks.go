@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (s *jsiiProxy_Secret) validateAddReplicaRegionParameters(region *string) error {
@@ -22,6 +22,21 @@ func (s *jsiiProxy_Secret) validateAddReplicaRegionParameters(region *string) er
 }
 
 func (s *jsiiProxy_Secret) validateAddRotationScheduleParameters(id *string, options *RotationScheduleOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_Secret) validateAddTargetAttachmentParameters(id *string, options *AttachedSecretOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
@@ -99,9 +114,41 @@ func (s *jsiiProxy_Secret) validateGrantWriteParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
+func (s *jsiiProxy_Secret) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_Secret) validateSecretValueFromJsonParameters(jsonField *string) error {
 	if jsonField == nil {
 		return fmt.Errorf("parameter jsonField is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_Secret) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateSecret_FromSecretArnParameters(scope constructs.Construct, id *string, secretArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if secretArn == nil {
+		return fmt.Errorf("parameter secretArn is required, but nil was provided")
 	}
 
 	return nil
@@ -137,6 +184,22 @@ func validateSecret_FromSecretCompleteArnParameters(scope constructs.Construct, 
 
 	if secretCompleteArn == nil {
 		return fmt.Errorf("parameter secretCompleteArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateSecret_FromSecretNameParameters(scope constructs.Construct, id *string, secretName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if secretName == nil {
+		return fmt.Errorf("parameter secretName is required, but nil was provided")
 	}
 
 	return nil
@@ -182,25 +245,9 @@ func validateSecret_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSecret_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+func validateSecret_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateSecret_IsResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateSecret_IsSecretParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

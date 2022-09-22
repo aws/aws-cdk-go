@@ -17,15 +17,19 @@ func (u *jsiiProxy_UserPoolIdentityProviderOidc) validateGetResourceNameAttribut
 	return nil
 }
 
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateUserPoolIdentityProviderOidc_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateUserPoolIdentityProviderOidc_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateUserPoolIdentityProviderOidc_IsResourceParameters(construct constructs.IConstruct) error {
+func validateUserPoolIdentityProviderOidc_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

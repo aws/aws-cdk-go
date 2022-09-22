@@ -89,6 +89,14 @@ func (s *jsiiProxy_SageMakerCreateModel) validateNextParameters(next awsstepfunc
 	return nil
 }
 
+func (s *jsiiProxy_SageMakerCreateModel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SageMakerCreateModel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (s *jsiiProxy_SageMakerCreateModel) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

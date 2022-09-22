@@ -40,14 +40,17 @@ package awsecs
 //   	},
 //   }))
 //
+// Experimental.
 type AwsLogDriverMode string
 
 const (
 	// (default) direct, blocking delivery from container to driver.
+	// Experimental.
 	AwsLogDriverMode_BLOCKING AwsLogDriverMode = "BLOCKING"
 	// The non-blocking message delivery mode prevents applications from blocking due to logging back pressure.
 	//
 	// Applications are likely to fail in unexpected ways when STDERR or STDOUT streams block.
+	// Experimental.
 	AwsLogDriverMode_NON_BLOCKING AwsLogDriverMode = "NON_BLOCKING"
 )
 

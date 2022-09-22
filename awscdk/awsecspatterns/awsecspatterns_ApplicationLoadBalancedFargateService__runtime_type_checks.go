@@ -8,8 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateAddServiceAsTargetParameters(service awsecs.BaseService) error {
@@ -28,9 +29,25 @@ func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateCreateAWSLogDr
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateGetDefaultClusterParameters(scope constructs.Construct) error {
+func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

@@ -14,6 +14,7 @@ package awselasticloadbalancingv2
 //   	targetPort: jsii.Number(8080),
 //   })
 //
+// Experimental.
 type ApplicationLoadBalancerRedirectConfig struct {
 	// Allow anyone to connect to this listener.
 	//
@@ -24,14 +25,19 @@ type ApplicationLoadBalancerRedirectConfig struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the listener.
+	// Experimental.
 	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// The port number to listen to.
+	// Experimental.
 	SourcePort *float64 `field:"optional" json:"sourcePort" yaml:"sourcePort"`
 	// The protocol of the listener being created.
+	// Experimental.
 	SourceProtocol ApplicationProtocol `field:"optional" json:"sourceProtocol" yaml:"sourceProtocol"`
 	// The port number to redirect to.
+	// Experimental.
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 	// The protocol of the redirection target.
+	// Experimental.
 	TargetProtocol ApplicationProtocol `field:"optional" json:"targetProtocol" yaml:"targetProtocol"`
 }
 

@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnSmsTemplate) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnSmsTemplate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSmsTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSmsTemplate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSmsTemplate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnSmsTemplate) validateSetTemplateNameParameters(val *string
 	return nil
 }
 
-func validateNewCfnSmsTemplateParameters(scope constructs.Construct, id *string, props *CfnSmsTemplateProps) error {
+func validateNewCfnSmsTemplateParameters(scope awscdk.Construct, id *string, props *CfnSmsTemplateProps) error {
 	return nil
 }
 

@@ -5,7 +5,7 @@ package awscodebuild
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IArtifacts) validateBindParameters(scope constructs.Construct, project IProject) error {
+func (i *jsiiProxy_IArtifacts) validateBindParameters(scope awscdk.Construct, project IProject) error {
 	return nil
 }
 

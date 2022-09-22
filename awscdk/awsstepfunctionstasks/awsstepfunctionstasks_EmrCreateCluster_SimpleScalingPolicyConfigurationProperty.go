@@ -18,16 +18,20 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_SimpleScalingPolicyConfiguration.html
 //
+// Experimental.
 type EmrCreateCluster_SimpleScalingPolicyConfigurationProperty struct {
 	// The amount by which to scale in or scale out, based on the specified AdjustmentType.
 	//
 	// A positive value adds to the instance group's
 	// EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be
 	// a positive integer.
+	// Experimental.
 	ScalingAdjustment *float64 `field:"required" json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered.
+	// Experimental.
 	AdjustmentType EmrCreateCluster_ScalingAdjustmentType `field:"optional" json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
+	// Experimental.
 	CoolDown *float64 `field:"optional" json:"coolDown" yaml:"coolDown"`
 }
 

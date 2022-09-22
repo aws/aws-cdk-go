@@ -19,18 +19,24 @@ package awscloudwatch
 //   	},
 //   }))
 //
+// Experimental.
 type LogQueryVisualizationType string
 
 const (
 	// Table view.
+	// Experimental.
 	LogQueryVisualizationType_TABLE LogQueryVisualizationType = "TABLE"
 	// Line view.
+	// Experimental.
 	LogQueryVisualizationType_LINE LogQueryVisualizationType = "LINE"
 	// Stacked area view.
+	// Experimental.
 	LogQueryVisualizationType_STACKEDAREA LogQueryVisualizationType = "STACKEDAREA"
 	// Bar view.
+	// Experimental.
 	LogQueryVisualizationType_BAR LogQueryVisualizationType = "BAR"
 	// Pie view.
+	// Experimental.
 	LogQueryVisualizationType_PIE LogQueryVisualizationType = "PIE"
 )
 

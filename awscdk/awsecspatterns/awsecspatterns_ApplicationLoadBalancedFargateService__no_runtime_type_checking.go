@@ -13,7 +13,15 @@ func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateCreateAWSLogDr
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateGetDefaultClusterParameters(scope constructs.Construct) error {
+func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancedFargateService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

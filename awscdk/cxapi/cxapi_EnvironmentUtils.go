@@ -1,7 +1,7 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -12,6 +12,7 @@ import (
 //
 //   environmentUtils := awscdk.Cx_api.NewEnvironmentUtils()
 //
+// Experimental.
 type EnvironmentUtils interface {
 }
 
@@ -20,13 +21,14 @@ type jsiiProxy_EnvironmentUtils struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewEnvironmentUtils() EnvironmentUtils {
 	_init_.Initialize()
 
 	j := jsiiProxy_EnvironmentUtils{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.EnvironmentUtils",
+		"monocdk.cx_api.EnvironmentUtils",
 		nil, // no parameters
 		&j,
 	)
@@ -34,17 +36,19 @@ func NewEnvironmentUtils() EnvironmentUtils {
 	return &j
 }
 
+// Experimental.
 func NewEnvironmentUtils_Override(e EnvironmentUtils) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.EnvironmentUtils",
+		"monocdk.cx_api.EnvironmentUtils",
 		nil, // no parameters
 		e,
 	)
 }
 
 // Format an environment string from an account and region.
+// Experimental.
 func EnvironmentUtils_Format(account *string, region *string) *string {
 	_init_.Initialize()
 
@@ -54,7 +58,7 @@ func EnvironmentUtils_Format(account *string, region *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cx_api.EnvironmentUtils",
+		"monocdk.cx_api.EnvironmentUtils",
 		"format",
 		[]interface{}{account, region},
 		&returns,
@@ -64,6 +68,7 @@ func EnvironmentUtils_Format(account *string, region *string) *string {
 }
 
 // Build an environment object from an account and region.
+// Experimental.
 func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	_init_.Initialize()
 
@@ -73,7 +78,7 @@ func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	var returns *Environment
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cx_api.EnvironmentUtils",
+		"monocdk.cx_api.EnvironmentUtils",
 		"make",
 		[]interface{}{account, region},
 		&returns,
@@ -82,6 +87,7 @@ func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	return returns
 }
 
+// Experimental.
 func EnvironmentUtils_Parse(environment *string) *Environment {
 	_init_.Initialize()
 
@@ -91,7 +97,7 @@ func EnvironmentUtils_Parse(environment *string) *Environment {
 	var returns *Environment
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cx_api.EnvironmentUtils",
+		"monocdk.cx_api.EnvironmentUtils",
 		"parse",
 		[]interface{}{environment},
 		&returns,
