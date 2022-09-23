@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverRuleAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnResolverRuleAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResolverRuleAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnResolverRuleAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) validateSetVpcIdParameters(val *s
 	return nil
 }
 
-func validateNewCfnResolverRuleAssociationParameters(scope awscdk.Construct, id *string, props *CfnResolverRuleAssociationProps) error {
+func validateNewCfnResolverRuleAssociationParameters(scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) error {
 	return nil
 }
 

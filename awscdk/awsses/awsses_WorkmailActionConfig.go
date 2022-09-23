@@ -15,13 +15,10 @@ package awsses
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
-// Experimental.
 type WorkmailActionConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization.
-	// Experimental.
 	OrganizationArn *string `field:"required" json:"organizationArn" yaml:"organizationArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called.
-	// Experimental.
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

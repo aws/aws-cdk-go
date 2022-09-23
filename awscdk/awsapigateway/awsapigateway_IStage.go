@@ -3,19 +3,16 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 )
 
 // Represents an APIGateway Stage.
-// Experimental.
 type IStage interface {
 	awscdk.IResource
 	// RestApi to which this stage is associated.
-	// Experimental.
 	RestApi() IRestApi
 	// Name of this stage.
-	// Experimental.
 	StageName() *string
 }
 

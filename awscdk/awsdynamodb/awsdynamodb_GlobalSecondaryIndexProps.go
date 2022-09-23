@@ -28,32 +28,24 @@ package awsdynamodb
 //   	writeCapacity: jsii.Number(123),
 //   }
 //
-// Experimental.
 type GlobalSecondaryIndexProps struct {
 	// The name of the secondary index.
-	// Experimental.
 	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	// Experimental.
 	NonKeyAttributes *[]*string `field:"optional" json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	// Experimental.
 	ProjectionType ProjectionType `field:"optional" json:"projectionType" yaml:"projectionType"`
 	// Partition key attribute definition.
-	// Experimental.
 	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	// Experimental.
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
 	// The read capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	// Experimental.
 	ReadCapacity *float64 `field:"optional" json:"readCapacity" yaml:"readCapacity"`
 	// The write capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	// Experimental.
 	WriteCapacity *float64 `field:"optional" json:"writeCapacity" yaml:"writeCapacity"`
 }
 

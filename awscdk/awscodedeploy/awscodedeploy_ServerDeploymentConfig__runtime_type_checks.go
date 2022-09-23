@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (s *jsiiProxy_ServerDeploymentConfig) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -43,22 +43,6 @@ func (s *jsiiProxy_ServerDeploymentConfig) validateGetResourceNameAttributeParam
 	return nil
 }
 
-func (s *jsiiProxy_ServerDeploymentConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_ServerDeploymentConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateServerDeploymentConfig_FromServerDeploymentConfigNameParameters(scope constructs.Construct, id *string, serverDeploymentConfigName *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -83,7 +67,15 @@ func validateServerDeploymentConfig_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateServerDeploymentConfig_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateServerDeploymentConfig_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateServerDeploymentConfig_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

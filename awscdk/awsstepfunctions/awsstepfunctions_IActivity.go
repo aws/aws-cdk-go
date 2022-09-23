@@ -3,19 +3,16 @@ package awsstepfunctions
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
 )
 
 // Represents a Step Functions Activity https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html.
-// Experimental.
 type IActivity interface {
 	awscdk.IResource
 	// The ARN of the activity.
-	// Experimental.
 	ActivityArn() *string
 	// The name of the activity.
-	// Experimental.
 	ActivityName() *string
 }
 

@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnQueuePolicy) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnQueuePolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnQueuePolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnQueuePolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnQueuePolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnQueuePolicy) validateSetQueuesParameters(val *[]*string) e
 	return nil
 }
 
-func validateNewCfnQueuePolicyParameters(scope awscdk.Construct, id *string, props *CfnQueuePolicyProps) error {
+func validateNewCfnQueuePolicyParameters(scope constructs.Construct, id *string, props *CfnQueuePolicyProps) error {
 	return nil
 }
 

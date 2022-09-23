@@ -13,10 +13,6 @@ func (d *jsiiProxy_DatabaseSecret) validateAddRotationScheduleParameters(id *str
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseSecret) validateAddTargetAttachmentParameters(id *string, options *awssecretsmanager.AttachedSecretOptions) error {
-	return nil
-}
-
 func (d *jsiiProxy_DatabaseSecret) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }
@@ -45,19 +41,7 @@ func (d *jsiiProxy_DatabaseSecret) validateGrantWriteParameters(grantee awsiam.I
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseSecret) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (d *jsiiProxy_DatabaseSecret) validateSecretValueFromJsonParameters(jsonField *string) error {
-	return nil
-}
-
-func (d *jsiiProxy_DatabaseSecret) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
-func validateDatabaseSecret_FromSecretArnParameters(scope constructs.Construct, id *string, secretArn *string) error {
 	return nil
 }
 
@@ -66,10 +50,6 @@ func validateDatabaseSecret_FromSecretAttributesParameters(scope constructs.Cons
 }
 
 func validateDatabaseSecret_FromSecretCompleteArnParameters(scope constructs.Construct, id *string, secretCompleteArn *string) error {
-	return nil
-}
-
-func validateDatabaseSecret_FromSecretNameParameters(scope constructs.Construct, id *string, secretName *string) error {
 	return nil
 }
 
@@ -85,7 +65,15 @@ func validateDatabaseSecret_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDatabaseSecret_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateDatabaseSecret_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateDatabaseSecret_IsResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateDatabaseSecret_IsSecretParameters(x interface{}) error {
 	return nil
 }
 

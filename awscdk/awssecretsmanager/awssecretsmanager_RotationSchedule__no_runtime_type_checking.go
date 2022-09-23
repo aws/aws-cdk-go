@@ -17,19 +17,15 @@ func (r *jsiiProxy_RotationSchedule) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
-func (r *jsiiProxy_RotationSchedule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (r *jsiiProxy_RotationSchedule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateRotationSchedule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRotationSchedule_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateRotationSchedule_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateRotationSchedule_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

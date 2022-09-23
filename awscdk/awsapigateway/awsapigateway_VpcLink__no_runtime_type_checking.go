@@ -17,14 +17,6 @@ func (v *jsiiProxy_VpcLink) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
-func (v *jsiiProxy_VpcLink) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (v *jsiiProxy_VpcLink) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateVpcLink_FromVpcLinkIdParameters(scope constructs.Construct, id *string, vpcLinkId *string) error {
 	return nil
 }
@@ -33,7 +25,11 @@ func validateVpcLink_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVpcLink_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateVpcLink_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateVpcLink_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

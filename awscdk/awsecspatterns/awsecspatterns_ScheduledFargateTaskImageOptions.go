@@ -1,7 +1,7 @@
 package awsecspatterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 )
 
 // The properties for the ScheduledFargateTask using an image.
@@ -19,26 +19,20 @@ import (
 //   	platformVersion: ecs.fargatePlatformVersion_LATEST,
 //   })
 //
-// Experimental.
 type ScheduledFargateTaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
-	// Experimental.
 	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	// Experimental.
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
-	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The log driver to use.
-	// Experimental.
 	LogDriver awsecs.LogDriver `field:"optional" json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	// Experimental.
 	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The number of cpu units used by the task.
 	//
@@ -55,13 +49,35 @@ type ScheduledFargateTaskImageOptions struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	// Experimental.
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
-	// The hard limit (in MiB) of memory to present to the container.
+	// The amount (in MiB) of memory used by the task.
 	//
-	// If your container attempts to exceed the allocated memory, the container
-	// is terminated.
-	// Experimental.
+	// This field is required and you must use one of the following values, which determines your range of valid values
+	// for the cpu parameter:
+	//
+	// 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available cpu values: 256 (.25 vCPU)
+	//
+	// 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available cpu values: 512 (.5 vCPU)
+	//
+	// 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available cpu values: 1024 (1 vCPU)
+	//
+	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
+	//
+	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
+	//
+	// This default is set in the underlying FargateTaskDefinition construct.
 	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
+	// The platform version on which to run your service.
+	//
+	// If one is not specified, the LATEST platform version is used by default. For more information, see
+	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
+	// in the Amazon Elastic Container Service Developer Guide.
+	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
+	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
+	//
+	// [disable-awslint:ref-via-interface].
+	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
 }
 

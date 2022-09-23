@@ -21,14 +21,6 @@ func (p *jsiiProxy_PublicDnsNamespace) validateGetResourceNameAttributeParameter
 	return nil
 }
 
-func (p *jsiiProxy_PublicDnsNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (p *jsiiProxy_PublicDnsNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validatePublicDnsNamespace_FromPublicDnsNamespaceAttributesParameters(scope constructs.Construct, id *string, attrs *PublicDnsNamespaceAttributes) error {
 	return nil
 }
@@ -37,7 +29,11 @@ func validatePublicDnsNamespace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePublicDnsNamespace_IsResourceParameters(construct awscdk.IConstruct) error {
+func validatePublicDnsNamespace_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validatePublicDnsNamespace_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

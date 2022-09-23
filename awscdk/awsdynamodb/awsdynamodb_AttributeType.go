@@ -26,18 +26,14 @@ package awsdynamodb
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes
 //
-// Experimental.
 type AttributeType string
 
 const (
 	// Up to 400KiB of binary data (which must be encoded as base64 before sending to DynamoDB).
-	// Experimental.
 	AttributeType_BINARY AttributeType = "BINARY"
 	// Numeric values made of up to 38 digits (positive, negative or zero).
-	// Experimental.
 	AttributeType_NUMBER AttributeType = "NUMBER"
 	// Up to 400KiB of UTF-8 encoded text.
-	// Experimental.
 	AttributeType_STRING AttributeType = "STRING"
 )
 

@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnReceiptRuleSet) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnReceiptRuleSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnReceiptRuleSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnReceiptRuleSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnReceiptRuleSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +69,7 @@ func validateCfnReceiptRuleSet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnReceiptRuleSetParameters(scope awscdk.Construct, id *string, props *CfnReceiptRuleSetProps) error {
+func validateNewCfnReceiptRuleSetParameters(scope constructs.Construct, id *string, props *CfnReceiptRuleSetProps) error {
 	return nil
 }
 

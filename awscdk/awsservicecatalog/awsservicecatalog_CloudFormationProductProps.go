@@ -31,42 +31,30 @@ package awsservicecatalog
 //   	},
 //   })
 //
-// Experimental.
 type CloudFormationProductProps struct {
 	// The owner of the product.
-	// Experimental.
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the product.
-	// Experimental.
 	ProductName *string `field:"required" json:"productName" yaml:"productName"`
 	// The configuration of the product version.
-	// Experimental.
 	ProductVersions *[]*CloudFormationProductVersion `field:"required" json:"productVersions" yaml:"productVersions"`
 	// The description of the product.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The distributor of the product.
-	// Experimental.
 	Distributor *string `field:"optional" json:"distributor" yaml:"distributor"`
 	// The language code.
 	//
 	// Controls language for logging and errors.
-	// Experimental.
 	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// Whether to give provisioning artifacts a new unique identifier when the product attributes or provisioning artifacts is updated.
-	// Experimental.
 	ReplaceProductVersionIds *bool `field:"optional" json:"replaceProductVersionIds" yaml:"replaceProductVersionIds"`
 	// The support information about the product.
-	// Experimental.
 	SupportDescription *string `field:"optional" json:"supportDescription" yaml:"supportDescription"`
 	// The contact email for product support.
-	// Experimental.
 	SupportEmail *string `field:"optional" json:"supportEmail" yaml:"supportEmail"`
 	// The contact URL for product support.
-	// Experimental.
 	SupportUrl *string `field:"optional" json:"supportUrl" yaml:"supportUrl"`
 	// TagOptions associated directly to a product.
-	// Experimental.
 	TagOptions TagOptions `field:"optional" json:"tagOptions" yaml:"tagOptions"`
 }
 

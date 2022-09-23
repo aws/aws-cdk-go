@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_Certificate) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -52,22 +52,6 @@ func (c *jsiiProxy_Certificate) validateMetricDaysToExpiryParameters(props *awsc
 	return nil
 }
 
-func (c *jsiiProxy_Certificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_Certificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCertificate_FromCertificateArnParameters(scope constructs.Construct, id *string, certificateArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -92,7 +76,15 @@ func validateCertificate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCertificate_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCertificate_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCertificate_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_kafkaconnect.CfnConnector",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector",
 		reflect.TypeOf((*CfnConnector)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -37,21 +37,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logDelivery", GoGetter: "LogDelivery"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "plugins", GoGetter: "Plugins"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceExecutionRoleArn", GoGetter: "ServiceExecutionRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "workerConfiguration", GoGetter: "WorkerConfiguration"},
 		},
@@ -63,79 +58,79 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.ApacheKafkaClusterProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.ApacheKafkaClusterProperty",
 		reflect.TypeOf((*CfnConnector_ApacheKafkaClusterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.AutoScalingProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.AutoScalingProperty",
 		reflect.TypeOf((*CfnConnector_AutoScalingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.CapacityProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.CapacityProperty",
 		reflect.TypeOf((*CfnConnector_CapacityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.CloudWatchLogsLogDeliveryProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.CloudWatchLogsLogDeliveryProperty",
 		reflect.TypeOf((*CfnConnector_CloudWatchLogsLogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.CustomPluginProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.CustomPluginProperty",
 		reflect.TypeOf((*CfnConnector_CustomPluginProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.FirehoseLogDeliveryProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.FirehoseLogDeliveryProperty",
 		reflect.TypeOf((*CfnConnector_FirehoseLogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.KafkaClusterClientAuthenticationProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.KafkaClusterClientAuthenticationProperty",
 		reflect.TypeOf((*CfnConnector_KafkaClusterClientAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.KafkaClusterEncryptionInTransitProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.KafkaClusterEncryptionInTransitProperty",
 		reflect.TypeOf((*CfnConnector_KafkaClusterEncryptionInTransitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.KafkaClusterProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.KafkaClusterProperty",
 		reflect.TypeOf((*CfnConnector_KafkaClusterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.LogDeliveryProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.LogDeliveryProperty",
 		reflect.TypeOf((*CfnConnector_LogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.PluginProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.PluginProperty",
 		reflect.TypeOf((*CfnConnector_PluginProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.ProvisionedCapacityProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.ProvisionedCapacityProperty",
 		reflect.TypeOf((*CfnConnector_ProvisionedCapacityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.S3LogDeliveryProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.S3LogDeliveryProperty",
 		reflect.TypeOf((*CfnConnector_S3LogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.ScaleInPolicyProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.ScaleInPolicyProperty",
 		reflect.TypeOf((*CfnConnector_ScaleInPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.ScaleOutPolicyProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.ScaleOutPolicyProperty",
 		reflect.TypeOf((*CfnConnector_ScaleOutPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.VpcProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.VpcProperty",
 		reflect.TypeOf((*CfnConnector_VpcProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.WorkerConfigurationProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.WorkerConfigurationProperty",
 		reflect.TypeOf((*CfnConnector_WorkerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnector.WorkerLogDeliveryProperty",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector.WorkerLogDeliveryProperty",
 		reflect.TypeOf((*CfnConnector_WorkerLogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kafkaconnect.CfnConnectorProps",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnectorProps",
 		reflect.TypeOf((*CfnConnectorProps)(nil)).Elem(),
 	)
 }

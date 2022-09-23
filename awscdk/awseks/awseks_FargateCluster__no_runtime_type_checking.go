@@ -57,14 +57,6 @@ func (f *jsiiProxy_FargateCluster) validateGetServiceLoadBalancerAddressParamete
 	return nil
 }
 
-func (f *jsiiProxy_FargateCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (f *jsiiProxy_FargateCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateFargateCluster_FromClusterAttributesParameters(scope constructs.Construct, id *string, attrs *ClusterAttributes) error {
 	return nil
 }
@@ -73,7 +65,11 @@ func validateFargateCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFargateCluster_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateFargateCluster_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateFargateCluster_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

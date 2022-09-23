@@ -14,18 +14,14 @@ package awsservicecatalog
 //   	messageLanguage: servicecatalog.messageLanguage_EN,
 //   })
 //
-// Experimental.
 type MessageLanguage string
 
 const (
 	// English.
-	// Experimental.
 	MessageLanguage_EN MessageLanguage = "EN"
 	// Japanese.
-	// Experimental.
 	MessageLanguage_JP MessageLanguage = "JP"
 	// Chinese.
-	// Experimental.
 	MessageLanguage_ZH MessageLanguage = "ZH"
 )
 

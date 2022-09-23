@@ -85,14 +85,6 @@ func (s *jsiiProxy_SqsSendMessage) validateNextParameters(next awsstepfunctions.
 	return nil
 }
 
-func (s *jsiiProxy_SqsSendMessage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_SqsSendMessage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (s *jsiiProxy_SqsSendMessage) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

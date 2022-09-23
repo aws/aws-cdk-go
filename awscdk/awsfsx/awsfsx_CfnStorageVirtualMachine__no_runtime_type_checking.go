@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnStorageVirtualMachine) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnStorageVirtualMachine) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStorageVirtualMachine) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnStorageVirtualMachine) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +81,7 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) validateSetNameParameters(val *stri
 	return nil
 }
 
-func validateNewCfnStorageVirtualMachineParameters(scope awscdk.Construct, id *string, props *CfnStorageVirtualMachineProps) error {
+func validateNewCfnStorageVirtualMachineParameters(scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) error {
 	return nil
 }
 

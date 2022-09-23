@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -21,50 +21,40 @@ import (
 // to support all features expected by this synthesizer.
 //
 // Example:
-//   awscdk.Newstack(this, jsii.String("MyStack"), &stackProps{
-//   	// Update this qualifier to match the one used above.
-//   	synthesizer: cdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
-//   		qualifier: jsii.String("randchars1234"),
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   NewMyStack(app, jsii.String("MyStack"), &stackProps{
+//   	synthesizer: awscdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
+//   		fileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
 //   	}),
 //   })
 //
-// Experimental.
 type DefaultStackSynthesizer interface {
 	StackSynthesizer
 	// Returns the ARN of the CFN execution Role.
-	// Experimental.
 	CloudFormationExecutionRoleArn() *string
 	// Returns the ARN of the deploy Role.
-	// Experimental.
 	DeployRoleArn() *string
-	// Experimental.
 	Stack() Stack
 	// Register a Docker Image Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
-	// Experimental.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
 	// Register a File Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
-	// Experimental.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
 	// Must be called before any of the other methods are called.
-	// Experimental.
 	Bind(stack Stack)
 	// Write the stack artifact to the session.
 	//
 	// Use default settings to add a CloudFormationStackArtifact artifact to
 	// the given synthesis session.
-	// Experimental.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
 	// Synthesize the associated stack to the session.
-	// Experimental.
 	Synthesize(session ISynthesisSession)
 	// Have the stack write out its template.
-	// Experimental.
 	SynthesizeStackTemplate(stack Stack, session ISynthesisSession)
 }
 
@@ -104,7 +94,6 @@ func (j *jsiiProxy_DefaultStackSynthesizer) Stack() Stack {
 }
 
 
-// Experimental.
 func NewDefaultStackSynthesizer(props *DefaultStackSynthesizerProps) DefaultStackSynthesizer {
 	_init_.Initialize()
 
@@ -114,7 +103,7 @@ func NewDefaultStackSynthesizer(props *DefaultStackSynthesizerProps) DefaultStac
 	j := jsiiProxy_DefaultStackSynthesizer{}
 
 	_jsii_.Create(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		[]interface{}{props},
 		&j,
 	)
@@ -122,12 +111,11 @@ func NewDefaultStackSynthesizer(props *DefaultStackSynthesizerProps) DefaultStac
 	return &j
 }
 
-// Experimental.
 func NewDefaultStackSynthesizer_Override(d DefaultStackSynthesizer, props *DefaultStackSynthesizerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		[]interface{}{props},
 		d,
 	)
@@ -137,7 +125,7 @@ func DefaultStackSynthesizer_DEFAULT_BOOTSTRAP_STACK_VERSION_SSM_PARAMETER() *st
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_BOOTSTRAP_STACK_VERSION_SSM_PARAMETER",
 		&returns,
 	)
@@ -148,7 +136,7 @@ func DefaultStackSynthesizer_DEFAULT_CLOUDFORMATION_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_CLOUDFORMATION_ROLE_ARN",
 		&returns,
 	)
@@ -159,7 +147,7 @@ func DefaultStackSynthesizer_DEFAULT_DEPLOY_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_DEPLOY_ROLE_ARN",
 		&returns,
 	)
@@ -170,7 +158,7 @@ func DefaultStackSynthesizer_DEFAULT_DOCKER_ASSET_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_DOCKER_ASSET_PREFIX",
 		&returns,
 	)
@@ -181,7 +169,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSET_KEY_ARN_EXPORT_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSET_KEY_ARN_EXPORT_NAME",
 		&returns,
 	)
@@ -192,7 +180,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSET_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSET_PREFIX",
 		&returns,
 	)
@@ -203,7 +191,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSET_PUBLISHING_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSET_PUBLISHING_ROLE_ARN",
 		&returns,
 	)
@@ -214,7 +202,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSETS_BUCKET_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSETS_BUCKET_NAME",
 		&returns,
 	)
@@ -225,7 +213,7 @@ func DefaultStackSynthesizer_DEFAULT_IMAGE_ASSET_PUBLISHING_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_IMAGE_ASSET_PUBLISHING_ROLE_ARN",
 		&returns,
 	)
@@ -236,7 +224,7 @@ func DefaultStackSynthesizer_DEFAULT_IMAGE_ASSETS_REPOSITORY_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_IMAGE_ASSETS_REPOSITORY_NAME",
 		&returns,
 	)
@@ -247,7 +235,7 @@ func DefaultStackSynthesizer_DEFAULT_LOOKUP_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_LOOKUP_ROLE_ARN",
 		&returns,
 	)
@@ -258,7 +246,7 @@ func DefaultStackSynthesizer_DEFAULT_QUALIFIER() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.DefaultStackSynthesizer",
+		"aws-cdk-lib.DefaultStackSynthesizer",
 		"DEFAULT_QUALIFIER",
 		&returns,
 	)

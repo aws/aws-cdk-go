@@ -1,12 +1,12 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
 // Properties to provide a Lambda-backed custom resource.
 //
 // Example:
-//   // use the provider framework from aws-cdk/custom-resources:
-//   provider := customresources.NewProvider(this, jsii.String("ResourceProvider"), &providerProps{
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   provider := customresources.NewProvider(this, jsii.String("MyProvider"), &providerProps{
 //   	onEventHandler: onEventHandler,
 //   	isCompleteHandler: isCompleteHandler,
 //   })
@@ -15,7 +15,6 @@ package awscdk
 //   	serviceToken: provider.serviceToken,
 //   })
 //
-// Experimental.
 type CustomResourceProps struct {
 	// The ARN of the provider which implements this custom resource type.
 	//
@@ -41,7 +40,8 @@ type CustomResourceProps struct {
 	// });
 	// ```
 	//
-	// AWS Lambda function:
+	// AWS Lambda function (not recommended to use AWS Lambda Functions directly,
+	// see the module README):
 	//
 	// ```ts
 	// // invoke an AWS Lambda function when a lifecycle event occurs:
@@ -50,7 +50,8 @@ type CustomResourceProps struct {
 	// });
 	// ```
 	//
-	// SNS topic:
+	// SNS topic (not recommended to use AWS Lambda Functions directly, see the
+	// module README):
 	//
 	// ```ts
 	// // publish lifecycle events to an SNS topic:
@@ -58,16 +59,12 @@ type CustomResourceProps struct {
 	//    serviceToken: myTopic.topicArn,
 	// });
 	// ```.
-	// Experimental.
 	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`
 	// Convert all property keys to pascal case.
-	// Experimental.
 	PascalCaseProperties *bool `field:"optional" json:"pascalCaseProperties" yaml:"pascalCaseProperties"`
 	// Properties to pass to the Lambda.
-	// Experimental.
 	Properties *map[string]interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// The policy to apply when this resource is removed from the application.
-	// Experimental.
 	RemovalPolicy RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
 	//
@@ -85,7 +82,6 @@ type CustomResourceProps struct {
 	// (instead of using AWS::CloudFormation::CustomResource).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
 	//
-	// Experimental.
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 }
 

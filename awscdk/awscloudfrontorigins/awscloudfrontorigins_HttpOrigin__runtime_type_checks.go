@@ -8,11 +8,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (h *jsiiProxy_HttpOrigin) validateBindParameters(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) error {
+func (h *jsiiProxy_HttpOrigin) validateBindParameters(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

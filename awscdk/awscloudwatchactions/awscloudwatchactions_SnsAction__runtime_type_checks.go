@@ -6,12 +6,12 @@ package awscloudwatchactions
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (s *jsiiProxy_SnsAction) validateBindParameters(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) error {
+func (s *jsiiProxy_SnsAction) validateBindParameters(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

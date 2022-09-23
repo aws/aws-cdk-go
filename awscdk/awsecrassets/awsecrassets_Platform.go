@@ -1,7 +1,7 @@
 package awsecrassets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,10 +16,8 @@ import (
 //   	platform: awscdk.Platform_LINUX_ARM64(),
 //   })
 //
-// Experimental.
 type Platform interface {
 	// The platform to use for docker build.
-	// Experimental.
 	Platform() *string
 }
 
@@ -40,7 +38,6 @@ func (j *jsiiProxy_Platform) Platform() *string {
 
 
 // Used to specify a custom platform Use this if the platform name is not yet supported by the CDK.
-// Experimental.
 func Platform_Custom(platform *string) Platform {
 	_init_.Initialize()
 
@@ -50,7 +47,7 @@ func Platform_Custom(platform *string) Platform {
 	var returns Platform
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecr_assets.Platform",
+		"aws-cdk-lib.aws_ecr_assets.Platform",
 		"custom",
 		[]interface{}{platform},
 		&returns,
@@ -63,7 +60,7 @@ func Platform_LINUX_AMD64() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_ecr_assets.Platform",
+		"aws-cdk-lib.aws_ecr_assets.Platform",
 		"LINUX_AMD64",
 		&returns,
 	)
@@ -74,7 +71,7 @@ func Platform_LINUX_ARM64() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_ecr_assets.Platform",
+		"aws-cdk-lib.aws_ecr_assets.Platform",
 		"LINUX_ARM64",
 		&returns,
 	)

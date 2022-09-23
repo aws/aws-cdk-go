@@ -6,7 +6,7 @@ package awscodedeploy
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func validateEcsDeploymentConfig_FromEcsDeploymentConfigNameParameters(_scope constructs.Construct, _id *string, ecsDeploymentConfigName *string) error {

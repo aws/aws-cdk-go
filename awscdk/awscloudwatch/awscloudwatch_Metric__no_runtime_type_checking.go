@@ -9,7 +9,7 @@ func (m *jsiiProxy_Metric) validateAttachToParameters(scope constructs.IConstruc
 	return nil
 }
 
-func (m *jsiiProxy_Metric) validateCreateAlarmParameters(scope awscdk.Construct, id *string, props *CreateAlarmOptions) error {
+func (m *jsiiProxy_Metric) validateCreateAlarmParameters(scope constructs.Construct, id *string, props *CreateAlarmOptions) error {
 	return nil
 }
 

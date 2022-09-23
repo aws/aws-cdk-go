@@ -34,7 +34,6 @@ package awss3deployment
 //   	accessControl: s3.bucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
 //   })
 //
-// Experimental.
 type UserDefinedObjectMetadata struct {
 }
 

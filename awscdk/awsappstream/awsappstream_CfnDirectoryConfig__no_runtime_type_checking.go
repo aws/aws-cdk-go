@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnDirectoryConfig) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnDirectoryConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDirectoryConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDirectoryConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnDirectoryConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +81,7 @@ func (j *jsiiProxy_CfnDirectoryConfig) validateSetServiceAccountCredentialsParam
 	return nil
 }
 
-func validateNewCfnDirectoryConfigParameters(scope awscdk.Construct, id *string, props *CfnDirectoryConfigProps) error {
+func validateNewCfnDirectoryConfigParameters(scope constructs.Construct, id *string, props *CfnDirectoryConfigProps) error {
 	return nil
 }
 

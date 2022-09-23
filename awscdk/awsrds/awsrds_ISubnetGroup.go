@@ -3,16 +3,14 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 )
 
 // Interface for a subnet group.
-// Experimental.
 type ISubnetGroup interface {
 	awscdk.IResource
 	// The name of the subnet group.
-	// Experimental.
 	SubnetGroupName() *string
 }
 

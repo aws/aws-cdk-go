@@ -5,10 +5,6 @@ package awsiam
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IPrincipal) validateAddToPolicyParameters(statement PolicyStatement) error {
-	return nil
-}
-
 func (i *jsiiProxy_IPrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	return nil
 }

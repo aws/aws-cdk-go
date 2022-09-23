@@ -1,10 +1,10 @@
 package awsacmpca
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Defines a Certificate for ACMPCA.
@@ -28,7 +28,6 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type CertificateAuthority interface {
 }
 
@@ -38,7 +37,6 @@ type jsiiProxy_CertificateAuthority struct {
 }
 
 // Import an existing Certificate given an ARN.
-// Experimental.
 func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct, id *string, certificateAuthorityArn *string) ICertificateAuthority {
 	_init_.Initialize()
 
@@ -48,7 +46,7 @@ func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct
 	var returns ICertificateAuthority
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CertificateAuthority",
 		"fromCertificateAuthorityArn",
 		[]interface{}{scope, id, certificateAuthorityArn},
 		&returns,

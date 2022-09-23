@@ -29,14 +29,6 @@ func (a *jsiiProxy_AccessKeysRotated) validateOnReEvaluationStatusParameters(id 
 	return nil
 }
 
-func (a *jsiiProxy_AccessKeysRotated) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (a *jsiiProxy_AccessKeysRotated) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateAccessKeysRotated_FromConfigRuleNameParameters(scope constructs.Construct, id *string, configRuleName *string) error {
 	return nil
 }
@@ -45,7 +37,11 @@ func validateAccessKeysRotated_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAccessKeysRotated_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateAccessKeysRotated_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateAccessKeysRotated_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

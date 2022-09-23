@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,11 +11,10 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   fileSystem := monocdk.NewFileSystem()
+//   fileSystem := cdk.NewFileSystem()
 //
-// Experimental.
 type FileSystem interface {
 }
 
@@ -24,14 +23,13 @@ type jsiiProxy_FileSystem struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewFileSystem() FileSystem {
 	_init_.Initialize()
 
 	j := jsiiProxy_FileSystem{}
 
 	_jsii_.Create(
-		"monocdk.FileSystem",
+		"aws-cdk-lib.FileSystem",
 		nil, // no parameters
 		&j,
 	)
@@ -39,19 +37,17 @@ func NewFileSystem() FileSystem {
 	return &j
 }
 
-// Experimental.
 func NewFileSystem_Override(f FileSystem) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.FileSystem",
+		"aws-cdk-lib.FileSystem",
 		nil, // no parameters
 		f,
 	)
 }
 
 // Copies an entire directory structure.
-// Experimental.
 func FileSystem_CopyDirectory(srcDir *string, destDir *string, options *CopyOptions, rootDir *string) {
 	_init_.Initialize()
 
@@ -59,7 +55,7 @@ func FileSystem_CopyDirectory(srcDir *string, destDir *string, options *CopyOpti
 		panic(err)
 	}
 	_jsii_.StaticInvokeVoid(
-		"monocdk.FileSystem",
+		"aws-cdk-lib.FileSystem",
 		"copyDirectory",
 		[]interface{}{srcDir, destDir, options, rootDir},
 	)
@@ -71,7 +67,6 @@ func FileSystem_CopyDirectory(srcDir *string, destDir *string, options *CopyOpti
 // 1. An extra string if defined in `options.extra`.
 // 2. The set of exclude patterns, if defined in `options.exclude`
 // 3. The symlink follow mode value.
-// Experimental.
 func FileSystem_Fingerprint(fileOrDirectory *string, options *FingerprintOptions) *string {
 	_init_.Initialize()
 
@@ -81,7 +76,7 @@ func FileSystem_Fingerprint(fileOrDirectory *string, options *FingerprintOptions
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.FileSystem",
+		"aws-cdk-lib.FileSystem",
 		"fingerprint",
 		[]interface{}{fileOrDirectory, options},
 		&returns,
@@ -91,7 +86,6 @@ func FileSystem_Fingerprint(fileOrDirectory *string, options *FingerprintOptions
 }
 
 // Checks whether a directory is empty.
-// Experimental.
 func FileSystem_IsEmpty(dir *string) *bool {
 	_init_.Initialize()
 
@@ -101,7 +95,7 @@ func FileSystem_IsEmpty(dir *string) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.FileSystem",
+		"aws-cdk-lib.FileSystem",
 		"isEmpty",
 		[]interface{}{dir},
 		&returns,
@@ -111,7 +105,6 @@ func FileSystem_IsEmpty(dir *string) *bool {
 }
 
 // Creates a unique temporary directory in the **system temp directory**.
-// Experimental.
 func FileSystem_Mkdtemp(prefix *string) *string {
 	_init_.Initialize()
 
@@ -121,7 +114,7 @@ func FileSystem_Mkdtemp(prefix *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.FileSystem",
+		"aws-cdk-lib.FileSystem",
 		"mkdtemp",
 		[]interface{}{prefix},
 		&returns,
@@ -134,7 +127,7 @@ func FileSystem_Tmpdir() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.FileSystem",
+		"aws-cdk-lib.FileSystem",
 		"tmpdir",
 		&returns,
 	)

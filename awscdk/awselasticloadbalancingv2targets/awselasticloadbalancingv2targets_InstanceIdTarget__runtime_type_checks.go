@@ -6,7 +6,7 @@ package awselasticloadbalancingv2targets
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 )
 
 func (i *jsiiProxy_InstanceIdTarget) validateAttachToApplicationTargetGroupParameters(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) error {
