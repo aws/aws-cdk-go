@@ -1,12 +1,12 @@
 package awslambdadestinations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdadestinations/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambdadestinations/internal"
 )
 
 // Use a Lambda function as a Lambda destination.
@@ -17,7 +17,7 @@ import (
 //
 //
 //   sourceFn := lambda.NewFunction(this, jsii.String("Source"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_14_X(),
+//   	runtime: lambda.runtime_NODEJS_12_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	// auto-extract on success
@@ -26,10 +26,12 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type LambdaDestination interface {
 	awslambda.IDestination
 	// Returns a destination configuration.
-	Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for LambdaDestination
@@ -37,6 +39,7 @@ type jsiiProxy_LambdaDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
+// Experimental.
 func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOptions) LambdaDestination {
 	_init_.Initialize()
 
@@ -46,7 +49,7 @@ func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOpti
 	j := jsiiProxy_LambdaDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_destinations.LambdaDestination",
+		"monocdk.aws_lambda_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		&j,
 	)
@@ -54,17 +57,18 @@ func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOpti
 	return &j
 }
 
+// Experimental.
 func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, options *LambdaDestinationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_destinations.LambdaDestination",
+		"monocdk.aws_lambda_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		l,
 	)
 }
 
-func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	if err := l.validateBindParameters(scope, fn, options); err != nil {
 		panic(err)
 	}

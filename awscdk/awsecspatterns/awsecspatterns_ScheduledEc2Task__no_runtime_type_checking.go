@@ -17,7 +17,15 @@ func (s *jsiiProxy_ScheduledEc2Task) validateCreateAWSLogDriverParameters(prefix
 	return nil
 }
 
-func (s *jsiiProxy_ScheduledEc2Task) validateGetDefaultClusterParameters(scope constructs.Construct) error {
+func (s *jsiiProxy_ScheduledEc2Task) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
+	return nil
+}
+
+func (s *jsiiProxy_ScheduledEc2Task) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_ScheduledEc2Task) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

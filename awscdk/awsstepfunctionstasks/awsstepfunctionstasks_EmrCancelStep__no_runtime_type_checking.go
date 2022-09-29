@@ -85,6 +85,14 @@ func (e *jsiiProxy_EmrCancelStep) validateNextParameters(next awsstepfunctions.I
 	return nil
 }
 
+func (e *jsiiProxy_EmrCancelStep) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrCancelStep) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrCancelStep) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

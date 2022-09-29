@@ -1,11 +1,11 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awseks"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // Class that supports methods which return the EKS cluster name depending on input type.
@@ -16,8 +16,10 @@ import (
 //   	eksNamespace: jsii.String("specified-namespace"),
 //   })
 //
+// Experimental.
 type EksClusterInput interface {
 	// The name of the EKS Cluster.
+	// Experimental.
 	ClusterName() *string
 }
 
@@ -38,6 +40,7 @@ func (j *jsiiProxy_EksClusterInput) ClusterName() *string {
 
 
 // Specify an existing EKS Cluster as the name for this Cluster.
+// Experimental.
 func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
 	_init_.Initialize()
 
@@ -47,7 +50,7 @@ func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
 	var returns EksClusterInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksClusterInput",
+		"monocdk.aws_stepfunctions_tasks.EksClusterInput",
 		"fromCluster",
 		[]interface{}{cluster},
 		&returns,
@@ -57,6 +60,7 @@ func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
 }
 
 // Specify a Task Input as the name for this Cluster.
+// Experimental.
 func EksClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) EksClusterInput {
 	_init_.Initialize()
 
@@ -66,7 +70,7 @@ func EksClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) EksClus
 	var returns EksClusterInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksClusterInput",
+		"monocdk.aws_stepfunctions_tasks.EksClusterInput",
 		"fromTaskInput",
 		[]interface{}{taskInput},
 		&returns,

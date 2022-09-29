@@ -25,6 +25,14 @@ func (s *jsiiProxy_ServerDeploymentGroup) validateGetResourceNameAttributeParame
 	return nil
 }
 
+func (s *jsiiProxy_ServerDeploymentGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_ServerDeploymentGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateServerDeploymentGroup_FromServerDeploymentGroupAttributesParameters(scope constructs.Construct, id *string, attrs *ServerDeploymentGroupAttributes) error {
 	return nil
 }
@@ -33,11 +41,7 @@ func validateServerDeploymentGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateServerDeploymentGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateServerDeploymentGroup_IsResourceParameters(construct constructs.IConstruct) error {
+func validateServerDeploymentGroup_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

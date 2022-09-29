@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) validateInspectParameters(ins
 	return nil
 }
 
+func (c *jsiiProxy_CfnPortfolioProductAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPortfolioProductAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPortfolioProductAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPortfolioProductAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) validateSetProductIdParameter
 	return nil
 }
 
-func validateNewCfnPortfolioProductAssociationParameters(scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) error {
+func validateNewCfnPortfolioProductAssociationParameters(scope awscdk.Construct, id *string, props *CfnPortfolioProductAssociationProps) error {
 	return nil
 }
 

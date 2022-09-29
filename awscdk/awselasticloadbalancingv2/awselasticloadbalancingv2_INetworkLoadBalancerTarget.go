@@ -5,11 +5,13 @@ import (
 )
 
 // Interface for constructs that can be targets of an network load balancer.
+// Experimental.
 type INetworkLoadBalancerTarget interface {
 	// Attach load-balanced target to a TargetGroup.
 	//
 	// May return JSON to directly add to the [Targets] list, or return undefined
 	// if the target will register itself with the load balancer.
+	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps
 }
 

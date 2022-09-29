@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (a *jsiiProxy_ApplicationListener) validateAddActionParameters(id *string, props *AddApplicationActionProps) error {
@@ -28,6 +28,18 @@ func (a *jsiiProxy_ApplicationListener) validateAddActionParameters(id *string, 
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationListener) validateAddCertificateArnsParameters(id *string, arns *[]*string) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arns == nil {
+		return fmt.Errorf("parameter arns is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationListener) validateAddCertificatesParameters(id *string, certificates *[]IListenerCertificate) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -35,6 +47,36 @@ func (a *jsiiProxy_ApplicationListener) validateAddCertificatesParameters(id *st
 
 	if certificates == nil {
 		return fmt.Errorf("parameter certificates is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListener) validateAddFixedResponseParameters(id *string, props *AddFixedResponseProps) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListener) validateAddRedirectResponseParameters(id *string, props *AddRedirectResponseProps) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil
@@ -101,6 +143,14 @@ func (a *jsiiProxy_ApplicationListener) validateGetResourceNameAttributeParamete
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationListener) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationListener) validateRegisterConnectableParameters(connectable awsec2.IConnectable, portRange awsec2.Port) error {
 	if connectable == nil {
 		return fmt.Errorf("parameter connectable is required, but nil was provided")
@@ -108,6 +158,14 @@ func (a *jsiiProxy_ApplicationListener) validateRegisterConnectableParameters(co
 
 	if portRange == nil {
 		return fmt.Errorf("parameter portRange is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListener) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -159,15 +217,7 @@ func validateApplicationListener_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateApplicationListener_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateApplicationListener_IsResourceParameters(construct constructs.IConstruct) error {
+func validateApplicationListener_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) validateInspectParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAssociation) validateSetTransitGat
 	return nil
 }
 
-func validateNewCfnTransitGatewayRouteTableAssociationParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteTableAssociationProps) error {
+func validateNewCfnTransitGatewayRouteTableAssociationParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayRouteTableAssociationProps) error {
 	return nil
 }
 

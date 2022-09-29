@@ -9,6 +9,7 @@ package awsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var defaultArguments interface{}
+//   var nonOverridableArguments interface{}
 //   var tags interface{}
 //
 //   cfnJobProps := &cfnJobProps{
@@ -28,6 +29,7 @@ package awsglue
 //   	},
 //   	defaultArguments: defaultArguments,
 //   	description: jsii.String("description"),
+//   	executionClass: jsii.String("executionClass"),
 //   	executionProperty: &executionPropertyProperty{
 //   		maxConcurrentRuns: jsii.Number(123),
 //   	},
@@ -36,6 +38,7 @@ package awsglue
 //   	maxCapacity: jsii.Number(123),
 //   	maxRetries: jsii.Number(123),
 //   	name: jsii.String("name"),
+//   	nonOverridableArguments: nonOverridableArguments,
 //   	notificationProperty: &notificationPropertyProperty{
 //   		notifyDelayAfter: jsii.Number(123),
 //   	},
@@ -65,6 +68,8 @@ type CfnJobProps struct {
 	DefaultArguments interface{} `field:"optional" json:"defaultArguments" yaml:"defaultArguments"`
 	// A description of the job.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// `AWS::Glue::Job.ExecutionClass`.
+	ExecutionClass *string `field:"optional" json:"executionClass" yaml:"executionClass"`
 	// The maximum number of concurrent runs that are allowed for this job.
 	ExecutionProperty interface{} `field:"optional" json:"executionProperty" yaml:"executionProperty"`
 	// Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
@@ -92,6 +97,8 @@ type CfnJobProps struct {
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// The name you assign to this job definition.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `AWS::Glue::Job.NonOverridableArguments`.
+	NonOverridableArguments interface{} `field:"optional" json:"nonOverridableArguments" yaml:"nonOverridableArguments"`
 	// Specifies configuration properties of a notification.
 	NotificationProperty interface{} `field:"optional" json:"notificationProperty" yaml:"notificationProperty"`
 	// The number of workers of a defined `workerType` that are allocated when a job runs.

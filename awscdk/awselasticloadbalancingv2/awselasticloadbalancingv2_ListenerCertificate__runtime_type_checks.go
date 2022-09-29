@@ -6,7 +6,7 @@ package awselasticloadbalancingv2
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
 )
 
 func validateListenerCertificate_FromArnParameters(certificateArn *string) error {

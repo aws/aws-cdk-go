@@ -10,8 +10,10 @@ package awscodebuild
 //   	prefix: jsii.String("prefix"),
 //   }
 //
+// Experimental.
 type BucketCacheOptions struct {
 	// The prefix to use to store the cache in the bucket.
+	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

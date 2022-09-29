@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateInspectParameters(inspector a
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserToGroupAddition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserToGroupAddition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnUserToGroupAddition) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserToGroupAddition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnUserToGroupAddition) validateSetUsersParameters(val *[]*st
 	return nil
 }
 
-func validateNewCfnUserToGroupAdditionParameters(scope constructs.Construct, id *string, props *CfnUserToGroupAdditionProps) error {
+func validateNewCfnUserToGroupAdditionParameters(scope awscdk.Construct, id *string, props *CfnUserToGroupAdditionProps) error {
 	return nil
 }
 

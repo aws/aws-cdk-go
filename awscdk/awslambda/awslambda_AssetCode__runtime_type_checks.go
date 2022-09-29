@@ -8,14 +8,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
-func (a *jsiiProxy_AssetCode) validateBindParameters(scope constructs.Construct) error {
+func (a *jsiiProxy_AssetCode) validateBindParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -29,6 +28,34 @@ func (a *jsiiProxy_AssetCode) validateBindToResourceParameters(resource awscdk.C
 	}
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateAssetCode_AssetParameters(path *string) error {
+	if path == nil {
+		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateAssetCode_BucketParameters(bucket awss3.IBucket, key *string) error {
+	if bucket == nil {
+		return fmt.Errorf("parameter bucket is required, but nil was provided")
+	}
+
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateAssetCode_CfnParametersParameters(props *CfnParametersCodeProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}
 
@@ -104,6 +131,14 @@ func validateAssetCode_FromEcrImageParameters(repository awsecr.IRepository, pro
 }
 
 func validateAssetCode_FromInlineParameters(code *string) error {
+	if code == nil {
+		return fmt.Errorf("parameter code is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateAssetCode_InlineParameters(code *string) error {
 	if code == nil {
 		return fmt.Errorf("parameter code is required, but nil was provided")
 	}

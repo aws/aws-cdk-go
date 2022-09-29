@@ -3,18 +3,22 @@ package awsappmesh
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsappmesh/internal"
 )
 
 // Interface for which all GatewayRoute based classes MUST implement.
+// Experimental.
 type IGatewayRoute interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) for the GatewayRoute.
+	// Experimental.
 	GatewayRouteArn() *string
 	// The name of the GatewayRoute.
+	// Experimental.
 	GatewayRouteName() *string
 	// The VirtualGateway the GatewayRoute belongs to.
+	// Experimental.
 	VirtualGateway() IVirtualGateway
 }
 

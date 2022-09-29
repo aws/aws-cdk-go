@@ -3,72 +3,102 @@ package awsopensearchservice
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsopensearchservice/internal"
 )
 
 // An interface that represents an Amazon OpenSearch Service domain - either created with the CDK, or an existing one.
+// Experimental.
 type IDomain interface {
 	awscdk.IResource
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	// Experimental.
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this domain.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for automated snapshot failures.
+	// Experimental.
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
+	// Experimental.
 	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
+	// Experimental.
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is yellow.
+	// Experimental.
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
+	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the storage space of nodes in the cluster.
+	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for indexing latency.
+	// Experimental.
 	MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for JVM memory pressure.
+	// Experimental.
 	MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key errors.
+	// Experimental.
 	MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key being inaccessible.
+	// Experimental.
 	MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master CPU utilization.
+	// Experimental.
 	MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master JVM memory pressure.
+	// Experimental.
 	MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of nodes.
+	// Experimental.
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for number of searchable documents.
+	// Experimental.
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for search latency.
+	// Experimental.
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Arn of the Amazon OpenSearch Service domain.
+	// Experimental.
 	DomainArn() *string
 	// Endpoint of the Amazon OpenSearch Service domain.
+	// Experimental.
 	DomainEndpoint() *string
 	// Identifier of the Amazon OpenSearch Service domain.
+	// Experimental.
 	DomainId() *string
 	// Domain name of the Amazon OpenSearch Service domain.
+	// Experimental.
 	DomainName() *string
 }
 

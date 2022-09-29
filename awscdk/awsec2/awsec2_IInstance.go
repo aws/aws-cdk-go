@@ -3,31 +3,37 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
+// Experimental.
 type IInstance interface {
 	IConnectable
 	awsiam.IGrantable
 	awscdk.IResource
 	// The availability zone the instance was launched in.
+	// Experimental.
 	InstanceAvailabilityZone() *string
 	// The instance's ID.
+	// Experimental.
 	InstanceId() *string
 	// Private DNS name for this instance.
+	// Experimental.
 	InstancePrivateDnsName() *string
 	// Private IP for this instance.
+	// Experimental.
 	InstancePrivateIp() *string
 	// Publicly-routable DNS name for this instance.
 	//
 	// (May be an empty string if the instance does not have a public name).
+	// Experimental.
 	InstancePublicDnsName() *string
 	// Publicly-routable IP  address for this instance.
 	//
 	// (May be an empty string if the instance does not have a public IP).
+	// Experimental.
 	InstancePublicIp() *string
 }
 
@@ -139,8 +145,8 @@ func (j *jsiiProxy_IInstance) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

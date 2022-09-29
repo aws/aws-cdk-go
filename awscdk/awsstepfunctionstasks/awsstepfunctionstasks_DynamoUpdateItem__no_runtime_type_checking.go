@@ -85,6 +85,14 @@ func (d *jsiiProxy_DynamoUpdateItem) validateNextParameters(next awsstepfunction
 	return nil
 }
 
+func (d *jsiiProxy_DynamoUpdateItem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DynamoUpdateItem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (d *jsiiProxy_DynamoUpdateItem) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

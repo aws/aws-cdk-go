@@ -1,11 +1,12 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Partial and special matching during template assertions.
+// Experimental.
 type Match interface {
 }
 
@@ -14,24 +15,26 @@ type jsiiProxy_Match struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewMatch_Override(m Match) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		nil, // no parameters
 		m,
 	)
 }
 
 // Use this matcher in the place of a field's value, if the field must not be present.
+// Experimental.
 func Match_Absent() Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"absent",
 		nil, // no parameters
 		&returns,
@@ -41,13 +44,14 @@ func Match_Absent() Matcher {
 }
 
 // Matches any non-null value at the target.
+// Experimental.
 func Match_AnyValue() Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"anyValue",
 		nil, // no parameters
 		&returns,
@@ -59,6 +63,7 @@ func Match_AnyValue() Matcher {
 // Matches the specified pattern with the array found in the same relative path of the target.
 //
 // The set of elements (or matchers) must match exactly and in order.
+// Experimental.
 func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 	_init_.Initialize()
 
@@ -68,7 +73,7 @@ func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"arrayEquals",
 		[]interface{}{pattern},
 		&returns,
@@ -80,6 +85,7 @@ func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 // Matches the specified pattern with the array found in the same relative path of the target.
 //
 // The set of elements (or matchers) must be in the same order as would be found.
+// Experimental.
 func Match_ArrayWith(pattern *[]interface{}) Matcher {
 	_init_.Initialize()
 
@@ -89,7 +95,7 @@ func Match_ArrayWith(pattern *[]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"arrayWith",
 		[]interface{}{pattern},
 		&returns,
@@ -99,6 +105,7 @@ func Match_ArrayWith(pattern *[]interface{}) Matcher {
 }
 
 // Deep exact matching of the specified pattern to the target.
+// Experimental.
 func Match_Exact(pattern interface{}) Matcher {
 	_init_.Initialize()
 
@@ -108,7 +115,7 @@ func Match_Exact(pattern interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"exact",
 		[]interface{}{pattern},
 		&returns,
@@ -118,6 +125,7 @@ func Match_Exact(pattern interface{}) Matcher {
 }
 
 // Matches any target which does NOT follow the specified pattern.
+// Experimental.
 func Match_Not(pattern interface{}) Matcher {
 	_init_.Initialize()
 
@@ -127,7 +135,7 @@ func Match_Not(pattern interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"not",
 		[]interface{}{pattern},
 		&returns,
@@ -139,6 +147,7 @@ func Match_Not(pattern interface{}) Matcher {
 // Matches the specified pattern to an object found in the same relative path of the target.
 //
 // The keys and their values (or matchers) must match exactly with the target.
+// Experimental.
 func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 	_init_.Initialize()
 
@@ -148,7 +157,7 @@ func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"objectEquals",
 		[]interface{}{pattern},
 		&returns,
@@ -160,6 +169,7 @@ func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 // Matches the specified pattern to an object found in the same relative path of the target.
 //
 // The keys and their values (or matchers) must be present in the target but the target can be a superset.
+// Experimental.
 func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 	_init_.Initialize()
 
@@ -169,7 +179,7 @@ func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"objectLike",
 		[]interface{}{pattern},
 		&returns,
@@ -179,6 +189,7 @@ func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 }
 
 // Matches any string-encoded JSON and applies the specified pattern after parsing it.
+// Experimental.
 func Match_SerializedJson(pattern interface{}) Matcher {
 	_init_.Initialize()
 
@@ -188,7 +199,7 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"serializedJson",
 		[]interface{}{pattern},
 		&returns,
@@ -198,6 +209,7 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 }
 
 // Matches targets according to a regular expression.
+// Experimental.
 func Match_StringLikeRegexp(pattern *string) Matcher {
 	_init_.Initialize()
 
@@ -207,7 +219,7 @@ func Match_StringLikeRegexp(pattern *string) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"stringLikeRegexp",
 		[]interface{}{pattern},
 		&returns,

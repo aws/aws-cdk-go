@@ -4,16 +4,20 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+// Experimental.
 type IVersion interface {
 	IFunction
 	// Defines an alias for this version.
 	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// The ARN of the version for Lambda@Edge.
+	// Experimental.
 	EdgeArn() *string
 	// The underlying AWS Lambda function.
+	// Experimental.
 	Lambda() IFunction
 	// The most recently deployed version of this function.
+	// Experimental.
 	Version() *string
 }
 

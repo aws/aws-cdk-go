@@ -19,14 +19,18 @@ package awselasticloadbalancingv2
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type ApplicationProtocolVersion string
 
 const (
 	// GRPC.
+	// Experimental.
 	ApplicationProtocolVersion_GRPC ApplicationProtocolVersion = "GRPC"
 	// HTTP1.
+	// Experimental.
 	ApplicationProtocolVersion_HTTP1 ApplicationProtocolVersion = "HTTP1"
 	// HTTP2.
+	// Experimental.
 	ApplicationProtocolVersion_HTTP2 ApplicationProtocolVersion = "HTTP2"
 )
 

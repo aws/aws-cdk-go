@@ -6,7 +6,7 @@ package assertions
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 func (t *jsiiProxy_Template) validateFindConditionsParameters(logicalId *string) error {
@@ -124,22 +124,6 @@ func (t *jsiiProxy_Template) validateHasResourcePropertiesParameters(type_ *stri
 func (t *jsiiProxy_Template) validateResourceCountIsParameters(type_ *string, count *float64) error {
 	if type_ == nil {
 		return fmt.Errorf("parameter type_ is required, but nil was provided")
-	}
-
-	if count == nil {
-		return fmt.Errorf("parameter count is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (t *jsiiProxy_Template) validateResourcePropertiesCountIsParameters(type_ *string, props interface{}, count *float64) error {
-	if type_ == nil {
-		return fmt.Errorf("parameter type_ is required, but nil was provided")
-	}
-
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
 
 	if count == nil {

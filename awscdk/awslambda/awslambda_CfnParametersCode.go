@@ -1,14 +1,13 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
 // Lambda code defined using 2 CloudFormation parameters.
@@ -151,11 +150,15 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CfnParametersCode interface {
 	Code
+	// Experimental.
 	BucketNameParam() *string
 	// Determines whether this Code is inline code or not.
+	// Experimental.
 	IsInline() *bool
+	// Experimental.
 	ObjectKeyParam() *string
 	// Create a parameters map from this instance's CloudFormation parameters.
 	//
@@ -165,13 +168,16 @@ type CfnParametersCode interface {
 	// The result should be provided to the CloudFormation Action
 	// that is deploying the Stack that the Lambda with this code is part of,
 	// in the `parameterOverrides` property.
+	// Experimental.
 	Assign(location *awss3.Location) *map[string]interface{}
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(scope constructs.Construct) *CodeConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
+	// Experimental.
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
@@ -211,6 +217,7 @@ func (j *jsiiProxy_CfnParametersCode) ObjectKeyParam() *string {
 }
 
 
+// Experimental.
 func NewCfnParametersCode(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -220,7 +227,7 @@ func NewCfnParametersCode(props *CfnParametersCodeProps) CfnParametersCode {
 	j := jsiiProxy_CfnParametersCode{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		[]interface{}{props},
 		&j,
 	)
@@ -228,17 +235,79 @@ func NewCfnParametersCode(props *CfnParametersCodeProps) CfnParametersCode {
 	return &j
 }
 
+// Experimental.
 func NewCfnParametersCode_Override(c CfnParametersCode, props *CfnParametersCodeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		[]interface{}{props},
 		c,
 	)
 }
 
+// DEPRECATED.
+// Deprecated: use `fromAsset`.
+func CfnParametersCode_Asset(path *string) AssetCode {
+	_init_.Initialize()
+
+	if err := validateCfnParametersCode_AssetParameters(path); err != nil {
+		panic(err)
+	}
+	var returns AssetCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.CfnParametersCode",
+		"asset",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `fromBucket`.
+func CfnParametersCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
+	_init_.Initialize()
+
+	if err := validateCfnParametersCode_BucketParameters(bucket, key); err != nil {
+		panic(err)
+	}
+	var returns S3Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.CfnParametersCode",
+		"bucket",
+		[]interface{}{bucket, key, objectVersion},
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `fromCfnParameters`.
+func CfnParametersCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
+	_init_.Initialize()
+
+	if err := validateCfnParametersCode_CfnParametersParameters(props); err != nil {
+		panic(err)
+	}
+	var returns CfnParametersCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.CfnParametersCode",
+		"cfnParameters",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Loads the function code from a local disk path.
+// Experimental.
 func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -248,7 +317,7 @@ func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -258,6 +327,7 @@ func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
+// Experimental.
 func CfnParametersCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -267,7 +337,7 @@ func CfnParametersCode_FromAssetImage(directory *string, props *AssetImageCodePr
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -277,6 +347,7 @@ func CfnParametersCode_FromAssetImage(directory *string, props *AssetImageCodePr
 }
 
 // Lambda handler code as an S3 object.
+// Experimental.
 func CfnParametersCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -286,7 +357,7 @@ func CfnParametersCode_FromBucket(bucket awss3.IBucket, key *string, objectVersi
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -298,6 +369,7 @@ func CfnParametersCode_FromBucket(bucket awss3.IBucket, key *string, objectVersi
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
+// Experimental.
 func CfnParametersCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -307,7 +379,7 @@ func CfnParametersCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParam
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -320,6 +392,7 @@ func CfnParametersCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParam
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
+// Experimental.
 func CfnParametersCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -329,7 +402,7 @@ func CfnParametersCode_FromDockerBuild(path *string, options *DockerBuildAssetOp
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -339,6 +412,7 @@ func CfnParametersCode_FromDockerBuild(path *string, options *DockerBuildAssetOp
 }
 
 // Use an existing ECR image as the Lambda code.
+// Experimental.
 func CfnParametersCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -348,7 +422,7 @@ func CfnParametersCode_FromEcrImage(repository awsecr.IRepository, props *EcrIma
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -360,6 +434,7 @@ func CfnParametersCode_FromEcrImage(repository awsecr.IRepository, props *EcrIma
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
+// Experimental.
 func CfnParametersCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -369,8 +444,28 @@ func CfnParametersCode_FromInline(code *string) InlineCode {
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
+		"monocdk.aws_lambda.CfnParametersCode",
 		"fromInline",
+		[]interface{}{code},
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `fromInline`.
+func CfnParametersCode_Inline(code *string) InlineCode {
+	_init_.Initialize()
+
+	if err := validateCfnParametersCode_InlineParameters(code); err != nil {
+		panic(err)
+	}
+	var returns InlineCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.CfnParametersCode",
+		"inline",
 		[]interface{}{code},
 		&returns,
 	)
@@ -394,7 +489,7 @@ func (c *jsiiProxy_CfnParametersCode) Assign(location *awss3.Location) *map[stri
 	return returns
 }
 
-func (c *jsiiProxy_CfnParametersCode) Bind(scope constructs.Construct) *CodeConfig {
+func (c *jsiiProxy_CfnParametersCode) Bind(scope awscdk.Construct) *CodeConfig {
 	if err := c.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

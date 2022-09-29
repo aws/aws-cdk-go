@@ -28,6 +28,12 @@ package awsglue
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	eventBatchingCondition: &eventBatchingConditionProperty{
+//   		batchSize: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		batchWindow: jsii.Number(123),
+//   	},
 //   	name: jsii.String("name"),
 //   	predicate: &predicateProperty{
 //   		conditions: []interface{}{
@@ -54,6 +60,8 @@ type CfnTriggerProps struct {
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of this trigger.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// `AWS::Glue::Trigger.EventBatchingCondition`.
+	EventBatchingCondition interface{} `field:"optional" json:"eventBatchingCondition" yaml:"eventBatchingCondition"`
 	// The name of the trigger.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The predicate of this trigger, which defines when it will fire.

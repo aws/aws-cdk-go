@@ -37,7 +37,15 @@ func (p *jsiiProxy_ProxyResource) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
+func (p *jsiiProxy_ProxyResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (p *jsiiProxy_ProxyResource) validateResourceForPathParameters(path *string) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProxyResource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -49,11 +57,7 @@ func validateProxyResource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateProxyResource_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateProxyResource_IsResourceParameters(construct constructs.IConstruct) error {
+func validateProxyResource_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

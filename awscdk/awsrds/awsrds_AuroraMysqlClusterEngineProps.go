@@ -18,14 +18,16 @@ package awsrds
 //   		// optional , defaults to t3.medium
 //   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
 //   		vpcSubnets: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   		},
 //   		vpc: vpc,
 //   	},
 //   })
 //
+// Experimental.
 type AuroraMysqlClusterEngineProps struct {
 	// The version of the Aurora MySQL cluster engine.
+	// Experimental.
 	Version AuroraMysqlEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

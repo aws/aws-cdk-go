@@ -6,7 +6,7 @@ package awscognito
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func validateUserPoolIdentityProvider_FromProviderNameParameters(scope constructs.Construct, id *string, providerName *string) error {

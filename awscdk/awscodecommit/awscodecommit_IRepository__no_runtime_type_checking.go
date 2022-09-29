@@ -21,6 +21,10 @@ func (i *jsiiProxy_IRepository) validateGrantReadParameters(grantee awsiam.IGran
 	return nil
 }
 
+func (i *jsiiProxy_IRepository) validateNotifiyOnPullRequestMergedParameters(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IRepository) validateNotifyOnParameters(id *string, target awscodestarnotifications.INotificationRuleTarget, options *RepositoryNotifyOnOptions) error {
 	return nil
 }

@@ -1,11 +1,11 @@
 package awsroute53targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 // Defines an API Gateway REST API as the alias target. Requires that the domain name will be defined through `RestApiProps.domainName`.
@@ -26,9 +26,11 @@ import (
 //   	target: route53.recordTarget.fromAlias(targets.NewApiGateway(api)),
 //   })
 //
+// Experimental.
 type ApiGateway interface {
 	ApiGatewayDomain
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
+	// Experimental.
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
@@ -37,6 +39,7 @@ type jsiiProxy_ApiGateway struct {
 	jsiiProxy_ApiGatewayDomain
 }
 
+// Experimental.
 func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	_init_.Initialize()
 
@@ -46,7 +49,7 @@ func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	j := jsiiProxy_ApiGateway{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53_targets.ApiGateway",
+		"monocdk.aws_route53_targets.ApiGateway",
 		[]interface{}{api},
 		&j,
 	)
@@ -54,11 +57,12 @@ func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	return &j
 }
 
+// Experimental.
 func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApiBase) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53_targets.ApiGateway",
+		"monocdk.aws_route53_targets.ApiGateway",
 		[]interface{}{api},
 		a,
 	)

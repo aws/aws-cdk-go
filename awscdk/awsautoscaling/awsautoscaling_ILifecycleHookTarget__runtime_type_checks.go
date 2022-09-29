@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (i *jsiiProxy_ILifecycleHookTarget) validateBindParameters(scope constructs.Construct, options *BindHookTargetOptions) error {

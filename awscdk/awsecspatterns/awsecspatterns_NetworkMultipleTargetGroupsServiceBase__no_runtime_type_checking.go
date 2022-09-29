@@ -17,11 +17,27 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) validateGetDefaultClu
 	return nil
 }
 
+func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) validateRegisterECSTargetsParameters(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) error {
 	return nil
 }
 
+func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateNetworkMultipleTargetGroupsServiceBase_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) validateSetListenersParameters(val *[]awselasticloadbalancingv2.NetworkListener) error {
+	return nil
+}
+
+func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) validateSetTargetGroupsParameters(val *[]awselasticloadbalancingv2.NetworkTargetGroup) error {
 	return nil
 }
 

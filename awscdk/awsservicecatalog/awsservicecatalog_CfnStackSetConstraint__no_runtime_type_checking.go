@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnStackSetConstraint) validateInspectParameters(inspector aw
 	return nil
 }
 
+func (c *jsiiProxy_CfnStackSetConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStackSetConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStackSetConstraint) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStackSetConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -101,7 +109,7 @@ func (j *jsiiProxy_CfnStackSetConstraint) validateSetStackInstanceControlParamet
 	return nil
 }
 
-func validateNewCfnStackSetConstraintParameters(scope constructs.Construct, id *string, props *CfnStackSetConstraintProps) error {
+func validateNewCfnStackSetConstraintParameters(scope awscdk.Construct, id *string, props *CfnStackSetConstraintProps) error {
 	return nil
 }
 

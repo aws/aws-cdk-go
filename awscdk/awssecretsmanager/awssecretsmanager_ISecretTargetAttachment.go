@@ -4,9 +4,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+// Experimental.
 type ISecretTargetAttachment interface {
 	ISecret
 	// Same as `secretArn`.
+	// Experimental.
 	SecretTargetAttachmentSecretArn() *string
 }
 

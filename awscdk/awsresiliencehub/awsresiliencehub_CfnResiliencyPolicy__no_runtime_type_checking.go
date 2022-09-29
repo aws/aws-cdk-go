@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnResiliencyPolicy) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnResiliencyPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResiliencyPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResiliencyPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResiliencyPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +89,7 @@ func (j *jsiiProxy_CfnResiliencyPolicy) validateSetTierParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnResiliencyPolicyParameters(scope constructs.Construct, id *string, props *CfnResiliencyPolicyProps) error {
+func validateNewCfnResiliencyPolicyParameters(scope awscdk.Construct, id *string, props *CfnResiliencyPolicyProps) error {
 	return nil
 }
 

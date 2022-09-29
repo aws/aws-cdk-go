@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnSimpleAD) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnSimpleAD) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSimpleAD) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSimpleAD) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSimpleAD) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +101,7 @@ func (j *jsiiProxy_CfnSimpleAD) validateSetVpcSettingsParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnSimpleADParameters(scope constructs.Construct, id *string, props *CfnSimpleADProps) error {
+func validateNewCfnSimpleADParameters(scope awscdk.Construct, id *string, props *CfnSimpleADProps) error {
 	return nil
 }
 

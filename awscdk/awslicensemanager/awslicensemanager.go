@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_licensemanager.CfnGrant",
+		"monocdk.aws_licensemanager.CfnGrant",
 		reflect.TypeOf((*CfnGrant)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -33,16 +33,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "licenseArn", GoGetter: "LicenseArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "principals", GoGetter: "Principals"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -53,11 +58,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnGrantProps",
+		"monocdk.aws_licensemanager.CfnGrantProps",
 		reflect.TypeOf((*CfnGrantProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense",
+		"monocdk.aws_licensemanager.CfnLicense",
 		reflect.TypeOf((*CfnLicense)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -85,7 +90,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "licenseName", GoGetter: "LicenseName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "productName", GoGetter: "ProductName"},
 			_jsii_.MemberProperty{JsiiProperty: "productSku", GoGetter: "ProductSku"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -93,9 +102,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "validity", GoGetter: "Validity"},
 		},
@@ -107,35 +117,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense.BorrowConfigurationProperty",
+		"monocdk.aws_licensemanager.CfnLicense.BorrowConfigurationProperty",
 		reflect.TypeOf((*CfnLicense_BorrowConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense.ConsumptionConfigurationProperty",
+		"monocdk.aws_licensemanager.CfnLicense.ConsumptionConfigurationProperty",
 		reflect.TypeOf((*CfnLicense_ConsumptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense.EntitlementProperty",
+		"monocdk.aws_licensemanager.CfnLicense.EntitlementProperty",
 		reflect.TypeOf((*CfnLicense_EntitlementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense.IssuerDataProperty",
+		"monocdk.aws_licensemanager.CfnLicense.IssuerDataProperty",
 		reflect.TypeOf((*CfnLicense_IssuerDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense.MetadataProperty",
+		"monocdk.aws_licensemanager.CfnLicense.MetadataProperty",
 		reflect.TypeOf((*CfnLicense_MetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense.ProvisionalConfigurationProperty",
+		"monocdk.aws_licensemanager.CfnLicense.ProvisionalConfigurationProperty",
 		reflect.TypeOf((*CfnLicense_ProvisionalConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicense.ValidityDateFormatProperty",
+		"monocdk.aws_licensemanager.CfnLicense.ValidityDateFormatProperty",
 		reflect.TypeOf((*CfnLicense_ValidityDateFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_licensemanager.CfnLicenseProps",
+		"monocdk.aws_licensemanager.CfnLicenseProps",
 		reflect.TypeOf((*CfnLicenseProps)(nil)).Elem(),
 	)
 }

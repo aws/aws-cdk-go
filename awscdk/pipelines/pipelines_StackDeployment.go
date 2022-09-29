@@ -1,10 +1,10 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
 )
 
 // Deployment of a single Stack.
@@ -23,40 +23,56 @@ import (
 //
 //   stackDeployment := awscdk.Pipelines.stackDeployment.fromArtifact(cloudFormationStackArtifact)
 //
+// Experimental.
 type StackDeployment interface {
 	// Template path on disk to CloudAssembly.
+	// Experimental.
 	AbsoluteTemplatePath() *string
 	// Account where the stack should be deployed.
+	// Experimental.
 	Account() *string
 	// Assets referenced by this stack.
+	// Experimental.
 	Assets() *[]*StackAsset
 	// Role to assume before deploying this stack.
+	// Experimental.
 	AssumeRoleArn() *string
 	// Steps that take place after stack is prepared but before stack deploys.
 	//
 	// Your pipeline engine may not disable `prepareStep`.
+	// Experimental.
 	ChangeSet() *[]Step
 	// Construct path for this stack.
+	// Experimental.
 	ConstructPath() *string
 	// Execution role to pass to CloudFormation.
+	// Experimental.
 	ExecutionRoleArn() *string
 	// Steps to execute after stack deploys.
+	// Experimental.
 	Post() *[]Step
 	// Steps that take place before stack is prepared.
 	//
 	// If your pipeline engine disables 'prepareStep', then this will happen before stack deploys.
+	// Experimental.
 	Pre() *[]Step
 	// Region where the stack should be deployed.
+	// Experimental.
 	Region() *string
 	// Artifact ID for this stack.
+	// Experimental.
 	StackArtifactId() *string
 	// Other stacks this stack depends on.
+	// Experimental.
 	StackDependencies() *[]StackDeployment
 	// Name for this stack.
+	// Experimental.
 	StackName() *string
 	// Tags to apply to the stack.
+	// Experimental.
 	Tags() *map[string]*string
 	// The asset that represents the CloudFormation template for this stack.
+	// Experimental.
 	TemplateAsset() *StackAsset
 	// The S3 URL which points to the template asset location in the publishing bucket.
 	//
@@ -64,10 +80,13 @@ type StackDeployment interface {
 	// `DefaultStackSynthesizer` to ensure it is.
 	//
 	// Example value: `https://bucket.s3.amazonaws.com/object/key`
+	// Experimental.
 	TemplateUrl() *string
 	// Add a dependency on another stack.
+	// Experimental.
 	AddStackDependency(stackDeployment StackDeployment)
 	// Adds steps to each phase of the stack.
+	// Experimental.
 	AddStackSteps(pre *[]Step, changeSet *[]Step, post *[]Step)
 }
 
@@ -238,6 +257,7 @@ func (j *jsiiProxy_StackDeployment) TemplateUrl() *string {
 
 
 // Build a `StackDeployment` from a Stack Artifact in a Cloud Assembly.
+// Experimental.
 func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifact) StackDeployment {
 	_init_.Initialize()
 
@@ -247,7 +267,7 @@ func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifac
 	var returns StackDeployment
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.StackDeployment",
+		"monocdk.pipelines.StackDeployment",
 		"fromArtifact",
 		[]interface{}{stackArtifact},
 		&returns,
