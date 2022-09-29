@@ -105,6 +105,10 @@ func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationParameters(
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationsParameters(props *OperationsMetricOptions) error {
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateMetricUserErrorsParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }

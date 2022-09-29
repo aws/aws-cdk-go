@@ -405,6 +405,27 @@ dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
 }))
 ```
 
+### Gauge widget
+
+Gauge graph requires the max and min value of the left Y axis, if no value is informed the limits will be from 0 to 100.
+
+```go
+var dashboard dashboard
+var errorAlarm alarm
+var gaugeMetric metric
+
+
+dashboard.addWidgets(cloudwatch.NewGaugeWidget(&gaugeWidgetProps{
+	metrics: []iMetric{
+		gaugeMetric,
+	},
+	leftYAxis: &yAxisProps{
+		min: jsii.Number(0),
+		max: jsii.Number(1000),
+	},
+}))
+```
+
 ### Alarm widget
 
 An alarm widget shows the graph and the alarm line of a single alarm:

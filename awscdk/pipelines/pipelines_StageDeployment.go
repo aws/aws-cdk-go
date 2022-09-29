@@ -53,6 +53,8 @@ type StageDeployment interface {
 	Post() *[]Step
 	// Additional steps that are run before any of the stacks in the stage.
 	Pre() *[]Step
+	// Determine if all stacks in stage should be deployed with prepare step or not.
+	PrepareStep() *bool
 	// The stacks deployed in this stage.
 	Stacks() *[]StackDeployment
 	// Instructions for additional steps that are run at stack level.
@@ -85,6 +87,16 @@ func (j *jsiiProxy_StageDeployment) Pre() *[]Step {
 	_jsii_.Get(
 		j,
 		"pre",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StageDeployment) PrepareStep() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"prepareStep",
 		&returns,
 	)
 	return returns

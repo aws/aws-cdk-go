@@ -399,6 +399,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultArguments", GoGetter: "DefaultArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "executionClass", GoGetter: "ExecutionClass"},
 			_jsii_.MemberProperty{JsiiProperty: "executionProperty", GoGetter: "ExecutionProperty"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -410,6 +411,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "maxRetries", GoGetter: "MaxRetries"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "nonOverridableArguments", GoGetter: "NonOverridableArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationProperty", GoGetter: "NotificationProperty"},
 			_jsii_.MemberProperty{JsiiProperty: "numberOfWorkers", GoGetter: "NumberOfWorkers"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
@@ -961,6 +963,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "eventBatchingCondition", GoGetter: "EventBatchingCondition"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -999,6 +1002,10 @@ func init() {
 		reflect.TypeOf((*CfnTrigger_ConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTrigger.EventBatchingConditionProperty",
+		reflect.TypeOf((*CfnTrigger_EventBatchingConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTrigger.NotificationPropertyProperty",
 		reflect.TypeOf((*CfnTrigger_NotificationPropertyProperty)(nil)).Elem(),
 	)
@@ -1031,6 +1038,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "maxConcurrentRuns", GoGetter: "MaxConcurrentRuns"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},

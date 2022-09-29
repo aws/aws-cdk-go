@@ -38,6 +38,12 @@ import (
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	eventBatchingCondition: &eventBatchingConditionProperty{
+//   		batchSize: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		batchWindow: jsii.Number(123),
+//   	},
 //   	name: jsii.String("name"),
 //   	predicate: &predicateProperty{
 //   		conditions: []interface{}{
@@ -75,6 +81,9 @@ type CfnTrigger interface {
 	// A description of this trigger.
 	Description() *string
 	SetDescription(val *string)
+	// `AWS::Glue::Trigger.EventBatchingCondition`.
+	EventBatchingCondition() interface{}
+	SetEventBatchingCondition(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -309,6 +318,16 @@ func (j *jsiiProxy_CfnTrigger) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrigger) EventBatchingCondition() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"eventBatchingCondition",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrigger) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -484,6 +503,17 @@ func (j *jsiiProxy_CfnTrigger)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrigger)SetEventBatchingCondition(val interface{}) {
+	if err := j.validateSetEventBatchingConditionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"eventBatchingCondition",
 		val,
 	)
 }

@@ -569,6 +569,37 @@ pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipeli
 })
 ```
 
+#### Deploying without change sets
+
+Deployment is done by default with `CodePipeline` engine using change sets,
+i.e. to first create a change set and then execute it. This allows you to inject
+steps that inspect the change set and approve or reject it, but failed deployments
+are not retryable and creation of the change set costs time.
+
+The creation of change sets can be switched off by setting `useChangeSets: false`:
+
+```go
+var synth shellStep
+
+
+type pipelineStack struct {
+	stack
+}
+
+func newPipelineStack(scope construct, id *string, props stackProps) *pipelineStack {
+	this := &pipelineStack{}
+	newStack_Override(this, scope, id, props)
+
+	pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+		synth: synth,
+
+		// Disable change set creation and make deployments in pipeline as single step
+		useChangeSets: jsii.Boolean(false),
+	})
+	return this
+}
+```
+
 ### Validation
 
 Every `addStage()` and `addWave()` command takes additional options. As part of these options,
@@ -1667,6 +1698,97 @@ change the framework version.
 We recommend you avoid specifying the `cliVersion` parameter at all. By default
 the pipeline will use the latest CLI version, which will support all cloud assembly
 versions.
+
+## Using Drop-in Docker Replacements
+
+By default, the AWS CDK will build and publish Docker image assets using the
+`docker` command. However, by specifying the `CDK_DOCKER` environment variable,
+you can override the command that will be used to build and publish your
+assets.
+
+In CDK Pipelines, the drop-in replacement for the `docker` command must be
+included in the CodeBuild environment and configured for your pipeline.
+
+### Adding to the default CodeBuild image
+
+You can add a drop-in Docker replacement command to the default CodeBuild
+environment by adding install-phase commands that encode how to install
+your tooling and by adding the `CDK_DOCKER` environment variable to your
+build environment.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var source iFileSetProducer // the repository source
+var synthCommands []*string // Commands to synthesize your app
+var installCommands []*string
+// Commands to install your toolchain
+
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+	// Standard CodePipeline properties...
+	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
+		input: source,
+		commands: synthCommands,
+	}),
+
+	// Configure CodeBuild to use a drop-in Docker replacement.
+	codeBuildDefaults: &codeBuildOptions{
+		buildEnvironment: &buildEnvironment{
+			partialBuildSpec: codebuild_BuildSpec_FromObject(map[string]map[string]map[string][]*string{
+				"phases": map[string]map[string][]*string{
+					"install": map[string][]*string{
+						// Add the shell commands to install your drop-in Docker
+						// replacement to the CodeBuild enviromment.
+						"commands": installCommands,
+					},
+				},
+			}),
+			environmentVariables: map[string]buildEnvironmentVariable{
+				// Instruct the AWS CDK to use `drop-in-replacement` instead of
+				// `docker` when building / publishing docker images.
+				// e.g., `drop-in-replacement build . -f path/to/Dockerfile`
+				"CDK_DOCKER": jsii.String("drop-in-replacement"),
+			},
+		},
+	},
+})
+```
+
+### Using a custom build image
+
+If you're using a custom build image in CodeBuild, you can override the
+command the AWS CDK uses to build Docker images by providing `CDK_DOCKER` as
+an `ENV` in your `Dockerfile` or by providing the environment variable in the
+pipeline as shown below.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var source iFileSetProducer // the repository source
+var synthCommands []*string
+// Commands to synthesize your app
+
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+	// Standard CodePipeline properties...
+	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
+		input: source,
+		commands: synthCommands,
+	}),
+
+	// Configure CodeBuild to use a drop-in Docker replacement.
+	codeBuildDefaults: &codeBuildOptions{
+		buildEnvironment: &buildEnvironment{
+			// Provide a custom build image containing your toolchain and the
+			// pre-installed replacement for the `docker` command.
+			buildImage: codebuild.linuxBuildImage.fromDockerRegistry(jsii.String("your-docker-registry")),
+			environmentVariables: map[string]buildEnvironmentVariable{
+				// If you haven't provided an `ENV` in your Dockerfile that overrides
+				// `CDK_DOCKER`, then you must provide the name of the command that
+				// the AWS CDK should run instead of `docker` here.
+				"CDK_DOCKER": jsii.String("drop-in-replacement"),
+			},
+		},
+	},
+})
+```
 
 ## Known Issues
 

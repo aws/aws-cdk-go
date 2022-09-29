@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdkneptunealpha/v2/internal"
@@ -24,6 +25,11 @@ type IDatabaseCluster interface {
 	// Grant the given identity connection access to the database.
 	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
+	// Return the given named metric associated with this DatabaseCluster instance.
+	// See: https://docs.aws.amazon.com/neptune/latest/userguide/cw-dimensions.html
+	//
+	// Experimental.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The endpoint to use for read/write operations.
 	// Experimental.
 	ClusterEndpoint() Endpoint
@@ -75,6 +81,22 @@ func (i *jsiiProxy_IDatabaseCluster) GrantConnect(grantee awsiam.IGrantable) aws
 		i,
 		"grantConnect",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IDatabaseCluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, props},
 		&returns,
 	)
 

@@ -44,6 +44,12 @@ type HelmChartOptions struct {
 	// Maximum 15 minutes.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The values to be used by the chart.
+	//
+	// For nested values use a nested dictionary. For example:
+	// values: {
+	//   installationCRDs: true,
+	//   webhook: { port: 9443 }
+	// }.
 	Values *map[string]interface{} `field:"optional" json:"values" yaml:"values"`
 	// The chart version to install.
 	Version *string `field:"optional" json:"version" yaml:"version"`

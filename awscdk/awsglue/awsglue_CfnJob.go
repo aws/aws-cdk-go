@@ -19,6 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var defaultArguments interface{}
+//   var nonOverridableArguments interface{}
 //   var tags interface{}
 //
 //   cfnJob := awscdk.Aws_glue.NewCfnJob(this, jsii.String("MyCfnJob"), &cfnJobProps{
@@ -38,6 +39,7 @@ import (
 //   	},
 //   	defaultArguments: defaultArguments,
 //   	description: jsii.String("description"),
+//   	executionClass: jsii.String("executionClass"),
 //   	executionProperty: &executionPropertyProperty{
 //   		maxConcurrentRuns: jsii.Number(123),
 //   	},
@@ -46,6 +48,7 @@ import (
 //   	maxCapacity: jsii.Number(123),
 //   	maxRetries: jsii.Number(123),
 //   	name: jsii.String("name"),
+//   	nonOverridableArguments: nonOverridableArguments,
 //   	notificationProperty: &notificationPropertyProperty{
 //   		notifyDelayAfter: jsii.Number(123),
 //   	},
@@ -89,6 +92,9 @@ type CfnJob interface {
 	// A description of the job.
 	Description() *string
 	SetDescription(val *string)
+	// `AWS::Glue::Job.ExecutionClass`.
+	ExecutionClass() *string
+	SetExecutionClass(val *string)
 	// The maximum number of concurrent runs that are allowed for this job.
 	ExecutionProperty() interface{}
 	SetExecutionProperty(val interface{})
@@ -134,6 +140,9 @@ type CfnJob interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::Glue::Job.NonOverridableArguments`.
+	NonOverridableArguments() interface{}
+	SetNonOverridableArguments(val interface{})
 	// Specifies configuration properties of a notification.
 	NotificationProperty() interface{}
 	SetNotificationProperty(val interface{})
@@ -392,6 +401,16 @@ func (j *jsiiProxy_CfnJob) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJob) ExecutionClass() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionClass",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJob) ExecutionProperty() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -467,6 +486,16 @@ func (j *jsiiProxy_CfnJob) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJob) NonOverridableArguments() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"nonOverridableArguments",
 		&returns,
 	)
 	return returns
@@ -661,6 +690,14 @@ func (j *jsiiProxy_CfnJob)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnJob)SetExecutionClass(val *string) {
+	_jsii_.Set(
+		j,
+		"executionClass",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnJob)SetExecutionProperty(val interface{}) {
 	if err := j.validateSetExecutionPropertyParameters(val); err != nil {
 		panic(err)
@@ -708,6 +745,17 @@ func (j *jsiiProxy_CfnJob)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJob)SetNonOverridableArguments(val interface{}) {
+	if err := j.validateSetNonOverridableArgumentsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"nonOverridableArguments",
 		val,
 	)
 }

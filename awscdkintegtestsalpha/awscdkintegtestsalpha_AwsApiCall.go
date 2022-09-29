@@ -6,7 +6,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdkintegtestsalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,8 +22,17 @@ import (
 //
 // Experimental.
 type AwsApiCall interface {
-	constructs.Construct
-	IAwsApiCall
+	ApiCallBase
+	// Experimental.
+	ApiCallResource() awscdk.CustomResource
+	// Experimental.
+	ExpectedResult() *string
+	// Experimental.
+	SetExpectedResult(val *string)
+	// Experimental.
+	FlattenResponse() *string
+	// Experimental.
+	SetFlattenResponse(val *string)
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -34,6 +42,10 @@ type AwsApiCall interface {
 	// the the provider role policy.
 	// Experimental.
 	Provider() AssertionsProvider
+	// Experimental.
+	StateMachineArn() *string
+	// Experimental.
+	SetStateMachineArn(val *string)
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall at the given path.
 	//
 	// For example the SQS.receiveMessage api response would look
@@ -57,6 +69,11 @@ type AwsApiCall interface {
 	// `Data` map where the key is the attribute name.
 	// Experimental.
 	GetAttString(attributeName *string) *string
+	// Allows you to chain IApiCalls. This adds an explicit dependency betweent the two resources.
+	//
+	// Returns the IApiCall provided as `next`.
+	// Experimental.
+	Next(next IApiCall) IApiCall
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -64,8 +81,37 @@ type AwsApiCall interface {
 
 // The jsii proxy struct for AwsApiCall
 type jsiiProxy_AwsApiCall struct {
-	internal.Type__constructsConstruct
-	jsiiProxy_IAwsApiCall
+	jsiiProxy_ApiCallBase
+}
+
+func (j *jsiiProxy_AwsApiCall) ApiCallResource() awscdk.CustomResource {
+	var returns awscdk.CustomResource
+	_jsii_.Get(
+		j,
+		"apiCallResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsApiCall) ExpectedResult() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"expectedResult",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsApiCall) FlattenResponse() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"flattenResponse",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_AwsApiCall) Node() constructs.Node {
@@ -83,6 +129,16 @@ func (j *jsiiProxy_AwsApiCall) Provider() AssertionsProvider {
 	_jsii_.Get(
 		j,
 		"provider",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AwsApiCall) StateMachineArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateMachineArn",
 		&returns,
 	)
 	return returns
@@ -115,6 +171,33 @@ func NewAwsApiCall_Override(a AwsApiCall, scope constructs.Construct, id *string
 		"@aws-cdk/integ-tests-alpha.AwsApiCall",
 		[]interface{}{scope, id, props},
 		a,
+	)
+}
+
+func (j *jsiiProxy_AwsApiCall)SetExpectedResult(val *string) {
+	_jsii_.Set(
+		j,
+		"expectedResult",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AwsApiCall)SetFlattenResponse(val *string) {
+	if err := j.validateSetFlattenResponseParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"flattenResponse",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AwsApiCall)SetStateMachineArn(val *string) {
+	_jsii_.Set(
+		j,
+		"stateMachineArn",
+		val,
 	)
 }
 
@@ -202,6 +285,22 @@ func (a *jsiiProxy_AwsApiCall) GetAttString(attributeName *string) *string {
 		a,
 		"getAttString",
 		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AwsApiCall) Next(next IApiCall) IApiCall {
+	if err := a.validateNextParameters(next); err != nil {
+		panic(err)
+	}
+	var returns IApiCall
+
+	_jsii_.Invoke(
+		a,
+		"next",
+		[]interface{}{next},
 		&returns,
 	)
 

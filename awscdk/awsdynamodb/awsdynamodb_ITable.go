@@ -66,7 +66,10 @@ type ITable interface {
 	// Metric for the system errors this table.
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	// Metric for throttled requests.
+	// Deprecated: use `metricThrottledRequestsForOperations`.
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for throttled requests.
+	MetricThrottledRequestsForOperations(props *OperationsMetricOptions) awscloudwatch.IMetric
 	// Metric for the user errors.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Optional KMS encryption key associated with this table.
@@ -327,6 +330,22 @@ func (i *jsiiProxy_ITable) MetricThrottledRequests(props *awscloudwatch.MetricOp
 	_jsii_.Invoke(
 		i,
 		"metricThrottledRequests",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ITable) MetricThrottledRequestsForOperations(props *OperationsMetricOptions) awscloudwatch.IMetric {
+	if err := i.validateMetricThrottledRequestsForOperationsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.IMetric
+
+	_jsii_.Invoke(
+		i,
+		"metricThrottledRequestsForOperations",
 		[]interface{}{props},
 		&returns,
 	)

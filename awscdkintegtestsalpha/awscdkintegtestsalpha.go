@@ -17,6 +17,30 @@ func init() {
 			return &jsiiProxy_ActualResult{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/integ-tests-alpha.ApiCallBase",
+		reflect.TypeOf((*ApiCallBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiCallResource", GoGetter: "ApiCallResource"},
+			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
+			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
+			_jsii_.MemberProperty{JsiiProperty: "expectedResult", GoGetter: "ExpectedResult"},
+			_jsii_.MemberProperty{JsiiProperty: "flattenResponse", GoGetter: "FlattenResponse"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineArn", GoGetter: "StateMachineArn"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiCallBase{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiCall)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/integ-tests-alpha.AssertionRequest",
 		reflect.TypeOf((*AssertionRequest)(nil)).Elem(),
@@ -60,18 +84,22 @@ func init() {
 		"@aws-cdk/integ-tests-alpha.AwsApiCall",
 		reflect.TypeOf((*AwsApiCall)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiCallResource", GoGetter: "ApiCallResource"},
 			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
 			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
+			_jsii_.MemberProperty{JsiiProperty: "expectedResult", GoGetter: "ExpectedResult"},
+			_jsii_.MemberProperty{JsiiProperty: "flattenResponse", GoGetter: "FlattenResponse"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineArn", GoGetter: "StateMachineArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AwsApiCall{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAwsApiCall)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ApiCallBase)
 			return &j
 		},
 	)
@@ -120,18 +148,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"@aws-cdk/integ-tests-alpha.IAwsApiCall",
-		reflect.TypeOf((*IAwsApiCall)(nil)).Elem(),
+		"@aws-cdk/integ-tests-alpha.IApiCall",
+		reflect.TypeOf((*IApiCall)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
 			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
 		},
 		func() interface{} {
-			j := jsiiProxy_IAwsApiCall{}
+			j := jsiiProxy_IApiCall{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			return &j
 		},
@@ -248,12 +277,17 @@ func init() {
 		"@aws-cdk/integ-tests-alpha.LambdaInvokeFunction",
 		reflect.TypeOf((*LambdaInvokeFunction)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiCallResource", GoGetter: "ApiCallResource"},
 			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
 			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
+			_jsii_.MemberProperty{JsiiProperty: "expectedResult", GoGetter: "ExpectedResult"},
+			_jsii_.MemberProperty{JsiiProperty: "flattenResponse", GoGetter: "FlattenResponse"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineArn", GoGetter: "StateMachineArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {

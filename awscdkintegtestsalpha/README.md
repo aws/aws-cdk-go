@@ -203,7 +203,7 @@ There are two main scenarios in which assertions are created.
 * Part of an integration test using `integ-runner`
 
 In this case you would create an integration test using the `IntegTest` construct and then make assertions using the `assert` property.
-You should **not** utilize the assertion constructs directly, but should instead use the `methods` on `IntegTest.assert`.
+You should **not** utilize the assertion constructs directly, but should instead use the `methods` on `IntegTest.assertions`.
 
 ```go
 var app app
@@ -462,5 +462,24 @@ describe := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.St
 // assert the results
 describe.expect(awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
 	"status": jsii.String("SUCCEEDED"),
+}))
+```
+
+#### Chain ApiCalls
+
+Sometimes it may be necessary to chain API Calls. Since each API call is its own resource, all you
+need to do is add a dependency between the calls. There is an helper method `next` that can be used.
+
+```go
+var integ integTest
+
+
+integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("putObject"), map[string]*string{
+	"Bucket": jsii.String("my-bucket"),
+	"Key": jsii.String("my-key"),
+	"Body": jsii.String("helloWorld"),
+}).next(integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("getObject"), map[string]*string{
+	"Bucket": jsii.String("my-bucket"),
+	"Key": jsii.String("my-key"),
 }))
 ```

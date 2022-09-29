@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-func validateActualResult_FromAwsApiCallParameters(query IAwsApiCall, attribute *string) error {
+func validateActualResult_FromAwsApiCallParameters(query IApiCall, attribute *string) error {
 	if query == nil {
 		return fmt.Errorf("parameter query is required, but nil was provided")
 	}

@@ -22,7 +22,15 @@ func (a *jsiiProxy_AwsApiCall) validateGetAttStringParameters(attributeName *str
 	return nil
 }
 
+func (a *jsiiProxy_AwsApiCall) validateNextParameters(next IApiCall) error {
+	return nil
+}
+
 func validateAwsApiCall_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_AwsApiCall) validateSetFlattenResponseParameters(val *string) error {
 	return nil
 }
 

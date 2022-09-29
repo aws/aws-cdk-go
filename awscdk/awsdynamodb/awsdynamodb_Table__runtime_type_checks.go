@@ -255,6 +255,14 @@ func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationParameters(
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationsParameters(props *OperationsMetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateMetricUserErrorsParameters(props *awscloudwatch.MetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err

@@ -6,7 +6,7 @@ package awscdkintegtestsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateActualResult_FromAwsApiCallParameters(query IAwsApiCall, attribute *string) error {
+func validateActualResult_FromAwsApiCallParameters(query IApiCall, attribute *string) error {
 	return nil
 }
 

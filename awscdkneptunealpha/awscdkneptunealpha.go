@@ -52,6 +52,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceEndpoints", GoGetter: "InstanceEndpoints"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceIdentifiers", GoGetter: "InstanceIdentifiers"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -88,6 +89,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -118,6 +120,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceEndpoint", GoGetter: "InstanceEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceIdentifier", GoGetter: "InstanceIdentifier"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -125,7 +128,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_DatabaseInstance{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_DatabaseInstanceBase)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDatabaseInstance)
 			return &j
 		},
@@ -133,6 +136,32 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-neptune-alpha.DatabaseInstanceAttributes",
 		reflect.TypeOf((*DatabaseInstanceAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-neptune-alpha.DatabaseInstanceBase",
+		reflect.TypeOf((*DatabaseInstanceBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "dbInstanceEndpointAddress", GoGetter: "DbInstanceEndpointAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "dbInstanceEndpointPort", GoGetter: "DbInstanceEndpointPort"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceEndpoint", GoGetter: "InstanceEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceIdentifier", GoGetter: "InstanceIdentifier"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DatabaseInstanceBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDatabaseInstance)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-neptune-alpha.DatabaseInstanceProps",
@@ -189,6 +218,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -209,6 +239,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceEndpoint", GoGetter: "InstanceEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceIdentifier", GoGetter: "InstanceIdentifier"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},

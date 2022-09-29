@@ -9,24 +9,28 @@ import (
 // Properties for a DynamoDB Table.
 //
 // Example:
-//   globalTable := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
 //   	partitionKey: &attribute{
 //   		name: jsii.String("id"),
 //   		type: dynamodb.attributeType_STRING,
 //   	},
-//   	replicationRegions: []*string{
-//   		jsii.String("us-east-1"),
-//   		jsii.String("us-east-2"),
-//   		jsii.String("us-west-2"),
-//   	},
-//   	billingMode: dynamodb.billingMode_PROVISIONED,
 //   })
 //
-//   globalTable.autoScaleWriteCapacity(&enableScalingProps{
-//   	minCapacity: jsii.Number(1),
-//   	maxCapacity: jsii.Number(10),
-//   }).scaleOnUtilization(&utilizationScalingProps{
-//   	targetUtilizationPercent: jsii.Number(75),
+//   metric := table.metricThrottledRequestsForOperations(&operationsMetricOptions{
+//   	operations: []operation{
+//   		dynamodb.*operation_PUT_ITEM,
+//   	},
+//   	period: awscdk.Duration.minutes(jsii.Number(1)),
+//   })
+//
+//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
+//   	metric: metric,
+//   	evaluationPeriods: jsii.Number(1),
+//   	threshold: jsii.Number(1),
 //   })
 //
 type TableProps struct {

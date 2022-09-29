@@ -196,6 +196,17 @@ func WindowsBuildImage_WIN_SERVER_CORE_2019_BASE() IBuildImage {
 	return returns
 }
 
+func WindowsBuildImage_WIN_SERVER_CORE_2019_BASE_2_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.WindowsBuildImage",
+		"WIN_SERVER_CORE_2019_BASE_2_0",
+		&returns,
+	)
+	return returns
+}
+
 func WindowsBuildImage_WINDOWS_BASE_2_0() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage

@@ -24,6 +24,7 @@ import (
 //   cfnWorkflow := awscdk.Aws_glue.NewCfnWorkflow(this, jsii.String("MyCfnWorkflow"), &cfnWorkflowProps{
 //   	defaultRunProperties: defaultRunProperties,
 //   	description: jsii.String("description"),
+//   	maxConcurrentRuns: jsii.Number(123),
 //   	name: jsii.String("name"),
 //   	tags: tags,
 //   })
@@ -56,6 +57,9 @@ type CfnWorkflow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// `AWS::Glue::Workflow.MaxConcurrentRuns`.
+	MaxConcurrentRuns() *float64
+	SetMaxConcurrentRuns(val *float64)
 	// The name of the workflow representing the flow.
 	Name() *string
 	SetName(val *string)
@@ -271,6 +275,16 @@ func (j *jsiiProxy_CfnWorkflow) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) MaxConcurrentRuns() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxConcurrentRuns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -386,6 +400,14 @@ func (j *jsiiProxy_CfnWorkflow)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetMaxConcurrentRuns(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxConcurrentRuns",
 		val,
 	)
 }

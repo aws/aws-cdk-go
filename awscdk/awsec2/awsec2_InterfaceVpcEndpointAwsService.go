@@ -693,6 +693,17 @@ func InterfaceVpcEndpointAwsService_SECRETS_MANAGER() InterfaceVpcEndpointAwsSer
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_SECURITYHUB() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SECURITYHUB",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_SERVICE_CATALOG() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

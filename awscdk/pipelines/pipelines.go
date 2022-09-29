@@ -412,6 +412,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPre", GoMethod: "AddPre"},
 			_jsii_.MemberProperty{JsiiProperty: "post", GoGetter: "Post"},
 			_jsii_.MemberProperty{JsiiProperty: "pre", GoGetter: "Pre"},
+			_jsii_.MemberProperty{JsiiProperty: "prepareStep", GoGetter: "PrepareStep"},
 			_jsii_.MemberProperty{JsiiProperty: "stacks", GoGetter: "Stacks"},
 			_jsii_.MemberProperty{JsiiProperty: "stackSteps", GoGetter: "StackSteps"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},

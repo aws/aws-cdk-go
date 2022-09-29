@@ -48,9 +48,25 @@ func (a *jsiiProxy_AwsApiCall) validateGetAttStringParameters(attributeName *str
 	return nil
 }
 
+func (a *jsiiProxy_AwsApiCall) validateNextParameters(next IApiCall) error {
+	if next == nil {
+		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateAwsApiCall_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_AwsApiCall) validateSetFlattenResponseParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

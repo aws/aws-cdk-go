@@ -17,9 +17,10 @@ import (
 // users that don't need to switch out engines.
 //
 // Example:
-//   // Modern API
-//   modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-//   	selfMutation: jsii.Boolean(false),
+//   var codePipeline pipeline
+//
+//
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 //   		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
 //   			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
@@ -30,13 +31,7 @@ import (
 //   			jsii.String("npx cdk synth"),
 //   		},
 //   	}),
-//   })
-//
-//   // Original API
-//   cloudAssemblyArtifact := codepipeline.NewArtifact()
-//   originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdkPipelineProps{
-//   	selfMutating: jsii.Boolean(false),
-//   	cloudAssemblyArtifact: cloudAssemblyArtifact,
+//   	codePipeline: codePipeline,
 //   })
 //
 type CodePipeline interface {

@@ -35,6 +35,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_backup.BackupPlanCopyActionProps",
+		reflect.TypeOf((*BackupPlanCopyActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_backup.BackupPlanProps",
 		reflect.TypeOf((*BackupPlanProps)(nil)).Elem(),
 	)

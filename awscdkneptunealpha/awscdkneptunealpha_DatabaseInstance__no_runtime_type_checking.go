@@ -18,6 +18,10 @@ func (d *jsiiProxy_DatabaseInstance) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseInstance) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func validateDatabaseInstance_FromDatabaseInstanceAttributesParameters(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) error {
 	return nil
 }

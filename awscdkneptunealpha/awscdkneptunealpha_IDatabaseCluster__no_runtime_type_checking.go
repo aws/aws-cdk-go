@@ -14,6 +14,10 @@ func (i *jsiiProxy_IDatabaseCluster) validateGrantConnectParameters(grantee awsi
 	return nil
 }
 
+func (i *jsiiProxy_IDatabaseCluster) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IDatabaseCluster) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

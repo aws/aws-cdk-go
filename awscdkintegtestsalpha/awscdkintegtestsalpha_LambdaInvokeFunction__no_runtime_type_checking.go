@@ -22,7 +22,15 @@ func (l *jsiiProxy_LambdaInvokeFunction) validateGetAttStringParameters(attribut
 	return nil
 }
 
+func (l *jsiiProxy_LambdaInvokeFunction) validateNextParameters(next IApiCall) error {
+	return nil
+}
+
 func validateLambdaInvokeFunction_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction) validateSetFlattenResponseParameters(val *string) error {
 	return nil
 }
 

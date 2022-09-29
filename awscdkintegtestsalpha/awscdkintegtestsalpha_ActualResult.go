@@ -74,7 +74,7 @@ func (j *jsiiProxy_ActualResult)SetResult(val *string) {
 
 // Get the actual results from a AwsApiCall.
 // Experimental.
-func ActualResult_FromAwsApiCall(query IAwsApiCall, attribute *string) ActualResult {
+func ActualResult_FromAwsApiCall(query IApiCall, attribute *string) ActualResult {
 	_init_.Initialize()
 
 	if err := validateActualResult_FromAwsApiCallParameters(query, attribute); err != nil {

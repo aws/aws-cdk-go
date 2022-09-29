@@ -10,55 +10,38 @@ import (
 // Options for customizing a single CodeBuild project.
 //
 // Example:
-//   var vpc vpc
-//   var mySecurityGroup securityGroup
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var source iFileSetProducer // the repository source
+//   var synthCommands []*string // Commands to synthesize your app
+//   var installCommands []*string
+//   // Commands to install your toolchain
 //
-//   pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-//   	// Standard CodePipeline properties
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+//   	// Standard CodePipeline properties...
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-//   		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
-//   			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
-//   		}),
-//   		commands: []*string{
-//   			jsii.String("npm ci"),
-//   			jsii.String("npm run build"),
-//   			jsii.String("npx cdk synth"),
-//   		},
+//   		input: source,
+//   		commands: synthCommands,
 //   	}),
 //
-//   	// Defaults for all CodeBuild projects
+//   	// Configure CodeBuild to use a drop-in Docker replacement.
 //   	codeBuildDefaults: &codeBuildOptions{
-//   		// Prepend commands and configuration to all projects
-//   		partialBuildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
-//   			"version": jsii.String("0.2"),
-//   		}),
-//
-//   		// Control the build environment
 //   		buildEnvironment: &buildEnvironment{
-//   			computeType: codebuild.computeType_LARGE,
-//   		},
-//
-//   		// Control Elastic Network Interface creation
-//   		vpc: vpc,
-//   		subnetSelection: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
-//   		},
-//   		securityGroups: []iSecurityGroup{
-//   			mySecurityGroup,
-//   		},
-//
-//   		// Additional policy statements for the execution role
-//   		rolePolicy: []policyStatement{
-//   			iam.NewPolicyStatement(&policyStatementProps{
+//   			partialBuildSpec: codebuild_BuildSpec_FromObject(map[string]map[string]map[string][]*string{
+//   				"phases": map[string]map[string][]*string{
+//   					"install": map[string][]*string{
+//   						// Add the shell commands to install your drop-in Docker
+//   						// replacement to the CodeBuild enviromment.
+//   						"commands": installCommands,
+//   					},
+//   				},
 //   			}),
+//   			environmentVariables: map[string]buildEnvironmentVariable{
+//   				// Instruct the AWS CDK to use `drop-in-replacement` instead of
+//   				// `docker` when building / publishing docker images.
+//   				// e.g., `drop-in-replacement build . -f path/to/Dockerfile`
+//   				"CDK_DOCKER": jsii.String("drop-in-replacement"),
+//   			},
 //   		},
-//   	},
-//
-//   	synthCodeBuildDefaults: &codeBuildOptions{
-//   	},
-//   	assetPublishingCodeBuildDefaults: &codeBuildOptions{
-//   	},
-//   	selfMutationCodeBuildDefaults: &codeBuildOptions{
 //   	},
 //   })
 //

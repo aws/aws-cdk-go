@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdkneptunealpha/v2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // Experimental.
 type DatabaseInstance interface {
-	awscdk.Resource
+	DatabaseInstanceBase
 	IDatabaseInstance
 	// The instance's database cluster.
 	// Experimental.
@@ -90,6 +90,9 @@ type DatabaseInstance interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Return the given named metric associated with this database instance.
+	// Experimental.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -97,7 +100,7 @@ type DatabaseInstance interface {
 
 // The jsii proxy struct for DatabaseInstance
 type jsiiProxy_DatabaseInstance struct {
-	internal.Type__awscdkResource
+	jsiiProxy_DatabaseInstanceBase
 	jsiiProxy_IDatabaseInstance
 }
 
@@ -367,6 +370,22 @@ func (d *jsiiProxy_DatabaseInstance) GetResourceNameAttribute(nameAttr *string) 
 		d,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstance) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric",
+		[]interface{}{metricName, props},
 		&returns,
 	)
 

@@ -39,6 +39,17 @@ type BucketDeployment interface {
 	DeployedBucket() awss3.IBucket
 	// The tree node.
 	Node() constructs.Node
+	// The object keys for the sources deployed to the S3 bucket.
+	//
+	// This returns a list of tokenized object keys for source files that are deployed to the bucket.
+	//
+	// This can be useful when using `BucketDeployment` with `extract` set to `false` and you need to reference
+	// the object key that resides in the bucket for that zip source file somewhere else in your CDK
+	// application, such as in a CFN output.
+	//
+	// For example, use `Fn.select(0, myBucketDeployment.objectKeys)` to reference the object key of the
+	// first source file in your bucket deployment.
+	ObjectKeys() *[]*string
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -63,6 +74,16 @@ func (j *jsiiProxy_BucketDeployment) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BucketDeployment) ObjectKeys() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"objectKeys",
 		&returns,
 	)
 	return returns

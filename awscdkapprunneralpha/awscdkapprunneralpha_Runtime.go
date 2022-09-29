@@ -69,12 +69,56 @@ func Runtime_Of(name *string) Runtime {
 	return returns
 }
 
+func Runtime_CORRETTO_11() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Runtime",
+		"CORRETTO_11",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_CORRETTO_8() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Runtime",
+		"CORRETTO_8",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_NODEJS_12() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-apprunner-alpha.Runtime",
 		"NODEJS_12",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_NODEJS_14() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Runtime",
+		"NODEJS_14",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_NODEJS_16() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Runtime",
+		"NODEJS_16",
 		&returns,
 	)
 	return returns

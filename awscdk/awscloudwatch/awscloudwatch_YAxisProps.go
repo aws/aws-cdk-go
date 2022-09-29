@@ -4,16 +4,20 @@ package awscloudwatch
 // Properties for a Y-Axis.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var dashboard dashboard
+//   var errorAlarm alarm
+//   var gaugeMetric metric
 //
-//   yAxisProps := &yAxisProps{
-//   	label: jsii.String("label"),
-//   	max: jsii.Number(123),
-//   	min: jsii.Number(123),
-//   	showUnits: jsii.Boolean(false),
-//   }
+//
+//   dashboard.addWidgets(cloudwatch.NewGaugeWidget(&gaugeWidgetProps{
+//   	metrics: []iMetric{
+//   		gaugeMetric,
+//   	},
+//   	leftYAxis: &yAxisProps{
+//   		min: jsii.Number(0),
+//   		max: jsii.Number(1000),
+//   	},
+//   }))
 //
 type YAxisProps struct {
 	// The label.

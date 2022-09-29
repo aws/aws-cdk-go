@@ -96,6 +96,24 @@ plan.addRule(backup.NewBackupPlanRule(&backupPlanRuleProps{
 }))
 ```
 
+Rules can also specify to copy recovery points to another Backup Vault using `copyActions`. Copied recovery points can
+optionally have `moveToColdStorageAfter` and `deleteAfter` configured.
+
+```go
+var plan backupPlan
+var secondaryVault backupVault
+
+plan.addRule(backup.NewBackupPlanRule(&backupPlanRuleProps{
+	copyActions: []backupPlanCopyActionProps{
+		&backupPlanCopyActionProps{
+			destinationBackupVault: secondaryVault,
+			moveToColdStorageAfter: awscdk.Duration.days(jsii.Number(30)),
+			deleteAfter: awscdk.Duration.days(jsii.Number(120)),
+		},
+	},
+}))
+```
+
 Ready-made rules are also available:
 
 ```go

@@ -5,22 +5,12 @@ package awscdk
 // Initialization props for apps.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var context interface{}
-//
-//   appProps := &appProps{
-//   	analyticsReporting: jsii.Boolean(false),
-//   	autoSynth: jsii.Boolean(false),
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   awscdk.NewApp(&appProps{
 //   	context: map[string]interface{}{
-//   		"contextKey": context,
+//   		"@aws-cdk/core:newStyleStackSynthesis": jsii.Boolean(true),
 //   	},
-//   	outdir: jsii.String("outdir"),
-//   	stackTraces: jsii.Boolean(false),
-//   	treeMetadata: jsii.Boolean(false),
-//   }
+//   })
 //
 type AppProps struct {
 	// Include runtime versioning information in the Stacks of this app.
@@ -45,6 +35,34 @@ type AppProps struct {
 	//
 	// This property is intended for internal and testing use.
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
+	// Additional context values for the application.
+	//
+	// Context provided here has precedence over context set by:
+	//
+	// - The CLI via --context
+	// - The `context` key in `cdk.json`
+	// - The {@link AppProps.context} property
+	//
+	// This property is recommended over the {@link AppProps.context} property since you
+	// can make final decision over which context value to take in your app.
+	//
+	// Context can be read from any construct using `node.getContext(key)`.
+	//
+	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
+	//   // context from the CLI and from `cdk.json` are stored in the
+	//   // CDK_CONTEXT env variable
+	//   cliContext := jSON.parse(process.env.cDK_CONTEXT)
+	//
+	//   // determine whether to take the context passed in the CLI or not
+	//   determineValue := process.env.PROD ? cliContext.SOMEKEY : 'my-prod-value'
+	//   awscdk.NewApp(&appProps{
+	//   	postCliContext: map[string]interface{}{
+	//   		"SOMEKEY": determineValue,
+	//   	},
+	//   })
+	//
+	PostCliContext *map[string]interface{} `field:"optional" json:"postCliContext" yaml:"postCliContext"`
 	// Include construct creation stack trace in the `aws:cdk:trace` metadata key of all constructs.
 	StackTraces *bool `field:"optional" json:"stackTraces" yaml:"stackTraces"`
 	// Include construct tree metadata as part of the Cloud Assembly.

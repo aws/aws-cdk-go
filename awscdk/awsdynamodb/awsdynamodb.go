@@ -298,6 +298,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperations", GoMethod: "MetricThrottledRequestsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -334,6 +335,10 @@ func init() {
 			"BATCH_EXECUTE_STATEMENT": Operation_BATCH_EXECUTE_STATEMENT,
 			"EXECUTE_STATEMENT": Operation_EXECUTE_STATEMENT,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.OperationsMetricOptions",
+		reflect.TypeOf((*OperationsMetricOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_dynamodb.ProjectionType",
@@ -399,6 +404,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperation", GoMethod: "MetricThrottledRequestsForOperation"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperations", GoMethod: "MetricThrottledRequestsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},

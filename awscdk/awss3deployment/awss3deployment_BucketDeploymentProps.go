@@ -83,6 +83,10 @@ type BucketDeploymentProps struct {
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
 	Expires awscdk.Expiration `field:"optional" json:"expires" yaml:"expires"`
+	// If this is set, the zip file will be synced to the destination S3 bucket and extracted.
+	//
+	// If false, the file will remain zipped in the destination bucket.
+	Extract *bool `field:"optional" json:"extract" yaml:"extract"`
 	// If this is set, matching files or objects will be included with the deployment's sync command.
 	//
 	// Since all files from the deployment package are included by default, this property

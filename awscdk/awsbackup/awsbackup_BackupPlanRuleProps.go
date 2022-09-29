@@ -9,17 +9,16 @@ import (
 //
 // Example:
 //   var plan backupPlan
+//   var secondaryVault backupVault
 //
 //   plan.addRule(backup.NewBackupPlanRule(&backupPlanRuleProps{
-//   	completionWindow: awscdk.Duration.hours(jsii.Number(2)),
-//   	startWindow: awscdk.Duration.hours(jsii.Number(1)),
-//   	scheduleExpression: events.schedule.cron(&cronOptions{
-//   		 // Only cron expressions are supported
-//   		day: jsii.String("15"),
-//   		hour: jsii.String("3"),
-//   		minute: jsii.String("30"),
-//   	}),
-//   	moveToColdStorageAfter: awscdk.Duration.days(jsii.Number(30)),
+//   	copyActions: []backupPlanCopyActionProps{
+//   		&backupPlanCopyActionProps{
+//   			destinationBackupVault: secondaryVault,
+//   			moveToColdStorageAfter: awscdk.Duration.days(jsii.Number(30)),
+//   			deleteAfter: awscdk.Duration.days(jsii.Number(120)),
+//   		},
+//   	},
 //   }))
 //
 type BackupPlanRuleProps struct {
@@ -27,6 +26,8 @@ type BackupPlanRuleProps struct {
 	BackupVault IBackupVault `field:"optional" json:"backupVault" yaml:"backupVault"`
 	// The duration after a backup job is successfully started before it must be completed or it is canceled by AWS Backup.
 	CompletionWindow awscdk.Duration `field:"optional" json:"completionWindow" yaml:"completionWindow"`
+	// Copy operations to perform on recovery points created by this rule.
+	CopyActions *[]*BackupPlanCopyActionProps `field:"optional" json:"copyActions" yaml:"copyActions"`
 	// Specifies the duration after creation that a recovery point is deleted.
 	//
 	// Must be greater than `moveToColdStorageAfter`.

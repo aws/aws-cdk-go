@@ -116,7 +116,7 @@ cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseCl
 })
 ```
 
-Additionally it is also possible to add replicas using `DatabaseInstance` for an existing cluster.
+Additionally, it is also possible to add replicas using `DatabaseInstance` for an existing cluster.
 
 ```go
 replica1 := neptune.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
@@ -138,3 +138,18 @@ neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &databaseClusterProps{
 	autoMinorVersionUpgrade: jsii.Boolean(true),
 })
 ```
+
+## Metrics
+
+Both `DatabaseCluster` and `DatabaseInstance` provide a `metric()` method to help with cluster-level and instance-level monitoring.
+
+```go
+var cluster databaseCluster
+var instance databaseInstance
+
+
+cluster.metric(jsii.String("SparqlRequestsPerSec")) // cluster-level SparqlErrors metric
+instance.metric(jsii.String("SparqlRequestsPerSec"))
+```
+
+For more details on the available metrics, refer to https://docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.html

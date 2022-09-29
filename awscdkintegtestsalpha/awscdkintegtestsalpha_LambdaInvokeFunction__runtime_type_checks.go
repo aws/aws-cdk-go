@@ -48,9 +48,25 @@ func (l *jsiiProxy_LambdaInvokeFunction) validateGetAttStringParameters(attribut
 	return nil
 }
 
+func (l *jsiiProxy_LambdaInvokeFunction) validateNextParameters(next IApiCall) error {
+	if next == nil {
+		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateLambdaInvokeFunction_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction) validateSetFlattenResponseParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

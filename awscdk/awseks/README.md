@@ -1241,6 +1241,24 @@ cluster.addHelmChart(jsii.String("test-chart"), &helmChartOptions{
 })
 ```
 
+Nested values passed to the `values` parameter should be provided as a nested dictionary:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+cluster.addHelmChart(jsii.String("ExternalSecretsOperator"), map[string]interface{}{
+	"chart": jsii.String("external-secrets"),
+	"release": jsii.String("external-secrets"),
+	"repository": jsii.String("https://charts.external-secrets.io"),
+	"namespace": jsii.String("external-secrets"),
+	"values": map[string]interface{}{
+		"installCRDs": jsii.Boolean(true),
+		"webhook": map[string]*f64{
+			"port": jsii.Number(9443),
+		},
+	},
+})
+```
+
 ### OCI Charts
 
 OCI charts are also supported.

@@ -37,7 +37,7 @@ type IDeployAssert interface {
 	//   }))
 	//
 	// Experimental.
-	AwsApiCall(service *string, api *string, parameters interface{}) IAwsApiCall
+	AwsApiCall(service *string, api *string, parameters interface{}) IApiCall
 	// Assert that the ExpectedResult is equal to the ActualResult.
 	//
 	// Example:
@@ -64,7 +64,7 @@ type IDeployAssert interface {
 	//   }))
 	//
 	// Experimental.
-	InvokeFunction(props *LambdaInvokeFunctionProps) IAwsApiCall
+	InvokeFunction(props *LambdaInvokeFunctionProps) IApiCall
 }
 
 // The jsii proxy for IDeployAssert
@@ -72,11 +72,11 @@ type jsiiProxy_IDeployAssert struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IDeployAssert) AwsApiCall(service *string, api *string, parameters interface{}) IAwsApiCall {
+func (i *jsiiProxy_IDeployAssert) AwsApiCall(service *string, api *string, parameters interface{}) IApiCall {
 	if err := i.validateAwsApiCallParameters(service, api); err != nil {
 		panic(err)
 	}
-	var returns IAwsApiCall
+	var returns IApiCall
 
 	_jsii_.Invoke(
 		i,
@@ -99,11 +99,11 @@ func (i *jsiiProxy_IDeployAssert) Expect(id *string, expected ExpectedResult, ac
 	)
 }
 
-func (i *jsiiProxy_IDeployAssert) InvokeFunction(props *LambdaInvokeFunctionProps) IAwsApiCall {
+func (i *jsiiProxy_IDeployAssert) InvokeFunction(props *LambdaInvokeFunctionProps) IApiCall {
 	if err := i.validateInvokeFunctionParameters(props); err != nil {
 		panic(err)
 	}
-	var returns IAwsApiCall
+	var returns IApiCall
 
 	_jsii_.Invoke(
 		i,

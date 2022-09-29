@@ -32,6 +32,16 @@ import (
 // Experimental.
 type LambdaInvokeFunction interface {
 	AwsApiCall
+	// Experimental.
+	ApiCallResource() awscdk.CustomResource
+	// Experimental.
+	ExpectedResult() *string
+	// Experimental.
+	SetExpectedResult(val *string)
+	// Experimental.
+	FlattenResponse() *string
+	// Experimental.
+	SetFlattenResponse(val *string)
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -41,6 +51,10 @@ type LambdaInvokeFunction interface {
 	// the the provider role policy.
 	// Experimental.
 	Provider() AssertionsProvider
+	// Experimental.
+	StateMachineArn() *string
+	// Experimental.
+	SetStateMachineArn(val *string)
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall at the given path.
 	//
 	// For example the SQS.receiveMessage api response would look
@@ -64,6 +78,11 @@ type LambdaInvokeFunction interface {
 	// `Data` map where the key is the attribute name.
 	// Experimental.
 	GetAttString(attributeName *string) *string
+	// Allows you to chain IApiCalls. This adds an explicit dependency betweent the two resources.
+	//
+	// Returns the IApiCall provided as `next`.
+	// Experimental.
+	Next(next IApiCall) IApiCall
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -72,6 +91,36 @@ type LambdaInvokeFunction interface {
 // The jsii proxy struct for LambdaInvokeFunction
 type jsiiProxy_LambdaInvokeFunction struct {
 	jsiiProxy_AwsApiCall
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction) ApiCallResource() awscdk.CustomResource {
+	var returns awscdk.CustomResource
+	_jsii_.Get(
+		j,
+		"apiCallResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction) ExpectedResult() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"expectedResult",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction) FlattenResponse() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"flattenResponse",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_LambdaInvokeFunction) Node() constructs.Node {
@@ -89,6 +138,16 @@ func (j *jsiiProxy_LambdaInvokeFunction) Provider() AssertionsProvider {
 	_jsii_.Get(
 		j,
 		"provider",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction) StateMachineArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateMachineArn",
 		&returns,
 	)
 	return returns
@@ -121,6 +180,33 @@ func NewLambdaInvokeFunction_Override(l LambdaInvokeFunction, scope constructs.C
 		"@aws-cdk/integ-tests-alpha.LambdaInvokeFunction",
 		[]interface{}{scope, id, props},
 		l,
+	)
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction)SetExpectedResult(val *string) {
+	_jsii_.Set(
+		j,
+		"expectedResult",
+		val,
+	)
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction)SetFlattenResponse(val *string) {
+	if err := j.validateSetFlattenResponseParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"flattenResponse",
+		val,
+	)
+}
+
+func (j *jsiiProxy_LambdaInvokeFunction)SetStateMachineArn(val *string) {
+	_jsii_.Set(
+		j,
+		"stateMachineArn",
+		val,
 	)
 }
 
@@ -208,6 +294,22 @@ func (l *jsiiProxy_LambdaInvokeFunction) GetAttString(attributeName *string) *st
 		l,
 		"getAttString",
 		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LambdaInvokeFunction) Next(next IApiCall) IApiCall {
+	if err := l.validateNextParameters(next); err != nil {
+		panic(err)
+	}
+	var returns IApiCall
+
+	_jsii_.Invoke(
+		l,
+		"next",
+		[]interface{}{next},
 		&returns,
 	)
 

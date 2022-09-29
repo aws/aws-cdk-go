@@ -15,26 +15,29 @@ import (
 // Provides a DynamoDB table.
 //
 // Example:
-//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
-//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fn function
 //
 //   table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
 //   	partitionKey: &attribute{
 //   		name: jsii.String("id"),
 //   		type: dynamodb.attributeType_STRING,
 //   	},
-//   	stream: dynamodb.streamViewType_NEW_IMAGE,
 //   })
-//   fn.addEventSource(eventsources.NewDynamoEventSource(table, &dynamoEventSourceProps{
-//   	startingPosition: lambda.startingPosition_LATEST,
-//   	filters: []map[string]interface{}{
-//   		map[string]interface{}{
-//   			"eventName": lambda.FilterRule.isEqual(jsii.String("INSERT")),
-//   		},
+//
+//   metric := table.metricThrottledRequestsForOperations(&operationsMetricOptions{
+//   	operations: []operation{
+//   		dynamodb.*operation_PUT_ITEM,
 //   	},
-//   }))
+//   	period: awscdk.Duration.minutes(jsii.Number(1)),
+//   })
+//
+//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
+//   	metric: metric,
+//   	evaluationPeriods: jsii.Number(1),
+//   	threshold: jsii.Number(1),
+//   })
 //
 type Table interface {
 	awscdk.Resource
@@ -195,6 +198,12 @@ type Table interface {
 	//
 	// Default: sum over 5 minutes.
 	MetricThrottledRequestsForOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// How many requests are throttled on this table.
+	//
+	// This will sum errors across all possible operations.
+	// Note that by default, each individual metric will be calculated as a sum over a period of 5 minutes.
+	// You can customize this by using the `statistic` and `period` properties.
+	MetricThrottledRequestsForOperations(props *OperationsMetricOptions) awscloudwatch.IMetric
 	// Metric for the user errors.
 	//
 	// Note that this metric reports user errors across all
@@ -877,6 +886,22 @@ func (t *jsiiProxy_Table) MetricThrottledRequestsForOperation(operation *string,
 		t,
 		"metricThrottledRequestsForOperation",
 		[]interface{}{operation, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Table) MetricThrottledRequestsForOperations(props *OperationsMetricOptions) awscloudwatch.IMetric {
+	if err := t.validateMetricThrottledRequestsForOperationsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.IMetric
+
+	_jsii_.Invoke(
+		t,
+		"metricThrottledRequestsForOperations",
+		[]interface{}{props},
 		&returns,
 	)
 

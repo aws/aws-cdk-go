@@ -667,6 +667,30 @@ func init() {
 		reflect.TypeOf((*Dimension)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch.GaugeWidget",
+		reflect.TypeOf((*GaugeWidget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addMetric", GoMethod: "AddMetric"},
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
+			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
+			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
+			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
+			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
+			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
+			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
+		},
+		func() interface{} {
+			j := jsiiProxy_GaugeWidget{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ConcreteWidget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.GaugeWidgetProps",
+		reflect.TypeOf((*GaugeWidgetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudwatch.GraphWidget",
 		reflect.TypeOf((*GraphWidget)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -179,6 +179,9 @@ mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps
 	metricName: jsii.String("Latency"),
 	filterPattern: logs.filterPattern.exists(jsii.String("$.latency")),
 	metricValue: jsii.String("$.latency"),
+	dimensions: map[string]*string{
+		"ErrorCode": jsii.String("$.errorCode"),
+	},
 })
 
 //expose a metric from the metric filter

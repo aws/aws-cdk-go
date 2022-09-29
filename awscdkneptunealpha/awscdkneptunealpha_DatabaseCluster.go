@@ -6,6 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -120,6 +121,9 @@ type DatabaseCluster interface {
 	// Grant the given identity connection access to the database.
 	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
+	// Return the given named metric associated with this DatabaseCluster instance.
+	// Experimental.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -513,6 +517,22 @@ func (d *jsiiProxy_DatabaseCluster) GrantConnect(grantee awsiam.IGrantable) awsi
 		d,
 		"grantConnect",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseCluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric",
+		[]interface{}{metricName, props},
 		&returns,
 	)
 

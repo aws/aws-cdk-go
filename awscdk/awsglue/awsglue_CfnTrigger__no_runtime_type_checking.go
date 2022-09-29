@@ -73,6 +73,10 @@ func (j *jsiiProxy_CfnTrigger) validateSetActionsParameters(val interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrigger) validateSetEventBatchingConditionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrigger) validateSetPredicateParameters(val interface{}) error {
 	return nil
 }

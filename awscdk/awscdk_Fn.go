@@ -13,24 +13,19 @@ import (
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var portfolio portfolio
-//   var product cloudFormationProduct
+//   var destinationBucket bucket
 //
 //
-//   portfolio.constrainCloudFormationParameters(product, &cloudFormationRuleConstraintOptions{
-//   	rule: &templateRule{
-//   		ruleName: jsii.String("testInstanceType"),
-//   		condition: cdk.fn.conditionEquals(cdk.*fn.ref(jsii.String("Environment")), jsii.String("test")),
-//   		assertions: []templateRuleAssertion{
-//   			&templateRuleAssertion{
-//   				assert: cdk.*fn.conditionContains([]*string{
-//   					jsii.String("t2.micro"),
-//   					jsii.String("t2.small"),
-//   				}, cdk.*fn.ref(jsii.String("InstanceType"))),
-//   				description: jsii.String("For test environment, the instance type should be small"),
-//   			},
-//   		},
+//   myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &bucketDeploymentProps{
+//   	sources: []iSource{
+//   		s3deploy.source.asset(path.join(__dirname, jsii.String("my-website"))),
 //   	},
+//   	destinationBucket: destinationBucket,
+//   	extract: jsii.Boolean(false),
+//   })
+//
+//   cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &cfnOutputProps{
+//   	value: cdk.fn.select(jsii.Number(0), myBucketDeployment.objectKeys),
 //   })
 //
 type Fn interface {

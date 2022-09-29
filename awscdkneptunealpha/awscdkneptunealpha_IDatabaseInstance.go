@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdkneptunealpha/v2/internal"
 )
 
@@ -12,6 +13,11 @@ import (
 // Experimental.
 type IDatabaseInstance interface {
 	awscdk.IResource
+	// Return the given named metric associated with this database instance.
+	// See: https://docs.aws.amazon.com/neptune/latest/userguide/cw-dimensions.html
+	//
+	// Experimental.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The instance endpoint address.
 	// Experimental.
 	DbInstanceEndpointAddress() *string
@@ -29,6 +35,22 @@ type IDatabaseInstance interface {
 // The jsii proxy for IDatabaseInstance
 type jsiiProxy_IDatabaseInstance struct {
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IDatabaseInstance) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
 }
 
 func (j *jsiiProxy_IDatabaseInstance) DbInstanceEndpointAddress() *string {
