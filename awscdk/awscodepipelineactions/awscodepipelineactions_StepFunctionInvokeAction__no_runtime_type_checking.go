@@ -5,11 +5,11 @@ package awscodepipelineactions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_StepFunctionInvokeAction) validateBindParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (s *jsiiProxy_StepFunctionInvokeAction) validateBindParameters(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 
-func (s *jsiiProxy_StepFunctionInvokeAction) validateBoundParameters(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (s *jsiiProxy_StepFunctionInvokeAction) validateBoundParameters(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

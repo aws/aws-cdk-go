@@ -85,6 +85,14 @@ func (e *jsiiProxy_EmrCreateCluster) validateNextParameters(next awsstepfunction
 	return nil
 }
 
+func (e *jsiiProxy_EmrCreateCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrCreateCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrCreateCluster) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

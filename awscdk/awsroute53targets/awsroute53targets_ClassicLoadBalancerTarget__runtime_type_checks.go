@@ -6,8 +6,8 @@ package awsroute53targets
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 func (c *jsiiProxy_ClassicLoadBalancerTarget) validateBindParameters(_record awsroute53.IRecordSet) error {

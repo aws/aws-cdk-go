@@ -8,9 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (d *jsiiProxy_DockerImageAsset) validateAddResourceMetadataParameters(resource awscdk.CfnResource, resourceProperty *string) error {
@@ -20,6 +20,22 @@ func (d *jsiiProxy_DockerImageAsset) validateAddResourceMetadataParameters(resou
 
 	if resourceProperty == nil {
 		return fmt.Errorf("parameter resourceProperty is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageAsset) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageAsset) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

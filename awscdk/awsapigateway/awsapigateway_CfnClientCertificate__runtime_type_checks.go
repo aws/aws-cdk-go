@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnClientCertificate) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,6 +104,14 @@ func (c *jsiiProxy_CfnClientCertificate) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientCertificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientCertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -115,6 +123,14 @@ func (c *jsiiProxy_CfnClientCertificate) validateOverrideLogicalIdParameters(new
 func (c *jsiiProxy_CfnClientCertificate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnClientCertificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -152,7 +168,7 @@ func validateCfnClientCertificate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnClientCertificateParameters(scope constructs.Construct, id *string, props *CfnClientCertificateProps) error {
+func validateNewCfnClientCertificateParameters(scope awscdk.Construct, id *string, props *CfnClientCertificateProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

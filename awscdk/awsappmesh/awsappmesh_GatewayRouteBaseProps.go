@@ -4,7 +4,6 @@ package awsappmesh
 // Basic configuration properties for a GatewayRoute.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //
@@ -20,10 +19,13 @@ package awsappmesh
 //   	}),
 //   })
 //
+// Experimental.
 type GatewayRouteBaseProps struct {
 	// What protocol the route uses.
+	// Experimental.
 	RouteSpec GatewayRouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the GatewayRoute.
+	// Experimental.
 	GatewayRouteName *string `field:"optional" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 }
 

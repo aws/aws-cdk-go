@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnBudget) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnBudget) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBudget) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnBudget) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnBudget) validateSetNotificationsWithSubscribersParameters(
 	return nil
 }
 
-func validateNewCfnBudgetParameters(scope constructs.Construct, id *string, props *CfnBudgetProps) error {
+func validateNewCfnBudgetParameters(scope awscdk.Construct, id *string, props *CfnBudgetProps) error {
 	return nil
 }
 

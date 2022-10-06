@@ -19,10 +19,13 @@ package awscloudfront
 //   	},
 //   }
 //
+// Experimental.
 type OriginFailoverConfig struct {
 	// The origin to use as the fallback origin.
+	// Experimental.
 	FailoverOrigin IOrigin `field:"required" json:"failoverOrigin" yaml:"failoverOrigin"`
 	// The HTTP status codes of the response that trigger querying the failover Origin.
+	// Experimental.
 	StatusCodes *[]*float64 `field:"optional" json:"statusCodes" yaml:"statusCodes"`
 }
 

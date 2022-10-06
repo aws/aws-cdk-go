@@ -29,6 +29,14 @@ func (m *jsiiProxy_ManagedPolicy) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
+func (m *jsiiProxy_ManagedPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (m *jsiiProxy_ManagedPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateManagedPolicy_FromAwsManagedPolicyNameParameters(managedPolicyName *string) error {
 	return nil
 }
@@ -45,11 +53,7 @@ func validateManagedPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateManagedPolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateManagedPolicy_IsResourceParameters(construct constructs.IConstruct) error {
+func validateManagedPolicy_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

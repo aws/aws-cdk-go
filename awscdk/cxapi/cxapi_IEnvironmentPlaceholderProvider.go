@@ -5,12 +5,16 @@ import (
 )
 
 // Return the appropriate values for the environment placeholders.
+// Experimental.
 type IEnvironmentPlaceholderProvider interface {
 	// Return the account.
+	// Experimental.
 	AccountId() *string
 	// Return the partition.
+	// Experimental.
 	Partition() *string
 	// Return the region.
+	// Experimental.
 	Region() *string
 }
 

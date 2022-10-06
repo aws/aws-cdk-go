@@ -5,7 +5,7 @@ package awslambda
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (f *jsiiProxy_FunctionVersionUpgrade) validateVisitParameters(node constructs.IConstruct) error {
+func (f *jsiiProxy_FunctionVersionUpgrade) validateVisitParameters(node awscdk.IConstruct) error {
 	return nil
 }
 

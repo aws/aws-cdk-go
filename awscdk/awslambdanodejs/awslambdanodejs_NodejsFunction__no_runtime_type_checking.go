@@ -33,6 +33,10 @@ func (n *jsiiProxy_NodejsFunction) validateAddToRolePolicyParameters(statement a
 	return nil
 }
 
+func (n *jsiiProxy_NodejsFunction) validateAddVersionParameters(name *string, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) error {
+	return nil
+}
+
 func (n *jsiiProxy_NodejsFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
@@ -41,7 +45,7 @@ func (n *jsiiProxy_NodejsFunction) validateConfigureAsyncInvokeParameters(option
 	return nil
 }
 
-func (n *jsiiProxy_NodejsFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (n *jsiiProxy_NodejsFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	return nil
 }
 
@@ -81,7 +85,15 @@ func (n *jsiiProxy_NodejsFunction) validateMetricThrottlesParameters(props *awsc
 	return nil
 }
 
-func (n *jsiiProxy_NodejsFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (n *jsiiProxy_NodejsFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (n *jsiiProxy_NodejsFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func (n *jsiiProxy_NodejsFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	return nil
 }
 
@@ -105,11 +117,7 @@ func validateNodejsFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNodejsFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateNodejsFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateNodejsFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 
@@ -141,7 +149,7 @@ func validateNodejsFunction_MetricAllUnreservedConcurrentExecutionsParameters(pr
 	return nil
 }
 
-func validateNewNodejsFunctionParameters(scope constructs.Construct, id *string, props *NodejsFunctionProps) error {
+func validateNewNodejsFunctionParameters(scope awscdk.Construct, id *string, props *NodejsFunctionProps) error {
 	return nil
 }
 

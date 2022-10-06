@@ -16,8 +16,10 @@ package awsrds
 //   	version: sqlServerEngineVersion,
 //   }
 //
+// Experimental.
 type SqlServerSeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

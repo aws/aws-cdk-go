@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnGraphQLApi) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnGraphQLApi) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGraphQLApi) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGraphQLApi) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGraphQLApi) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -101,7 +109,7 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetXrayEnabledParameters(val interface
 	return nil
 }
 
-func validateNewCfnGraphQLApiParameters(scope constructs.Construct, id *string, props *CfnGraphQLApiProps) error {
+func validateNewCfnGraphQLApiParameters(scope awscdk.Construct, id *string, props *CfnGraphQLApiProps) error {
 	return nil
 }
 

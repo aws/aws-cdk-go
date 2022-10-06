@@ -65,6 +65,14 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) validateOnEventParameters(id *s
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDatabaseInstanceFromSnapshot_FromDatabaseInstanceAttributesParameters(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) error {
 	return nil
 }
@@ -73,11 +81,7 @@ func validateDatabaseInstanceFromSnapshot_IsConstructParameters(x interface{}) e
 	return nil
 }
 
-func validateDatabaseInstanceFromSnapshot_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDatabaseInstanceFromSnapshot_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDatabaseInstanceFromSnapshot_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

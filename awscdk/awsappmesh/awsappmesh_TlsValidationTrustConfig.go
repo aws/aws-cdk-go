@@ -24,8 +24,10 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type TlsValidationTrustConfig struct {
 	// VirtualNode CFN configuration for client policy's TLS Validation Trust.
+	// Experimental.
 	TlsValidationTrust *CfnVirtualNode_TlsValidationContextTrustProperty `field:"required" json:"tlsValidationTrust" yaml:"tlsValidationTrust"`
 }
 

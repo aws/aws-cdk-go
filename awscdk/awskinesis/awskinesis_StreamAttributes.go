@@ -1,7 +1,7 @@
 package awskinesis
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
 )
 
 // A reference to a stream.
@@ -16,10 +16,13 @@ import (
 //   	encryptionKey: kms.key.fromKeyArn(this, jsii.String("key"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")),
 //   })
 //
+// Experimental.
 type StreamAttributes struct {
 	// The ARN of the stream.
+	// Experimental.
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 	// The KMS key securing the contents of the stream if encryption is enabled.
+	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

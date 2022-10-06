@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnInstance) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnInstance) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnInstance) validateSetIdentityManagementTypeParameters(val 
 	return nil
 }
 
-func validateNewCfnInstanceParameters(scope constructs.Construct, id *string, props *CfnInstanceProps) error {
+func validateNewCfnInstanceParameters(scope awscdk.Construct, id *string, props *CfnInstanceProps) error {
 	return nil
 }
 

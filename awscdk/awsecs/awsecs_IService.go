@@ -3,16 +3,19 @@ package awsecs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
 )
 
 // The interface for a service.
+// Experimental.
 type IService interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) of the service.
+	// Experimental.
 	ServiceArn() *string
 	// The name of the service.
+	// Experimental.
 	ServiceName() *string
 }
 

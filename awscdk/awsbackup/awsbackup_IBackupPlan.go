@@ -3,14 +3,16 @@ package awsbackup
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsbackup/internal"
 )
 
 // A backup plan.
+// Experimental.
 type IBackupPlan interface {
 	awscdk.IResource
 	// The identifier of the backup plan.
+	// Experimental.
 	BackupPlanId() *string
 }
 

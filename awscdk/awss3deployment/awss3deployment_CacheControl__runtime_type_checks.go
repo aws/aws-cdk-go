@@ -6,7 +6,7 @@ package awss3deployment
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 func validateCacheControl_FromStringParameters(s *string) error {

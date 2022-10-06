@@ -29,10 +29,13 @@ package awsapplicationautoscaling
 //   	targetUtilizationPercent: jsii.Number(50),
 //   })
 //
+// Experimental.
 type EnableScalingProps struct {
 	// Maximum capacity to scale to.
+	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
+	// Experimental.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 

@@ -1,10 +1,11 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Define a Choice in the state machine.
@@ -56,80 +57,163 @@ import (
 //   	timeout: awscdk.Duration.minutes(jsii.Number(5)),
 //   })
 //
+// Experimental.
 type Choice interface {
 	State
+	// Experimental.
 	Branches() *[]StateGraph
+	// Experimental.
 	Comment() *string
+	// Experimental.
 	DefaultChoice() State
+	// Experimental.
 	SetDefaultChoice(val State)
 	// Continuable states of this Chainable.
+	// Experimental.
 	EndStates() *[]INextable
 	// Descriptive identifier for this chainable.
+	// Experimental.
 	Id() *string
+	// Experimental.
 	InputPath() *string
+	// Experimental.
 	Iteration() StateGraph
+	// Experimental.
 	SetIteration(val StateGraph)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	OutputPath() *string
+	// Experimental.
 	Parameters() *map[string]interface{}
+	// Experimental.
 	ResultPath() *string
+	// Experimental.
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
+	// Experimental.
 	StartState() State
 	// Tokenized string that evaluates to the state's ID.
+	// Experimental.
 	StateId() *string
 	// Add a paralle branch to this state.
+	// Experimental.
 	AddBranch(branch StateGraph)
 	// Add a choice branch to this state.
+	// Experimental.
 	AddChoice(condition Condition, next State)
 	// Add a map iterator to this state.
+	// Experimental.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
+	// Experimental.
 	AddPrefix(x *string)
 	// Return a Chain that contains all reachable end states from this Choice.
 	//
 	// Use this to combine all possible choice paths back.
+	// Experimental.
 	Afterwards(options *AfterwardsOptions) Chain
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
+	// Experimental.
 	BindToGraph(graph StateGraph)
 	// Make the indicated state the default choice transition of this state.
+	// Experimental.
 	MakeDefault(def State)
 	// Make the indicated state the default transition of this state.
+	// Experimental.
 	MakeNext(next State)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// If none of the given conditions match, continue execution with the given state.
 	//
 	// If no conditions match and no otherwise() has been given, an execution
 	// error will be raised.
+	// Experimental.
 	Otherwise(def IChainable) Choice
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Render parallel branches in ASL JSON format.
+	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
+	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
+	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
+	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
+	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
+	// Experimental.
 	RenderRetryCatch() interface{}
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
+	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	// Allows the state to validate itself.
-	ValidateState() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 	// If the given condition matches, continue execution with the given state.
+	// Experimental.
 	When(condition Condition, next IChainable) Choice
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
+	// Experimental.
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -208,8 +292,8 @@ func (j *jsiiProxy_Choice) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Choice) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Choice) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -279,6 +363,7 @@ func (j *jsiiProxy_Choice) StateId() *string {
 }
 
 
+// Experimental.
 func NewChoice(scope constructs.Construct, id *string, props *ChoiceProps) Choice {
 	_init_.Initialize()
 
@@ -288,7 +373,7 @@ func NewChoice(scope constructs.Construct, id *string, props *ChoiceProps) Choic
 	j := jsiiProxy_Choice{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -296,11 +381,12 @@ func NewChoice(scope constructs.Construct, id *string, props *ChoiceProps) Choic
 	return &j
 }
 
+// Experimental.
 func NewChoice_Override(c Choice, scope constructs.Construct, id *string, props *ChoiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -323,6 +409,7 @@ func (j *jsiiProxy_Choice)SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
+// Experimental.
 func Choice_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -332,7 +419,7 @@ func Choice_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -342,6 +429,7 @@ func Choice_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
+// Experimental.
 func Choice_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -351,7 +439,7 @@ func Choice_FindReachableEndStates(start State, options *FindStateOptions) *[]St
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -363,6 +451,7 @@ func Choice_FindReachableEndStates(start State, options *FindStateOptions) *[]St
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
+// Experimental.
 func Choice_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -372,7 +461,7 @@ func Choice_FindReachableStates(start State, options *FindStateOptions) *[]State
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -381,23 +470,8 @@ func Choice_FindReachableStates(start State, options *FindStateOptions) *[]State
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func Choice_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -407,7 +481,7 @@ func Choice_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -417,6 +491,7 @@ func Choice_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
+// Experimental.
 func Choice_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -424,7 +499,7 @@ func Choice_PrefixStates(root constructs.IConstruct, prefix *string) {
 		panic(err)
 	}
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -523,6 +598,38 @@ func (c *jsiiProxy_Choice) MakeNext(next State) {
 	)
 }
 
+func (c *jsiiProxy_Choice) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_Choice) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_Choice) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_Choice) Otherwise(def IChainable) Choice {
 	if err := c.validateOtherwiseParameters(def); err != nil {
 		panic(err)
@@ -537,6 +644,14 @@ func (c *jsiiProxy_Choice) Otherwise(def IChainable) Choice {
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_Choice) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
 }
 
 func (c *jsiiProxy_Choice) RenderBranches() interface{} {
@@ -630,6 +745,17 @@ func (c *jsiiProxy_Choice) RenderRetryCatch() interface{} {
 	return returns
 }
 
+func (c *jsiiProxy_Choice) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_Choice) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -656,12 +782,12 @@ func (c *jsiiProxy_Choice) ToString() *string {
 	return returns
 }
 
-func (c *jsiiProxy_Choice) ValidateState() *[]*string {
+func (c *jsiiProxy_Choice) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

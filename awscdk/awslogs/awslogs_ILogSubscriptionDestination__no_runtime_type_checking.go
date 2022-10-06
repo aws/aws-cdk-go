@@ -5,7 +5,7 @@ package awslogs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_ILogSubscriptionDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup ILogGroup) error {
+func (i *jsiiProxy_ILogSubscriptionDestination) validateBindParameters(scope awscdk.Construct, sourceLogGroup ILogGroup) error {
 	return nil
 }
 

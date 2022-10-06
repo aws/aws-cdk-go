@@ -1,7 +1,7 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -34,10 +34,12 @@ import (
 //   	}),
 //   }))
 //
+// Experimental.
 type Matcher interface {
 	// A name for the matcher.
 	//
 	// This is collected as part of the result and may be presented to the user.
+	// Experimental.
 	Name() *string
 	// Test whether a target matches the provided pattern.
 	//
@@ -45,6 +47,7 @@ type Matcher interface {
 	// This method will be invoked by the assertions framework. Do not call this method directly.
 	//
 	// Returns: the list of match failures. An empty array denotes a successful match.
+	// Experimental.
 	Test(actual interface{}) MatchResult
 }
 
@@ -64,17 +67,19 @@ func (j *jsiiProxy_Matcher) Name() *string {
 }
 
 
+// Experimental.
 func NewMatcher_Override(m Matcher) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.Matcher",
+		"monocdk.assertions.Matcher",
 		nil, // no parameters
 		m,
 	)
 }
 
 // Check whether the provided object is a subtype of the `IMatcher`.
+// Experimental.
 func Matcher_IsMatcher(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -84,7 +89,7 @@ func Matcher_IsMatcher(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Matcher",
+		"monocdk.assertions.Matcher",
 		"isMatcher",
 		[]interface{}{x},
 		&returns,

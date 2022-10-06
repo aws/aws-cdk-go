@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnMemberInvitation) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnMemberInvitation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMemberInvitation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMemberInvitation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMemberInvitation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +93,7 @@ func (j *jsiiProxy_CfnMemberInvitation) validateSetMemberIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnMemberInvitationParameters(scope constructs.Construct, id *string, props *CfnMemberInvitationProps) error {
+func validateNewCfnMemberInvitationParameters(scope awscdk.Construct, id *string, props *CfnMemberInvitationProps) error {
 	return nil
 }
 

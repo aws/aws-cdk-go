@@ -8,8 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (q *jsiiProxy_QueueProcessingServiceBase) validateConfigureAutoscalingForServiceParameters(service awsecs.BaseService) error {
@@ -31,6 +32,22 @@ func (q *jsiiProxy_QueueProcessingServiceBase) validateGetDefaultClusterParamete
 func (q *jsiiProxy_QueueProcessingServiceBase) validateGrantPermissionsToServiceParameters(service awsecs.BaseService) error {
 	if service == nil {
 		return fmt.Errorf("parameter service is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (q *jsiiProxy_QueueProcessingServiceBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (q *jsiiProxy_QueueProcessingServiceBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

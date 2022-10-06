@@ -11,6 +11,7 @@ package awscodebuild
 //   buildImageConfig := &buildImageConfig{
 //   }
 //
+// Experimental.
 type BuildImageConfig struct {
 }
 

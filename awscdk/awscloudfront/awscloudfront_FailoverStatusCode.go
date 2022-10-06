@@ -37,20 +37,27 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type FailoverStatusCode string
 
 const (
 	// Forbidden (403).
+	// Experimental.
 	FailoverStatusCode_FORBIDDEN FailoverStatusCode = "FORBIDDEN"
 	// Not found (404).
+	// Experimental.
 	FailoverStatusCode_NOT_FOUND FailoverStatusCode = "NOT_FOUND"
 	// Internal Server Error (500).
+	// Experimental.
 	FailoverStatusCode_INTERNAL_SERVER_ERROR FailoverStatusCode = "INTERNAL_SERVER_ERROR"
 	// Bad Gateway (502).
+	// Experimental.
 	FailoverStatusCode_BAD_GATEWAY FailoverStatusCode = "BAD_GATEWAY"
 	// Service Unavailable (503).
+	// Experimental.
 	FailoverStatusCode_SERVICE_UNAVAILABLE FailoverStatusCode = "SERVICE_UNAVAILABLE"
 	// Gateway Timeout (504).
+	// Experimental.
 	FailoverStatusCode_GATEWAY_TIMEOUT FailoverStatusCode = "GATEWAY_TIMEOUT"
 )
 

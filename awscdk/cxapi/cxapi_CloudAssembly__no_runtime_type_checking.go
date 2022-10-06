@@ -13,6 +13,10 @@ func (c *jsiiProxy_CloudAssembly) validateGetNestedAssemblyArtifactParameters(ar
 	return nil
 }
 
+func (c *jsiiProxy_CloudAssembly) validateGetStackParameters(stackName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CloudAssembly) validateGetStackArtifactParameters(artifactId *string) error {
 	return nil
 }

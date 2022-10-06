@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnDashboard) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnDashboard) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDashboard) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDashboard) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDashboard) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +81,7 @@ func (j *jsiiProxy_CfnDashboard) validateSetDashboardBodyParameters(val *string)
 	return nil
 }
 
-func validateNewCfnDashboardParameters(scope constructs.Construct, id *string, props *CfnDashboardProps) error {
+func validateNewCfnDashboardParameters(scope awscdk.Construct, id *string, props *CfnDashboardProps) error {
 	return nil
 }
 
