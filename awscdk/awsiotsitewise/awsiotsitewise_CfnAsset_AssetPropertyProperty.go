@@ -14,6 +14,7 @@ package awsiotsitewise
 //   	// the properties below are optional
 //   	alias: jsii.String("alias"),
 //   	notificationState: jsii.String("notificationState"),
+//   	unit: jsii.String("unit"),
 //   }
 //
 type CfnAsset_AssetPropertyProperty struct {
@@ -33,5 +34,7 @@ type CfnAsset_AssetPropertyProperty struct {
 	//
 	// If you omit this parameter, the notification state is set to `DISABLED` .
 	NotificationState *string `field:"optional" json:"notificationState" yaml:"notificationState"`
+	// `CfnAsset.AssetPropertyProperty.Unit`.
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

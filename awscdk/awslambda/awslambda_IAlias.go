@@ -4,14 +4,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Experimental.
 type IAlias interface {
 	IFunction
 	// Name of this alias.
-	// Experimental.
 	AliasName() *string
 	// The underlying Lambda function version.
-	// Experimental.
 	Version() IVersion
 }
 

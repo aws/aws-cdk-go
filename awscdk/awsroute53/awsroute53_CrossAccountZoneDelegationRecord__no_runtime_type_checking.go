@@ -5,14 +5,6 @@ package awsroute53
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CrossAccountZoneDelegationRecord) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CrossAccountZoneDelegationRecord) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCrossAccountZoneDelegationRecord_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDomain`.
@@ -18,6 +18,7 @@ import (
 //   		jupyterServerAppSettings: &jupyterServerAppSettingsProperty{
 //   			defaultResourceSpec: &resourceSpecProperty{
 //   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
@@ -34,6 +35,24 @@ import (
 //   			},
 //   			defaultResourceSpec: &resourceSpecProperty{
 //   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   		},
+//   		rSessionAppSettings: &rSessionAppSettingsProperty{
+//   			customImages: []interface{}{
+//   				&customImageProperty{
+//   					appImageConfigName: jsii.String("appImageConfigName"),
+//   					imageName: jsii.String("imageName"),
+//
+//   					// the properties below are optional
+//   					imageVersionNumber: jsii.Number(123),
+//   				},
+//   			},
+//   			defaultResourceSpec: &resourceSpecProperty{
+//   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
@@ -67,6 +86,7 @@ import (
 //   			// the properties below are optional
 //   			defaultResourceSpec: &resourceSpecProperty{
 //   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},

@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Options for fetching an IngressLoadBalancerAddress.
@@ -9,23 +9,18 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
 //
 //   ingressLoadBalancerAddressOptions := &ingressLoadBalancerAddressOptions{
 //   	namespace: jsii.String("namespace"),
-//   	timeout: duration,
+//   	timeout: cdk.duration.minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
 type IngressLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
-	// Experimental.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Timeout for waiting on the load balancer address.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

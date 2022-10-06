@@ -23,7 +23,7 @@ the policy either by calling `xxx.attachInlinePolicy(policy)` or `policy.attachT
 
 ```go
 user := awscdk.NewUser(this, jsii.String("MyUser"), &userProps{
-	password: cdk.secretValue.unsafePlainText(jsii.String("1234")),
+	password: awscdk.SecretValue.plainText(jsii.String("1234")),
 })
 group := awscdk.NewGroup(this, jsii.String("MyGroup"))
 

@@ -8,11 +8,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (a *jsiiProxy_ApplicationLoadBalancer) validateAddListenerParameters(id *string, props *BaseApplicationListenerProps) error {
@@ -281,14 +281,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) validateMetricTargetTLSNegotiationEr
 	return nil
 }
 
-func (a *jsiiProxy_ApplicationLoadBalancer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (a *jsiiProxy_ApplicationLoadBalancer) validateRemoveAttributeParameters(key *string) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
@@ -300,14 +292,6 @@ func (a *jsiiProxy_ApplicationLoadBalancer) validateRemoveAttributeParameters(ke
 func (a *jsiiProxy_ApplicationLoadBalancer) validateSetAttributeParameters(key *string) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (a *jsiiProxy_ApplicationLoadBalancer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -359,7 +343,15 @@ func validateApplicationLoadBalancer_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateApplicationLoadBalancer_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateApplicationLoadBalancer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateApplicationLoadBalancer_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

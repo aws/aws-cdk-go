@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnGraphQLSchema) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnGraphQLSchema) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnGraphQLSchema) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGraphQLSchema) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnGraphQLSchema) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +73,7 @@ func (j *jsiiProxy_CfnGraphQLSchema) validateSetApiIdParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnGraphQLSchemaParameters(scope awscdk.Construct, id *string, props *CfnGraphQLSchemaProps) error {
+func validateNewCfnGraphQLSchemaParameters(scope constructs.Construct, id *string, props *CfnGraphQLSchemaProps) error {
 	return nil
 }
 

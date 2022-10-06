@@ -3,11 +3,11 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An interface VPC endpoint.
-// Experimental.
 type IInterfaceVpcEndpoint interface {
 	IConnectable
 	IVpcEndpoint
@@ -50,8 +50,8 @@ func (j *jsiiProxy_IInterfaceVpcEndpoint) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IInterfaceVpcEndpoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IInterfaceVpcEndpoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

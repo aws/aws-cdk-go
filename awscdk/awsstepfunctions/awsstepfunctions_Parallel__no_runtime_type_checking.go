@@ -45,14 +45,6 @@ func (p *jsiiProxy_Parallel) validateNextParameters(next IChainable) error {
 	return nil
 }
 
-func (p *jsiiProxy_Parallel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (p *jsiiProxy_Parallel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (p *jsiiProxy_Parallel) validateWhenBoundToGraphParameters(graph StateGraph) error {
 	return nil
 }

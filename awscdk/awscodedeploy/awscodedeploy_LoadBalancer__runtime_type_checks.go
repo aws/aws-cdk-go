@@ -6,8 +6,8 @@ package awscodedeploy
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 )
 
 func validateLoadBalancer_ApplicationParameters(albTargetGroup awselasticloadbalancingv2.IApplicationTargetGroup) error {

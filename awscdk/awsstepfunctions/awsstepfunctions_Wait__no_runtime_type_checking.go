@@ -37,14 +37,6 @@ func (w *jsiiProxy_Wait) validateNextParameters(next IChainable) error {
 	return nil
 }
 
-func (w *jsiiProxy_Wait) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (w *jsiiProxy_Wait) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (w *jsiiProxy_Wait) validateWhenBoundToGraphParameters(graph StateGraph) error {
 	return nil
 }

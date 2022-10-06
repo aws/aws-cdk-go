@@ -1,7 +1,7 @@
 package awsiotwireless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDeviceProfile`.
@@ -15,6 +15,9 @@ import (
 //   	loRaWan: &loRaWANDeviceProfileProperty{
 //   		classBTimeout: jsii.Number(123),
 //   		classCTimeout: jsii.Number(123),
+//   		factoryPresetFreqsList: []interface{}{
+//   			jsii.Number(123),
+//   		},
 //   		macVersion: jsii.String("macVersion"),
 //   		maxDutyCycle: jsii.Number(123),
 //   		maxEirp: jsii.Number(123),
@@ -23,6 +26,10 @@ import (
 //   		pingSlotPeriod: jsii.Number(123),
 //   		regParamsRevision: jsii.String("regParamsRevision"),
 //   		rfRegion: jsii.String("rfRegion"),
+//   		rxDataRate2: jsii.Number(123),
+//   		rxDelay1: jsii.Number(123),
+//   		rxDrOffset1: jsii.Number(123),
+//   		rxFreq2: jsii.Number(123),
 //   		supports32BitFCnt: jsii.Boolean(false),
 //   		supportsClassB: jsii.Boolean(false),
 //   		supportsClassC: jsii.Boolean(false),

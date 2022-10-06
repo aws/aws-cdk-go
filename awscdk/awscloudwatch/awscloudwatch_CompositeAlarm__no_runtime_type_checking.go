@@ -17,14 +17,6 @@ func (c *jsiiProxy_CompositeAlarm) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (c *jsiiProxy_CompositeAlarm) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CompositeAlarm) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCompositeAlarm_FromCompositeAlarmArnParameters(scope constructs.Construct, id *string, compositeAlarmArn *string) error {
 	return nil
 }
@@ -37,7 +29,11 @@ func validateCompositeAlarm_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCompositeAlarm_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCompositeAlarm_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCompositeAlarm_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -7,14 +7,6 @@ import (
 	"fmt"
 )
 
-func (i *jsiiProxy_IPrincipal) validateAddToPolicyParameters(statement PolicyStatement) error {
-	if statement == nil {
-		return fmt.Errorf("parameter statement is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (i *jsiiProxy_IPrincipal) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")

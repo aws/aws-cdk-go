@@ -17,6 +17,10 @@ func (i *jsiiProxy_IUserPool) validateAddResourceServerParameters(id *string, op
 	return nil
 }
 
+func (i *jsiiProxy_IUserPool) validateGrantParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (i *jsiiProxy_IUserPool) validateRegisterIdentityProviderParameters(provider IUserPoolIdentityProvider) error {
 	return nil
 }

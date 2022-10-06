@@ -8,8 +8,6 @@ package awsredshift
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var targetAction interface{}
-//
 //   cfnScheduledActionProps := &cfnScheduledActionProps{
 //   	scheduledActionName: jsii.String("scheduledActionName"),
 //
@@ -20,7 +18,23 @@ package awsredshift
 //   	schedule: jsii.String("schedule"),
 //   	scheduledActionDescription: jsii.String("scheduledActionDescription"),
 //   	startTime: jsii.String("startTime"),
-//   	targetAction: targetAction,
+//   	targetAction: &scheduledActionTypeProperty{
+//   		pauseCluster: &pauseClusterMessageProperty{
+//   			clusterIdentifier: jsii.String("clusterIdentifier"),
+//   		},
+//   		resizeCluster: &resizeClusterMessageProperty{
+//   			clusterIdentifier: jsii.String("clusterIdentifier"),
+//
+//   			// the properties below are optional
+//   			classic: jsii.Boolean(false),
+//   			clusterType: jsii.String("clusterType"),
+//   			nodeType: jsii.String("nodeType"),
+//   			numberOfNodes: jsii.Number(123),
+//   		},
+//   		resumeCluster: &resumeClusterMessageProperty{
+//   			clusterIdentifier: jsii.String("clusterIdentifier"),
+//   		},
+//   	},
 //   }
 //
 type CfnScheduledActionProps struct {

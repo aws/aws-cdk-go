@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDataQualityJobDefinition`.
@@ -76,6 +76,7 @@ import (
 //   			s3Uri: jsii.String("s3Uri"),
 //   		},
 //   	},
+//   	endpointName: jsii.String("endpointName"),
 //   	jobDefinitionName: jsii.String("jobDefinitionName"),
 //   	networkConfig: &networkConfigProperty{
 //   		enableInterContainerTrafficEncryption: jsii.Boolean(false),
@@ -115,6 +116,8 @@ type CfnDataQualityJobDefinitionProps struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Configures the constraints and baselines for the monitoring job.
 	DataQualityBaselineConfig interface{} `field:"optional" json:"dataQualityBaselineConfig" yaml:"dataQualityBaselineConfig"`
+	// `AWS::SageMaker::DataQualityJobDefinition.EndpointName`.
+	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// The name for the monitoring job definition.
 	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// Specifies networking configuration for the monitoring job.

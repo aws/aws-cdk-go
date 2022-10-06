@@ -4,6 +4,7 @@ package awsappmesh
 // HTTP events on which to retry.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -32,21 +33,16 @@ package awsappmesh
 //   	}),
 //   })
 //
-// Experimental.
 type HttpRetryEvent string
 
 const (
 	// HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511.
-	// Experimental.
 	HttpRetryEvent_SERVER_ERROR HttpRetryEvent = "SERVER_ERROR"
 	// HTTP status codes 502, 503, and 504.
-	// Experimental.
 	HttpRetryEvent_GATEWAY_ERROR HttpRetryEvent = "GATEWAY_ERROR"
 	// HTTP status code 409.
-	// Experimental.
 	HttpRetryEvent_CLIENT_ERROR HttpRetryEvent = "CLIENT_ERROR"
 	// Retry on refused stream.
-	// Experimental.
 	HttpRetryEvent_STREAM_ERROR HttpRetryEvent = "STREAM_ERROR"
 )
 

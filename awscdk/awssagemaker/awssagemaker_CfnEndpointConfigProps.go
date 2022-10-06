@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnEndpointConfig`.
@@ -20,12 +20,15 @@ import (
 //
 //   			// the properties below are optional
 //   			acceleratorType: jsii.String("acceleratorType"),
+//   			containerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			initialInstanceCount: jsii.Number(123),
 //   			instanceType: jsii.String("instanceType"),
+//   			modelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   			serverlessConfig: &serverlessConfigProperty{
 //   				maxConcurrency: jsii.Number(123),
 //   				memorySizeInMb: jsii.Number(123),
 //   			},
+//   			volumeSizeInGb: jsii.Number(123),
 //   		},
 //   	},
 //

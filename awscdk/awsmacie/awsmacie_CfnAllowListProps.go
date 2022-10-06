@@ -1,7 +1,7 @@
 package awsmacie
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnAllowList`.
@@ -11,10 +11,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var criteria interface{}
-//
 //   cfnAllowListProps := &cfnAllowListProps{
-//   	criteria: criteria,
+//   	criteria: &criteriaProperty{
+//   		regex: jsii.String("regex"),
+//   		s3WordsList: &s3WordsListProperty{
+//   			bucketName: jsii.String("bucketName"),
+//   			objectKey: jsii.String("objectKey"),
+//   		},
+//   	},
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional

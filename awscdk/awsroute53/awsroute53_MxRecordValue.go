@@ -13,13 +13,10 @@ package awsroute53
 //   	priority: jsii.Number(123),
 //   }
 //
-// Experimental.
 type MxRecordValue struct {
 	// The mail server host name.
-	// Experimental.
 	HostName *string `field:"required" json:"hostName" yaml:"hostName"`
 	// The priority.
-	// Experimental.
 	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 }
 

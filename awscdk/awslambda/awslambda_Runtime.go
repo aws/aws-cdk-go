@@ -1,10 +1,10 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Lambda function runtime environment.
@@ -33,45 +33,24 @@ import (
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type Runtime interface {
-	// DEPRECATED.
-	// Deprecated: use `bundlingImage`.
-	BundlingDockerImage() awscdk.BundlingDockerImage
 	// The bundling Docker image for this runtime.
-	// Experimental.
 	BundlingImage() awscdk.DockerImage
 	// The runtime family.
-	// Experimental.
 	Family() RuntimeFamily
 	// The name of this runtime, as expected by the Lambda resource.
-	// Experimental.
 	Name() *string
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
-	// Experimental.
 	SupportsCodeGuruProfiling() *bool
 	// Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
-	// Experimental.
 	SupportsInlineCode() *bool
-	// Experimental.
 	RuntimeEquals(other Runtime) *bool
-	// Experimental.
 	ToString() *string
 }
 
 // The jsii proxy struct for Runtime
 type jsiiProxy_Runtime struct {
 	_ byte // padding
-}
-
-func (j *jsiiProxy_Runtime) BundlingDockerImage() awscdk.BundlingDockerImage {
-	var returns awscdk.BundlingDockerImage
-	_jsii_.Get(
-		j,
-		"bundlingDockerImage",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_Runtime) BundlingImage() awscdk.DockerImage {
@@ -125,7 +104,6 @@ func (j *jsiiProxy_Runtime) SupportsInlineCode() *bool {
 }
 
 
-// Experimental.
 func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) Runtime {
 	_init_.Initialize()
 
@@ -135,7 +113,7 @@ func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) R
 	j := jsiiProxy_Runtime{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		[]interface{}{name, family, props},
 		&j,
 	)
@@ -143,12 +121,11 @@ func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) R
 	return &j
 }
 
-// Experimental.
 func NewRuntime_Override(r Runtime, name *string, family RuntimeFamily, props *LambdaRuntimeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		[]interface{}{name, family, props},
 		r,
 	)
@@ -158,7 +135,7 @@ func Runtime_ALL() *[]Runtime {
 	_init_.Initialize()
 	var returns *[]Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"ALL",
 		&returns,
 	)
@@ -169,7 +146,7 @@ func Runtime_DOTNET_6() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_6",
 		&returns,
 	)
@@ -180,7 +157,7 @@ func Runtime_DOTNET_CORE_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_1",
 		&returns,
 	)
@@ -191,7 +168,7 @@ func Runtime_DOTNET_CORE_2() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_2",
 		&returns,
 	)
@@ -202,7 +179,7 @@ func Runtime_DOTNET_CORE_2_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_2_1",
 		&returns,
 	)
@@ -213,7 +190,7 @@ func Runtime_DOTNET_CORE_3_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_3_1",
 		&returns,
 	)
@@ -224,7 +201,7 @@ func Runtime_FROM_IMAGE() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"FROM_IMAGE",
 		&returns,
 	)
@@ -235,7 +212,7 @@ func Runtime_GO_1_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"GO_1_X",
 		&returns,
 	)
@@ -246,7 +223,7 @@ func Runtime_JAVA_11() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_11",
 		&returns,
 	)
@@ -257,7 +234,7 @@ func Runtime_JAVA_8() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_8",
 		&returns,
 	)
@@ -268,7 +245,7 @@ func Runtime_JAVA_8_CORRETTO() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_8_CORRETTO",
 		&returns,
 	)
@@ -279,7 +256,7 @@ func Runtime_NODEJS() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS",
 		&returns,
 	)
@@ -290,7 +267,7 @@ func Runtime_NODEJS_10_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_10_X",
 		&returns,
 	)
@@ -301,7 +278,7 @@ func Runtime_NODEJS_12_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_12_X",
 		&returns,
 	)
@@ -312,7 +289,7 @@ func Runtime_NODEJS_14_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_14_X",
 		&returns,
 	)
@@ -323,7 +300,7 @@ func Runtime_NODEJS_16_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_16_X",
 		&returns,
 	)
@@ -334,7 +311,7 @@ func Runtime_NODEJS_4_3() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_4_3",
 		&returns,
 	)
@@ -345,7 +322,7 @@ func Runtime_NODEJS_6_10() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_6_10",
 		&returns,
 	)
@@ -356,7 +333,7 @@ func Runtime_NODEJS_8_10() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_8_10",
 		&returns,
 	)
@@ -367,7 +344,7 @@ func Runtime_PROVIDED() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PROVIDED",
 		&returns,
 	)
@@ -378,7 +355,7 @@ func Runtime_PROVIDED_AL2() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PROVIDED_AL2",
 		&returns,
 	)
@@ -389,7 +366,7 @@ func Runtime_PYTHON_2_7() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_2_7",
 		&returns,
 	)
@@ -400,7 +377,7 @@ func Runtime_PYTHON_3_6() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_6",
 		&returns,
 	)
@@ -411,7 +388,7 @@ func Runtime_PYTHON_3_7() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_7",
 		&returns,
 	)
@@ -422,7 +399,7 @@ func Runtime_PYTHON_3_8() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_8",
 		&returns,
 	)
@@ -433,7 +410,7 @@ func Runtime_PYTHON_3_9() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_9",
 		&returns,
 	)
@@ -444,7 +421,7 @@ func Runtime_RUBY_2_5() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"RUBY_2_5",
 		&returns,
 	)
@@ -455,7 +432,7 @@ func Runtime_RUBY_2_7() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"RUBY_2_7",
 		&returns,
 	)

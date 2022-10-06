@@ -14,10 +14,17 @@ package awssagemaker
 //   		cognitoUserGroup: jsii.String("cognitoUserGroup"),
 //   		cognitoUserPool: jsii.String("cognitoUserPool"),
 //   	},
+//   	oidcMemberDefinition: &oidcMemberDefinitionProperty{
+//   		oidcGroups: []*string{
+//   			jsii.String("oidcGroups"),
+//   		},
+//   	},
 //   }
 //
 type CfnWorkteam_MemberDefinitionProperty struct {
 	// The Amazon Cognito user group that is part of the work team.
-	CognitoMemberDefinition interface{} `field:"required" json:"cognitoMemberDefinition" yaml:"cognitoMemberDefinition"`
+	CognitoMemberDefinition interface{} `field:"optional" json:"cognitoMemberDefinition" yaml:"cognitoMemberDefinition"`
+	// `CfnWorkteam.MemberDefinitionProperty.OidcMemberDefinition`.
+	OidcMemberDefinition interface{} `field:"optional" json:"oidcMemberDefinition" yaml:"oidcMemberDefinition"`
 }
 

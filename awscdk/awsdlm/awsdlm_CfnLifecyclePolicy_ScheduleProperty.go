@@ -9,6 +9,15 @@ package awsdlm
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   scheduleProperty := &scheduleProperty{
+//   	archiveRule: &archiveRuleProperty{
+//   		retainRule: &archiveRetainRuleProperty{
+//   			retentionArchiveTier: &retentionArchiveTierProperty{
+//   				count: jsii.Number(123),
+//   				interval: jsii.Number(123),
+//   				intervalUnit: jsii.String("intervalUnit"),
+//   			},
+//   		},
+//   	},
 //   	copyTags: jsii.Boolean(false),
 //   	createRule: &createRuleProperty{
 //   		cronExpression: jsii.String("cronExpression"),
@@ -81,6 +90,8 @@ package awsdlm
 //   }
 //
 type CfnLifecyclePolicy_ScheduleProperty struct {
+	// `CfnLifecyclePolicy.ScheduleProperty.ArchiveRule`.
+	ArchiveRule interface{} `field:"optional" json:"archiveRule" yaml:"archiveRule"`
 	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
 	// The creation rule.

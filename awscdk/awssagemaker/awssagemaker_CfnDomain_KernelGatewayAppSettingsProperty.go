@@ -20,6 +20,7 @@ package awssagemaker
 //   	},
 //   	defaultResourceSpec: &resourceSpecProperty{
 //   		instanceType: jsii.String("instanceType"),
+//   		lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   		sageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   		sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   	},

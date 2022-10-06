@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnAsset`.
@@ -30,6 +30,7 @@ import (
 //   			// the properties below are optional
 //   			alias: jsii.String("alias"),
 //   			notificationState: jsii.String("notificationState"),
+//   			unit: jsii.String("unit"),
 //   		},
 //   	},
 //   	tags: []cfnTag{

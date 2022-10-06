@@ -17,12 +17,15 @@ package awssagemaker
 //
 //   	// the properties below are optional
 //   	acceleratorType: jsii.String("acceleratorType"),
+//   	containerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   	initialInstanceCount: jsii.Number(123),
 //   	instanceType: jsii.String("instanceType"),
+//   	modelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   	serverlessConfig: &serverlessConfigProperty{
 //   		maxConcurrency: jsii.Number(123),
 //   		memorySizeInMb: jsii.Number(123),
 //   	},
+//   	volumeSizeInGb: jsii.Number(123),
 //   }
 //
 type CfnEndpointConfig_ProductionVariantProperty struct {
@@ -40,13 +43,19 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	//
 	// EI instances provide on-demand GPU computing for inference. For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) . For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) .
 	AcceleratorType *string `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
+	// `CfnEndpointConfig.ProductionVariantProperty.ContainerStartupHealthCheckTimeoutInSeconds`.
+	ContainerStartupHealthCheckTimeoutInSeconds *float64 `field:"optional" json:"containerStartupHealthCheckTimeoutInSeconds" yaml:"containerStartupHealthCheckTimeoutInSeconds"`
 	// Number of instances to launch initially.
 	InitialInstanceCount *float64 `field:"optional" json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// The ML compute instance type.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
+	// `CfnEndpointConfig.ProductionVariantProperty.ModelDataDownloadTimeoutInSeconds`.
+	ModelDataDownloadTimeoutInSeconds *float64 `field:"optional" json:"modelDataDownloadTimeoutInSeconds" yaml:"modelDataDownloadTimeoutInSeconds"`
 	// The serverless configuration for an endpoint.
 	//
 	// Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
 	ServerlessConfig interface{} `field:"optional" json:"serverlessConfig" yaml:"serverlessConfig"`
+	// `CfnEndpointConfig.ProductionVariantProperty.VolumeSizeInGB`.
+	VolumeSizeInGb *float64 `field:"optional" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 }
 

@@ -8,7 +8,7 @@ package awss3
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var encryption interface{}
+//   var sses3 interface{}
 //
 //   storageLensConfigurationProperty := &storageLensConfigurationProperty{
 //   	accountLevel: &accountLevelProperty{
@@ -51,7 +51,12 @@ package awss3
 //   			outputSchemaVersion: jsii.String("outputSchemaVersion"),
 //
 //   			// the properties below are optional
-//   			encryption: encryption,
+//   			encryption: &encryptionProperty{
+//   				ssekms: &sSEKMSProperty{
+//   					keyId: jsii.String("keyId"),
+//   				},
+//   				sses3: sses3,
+//   			},
 //   			prefix: jsii.String("prefix"),
 //   		},
 //   	},

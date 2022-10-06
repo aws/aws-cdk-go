@@ -64,6 +64,15 @@ package awsdlm
 //   	},
 //   	schedules: []interface{}{
 //   		&scheduleProperty{
+//   			archiveRule: &archiveRuleProperty{
+//   				retainRule: &archiveRetainRuleProperty{
+//   					retentionArchiveTier: &retentionArchiveTierProperty{
+//   						count: jsii.Number(123),
+//   						interval: jsii.Number(123),
+//   						intervalUnit: jsii.String("intervalUnit"),
+//   					},
+//   				},
+//   			},
 //   			copyTags: jsii.Boolean(false),
 //   			createRule: &createRuleProperty{
 //   				cronExpression: jsii.String("cronExpression"),

@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnNotebookInstance`.
@@ -24,6 +24,9 @@ import (
 //   	},
 //   	defaultCodeRepository: jsii.String("defaultCodeRepository"),
 //   	directInternetAccess: jsii.String("directInternetAccess"),
+//   	instanceMetadataServiceConfiguration: &instanceMetadataServiceConfigurationProperty{
+//   		minimumInstanceMetadataServiceVersion: jsii.String("minimumInstanceMetadataServiceVersion"),
+//   	},
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	lifecycleConfigName: jsii.String("lifecycleConfigName"),
 //   	notebookInstanceName: jsii.String("notebookInstanceName"),
@@ -73,6 +76,8 @@ type CfnNotebookInstanceProps struct {
 	//
 	// For more information, see [Notebook Instances Are Internet-Enabled by Default](https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access) . You can set the value of this parameter to `Disabled` only if you set a value for the `SubnetId` parameter.
 	DirectInternetAccess *string `field:"optional" json:"directInternetAccess" yaml:"directInternetAccess"`
+	// `AWS::SageMaker::NotebookInstance.InstanceMetadataServiceConfiguration`.
+	InstanceMetadataServiceConfiguration interface{} `field:"optional" json:"instanceMetadataServiceConfiguration" yaml:"instanceMetadataServiceConfiguration"`
 	// The Amazon Resource Name (ARN) of a AWS Key Management Service key that SageMaker uses to encrypt data on the storage volume attached to your notebook instance.
 	//
 	// The KMS key you provide must be enabled. For information, see [Enabling and Disabling Keys](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) in the *AWS Key Management Service Developer Guide* .

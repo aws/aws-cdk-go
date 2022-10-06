@@ -10,6 +10,7 @@ package awssagemaker
 //
 //   resourceSpecProperty := &resourceSpecProperty{
 //   	instanceType: jsii.String("instanceType"),
+//   	lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   	sageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   	sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   }
@@ -19,6 +20,8 @@ type CfnDomain_ResourceSpecProperty struct {
 	//
 	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
+	// `CfnDomain.ResourceSpecProperty.LifecycleConfigArn`.
+	LifecycleConfigArn *string `field:"optional" json:"lifecycleConfigArn" yaml:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `field:"optional" json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.

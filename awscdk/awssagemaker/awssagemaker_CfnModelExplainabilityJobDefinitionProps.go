@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnModelExplainabilityJobDefinition`.
@@ -63,6 +63,7 @@ import (
 //   	roleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	endpointName: jsii.String("endpointName"),
 //   	jobDefinitionName: jsii.String("jobDefinitionName"),
 //   	modelExplainabilityBaselineConfig: &modelExplainabilityBaselineConfigProperty{
 //   		baseliningJobName: jsii.String("baseliningJobName"),
@@ -104,6 +105,8 @@ type CfnModelExplainabilityJobDefinitionProps struct {
 	ModelExplainabilityJobOutputConfig interface{} `field:"required" json:"modelExplainabilityJobOutputConfig" yaml:"modelExplainabilityJobOutputConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// `AWS::SageMaker::ModelExplainabilityJobDefinition.EndpointName`.
+	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// The name of the model explainability job definition.
 	//
 	// The name must be unique within an AWS Region in the AWS account.

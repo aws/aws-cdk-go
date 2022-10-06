@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateInspectParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateSetRoleArnPa
 	return nil
 }
 
-func validateNewCfnEnclaveCertificateIamRoleAssociationParameters(scope awscdk.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) error {
+func validateNewCfnEnclaveCertificateIamRoleAssociationParameters(scope constructs.Construct, id *string, props *CfnEnclaveCertificateIamRoleAssociationProps) error {
 	return nil
 }
 

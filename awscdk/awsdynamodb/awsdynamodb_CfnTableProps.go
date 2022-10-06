@@ -1,7 +1,7 @@
 package awsdynamodb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTable`.
@@ -53,6 +53,27 @@ import (
 //   			provisionedThroughput: &provisionedThroughputProperty{
 //   				readCapacityUnits: jsii.Number(123),
 //   				writeCapacityUnits: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	importSourceSpecification: &importSourceSpecificationProperty{
+//   		inputFormat: jsii.String("inputFormat"),
+//   		s3BucketSource: &s3BucketSourceProperty{
+//   			s3Bucket: jsii.String("s3Bucket"),
+//
+//   			// the properties below are optional
+//   			s3BucketOwner: jsii.String("s3BucketOwner"),
+//   			s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   		},
+//
+//   		// the properties below are optional
+//   		inputCompressionType: jsii.String("inputCompressionType"),
+//   		inputFormatOptions: &inputFormatOptionsProperty{
+//   			csv: &csvProperty{
+//   				delimiter: jsii.String("delimiter"),
+//   				headerList: []*string{
+//   					jsii.String("headerList"),
+//   				},
 //   			},
 //   		},
 //   	},
@@ -140,6 +161,8 @@ type CfnTableProps struct {
 	// > - If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	// > - You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
 	GlobalSecondaryIndexes interface{} `field:"optional" json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
+	// `AWS::DynamoDB::Table.ImportSourceSpecification`.
+	ImportSourceSpecification interface{} `field:"optional" json:"importSourceSpecification" yaml:"importSourceSpecification"`
 	// The Kinesis Data Streams configuration for the specified table.
 	KinesisStreamSpecification interface{} `field:"optional" json:"kinesisStreamSpecification" yaml:"kinesisStreamSpecification"`
 	// Local secondary indexes to be created on the table.

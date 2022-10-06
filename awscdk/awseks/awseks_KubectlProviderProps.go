@@ -1,7 +1,7 @@
 package awseks
 
 
-// Kubectl Provider Properties.
+// Properties for a KubectlProvider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -14,10 +14,8 @@ package awseks
 //   	cluster: cluster,
 //   }
 //
-// Experimental.
 type KubectlProviderProps struct {
 	// The cluster to control.
-	// Experimental.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 }
 

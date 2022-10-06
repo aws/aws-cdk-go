@@ -17,6 +17,7 @@ package awssagemaker
 //   	jupyterServerAppSettings: &jupyterServerAppSettingsProperty{
 //   		defaultResourceSpec: &resourceSpecProperty{
 //   			instanceType: jsii.String("instanceType"),
+//   			lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			sageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
@@ -33,6 +34,24 @@ package awssagemaker
 //   		},
 //   		defaultResourceSpec: &resourceSpecProperty{
 //   			instanceType: jsii.String("instanceType"),
+//   			lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   			sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   			sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   	},
+//   	rSessionAppSettings: &rSessionAppSettingsProperty{
+//   		customImages: []interface{}{
+//   			&customImageProperty{
+//   				appImageConfigName: jsii.String("appImageConfigName"),
+//   				imageName: jsii.String("imageName"),
+//
+//   				// the properties below are optional
+//   				imageVersionNumber: jsii.Number(123),
+//   			},
+//   		},
+//   		defaultResourceSpec: &resourceSpecProperty{
+//   			instanceType: jsii.String("instanceType"),
+//   			lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			sageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
@@ -58,6 +77,8 @@ type CfnDomain_UserSettingsProperty struct {
 	JupyterServerAppSettings interface{} `field:"optional" json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings interface{} `field:"optional" json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
+	// `CfnDomain.UserSettingsProperty.RSessionAppSettings`.
+	RSessionAppSettings interface{} `field:"optional" json:"rSessionAppSettings" yaml:"rSessionAppSettings"`
 	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
 	RStudioServerProAppSettings interface{} `field:"optional" json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.

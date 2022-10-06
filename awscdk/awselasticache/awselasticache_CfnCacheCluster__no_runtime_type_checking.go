@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnCacheCluster) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnCacheCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCacheCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCacheCluster) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCacheCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +89,11 @@ func (j *jsiiProxy_CfnCacheCluster) validateSetNumCacheNodesParameters(val *floa
 	return nil
 }
 
-func validateNewCfnCacheClusterParameters(scope awscdk.Construct, id *string, props *CfnCacheClusterProps) error {
+func (j *jsiiProxy_CfnCacheCluster) validateSetTransitEncryptionEnabledParameters(val interface{}) error {
+	return nil
+}
+
+func validateNewCfnCacheClusterParameters(scope constructs.Construct, id *string, props *CfnCacheClusterProps) error {
 	return nil
 }
 

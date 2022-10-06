@@ -1,7 +1,7 @@
 package awselasticache
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCacheCluster`.
@@ -60,6 +60,7 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	transitEncryptionEnabled: jsii.Boolean(false),
 //   	vpcSecurityGroupIds: []*string{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
@@ -245,6 +246,8 @@ type CfnCacheClusterProps struct {
 	SnapshotWindow *string `field:"optional" json:"snapshotWindow" yaml:"snapshotWindow"`
 	// A list of tags to be added to this resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// `AWS::ElastiCache::CacheCluster.TransitEncryptionEnabled`.
+	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 	// One or more VPC security groups associated with the cluster.
 	//
 	// Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).

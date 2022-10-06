@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) validateInspectParameters(in
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimulationApplicationVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSimulationApplicationVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSimulationApplicationVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnSimulationApplicationVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +73,7 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) validateSetApplicationParame
 	return nil
 }
 
-func validateNewCfnSimulationApplicationVersionParameters(scope awscdk.Construct, id *string, props *CfnSimulationApplicationVersionProps) error {
+func validateNewCfnSimulationApplicationVersionParameters(scope constructs.Construct, id *string, props *CfnSimulationApplicationVersionProps) error {
 	return nil
 }
 

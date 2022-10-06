@@ -1,7 +1,7 @@
 package awss3
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnStorageLens`.
@@ -11,7 +11,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var encryption interface{}
+//   var sses3 interface{}
 //
 //   cfnStorageLensProps := &cfnStorageLensProps{
 //   	storageLensConfiguration: &storageLensConfigurationProperty{
@@ -55,7 +55,12 @@ import (
 //   				outputSchemaVersion: jsii.String("outputSchemaVersion"),
 //
 //   				// the properties below are optional
-//   				encryption: encryption,
+//   				encryption: &encryptionProperty{
+//   					ssekms: &sSEKMSProperty{
+//   						keyId: jsii.String("keyId"),
+//   					},
+//   					sses3: sses3,
+//   				},
 //   				prefix: jsii.String("prefix"),
 //   			},
 //   		},

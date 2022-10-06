@@ -23,10 +23,8 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type TlsCertificateConfig struct {
 	// The CFN shape for a TLS certificate.
-	// Experimental.
 	TlsCertificate *CfnVirtualNode_ListenerTlsCertificateProperty `field:"required" json:"tlsCertificate" yaml:"tlsCertificate"`
 }
 

@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnWorkteam`.
@@ -20,6 +20,11 @@ import (
 //   				cognitoUserGroup: jsii.String("cognitoUserGroup"),
 //   				cognitoUserPool: jsii.String("cognitoUserPool"),
 //   			},
+//   			oidcMemberDefinition: &oidcMemberDefinitionProperty{
+//   				oidcGroups: []*string{
+//   					jsii.String("oidcGroups"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	notificationConfiguration: &notificationConfigurationProperty{
@@ -31,6 +36,7 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	workforceName: jsii.String("workforceName"),
 //   	workteamName: jsii.String("workteamName"),
 //   }
 //
@@ -45,6 +51,8 @@ type CfnWorkteamProps struct {
 	NotificationConfiguration interface{} `field:"optional" json:"notificationConfiguration" yaml:"notificationConfiguration"`
 	// An array of key-value pairs.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// `AWS::SageMaker::Workteam.WorkforceName`.
+	WorkforceName *string `field:"optional" json:"workforceName" yaml:"workforceName"`
 	// The name of the work team.
 	WorkteamName *string `field:"optional" json:"workteamName" yaml:"workteamName"`
 }

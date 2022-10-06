@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBCluster`.
@@ -15,6 +15,7 @@ import (
 //   	engine: jsii.String("engine"),
 //
 //   	// the properties below are optional
+//   	allocatedStorage: jsii.Number(123),
 //   	associatedRoles: []interface{}{
 //   		&dBClusterRoleProperty{
 //   			roleArn: jsii.String("roleArn"),
@@ -23,6 +24,7 @@ import (
 //   			featureName: jsii.String("featureName"),
 //   		},
 //   	},
+//   	autoMinorVersionUpgrade: jsii.Boolean(false),
 //   	availabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
 //   	},
@@ -31,7 +33,9 @@ import (
 //   	copyTagsToSnapshot: jsii.Boolean(false),
 //   	databaseName: jsii.String("databaseName"),
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
+//   	dbClusterInstanceClass: jsii.String("dbClusterInstanceClass"),
 //   	dbClusterParameterGroupName: jsii.String("dbClusterParameterGroupName"),
+//   	dbInstanceParameterGroupName: jsii.String("dbInstanceParameterGroupName"),
 //   	dbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   	deletionProtection: jsii.Boolean(false),
 //   	enableCloudwatchLogsExports: []*string{
@@ -42,12 +46,19 @@ import (
 //   	engineMode: jsii.String("engineMode"),
 //   	engineVersion: jsii.String("engineVersion"),
 //   	globalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   	iops: jsii.Number(123),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	masterUsername: jsii.String("masterUsername"),
 //   	masterUserPassword: jsii.String("masterUserPassword"),
+//   	monitoringInterval: jsii.Number(123),
+//   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
+//   	performanceInsightsEnabled: jsii.Boolean(false),
+//   	performanceInsightsKmsKeyId: jsii.String("performanceInsightsKmsKeyId"),
+//   	performanceInsightsRetentionPeriod: jsii.Number(123),
 //   	port: jsii.Number(123),
 //   	preferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	preferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   	publiclyAccessible: jsii.Boolean(false),
 //   	replicationSourceIdentifier: jsii.String("replicationSourceIdentifier"),
 //   	restoreType: jsii.String("restoreType"),
 //   	scalingConfiguration: &scalingConfigurationProperty{
@@ -56,10 +67,15 @@ import (
 //   		minCapacity: jsii.Number(123),
 //   		secondsUntilAutoPause: jsii.Number(123),
 //   	},
+//   	serverlessV2ScalingConfiguration: &serverlessV2ScalingConfigurationProperty{
+//   		maxCapacity: jsii.Number(123),
+//   		minCapacity: jsii.Number(123),
+//   	},
 //   	snapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	sourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	sourceRegion: jsii.String("sourceRegion"),
 //   	storageEncrypted: jsii.Boolean(false),
+//   	storageType: jsii.String("storageType"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -77,10 +93,14 @@ type CfnDBClusterProps struct {
 	//
 	// Valid Values: `aurora` (for MySQL 5.6-compatible Aurora), `aurora-mysql` (for MySQL 5.7-compatible Aurora), and `aurora-postgresql`
 	Engine *string `field:"required" json:"engine" yaml:"engine"`
+	// `AWS::RDS::DBCluster.AllocatedStorage`.
+	AllocatedStorage *float64 `field:"optional" json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster.
 	//
 	// IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
 	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
+	// `AWS::RDS::DBCluster.AutoMinorVersionUpgrade`.
+	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// A list of Availability Zones (AZs) where instances in the DB cluster can be created.
 	//
 	// For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide* .
@@ -121,6 +141,8 @@ type CfnDBClusterProps struct {
 	//
 	// Example: `my-cluster1`.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	// `AWS::RDS::DBCluster.DBClusterInstanceClass`.
+	DbClusterInstanceClass *string `field:"optional" json:"dbClusterInstanceClass" yaml:"dbClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	//
 	// > If you apply a parameter group to an existing DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
@@ -131,6 +153,8 @@ type CfnDBClusterProps struct {
 	//
 	// `aws rds describe-db-cluster-parameter-groups --query "DBClusterParameterGroups[].DBClusterParameterGroupName" --output text`
 	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
+	// `AWS::RDS::DBCluster.DBInstanceParameterGroupName`.
+	DbInstanceParameterGroupName *string `field:"optional" json:"dbInstanceParameterGroupName" yaml:"dbInstanceParameterGroupName"`
 	// A DB subnet group that you want to associate with this DB cluster.
 	//
 	// If you are restoring a DB cluster to a point in time with `RestoreType` set to `copy-on-write` , and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.
@@ -208,6 +232,8 @@ type CfnDBClusterProps struct {
 	//
 	// For information about Aurora global databases, see [Working with Amazon Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) in the *Amazon Aurora User Guide* .
 	GlobalClusterIdentifier *string `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
+	// `AWS::RDS::DBCluster.Iops`.
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef` .
 	//
 	// If you enable the `StorageEncrypted` property but don't specify this property, the default KMS key is used. If you specify this property, you must set the `StorageEncrypted` property to `true` .
@@ -222,6 +248,16 @@ type CfnDBClusterProps struct {
 	//
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
+	// `AWS::RDS::DBCluster.MonitoringInterval`.
+	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
+	// `AWS::RDS::DBCluster.MonitoringRoleArn`.
+	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
+	// `AWS::RDS::DBCluster.PerformanceInsightsEnabled`.
+	PerformanceInsightsEnabled interface{} `field:"optional" json:"performanceInsightsEnabled" yaml:"performanceInsightsEnabled"`
+	// `AWS::RDS::DBCluster.PerformanceInsightsKmsKeyId`.
+	PerformanceInsightsKmsKeyId *string `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
+	// `AWS::RDS::DBCluster.PerformanceInsightsRetentionPeriod`.
+	PerformanceInsightsRetentionPeriod *float64 `field:"optional" json:"performanceInsightsRetentionPeriod" yaml:"performanceInsightsRetentionPeriod"`
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//
 	// Default:
@@ -255,6 +291,8 @@ type CfnDBClusterProps struct {
 	//
 	// Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	// `AWS::RDS::DBCluster.PubliclyAccessible`.
+	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	ReplicationSourceIdentifier *string `field:"optional" json:"replicationSourceIdentifier" yaml:"replicationSourceIdentifier"`
 	// The type of restore to be performed. You can specify one of the following values:.
@@ -270,6 +308,8 @@ type CfnDBClusterProps struct {
 	//
 	// Currently, AWS CloudFormation only supports Aurora Serverless v1. AWS CloudFormation doesn't support Aurora Serverless v2.
 	ScalingConfiguration interface{} `field:"optional" json:"scalingConfiguration" yaml:"scalingConfiguration"`
+	// `AWS::RDS::DBCluster.ServerlessV2ScalingConfiguration`.
+	ServerlessV2ScalingConfiguration interface{} `field:"optional" json:"serverlessV2ScalingConfiguration" yaml:"serverlessV2ScalingConfiguration"`
 	// The identifier for the DB snapshot or DB cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
@@ -312,6 +352,8 @@ type CfnDBClusterProps struct {
 	//
 	// If you specify the `SnapshotIdentifier` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB cluster is encrypted. Specify the `KmsKeyId` property for the KMS key to use for encryption. If you don't want the restored DB cluster to be encrypted, then don't set this property or set it to `false` .
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
+	// `AWS::RDS::DBCluster.StorageType`.
+	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// Tags to assign to the DB cluster.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time.

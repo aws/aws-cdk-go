@@ -85,14 +85,6 @@ func (e *jsiiProxy_EcsRunTask) validateNextParameters(next awsstepfunctions.ICha
 	return nil
 }
 
-func (e *jsiiProxy_EcsRunTask) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (e *jsiiProxy_EcsRunTask) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (e *jsiiProxy_EcsRunTask) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func validateEcsDeploymentGroup_FromEcsDeploymentGroupAttributesParameters(scope constructs.Construct, id *string, attrs *EcsDeploymentGroupAttributes) error {

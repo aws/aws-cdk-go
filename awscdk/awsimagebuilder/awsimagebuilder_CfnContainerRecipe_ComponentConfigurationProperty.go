@@ -10,10 +10,20 @@ package awsimagebuilder
 //
 //   componentConfigurationProperty := &componentConfigurationProperty{
 //   	componentArn: jsii.String("componentArn"),
+//   	parameters: []interface{}{
+//   		&componentParameterProperty{
+//   			name: jsii.String("name"),
+//   			value: []*string{
+//   				jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 type CfnContainerRecipe_ComponentConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn *string `field:"optional" json:"componentArn" yaml:"componentArn"`
+	// `CfnContainerRecipe.ComponentConfigurationProperty.Parameters`.
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

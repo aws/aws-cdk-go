@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnModelQualityJobDefinition`.
@@ -76,6 +76,7 @@ import (
 //   	roleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	endpointName: jsii.String("endpointName"),
 //   	jobDefinitionName: jsii.String("jobDefinitionName"),
 //   	modelQualityBaselineConfig: &modelQualityBaselineConfigProperty{
 //   		baseliningJobName: jsii.String("baseliningJobName"),
@@ -119,6 +120,8 @@ type CfnModelQualityJobDefinitionProps struct {
 	ModelQualityJobOutputConfig interface{} `field:"required" json:"modelQualityJobOutputConfig" yaml:"modelQualityJobOutputConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// `AWS::SageMaker::ModelQualityJobDefinition.EndpointName`.
+	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// The name of the monitoring job definition.
 	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// Specifies the constraints and baselines for the monitoring job.

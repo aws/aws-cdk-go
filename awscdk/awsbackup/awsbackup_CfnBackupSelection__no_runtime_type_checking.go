@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnBackupSelection) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnBackupSelection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnBackupSelection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnBackupSelection) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnBackupSelection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnBackupSelection) validateSetBackupSelectionParameters(val 
 	return nil
 }
 
-func validateNewCfnBackupSelectionParameters(scope awscdk.Construct, id *string, props *CfnBackupSelectionProps) error {
+func validateNewCfnBackupSelectionParameters(scope constructs.Construct, id *string, props *CfnBackupSelectionProps) error {
 	return nil
 }
 

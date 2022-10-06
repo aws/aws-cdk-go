@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -27,10 +27,8 @@ import (
 //   	minCapacity: jsii.Number(1),
 //   })
 //
-// Experimental.
 type Schedule interface {
 	// Retrieve the expression for this schedule.
-	// Experimental.
 	ExpressionString() *string
 }
 
@@ -50,19 +48,17 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 }
 
 
-// Experimental.
 func NewSchedule_Override(s Schedule) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.Schedule",
+		"aws-cdk-lib.aws_autoscaling.Schedule",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Create a schedule from a set of cron fields.
-// Experimental.
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
@@ -72,7 +68,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.Schedule",
+		"aws-cdk-lib.aws_autoscaling.Schedule",
 		"cron",
 		[]interface{}{options},
 		&returns,
@@ -84,7 +80,6 @@ func Schedule_Cron(options *CronOptions) Schedule {
 // Construct a schedule from a literal schedule expression.
 // See: http://crontab.org/
 //
-// Experimental.
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
@@ -94,7 +89,7 @@ func Schedule_Expression(expression *string) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.Schedule",
+		"aws-cdk-lib.aws_autoscaling.Schedule",
 		"expression",
 		[]interface{}{expression},
 		&returns,

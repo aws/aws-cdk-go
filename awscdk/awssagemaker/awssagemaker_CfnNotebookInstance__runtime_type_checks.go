@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnNotebookInstance) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,14 +104,6 @@ func (c *jsiiProxy_CfnNotebookInstance) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotebookInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnNotebookInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -123,14 +115,6 @@ func (c *jsiiProxy_CfnNotebookInstance) validateOverrideLogicalIdParameters(newL
 func (c *jsiiProxy_CfnNotebookInstance) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnNotebookInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -168,6 +152,30 @@ func validateCfnNotebookInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNotebookInstance) validateSetInstanceMetadataServiceConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnNotebookInstance_InstanceMetadataServiceConfigurationProperty:
+		val := val.(*CfnNotebookInstance_InstanceMetadataServiceConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnNotebookInstance_InstanceMetadataServiceConfigurationProperty:
+		val_ := val.(CfnNotebookInstance_InstanceMetadataServiceConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnNotebookInstance_InstanceMetadataServiceConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnNotebookInstance) validateSetInstanceTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -184,7 +192,7 @@ func (j *jsiiProxy_CfnNotebookInstance) validateSetRoleArnParameters(val *string
 	return nil
 }
 
-func validateNewCfnNotebookInstanceParameters(scope awscdk.Construct, id *string, props *CfnNotebookInstanceProps) error {
+func validateNewCfnNotebookInstanceParameters(scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

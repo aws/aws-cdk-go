@@ -12,6 +12,14 @@ package awsimagebuilder
 //   	components: []interface{}{
 //   		&componentConfigurationProperty{
 //   			componentArn: jsii.String("componentArn"),
+//   			parameters: []interface{}{
+//   				&componentParameterProperty{
+//   					name: jsii.String("name"),
+//   					value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	containerType: jsii.String("containerType"),

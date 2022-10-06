@@ -3,36 +3,41 @@ package awsservicediscovery
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 )
 
-// Experimental.
 type IService interface {
 	awscdk.IResource
+	// The discovery type used by the service.
+	DiscoveryType() DiscoveryType
 	// The DnsRecordType used by the service.
-	// Experimental.
 	DnsRecordType() DnsRecordType
 	// The namespace for the Cloudmap Service.
-	// Experimental.
 	Namespace() INamespace
 	// The Routing Policy used by the service.
-	// Experimental.
 	RoutingPolicy() RoutingPolicy
 	// The Arn of the namespace that you want to use for DNS configuration.
-	// Experimental.
 	ServiceArn() *string
 	// The ID of the namespace that you want to use for DNS configuration.
-	// Experimental.
 	ServiceId() *string
 	// A name for the Cloudmap Service.
-	// Experimental.
 	ServiceName() *string
 }
 
 // The jsii proxy for IService
 type jsiiProxy_IService struct {
 	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IService) DiscoveryType() DiscoveryType {
+	var returns DiscoveryType
+	_jsii_.Get(
+		j,
+		"discoveryType",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_IService) DnsRecordType() DnsRecordType {

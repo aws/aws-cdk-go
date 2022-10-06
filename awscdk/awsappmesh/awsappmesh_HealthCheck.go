@@ -1,15 +1,16 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Contains static factory methods for creating health checks for different protocols.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
@@ -36,14 +37,12 @@ import (
 //   	accessLog: appmesh.accessLog.fromFilePath(jsii.String("/dev/stdout")),
 //   })
 //
-// Experimental.
 type HealthCheck interface {
 	// Called when the AccessLog type is initialized.
 	//
 	// Can be used to enforce
 	// mutual exclusivity with future properties.
-	// Experimental.
-	Bind(scope awscdk.Construct, options *HealthCheckBindOptions) *HealthCheckConfig
+	Bind(scope constructs.Construct, options *HealthCheckBindOptions) *HealthCheckConfig
 }
 
 // The jsii proxy struct for HealthCheck
@@ -51,19 +50,17 @@ type jsiiProxy_HealthCheck struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewHealthCheck_Override(h HealthCheck) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.HealthCheck",
+		"aws-cdk-lib.aws_appmesh.HealthCheck",
 		nil, // no parameters
 		h,
 	)
 }
 
 // Construct a GRPC health check.
-// Experimental.
 func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -73,7 +70,7 @@ func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HealthCheck",
+		"aws-cdk-lib.aws_appmesh.HealthCheck",
 		"grpc",
 		[]interface{}{options},
 		&returns,
@@ -83,7 +80,6 @@ func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
 }
 
 // Construct a HTTP health check.
-// Experimental.
 func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -93,7 +89,7 @@ func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HealthCheck",
+		"aws-cdk-lib.aws_appmesh.HealthCheck",
 		"http",
 		[]interface{}{options},
 		&returns,
@@ -103,7 +99,6 @@ func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
 }
 
 // Construct a HTTP2 health check.
-// Experimental.
 func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -113,7 +108,7 @@ func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HealthCheck",
+		"aws-cdk-lib.aws_appmesh.HealthCheck",
 		"http2",
 		[]interface{}{options},
 		&returns,
@@ -123,7 +118,6 @@ func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
 }
 
 // Construct a TCP health check.
-// Experimental.
 func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -133,7 +127,7 @@ func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.HealthCheck",
+		"aws-cdk-lib.aws_appmesh.HealthCheck",
 		"tcp",
 		[]interface{}{options},
 		&returns,
@@ -142,7 +136,7 @@ func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
 	return returns
 }
 
-func (h *jsiiProxy_HealthCheck) Bind(scope awscdk.Construct, options *HealthCheckBindOptions) *HealthCheckConfig {
+func (h *jsiiProxy_HealthCheck) Bind(scope constructs.Construct, options *HealthCheckBindOptions) *HealthCheckConfig {
 	if err := h.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
