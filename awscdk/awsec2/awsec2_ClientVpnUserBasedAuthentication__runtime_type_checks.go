@@ -6,7 +6,7 @@ package awsec2
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 func validateClientVpnUserBasedAuthentication_ActiveDirectoryParameters(directoryId *string) error {

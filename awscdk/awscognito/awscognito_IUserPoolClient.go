@@ -3,19 +3,17 @@ package awscognito
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscognito/internal"
 )
 
 // Represents a Cognito user pool client.
+// Experimental.
 type IUserPoolClient interface {
 	awscdk.IResource
 	// Name of the application client.
+	// Experimental.
 	UserPoolClientId() *string
-	// The generated client secret.
-	//
-	// Only available if the "generateSecret" props is set to true.
-	UserPoolClientSecret() awscdk.SecretValue
 }
 
 // The jsii proxy for IUserPoolClient
@@ -28,16 +26,6 @@ func (j *jsiiProxy_IUserPoolClient) UserPoolClientId() *string {
 	_jsii_.Get(
 		j,
 		"userPoolClientId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IUserPoolClient) UserPoolClientSecret() awscdk.SecretValue {
-	var returns awscdk.SecretValue
-	_jsii_.Get(
-		j,
-		"userPoolClientSecret",
 		&returns,
 	)
 	return returns

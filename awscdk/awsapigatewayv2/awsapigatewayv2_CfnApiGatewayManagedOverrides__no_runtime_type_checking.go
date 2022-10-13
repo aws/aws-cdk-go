@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +93,7 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetStageParameters(val
 	return nil
 }
 
-func validateNewCfnApiGatewayManagedOverridesParameters(scope constructs.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) error {
+func validateNewCfnApiGatewayManagedOverridesParameters(scope awscdk.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) error {
 	return nil
 }
 

@@ -9,7 +9,15 @@ func (c *jsiiProxy_Cluster) validateAddAsgCapacityProviderParameters(provider As
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateAddAutoScalingGroupParameters(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AddAutoScalingGroupCapacityOptions) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateAddCapacityParameters(id *string, options *AddCapacityOptions) error {
+	return nil
+}
+
+func (c *jsiiProxy_Cluster) validateAddCapacityProviderParameters(provider *string) error {
 	return nil
 }
 
@@ -49,6 +57,14 @@ func (c *jsiiProxy_Cluster) validateMetricMemoryUtilizationParameters(props *aws
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_Cluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateCluster_FromClusterArnParameters(scope constructs.Construct, id *string, clusterArn *string) error {
 	return nil
 }
@@ -61,11 +77,7 @@ func validateCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCluster_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateCluster_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCluster_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

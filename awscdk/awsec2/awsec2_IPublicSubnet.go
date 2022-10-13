@@ -1,6 +1,7 @@
 package awsec2
 
 
+// Experimental.
 type IPublicSubnet interface {
 	ISubnet
 }

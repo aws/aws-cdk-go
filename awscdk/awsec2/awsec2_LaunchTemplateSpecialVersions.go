@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,6 +14,7 @@ import (
 //
 //   launchTemplateSpecialVersions := awscdk.Aws_ec2.NewLaunchTemplateSpecialVersions()
 //
+// Experimental.
 type LaunchTemplateSpecialVersions interface {
 }
 
@@ -22,13 +23,14 @@ type jsiiProxy_LaunchTemplateSpecialVersions struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewLaunchTemplateSpecialVersions() LaunchTemplateSpecialVersions {
 	_init_.Initialize()
 
 	j := jsiiProxy_LaunchTemplateSpecialVersions{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.LaunchTemplateSpecialVersions",
+		"monocdk.aws_ec2.LaunchTemplateSpecialVersions",
 		nil, // no parameters
 		&j,
 	)
@@ -36,11 +38,12 @@ func NewLaunchTemplateSpecialVersions() LaunchTemplateSpecialVersions {
 	return &j
 }
 
+// Experimental.
 func NewLaunchTemplateSpecialVersions_Override(l LaunchTemplateSpecialVersions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.LaunchTemplateSpecialVersions",
+		"monocdk.aws_ec2.LaunchTemplateSpecialVersions",
 		nil, // no parameters
 		l,
 	)
@@ -50,7 +53,7 @@ func LaunchTemplateSpecialVersions_DEFAULT_VERSION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ec2.LaunchTemplateSpecialVersions",
+		"monocdk.aws_ec2.LaunchTemplateSpecialVersions",
 		"DEFAULT_VERSION",
 		&returns,
 	)
@@ -61,7 +64,7 @@ func LaunchTemplateSpecialVersions_LATEST_VERSION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ec2.LaunchTemplateSpecialVersions",
+		"monocdk.aws_ec2.LaunchTemplateSpecialVersions",
 		"LATEST_VERSION",
 		&returns,
 	)

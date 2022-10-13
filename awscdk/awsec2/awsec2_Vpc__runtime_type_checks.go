@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (v *jsiiProxy_Vpc) validateAddClientVpnEndpointParameters(id *string, options *ClientVpnEndpointOptions) error {
@@ -22,6 +22,20 @@ func (v *jsiiProxy_Vpc) validateAddClientVpnEndpointParameters(id *string, optio
 	}
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_Vpc) validateAddDynamoDbEndpointParameters(id *string, subnets *[]*SubnetSelection) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	for idx_9fef9d, v := range *subnets {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter subnets[%#v]", idx_9fef9d) }); err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -64,6 +78,20 @@ func (v *jsiiProxy_Vpc) validateAddInterfaceEndpointParameters(id *string, optio
 	}
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_Vpc) validateAddS3EndpointParameters(id *string, subnets *[]*SubnetSelection) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	for idx_9fef9d, v := range *subnets {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter subnets[%#v]", idx_9fef9d) }); err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -126,6 +154,14 @@ func (v *jsiiProxy_Vpc) validateGetResourceNameAttributeParameters(nameAttr *str
 	return nil
 }
 
+func (v *jsiiProxy_Vpc) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_Vpc) validateSelectSubnetObjectsParameters(selection *SubnetSelection) error {
 	if err := _jsii_.ValidateStruct(selection, func() string { return "parameter selection" }); err != nil {
 		return err
@@ -137,6 +173,14 @@ func (v *jsiiProxy_Vpc) validateSelectSubnetObjectsParameters(selection *SubnetS
 func (v *jsiiProxy_Vpc) validateSelectSubnetsParameters(selection *SubnetSelection) error {
 	if err := _jsii_.ValidateStruct(selection, func() string { return "parameter selection" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_Vpc) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -188,15 +232,7 @@ func validateVpc_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVpc_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateVpc_IsResourceParameters(construct constructs.IConstruct) error {
+func validateVpc_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -1,11 +1,11 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var props interface{}
 //
@@ -16,8 +16,11 @@ package awscdk
 //   	},
 //   }
 //
+// Experimental.
 type GetContextKeyResult struct {
+	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
+	// Experimental.
 	Props *map[string]interface{} `field:"required" json:"props" yaml:"props"`
 }
 

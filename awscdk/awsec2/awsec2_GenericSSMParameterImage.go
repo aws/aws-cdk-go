@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Select the image based on a given SSM parameter.
@@ -25,12 +25,15 @@ import (
 //
 //   genericSSMParameterImage := awscdk.Aws_ec2.NewGenericSSMParameterImage(jsii.String("parameterName"), awscdk.Aws_ec2.operatingSystemType_LINUX, userData)
 //
+// Experimental.
 type GenericSSMParameterImage interface {
 	IMachineImage
 	// Name of the SSM parameter we're looking up.
+	// Experimental.
 	ParameterName() *string
 	// Return the image to use in the given context.
-	GetImage(scope constructs.Construct) *MachineImageConfig
+	// Experimental.
+	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for GenericSSMParameterImage
@@ -49,6 +52,7 @@ func (j *jsiiProxy_GenericSSMParameterImage) ParameterName() *string {
 }
 
 
+// Experimental.
 func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, userData UserData) GenericSSMParameterImage {
 	_init_.Initialize()
 
@@ -58,7 +62,7 @@ func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, 
 	j := jsiiProxy_GenericSSMParameterImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.GenericSSMParameterImage",
+		"monocdk.aws_ec2.GenericSSMParameterImage",
 		[]interface{}{parameterName, os, userData},
 		&j,
 	)
@@ -66,17 +70,18 @@ func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, 
 	return &j
 }
 
+// Experimental.
 func NewGenericSSMParameterImage_Override(g GenericSSMParameterImage, parameterName *string, os OperatingSystemType, userData UserData) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.GenericSSMParameterImage",
+		"monocdk.aws_ec2.GenericSSMParameterImage",
 		[]interface{}{parameterName, os, userData},
 		g,
 	)
 }
 
-func (g *jsiiProxy_GenericSSMParameterImage) GetImage(scope constructs.Construct) *MachineImageConfig {
+func (g *jsiiProxy_GenericSSMParameterImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	if err := g.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}

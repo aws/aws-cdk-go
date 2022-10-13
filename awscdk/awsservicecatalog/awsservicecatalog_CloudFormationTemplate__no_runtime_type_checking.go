@@ -5,7 +5,7 @@ package awsservicecatalog
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CloudFormationTemplate) validateBindParameters(scope constructs.Construct) error {
+func (c *jsiiProxy_CloudFormationTemplate) validateBindParameters(scope awscdk.Construct) error {
 	return nil
 }
 

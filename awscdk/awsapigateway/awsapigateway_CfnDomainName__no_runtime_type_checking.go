@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnDomainName) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnDomainName) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDomainName) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDomainName) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDomainName) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnDomainName) validateSetMutualTlsAuthenticationParameters(v
 	return nil
 }
 
-func validateNewCfnDomainNameParameters(scope constructs.Construct, id *string, props *CfnDomainNameProps) error {
+func validateNewCfnDomainNameParameters(scope awscdk.Construct, id *string, props *CfnDomainNameProps) error {
 	return nil
 }
 

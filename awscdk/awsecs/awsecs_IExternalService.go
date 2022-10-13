@@ -2,6 +2,7 @@ package awsecs
 
 
 // The interface for a service using the External launch type on an ECS cluster.
+// Experimental.
 type IExternalService interface {
 	IService
 }

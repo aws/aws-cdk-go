@@ -1,7 +1,7 @@
 package awseventstargets
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // Customize the Kinesis Stream Event Target.
@@ -19,12 +19,15 @@ import (
 //   	partitionKeyPath: jsii.String("partitionKeyPath"),
 //   }
 //
+// Experimental.
 type KinesisStreamProps struct {
 	// The message to send to the stream.
 	//
 	// Must be a valid JSON text passed to the target stream.
+	// Experimental.
 	Message awsevents.RuleTargetInput `field:"optional" json:"message" yaml:"message"`
 	// Partition Key Path for records sent to this stream.
+	// Experimental.
 	PartitionKeyPath *string `field:"optional" json:"partitionKeyPath" yaml:"partitionKeyPath"`
 }
 

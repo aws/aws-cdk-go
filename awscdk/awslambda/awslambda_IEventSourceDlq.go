@@ -5,8 +5,10 @@ import (
 )
 
 // A DLQ for an event source.
+// Experimental.
 type IEventSourceDlq interface {
 	// Returns the DLQ destination config of the DLQ.
+	// Experimental.
 	Bind(target IEventSourceMapping, targetHandler IFunction) *DlqDestinationConfig
 }
 

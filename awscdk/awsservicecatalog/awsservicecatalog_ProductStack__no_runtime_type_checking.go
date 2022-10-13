@@ -9,7 +9,11 @@ func (p *jsiiProxy_ProductStack) validateAddDependencyParameters(target awscdk.S
 	return nil
 }
 
-func (p *jsiiProxy_ProductStack) validateAddMetadataParameters(key *string, value interface{}) error {
+func (p *jsiiProxy_ProductStack) validateAddDockerImageAssetParameters(asset *awscdk.DockerImageAssetSource) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateAddFileAssetParameters(asset *awscdk.FileAssetSource) error {
 	return nil
 }
 
@@ -33,11 +37,27 @@ func (p *jsiiProxy_ProductStack) validateGetLogicalIdParameters(element awscdk.C
 	return nil
 }
 
+func (p *jsiiProxy_ProductStack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateParseArnParameters(arn *string) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validatePrepareCrossReferenceParameters(_sourceStack awscdk.Stack, reference awscdk.Reference) error {
+	return nil
+}
+
 func (p *jsiiProxy_ProductStack) validateRegionalFactParameters(factName *string) error {
 	return nil
 }
 
 func (p *jsiiProxy_ProductStack) validateRenameLogicalIdParameters(oldId *string, newId *string) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
 	return nil
 }
 
@@ -50,6 +70,10 @@ func (p *jsiiProxy_ProductStack) validateResolveParameters(obj interface{}) erro
 }
 
 func (p *jsiiProxy_ProductStack) validateSplitArnParameters(arn *string, arnFormat awscdk.ArnFormat) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProductStack) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

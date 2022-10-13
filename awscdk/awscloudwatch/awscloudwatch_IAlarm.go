@@ -3,18 +3,20 @@ package awscloudwatch
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch/internal"
 )
 
 // Represents a CloudWatch Alarm.
+// Experimental.
 type IAlarm interface {
 	IAlarmRule
 	awscdk.IResource
 	// Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+	// Experimental.
 	AlarmArn() *string
 	// Name of the alarm.
+	// Experimental.
 	AlarmName() *string
 }
 
@@ -78,8 +80,8 @@ func (j *jsiiProxy_IAlarm) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IAlarm) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IAlarm) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

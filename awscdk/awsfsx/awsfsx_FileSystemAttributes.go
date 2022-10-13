@@ -1,7 +1,7 @@
 package awsfsx
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // Properties that describe an existing FSx file system.
@@ -39,12 +39,16 @@ import (
 //
 //   fs.connections.allowDefaultPortFrom(inst)
 //
+// Experimental.
 type FileSystemAttributes struct {
 	// The DNS name assigned to this file system.
+	// Experimental.
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// The ID of the file system, assigned by Amazon FSx.
+	// Experimental.
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// The security group of the file system.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"required" json:"securityGroup" yaml:"securityGroup"`
 }
 

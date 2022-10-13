@@ -5,7 +5,7 @@ package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AwsLogDriver) validateBindParameters(scope constructs.Construct, containerDefinition ContainerDefinition) error {
+func (a *jsiiProxy_AwsLogDriver) validateBindParameters(scope awscdk.Construct, containerDefinition ContainerDefinition) error {
 	return nil
 }
 

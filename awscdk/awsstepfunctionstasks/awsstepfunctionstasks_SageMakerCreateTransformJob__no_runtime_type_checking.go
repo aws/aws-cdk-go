@@ -85,6 +85,14 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) validateNextParameters(next awss
 	return nil
 }
 
+func (s *jsiiProxy_SageMakerCreateTransformJob) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SageMakerCreateTransformJob) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (s *jsiiProxy_SageMakerCreateTransformJob) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

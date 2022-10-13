@@ -14,18 +14,22 @@ package awsstepfunctions
 //   	outputPath: jsii.String("outputPath"),
 //   }
 //
+// Experimental.
 type SucceedProps struct {
 	// An optional description for this state.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
+	// Experimental.
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
+	// Experimental.
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 }
 

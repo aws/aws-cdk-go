@@ -8,12 +8,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
 )
 
-func (l *jsiiProxy_LambdaDestination) validateBindParameters(scope constructs.Construct, logGroup awslogs.ILogGroup) error {
+func (l *jsiiProxy_LambdaDestination) validateBindParameters(scope awscdk.Construct, logGroup awslogs.ILogGroup) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

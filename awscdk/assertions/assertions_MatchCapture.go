@@ -16,10 +16,13 @@ package assertions
 //   	value: value,
 //   }
 //
+// Experimental.
 type MatchCapture struct {
 	// The instance of Capture class to which this capture is associated with.
+	// Experimental.
 	Capture Capture `field:"required" json:"capture" yaml:"capture"`
 	// The value that was captured.
+	// Experimental.
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 

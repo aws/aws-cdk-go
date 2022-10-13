@@ -21,6 +21,14 @@ func (a *jsiiProxy_Accelerator) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
+func (a *jsiiProxy_Accelerator) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_Accelerator) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAccelerator_FromAcceleratorAttributesParameters(scope constructs.Construct, id *string, attrs *AcceleratorAttributes) error {
 	return nil
 }
@@ -29,11 +37,7 @@ func validateAccelerator_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAccelerator_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAccelerator_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAccelerator_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

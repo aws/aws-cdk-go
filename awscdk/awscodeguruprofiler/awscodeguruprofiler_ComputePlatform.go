@@ -8,12 +8,15 @@ package awscodeguruprofiler
 //   	computePlatform: codeguruprofiler.computePlatform_AWS_LAMBDA,
 //   })
 //
+// Experimental.
 type ComputePlatform string
 
 const (
 	// Use AWS_LAMBDA if your application runs on AWS Lambda.
+	// Experimental.
 	ComputePlatform_AWS_LAMBDA ComputePlatform = "AWS_LAMBDA"
 	// Use Default if your application runs on a compute platform that is not AWS Lambda, such an Amazon EC2 instance, an on-premises server, or a different platform.
+	// Experimental.
 	ComputePlatform_DEFAULT ComputePlatform = "DEFAULT"
 )
 

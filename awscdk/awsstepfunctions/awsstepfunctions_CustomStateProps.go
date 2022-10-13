@@ -48,10 +48,12 @@ package awsstepfunctions
 //   // don't forget permissions. You need to assign them
 //   table.grantWriteData(sm)
 //
+// Experimental.
 type CustomStateProps struct {
 	// Amazon States Language (JSON-based) definition of the state.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html
 	//
+	// Experimental.
 	StateJson *map[string]interface{} `field:"required" json:"stateJson" yaml:"stateJson"`
 }
 

@@ -4,7 +4,6 @@ package awsappmesh
 // Supported :scheme options for HTTP2.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -31,12 +30,15 @@ package awsappmesh
 //   	}),
 //   })
 //
+// Experimental.
 type HttpRouteProtocol string
 
 const (
 	// Match HTTP requests.
+	// Experimental.
 	HttpRouteProtocol_HTTP HttpRouteProtocol = "HTTP"
 	// Match HTTPS requests.
+	// Experimental.
 	HttpRouteProtocol_HTTPS HttpRouteProtocol = "HTTPS"
 )
 

@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 func (m *jsiiProxy_MultipartUserData) validateAddExecuteFileCommandParameters(params *ExecuteFileOptions) error {
@@ -76,14 +76,6 @@ func validateMultipartUserData_ForLinuxParameters(options *LinuxUserDataOptions)
 func validateMultipartUserData_ForOperatingSystemParameters(os OperatingSystemType) error {
 	if os == "" {
 		return fmt.Errorf("parameter os is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateMultipartUserData_ForWindowsParameters(options *WindowsUserDataOptions) error {
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
 	}
 
 	return nil

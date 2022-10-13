@@ -12,6 +12,7 @@ package awsiam
 //   	},
 //   })
 //
+// Experimental.
 type OpenIdConnectProviderProps struct {
 	// The URL of the identity provider.
 	//
@@ -24,6 +25,7 @@ type OpenIdConnectProviderProps struct {
 	// You cannot register the same provider multiple times in a single AWS
 	// account. If you try to submit a URL that has already been used for an
 	// OpenID Connect provider in the AWS account, you will get an error.
+	// Experimental.
 	Url *string `field:"required" json:"url" yaml:"url"`
 	// A list of client IDs (also known as audiences).
 	//
@@ -37,6 +39,7 @@ type OpenIdConnectProviderProps struct {
 	// cannot register more than 100 client IDs with a single IAM OIDC provider.
 	//
 	// Client IDs are up to 255 characters long.
+	// Experimental.
 	ClientIds *[]*string `field:"optional" json:"clientIds" yaml:"clientIds"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates.
 	//
@@ -54,6 +57,7 @@ type OpenIdConnectProviderProps struct {
 	// https://keys.server.example.com/openid-connect. In that case, the
 	// thumbprint string would be the hex-encoded SHA-1 hash value of the
 	// certificate used by https://keys.server.example.com.
+	// Experimental.
 	Thumbprints *[]*string `field:"optional" json:"thumbprints" yaml:"thumbprints"`
 }
 

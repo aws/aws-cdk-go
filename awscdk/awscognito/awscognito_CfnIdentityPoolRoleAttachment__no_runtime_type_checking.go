@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +89,7 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) validateSetRolesParameters(val
 	return nil
 }
 
-func validateNewCfnIdentityPoolRoleAttachmentParameters(scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) error {
+func validateNewCfnIdentityPoolRoleAttachmentParameters(scope awscdk.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) error {
 	return nil
 }
 

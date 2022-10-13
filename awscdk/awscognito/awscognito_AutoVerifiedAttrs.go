@@ -17,13 +17,16 @@ package awscognito
 //   	},
 //   })
 //
+// Experimental.
 type AutoVerifiedAttrs struct {
 	// Whether the email address of the user should be auto verified at sign up.
 	//
 	// Note: If both `email` and `phone` is set, Cognito only verifies the phone number. To also verify email, see here -
 	// https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html
+	// Experimental.
 	Email *bool `field:"optional" json:"email" yaml:"email"`
 	// Whether the phone number of the user should be auto verified at sign up.
+	// Experimental.
 	Phone *bool `field:"optional" json:"phone" yaml:"phone"`
 }
 

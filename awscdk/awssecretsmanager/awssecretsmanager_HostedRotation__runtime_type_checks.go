@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (h *jsiiProxy_HostedRotation) validateBindParameters(secret ISecret, scope constructs.Construct) error {

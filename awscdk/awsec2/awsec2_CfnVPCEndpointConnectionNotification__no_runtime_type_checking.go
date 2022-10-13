@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateInspectParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +85,7 @@ func (j *jsiiProxy_CfnVPCEndpointConnectionNotification) validateSetConnectionNo
 	return nil
 }
 
-func validateNewCfnVPCEndpointConnectionNotificationParameters(scope constructs.Construct, id *string, props *CfnVPCEndpointConnectionNotificationProps) error {
+func validateNewCfnVPCEndpointConnectionNotificationParameters(scope awscdk.Construct, id *string, props *CfnVPCEndpointConnectionNotificationProps) error {
 	return nil
 }
 

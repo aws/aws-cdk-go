@@ -19,8 +19,11 @@ package awsautoscalingcommon
 //   	},
 //   }
 //
+// Experimental.
 type ArbitraryIntervals struct {
+	// Experimental.
 	Absolute *bool `field:"required" json:"absolute" yaml:"absolute"`
+	// Experimental.
 	Intervals *[]*ScalingInterval `field:"required" json:"intervals" yaml:"intervals"`
 }
 

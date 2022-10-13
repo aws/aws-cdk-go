@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 func validateCache_BucketParameters(bucket awss3.IBucket, options *BucketCacheOptions) error {
