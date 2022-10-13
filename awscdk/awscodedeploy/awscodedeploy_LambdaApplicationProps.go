@@ -8,10 +8,8 @@ package awscodedeploy
 //   	applicationName: jsii.String("MyApplication"),
 //   })
 //
-// Experimental.
 type LambdaApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
-	// Experimental.
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 }
 

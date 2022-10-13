@@ -1,7 +1,7 @@
 package awsroute53recoveryreadiness
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnResourceSet`.
@@ -36,10 +36,10 @@ import (
 //   			resourceArn: jsii.String("resourceArn"),
 //   		},
 //   	},
-//   	resourceSetName: jsii.String("resourceSetName"),
 //   	resourceSetType: jsii.String("resourceSetType"),
 //
 //   	// the properties below are optional
+//   	resourceSetName: jsii.String("resourceSetName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -51,14 +51,14 @@ import (
 type CfnResourceSetProps struct {
 	// A list of resource objects in the resource set.
 	Resources interface{} `field:"required" json:"resources" yaml:"resources"`
-	// The name of the resource set to create.
-	ResourceSetName *string `field:"required" json:"resourceSetName" yaml:"resourceSetName"`
 	// The resource type of the resources in the resource set. Enter one of the following values for resource type:.
 	//
 	// AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource.
 	//
 	// Note that AWS::Route53RecoveryReadiness::DNSTargetResource is only used for this setting. It isn't an actual AWS CloudFormation resource type.
 	ResourceSetType *string `field:"required" json:"resourceSetType" yaml:"resourceSetType"`
+	// The name of the resource set to create.
+	ResourceSetName *string `field:"optional" json:"resourceSetName" yaml:"resourceSetName"`
 	// A tag to associate with the parameters for a resource set.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

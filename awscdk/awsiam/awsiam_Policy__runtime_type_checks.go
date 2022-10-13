@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (p *jsiiProxy_Policy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -67,22 +67,6 @@ func (p *jsiiProxy_Policy) validateGetResourceNameAttributeParameters(nameAttr *
 	return nil
 }
 
-func (p *jsiiProxy_Policy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (p *jsiiProxy_Policy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validatePolicy_FromPolicyNameParameters(scope constructs.Construct, id *string, policyName *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -107,7 +91,15 @@ func validatePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePolicy_IsResourceParameters(construct awscdk.IConstruct) error {
+func validatePolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validatePolicy_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnFileSystem) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnFileSystem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnFileSystem) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFileSystem) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnFileSystem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -101,7 +93,7 @@ func (j *jsiiProxy_CfnFileSystem) validateSetWindowsConfigurationParameters(val 
 	return nil
 }
 
-func validateNewCfnFileSystemParameters(scope awscdk.Construct, id *string, props *CfnFileSystemProps) error {
+func validateNewCfnFileSystemParameters(scope constructs.Construct, id *string, props *CfnFileSystemProps) error {
 	return nil
 }
 

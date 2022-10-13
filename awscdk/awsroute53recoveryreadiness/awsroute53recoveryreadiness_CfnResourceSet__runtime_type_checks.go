@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnResourceSet) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,14 +104,6 @@ func (c *jsiiProxy_CfnResourceSet) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnResourceSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnResourceSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -123,14 +115,6 @@ func (c *jsiiProxy_CfnResourceSet) validateOverrideLogicalIdParameters(newLogica
 func (c *jsiiProxy_CfnResourceSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnResourceSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -231,14 +215,6 @@ func (j *jsiiProxy_CfnResourceSet) validateSetResourcesParameters(val interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnResourceSet) validateSetResourceSetNameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnResourceSet) validateSetResourceSetTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -247,7 +223,7 @@ func (j *jsiiProxy_CfnResourceSet) validateSetResourceSetTypeParameters(val *str
 	return nil
 }
 
-func validateNewCfnResourceSetParameters(scope awscdk.Construct, id *string, props *CfnResourceSetProps) error {
+func validateNewCfnResourceSetParameters(scope constructs.Construct, id *string, props *CfnResourceSetProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

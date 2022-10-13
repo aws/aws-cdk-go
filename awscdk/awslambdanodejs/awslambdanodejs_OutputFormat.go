@@ -4,13 +4,13 @@ package awslambdanodejs
 // Output format for the generated JavaScript files.
 //
 // Example:
-//   lambda.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
+//   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 //   	bundling: &bundlingOptions{
 //   		minify: jsii.Boolean(true),
 //   		 // minify code, defaults to false
 //   		sourceMap: jsii.Boolean(true),
 //   		 // include source map, defaults to false
-//   		sourceMapMode: lambda.sourceMapMode_INLINE,
+//   		sourceMapMode: nodejs.sourceMapMode_INLINE,
 //   		 // defaults to SourceMapMode.DEFAULT
 //   		sourcesContent: jsii.Boolean(false),
 //   		 // do not include original source into source map, defaults to true
@@ -26,7 +26,7 @@ package awslambdanodejs
 //   			"process.env.PRODUCTION": JSON.stringify(jsii.Boolean(true)),
 //   			"process.env.NUMBER": JSON.stringify(jsii.Number(123)),
 //   		},
-//   		logLevel: lambda.logLevel_SILENT,
+//   		logLevel: nodejs.logLevel_SILENT,
 //   		 // defaults to LogLevel.WARNING
 //   		keepNames: jsii.Boolean(true),
 //   		 // defaults to false
@@ -38,9 +38,9 @@ package awslambdanodejs
 //   		 // requires esbuild >= 0.9.0, defaults to none
 //   		footer: jsii.String("/* comments */"),
 //   		 // requires esbuild >= 0.9.0, defaults to none
-//   		charset: lambda.charset_UTF8,
+//   		charset: nodejs.charset_UTF8,
 //   		 // do not escape non-ASCII characters, defaults to Charset.ASCII
-//   		format: lambda.outputFormat_ESM,
+//   		format: nodejs.outputFormat_ESM,
 //   		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js 14.x)
 //   		mainFields: []*string{
 //   			jsii.String("module"),
@@ -60,17 +60,14 @@ package awslambdanodejs
 //   	},
 //   })
 //
-// Experimental.
 type OutputFormat string
 
 const (
 	// CommonJS.
-	// Experimental.
 	OutputFormat_CJS OutputFormat = "CJS"
 	// ECMAScript module.
 	//
 	// Requires a running environment that supports `import` and `export` syntax.
-	// Experimental.
 	OutputFormat_ESM OutputFormat = "ESM"
 )
 

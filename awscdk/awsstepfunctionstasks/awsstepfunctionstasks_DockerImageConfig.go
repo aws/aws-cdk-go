@@ -12,10 +12,8 @@ package awsstepfunctionstasks
 //   	imageUri: jsii.String("imageUri"),
 //   }
 //
-// Experimental.
 type DockerImageConfig struct {
 	// The fully qualified URI of the Docker image.
-	// Experimental.
 	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 }
 

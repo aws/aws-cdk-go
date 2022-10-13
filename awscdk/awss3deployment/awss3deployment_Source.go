@@ -1,11 +1,11 @@
 package awss3deployment
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 )
 
 // Specifies bucket deployment source.
@@ -34,7 +34,6 @@ import (
 //   	"bucket": deployment.deployedBucket,
 //   })
 //
-// Experimental.
 type Source interface {
 }
 
@@ -47,7 +46,6 @@ type jsiiProxy_Source struct {
 //
 // If the local asset is a .zip archive, make sure you trust the
 // producer of the archive.
-// Experimental.
 func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 	_init_.Initialize()
 
@@ -57,7 +55,7 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Source",
+		"aws-cdk-lib.aws_s3_deployment.Source",
 		"asset",
 		[]interface{}{path, options},
 		&returns,
@@ -69,7 +67,6 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 // Uses a .zip file stored in an S3 bucket as the source for the destination bucket contents.
 //
 // Make sure you trust the producer of the archive.
-// Experimental.
 func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	_init_.Initialize()
 
@@ -79,7 +76,7 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Source",
+		"aws-cdk-lib.aws_s3_deployment.Source",
 		"bucket",
 		[]interface{}{bucket, zipObjectKey},
 		&returns,
@@ -95,7 +92,6 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 // will get resolved only during deployment.
 //
 // To store a JSON object use `Source.jsonData()`.
-// Experimental.
 func Source_Data(objectKey *string, data *string) ISource {
 	_init_.Initialize()
 
@@ -105,7 +101,7 @@ func Source_Data(objectKey *string, data *string) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Source",
+		"aws-cdk-lib.aws_s3_deployment.Source",
 		"data",
 		[]interface{}{objectKey, data},
 		&returns,
@@ -119,7 +115,6 @@ func Source_Data(objectKey *string, data *string) ISource {
 // The
 // object can include deploy-time values (such as `snsTopic.topicArn`) that
 // will get resolved only during deployment.
-// Experimental.
 func Source_JsonData(objectKey *string, obj interface{}) ISource {
 	_init_.Initialize()
 
@@ -129,7 +124,7 @@ func Source_JsonData(objectKey *string, obj interface{}) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Source",
+		"aws-cdk-lib.aws_s3_deployment.Source",
 		"jsonData",
 		[]interface{}{objectKey, obj},
 		&returns,

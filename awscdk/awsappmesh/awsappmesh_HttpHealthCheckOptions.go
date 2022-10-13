@@ -1,12 +1,13 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties used to define HTTP Based healthchecks.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
@@ -33,22 +34,16 @@ import (
 //   	accessLog: appmesh.accessLog.fromFilePath(jsii.String("/dev/stdout")),
 //   })
 //
-// Experimental.
 type HttpHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
-	// Experimental.
 	HealthyThreshold *float64 `field:"optional" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time period between each health check execution.
-	// Experimental.
 	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The destination path for the health check request.
-	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The amount of time to wait when receiving a response from the health check.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
-	// Experimental.
 	UnhealthyThreshold *float64 `field:"optional" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 

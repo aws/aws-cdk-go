@@ -1,7 +1,7 @@
 package awsroute53
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Construction properties for a ZoneDelegationRecord.
@@ -9,10 +9,9 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var hostedZone hostedZone
 //
 //   zoneDelegationRecordProps := &zoneDelegationRecordProps{
@@ -23,26 +22,27 @@ import (
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
-//   	ttl: duration,
+//   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
 type ZoneDelegationRecordProps struct {
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The name servers to report in the delegation records.
-	// Experimental.
 	NameServers *[]*string `field:"required" json:"nameServers" yaml:"nameServers"`
 }
 

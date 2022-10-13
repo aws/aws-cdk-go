@@ -5,10 +5,8 @@ import (
 )
 
 // Interface for listener actions.
-// Experimental.
 type IListenerAction interface {
 	// Render the actions in this chain.
-	// Experimental.
 	RenderActions() *[]*CfnListener_ActionProperty
 }
 

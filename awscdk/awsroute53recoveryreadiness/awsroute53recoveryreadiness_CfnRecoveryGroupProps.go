@@ -1,7 +1,7 @@
 package awsroute53recoveryreadiness
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRecoveryGroup`.
@@ -12,12 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnRecoveryGroupProps := &cfnRecoveryGroupProps{
-//   	recoveryGroupName: jsii.String("recoveryGroupName"),
-//
-//   	// the properties below are optional
 //   	cells: []*string{
 //   		jsii.String("cells"),
 //   	},
+//   	recoveryGroupName: jsii.String("recoveryGroupName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -27,10 +25,10 @@ import (
 //   }
 //
 type CfnRecoveryGroupProps struct {
-	// The name of the recovery group to create.
-	RecoveryGroupName *string `field:"required" json:"recoveryGroupName" yaml:"recoveryGroupName"`
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
 	Cells *[]*string `field:"optional" json:"cells" yaml:"cells"`
+	// The name of the recovery group to create.
+	RecoveryGroupName *string `field:"optional" json:"recoveryGroupName" yaml:"recoveryGroupName"`
 	// A collection of tags associated with a resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

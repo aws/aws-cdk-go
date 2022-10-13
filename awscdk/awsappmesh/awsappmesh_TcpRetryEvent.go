@@ -4,6 +4,7 @@ package awsappmesh
 // TCP events on which you may retry.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -32,12 +33,10 @@ package awsappmesh
 //   	}),
 //   })
 //
-// Experimental.
 type TcpRetryEvent string
 
 const (
 	// A connection error.
-	// Experimental.
 	TcpRetryEvent_CONNECTION_ERROR TcpRetryEvent = "CONNECTION_ERROR"
 )
 

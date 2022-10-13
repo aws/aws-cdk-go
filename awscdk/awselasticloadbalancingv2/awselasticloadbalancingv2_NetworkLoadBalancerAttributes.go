@@ -1,7 +1,7 @@
 package awselasticloadbalancingv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Properties to reference an existing load balancer.
@@ -45,19 +45,14 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type NetworkLoadBalancerAttributes struct {
 	// ARN of the load balancer.
-	// Experimental.
 	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The canonical hosted zone ID of this load balancer.
-	// Experimental.
 	LoadBalancerCanonicalHostedZoneId *string `field:"optional" json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
-	// Experimental.
 	LoadBalancerDnsName *string `field:"optional" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// The VPC to associate with the load balancer.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

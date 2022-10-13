@@ -3,16 +3,14 @@ package awseks
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
 )
 
 // NodeGroup interface.
-// Experimental.
 type INodegroup interface {
 	awscdk.IResource
 	// Name of the nodegroup.
-	// Experimental.
 	NodegroupName() *string
 }
 

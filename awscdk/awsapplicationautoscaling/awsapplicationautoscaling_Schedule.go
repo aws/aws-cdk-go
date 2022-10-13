@@ -3,10 +3,10 @@ package awsapplicationautoscaling
 import (
 	"time"
 
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Schedule for scheduled scaling actions.
@@ -36,10 +36,8 @@ import (
 //   	minCapacity: jsii.Number(1),
 //   })
 //
-// Experimental.
 type Schedule interface {
 	// Retrieve the expression for this schedule.
-	// Experimental.
 	ExpressionString() *string
 }
 
@@ -59,19 +57,17 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 }
 
 
-// Experimental.
 func NewSchedule_Override(s Schedule) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_applicationautoscaling.Schedule",
+		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Construct a Schedule from a moment in time.
-// Experimental.
 func Schedule_At(moment *time.Time) Schedule {
 	_init_.Initialize()
 
@@ -81,7 +77,7 @@ func Schedule_At(moment *time.Time) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_applicationautoscaling.Schedule",
+		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
 		"at",
 		[]interface{}{moment},
 		&returns,
@@ -91,7 +87,6 @@ func Schedule_At(moment *time.Time) Schedule {
 }
 
 // Create a schedule from a set of cron fields.
-// Experimental.
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
@@ -101,7 +96,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_applicationautoscaling.Schedule",
+		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
 		"cron",
 		[]interface{}{options},
 		&returns,
@@ -111,7 +106,6 @@ func Schedule_Cron(options *CronOptions) Schedule {
 }
 
 // Construct a schedule from a literal schedule expression.
-// Experimental.
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
@@ -121,7 +115,7 @@ func Schedule_Expression(expression *string) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_applicationautoscaling.Schedule",
+		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
 		"expression",
 		[]interface{}{expression},
 		&returns,
@@ -131,7 +125,6 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // Construct a schedule from an interval and a time unit.
-// Experimental.
 func Schedule_Rate(duration awscdk.Duration) Schedule {
 	_init_.Initialize()
 
@@ -141,7 +134,7 @@ func Schedule_Rate(duration awscdk.Duration) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_applicationautoscaling.Schedule",
+		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
 		"rate",
 		[]interface{}{duration},
 		&returns,

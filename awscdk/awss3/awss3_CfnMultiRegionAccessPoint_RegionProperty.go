@@ -10,15 +10,10 @@ package awss3
 //
 //   regionProperty := &regionProperty{
 //   	bucket: jsii.String("bucket"),
-//
-//   	// the properties below are optional
-//   	accountId: jsii.String("accountId"),
 //   }
 //
 type CfnMultiRegionAccessPoint_RegionProperty struct {
 	// The name of the associated bucket for the Region.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnMultiRegionAccessPoint.RegionProperty.AccountId`.
-	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 }
 

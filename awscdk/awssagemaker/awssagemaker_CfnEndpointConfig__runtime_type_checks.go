@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnEndpointConfig) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,14 +104,6 @@ func (c *jsiiProxy_CfnEndpointConfig) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnEndpointConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnEndpointConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -123,14 +115,6 @@ func (c *jsiiProxy_CfnEndpointConfig) validateOverrideLogicalIdParameters(newLog
 func (c *jsiiProxy_CfnEndpointConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnEndpointConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -216,6 +200,30 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetDataCaptureConfigParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) validateSetExplainerConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnEndpointConfig_ExplainerConfigProperty:
+		val := val.(*CfnEndpointConfig_ExplainerConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEndpointConfig_ExplainerConfigProperty:
+		val_ := val.(CfnEndpointConfig_ExplainerConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEndpointConfig_ExplainerConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -279,7 +287,7 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(va
 	return nil
 }
 
-func validateNewCfnEndpointConfigParameters(scope awscdk.Construct, id *string, props *CfnEndpointConfigProps) error {
+func validateNewCfnEndpointConfigParameters(scope constructs.Construct, id *string, props *CfnEndpointConfigProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

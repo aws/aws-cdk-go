@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnEndpointConfig`.
@@ -72,6 +72,48 @@ import (
 //   		kmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	endpointConfigName: jsii.String("endpointConfigName"),
+//   	explainerConfig: &explainerConfigProperty{
+//   		clarifyExplainerConfig: &clarifyExplainerConfigProperty{
+//   			shapConfig: &clarifyShapConfigProperty{
+//   				shapBaselineConfig: &clarifyShapBaselineConfigProperty{
+//   					mimeType: jsii.String("mimeType"),
+//   					shapBaseline: jsii.String("shapBaseline"),
+//   					shapBaselineUri: jsii.String("shapBaselineUri"),
+//   				},
+//
+//   				// the properties below are optional
+//   				numberOfSamples: jsii.Number(123),
+//   				seed: jsii.Number(123),
+//   				textConfig: &clarifyTextConfigProperty{
+//   					granularity: jsii.String("granularity"),
+//   					language: jsii.String("language"),
+//   				},
+//   				useLogit: jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			enableExplanations: jsii.String("enableExplanations"),
+//   			inferenceConfig: &clarifyInferenceConfigProperty{
+//   				contentTemplate: jsii.String("contentTemplate"),
+//   				featureHeaders: []*string{
+//   					jsii.String("featureHeaders"),
+//   				},
+//   				featuresAttribute: jsii.String("featuresAttribute"),
+//   				featureTypes: []*string{
+//   					jsii.String("featureTypes"),
+//   				},
+//   				labelAttribute: jsii.String("labelAttribute"),
+//   				labelHeaders: []*string{
+//   					jsii.String("labelHeaders"),
+//   				},
+//   				labelIndex: jsii.Number(123),
+//   				maxPayloadInMb: jsii.Number(123),
+//   				maxRecordCount: jsii.Number(123),
+//   				probabilityAttribute: jsii.String("probabilityAttribute"),
+//   				probabilityIndex: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -92,6 +134,8 @@ type CfnEndpointConfigProps struct {
 	DataCaptureConfig interface{} `field:"optional" json:"dataCaptureConfig" yaml:"dataCaptureConfig"`
 	// The name of the endpoint configuration.
 	EndpointConfigName *string `field:"optional" json:"endpointConfigName" yaml:"endpointConfigName"`
+	// `AWS::SageMaker::EndpointConfig.ExplainerConfig`.
+	ExplainerConfig interface{} `field:"optional" json:"explainerConfig" yaml:"explainerConfig"`
 	// The Amazon Resource Name (ARN) of an AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	//
 	// - Key ID: `1234abcd-12ab-34cd-56ef-1234567890ab`

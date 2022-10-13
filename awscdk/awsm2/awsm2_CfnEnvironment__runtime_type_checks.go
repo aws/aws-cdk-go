@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnEnvironment) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,14 +104,6 @@ func (c *jsiiProxy_CfnEnvironment) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnEnvironment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnEnvironment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -123,14 +115,6 @@ func (c *jsiiProxy_CfnEnvironment) validateOverrideLogicalIdParameters(newLogica
 func (c *jsiiProxy_CfnEnvironment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnEnvironment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -235,22 +219,65 @@ func (j *jsiiProxy_CfnEnvironment) validateSetPubliclyAccessibleParameters(val i
 
 func (j *jsiiProxy_CfnEnvironment) validateSetStorageConfigurationsParameters(val interface{}) error {
 	switch val.(type) {
-	case *[]interface{}:
-		// ok
-	case []interface{}:
-		// ok
 	case awscdk.IResolvable:
 		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case *CfnEnvironment_StorageConfigurationProperty:
+				v := v.(*CfnEnvironment_StorageConfigurationProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnEnvironment_StorageConfigurationProperty:
+				v_ := v.(CfnEnvironment_StorageConfigurationProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case awscdk.IResolvable:
+				// ok
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEnvironment_StorageConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case *CfnEnvironment_StorageConfigurationProperty:
+				v := v.(*CfnEnvironment_StorageConfigurationProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnEnvironment_StorageConfigurationProperty:
+				v_ := v.(CfnEnvironment_StorageConfigurationProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case awscdk.IResolvable:
+				// ok
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnEnvironment_StorageConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *[]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnEnvironmentParameters(scope awscdk.Construct, id *string, props *CfnEnvironmentProps) error {
+func validateNewCfnEnvironmentParameters(scope constructs.Construct, id *string, props *CfnEnvironmentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

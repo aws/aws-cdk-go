@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (p *jsiiProxy_PublicKey) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -43,22 +43,6 @@ func (p *jsiiProxy_PublicKey) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
-func (p *jsiiProxy_PublicKey) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (p *jsiiProxy_PublicKey) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validatePublicKey_FromPublicKeyIdParameters(scope constructs.Construct, id *string, publicKeyId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -83,7 +67,15 @@ func validatePublicKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePublicKey_IsResourceParameters(construct awscdk.IConstruct) error {
+func validatePublicKey_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validatePublicKey_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

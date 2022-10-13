@@ -1,7 +1,7 @@
 package awsroute53recoveryreadiness
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnReadinessCheck`.
@@ -13,8 +13,6 @@ import (
 //
 //   cfnReadinessCheckProps := &cfnReadinessCheckProps{
 //   	readinessCheckName: jsii.String("readinessCheckName"),
-//
-//   	// the properties below are optional
 //   	resourceSetName: jsii.String("resourceSetName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -26,7 +24,7 @@ import (
 //
 type CfnReadinessCheckProps struct {
 	// The name of the readiness check to create.
-	ReadinessCheckName *string `field:"required" json:"readinessCheckName" yaml:"readinessCheckName"`
+	ReadinessCheckName *string `field:"optional" json:"readinessCheckName" yaml:"readinessCheckName"`
 	// The name of the resource set to check.
 	ResourceSetName *string `field:"optional" json:"resourceSetName" yaml:"resourceSetName"`
 	// A collection of tags associated with a resource.

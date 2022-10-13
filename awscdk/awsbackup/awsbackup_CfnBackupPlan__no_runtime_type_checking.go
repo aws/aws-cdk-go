@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnBackupPlan) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnBackupPlan) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnBackupPlan) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnBackupPlan) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnBackupPlan) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnBackupPlan) validateSetBackupPlanTagsParameters(val interf
 	return nil
 }
 
-func validateNewCfnBackupPlanParameters(scope awscdk.Construct, id *string, props *CfnBackupPlanProps) error {
+func validateNewCfnBackupPlanParameters(scope constructs.Construct, id *string, props *CfnBackupPlanProps) error {
 	return nil
 }
 

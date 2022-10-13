@@ -1,7 +1,7 @@
 package awsroute53recoveryreadiness
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCell`.
@@ -13,8 +13,6 @@ import (
 //
 //   cfnCellProps := &cfnCellProps{
 //   	cellName: jsii.String("cellName"),
-//
-//   	// the properties below are optional
 //   	cells: []*string{
 //   		jsii.String("cells"),
 //   	},
@@ -28,7 +26,7 @@ import (
 //
 type CfnCellProps struct {
 	// The name of the cell to create.
-	CellName *string `field:"required" json:"cellName" yaml:"cellName"`
+	CellName *string `field:"optional" json:"cellName" yaml:"cellName"`
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells.
 	//
 	// For example, Availability Zones within specific AWS Regions .

@@ -8,8 +8,6 @@ package awsm2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var storageConfigurations interface{}
-//
 //   cfnEnvironmentProps := &cfnEnvironmentProps{
 //   	engineType: jsii.String("engineType"),
 //   	instanceType: jsii.String("instanceType"),
@@ -27,7 +25,16 @@ package awsm2
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	storageConfigurations: []interface{}{
-//   		storageConfigurations,
+//   		&storageConfigurationProperty{
+//   			efs: &efsStorageConfigurationProperty{
+//   				fileSystemId: jsii.String("fileSystemId"),
+//   				mountPoint: jsii.String("mountPoint"),
+//   			},
+//   			fsx: &fsxStorageConfigurationProperty{
+//   				fileSystemId: jsii.String("fileSystemId"),
+//   				mountPoint: jsii.String("mountPoint"),
+//   			},
+//   		},
 //   	},
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),

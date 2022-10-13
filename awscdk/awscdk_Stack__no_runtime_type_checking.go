@@ -1,7 +1,7 @@
 //go:build no_runtime_type_checking
 // +build no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -10,11 +10,7 @@ func (s *jsiiProxy_Stack) validateAddDependencyParameters(target Stack) error {
 	return nil
 }
 
-func (s *jsiiProxy_Stack) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validateAddFileAssetParameters(asset *FileAssetSource) error {
+func (s *jsiiProxy_Stack) validateAddMetadataParameters(key *string, value interface{}) error {
 	return nil
 }
 
@@ -38,27 +34,11 @@ func (s *jsiiProxy_Stack) validateGetLogicalIdParameters(element CfnElement) err
 	return nil
 }
 
-func (s *jsiiProxy_Stack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validateParseArnParameters(arn *string) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validatePrepareCrossReferenceParameters(_sourceStack Stack, reference Reference) error {
-	return nil
-}
-
 func (s *jsiiProxy_Stack) validateRegionalFactParameters(factName *string) error {
 	return nil
 }
 
 func (s *jsiiProxy_Stack) validateRenameLogicalIdParameters(oldId *string, newId *string) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
 	return nil
 }
 
@@ -71,10 +51,6 @@ func (s *jsiiProxy_Stack) validateResolveParameters(obj interface{}) error {
 }
 
 func (s *jsiiProxy_Stack) validateSplitArnParameters(arn *string, arnFormat ArnFormat) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stack) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 

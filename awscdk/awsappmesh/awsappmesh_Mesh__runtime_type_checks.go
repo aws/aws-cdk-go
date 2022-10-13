@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (m *jsiiProxy_Mesh) validateAddVirtualGatewayParameters(id *string, props *VirtualGatewayBaseProps) error {
@@ -79,22 +79,6 @@ func (m *jsiiProxy_Mesh) validateGetResourceNameAttributeParameters(nameAttr *st
 	return nil
 }
 
-func (m *jsiiProxy_Mesh) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (m *jsiiProxy_Mesh) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateMesh_FromMeshArnParameters(scope constructs.Construct, id *string, meshArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -135,7 +119,15 @@ func validateMesh_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateMesh_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateMesh_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateMesh_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

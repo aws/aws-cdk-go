@@ -5,14 +5,6 @@ package awscodepipeline
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CustomActionRegistration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CustomActionRegistration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCustomActionRegistration_IsConstructParameters(x interface{}) error {
 	return nil
 }

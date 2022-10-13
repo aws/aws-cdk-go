@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnAggregationAuthorization) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnAggregationAuthorization) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAggregationAuthorization) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAggregationAuthorization) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnAggregationAuthorization) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnAggregationAuthorization) validateSetAuthorizedAwsRegionPa
 	return nil
 }
 
-func validateNewCfnAggregationAuthorizationParameters(scope awscdk.Construct, id *string, props *CfnAggregationAuthorizationProps) error {
+func validateNewCfnAggregationAuthorizationParameters(scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) error {
 	return nil
 }
 

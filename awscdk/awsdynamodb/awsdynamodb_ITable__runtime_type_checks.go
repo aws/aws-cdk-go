@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (i *jsiiProxy_ITable) validateGrantParameters(grantee awsiam.IGrantable) error {
@@ -120,14 +120,6 @@ func (i *jsiiProxy_ITable) validateMetricSuccessfulRequestLatencyParameters(prop
 	return nil
 }
 
-func (i *jsiiProxy_ITable) validateMetricSystemErrorsParameters(props *awscloudwatch.MetricOptions) error {
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (i *jsiiProxy_ITable) validateMetricSystemErrorsForOperationsParameters(props *SystemErrorsForOperationsMetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
@@ -137,6 +129,14 @@ func (i *jsiiProxy_ITable) validateMetricSystemErrorsForOperationsParameters(pro
 }
 
 func (i *jsiiProxy_ITable) validateMetricThrottledRequestsParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_ITable) validateMetricThrottledRequestsForOperationsParameters(props *OperationsMetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

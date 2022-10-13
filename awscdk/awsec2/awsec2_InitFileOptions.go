@@ -4,6 +4,7 @@ package awsec2
 // Options for InitFile.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //
@@ -21,17 +22,14 @@ package awsec2
 //   	serviceRestartHandle: handle,
 //   }))
 //
-// Experimental.
 type InitFileOptions struct {
 	// True if the inlined content (from a string or file) should be treated as base64 encoded.
 	//
 	// Only applicable for inlined string and file content.
-	// Experimental.
 	Base64Encoded *bool `field:"optional" json:"base64Encoded" yaml:"base64Encoded"`
 	// The name of the owning group for this file.
 	//
 	// Not supported for Windows systems.
-	// Experimental.
 	Group *string `field:"optional" json:"group" yaml:"group"`
 	// A six-digit octal value representing the mode for this file.
 	//
@@ -41,15 +39,12 @@ type InitFileOptions struct {
 	// file, use the last three digits, such as 000644.
 	//
 	// Not supported for Windows systems.
-	// Experimental.
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The name of the owning user for this file.
 	//
 	// Not supported for Windows systems.
-	// Experimental.
 	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	// Restart the given service after this file has been written.
-	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 }
 

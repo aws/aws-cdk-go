@@ -33,19 +33,15 @@ func (v *jsiiProxy_VpnConnectionBase) validateMetricTunnelStateParameters(props 
 	return nil
 }
 
-func (v *jsiiProxy_VpnConnectionBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (v *jsiiProxy_VpnConnectionBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateVpnConnectionBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVpnConnectionBase_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateVpnConnectionBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateVpnConnectionBase_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

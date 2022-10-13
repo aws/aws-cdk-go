@@ -3,19 +3,16 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 )
 
 // A VPC endpoint service.
-// Experimental.
 type IVpcEndpointService interface {
 	awscdk.IResource
 	// The id of the VPC Endpoint Service that clients use to connect to, like vpce-svc-xxxxxxxxxxxxxxxx.
-	// Experimental.
 	VpcEndpointServiceId() *string
 	// The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx.
-	// Experimental.
 	VpcEndpointServiceName() *string
 }
 

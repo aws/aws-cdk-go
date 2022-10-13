@@ -17,14 +17,6 @@ func (r *jsiiProxy_Route) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func (r *jsiiProxy_Route) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (r *jsiiProxy_Route) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateRoute_FromRouteArnParameters(scope constructs.Construct, id *string, routeArn *string) error {
 	return nil
 }
@@ -37,7 +29,11 @@ func validateRoute_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRoute_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateRoute_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateRoute_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

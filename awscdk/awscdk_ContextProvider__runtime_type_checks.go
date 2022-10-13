@@ -1,7 +1,7 @@
 //go:build !no_runtime_type_checking
 // +build !no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -9,7 +9,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func validateContextProvider_GetKeyParameters(scope constructs.Construct, options *GetContextKeyOptions) error {

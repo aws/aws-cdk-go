@@ -6,7 +6,7 @@ package awscloudfront
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func (i *jsiiProxy_IOriginAccessIdentity) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {

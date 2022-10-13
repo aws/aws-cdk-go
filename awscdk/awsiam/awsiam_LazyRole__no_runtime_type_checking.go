@@ -45,19 +45,15 @@ func (l *jsiiProxy_LazyRole) validateGrantPassRoleParameters(identity IPrincipal
 	return nil
 }
 
-func (l *jsiiProxy_LazyRole) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (l *jsiiProxy_LazyRole) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateLazyRole_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLazyRole_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLazyRole_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateLazyRole_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -1,14 +1,14 @@
 package awsautoscalinghooktargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscalinghooktargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscalinghooktargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Use a Lambda Function as a hook target.
@@ -27,13 +27,11 @@ import (
 //
 //   functionHook := awscdk.Aws_autoscaling_hooktargets.NewFunctionHook(function_, key)
 //
-// Experimental.
 type FunctionHook interface {
 	awsautoscaling.ILifecycleHookTarget
 	// If the `IRole` does not exist in `options`, will create an `IRole` and an SNS Topic and attach both to the lifecycle hook.
 	//
 	// If the `IRole` does exist in `options`, will only create an SNS Topic and attach it to the lifecycle hook.
-	// Experimental.
 	Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
 }
 
@@ -42,7 +40,6 @@ type jsiiProxy_FunctionHook struct {
 	internal.Type__awsautoscalingILifecycleHookTarget
 }
 
-// Experimental.
 func NewFunctionHook(fn awslambda.IFunction, encryptionKey awskms.IKey) FunctionHook {
 	_init_.Initialize()
 
@@ -52,7 +49,7 @@ func NewFunctionHook(fn awslambda.IFunction, encryptionKey awskms.IKey) Function
 	j := jsiiProxy_FunctionHook{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.FunctionHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.FunctionHook",
 		[]interface{}{fn, encryptionKey},
 		&j,
 	)
@@ -60,12 +57,11 @@ func NewFunctionHook(fn awslambda.IFunction, encryptionKey awskms.IKey) Function
 	return &j
 }
 
-// Experimental.
 func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryptionKey awskms.IKey) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.FunctionHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.FunctionHook",
 		[]interface{}{fn, encryptionKey},
 		f,
 	)

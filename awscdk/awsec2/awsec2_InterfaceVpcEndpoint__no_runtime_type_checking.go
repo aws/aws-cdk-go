@@ -21,14 +21,6 @@ func (i *jsiiProxy_InterfaceVpcEndpoint) validateGetResourceNameAttributeParamet
 	return nil
 }
 
-func (i *jsiiProxy_InterfaceVpcEndpoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (i *jsiiProxy_InterfaceVpcEndpoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateInterfaceVpcEndpoint_FromInterfaceVpcEndpointAttributesParameters(scope constructs.Construct, id *string, attrs *InterfaceVpcEndpointAttributes) error {
 	return nil
 }
@@ -37,7 +29,11 @@ func validateInterfaceVpcEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateInterfaceVpcEndpoint_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateInterfaceVpcEndpoint_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateInterfaceVpcEndpoint_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnWarmPool) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnWarmPool) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnWarmPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWarmPool) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnWarmPool) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnWarmPool) validateSetInstanceReusePolicyParameters(val int
 	return nil
 }
 
-func validateNewCfnWarmPoolParameters(scope awscdk.Construct, id *string, props *CfnWarmPoolProps) error {
+func validateNewCfnWarmPoolParameters(scope constructs.Construct, id *string, props *CfnWarmPoolProps) error {
 	return nil
 }
 

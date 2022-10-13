@@ -12,9 +12,6 @@ package awss3
 //   	regions: []interface{}{
 //   		&regionProperty{
 //   			bucket: jsii.String("bucket"),
-//
-//   			// the properties below are optional
-//   			accountId: jsii.String("accountId"),
 //   		},
 //   	},
 //
