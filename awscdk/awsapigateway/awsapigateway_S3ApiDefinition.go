@@ -1,12 +1,12 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // OpenAPI specification from an S3 archive.
@@ -21,18 +21,15 @@ import (
 //
 //   s3ApiDefinition := awscdk.Aws_apigateway.NewS3ApiDefinition(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //
-// Experimental.
 type S3ApiDefinition interface {
 	ApiDefinition
 	// Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(_scope awscdk.Construct) *ApiDefinitionConfig
+	Bind(_scope constructs.Construct) *ApiDefinitionConfig
 	// Called after the CFN RestApi resource has been created to allow the Api Definition to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
-	BindAfterCreate(_scope awscdk.Construct, _restApi IRestApi)
+	BindAfterCreate(_scope constructs.Construct, _restApi IRestApi)
 }
 
 // The jsii proxy struct for S3ApiDefinition
@@ -40,7 +37,6 @@ type jsiiProxy_S3ApiDefinition struct {
 	jsiiProxy_ApiDefinition
 }
 
-// Experimental.
 func NewS3ApiDefinition(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -50,7 +46,7 @@ func NewS3ApiDefinition(bucket awss3.IBucket, key *string, objectVersion *string
 	j := jsiiProxy_S3ApiDefinition{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.S3ApiDefinition",
+		"aws-cdk-lib.aws_apigateway.S3ApiDefinition",
 		[]interface{}{bucket, key, objectVersion},
 		&j,
 	)
@@ -58,19 +54,17 @@ func NewS3ApiDefinition(bucket awss3.IBucket, key *string, objectVersion *string
 	return &j
 }
 
-// Experimental.
 func NewS3ApiDefinition_Override(s S3ApiDefinition, bucket awss3.IBucket, key *string, objectVersion *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigateway.S3ApiDefinition",
+		"aws-cdk-lib.aws_apigateway.S3ApiDefinition",
 		[]interface{}{bucket, key, objectVersion},
 		s,
 	)
 }
 
 // Loads the API specification from a local disk asset.
-// Experimental.
 func S3ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -80,7 +74,7 @@ func S3ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) 
 	var returns AssetApiDefinition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_apigateway.S3ApiDefinition",
+		"aws-cdk-lib.aws_apigateway.S3ApiDefinition",
 		"fromAsset",
 		[]interface{}{file, options},
 		&returns,
@@ -90,7 +84,6 @@ func S3ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) 
 }
 
 // Creates an API definition from a specification file in an S3 bucket.
-// Experimental.
 func S3ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -100,7 +93,7 @@ func S3ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion
 	var returns S3ApiDefinition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_apigateway.S3ApiDefinition",
+		"aws-cdk-lib.aws_apigateway.S3ApiDefinition",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -156,7 +149,6 @@ func S3ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion
 //       },
 //     });
 //
-// Experimental.
 func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
@@ -166,7 +158,7 @@ func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	var returns InlineApiDefinition
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_apigateway.S3ApiDefinition",
+		"aws-cdk-lib.aws_apigateway.S3ApiDefinition",
 		"fromInline",
 		[]interface{}{definition},
 		&returns,
@@ -175,7 +167,7 @@ func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	return returns
 }
 
-func (s *jsiiProxy_S3ApiDefinition) Bind(_scope awscdk.Construct) *ApiDefinitionConfig {
+func (s *jsiiProxy_S3ApiDefinition) Bind(_scope constructs.Construct) *ApiDefinitionConfig {
 	if err := s.validateBindParameters(_scope); err != nil {
 		panic(err)
 	}
@@ -191,7 +183,7 @@ func (s *jsiiProxy_S3ApiDefinition) Bind(_scope awscdk.Construct) *ApiDefinition
 	return returns
 }
 
-func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope awscdk.Construct, _restApi IRestApi) {
+func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApi) {
 	if err := s.validateBindAfterCreateParameters(_scope, _restApi); err != nil {
 		panic(err)
 	}

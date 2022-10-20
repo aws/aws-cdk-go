@@ -17,14 +17,6 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) validateGetResourceNameAttributeP
 	return nil
 }
 
-func (c *jsiiProxy_CognitoUserPoolsAuthorizer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CognitoUserPoolsAuthorizer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCognitoUserPoolsAuthorizer_IsAuthorizerParameters(x interface{}) error {
 	return nil
 }
@@ -33,7 +25,11 @@ func validateCognitoUserPoolsAuthorizer_IsConstructParameters(x interface{}) err
 	return nil
 }
 
-func validateCognitoUserPoolsAuthorizer_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCognitoUserPoolsAuthorizer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCognitoUserPoolsAuthorizer_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

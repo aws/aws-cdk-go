@@ -373,6 +373,31 @@ The value in `topic.topicArn` is a deploy-time value. It only gets resolved
 during deployment by placing a marker in the generated source file and
 substituting it when its deployed to the destination with the actual value.
 
+## Keep Files Zipped
+
+By default, files are zipped, then extracted into the destination bucket.
+
+You can use the option `extract: false` to disable this behavior, in which case, files will remain in a zip file when deployed to S3. To reference the object keys, or filenames, which will be deployed to the bucket, you can use the `objectKeys` getter on the bucket deployment.
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+var destinationBucket bucket
+
+
+myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &bucketDeploymentProps{
+	sources: []iSource{
+		s3deploy.source.asset(path.join(__dirname, jsii.String("my-website"))),
+	},
+	destinationBucket: destinationBucket,
+	extract: jsii.Boolean(false),
+})
+
+cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &cfnOutputProps{
+	value: cdk.fn.select(jsii.Number(0), myBucketDeployment.objectKeys),
+})
+```
+
 ## Notes
 
 * This library uses an AWS CloudFormation custom resource which is about 10MiB in
@@ -394,8 +419,8 @@ substituting it when its deployed to the destination with the actual value.
 ## Development
 
 The custom resource is implemented in Python 3.7 in order to be able to leverage
-the AWS CLI for "aws s3 sync". The code is under [`lib/lambda`](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment/lib/lambda) and
-unit tests are under [`test/lambda`](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment/test/lambda).
+the AWS CLI for "aws s3 sync". The code is under [`lib/lambda`](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-s3-deployment/lib/lambda) and
+unit tests are under [`test/lambda`](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-s3-deployment/test/lambda).
 
 This package requires Python 3.7 during build time in order to create the custom
 resource Lambda bundle and test it. It also relies on a few bash scripts, so

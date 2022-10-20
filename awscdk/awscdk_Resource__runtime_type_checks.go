@@ -1,7 +1,7 @@
 //go:build !no_runtime_type_checking
 // +build !no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -9,7 +9,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (r *jsiiProxy_Resource) validateApplyRemovalPolicyParameters(policy RemovalPolicy) error {
@@ -43,22 +43,6 @@ func (r *jsiiProxy_Resource) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
-func (r *jsiiProxy_Resource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (r *jsiiProxy_Resource) validateSynthesizeParameters(session ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateResource_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -67,7 +51,15 @@ func validateResource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateResource_IsResourceParameters(construct IConstruct) error {
+func validateResource_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateResource_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

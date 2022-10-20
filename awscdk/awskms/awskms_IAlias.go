@@ -7,14 +7,11 @@ import (
 // A KMS Key alias.
 //
 // An alias can be used in all places that expect a key.
-// Experimental.
 type IAlias interface {
 	IKey
 	// The name of the alias.
-	// Experimental.
 	AliasName() *string
 	// The Key to which the Alias refers.
-	// Experimental.
 	AliasTargetKey() IKey
 }
 

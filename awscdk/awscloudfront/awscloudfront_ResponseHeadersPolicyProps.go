@@ -88,22 +88,16 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type ResponseHeadersPolicyProps struct {
 	// A comment to describe the response headers policy.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
-	// Experimental.
 	CorsBehavior *ResponseHeadersCorsBehavior `field:"optional" json:"corsBehavior" yaml:"corsBehavior"`
 	// A configuration for a set of custom HTTP response headers.
-	// Experimental.
 	CustomHeadersBehavior *ResponseCustomHeadersBehavior `field:"optional" json:"customHeadersBehavior" yaml:"customHeadersBehavior"`
 	// A unique name to identify the response headers policy.
-	// Experimental.
 	ResponseHeadersPolicyName *string `field:"optional" json:"responseHeadersPolicyName" yaml:"responseHeadersPolicyName"`
 	// A configuration for a set of security-related HTTP response headers.
-	// Experimental.
 	SecurityHeadersBehavior *ResponseSecurityHeadersBehavior `field:"optional" json:"securityHeadersBehavior" yaml:"securityHeadersBehavior"`
 }
 

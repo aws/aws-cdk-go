@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -28,6 +28,7 @@ package awscdk
 //   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 //
 //   	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
+//   		cloudWatchRole: jsii.Boolean(true),
 //   		deploy: jsii.Boolean(false),
 //   	})
 //   	restApi.root.addMethod(jsii.String("ANY"))
@@ -163,10 +164,10 @@ package awscdk
 //
 //   NewRootStack(awscdk.NewApp())
 //
-// Experimental.
 type NestedStackProps struct {
+	// A description of the stack.
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Simple Notification Service (SNS) topics to publish stack related events.
-	// Experimental.
 	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
 	//
@@ -176,14 +177,12 @@ type NestedStackProps struct {
 	//
 	// The nested stack construct will automatically synthesize parameters in order
 	// to bind references from the parent stack(s) into the nested stack.
-	// Experimental.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// Policy to apply when the nested stack is removed.
 	//
 	// The default is `Destroy`, because all Removal Policies of resources inside the
 	// Nested Stack should already have been set correctly. You normally should
 	// not need to set this value.
-	// Experimental.
 	RemovalPolicy RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The length of time that CloudFormation waits for the nested stack to reach the CREATE_COMPLETE state.
 	//
@@ -193,7 +192,6 @@ type NestedStackProps struct {
 	// If the timeout period expires before the nested stack reaches
 	// CREATE_COMPLETE, CloudFormation marks the nested stack as failed and rolls
 	// back both the nested stack and parent stack.
-	// Experimental.
 	Timeout Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

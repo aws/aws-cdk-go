@@ -93,10 +93,6 @@ func (t *jsiiProxy_Table) validateMetricSuccessfulRequestLatencyParameters(props
 	return nil
 }
 
-func (t *jsiiProxy_Table) validateMetricSystemErrorsParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
 func (t *jsiiProxy_Table) validateMetricSystemErrorsForOperationsParameters(props *SystemErrorsForOperationsMetricOptions) error {
 	return nil
 }
@@ -109,15 +105,11 @@ func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationParameters(
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationsParameters(props *OperationsMetricOptions) error {
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateMetricUserErrorsParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (t *jsiiProxy_Table) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (t *jsiiProxy_Table) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -133,15 +125,15 @@ func validateTable_FromTableNameParameters(scope constructs.Construct, id *strin
 	return nil
 }
 
-func validateTable_GrantListStreamsParameters(grantee awsiam.IGrantable) error {
-	return nil
-}
-
 func validateTable_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTable_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateTable_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateTable_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

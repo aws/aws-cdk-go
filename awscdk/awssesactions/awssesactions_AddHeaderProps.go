@@ -42,20 +42,17 @@ package awssesactions
 //   	},
 //   })
 //
-// Experimental.
 type AddHeaderProps struct {
 	// The name of the header to add.
 	//
 	// Must be between 1 and 50 characters,
 	// inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters
 	// and dashes only.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the header to add.
 	//
 	// Must be less than 2048 characters,
 	// and must not contain newline characters ("\r" or "\n").
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

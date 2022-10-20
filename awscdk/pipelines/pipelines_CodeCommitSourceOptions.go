@@ -1,8 +1,8 @@
 package pipelines
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipelineactions"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Configuration options for a CodeCommit source.
@@ -22,7 +22,6 @@ import (
 //   	trigger: awscdk.Aws_codepipeline_actions.codeCommitTrigger_NONE,
 //   }
 //
-// Experimental.
 type CodeCommitSourceOptions struct {
 	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
@@ -32,15 +31,12 @@ type CodeCommitSourceOptions struct {
 	// **Note**: if this option is true, only CodeBuild jobs can use the output artifact.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeCommit.html
 	//
-	// Experimental.
 	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Role to be used by on commit event rule.
 	//
 	// Used only when trigger value is CodeCommitTrigger.EVENTS.
-	// Experimental.
 	EventRole awsiam.IRole `field:"optional" json:"eventRole" yaml:"eventRole"`
 	// How should CodePipeline detect source changes for this Action.
-	// Experimental.
 	Trigger awscodepipelineactions.CodeCommitTrigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 

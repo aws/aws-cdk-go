@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // A CloudFront behavior wrapper.
@@ -9,11 +9,10 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var function_ function
 //   var keyGroup keyGroup
 //   var version version
@@ -22,7 +21,7 @@ import (
 //   	allowedMethods: awscdk.Aws_cloudfront.cloudFrontAllowedMethods_GET_HEAD,
 //   	cachedMethods: awscdk.*Aws_cloudfront.cloudFrontAllowedCachedMethods_GET_HEAD,
 //   	compress: jsii.Boolean(false),
-//   	defaultTtl: duration,
+//   	defaultTtl: cdk.duration.minutes(jsii.Number(30)),
 //   	forwardedValues: &forwardedValuesProperty{
 //   		queryString: jsii.Boolean(false),
 //
@@ -58,8 +57,8 @@ import (
 //   			includeBody: jsii.Boolean(false),
 //   		},
 //   	},
-//   	maxTtl: duration,
-//   	minTtl: duration,
+//   	maxTtl: cdk.*duration.minutes(jsii.Number(30)),
+//   	minTtl: cdk.*duration.minutes(jsii.Number(30)),
 //   	pathPattern: jsii.String("pathPattern"),
 //   	trustedKeyGroups: []iKeyGroup{
 //   		keyGroup,
@@ -70,53 +69,40 @@ import (
 //   	viewerProtocolPolicy: awscdk.*Aws_cloudfront.viewerProtocolPolicy_HTTPS_ONLY,
 //   }
 //
-// Experimental.
 type Behavior struct {
 	// The method this CloudFront distribution responds do.
-	// Experimental.
 	AllowedMethods CloudFrontAllowedMethods `field:"optional" json:"allowedMethods" yaml:"allowedMethods"`
 	// Which methods are cached by CloudFront by default.
-	// Experimental.
 	CachedMethods CloudFrontAllowedCachedMethods `field:"optional" json:"cachedMethods" yaml:"cachedMethods"`
 	// If CloudFront should automatically compress some content types.
-	// Experimental.
 	Compress *bool `field:"optional" json:"compress" yaml:"compress"`
 	// The default amount of time CloudFront will cache an object.
 	//
 	// This value applies only when your custom origin does not add HTTP headers,
 	// such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects.
-	// Experimental.
 	DefaultTtl awscdk.Duration `field:"optional" json:"defaultTtl" yaml:"defaultTtl"`
 	// The values CloudFront will forward to the origin when making a request.
-	// Experimental.
 	ForwardedValues *CfnDistribution_ForwardedValuesProperty `field:"optional" json:"forwardedValues" yaml:"forwardedValues"`
 	// The CloudFront functions to invoke before serving the contents.
-	// Experimental.
 	FunctionAssociations *[]*FunctionAssociation `field:"optional" json:"functionAssociations" yaml:"functionAssociations"`
 	// If this behavior is the default behavior for the distribution.
 	//
 	// You must specify exactly one default distribution per CloudFront distribution.
 	// The default behavior is allowed to omit the "path" property.
-	// Experimental.
 	IsDefaultBehavior *bool `field:"optional" json:"isDefaultBehavior" yaml:"isDefaultBehavior"`
 	// Declares associated lambda@edge functions for this distribution behaviour.
-	// Experimental.
 	LambdaFunctionAssociations *[]*LambdaFunctionAssociation `field:"optional" json:"lambdaFunctionAssociations" yaml:"lambdaFunctionAssociations"`
 	// The max amount of time you want objects to stay in the cache before CloudFront queries your origin.
-	// Experimental.
 	MaxTtl awscdk.Duration `field:"optional" json:"maxTtl" yaml:"maxTtl"`
 	// The minimum amount of time that you want objects to stay in the cache before CloudFront queries your origin.
-	// Experimental.
 	MinTtl awscdk.Duration `field:"optional" json:"minTtl" yaml:"minTtl"`
 	// The path this behavior responds to.
 	//
 	// Required for all non-default behaviors. (The default behavior implicitly has "*" as the path pattern. )
-	// Experimental.
 	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// A list of Key Groups that CloudFront can use to validate signed URLs or signed cookies.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html
 	//
-	// Experimental.
 	TrustedKeyGroups *[]IKeyGroup `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// Trusted signers is how CloudFront allows you to serve private content.
 	//
@@ -126,7 +112,6 @@ type Behavior struct {
 	// Deprecated: - We recommend using trustedKeyGroups instead of trustedSigners.
 	TrustedSigners *[]*string `field:"optional" json:"trustedSigners" yaml:"trustedSigners"`
 	// The viewer policy for this behavior.
-	// Experimental.
 	ViewerProtocolPolicy ViewerProtocolPolicy `field:"optional" json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 }
 

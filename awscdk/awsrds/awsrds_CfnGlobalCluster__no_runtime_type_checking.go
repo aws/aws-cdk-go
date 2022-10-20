@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnGlobalCluster) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnGlobalCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGlobalCluster) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnGlobalCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnGlobalCluster) validateSetStorageEncryptedParameters(val i
 	return nil
 }
 
-func validateNewCfnGlobalClusterParameters(scope awscdk.Construct, id *string, props *CfnGlobalClusterProps) error {
+func validateNewCfnGlobalClusterParameters(scope constructs.Construct, id *string, props *CfnGlobalClusterProps) error {
 	return nil
 }
 

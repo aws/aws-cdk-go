@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnFargateProfile) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnFargateProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnFargateProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFargateProfile) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnFargateProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +81,7 @@ func (j *jsiiProxy_CfnFargateProfile) validateSetSelectorsParameters(val interfa
 	return nil
 }
 
-func validateNewCfnFargateProfileParameters(scope awscdk.Construct, id *string, props *CfnFargateProfileProps) error {
+func validateNewCfnFargateProfileParameters(scope constructs.Construct, id *string, props *CfnFargateProfileProps) error {
 	return nil
 }
 

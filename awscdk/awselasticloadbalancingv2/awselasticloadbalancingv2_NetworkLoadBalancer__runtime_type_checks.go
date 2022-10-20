@@ -8,10 +8,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (n *jsiiProxy_NetworkLoadBalancer) validateAddListenerParameters(id *string, props *BaseNetworkListenerProps) error {
@@ -96,14 +96,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateMetricConsumedLCUsParameters(pro
 	return nil
 }
 
-func (n *jsiiProxy_NetworkLoadBalancer) validateMetricHealthyHostCountParameters(props *awscloudwatch.MetricOptions) error {
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (n *jsiiProxy_NetworkLoadBalancer) validateMetricNewFlowCountParameters(props *awscloudwatch.MetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
@@ -144,22 +136,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateMetricTcpTargetResetCountParamet
 	return nil
 }
 
-func (n *jsiiProxy_NetworkLoadBalancer) validateMetricUnHealthyHostCountParameters(props *awscloudwatch.MetricOptions) error {
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (n *jsiiProxy_NetworkLoadBalancer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (n *jsiiProxy_NetworkLoadBalancer) validateRemoveAttributeParameters(key *string) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
@@ -171,14 +147,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateRemoveAttributeParameters(key *s
 func (n *jsiiProxy_NetworkLoadBalancer) validateSetAttributeParameters(key *string) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (n *jsiiProxy_NetworkLoadBalancer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -230,7 +198,15 @@ func validateNetworkLoadBalancer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNetworkLoadBalancer_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateNetworkLoadBalancer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateNetworkLoadBalancer_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

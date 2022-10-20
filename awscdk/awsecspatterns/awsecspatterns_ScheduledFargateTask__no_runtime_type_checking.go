@@ -17,15 +17,7 @@ func (s *jsiiProxy_ScheduledFargateTask) validateCreateAWSLogDriverParameters(pr
 	return nil
 }
 
-func (s *jsiiProxy_ScheduledFargateTask) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
-	return nil
-}
-
-func (s *jsiiProxy_ScheduledFargateTask) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_ScheduledFargateTask) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (s *jsiiProxy_ScheduledFargateTask) validateGetDefaultClusterParameters(scope constructs.Construct) error {
 	return nil
 }
 

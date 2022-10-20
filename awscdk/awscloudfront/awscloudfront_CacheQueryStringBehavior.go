@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,13 +30,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type CacheQueryStringBehavior interface {
 	// The behavior of query strings -- allow all, none, only an allow list, or a deny list.
-	// Experimental.
 	Behavior() *string
 	// The query strings to allow or deny, if the behavior is an allow or deny list.
-	// Experimental.
 	QueryStrings() *[]*string
 }
 
@@ -67,14 +64,13 @@ func (j *jsiiProxy_CacheQueryStringBehavior) QueryStrings() *[]*string {
 
 
 // All query strings in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-// Experimental.
 func CacheQueryStringBehavior_All() CacheQueryStringBehavior {
 	_init_.Initialize()
 
 	var returns CacheQueryStringBehavior
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.CacheQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.CacheQueryStringBehavior",
 		"all",
 		nil, // no parameters
 		&returns,
@@ -84,7 +80,6 @@ func CacheQueryStringBehavior_All() CacheQueryStringBehavior {
 }
 
 // Only the provided `queryStrings` are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-// Experimental.
 func CacheQueryStringBehavior_AllowList(queryStrings ...*string) CacheQueryStringBehavior {
 	_init_.Initialize()
 
@@ -96,7 +91,7 @@ func CacheQueryStringBehavior_AllowList(queryStrings ...*string) CacheQueryStrin
 	var returns CacheQueryStringBehavior
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.CacheQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.CacheQueryStringBehavior",
 		"allowList",
 		args,
 		&returns,
@@ -106,7 +101,6 @@ func CacheQueryStringBehavior_AllowList(queryStrings ...*string) CacheQueryStrin
 }
 
 // All query strings except the provided `queryStrings` are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-// Experimental.
 func CacheQueryStringBehavior_DenyList(queryStrings ...*string) CacheQueryStringBehavior {
 	_init_.Initialize()
 
@@ -118,7 +112,7 @@ func CacheQueryStringBehavior_DenyList(queryStrings ...*string) CacheQueryString
 	var returns CacheQueryStringBehavior
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.CacheQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.CacheQueryStringBehavior",
 		"denyList",
 		args,
 		&returns,
@@ -128,14 +122,13 @@ func CacheQueryStringBehavior_DenyList(queryStrings ...*string) CacheQueryString
 }
 
 // Query strings in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin.
-// Experimental.
 func CacheQueryStringBehavior_None() CacheQueryStringBehavior {
 	_init_.Initialize()
 
 	var returns CacheQueryStringBehavior
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.CacheQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.CacheQueryStringBehavior",
 		"none",
 		nil, // no parameters
 		&returns,

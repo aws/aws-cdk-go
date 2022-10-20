@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnAnomalyDetector) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalyDetector) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAnomalyDetector) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAnomalyDetector) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnAnomalyDetector) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +85,7 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetSingleMetricAnomalyDetectorPar
 	return nil
 }
 
-func validateNewCfnAnomalyDetectorParameters(scope awscdk.Construct, id *string, props *CfnAnomalyDetectorProps) error {
+func validateNewCfnAnomalyDetectorParameters(scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) error {
 	return nil
 }
 

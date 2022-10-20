@@ -29,10 +29,6 @@ func (e *jsiiProxy_Ec2Service) validateAutoScaleTaskCountParameters(props *awsap
 	return nil
 }
 
-func (e *jsiiProxy_Ec2Service) validateConfigureAwsVpcNetworkingParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
-	return nil
-}
-
 func (e *jsiiProxy_Ec2Service) validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
 	return nil
 }
@@ -65,15 +61,7 @@ func (e *jsiiProxy_Ec2Service) validateMetricMemoryUtilizationParameters(props *
 	return nil
 }
 
-func (e *jsiiProxy_Ec2Service) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (e *jsiiProxy_Ec2Service) validateRegisterLoadBalancerTargetsParameters(targets *[]*EcsTarget) error {
-	return nil
-}
-
-func (e *jsiiProxy_Ec2Service) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +81,11 @@ func validateEc2Service_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEc2Service_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateEc2Service_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateEc2Service_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

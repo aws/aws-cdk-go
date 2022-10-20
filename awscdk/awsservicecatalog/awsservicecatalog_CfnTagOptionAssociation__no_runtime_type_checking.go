@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnTagOptionAssociation) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnTagOptionAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTagOptionAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTagOptionAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnTagOptionAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnTagOptionAssociation) validateSetTagOptionIdParameters(val
 	return nil
 }
 
-func validateNewCfnTagOptionAssociationParameters(scope awscdk.Construct, id *string, props *CfnTagOptionAssociationProps) error {
+func validateNewCfnTagOptionAssociationParameters(scope constructs.Construct, id *string, props *CfnTagOptionAssociationProps) error {
 	return nil
 }
 

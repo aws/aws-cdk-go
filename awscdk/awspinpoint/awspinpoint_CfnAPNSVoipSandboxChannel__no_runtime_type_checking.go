@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) validateSetEnabledParameters(val i
 	return nil
 }
 
-func validateNewCfnAPNSVoipSandboxChannelParameters(scope awscdk.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) error {
+func validateNewCfnAPNSVoipSandboxChannelParameters(scope constructs.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) error {
 	return nil
 }
 

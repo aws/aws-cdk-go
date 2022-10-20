@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateInspectParameters(i
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) validateSetDataCatalogEncry
 	return nil
 }
 
-func validateNewCfnDataCatalogEncryptionSettingsParameters(scope awscdk.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) error {
+func validateNewCfnDataCatalogEncryptionSettingsParameters(scope constructs.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) error {
 	return nil
 }
 

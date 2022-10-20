@@ -1,12 +1,13 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Represents timeouts for GRPC protocols.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -28,15 +29,12 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type GrpcTimeout struct {
 	// Represents an idle timeout.
 	//
 	// The amount of time that a connection may be idle.
-	// Experimental.
 	Idle awscdk.Duration `field:"optional" json:"idle" yaml:"idle"`
 	// Represents per request timeout.
-	// Experimental.
 	PerRequest awscdk.Duration `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 

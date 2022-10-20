@@ -17,14 +17,6 @@ func (t *jsiiProxy_TokenAuthorizer) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
-func (t *jsiiProxy_TokenAuthorizer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (t *jsiiProxy_TokenAuthorizer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateTokenAuthorizer_IsAuthorizerParameters(x interface{}) error {
 	return nil
 }
@@ -33,7 +25,11 @@ func validateTokenAuthorizer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTokenAuthorizer_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateTokenAuthorizer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateTokenAuthorizer_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -21,11 +21,35 @@ func (m *jsiiProxy_Method) validateGetResourceNameAttributeParameters(nameAttr *
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (m *jsiiProxy_Method) validateMetricParameters(metricName *string, stage IStage, props *awscloudwatch.MetricOptions) error {
 	return nil
 }
 
-func (m *jsiiProxy_Method) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (m *jsiiProxy_Method) validateMetricCacheHitCountParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (m *jsiiProxy_Method) validateMetricCacheMissCountParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (m *jsiiProxy_Method) validateMetricClientErrorParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (m *jsiiProxy_Method) validateMetricCountParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (m *jsiiProxy_Method) validateMetricIntegrationLatencyParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (m *jsiiProxy_Method) validateMetricLatencyParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (m *jsiiProxy_Method) validateMetricServerErrorParameters(stage IStage, props *awscloudwatch.MetricOptions) error {
 	return nil
 }
 
@@ -33,7 +57,11 @@ func validateMethod_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateMethod_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateMethod_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateMethod_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -12,10 +12,8 @@ package awsappmesh
 //   	maxConnections: jsii.Number(123),
 //   }
 //
-// Experimental.
 type TcpConnectionPool struct {
 	// The maximum connections in the pool.
-	// Experimental.
 	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 }
 

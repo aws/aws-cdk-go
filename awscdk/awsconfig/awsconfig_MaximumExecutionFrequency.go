@@ -16,24 +16,18 @@ package awsconfig
 //   	maximumExecutionFrequency: config.maximumExecutionFrequency_TWELVE_HOURS,
 //   })
 //
-// Experimental.
 type MaximumExecutionFrequency string
 
 const (
 	// 1 hour.
-	// Experimental.
 	MaximumExecutionFrequency_ONE_HOUR MaximumExecutionFrequency = "ONE_HOUR"
 	// 3 hours.
-	// Experimental.
 	MaximumExecutionFrequency_THREE_HOURS MaximumExecutionFrequency = "THREE_HOURS"
 	// 6 hours.
-	// Experimental.
 	MaximumExecutionFrequency_SIX_HOURS MaximumExecutionFrequency = "SIX_HOURS"
 	// 12 hours.
-	// Experimental.
 	MaximumExecutionFrequency_TWELVE_HOURS MaximumExecutionFrequency = "TWELVE_HOURS"
 	// 24 hours.
-	// Experimental.
 	MaximumExecutionFrequency_TWENTY_FOUR_HOURS MaximumExecutionFrequency = "TWENTY_FOUR_HOURS"
 )
 

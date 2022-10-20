@@ -14,7 +14,7 @@ package awsservicediscovery
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 //
 //   namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &httpNamespaceProps{
-//   	name: jsii.String("covfefe"),
+//   	name: jsii.String("MyHTTPNamespace"),
 //   })
 //
 //   service1 := namespace.createService(jsii.String("NonIpService"), &baseServiceProps{
@@ -41,20 +41,16 @@ package awsservicediscovery
 //
 //   app.synth()
 //
-// Experimental.
 type HealthCheckConfig struct {
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.
-	// Experimental.
 	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 	// The path that you want Route 53 to request when performing health checks.
 	//
 	// Do not use when health check type is TCP.
-	// Experimental.
 	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
 	//
 	// Cannot be modified once created. Supported values are HTTP, HTTPS, and TCP.
-	// Experimental.
 	Type HealthCheckType `field:"optional" json:"type" yaml:"type"`
 }
 

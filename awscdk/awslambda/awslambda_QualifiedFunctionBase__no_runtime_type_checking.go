@@ -33,7 +33,7 @@ func (q *jsiiProxy_QualifiedFunctionBase) validateConfigureAsyncInvokeParameters
 	return nil
 }
 
-func (q *jsiiProxy_QualifiedFunctionBase) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope awscdk.Construct, _action *string) error {
+func (q *jsiiProxy_QualifiedFunctionBase) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope constructs.Construct, _action *string) error {
 	return nil
 }
 
@@ -73,15 +73,7 @@ func (q *jsiiProxy_QualifiedFunctionBase) validateMetricThrottlesParameters(prop
 	return nil
 }
 
-func (q *jsiiProxy_QualifiedFunctionBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
+func (q *jsiiProxy_QualifiedFunctionBase) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
 	return nil
 }
 
@@ -89,7 +81,11 @@ func validateQualifiedFunctionBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateQualifiedFunctionBase_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateQualifiedFunctionBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateQualifiedFunctionBase_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

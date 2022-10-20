@@ -45,19 +45,11 @@ func (c *jsiiProxy_CfnScalingPlan) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnScalingPlan) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnScalingPlan) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnScalingPlan) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnScalingPlan) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +77,7 @@ func (j *jsiiProxy_CfnScalingPlan) validateSetScalingInstructionsParameters(val 
 	return nil
 }
 
-func validateNewCfnScalingPlanParameters(scope awscdk.Construct, id *string, props *CfnScalingPlanProps) error {
+func validateNewCfnScalingPlanParameters(scope constructs.Construct, id *string, props *CfnScalingPlanProps) error {
 	return nil
 }
 

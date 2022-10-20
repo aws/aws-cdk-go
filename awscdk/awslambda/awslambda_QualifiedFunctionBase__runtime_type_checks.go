@@ -8,10 +8,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (q *jsiiProxy_QualifiedFunctionBase) validateAddEventSourceParameters(source IEventSource) error {
@@ -87,7 +87,7 @@ func (q *jsiiProxy_QualifiedFunctionBase) validateConfigureAsyncInvokeParameters
 	return nil
 }
 
-func (q *jsiiProxy_QualifiedFunctionBase) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope awscdk.Construct, _action *string) error {
+func (q *jsiiProxy_QualifiedFunctionBase) validateConsiderWarningOnInvokeFunctionPermissionsParameters(_scope constructs.Construct, _action *string) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}
@@ -182,23 +182,7 @@ func (q *jsiiProxy_QualifiedFunctionBase) validateMetricThrottlesParameters(prop
 	return nil
 }
 
-func (q *jsiiProxy_QualifiedFunctionBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
+func (q *jsiiProxy_QualifiedFunctionBase) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -214,7 +198,15 @@ func validateQualifiedFunctionBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateQualifiedFunctionBase_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateQualifiedFunctionBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateQualifiedFunctionBase_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

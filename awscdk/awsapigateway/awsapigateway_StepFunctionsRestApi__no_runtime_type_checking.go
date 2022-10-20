@@ -33,14 +33,6 @@ func (s *jsiiProxy_StepFunctionsRestApi) validateApplyRemovalPolicyParameters(po
 	return nil
 }
 
-func (s *jsiiProxy_StepFunctionsRestApi) validateConfigureCloudWatchRoleParameters(apiResource CfnRestApi) error {
-	return nil
-}
-
-func (s *jsiiProxy_StepFunctionsRestApi) validateConfigureDeploymentParameters(props *RestApiBaseProps) error {
-	return nil
-}
-
 func (s *jsiiProxy_StepFunctionsRestApi) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }
@@ -81,14 +73,6 @@ func (s *jsiiProxy_StepFunctionsRestApi) validateMetricServerErrorParameters(pro
 	return nil
 }
 
-func (s *jsiiProxy_StepFunctionsRestApi) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_StepFunctionsRestApi) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateStepFunctionsRestApi_FromRestApiAttributesParameters(scope constructs.Construct, id *string, attrs *RestApiAttributes) error {
 	return nil
 }
@@ -101,7 +85,11 @@ func validateStepFunctionsRestApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStepFunctionsRestApi_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateStepFunctionsRestApi_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateStepFunctionsRestApi_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

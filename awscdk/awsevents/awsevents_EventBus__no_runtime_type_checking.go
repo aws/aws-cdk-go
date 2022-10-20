@@ -25,14 +25,6 @@ func (e *jsiiProxy_EventBus) validateGrantPutEventsToParameters(grantee awsiam.I
 	return nil
 }
 
-func (e *jsiiProxy_EventBus) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (e *jsiiProxy_EventBus) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateEventBus_FromEventBusArnParameters(scope constructs.Construct, id *string, eventBusArn *string) error {
 	return nil
 }
@@ -49,15 +41,15 @@ func validateEventBus_GrantAllPutEventsParameters(grantee awsiam.IGrantable) err
 	return nil
 }
 
-func validateEventBus_GrantPutEventsParameters(grantee awsiam.IGrantable) error {
-	return nil
-}
-
 func validateEventBus_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEventBus_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateEventBus_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateEventBus_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

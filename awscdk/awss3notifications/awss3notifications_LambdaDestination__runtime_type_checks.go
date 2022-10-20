@@ -6,12 +6,12 @@ package awss3notifications
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (l *jsiiProxy_LambdaDestination) validateBindParameters(_scope awscdk.Construct, bucket awss3.IBucket) error {
+func (l *jsiiProxy_LambdaDestination) validateBindParameters(_scope constructs.Construct, bucket awss3.IBucket) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

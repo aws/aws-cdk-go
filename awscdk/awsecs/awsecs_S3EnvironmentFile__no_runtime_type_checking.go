@@ -5,7 +5,7 @@ package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3EnvironmentFile) validateBindParameters(_scope awscdk.Construct) error {
+func (s *jsiiProxy_S3EnvironmentFile) validateBindParameters(_scope constructs.Construct) error {
 	return nil
 }
 

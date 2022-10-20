@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (g *jsiiProxy_Group) validateAddManagedPolicyParameters(policy IManagedPolicy) error {
@@ -83,22 +83,6 @@ func (g *jsiiProxy_Group) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func (g *jsiiProxy_Group) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (g *jsiiProxy_Group) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateGroup_FromGroupArnParameters(scope constructs.Construct, id *string, groupArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -139,7 +123,15 @@ func validateGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateGroup_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateGroup_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}
