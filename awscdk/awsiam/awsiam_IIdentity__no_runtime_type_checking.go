@@ -13,6 +13,10 @@ func (i *jsiiProxy_IIdentity) validateAttachInlinePolicyParameters(policy Policy
 	return nil
 }
 
+func (i *jsiiProxy_IIdentity) validateAddToPolicyParameters(statement PolicyStatement) error {
+	return nil
+}
+
 func (i *jsiiProxy_IIdentity) validateAddToPrincipalPolicyParameters(statement PolicyStatement) error {
 	return nil
 }

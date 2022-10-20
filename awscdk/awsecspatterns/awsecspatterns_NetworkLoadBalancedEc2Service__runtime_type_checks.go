@@ -8,8 +8,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) validateAddServiceAsTargetParameters(service awsecs.BaseService) error {
@@ -28,9 +29,25 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) validateCreateAWSLogDriverPara
 	return nil
 }
 
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) validateGetDefaultClusterParameters(scope constructs.Construct) error {
+func (n *jsiiProxy_NetworkLoadBalancedEc2Service) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NetworkLoadBalancedEc2Service) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NetworkLoadBalancedEc2Service) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

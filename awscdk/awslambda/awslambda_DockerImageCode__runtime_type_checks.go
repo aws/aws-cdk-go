@@ -8,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
 )
 
 func validateDockerImageCode_FromEcrParameters(repository awsecr.IRepository, props *EcrImageCodeProps) error {

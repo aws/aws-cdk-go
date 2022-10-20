@@ -29,7 +29,3 @@ func validateUserData_ForOperatingSystemParameters(os OperatingSystemType) error
 	return nil
 }
 
-func validateUserData_ForWindowsParameters(options *WindowsUserDataOptions) error {
-	return nil
-}
-

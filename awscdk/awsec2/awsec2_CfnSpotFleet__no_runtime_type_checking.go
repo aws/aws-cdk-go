@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnSpotFleet) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnSpotFleet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSpotFleet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSpotFleet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSpotFleet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +81,7 @@ func (j *jsiiProxy_CfnSpotFleet) validateSetSpotFleetRequestConfigDataParameters
 	return nil
 }
 
-func validateNewCfnSpotFleetParameters(scope constructs.Construct, id *string, props *CfnSpotFleetProps) error {
+func validateNewCfnSpotFleetParameters(scope awscdk.Construct, id *string, props *CfnSpotFleetProps) error {
 	return nil
 }
 

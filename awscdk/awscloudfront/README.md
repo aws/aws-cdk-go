@@ -594,24 +594,6 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
 })
 ```
 
-### HTTP Versions
-
-You can configure CloudFront to use a particular version of the HTTP protocol. By default,
-newly created distributions use HTTP/2 but can be configured to use both HTTP/2 and HTTP/3 or
-just HTTP/3. For all supported HTTP versions, see the `HttpVerson` enum.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-// Configure a distribution to use HTTP/2 and HTTP/3
-// Configure a distribution to use HTTP/2 and HTTP/3
-cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
-	defaultBehavior: &behaviorOptions{
-		origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-	},
-	httpVersion: cloudfront.httpVersion_HTTP2_AND_3,
-})
-```
-
 ### Importing Distributions
 
 Existing distributions can be imported as well; note that like most imported constructs, an imported distribution cannot be modified.

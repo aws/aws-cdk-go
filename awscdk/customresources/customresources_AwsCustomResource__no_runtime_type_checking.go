@@ -13,6 +13,14 @@ func (a *jsiiProxy_AwsCustomResource) validateGetResponseFieldReferenceParameter
 	return nil
 }
 
+func (a *jsiiProxy_AwsCustomResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AwsCustomResource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAwsCustomResource_IsConstructParameters(x interface{}) error {
 	return nil
 }

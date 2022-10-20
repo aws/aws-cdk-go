@@ -5,8 +5,10 @@ import (
 )
 
 // A load balancer that can host a VPC Endpoint Service.
+// Experimental.
 type IVpcEndpointServiceLoadBalancer interface {
 	// The ARN of the load balancer that hosts the VPC Endpoint Service.
+	// Experimental.
 	LoadBalancerArn() *string
 }
 

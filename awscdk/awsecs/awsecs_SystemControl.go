@@ -13,10 +13,13 @@ package awsecs
 //   	value: jsii.String("value"),
 //   }
 //
+// Experimental.
 type SystemControl struct {
 	// The namespaced kernel parameter for which to set a value.
+	// Experimental.
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The value for the namespaced kernel parameter specified in namespace.
+	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

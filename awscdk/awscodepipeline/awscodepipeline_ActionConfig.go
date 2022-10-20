@@ -12,7 +12,9 @@ package awscodepipeline
 //   	configuration: configuration,
 //   }
 //
+// Experimental.
 type ActionConfig struct {
+	// Experimental.
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 }
 

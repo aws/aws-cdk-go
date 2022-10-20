@@ -4,34 +4,33 @@ package awsdynamodb
 // Represents an attribute for describing the key schema for the table and indexes.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
+//   globalTable := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
 //   	partitionKey: &attribute{
 //   		name: jsii.String("id"),
 //   		type: dynamodb.attributeType_STRING,
 //   	},
-//   })
-//
-//   metric := table.metricThrottledRequestsForOperations(&operationsMetricOptions{
-//   	operations: []operation{
-//   		dynamodb.*operation_PUT_ITEM,
+//   	replicationRegions: []*string{
+//   		jsii.String("us-east-1"),
+//   		jsii.String("us-east-2"),
+//   		jsii.String("us-west-2"),
 //   	},
-//   	period: awscdk.Duration.minutes(jsii.Number(1)),
+//   	billingMode: dynamodb.billingMode_PROVISIONED,
 //   })
 //
-//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
-//   	metric: metric,
-//   	evaluationPeriods: jsii.Number(1),
-//   	threshold: jsii.Number(1),
+//   globalTable.autoScaleWriteCapacity(&enableScalingProps{
+//   	minCapacity: jsii.Number(1),
+//   	maxCapacity: jsii.Number(10),
+//   }).scaleOnUtilization(&utilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(75),
 //   })
 //
+// Experimental.
 type Attribute struct {
 	// The name of an attribute.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The data type of an attribute.
+	// Experimental.
 	Type AttributeType `field:"required" json:"type" yaml:"type"`
 }
 

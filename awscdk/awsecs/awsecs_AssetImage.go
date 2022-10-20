@@ -1,12 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
 )
 
 // An image that will be built from a local directory with a Dockerfile.
@@ -34,10 +34,12 @@ import (
 //   	image: ecs.NewAssetImage(path.join(__dirname, jsii.String(".."), jsii.String("sqs-reader"))),
 //   })
 //
+// Experimental.
 type AssetImage interface {
 	ContainerImage
 	// Called when the image is used by a ContainerDefinition.
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for AssetImage
@@ -46,6 +48,7 @@ type jsiiProxy_AssetImage struct {
 }
 
 // Constructs a new instance of the AssetImage class.
+// Experimental.
 func NewAssetImage(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
@@ -55,7 +58,7 @@ func NewAssetImage(directory *string, props *AssetImageProps) AssetImage {
 	j := jsiiProxy_AssetImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		[]interface{}{directory, props},
 		&j,
 	)
@@ -64,11 +67,12 @@ func NewAssetImage(directory *string, props *AssetImageProps) AssetImage {
 }
 
 // Constructs a new instance of the AssetImage class.
+// Experimental.
 func NewAssetImage_Override(a AssetImage, directory *string, props *AssetImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		[]interface{}{directory, props},
 		a,
 	)
@@ -78,6 +82,7 @@ func NewAssetImage_Override(a AssetImage, directory *string, props *AssetImagePr
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
+// Experimental.
 func AssetImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
@@ -87,7 +92,7 @@ func AssetImage_FromAsset(directory *string, props *AssetImageProps) AssetImage 
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -97,6 +102,7 @@ func AssetImage_FromAsset(directory *string, props *AssetImageProps) AssetImage 
 }
 
 // Use an existing `DockerImageAsset` for this container image.
+// Experimental.
 func AssetImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
@@ -106,7 +112,7 @@ func AssetImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Contai
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -116,6 +122,7 @@ func AssetImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Contai
 }
 
 // Reference an image in an ECR repository.
+// Experimental.
 func AssetImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
@@ -125,7 +132,7 @@ func AssetImage_FromEcrRepository(repository awsecr.IRepository, tag *string) Ec
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -135,6 +142,7 @@ func AssetImage_FromEcrRepository(repository awsecr.IRepository, tag *string) Ec
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func AssetImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
@@ -144,7 +152,7 @@ func AssetImage_FromRegistry(name *string, props *RepositoryImageProps) Reposito
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -157,6 +165,7 @@ func AssetImage_FromRegistry(name *string, props *RepositoryImageProps) Reposito
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
+// Experimental.
 func AssetImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
@@ -166,7 +175,7 @@ func AssetImage_FromTarball(tarballFile *string) ContainerImage {
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -175,7 +184,7 @@ func AssetImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-func (a *jsiiProxy_AssetImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (a *jsiiProxy_AssetImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	if err := a.validateBindParameters(scope, containerDefinition); err != nil {
 		panic(err)
 	}

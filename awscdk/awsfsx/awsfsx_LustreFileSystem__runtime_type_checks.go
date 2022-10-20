@@ -8,8 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (l *jsiiProxy_LustreFileSystem) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -43,6 +43,22 @@ func (l *jsiiProxy_LustreFileSystem) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (l *jsiiProxy_LustreFileSystem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (l *jsiiProxy_LustreFileSystem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateLustreFileSystem_FromLustreFileSystemAttributesParameters(scope constructs.Construct, id *string, attrs *FileSystemAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -70,15 +86,7 @@ func validateLustreFileSystem_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLustreFileSystem_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateLustreFileSystem_IsResourceParameters(construct constructs.IConstruct) error {
+func validateLustreFileSystem_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

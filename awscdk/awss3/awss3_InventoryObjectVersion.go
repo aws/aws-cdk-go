@@ -4,7 +4,6 @@ package awss3
 // Inventory version support.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 //
 //   dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &bucketProps{
@@ -27,12 +26,15 @@ package awss3
 //   	},
 //   })
 //
+// Experimental.
 type InventoryObjectVersion string
 
 const (
 	// Includes all versions of each object in the report.
+	// Experimental.
 	InventoryObjectVersion_ALL InventoryObjectVersion = "ALL"
 	// Includes only the current version of each object in the report.
+	// Experimental.
 	InventoryObjectVersion_CURRENT InventoryObjectVersion = "CURRENT"
 )
 

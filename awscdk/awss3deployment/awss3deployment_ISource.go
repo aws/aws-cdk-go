@@ -3,13 +3,15 @@ package awss3deployment
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Represents a source for bucket deployments.
+// Experimental.
 type ISource interface {
 	// Binds the source to a bucket deployment.
-	Bind(scope constructs.Construct, context *DeploymentSourceContext) *SourceConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, context *DeploymentSourceContext) *SourceConfig
 }
 
 // The jsii proxy for ISource
@@ -17,7 +19,7 @@ type jsiiProxy_ISource struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ISource) Bind(scope constructs.Construct, context *DeploymentSourceContext) *SourceConfig {
+func (i *jsiiProxy_ISource) Bind(scope awscdk.Construct, context *DeploymentSourceContext) *SourceConfig {
 	if err := i.validateBindParameters(scope, context); err != nil {
 		panic(err)
 	}

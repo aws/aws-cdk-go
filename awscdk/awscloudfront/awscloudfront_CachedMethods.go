@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,8 +14,10 @@ import (
 //
 //   cachedMethods := awscdk.Aws_cloudfront.cachedMethods_CACHE_GET_HEAD()
 //
+// Experimental.
 type CachedMethods interface {
 	// HTTP methods supported.
+	// Experimental.
 	Methods() *[]*string
 }
 
@@ -39,7 +41,7 @@ func CachedMethods_CACHE_GET_HEAD() CachedMethods {
 	_init_.Initialize()
 	var returns CachedMethods
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_cloudfront.CachedMethods",
+		"monocdk.aws_cloudfront.CachedMethods",
 		"CACHE_GET_HEAD",
 		&returns,
 	)
@@ -50,7 +52,7 @@ func CachedMethods_CACHE_GET_HEAD_OPTIONS() CachedMethods {
 	_init_.Initialize()
 	var returns CachedMethods
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_cloudfront.CachedMethods",
+		"monocdk.aws_cloudfront.CachedMethods",
 		"CACHE_GET_HEAD_OPTIONS",
 		&returns,
 	)

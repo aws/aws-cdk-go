@@ -24,8 +24,10 @@ package awsrds
 //   	parameterGroup: parameterGroup,
 //   })
 //
+// Experimental.
 type SqlServerEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

@@ -4,7 +4,6 @@ package awss3
 // All http request methods.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 //   	websiteRoutingRules: []routingRule{
 //   		&routingRule{
@@ -20,10 +19,13 @@ package awss3
 //   	},
 //   })
 //
+// Experimental.
 type RedirectProtocol string
 
 const (
+	// Experimental.
 	RedirectProtocol_HTTP RedirectProtocol = "HTTP"
+	// Experimental.
 	RedirectProtocol_HTTPS RedirectProtocol = "HTTPS"
 )
 

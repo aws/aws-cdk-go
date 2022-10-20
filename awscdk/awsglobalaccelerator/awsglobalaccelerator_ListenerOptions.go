@@ -42,8 +42,10 @@ package awsglobalaccelerator
 //   	},
 //   })
 //
+// Experimental.
 type ListenerOptions struct {
 	// The list of port ranges for the connections from clients to the accelerator.
+	// Experimental.
 	PortRanges *[]*PortRange `field:"required" json:"portRanges" yaml:"portRanges"`
 	// Client affinity to direct all requests from a user to the same endpoint.
 	//
@@ -53,10 +55,13 @@ type ListenerOptions struct {
 	// By default, each connection from each client is routed to seperate
 	// endpoints. Set client affinity to SOURCE_IP to route all connections from
 	// a single client to the same endpoint.
+	// Experimental.
 	ClientAffinity ClientAffinity `field:"optional" json:"clientAffinity" yaml:"clientAffinity"`
 	// Name of the listener.
+	// Experimental.
 	ListenerName *string `field:"optional" json:"listenerName" yaml:"listenerName"`
 	// The protocol for the connections from clients to the accelerator.
+	// Experimental.
 	Protocol ConnectionProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

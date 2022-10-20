@@ -17,7 +17,11 @@ func (b *jsiiProxy_BucketPolicy) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
-func validateBucketPolicy_FromCfnBucketPolicyParameters(cfnBucketPolicy CfnBucketPolicy) error {
+func (b *jsiiProxy_BucketPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_BucketPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -25,11 +29,7 @@ func validateBucketPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBucketPolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateBucketPolicy_IsResourceParameters(construct constructs.IConstruct) error {
+func validateBucketPolicy_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

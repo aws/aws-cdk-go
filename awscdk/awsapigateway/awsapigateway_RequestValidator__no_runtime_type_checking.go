@@ -17,6 +17,14 @@ func (r *jsiiProxy_RequestValidator) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (r *jsiiProxy_RequestValidator) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_RequestValidator) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateRequestValidator_FromRequestValidatorIdParameters(scope constructs.Construct, id *string, requestValidatorId *string) error {
 	return nil
 }
@@ -25,11 +33,7 @@ func validateRequestValidator_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRequestValidator_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateRequestValidator_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRequestValidator_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

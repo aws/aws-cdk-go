@@ -5,6 +5,10 @@ package cloudassemblyschema
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateManifest_LoadParameters(filePath *string) error {
+	return nil
+}
+
 func validateManifest_LoadAssemblyManifestParameters(filePath *string, options *LoadManifestOptions) error {
 	return nil
 }
@@ -14,6 +18,10 @@ func validateManifest_LoadAssetManifestParameters(filePath *string) error {
 }
 
 func validateManifest_LoadIntegManifestParameters(filePath *string) error {
+	return nil
+}
+
+func validateManifest_SaveParameters(manifest *AssemblyManifest, filePath *string) error {
 	return nil
 }
 

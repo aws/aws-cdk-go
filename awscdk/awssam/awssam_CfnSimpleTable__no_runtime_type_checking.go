@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnSimpleTable) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnSimpleTable) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSimpleTable) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSimpleTable) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSimpleTable) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +89,7 @@ func (j *jsiiProxy_CfnSimpleTable) validateSetSseSpecificationParameters(val int
 	return nil
 }
 
-func validateNewCfnSimpleTableParameters(scope constructs.Construct, id *string, props *CfnSimpleTableProps) error {
+func validateNewCfnSimpleTableParameters(scope awscdk.Construct, id *string, props *CfnSimpleTableProps) error {
 	return nil
 }
 

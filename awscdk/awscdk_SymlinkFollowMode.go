@@ -1,16 +1,20 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
 // Determines how symlinks are followed.
+// Experimental.
 type SymlinkFollowMode string
 
 const (
 	// Never follow symlinks.
+	// Experimental.
 	SymlinkFollowMode_NEVER SymlinkFollowMode = "NEVER"
 	// Materialize all symlinks, whether they are internal or external to the source directory.
+	// Experimental.
 	SymlinkFollowMode_ALWAYS SymlinkFollowMode = "ALWAYS"
 	// Only follows symlinks that are external to the source directory.
+	// Experimental.
 	SymlinkFollowMode_EXTERNAL SymlinkFollowMode = "EXTERNAL"
 	// Forbids source from having any symlinks pointing outside of the source tree.
 	//
@@ -19,6 +23,7 @@ const (
 	// not followed.
 	//
 	// If the copy operation runs into an external symlink, it will fail.
+	// Experimental.
 	SymlinkFollowMode_BLOCK_EXTERNAL SymlinkFollowMode = "BLOCK_EXTERNAL"
 )
 

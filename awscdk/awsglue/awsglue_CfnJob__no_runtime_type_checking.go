@@ -45,11 +45,19 @@ func (c *jsiiProxy_CfnJob) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnJob) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnJob) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnJob) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnJob) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +105,7 @@ func (j *jsiiProxy_CfnJob) validateSetRoleParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnJobParameters(scope constructs.Construct, id *string, props *CfnJobProps) error {
+func validateNewCfnJobParameters(scope awscdk.Construct, id *string, props *CfnJobProps) error {
 	return nil
 }
 

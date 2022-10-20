@@ -6,7 +6,7 @@ package awsappmesh
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 func (i *jsiiProxy_IVirtualNode) validateGrantStreamAggregatedResourcesParameters(identity awsiam.IGrantable) error {

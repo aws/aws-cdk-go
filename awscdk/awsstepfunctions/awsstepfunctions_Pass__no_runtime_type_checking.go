@@ -37,6 +37,14 @@ func (p *jsiiProxy_Pass) validateNextParameters(next IChainable) error {
 	return nil
 }
 
+func (p *jsiiProxy_Pass) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_Pass) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (p *jsiiProxy_Pass) validateWhenBoundToGraphParameters(graph StateGraph) error {
 	return nil
 }

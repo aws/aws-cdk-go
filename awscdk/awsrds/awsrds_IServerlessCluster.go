@@ -3,28 +3,33 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Interface representing a serverless database cluster.
+// Experimental.
 type IServerlessCluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Grant the given identity to access to the Data API.
+	// Experimental.
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the cluster.
+	// Experimental.
 	ClusterArn() *string
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 }
 
@@ -135,8 +140,8 @@ func (j *jsiiProxy_IServerlessCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IServerlessCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IServerlessCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

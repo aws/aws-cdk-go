@@ -21,6 +21,14 @@ func (a *jsiiProxy_AwsCliLayer) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
+func (a *jsiiProxy_AwsCliLayer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AwsCliLayer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAwsCliLayer_FromLayerVersionArnParameters(scope constructs.Construct, id *string, layerVersionArn *string) error {
 	return nil
 }
@@ -33,11 +41,7 @@ func validateAwsCliLayer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAwsCliLayer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAwsCliLayer_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAwsCliLayer_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

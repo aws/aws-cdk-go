@@ -13,6 +13,14 @@ func (l *jsiiProxy_LinuxParameters) validateAddTmpfsParameters(tmpfs *[]*Tmpfs) 
 	return nil
 }
 
+func (l *jsiiProxy_LinuxParameters) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (l *jsiiProxy_LinuxParameters) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateLinuxParameters_IsConstructParameters(x interface{}) error {
 	return nil
 }

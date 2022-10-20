@@ -43,10 +43,13 @@ package awscognito
 //   	},
 //   })
 //
+// Experimental.
 type ResourceServerScopeProps struct {
 	// A description of the scope.
+	// Experimental.
 	ScopeDescription *string `field:"required" json:"scopeDescription" yaml:"scopeDescription"`
 	// The name of the scope.
+	// Experimental.
 	ScopeName *string `field:"required" json:"scopeName" yaml:"scopeName"`
 }
 

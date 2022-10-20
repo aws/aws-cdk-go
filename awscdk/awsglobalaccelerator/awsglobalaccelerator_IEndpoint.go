@@ -7,12 +7,15 @@ import (
 // An endpoint for the endpoint group.
 //
 // Implementations of `IEndpoint` can be found in the `aws-globalaccelerator-endpoints` package.
+// Experimental.
 type IEndpoint interface {
 	// Render the endpoint to an endpoint configuration.
+	// Experimental.
 	RenderEndpointConfiguration() interface{}
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
+	// Experimental.
 	Region() *string
 }
 

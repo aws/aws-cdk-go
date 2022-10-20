@@ -1,36 +1,59 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A database secret.
 //
 // Example:
-//   var instance databaseInstance
-//
-//   myUserSecret := rds.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &databaseSecretProps{
-//   	username: jsii.String("myuser"),
-//   	secretName: jsii.String("my-user-secret"),
-//   	 // optional, defaults to a CloudFormation-generated name
-//   	masterSecret: instance.secret,
-//   	excludeCharacters: jsii.String("{}[]()'\"/\\"),
-//   })
-//   myUserSecretAttached := myUserSecret.attach(instance) // Adds DB connections information in the secret
-//
-//   instance.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
-//   	 // Add rotation using the multi user scheme
-//   	secret: myUserSecretAttached,
+//   // Build a data source for AppSync to access the database.
+//   var api graphqlApi
+//   // Create username and password secret for DB Cluster
+//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
+//   	username: jsii.String("clusteradmin"),
 //   })
 //
+//   // The VPC to place the cluster in
+//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
+//
+//   // Create the serverless cluster, provide all values needed to customise the database.
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &serverlessClusterProps{
+//   	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
+//   	vpc: vpc,
+//   	credentials: map[string]*string{
+//   		"username": jsii.String("clusteradmin"),
+//   	},
+//   	clusterIdentifier: jsii.String("db-endpoint-test"),
+//   	defaultDatabaseName: jsii.String("demos"),
+//   })
+//   rdsDS := api.addRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//
+//   // Set up a resolver for an RDS query.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Query"),
+//   	fieldName: jsii.String("getDemosRds"),
+//   	requestMappingTemplate: appsync.mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"SELECT * FROM demos\"\n    ]\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])\n  ")),
+//   })
+//
+//   // Set up a resolver for an RDS mutation.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Mutation"),
+//   	fieldName: jsii.String("addDemoRds"),
+//   	requestMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"INSERT INTO demos VALUES (:id, :version)\",\n      \"SELECT * WHERE id = :id\"\n    ],\n    \"variableMap\": {\n      \":id\": $util.toJson($util.autoId()),\n      \":version\": $util.toJson($ctx.args.version)\n    }\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])\n  ")),
+//   })
+//
+// Experimental.
 type DatabaseSecret interface {
 	awssecretsmanager.Secret
 	// Provides an identifier for this secret for use in IAM policies.
@@ -38,12 +61,15 @@ type DatabaseSecret interface {
 	// If there is a full ARN, this is just the ARN;
 	// if we have a partial ARN -- due to either importing by secret name or partial ARN --
 	// then we need to add a suffix to capture the full ARN's format.
+	// Experimental.
 	ArnForPolicies() *string
+	// Experimental.
 	AutoCreatePolicy() *bool
 	// The customer-managed encryption key that is used to encrypt this secret, if any.
 	//
 	// When not specified, the default
 	// KMS key for the account and region is being used.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
@@ -53,11 +79,11 @@ type DatabaseSecret interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The string of the characters that are excluded in this secret when it is generated.
-	ExcludeCharacters() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -65,34 +91,48 @@ type DatabaseSecret interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The ARN of the secret in AWS Secrets Manager.
 	//
 	// Will return the full ARN if available, otherwise a partial arn.
 	// For secrets imported by the deprecated `fromSecretName`, it will return the `secretName`.
+	// Experimental.
 	SecretArn() *string
 	// The full ARN of the secret in AWS Secrets Manager, which is the ARN including the Secrets Manager-supplied 6-character suffix.
 	//
 	// This is equal to `secretArn` in most cases, but is undefined when a full ARN is not available (e.g., secrets imported by name).
+	// Experimental.
 	SecretFullArn() *string
 	// The name of the secret.
 	//
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
+	// Experimental.
 	SecretName() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
+	// Experimental.
 	SecretValue() awscdk.SecretValue
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a replica region for the secret.
+	// Experimental.
 	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	// Adds a rotation schedule to the secret.
+	// Experimental.
 	AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule
+	// Adds a target attachment to the secret.
+	//
+	// Returns: an AttachedSecret.
+	// Deprecated: use `attach()` instead.
+	AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment
 	// Adds a statement to the IAM resource policy associated with this secret.
 	//
 	// If this secret was created in this stack, a resource policy will be
 	// automatically created upon the first call to `addToResourcePolicy`. If
 	// the secret is imported, then this is a no-op.
+	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -103,13 +143,17 @@ type DatabaseSecret interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attach a target to this secret.
 	//
 	// Returns: An attached secret.
+	// Experimental.
 	Attach(target awssecretsmanager.ISecretAttachmentTarget) awssecretsmanager.ISecret
 	// Denies the `DeleteSecret` action to all principals within the current account.
+	// Experimental.
 	DenyAccountRootDelete()
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -117,21 +161,73 @@ type DatabaseSecret interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants reading the secret value to some role.
+	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	// Grants writing and updating the secret value to some role.
+	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
+	// Experimental.
 	SecretValueFromJson(jsonField *string) awscdk.SecretValue
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseSecret
@@ -179,18 +275,8 @@ func (j *jsiiProxy_DatabaseSecret) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseSecret) ExcludeCharacters() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"excludeCharacters",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DatabaseSecret) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseSecret) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -260,6 +346,7 @@ func (j *jsiiProxy_DatabaseSecret) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSecretProps) DatabaseSecret {
 	_init_.Initialize()
 
@@ -269,7 +356,7 @@ func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSe
 	j := jsiiProxy_DatabaseSecret{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -277,17 +364,38 @@ func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSe
 	return &j
 }
 
+// Experimental.
 func NewDatabaseSecret_Override(d DatabaseSecret, scope constructs.Construct, id *string, props *DatabaseSecretProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
+// Deprecated: use `fromSecretCompleteArn` or `fromSecretPartialArn`.
+func DatabaseSecret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) awssecretsmanager.ISecret {
+	_init_.Initialize()
+
+	if err := validateDatabaseSecret_FromSecretArnParameters(scope, id, secretArn); err != nil {
+		panic(err)
+	}
+	var returns awssecretsmanager.ISecret
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseSecret",
+		"fromSecretArn",
+		[]interface{}{scope, id, secretArn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Import an existing secret into the Stack.
+// Experimental.
 func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *awssecretsmanager.SecretAttributes) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -297,7 +405,7 @@ func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string,
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -309,6 +417,7 @@ func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string,
 // Imports a secret by complete ARN.
 //
 // The complete ARN is the ARN with the Secrets Manager-supplied suffix.
+// Experimental.
 func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string, secretCompleteArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -318,9 +427,32 @@ func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretCompleteArn",
 		[]interface{}{scope, id, secretCompleteArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports a secret by secret name;
+//
+// the ARN of the Secret will be set to the secret name.
+// A secret with this name must exist in the same account & region.
+// Deprecated: use `fromSecretNameV2`.
+func DatabaseSecret_FromSecretName(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
+	_init_.Initialize()
+
+	if err := validateDatabaseSecret_FromSecretNameParameters(scope, id, secretName); err != nil {
+		panic(err)
+	}
+	var returns awssecretsmanager.ISecret
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseSecret",
+		"fromSecretName",
+		[]interface{}{scope, id, secretName},
 		&returns,
 	)
 
@@ -331,6 +463,7 @@ func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string
 //
 // A secret with this name must exist in the same account & region.
 // Replaces the deprecated `fromSecretName`.
+// Experimental.
 func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -340,7 +473,7 @@ func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, sec
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretNameV2",
 		[]interface{}{scope, id, secretName},
 		&returns,
@@ -352,6 +485,7 @@ func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, sec
 // Imports a secret by partial ARN.
 //
 // The partial ARN is the ARN without the Secrets Manager-supplied suffix.
+// Experimental.
 func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string, secretPartialArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -361,7 +495,7 @@ func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string,
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretPartialArn",
 		[]interface{}{scope, id, secretPartialArn},
 		&returns,
@@ -370,23 +504,8 @@ func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseSecret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -396,7 +515,7 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -405,27 +524,9 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns true if the construct was created by CDK, and false otherwise.
-func DatabaseSecret_IsOwnedResource(construct constructs.IConstruct) *bool {
-	_init_.Initialize()
-
-	if err := validateDatabaseSecret_IsOwnedResourceParameters(construct); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
-		"isOwnedResource",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
 // Check whether the given construct is a Resource.
-func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DatabaseSecret_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	if err := validateDatabaseSecret_IsResourceParameters(construct); err != nil {
@@ -434,28 +535,9 @@ func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"isResource",
 		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
-// Return whether the given object is a Secret.
-func DatabaseSecret_IsSecret(x interface{}) *bool {
-	_init_.Initialize()
-
-	if err := validateDatabaseSecret_IsSecretParameters(x); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
-		"isSecret",
-		[]interface{}{x},
 		&returns,
 	)
 
@@ -482,6 +564,22 @@ func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awss
 	_jsii_.Invoke(
 		d,
 		"addRotationSchedule",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseSecret) AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment {
+	if err := d.validateAddTargetAttachmentParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns awssecretsmanager.SecretTargetAttachment
+
+	_jsii_.Invoke(
+		d,
+		"addTargetAttachment",
 		[]interface{}{id, options},
 		&returns,
 	)
@@ -617,6 +715,46 @@ func (d *jsiiProxy_DatabaseSecret) GrantWrite(grantee awsiam.IGrantable) awsiam.
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseSecret) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (d *jsiiProxy_DatabaseSecret) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := d.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (d *jsiiProxy_DatabaseSecret) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseSecret) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
 	if err := d.validateSecretValueFromJsonParameters(jsonField); err != nil {
 		panic(err)
@@ -633,12 +771,36 @@ func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk
 	return returns
 }
 
+func (d *jsiiProxy_DatabaseSecret) Synthesize(session awscdk.ISynthesisSession) {
+	if err := d.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (d *jsiiProxy_DatabaseSecret) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseSecret) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

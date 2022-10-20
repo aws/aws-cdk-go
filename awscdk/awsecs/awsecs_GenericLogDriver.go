@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // A log driver that sends logs to the specified driver.
@@ -23,10 +23,12 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type GenericLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for GenericLogDriver
@@ -35,6 +37,7 @@ type jsiiProxy_GenericLogDriver struct {
 }
 
 // Constructs a new instance of the GenericLogDriver class.
+// Experimental.
 func NewGenericLogDriver(props *GenericLogDriverProps) GenericLogDriver {
 	_init_.Initialize()
 
@@ -44,7 +47,7 @@ func NewGenericLogDriver(props *GenericLogDriverProps) GenericLogDriver {
 	j := jsiiProxy_GenericLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.GenericLogDriver",
+		"monocdk.aws_ecs.GenericLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -53,17 +56,19 @@ func NewGenericLogDriver(props *GenericLogDriverProps) GenericLogDriver {
 }
 
 // Constructs a new instance of the GenericLogDriver class.
+// Experimental.
 func NewGenericLogDriver_Override(g GenericLogDriver, props *GenericLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.GenericLogDriver",
+		"monocdk.aws_ecs.GenericLogDriver",
 		[]interface{}{props},
 		g,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func GenericLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
@@ -73,7 +78,7 @@ func GenericLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.GenericLogDriver",
+		"monocdk.aws_ecs.GenericLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -82,7 +87,7 @@ func GenericLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (g *jsiiProxy_GenericLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (g *jsiiProxy_GenericLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	if err := g.validateBindParameters(_scope, _containerDefinition); err != nil {
 		panic(err)
 	}

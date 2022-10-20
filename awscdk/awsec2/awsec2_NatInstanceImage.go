@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Machine image representing the latest NAT instance image.
@@ -16,10 +16,12 @@ import (
 //
 //   natInstanceImage := awscdk.Aws_ec2.NewNatInstanceImage()
 //
+// Experimental.
 type NatInstanceImage interface {
 	LookupMachineImage
 	// Return the image to use in the given context.
-	GetImage(scope constructs.Construct) *MachineImageConfig
+	// Experimental.
+	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for NatInstanceImage
@@ -27,13 +29,14 @@ type jsiiProxy_NatInstanceImage struct {
 	jsiiProxy_LookupMachineImage
 }
 
+// Experimental.
 func NewNatInstanceImage() NatInstanceImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_NatInstanceImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.NatInstanceImage",
+		"monocdk.aws_ec2.NatInstanceImage",
 		nil, // no parameters
 		&j,
 	)
@@ -41,17 +44,18 @@ func NewNatInstanceImage() NatInstanceImage {
 	return &j
 }
 
+// Experimental.
 func NewNatInstanceImage_Override(n NatInstanceImage) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.NatInstanceImage",
+		"monocdk.aws_ec2.NatInstanceImage",
 		nil, // no parameters
 		n,
 	)
 }
 
-func (n *jsiiProxy_NatInstanceImage) GetImage(scope constructs.Construct) *MachineImageConfig {
+func (n *jsiiProxy_NatInstanceImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	if err := n.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}
