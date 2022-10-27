@@ -21,6 +21,10 @@ import (
 //   cfnTaskDefinition := awscdk.Aws_ecs.NewCfnTaskDefinition(this, jsii.String("MyCfnTaskDefinition"), &cfnTaskDefinitionProps{
 //   	containerDefinitions: []interface{}{
 //   		&containerDefinitionProperty{
+//   			image: jsii.String("image"),
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
 //   			command: []*string{
 //   				jsii.String("command"),
 //   			},
@@ -82,7 +86,6 @@ import (
 //   				timeout: jsii.Number(123),
 //   			},
 //   			hostname: jsii.String("hostname"),
-//   			image: jsii.String("image"),
 //   			interactive: jsii.Boolean(false),
 //   			links: []*string{
 //   				jsii.String("links"),
@@ -144,7 +147,6 @@ import (
 //   					sourceVolume: jsii.String("sourceVolume"),
 //   				},
 //   			},
-//   			name: jsii.String("name"),
 //   			portMappings: []interface{}{
 //   				&portMappingProperty{
 //   					containerPort: jsii.Number(123),

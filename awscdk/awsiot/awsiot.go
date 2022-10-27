@@ -1287,6 +1287,10 @@ func init() {
 		reflect.TypeOf((*CfnTopicRule_LambdaActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_iot.CfnTopicRule.LocationActionProperty",
+		reflect.TypeOf((*CfnTopicRule_LocationActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_iot.CfnTopicRule.OpenSearchActionProperty",
 		reflect.TypeOf((*CfnTopicRule_OpenSearchActionProperty)(nil)).Elem(),
 	)
@@ -1321,6 +1325,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_iot.CfnTopicRule.StepFunctionsActionProperty",
 		reflect.TypeOf((*CfnTopicRule_StepFunctionsActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_iot.CfnTopicRule.TimestampProperty",
+		reflect.TypeOf((*CfnTopicRule_TimestampProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_iot.CfnTopicRule.TimestreamActionProperty",

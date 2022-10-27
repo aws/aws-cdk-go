@@ -117,6 +117,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	storageMode: jsii.String("storageMode"),
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -206,6 +207,9 @@ type CfnCluster interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
+	// `AWS::MSK::Cluster.StorageMode`.
+	StorageMode() *string
+	SetStorageMode(val *string)
 	// A map of key:value pairs to apply to this resource.
 	//
 	// Both key and value are of type String.
@@ -588,6 +592,16 @@ func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) StorageMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"storageMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -749,6 +763,14 @@ func (j *jsiiProxy_CfnCluster)SetOpenMonitoring(val interface{}) {
 	_jsii_.Set(
 		j,
 		"openMonitoring",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetStorageMode(val *string) {
+	_jsii_.Set(
+		j,
+		"storageMode",
 		val,
 	)
 }

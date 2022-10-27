@@ -28,6 +28,7 @@ import (
 //   	displayName: jsii.String("displayName"),
 //   	fifoTopic: jsii.Boolean(false),
 //   	kmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   	signatureVersion: jsii.String("signatureVersion"),
 //   	subscription: []interface{}{
 //   		&subscriptionProperty{
 //   			endpoint: jsii.String("endpoint"),
@@ -105,6 +106,9 @@ type CfnTopic interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// `AWS::SNS::Topic.SignatureVersion`.
+	SignatureVersion() *string
+	SetSignatureVersion(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -444,6 +448,16 @@ func (j *jsiiProxy_CfnTopic) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) SignatureVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"signatureVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -569,6 +583,14 @@ func (j *jsiiProxy_CfnTopic)SetKmsMasterKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsMasterKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetSignatureVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"signatureVersion",
 		val,
 	)
 }

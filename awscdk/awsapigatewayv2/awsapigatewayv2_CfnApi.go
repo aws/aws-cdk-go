@@ -19,7 +19,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
-//   var tags interface{}
 //
 //   cfnApi := awscdk.Aws_apigatewayv2.NewCfnApi(this, jsii.String("MyCfnApi"), &cfnApiProps{
 //   	apiKeySelectionExpression: jsii.String("apiKeySelectionExpression"),
@@ -56,7 +55,9 @@ import (
 //   	protocolType: jsii.String("protocolType"),
 //   	routeKey: jsii.String("routeKey"),
 //   	routeSelectionExpression: jsii.String("routeSelectionExpression"),
-//   	tags: tags,
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	target: jsii.String("target"),
 //   	version: jsii.String("version"),
 //   })
@@ -73,6 +74,7 @@ type CfnApi interface {
 	//
 	// For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
 	AttrApiEndpoint() *string
+	AttrApiId() *string
 	// Specifies how to interpret the base path of the API during import.
 	//
 	// Valid values are `ignore` , `prepend` , and `split` . The default value is `ignore` . To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html) . Supported only for HTTP APIs.
@@ -378,6 +380,16 @@ func (j *jsiiProxy_CfnApi) AttrApiEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrApiEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApi) AttrApiId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApiId",
 		&returns,
 	)
 	return returns

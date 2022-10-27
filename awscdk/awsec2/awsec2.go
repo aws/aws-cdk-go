@@ -4492,7 +4492,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationTimestamp", GoGetter: "AttrCreationTimestamp"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDnsEntries", GoGetter: "AttrDnsEntries"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkInterfaceIds", GoGetter: "AttrNetworkInterfaceIds"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

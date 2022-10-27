@@ -56,6 +56,10 @@ func init() {
 		reflect.TypeOf((*CfnNotificationChannel_NotificationChannelConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_devopsguru.CfnNotificationChannel.NotificationFilterConfigProperty",
+		reflect.TypeOf((*CfnNotificationChannel_NotificationFilterConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_devopsguru.CfnNotificationChannel.SnsChannelConfigProperty",
 		reflect.TypeOf((*CfnNotificationChannel_SnsChannelConfigProperty)(nil)).Elem(),
 	)

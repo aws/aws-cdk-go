@@ -128,6 +128,9 @@ type CfnCertificateAuthority interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// `AWS::ACMPCA::CertificateAuthority.UsageMode`.
+	UsageMode() *string
+	SetUsageMode(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	// Experimental.
 	AddDeletionOverride(path *string)
@@ -490,6 +493,16 @@ func (j *jsiiProxy_CfnCertificateAuthority) UpdatedProperites() *map[string]inte
 	return returns
 }
 
+func (j *jsiiProxy_CfnCertificateAuthority) UsageMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"usageMode",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::ACMPCA::CertificateAuthority`.
 func NewCfnCertificateAuthority(scope awscdk.Construct, id *string, props *CfnCertificateAuthorityProps) CfnCertificateAuthority {
@@ -590,6 +603,14 @@ func (j *jsiiProxy_CfnCertificateAuthority)SetType(val *string) {
 	_jsii_.Set(
 		j,
 		"type",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCertificateAuthority)SetUsageMode(val *string) {
+	_jsii_.Set(
+		j,
+		"usageMode",
 		val,
 	)
 }

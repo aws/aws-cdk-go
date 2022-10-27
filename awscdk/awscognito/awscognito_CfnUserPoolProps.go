@@ -34,6 +34,7 @@ package awscognito
 //   	autoVerifiedAttributes: []*string{
 //   		jsii.String("autoVerifiedAttributes"),
 //   	},
+//   	deletionProtection: jsii.String("deletionProtection"),
 //   	deviceConfiguration: &deviceConfigurationProperty{
 //   		challengeRequiredOnNewDevice: jsii.Boolean(false),
 //   		deviceOnlyRememberedOnUserPrompt: jsii.Boolean(false),
@@ -147,6 +148,8 @@ type CfnUserPoolProps struct {
 	//
 	// Possible values: *email* , *phone_number* .
 	AutoVerifiedAttributes *[]*string `field:"optional" json:"autoVerifiedAttributes" yaml:"autoVerifiedAttributes"`
+	// `AWS::Cognito::UserPool.DeletionProtection`.
+	DeletionProtection *string `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The device configuration.
 	DeviceConfiguration interface{} `field:"optional" json:"deviceConfiguration" yaml:"deviceConfiguration"`
 	// The email configuration of your user pool.

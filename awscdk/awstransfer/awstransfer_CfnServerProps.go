@@ -57,6 +57,12 @@ import (
 //   		},
 //   	},
 //   	workflowDetails: &workflowDetailsProperty{
+//   		onPartialUpload: []interface{}{
+//   			&workflowDetailProperty{
+//   				executionRole: jsii.String("executionRole"),
+//   				workflowId: jsii.String("workflowId"),
+//   			},
+//   		},
 //   		onUpload: []interface{}{
 //   			&workflowDetailProperty{
 //   				executionRole: jsii.String("executionRole"),

@@ -34,6 +34,8 @@ import (
 //   		email: jsii.String("email"),
 //   		firstName: jsii.String("firstName"),
 //   		lastName: jsii.String("lastName"),
+//   		mobile: jsii.String("mobile"),
+//   		secondaryEmail: jsii.String("secondaryEmail"),
 //   	},
 //   	password: jsii.String("password"),
 //   	tags: []cfnTag{

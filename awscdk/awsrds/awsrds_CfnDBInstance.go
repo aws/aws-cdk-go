@@ -95,6 +95,7 @@ import (
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
 //   	multiAz: jsii.Boolean(false),
 //   	ncharCharacterSetName: jsii.String("ncharCharacterSetName"),
+//   	networkType: jsii.String("networkType"),
 //   	optionGroupName: jsii.String("optionGroupName"),
 //   	performanceInsightsKmsKeyId: jsii.String("performanceInsightsKmsKeyId"),
 //   	performanceInsightsRetentionPeriod: jsii.Number(123),
@@ -744,6 +745,9 @@ type CfnDBInstance interface {
 	// `AWS::RDS::DBInstance.NcharCharacterSetName`.
 	NcharCharacterSetName() *string
 	SetNcharCharacterSetName(val *string)
+	// `AWS::RDS::DBInstance.NetworkType`.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
@@ -1550,6 +1554,16 @@ func (j *jsiiProxy_CfnDBInstance) NcharCharacterSetName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) Node() awscdk.ConstructNode {
 	var returns awscdk.ConstructNode
 	_jsii_.Get(
@@ -2109,6 +2123,14 @@ func (j *jsiiProxy_CfnDBInstance)SetNcharCharacterSetName(val *string) {
 	_jsii_.Set(
 		j,
 		"ncharCharacterSetName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

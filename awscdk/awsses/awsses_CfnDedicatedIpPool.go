@@ -18,6 +18,7 @@ import (
 //
 //   cfnDedicatedIpPool := awscdk.Aws_ses.NewCfnDedicatedIpPool(this, jsii.String("MyCfnDedicatedIpPool"), &cfnDedicatedIpPoolProps{
 //   	poolName: jsii.String("poolName"),
+//   	scalingMode: jsii.String("scalingMode"),
 //   })
 //
 type CfnDedicatedIpPool interface {
@@ -58,6 +59,9 @@ type CfnDedicatedIpPool interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// `AWS::SES::DedicatedIpPool.ScalingMode`.
+	ScalingMode() *string
+	SetScalingMode(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -321,6 +325,16 @@ func (j *jsiiProxy_CfnDedicatedIpPool) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDedicatedIpPool) ScalingMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scalingMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDedicatedIpPool) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -375,6 +389,14 @@ func (j *jsiiProxy_CfnDedicatedIpPool)SetPoolName(val *string) {
 	_jsii_.Set(
 		j,
 		"poolName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDedicatedIpPool)SetScalingMode(val *string) {
+	_jsii_.Set(
+		j,
+		"scalingMode",
 		val,
 	)
 }

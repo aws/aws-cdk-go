@@ -52,12 +52,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_budgets.CfnBudget.AutoAdjustDataProperty",
+		reflect.TypeOf((*CfnBudget_AutoAdjustDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_budgets.CfnBudget.BudgetDataProperty",
 		reflect.TypeOf((*CfnBudget_BudgetDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_budgets.CfnBudget.CostTypesProperty",
 		reflect.TypeOf((*CfnBudget_CostTypesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_budgets.CfnBudget.HistoricalOptionsProperty",
+		reflect.TypeOf((*CfnBudget_HistoricalOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_budgets.CfnBudget.NotificationProperty",

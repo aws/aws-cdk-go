@@ -26,6 +26,14 @@ import (
 //
 //   cfnNotificationChannel := awscdk.Aws_devopsguru.NewCfnNotificationChannel(this, jsii.String("MyCfnNotificationChannel"), &cfnNotificationChannelProps{
 //   	config: &notificationChannelConfigProperty{
+//   		filters: &notificationFilterConfigProperty{
+//   			messageTypes: []*string{
+//   				jsii.String("messageTypes"),
+//   			},
+//   			severities: []*string{
+//   				jsii.String("severities"),
+//   			},
+//   		},
 //   		sns: &snsChannelConfigProperty{
 //   			topicArn: jsii.String("topicArn"),
 //   		},

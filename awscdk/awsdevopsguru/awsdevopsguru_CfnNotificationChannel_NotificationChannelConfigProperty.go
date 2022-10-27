@@ -11,12 +11,22 @@ package awsdevopsguru
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   notificationChannelConfigProperty := &notificationChannelConfigProperty{
+//   	filters: &notificationFilterConfigProperty{
+//   		messageTypes: []*string{
+//   			jsii.String("messageTypes"),
+//   		},
+//   		severities: []*string{
+//   			jsii.String("severities"),
+//   		},
+//   	},
 //   	sns: &snsChannelConfigProperty{
 //   		topicArn: jsii.String("topicArn"),
 //   	},
 //   }
 //
 type CfnNotificationChannel_NotificationChannelConfigProperty struct {
+	// `CfnNotificationChannel.NotificationChannelConfigProperty.Filters`.
+	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 	//
 	// If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for cross account Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .

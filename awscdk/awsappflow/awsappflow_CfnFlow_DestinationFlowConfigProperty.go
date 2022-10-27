@@ -84,6 +84,7 @@ package awsappflow
 //   			object: jsii.String("object"),
 //
 //   			// the properties below are optional
+//   			dataTransferApi: jsii.String("dataTransferApi"),
 //   			errorHandlingConfig: &errorHandlingConfigProperty{
 //   				bucketName: jsii.String("bucketName"),
 //   				bucketPrefix: jsii.String("bucketPrefix"),

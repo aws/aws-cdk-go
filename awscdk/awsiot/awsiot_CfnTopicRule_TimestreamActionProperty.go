@@ -20,7 +20,6 @@ package awsiot
 //   	tableName: jsii.String("tableName"),
 //
 //   	// the properties below are optional
-//   	batchMode: jsii.Boolean(false),
 //   	timestamp: &timestreamTimestampProperty{
 //   		unit: jsii.String("unit"),
 //   		value: jsii.String("value"),
@@ -36,8 +35,6 @@ type CfnTopicRule_TimestreamActionProperty struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The table where the message data will be written.
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
-	// Whether to process the action as a batch.
-	BatchMode interface{} `field:"optional" json:"batchMode" yaml:"batchMode"`
 	// The value to use for the entry's timestamp.
 	//
 	// If blank, the time that the entry was processed is used.

@@ -17,6 +17,14 @@ package awsbudgets
 //   		timeUnit: jsii.String("timeUnit"),
 //
 //   		// the properties below are optional
+//   		autoAdjustData: &autoAdjustDataProperty{
+//   			autoAdjustType: jsii.String("autoAdjustType"),
+//
+//   			// the properties below are optional
+//   			historicalOptions: &historicalOptionsProperty{
+//   				budgetAdjustmentPeriod: jsii.Number(123),
+//   			},
+//   		},
 //   		budgetLimit: &spendProperty{
 //   			amount: jsii.Number(123),
 //   			unit: jsii.String("unit"),

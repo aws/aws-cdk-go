@@ -236,12 +236,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.BatchTransformInputProperty",
+		reflect.TypeOf((*CfnDataQualityJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.ConstraintsResourceProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.CsvProperty",
+		reflect.TypeOf((*CfnDataQualityJobDefinition_CsvProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty",
@@ -256,8 +264,16 @@ func init() {
 		reflect.TypeOf((*CfnDataQualityJobDefinition_DataQualityJobInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.DatasetFormatProperty",
+		reflect.TypeOf((*CfnDataQualityJobDefinition_DatasetFormatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_EndpointInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.JsonProperty",
+		reflect.TypeOf((*CfnDataQualityJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringOutputConfigProperty",
@@ -995,6 +1011,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.BatchTransformInputProperty",
+		reflect.TypeOf((*CfnModelBiasJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
@@ -1003,8 +1023,20 @@ func init() {
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.CsvProperty",
+		reflect.TypeOf((*CfnModelBiasJobDefinition_CsvProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.DatasetFormatProperty",
+		reflect.TypeOf((*CfnModelBiasJobDefinition_DatasetFormatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_EndpointInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.JsonProperty",
+		reflect.TypeOf((*CfnModelBiasJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty",
@@ -1110,6 +1142,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.BatchTransformInputProperty",
+		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
@@ -1118,8 +1154,20 @@ func init() {
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.CsvProperty",
+		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_CsvProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.DatasetFormatProperty",
+		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_DatasetFormatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_EndpointInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.JsonProperty",
+		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty",
@@ -1471,6 +1519,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.BatchTransformInputProperty",
+		reflect.TypeOf((*CfnModelQualityJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
@@ -1479,8 +1531,20 @@ func init() {
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.CsvProperty",
+		reflect.TypeOf((*CfnModelQualityJobDefinition_CsvProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.DatasetFormatProperty",
+		reflect.TypeOf((*CfnModelQualityJobDefinition_DatasetFormatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_EndpointInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.JsonProperty",
+		reflect.TypeOf((*CfnModelQualityJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty",
@@ -1587,6 +1651,10 @@ func init() {
 		reflect.TypeOf((*CfnMonitoringSchedule_BaselineConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnMonitoringSchedule.BatchTransformInputProperty",
+		reflect.TypeOf((*CfnMonitoringSchedule_BatchTransformInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnMonitoringSchedule.ClusterConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_ClusterConfigProperty)(nil)).Elem(),
 	)
@@ -1595,8 +1663,20 @@ func init() {
 		reflect.TypeOf((*CfnMonitoringSchedule_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnMonitoringSchedule.CsvProperty",
+		reflect.TypeOf((*CfnMonitoringSchedule_CsvProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnMonitoringSchedule.DatasetFormatProperty",
+		reflect.TypeOf((*CfnMonitoringSchedule_DatasetFormatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnMonitoringSchedule.EndpointInputProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_EndpointInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sagemaker.CfnMonitoringSchedule.JsonProperty",
+		reflect.TypeOf((*CfnMonitoringSchedule_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringAppSpecificationProperty",

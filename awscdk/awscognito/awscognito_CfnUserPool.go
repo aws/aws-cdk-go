@@ -46,6 +46,7 @@ import (
 //   	autoVerifiedAttributes: []*string{
 //   		jsii.String("autoVerifiedAttributes"),
 //   	},
+//   	deletionProtection: jsii.String("deletionProtection"),
 //   	deviceConfiguration: &deviceConfigurationProperty{
 //   		challengeRequiredOnNewDevice: jsii.Boolean(false),
 //   		deviceOnlyRememberedOnUserPrompt: jsii.Boolean(false),
@@ -183,6 +184,9 @@ type CfnUserPool interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
+	// `AWS::Cognito::UserPool.DeletionProtection`.
+	DeletionProtection() *string
+	SetDeletionProtection(val *string)
 	// The device configuration.
 	DeviceConfiguration() interface{}
 	SetDeviceConfiguration(val interface{})
@@ -593,6 +597,16 @@ func (j *jsiiProxy_CfnUserPool) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPool) DeletionProtection() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deletionProtection",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPool) DeviceConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -897,6 +911,14 @@ func (j *jsiiProxy_CfnUserPool)SetAutoVerifiedAttributes(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"autoVerifiedAttributes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool)SetDeletionProtection(val *string) {
+	_jsii_.Set(
+		j,
+		"deletionProtection",
 		val,
 	)
 }

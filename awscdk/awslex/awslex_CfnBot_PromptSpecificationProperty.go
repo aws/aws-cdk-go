@@ -70,6 +70,35 @@ package awslex
 //   	// the properties below are optional
 //   	allowInterrupt: jsii.Boolean(false),
 //   	messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
+//   	promptAttemptsSpecification: map[string]interface{}{
+//   		"promptAttemptsSpecificationKey": &PromptAttemptSpecificationProperty{
+//   			"allowedInputTypes": &AllowedInputTypesProperty{
+//   				"allowAudioInput": jsii.Boolean(false),
+//   				"allowDtmfInput": jsii.Boolean(false),
+//   			},
+//
+//   			// the properties below are optional
+//   			"allowInterrupt": jsii.Boolean(false),
+//   			"audioAndDtmfInputSpecification": &AudioAndDTMFInputSpecificationProperty{
+//   				"startTimeoutMs": jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				"audioSpecification": &AudioSpecificationProperty{
+//   					"endTimeoutMs": jsii.Number(123),
+//   					"maxLengthMs": jsii.Number(123),
+//   				},
+//   				"dtmfSpecification": &DTMFSpecificationProperty{
+//   					"deletionCharacter": jsii.String("deletionCharacter"),
+//   					"endCharacter": jsii.String("endCharacter"),
+//   					"endTimeoutMs": jsii.Number(123),
+//   					"maxLength": jsii.Number(123),
+//   				},
+//   			},
+//   			"textInputSpecification": &TextInputSpecificationProperty{
+//   				"startTimeoutMs": jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   }
 //
 type CfnBot_PromptSpecificationProperty struct {
@@ -83,5 +112,7 @@ type CfnBot_PromptSpecificationProperty struct {
 	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
 	// `CfnBot.PromptSpecificationProperty.MessageSelectionStrategy`.
 	MessageSelectionStrategy *string `field:"optional" json:"messageSelectionStrategy" yaml:"messageSelectionStrategy"`
+	// `CfnBot.PromptSpecificationProperty.PromptAttemptsSpecification`.
+	PromptAttemptsSpecification interface{} `field:"optional" json:"promptAttemptsSpecification" yaml:"promptAttemptsSpecification"`
 }
 

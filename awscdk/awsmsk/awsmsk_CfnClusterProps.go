@@ -107,6 +107,7 @@ package awsmsk
 //   			},
 //   		},
 //   	},
+//   	storageMode: jsii.String("storageMode"),
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -145,6 +146,8 @@ type CfnClusterProps struct {
 	LoggingInfo interface{} `field:"optional" json:"loggingInfo" yaml:"loggingInfo"`
 	// The settings for open monitoring.
 	OpenMonitoring interface{} `field:"optional" json:"openMonitoring" yaml:"openMonitoring"`
+	// `AWS::MSK::Cluster.StorageMode`.
+	StorageMode *string `field:"optional" json:"storageMode" yaml:"storageMode"`
 	// A map of key:value pairs to apply to this resource.
 	//
 	// Both key and value are of type String.

@@ -63,5 +63,7 @@ type CfnCertificateAuthorityProps struct {
 	//
 	// You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// `AWS::ACMPCA::CertificateAuthority.UsageMode`.
+	UsageMode *string `field:"optional" json:"usageMode" yaml:"usageMode"`
 }
 

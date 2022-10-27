@@ -8,6 +8,8 @@ package awsredshift
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var vpcEndpoint interface{}
+//
 //   cfnEndpointAccessProps := &cfnEndpointAccessProps{
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
 //   	endpointName: jsii.String("endpointName"),
@@ -18,6 +20,13 @@ package awsredshift
 //
 //   	// the properties below are optional
 //   	resourceOwner: jsii.String("resourceOwner"),
+//   	vpcEndpoint: vpcEndpoint,
+//   	vpcSecurityGroups: []interface{}{
+//   		&vpcSecurityGroupProperty{
+//   			status: jsii.String("status"),
+//   			vpcSecurityGroupId: jsii.String("vpcSecurityGroupId"),
+//   		},
+//   	},
 //   }
 //
 type CfnEndpointAccessProps struct {
@@ -31,5 +40,9 @@ type CfnEndpointAccessProps struct {
 	VpcSecurityGroupIds *[]*string `field:"required" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 	// The AWS account ID of the owner of the cluster.
 	ResourceOwner *string `field:"optional" json:"resourceOwner" yaml:"resourceOwner"`
+	// `AWS::Redshift::EndpointAccess.VpcEndpoint`.
+	VpcEndpoint interface{} `field:"optional" json:"vpcEndpoint" yaml:"vpcEndpoint"`
+	// `AWS::Redshift::EndpointAccess.VpcSecurityGroups`.
+	VpcSecurityGroups interface{} `field:"optional" json:"vpcSecurityGroups" yaml:"vpcSecurityGroups"`
 }
 

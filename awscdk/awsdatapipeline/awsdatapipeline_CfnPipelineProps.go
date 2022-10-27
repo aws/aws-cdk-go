@@ -10,6 +10,10 @@ package awsdatapipeline
 //
 //   cfnPipelineProps := &cfnPipelineProps{
 //   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	activate: jsii.Boolean(false),
+//   	description: jsii.String("description"),
 //   	parameterObjects: []interface{}{
 //   		&parameterObjectProperty{
 //   			attributes: []interface{}{
@@ -21,10 +25,6 @@ package awsdatapipeline
 //   			id: jsii.String("id"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	activate: jsii.Boolean(false),
-//   	description: jsii.String("description"),
 //   	parameterValues: []interface{}{
 //   		&parameterValueProperty{
 //   			id: jsii.String("id"),
@@ -57,14 +57,14 @@ package awsdatapipeline
 type CfnPipelineProps struct {
 	// The name of the pipeline.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The parameter objects used with the pipeline.
-	ParameterObjects interface{} `field:"required" json:"parameterObjects" yaml:"parameterObjects"`
 	// Indicates whether to validate and start the pipeline or stop an active pipeline.
 	//
 	// By default, the value is set to `true` .
 	Activate interface{} `field:"optional" json:"activate" yaml:"activate"`
 	// A description of the pipeline.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The parameter objects used with the pipeline.
+	ParameterObjects interface{} `field:"optional" json:"parameterObjects" yaml:"parameterObjects"`
 	// The parameter values used with the pipeline.
 	ParameterValues interface{} `field:"optional" json:"parameterValues" yaml:"parameterValues"`
 	// The objects that define the pipeline.

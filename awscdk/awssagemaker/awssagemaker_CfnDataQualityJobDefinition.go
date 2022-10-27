@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var json interface{}
+//
 //   cfnDataQualityJobDefinition := awscdk.Aws_sagemaker.NewCfnDataQualityJobDefinition(this, jsii.String("MyCfnDataQualityJobDefinition"), &cfnDataQualityJobDefinitionProps{
 //   	dataQualityAppSpecification: &dataQualityAppSpecificationProperty{
 //   		imageUri: jsii.String("imageUri"),
@@ -36,6 +38,21 @@ import (
 //   		recordPreprocessorSourceUri: jsii.String("recordPreprocessorSourceUri"),
 //   	},
 //   	dataQualityJobInput: &dataQualityJobInputProperty{
+//   		batchTransformInput: &batchTransformInputProperty{
+//   			dataCapturedDestinationS3Uri: jsii.String("dataCapturedDestinationS3Uri"),
+//   			datasetFormat: &datasetFormatProperty{
+//   				csv: &csvProperty{
+//   					header: jsii.Boolean(false),
+//   				},
+//   				json: json,
+//   				parquet: jsii.Boolean(false),
+//   			},
+//   			localPath: jsii.String("localPath"),
+//
+//   			// the properties below are optional
+//   			s3DataDistributionType: jsii.String("s3DataDistributionType"),
+//   			s3InputMode: jsii.String("s3InputMode"),
+//   		},
 //   		endpointInput: &endpointInputProperty{
 //   			endpointName: jsii.String("endpointName"),
 //   			localPath: jsii.String("localPath"),

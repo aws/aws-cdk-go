@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var vpcEndpoint interface{}
+//
 //   cfnEndpointAccess := awscdk.Aws_redshift.NewCfnEndpointAccess(this, jsii.String("MyCfnEndpointAccess"), &cfnEndpointAccessProps{
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
 //   	endpointName: jsii.String("endpointName"),
@@ -28,6 +30,13 @@ import (
 //
 //   	// the properties below are optional
 //   	resourceOwner: jsii.String("resourceOwner"),
+//   	vpcEndpoint: vpcEndpoint,
+//   	vpcSecurityGroups: []interface{}{
+//   		&vpcSecurityGroupProperty{
+//   			status: jsii.String("status"),
+//   			vpcSecurityGroupId: jsii.String("vpcSecurityGroupId"),
+//   		},
+//   	},
 //   })
 //
 type CfnEndpointAccess interface {
@@ -41,7 +50,6 @@ type CfnEndpointAccess interface {
 	AttrEndpointStatus() *string
 	// The port number on which the cluster accepts incoming connections.
 	AttrPort() *float64
-	AttrVpcSecurityGroups() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -97,9 +105,15 @@ type CfnEndpointAccess interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
+	// `AWS::Redshift::EndpointAccess.VpcEndpoint`.
+	VpcEndpoint() interface{}
+	SetVpcEndpoint(val interface{})
 	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
+	// `AWS::Redshift::EndpointAccess.VpcSecurityGroups`.
+	VpcSecurityGroups() interface{}
+	SetVpcSecurityGroups(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	// Experimental.
 	AddDeletionOverride(path *string)
@@ -312,16 +326,6 @@ func (j *jsiiProxy_CfnEndpointAccess) AttrPort() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpointAccess) AttrVpcSecurityGroups() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrVpcSecurityGroups",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnEndpointAccess) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -452,11 +456,31 @@ func (j *jsiiProxy_CfnEndpointAccess) UpdatedProperites() *map[string]interface{
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpointAccess) VpcEndpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpointAccess) VpcSecurityGroupIds() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"vpcSecurityGroupIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) VpcSecurityGroups() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcSecurityGroups",
 		&returns,
 	)
 	return returns
@@ -533,6 +557,17 @@ func (j *jsiiProxy_CfnEndpointAccess)SetSubnetGroupName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnEndpointAccess)SetVpcEndpoint(val interface{}) {
+	if err := j.validateSetVpcEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcEndpoint",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEndpointAccess)SetVpcSecurityGroupIds(val *[]*string) {
 	if err := j.validateSetVpcSecurityGroupIdsParameters(val); err != nil {
 		panic(err)
@@ -540,6 +575,17 @@ func (j *jsiiProxy_CfnEndpointAccess)SetVpcSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"vpcSecurityGroupIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAccess)SetVpcSecurityGroups(val interface{}) {
+	if err := j.validateSetVpcSecurityGroupsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcSecurityGroups",
 		val,
 	)
 }

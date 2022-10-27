@@ -12,6 +12,7 @@ package awsappflow
 //   	object: jsii.String("object"),
 //
 //   	// the properties below are optional
+//   	dataTransferApi: jsii.String("dataTransferApi"),
 //   	errorHandlingConfig: &errorHandlingConfigProperty{
 //   		bucketName: jsii.String("bucketName"),
 //   		bucketPrefix: jsii.String("bucketPrefix"),
@@ -26,6 +27,8 @@ package awsappflow
 type CfnFlow_SalesforceDestinationPropertiesProperty struct {
 	// The object specified in the Salesforce flow destination.
 	Object *string `field:"required" json:"object" yaml:"object"`
+	// `CfnFlow.SalesforceDestinationPropertiesProperty.DataTransferApi`.
+	DataTransferApi *string `field:"optional" json:"dataTransferApi" yaml:"dataTransferApi"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.

@@ -81,6 +81,35 @@ package awslex
 //   		// the properties below are optional
 //   		allowInterrupt: jsii.Boolean(false),
 //   		messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
+//   		promptAttemptsSpecification: map[string]interface{}{
+//   			"promptAttemptsSpecificationKey": &PromptAttemptSpecificationProperty{
+//   				"allowedInputTypes": &AllowedInputTypesProperty{
+//   					"allowAudioInput": jsii.Boolean(false),
+//   					"allowDtmfInput": jsii.Boolean(false),
+//   				},
+//
+//   				// the properties below are optional
+//   				"allowInterrupt": jsii.Boolean(false),
+//   				"audioAndDtmfInputSpecification": &AudioAndDTMFInputSpecificationProperty{
+//   					"startTimeoutMs": jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					"audioSpecification": &AudioSpecificationProperty{
+//   						"endTimeoutMs": jsii.Number(123),
+//   						"maxLengthMs": jsii.Number(123),
+//   					},
+//   					"dtmfSpecification": &DTMFSpecificationProperty{
+//   						"deletionCharacter": jsii.String("deletionCharacter"),
+//   						"endCharacter": jsii.String("endCharacter"),
+//   						"endTimeoutMs": jsii.Number(123),
+//   						"maxLength": jsii.Number(123),
+//   					},
+//   				},
+//   				"textInputSpecification": &TextInputSpecificationProperty{
+//   					"startTimeoutMs": jsii.Number(123),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	sampleUtterances: []interface{}{
 //   		&sampleUtteranceProperty{

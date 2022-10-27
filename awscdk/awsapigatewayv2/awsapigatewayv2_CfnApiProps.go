@@ -9,7 +9,6 @@ package awsapigatewayv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
-//   var tags interface{}
 //
 //   cfnApiProps := &cfnApiProps{
 //   	apiKeySelectionExpression: jsii.String("apiKeySelectionExpression"),
@@ -46,7 +45,9 @@ package awsapigatewayv2
 //   	protocolType: jsii.String("protocolType"),
 //   	routeKey: jsii.String("routeKey"),
 //   	routeSelectionExpression: jsii.String("routeSelectionExpression"),
-//   	tags: tags,
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	target: jsii.String("target"),
 //   	version: jsii.String("version"),
 //   }
@@ -109,7 +110,7 @@ type CfnApiProps struct {
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// This property is part of quick create.
 	//
 	// Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.

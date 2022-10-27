@@ -22,6 +22,14 @@ package awsbudgets
 //   	timeUnit: jsii.String("timeUnit"),
 //
 //   	// the properties below are optional
+//   	autoAdjustData: &autoAdjustDataProperty{
+//   		autoAdjustType: jsii.String("autoAdjustType"),
+//
+//   		// the properties below are optional
+//   		historicalOptions: &historicalOptionsProperty{
+//   			budgetAdjustmentPeriod: jsii.Number(123),
+//   		},
+//   	},
 //   	budgetLimit: &spendProperty{
 //   		amount: jsii.Number(123),
 //   		unit: jsii.String("unit"),
@@ -55,6 +63,8 @@ type CfnBudget_BudgetDataProperty struct {
 	//
 	// `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
 	TimeUnit *string `field:"required" json:"timeUnit" yaml:"timeUnit"`
+	// `CfnBudget.BudgetDataProperty.AutoAdjustData`.
+	AutoAdjustData interface{} `field:"optional" json:"autoAdjustData" yaml:"autoAdjustData"`
 	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
 	//
 	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.

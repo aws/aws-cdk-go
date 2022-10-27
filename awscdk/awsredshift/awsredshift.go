@@ -330,7 +330,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointCreateTime", GoGetter: "AttrEndpointCreateTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointStatus", GoGetter: "AttrEndpointStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPort", GoGetter: "AttrPort"},
-			_jsii_.MemberProperty{JsiiProperty: "attrVpcSecurityGroups", GoGetter: "AttrVpcSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -358,7 +357,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpoint", GoGetter: "VpcEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcSecurityGroupIds", GoGetter: "VpcSecurityGroupIds"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcSecurityGroups", GoGetter: "VpcSecurityGroups"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEndpointAccess{}

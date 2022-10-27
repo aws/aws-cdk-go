@@ -16,7 +16,6 @@ import (
 //   cfnFlowLogProps := &cfnFlowLogProps{
 //   	resourceId: jsii.String("resourceId"),
 //   	resourceType: jsii.String("resourceType"),
-//   	trafficType: jsii.String("trafficType"),
 //
 //   	// the properties below are optional
 //   	deliverLogsPermissionArn: jsii.String("deliverLogsPermissionArn"),
@@ -32,6 +31,7 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	trafficType: jsii.String("trafficType"),
 //   }
 //
 type CfnFlowLogProps struct {
@@ -41,10 +41,6 @@ type CfnFlowLogProps struct {
 	//
 	// For example, if you specified a VPC ID for the `ResourceId` property, specify `VPC` for this property.
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
-	// The type of traffic to log.
-	//
-	// You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType *string `field:"required" json:"trafficType" yaml:"trafficType"`
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
 	//
 	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
@@ -91,5 +87,9 @@ type CfnFlowLogProps struct {
 	MaxAggregationInterval *float64 `field:"optional" json:"maxAggregationInterval" yaml:"maxAggregationInterval"`
 	// The tags to apply to the flow logs.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The type of traffic to log.
+	//
+	// You can log traffic that the resource accepts or rejects, or all traffic.
+	TrafficType *string `field:"optional" json:"trafficType" yaml:"trafficType"`
 }
 

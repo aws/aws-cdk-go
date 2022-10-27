@@ -67,12 +67,24 @@ func init() {
 		reflect.TypeOf((*CfnBot_AdvancedRecognitionSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_lex.CfnBot.AllowedInputTypesProperty",
+		reflect.TypeOf((*CfnBot_AllowedInputTypesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_lex.CfnBot.AudioAndDTMFInputSpecificationProperty",
+		reflect.TypeOf((*CfnBot_AudioAndDTMFInputSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.AudioLogDestinationProperty",
 		reflect.TypeOf((*CfnBot_AudioLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.AudioLogSettingProperty",
 		reflect.TypeOf((*CfnBot_AudioLogSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_lex.CfnBot.AudioSpecificationProperty",
+		reflect.TypeOf((*CfnBot_AudioSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.BotAliasLocaleSettingsItemProperty",
@@ -113,6 +125,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.CustomVocabularyProperty",
 		reflect.TypeOf((*CfnBot_CustomVocabularyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_lex.CfnBot.DTMFSpecificationProperty",
+		reflect.TypeOf((*CfnBot_DTMFSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.DialogCodeHookSettingProperty",
@@ -203,6 +219,10 @@ func init() {
 		reflect.TypeOf((*CfnBot_PostFulfillmentStatusSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_lex.CfnBot.PromptAttemptSpecificationProperty",
+		reflect.TypeOf((*CfnBot_PromptAttemptSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.PromptSpecificationProperty",
 		reflect.TypeOf((*CfnBot_PromptSpecificationProperty)(nil)).Elem(),
 	)
@@ -273,6 +293,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.TestBotAliasSettingsProperty",
 		reflect.TypeOf((*CfnBot_TestBotAliasSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_lex.CfnBot.TextInputSpecificationProperty",
+		reflect.TypeOf((*CfnBot_TextInputSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_lex.CfnBot.TextLogDestinationProperty",

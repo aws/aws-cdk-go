@@ -38,6 +38,8 @@ import (
 //   	dbInstanceParameterGroupName: jsii.String("dbInstanceParameterGroupName"),
 //   	dbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   	deletionProtection: jsii.Boolean(false),
+//   	domain: jsii.String("domain"),
+//   	domainIamRoleName: jsii.String("domainIamRoleName"),
 //   	enableCloudwatchLogsExports: []*string{
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
@@ -52,6 +54,7 @@ import (
 //   	masterUserPassword: jsii.String("masterUserPassword"),
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
+//   	networkType: jsii.String("networkType"),
 //   	performanceInsightsEnabled: jsii.Boolean(false),
 //   	performanceInsightsKmsKeyId: jsii.String("performanceInsightsKmsKeyId"),
 //   	performanceInsightsRetentionPeriod: jsii.Number(123),
@@ -163,6 +166,10 @@ type CfnDBClusterProps struct {
 	//
 	// The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
+	// `AWS::RDS::DBCluster.Domain`.
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
+	// `AWS::RDS::DBCluster.DomainIAMRoleName`.
+	DomainIamRoleName *string `field:"optional" json:"domainIamRoleName" yaml:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
 	// The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide* .
@@ -252,6 +259,8 @@ type CfnDBClusterProps struct {
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// `AWS::RDS::DBCluster.MonitoringRoleArn`.
 	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
+	// `AWS::RDS::DBCluster.NetworkType`.
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// `AWS::RDS::DBCluster.PerformanceInsightsEnabled`.
 	PerformanceInsightsEnabled interface{} `field:"optional" json:"performanceInsightsEnabled" yaml:"performanceInsightsEnabled"`
 	// `AWS::RDS::DBCluster.PerformanceInsightsKmsKeyId`.

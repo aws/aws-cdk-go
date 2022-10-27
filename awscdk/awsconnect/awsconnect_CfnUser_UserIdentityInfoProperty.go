@@ -12,6 +12,8 @@ package awsconnect
 //   	email: jsii.String("email"),
 //   	firstName: jsii.String("firstName"),
 //   	lastName: jsii.String("lastName"),
+//   	mobile: jsii.String("mobile"),
+//   	secondaryEmail: jsii.String("secondaryEmail"),
 //   }
 //
 type CfnUser_UserIdentityInfoProperty struct {
@@ -27,5 +29,9 @@ type CfnUser_UserIdentityInfoProperty struct {
 	//
 	// This is required if you are using Amazon Connect or SAML for identity management.
 	LastName *string `field:"optional" json:"lastName" yaml:"lastName"`
+	// `CfnUser.UserIdentityInfoProperty.Mobile`.
+	Mobile *string `field:"optional" json:"mobile" yaml:"mobile"`
+	// `CfnUser.UserIdentityInfoProperty.SecondaryEmail`.
+	SecondaryEmail *string `field:"optional" json:"secondaryEmail" yaml:"secondaryEmail"`
 }
 

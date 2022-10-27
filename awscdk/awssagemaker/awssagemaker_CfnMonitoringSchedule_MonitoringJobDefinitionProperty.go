@@ -8,6 +8,8 @@ package awssagemaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var json interface{}
+//
 //   monitoringJobDefinitionProperty := &monitoringJobDefinitionProperty{
 //   	monitoringAppSpecification: &monitoringAppSpecificationProperty{
 //   		imageUri: jsii.String("imageUri"),
@@ -24,6 +26,21 @@ package awssagemaker
 //   	},
 //   	monitoringInputs: []interface{}{
 //   		&monitoringInputProperty{
+//   			batchTransformInput: &batchTransformInputProperty{
+//   				dataCapturedDestinationS3Uri: jsii.String("dataCapturedDestinationS3Uri"),
+//   				datasetFormat: &datasetFormatProperty{
+//   					csv: &csvProperty{
+//   						header: jsii.Boolean(false),
+//   					},
+//   					json: json,
+//   					parquet: jsii.Boolean(false),
+//   				},
+//   				localPath: jsii.String("localPath"),
+//
+//   				// the properties below are optional
+//   				s3DataDistributionType: jsii.String("s3DataDistributionType"),
+//   				s3InputMode: jsii.String("s3InputMode"),
+//   			},
 //   			endpointInput: &endpointInputProperty{
 //   				endpointName: jsii.String("endpointName"),
 //   				localPath: jsii.String("localPath"),

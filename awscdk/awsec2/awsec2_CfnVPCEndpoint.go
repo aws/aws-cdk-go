@@ -62,7 +62,6 @@ type CfnVPCEndpoint interface {
 	//
 	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
 	AttrDnsEntries() *[]*string
-	AttrId() *string
 	// (Interface endpoints) One or more network interface IDs.
 	//
 	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
@@ -343,16 +342,6 @@ func (j *jsiiProxy_CfnVPCEndpoint) AttrDnsEntries() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrDnsEntries",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnVPCEndpoint) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

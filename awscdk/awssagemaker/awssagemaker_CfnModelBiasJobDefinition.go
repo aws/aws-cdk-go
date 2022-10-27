@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var json interface{}
+//
 //   cfnModelBiasJobDefinition := awscdk.Aws_sagemaker.NewCfnModelBiasJobDefinition(this, jsii.String("MyCfnModelBiasJobDefinition"), &cfnModelBiasJobDefinitionProps{
 //   	jobResources: &monitoringResourcesProperty{
 //   		clusterConfig: &clusterConfigProperty{
@@ -39,6 +41,32 @@ import (
 //   		},
 //   	},
 //   	modelBiasJobInput: &modelBiasJobInputProperty{
+//   		groundTruthS3Input: &monitoringGroundTruthS3InputProperty{
+//   			s3Uri: jsii.String("s3Uri"),
+//   		},
+//
+//   		// the properties below are optional
+//   		batchTransformInput: &batchTransformInputProperty{
+//   			dataCapturedDestinationS3Uri: jsii.String("dataCapturedDestinationS3Uri"),
+//   			datasetFormat: &datasetFormatProperty{
+//   				csv: &csvProperty{
+//   					header: jsii.Boolean(false),
+//   				},
+//   				json: json,
+//   				parquet: jsii.Boolean(false),
+//   			},
+//   			localPath: jsii.String("localPath"),
+//
+//   			// the properties below are optional
+//   			endTimeOffset: jsii.String("endTimeOffset"),
+//   			featuresAttribute: jsii.String("featuresAttribute"),
+//   			inferenceAttribute: jsii.String("inferenceAttribute"),
+//   			probabilityAttribute: jsii.String("probabilityAttribute"),
+//   			probabilityThresholdAttribute: jsii.Number(123),
+//   			s3DataDistributionType: jsii.String("s3DataDistributionType"),
+//   			s3InputMode: jsii.String("s3InputMode"),
+//   			startTimeOffset: jsii.String("startTimeOffset"),
+//   		},
 //   		endpointInput: &endpointInputProperty{
 //   			endpointName: jsii.String("endpointName"),
 //   			localPath: jsii.String("localPath"),
@@ -52,9 +80,6 @@ import (
 //   			s3DataDistributionType: jsii.String("s3DataDistributionType"),
 //   			s3InputMode: jsii.String("s3InputMode"),
 //   			startTimeOffset: jsii.String("startTimeOffset"),
-//   		},
-//   		groundTruthS3Input: &monitoringGroundTruthS3InputProperty{
-//   			s3Uri: jsii.String("s3Uri"),
 //   		},
 //   	},
 //   	modelBiasJobOutputConfig: &monitoringOutputConfigProperty{

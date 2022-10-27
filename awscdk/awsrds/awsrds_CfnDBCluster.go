@@ -70,6 +70,8 @@ import (
 //   	dbInstanceParameterGroupName: jsii.String("dbInstanceParameterGroupName"),
 //   	dbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   	deletionProtection: jsii.Boolean(false),
+//   	domain: jsii.String("domain"),
+//   	domainIamRoleName: jsii.String("domainIamRoleName"),
 //   	enableCloudwatchLogsExports: []*string{
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
@@ -84,6 +86,7 @@ import (
 //   	masterUserPassword: jsii.String("masterUserPassword"),
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
+//   	networkType: jsii.String("networkType"),
 //   	performanceInsightsEnabled: jsii.Boolean(false),
 //   	performanceInsightsKmsKeyId: jsii.String("performanceInsightsKmsKeyId"),
 //   	performanceInsightsRetentionPeriod: jsii.Number(123),
@@ -231,6 +234,12 @@ type CfnDBCluster interface {
 	// The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
+	// `AWS::RDS::DBCluster.Domain`.
+	Domain() *string
+	SetDomain(val *string)
+	// `AWS::RDS::DBCluster.DomainIAMRoleName`.
+	DomainIamRoleName() *string
+	SetDomainIamRoleName(val *string)
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
 	// The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide* .
@@ -348,6 +357,9 @@ type CfnDBCluster interface {
 	// `AWS::RDS::DBCluster.MonitoringRoleArn`.
 	MonitoringRoleArn() *string
 	SetMonitoringRoleArn(val *string)
+	// `AWS::RDS::DBCluster.NetworkType`.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
@@ -880,6 +892,26 @@ func (j *jsiiProxy_CfnDBCluster) DeletionProtection() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) Domain() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domain",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) DomainIamRoleName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainIamRoleName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) EnableCloudwatchLogsExports() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -1015,6 +1047,16 @@ func (j *jsiiProxy_CfnDBCluster) MonitoringRoleArn() *string {
 	_jsii_.Get(
 		j,
 		"monitoringRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
 		&returns,
 	)
 	return returns
@@ -1404,6 +1446,22 @@ func (j *jsiiProxy_CfnDBCluster)SetDeletionProtection(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster)SetDomain(val *string) {
+	_jsii_.Set(
+		j,
+		"domain",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetDomainIamRoleName(val *string) {
+	_jsii_.Set(
+		j,
+		"domainIamRoleName",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster)SetEnableCloudwatchLogsExports(val *[]*string) {
 	_jsii_.Set(
 		j,
@@ -1513,6 +1571,14 @@ func (j *jsiiProxy_CfnDBCluster)SetMonitoringRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"monitoringRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

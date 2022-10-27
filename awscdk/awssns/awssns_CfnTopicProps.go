@@ -19,6 +19,7 @@ import (
 //   	displayName: jsii.String("displayName"),
 //   	fifoTopic: jsii.Boolean(false),
 //   	kmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   	signatureVersion: jsii.String("signatureVersion"),
 //   	subscription: []interface{}{
 //   		&subscriptionProperty{
 //   			endpoint: jsii.String("endpoint"),
@@ -54,6 +55,8 @@ type CfnTopicProps struct {
 	//
 	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html) .
 	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
+	// `AWS::SNS::Topic.SignatureVersion`.
+	SignatureVersion *string `field:"optional" json:"signatureVersion" yaml:"signatureVersion"`
 	// The Amazon SNS subscriptions (endpoints) for this topic.
 	Subscription interface{} `field:"optional" json:"subscription" yaml:"subscription"`
 	// The list of tags to add to a new topic.

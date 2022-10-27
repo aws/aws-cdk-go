@@ -156,6 +156,16 @@ import (
 //   				lambda: &lambdaActionProperty{
 //   					functionArn: jsii.String("functionArn"),
 //   				},
+//   				location: &locationActionProperty{
+//   					deviceId: jsii.String("deviceId"),
+//   					latitude: jsii.String("latitude"),
+//   					longitude: jsii.String("longitude"),
+//   					roleArn: jsii.String("roleArn"),
+//   					trackerName: jsii.String("trackerName"),
+//
+//   					// the properties below are optional
+//   					timestamp: NewDate(),
+//   				},
 //   				openSearch: &openSearchActionProperty{
 //   					endpoint: jsii.String("endpoint"),
 //   					id: jsii.String("id"),
@@ -211,7 +221,6 @@ import (
 //   					tableName: jsii.String("tableName"),
 //
 //   					// the properties below are optional
-//   					batchMode: jsii.Boolean(false),
 //   					timestamp: &timestreamTimestampProperty{
 //   						unit: jsii.String("unit"),
 //   						value: jsii.String("value"),
@@ -366,6 +375,16 @@ import (
 //   			lambda: &lambdaActionProperty{
 //   				functionArn: jsii.String("functionArn"),
 //   			},
+//   			location: &locationActionProperty{
+//   				deviceId: jsii.String("deviceId"),
+//   				latitude: jsii.String("latitude"),
+//   				longitude: jsii.String("longitude"),
+//   				roleArn: jsii.String("roleArn"),
+//   				trackerName: jsii.String("trackerName"),
+//
+//   				// the properties below are optional
+//   				timestamp: NewDate(),
+//   			},
 //   			openSearch: &openSearchActionProperty{
 //   				endpoint: jsii.String("endpoint"),
 //   				id: jsii.String("id"),
@@ -421,7 +440,6 @@ import (
 //   				tableName: jsii.String("tableName"),
 //
 //   				// the properties below are optional
-//   				batchMode: jsii.Boolean(false),
 //   				timestamp: &timestreamTimestampProperty{
 //   					unit: jsii.String("unit"),
 //   					value: jsii.String("value"),

@@ -48,6 +48,7 @@ package awsappflow
 //   		object: jsii.String("object"),
 //
 //   		// the properties below are optional
+//   		dataTransferApi: jsii.String("dataTransferApi"),
 //   		enableDynamicFieldUpdate: jsii.Boolean(false),
 //   		includeDeletedRecords: jsii.Boolean(false),
 //   	},

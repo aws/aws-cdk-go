@@ -89,6 +89,7 @@ import (
 //   					object: jsii.String("object"),
 //
 //   					// the properties below are optional
+//   					dataTransferApi: jsii.String("dataTransferApi"),
 //   					errorHandlingConfig: &errorHandlingConfigProperty{
 //   						bucketName: jsii.String("bucketName"),
 //   						bucketPrefix: jsii.String("bucketPrefix"),
@@ -209,6 +210,7 @@ import (
 //   				object: jsii.String("object"),
 //
 //   				// the properties below are optional
+//   				dataTransferApi: jsii.String("dataTransferApi"),
 //   				enableDynamicFieldUpdate: jsii.Boolean(false),
 //   				includeDeletedRecords: jsii.Boolean(false),
 //   			},

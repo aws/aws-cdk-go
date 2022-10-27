@@ -12,6 +12,7 @@ package awsappflow
 //   	object: jsii.String("object"),
 //
 //   	// the properties below are optional
+//   	dataTransferApi: jsii.String("dataTransferApi"),
 //   	enableDynamicFieldUpdate: jsii.Boolean(false),
 //   	includeDeletedRecords: jsii.Boolean(false),
 //   }
@@ -19,6 +20,8 @@ package awsappflow
 type CfnFlow_SalesforceSourcePropertiesProperty struct {
 	// The object specified in the Salesforce flow source.
 	Object *string `field:"required" json:"object" yaml:"object"`
+	// `CfnFlow.SalesforceSourcePropertiesProperty.DataTransferApi`.
+	DataTransferApi *string `field:"optional" json:"dataTransferApi" yaml:"dataTransferApi"`
 	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate interface{} `field:"optional" json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
 	// Indicates whether Amazon AppFlow includes deleted files in the flow run.

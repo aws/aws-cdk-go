@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsredshift
 
@@ -89,7 +88,15 @@ func (j *jsiiProxy_CfnEndpointAccess) validateSetSubnetGroupNameParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpointAccess) validateSetVpcEndpointParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEndpointAccess) validateSetVpcSecurityGroupIdsParameters(val *[]*string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) validateSetVpcSecurityGroupsParameters(val interface{}) error {
 	return nil
 }
 

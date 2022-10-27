@@ -11,6 +11,10 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   containerDefinitionProperty := &containerDefinitionProperty{
+//   	image: jsii.String("image"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
 //   	command: []*string{
 //   		jsii.String("command"),
 //   	},
@@ -72,7 +76,6 @@ package awsecs
 //   		timeout: jsii.Number(123),
 //   	},
 //   	hostname: jsii.String("hostname"),
-//   	image: jsii.String("image"),
 //   	interactive: jsii.Boolean(false),
 //   	links: []*string{
 //   		jsii.String("links"),
@@ -134,7 +137,6 @@ package awsecs
 //   			sourceVolume: jsii.String("sourceVolume"),
 //   		},
 //   	},
-//   	name: jsii.String("name"),
 //   	portMappings: []interface{}{
 //   		&portMappingProperty{
 //   			containerPort: jsii.Number(123),
@@ -186,6 +188,20 @@ package awsecs
 //   }
 //
 type CfnTaskDefinition_ContainerDefinitionProperty struct {
+	// The image used to start a container.
+	//
+	// This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `*repository-url* / *image* : *tag*` or `*repository-url* / *image* @ *digest*` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+	//
+	// - When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
+	// - Images in Amazon ECR repositories can be specified by either using the full `registry/repository:tag` or `registry/repository@digest` . For example, `012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest` or `012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE` .
+	// - Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo` ).
+	// - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
+	// - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
+	Image *string `field:"required" json:"image" yaml:"image"`
+	// The name of a container.
+	//
+	// If you're linking multiple containers together in a task definition, the `name` of one container can be entered in the `links` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to `name` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--name` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The command that's passed to the container.
 	//
 	// This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) . If there are multiple arguments, each argument is a separated string in the array.
@@ -300,16 +316,6 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	//
 	// > The `hostname` parameter is not supported if you're using the `awsvpc` network mode.
 	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
-	// The image used to start a container.
-	//
-	// This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `*repository-url* / *image* : *tag*` or `*repository-url* / *image* @ *digest*` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	//
-	// - When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
-	// - Images in Amazon ECR repositories can be specified by either using the full `registry/repository:tag` or `registry/repository@digest` . For example, `012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest` or `012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE` .
-	// - Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo` ).
-	// - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
-	// - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
-	Image *string `field:"optional" json:"image" yaml:"image"`
 	// When this parameter is `true` , you can deploy containerized applications that require `stdin` or a `tty` to be allocated.
 	//
 	// This parameter maps to `OpenStdin` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--interactive` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -362,10 +368,6 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	//
 	// Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
 	MountPoints interface{} `field:"optional" json:"mountPoints" yaml:"mountPoints"`
-	// The name of a container.
-	//
-	// If you're linking multiple containers together in a task definition, the `name` of one container can be entered in the `links` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to `name` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--name` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The list of port mappings for the container.
 	//
 	// Port mappings allow containers to access ports on the host container instance to send or receive traffic.

@@ -23,7 +23,6 @@ import (
 //   cfnFlowLog := awscdk.Aws_ec2.NewCfnFlowLog(this, jsii.String("MyCfnFlowLog"), &cfnFlowLogProps{
 //   	resourceId: jsii.String("resourceId"),
 //   	resourceType: jsii.String("resourceType"),
-//   	trafficType: jsii.String("trafficType"),
 //
 //   	// the properties below are optional
 //   	deliverLogsPermissionArn: jsii.String("deliverLogsPermissionArn"),
@@ -39,6 +38,7 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	trafficType: jsii.String("trafficType"),
 //   })
 //
 type CfnFlowLog interface {
@@ -651,9 +651,6 @@ func (j *jsiiProxy_CfnFlowLog)SetResourceType(val *string) {
 }
 
 func (j *jsiiProxy_CfnFlowLog)SetTrafficType(val *string) {
-	if err := j.validateSetTrafficTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"trafficType",

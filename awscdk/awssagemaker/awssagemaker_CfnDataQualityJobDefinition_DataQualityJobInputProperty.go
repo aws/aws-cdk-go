@@ -10,7 +10,24 @@ package awssagemaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var json interface{}
+//
 //   dataQualityJobInputProperty := &dataQualityJobInputProperty{
+//   	batchTransformInput: &batchTransformInputProperty{
+//   		dataCapturedDestinationS3Uri: jsii.String("dataCapturedDestinationS3Uri"),
+//   		datasetFormat: &datasetFormatProperty{
+//   			csv: &csvProperty{
+//   				header: jsii.Boolean(false),
+//   			},
+//   			json: json,
+//   			parquet: jsii.Boolean(false),
+//   		},
+//   		localPath: jsii.String("localPath"),
+//
+//   		// the properties below are optional
+//   		s3DataDistributionType: jsii.String("s3DataDistributionType"),
+//   		s3InputMode: jsii.String("s3InputMode"),
+//   	},
 //   	endpointInput: &endpointInputProperty{
 //   		endpointName: jsii.String("endpointName"),
 //   		localPath: jsii.String("localPath"),
@@ -22,7 +39,9 @@ package awssagemaker
 //   }
 //
 type CfnDataQualityJobDefinition_DataQualityJobInputProperty struct {
+	// `CfnDataQualityJobDefinition.DataQualityJobInputProperty.BatchTransformInput`.
+	BatchTransformInput interface{} `field:"optional" json:"batchTransformInput" yaml:"batchTransformInput"`
 	// `CfnDataQualityJobDefinition.DataQualityJobInputProperty.EndpointInput`.
-	EndpointInput interface{} `field:"required" json:"endpointInput" yaml:"endpointInput"`
+	EndpointInput interface{} `field:"optional" json:"endpointInput" yaml:"endpointInput"`
 }
 
