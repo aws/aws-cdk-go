@@ -1,7 +1,7 @@
 package awskinesisanalyticsv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnApplication`.

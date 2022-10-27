@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnRobot) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
-func (c *jsiiProxy_CfnRobot) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRobot) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRobot) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnRobot) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnRobot) validateSetGreengrassGroupIdParameters(val *string)
 	return nil
 }
 
-func validateNewCfnRobotParameters(scope awscdk.Construct, id *string, props *CfnRobotProps) error {
+func validateNewCfnRobotParameters(scope constructs.Construct, id *string, props *CfnRobotProps) error {
 	return nil
 }
 

@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnServiceLinkedRole) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnServiceLinkedRole) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnServiceLinkedRole) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnServiceLinkedRole) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnServiceLinkedRole) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnServiceLinkedRole) validateSetAwsServiceNameParameters(val
 	return nil
 }
 
-func validateNewCfnServiceLinkedRoleParameters(scope awscdk.Construct, id *string, props *CfnServiceLinkedRoleProps) error {
+func validateNewCfnServiceLinkedRoleParameters(scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) error {
 	return nil
 }
 

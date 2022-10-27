@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnAppBlock) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnAppBlock) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAppBlock) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAppBlock) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnAppBlock) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnAppBlock) validateSetSourceS3LocationParameters(val interf
 	return nil
 }
 
-func validateNewCfnAppBlockParameters(scope awscdk.Construct, id *string, props *CfnAppBlockProps) error {
+func validateNewCfnAppBlockParameters(scope constructs.Construct, id *string, props *CfnAppBlockProps) error {
 	return nil
 }
 

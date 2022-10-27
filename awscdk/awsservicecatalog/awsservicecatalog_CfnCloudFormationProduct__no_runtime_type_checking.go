@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnCloudFormationProduct) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFormationProduct) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCloudFormationProduct) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCloudFormationProduct) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCloudFormationProduct) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +84,7 @@ func (j *jsiiProxy_CfnCloudFormationProduct) validateSetReplaceProvisioningArtif
 	return nil
 }
 
-func validateNewCfnCloudFormationProductParameters(scope awscdk.Construct, id *string, props *CfnCloudFormationProductProps) error {
+func validateNewCfnCloudFormationProductParameters(scope constructs.Construct, id *string, props *CfnCloudFormationProductProps) error {
 	return nil
 }
 

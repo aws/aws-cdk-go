@@ -84,14 +84,6 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateNextParameters(nex
 	return nil
 }
 
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (e *jsiiProxy_EmrContainersCreateVirtualCluster) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

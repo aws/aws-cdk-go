@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnDeviceDefinition) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeviceDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDeviceDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDeviceDefinition) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnDeviceDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnDeviceDefinition) validateSetNameParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnDeviceDefinitionParameters(scope awscdk.Construct, id *string, props *CfnDeviceDefinitionProps) error {
+func validateNewCfnDeviceDefinitionParameters(scope constructs.Construct, id *string, props *CfnDeviceDefinitionProps) error {
 	return nil
 }
 

@@ -16,14 +16,6 @@ func (c *jsiiProxy_CloudFrontWebDistribution) validateGetResourceNameAttributePa
 	return nil
 }
 
-func (c *jsiiProxy_CloudFrontWebDistribution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CloudFrontWebDistribution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCloudFrontWebDistribution_FromDistributionAttributesParameters(scope constructs.Construct, id *string, attrs *CloudFrontWebDistributionAttributes) error {
 	return nil
 }
@@ -32,7 +24,11 @@ func validateCloudFrontWebDistribution_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
-func validateCloudFrontWebDistribution_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCloudFrontWebDistribution_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCloudFrontWebDistribution_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

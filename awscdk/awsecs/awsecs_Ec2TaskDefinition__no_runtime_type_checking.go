@@ -52,11 +52,7 @@ func (e *jsiiProxy_Ec2TaskDefinition) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (e *jsiiProxy_Ec2TaskDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (e *jsiiProxy_Ec2TaskDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (e *jsiiProxy_Ec2TaskDefinition) validateGrantRunParameters(grantee awsiam.IGrantable) error {
 	return nil
 }
 
@@ -80,7 +76,11 @@ func validateEc2TaskDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEc2TaskDefinition_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateEc2TaskDefinition_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateEc2TaskDefinition_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

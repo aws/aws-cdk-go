@@ -17,19 +17,14 @@ package awsec2
 //   	toPort: jsii.Number(123),
 //   }
 //
-// Experimental.
 type PortProps struct {
 	// The protocol for the range.
-	// Experimental.
 	Protocol Protocol `field:"required" json:"protocol" yaml:"protocol"`
 	// String representation for this object.
-	// Experimental.
 	StringRepresentation *string `field:"required" json:"stringRepresentation" yaml:"stringRepresentation"`
 	// The starting port for the range.
-	// Experimental.
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// The ending port for the range.
-	// Experimental.
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 

@@ -25,30 +25,24 @@ package awscloudwatch
 //   	evaluationPeriods: jsii.Number(3),
 //   })
 //
-// Experimental.
 type Statistic string
 
 const (
 	// The count (number) of data points used for the statistical calculation.
-	// Experimental.
 	Statistic_SAMPLE_COUNT Statistic = "SAMPLE_COUNT"
 	// The value of Sum / SampleCount during the specified period.
-	// Experimental.
 	Statistic_AVERAGE Statistic = "AVERAGE"
 	// All values submitted for the matching metric added together.
 	//
 	// This statistic can be useful for determining the total volume of a metric.
-	// Experimental.
 	Statistic_SUM Statistic = "SUM"
 	// The lowest value observed during the specified period.
 	//
 	// You can use this value to determine low volumes of activity for your application.
-	// Experimental.
 	Statistic_MINIMUM Statistic = "MINIMUM"
 	// The highest value observed during the specified period.
 	//
 	// You can use this value to determine high volumes of activity for your application.
-	// Experimental.
 	Statistic_MAXIMUM Statistic = "MAXIMUM"
 )
 

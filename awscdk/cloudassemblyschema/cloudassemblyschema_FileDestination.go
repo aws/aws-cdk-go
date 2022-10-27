@@ -18,22 +18,16 @@ package cloudassemblyschema
 //   	region: jsii.String("region"),
 //   }
 //
-// Experimental.
 type FileDestination struct {
 	// The role that needs to be assumed while publishing this asset.
-	// Experimental.
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The name of the bucket.
-	// Experimental.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The destination object key.
-	// Experimental.
 	ObjectKey *string `field:"required" json:"objectKey" yaml:"objectKey"`
 }
 

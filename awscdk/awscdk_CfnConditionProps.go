@@ -1,22 +1,23 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &cfnBucketProps{
+//   })
+//   // -or-
+//   rawBucketAlt := myBucket.node.defaultChild.(cfnBucket)
 //
-//   var cfnConditionExpression iCfnConditionExpression
-//
-//   cfnConditionProps := &cfnConditionProps{
-//   	expression: cfnConditionExpression,
+//   // then
+//   rawBucket.cfnOptions.condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &cfnConditionProps{
+//   })
+//   rawBucket.cfnOptions.metadata = map[string]interface{}{
+//   	"metadataKey": jsii.String("MetadataValue"),
 //   }
 //
-// Experimental.
 type CfnConditionProps struct {
 	// The expression that the condition will evaluate.
-	// Experimental.
 	Expression ICfnConditionExpression `field:"optional" json:"expression" yaml:"expression"`
 }
 

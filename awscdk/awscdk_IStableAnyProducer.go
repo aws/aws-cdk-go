@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -6,10 +6,8 @@ import (
 )
 
 // Interface for (stable) lazy untyped value producers.
-// Experimental.
 type IStableAnyProducer interface {
 	// Produce the value.
-	// Experimental.
 	Produce() interface{}
 }
 

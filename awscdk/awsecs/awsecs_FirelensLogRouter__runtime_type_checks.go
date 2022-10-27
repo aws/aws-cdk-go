@@ -7,9 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (f *jsiiProxy_FirelensLogRouter) validateAddContainerDependenciesParameters(containerDependencies *[]*ContainerDependency) error {
@@ -73,6 +72,18 @@ func (f *jsiiProxy_FirelensLogRouter) validateAddScratchParameters(scratch *Scra
 	return nil
 }
 
+func (f *jsiiProxy_FirelensLogRouter) validateAddSecretParameters(name *string, secret Secret) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if secret == nil {
+		return fmt.Errorf("parameter secret is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FirelensLogRouter) validateAddToExecutionPolicyParameters(statement awsiam.PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")
@@ -108,22 +119,6 @@ func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingParameters(containe
 
 	if protocol == "" {
 		return fmt.Errorf("parameter protocol is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (f *jsiiProxy_FirelensLogRouter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (f *jsiiProxy_FirelensLogRouter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

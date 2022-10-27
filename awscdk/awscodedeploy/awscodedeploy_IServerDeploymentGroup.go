@@ -3,26 +3,19 @@ package awscodedeploy
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awscodedeploy/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-// Experimental.
 type IServerDeploymentGroup interface {
 	awscdk.IResource
-	// Experimental.
 	Application() IServerApplication
-	// Experimental.
 	AutoScalingGroups() *[]awsautoscaling.IAutoScalingGroup
-	// Experimental.
 	DeploymentConfig() IServerDeploymentConfig
-	// Experimental.
 	DeploymentGroupArn() *string
-	// Experimental.
 	DeploymentGroupName() *string
-	// Experimental.
 	Role() awsiam.IRole
 }
 

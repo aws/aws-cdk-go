@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnClassifier) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnClassifier) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnClassifier) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnClassifier) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnClassifier) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +84,7 @@ func (j *jsiiProxy_CfnClassifier) validateSetXmlClassifierParameters(val interfa
 	return nil
 }
 
-func validateNewCfnClassifierParameters(scope awscdk.Construct, id *string, props *CfnClassifierProps) error {
+func validateNewCfnClassifierParameters(scope constructs.Construct, id *string, props *CfnClassifierProps) error {
 	return nil
 }
 

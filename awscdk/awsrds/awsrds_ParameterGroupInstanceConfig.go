@@ -12,10 +12,8 @@ package awsrds
 //   	parameterGroupName: jsii.String("parameterGroupName"),
 //   }
 //
-// Experimental.
 type ParameterGroupInstanceConfig struct {
 	// The name of this parameter group.
-	// Experimental.
 	ParameterGroupName *string `field:"required" json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 

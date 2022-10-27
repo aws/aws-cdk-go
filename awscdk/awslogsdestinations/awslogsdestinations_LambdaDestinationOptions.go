@@ -12,10 +12,8 @@ package awslogsdestinations
 //   	addPermissions: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type LambdaDestinationOptions struct {
 	// Whether or not to add Lambda Permissions.
-	// Experimental.
 	AddPermissions *bool `field:"optional" json:"addPermissions" yaml:"addPermissions"`
 }
 

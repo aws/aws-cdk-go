@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnStorageLens) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnStorageLens) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnStorageLens) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStorageLens) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnStorageLens) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnStorageLens) validateSetStorageLensConfigurationParameters
 	return nil
 }
 
-func validateNewCfnStorageLensParameters(scope awscdk.Construct, id *string, props *CfnStorageLensProps) error {
+func validateNewCfnStorageLensParameters(scope constructs.Construct, id *string, props *CfnStorageLensProps) error {
 	return nil
 }
 

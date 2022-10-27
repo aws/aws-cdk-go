@@ -3,13 +3,12 @@ package awscodeguruprofiler
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // IResource represents a Profiling Group.
-// Experimental.
 type IProfilingGroup interface {
 	awscdk.IResource
 	// Grant access to publish profiling information to the Profiling Group to the given identity.
@@ -18,7 +17,6 @@ type IProfilingGroup interface {
 	//
 	//   - codeguru-profiler:ConfigureAgent
 	// - codeguru-profiler:PostAgentProfile.
-	// Experimental.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to read profiling information from the Profiling Group to the given identity.
 	//
@@ -26,10 +24,8 @@ type IProfilingGroup interface {
 	//
 	//   - codeguru-profiler:GetProfile
 	// - codeguru-profiler:DescribeProfilingGroup.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// A name for the profiling group.
-	// Experimental.
 	ProfilingGroupName() *string
 }
 

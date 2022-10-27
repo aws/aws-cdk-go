@@ -16,19 +16,15 @@ func (s *jsiiProxy_SrvRecord) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
-func (s *jsiiProxy_SrvRecord) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_SrvRecord) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateSrvRecord_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSrvRecord_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateSrvRecord_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateSrvRecord_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

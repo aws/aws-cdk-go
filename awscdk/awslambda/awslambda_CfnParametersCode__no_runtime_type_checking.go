@@ -8,23 +8,11 @@ func (c *jsiiProxy_CfnParametersCode) validateAssignParameters(location *awss3.L
 	return nil
 }
 
-func (c *jsiiProxy_CfnParametersCode) validateBindParameters(scope awscdk.Construct) error {
+func (c *jsiiProxy_CfnParametersCode) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnParametersCode) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *ResourceBindOptions) error {
-	return nil
-}
-
-func validateCfnParametersCode_AssetParameters(path *string) error {
-	return nil
-}
-
-func validateCfnParametersCode_BucketParameters(bucket awss3.IBucket, key *string) error {
-	return nil
-}
-
-func validateCfnParametersCode_CfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }
 
@@ -53,10 +41,6 @@ func validateCfnParametersCode_FromEcrImageParameters(repository awsecr.IReposit
 }
 
 func validateCfnParametersCode_FromInlineParameters(code *string) error {
-	return nil
-}
-
-func validateCfnParametersCode_InlineParameters(code *string) error {
 	return nil
 }
 

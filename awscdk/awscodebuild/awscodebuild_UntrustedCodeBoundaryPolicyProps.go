@@ -1,7 +1,7 @@
 package awscodebuild
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Construction properties for UntrustedCodeBoundaryPolicy.
@@ -21,13 +21,10 @@ import (
 //   	managedPolicyName: jsii.String("managedPolicyName"),
 //   }
 //
-// Experimental.
 type UntrustedCodeBoundaryPolicyProps struct {
 	// Additional statements to add to the default set of statements.
-	// Experimental.
 	AdditionalStatements *[]awsiam.PolicyStatement `field:"optional" json:"additionalStatements" yaml:"additionalStatements"`
 	// The name of the managed policy.
-	// Experimental.
 	ManagedPolicyName *string `field:"optional" json:"managedPolicyName" yaml:"managedPolicyName"`
 }
 

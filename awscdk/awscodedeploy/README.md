@@ -4,7 +4,7 @@ AWS CodeDeploy is a deployment service that automates application deployments to
 Amazon EC2 instances, on-premises instances, serverless Lambda functions, or
 Amazon ECS services.
 
-The CDK currently supports Amazon EC2, on-premise and AWS Lambda applications.
+The CDK currently supports Amazon EC2, on-premise, AWS Lambda, and Amazon ECS applications.
 
 ## EC2/on-premise Applications
 
@@ -144,7 +144,7 @@ deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("Deploy
 })
 ```
 
-## Deployment Configurations
+## EC2/on-premise Deployment Configurations
 
 You can also pass a Deployment Configuration when creating the Deployment Group:
 
@@ -221,39 +221,6 @@ In order to deploy a new version of this function:
 2. Re-deploy the stack (this will trigger a deployment).
 3. Monitor the CodeDeploy deployment as traffic shifts between the versions.
 
-### Create a custom Deployment Config
-
-CodeDeploy for Lambda comes with built-in configurations for traffic shifting.
-If you want to specify your own strategy,
-you can do so with the CustomLambdaDeploymentConfig construct,
-letting you specify precisely how fast a new function version is deployed.
-
-```go
-var application lambdaApplication
-var alias alias
-config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
-	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
-	interval: awscdk.Duration.minutes(jsii.Number(1)),
-	percentage: jsii.Number(5),
-})
-deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
-	application: application,
-	alias: alias,
-	deploymentConfig: config,
-})
-```
-
-You can specify a custom name for your deployment config, but if you do you will not be able to update the interval/percentage through CDK.
-
-```go
-config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
-	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
-	interval: awscdk.Duration.minutes(jsii.Number(1)),
-	percentage: jsii.Number(5),
-	deploymentConfigName: jsii.String("MyDeploymentConfig"),
-})
-```
-
 ### Rollbacks and Alarms
 
 CodeDeploy will roll back if the deployment fails. You can optionally trigger a rollback when one or more alarms are in a failed state:
@@ -321,4 +288,118 @@ deploymentGroup := codedeploy.lambdaDeploymentGroup.fromLambdaDeploymentGroupAtt
 	application: application,
 	deploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
 })
+```
+
+## Lambda Deployment Configurations
+
+CodeDeploy for Lambda comes with predefined configurations for traffic shifting.
+The predefined configurations are available as LambdaDeploymentConfig constants.
+
+```go
+var application lambdaApplication
+var alias alias
+config := codedeploy.lambdaDeploymentConfig_CANARY_10PERCENT_30MINUTES()
+deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
+	application: application,
+	alias: alias,
+	deploymentConfig: config,
+})
+```
+
+If you want to specify your own strategy,
+you can do so with the LambdaDeploymentConfig construct,
+letting you specify precisely how fast a new function version is deployed.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var application lambdaApplication
+var alias alias
+config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &lambdaDeploymentConfigProps{
+	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+		"interval": cdk.Duration_minutes(jsii.Number(15)),
+		"percentage": jsii.Number(5),
+	}),
+})
+deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
+	application: application,
+	alias: alias,
+	deploymentConfig: config,
+})
+```
+
+You can specify a custom name for your deployment config, but if you do you will not be able to update the interval/percentage through CDK.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+config := codedeploy.NewLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &lambdaDeploymentConfigProps{
+	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+		"interval": cdk.Duration_minutes(jsii.Number(15)),
+		"percentage": jsii.Number(5),
+	}),
+	deploymentConfigName: jsii.String("MyDeploymentConfig"),
+})
+```
+
+To import an already existing Deployment Config:
+
+```go
+deploymentConfig := codedeploy.lambdaDeploymentConfig.fromLambdaDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
+```
+
+## ECS Applications
+
+To create a new CodeDeploy Application that deploys an ECS service:
+
+```go
+application := codedeploy.NewEcsApplication(this, jsii.String("CodeDeployApplication"), &ecsApplicationProps{
+	applicationName: jsii.String("MyApplication"),
+})
+```
+
+To import an already existing Application:
+
+```go
+application := codedeploy.ecsApplication.fromEcsApplicationName(this, jsii.String("ExistingCodeDeployApplication"), jsii.String("MyExistingApplication"))
+```
+
+## ECS Deployment Configurations
+
+CodeDeploy for ECS comes with predefined configurations for traffic shifting.
+The predefined configurations are available as LambdaDeploymentConfig constants.
+
+```go
+config := codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES()
+```
+
+If you want to specify your own strategy,
+you can do so with the EcsDeploymentConfig construct,
+letting you specify precisely how fast an ECS service is deployed.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &ecsDeploymentConfigProps{
+	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+		"interval": cdk.Duration_minutes(jsii.Number(15)),
+		"percentage": jsii.Number(5),
+	}),
+})
+```
+
+You can specify a custom name for your deployment config, but if you do you will not be able to update the interval/percentage through CDK.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+config := codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &ecsDeploymentConfigProps{
+	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
+		"interval": cdk.Duration_minutes(jsii.Number(15)),
+		"percentage": jsii.Number(5),
+	}),
+	deploymentConfigName: jsii.String("MyDeploymentConfig"),
+})
+```
+
+Or import an existing one:
+
+```go
+deploymentConfig := codedeploy.ecsDeploymentConfig.fromEcsDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
 ```

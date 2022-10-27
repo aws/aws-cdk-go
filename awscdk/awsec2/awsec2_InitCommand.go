@@ -1,13 +1,14 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Command to execute on the instance.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   handle := ec2.NewInitServiceRestartHandle()
 //   ec2.cloudFormationInit.fromElements(ec2.initCommand.shellCommand(jsii.String("/usr/bin/custom-nginx-install.sh"), &initCommandOptions{
 //   	serviceRestartHandles: []initServiceRestartHandle{
@@ -17,11 +18,9 @@ import (
 //   	serviceRestartHandle: handle,
 //   }))
 //
-// Experimental.
 type InitCommand interface {
 	InitElement
 	// Returns the init element type for this element.
-	// Experimental.
 	ElementType() *string
 }
 
@@ -44,7 +43,6 @@ func (j *jsiiProxy_InitCommand) ElementType() *string {
 // Run a command from an argv array.
 //
 // You do not need to escape space characters or enclose command parameters in quotes.
-// Experimental.
 func InitCommand_ArgvCommand(argv *[]*string, options *InitCommandOptions) InitCommand {
 	_init_.Initialize()
 
@@ -54,7 +52,7 @@ func InitCommand_ArgvCommand(argv *[]*string, options *InitCommandOptions) InitC
 	var returns InitCommand
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitCommand",
+		"aws-cdk-lib.aws_ec2.InitCommand",
 		"argvCommand",
 		[]interface{}{argv, options},
 		&returns,
@@ -67,7 +65,6 @@ func InitCommand_ArgvCommand(argv *[]*string, options *InitCommandOptions) InitC
 //
 // Remember that some characters like `&`, `|`, `;`, `>` etc. have special meaning in a shell and
 // need to be preceded by a `\` if you want to treat them as part of a filename.
-// Experimental.
 func InitCommand_ShellCommand(shellCommand *string, options *InitCommandOptions) InitCommand {
 	_init_.Initialize()
 
@@ -77,7 +74,7 @@ func InitCommand_ShellCommand(shellCommand *string, options *InitCommandOptions)
 	var returns InitCommand
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitCommand",
+		"aws-cdk-lib.aws_ec2.InitCommand",
 		"shellCommand",
 		[]interface{}{shellCommand, options},
 		&returns,

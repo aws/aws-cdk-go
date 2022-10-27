@@ -12,10 +12,8 @@ package awsservicecatalog
 //   	httpUrl: jsii.String("httpUrl"),
 //   }
 //
-// Experimental.
 type CloudFormationTemplateConfig struct {
 	// The http url of the template in S3.
-	// Experimental.
 	HttpUrl *string `field:"required" json:"httpUrl" yaml:"httpUrl"`
 }
 

@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
 // Specifies the awslogs log driver configuration options.
@@ -29,7 +29,6 @@ import (
 //   	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
 //   })
 //
-// Experimental.
 type AwsLogDriverProps struct {
 	// Prefix for the log streams.
 	//
@@ -39,23 +38,18 @@ type AwsLogDriverProps struct {
 	// this option, then the log stream takes the following format:
 	//
 	// prefix-name/container-name/ecs-task-id.
-	// Experimental.
 	StreamPrefix *string `field:"required" json:"streamPrefix" yaml:"streamPrefix"`
 	// This option defines a multiline start pattern in Python strftime format.
 	//
 	// A log message consists of a line that matches the pattern and any
 	// following lines that don’t match the pattern. Thus the matched line is
 	// the delimiter between log messages.
-	// Experimental.
 	DatetimeFormat *string `field:"optional" json:"datetimeFormat" yaml:"datetimeFormat"`
 	// The log group to log to.
-	// Experimental.
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs when the log group is automatically created by this construct.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// The delivery mode of log messages from the container to awslogs.
-	// Experimental.
 	Mode AwsLogDriverMode `field:"optional" json:"mode" yaml:"mode"`
 	// This option defines a multiline start pattern using a regular expression.
 	//
@@ -64,7 +58,6 @@ type AwsLogDriverProps struct {
 	// the delimiter between log messages.
 	//
 	// This option is ignored if datetimeFormat is also configured.
-	// Experimental.
 	MultilinePattern *string `field:"optional" json:"multilinePattern" yaml:"multilinePattern"`
 }
 

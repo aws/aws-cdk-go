@@ -43,21 +43,16 @@ package awsecs
 //   	}),
 //   })
 //
-// Experimental.
 type Compatibility string
 
 const (
 	// The task should specify the EC2 launch type.
-	// Experimental.
 	Compatibility_EC2 Compatibility = "EC2"
 	// The task should specify the Fargate launch type.
-	// Experimental.
 	Compatibility_FARGATE Compatibility = "FARGATE"
 	// The task can specify either the EC2 or Fargate launch types.
-	// Experimental.
 	Compatibility_EC2_AND_FARGATE Compatibility = "EC2_AND_FARGATE"
 	// The task should specify the External launch type.
-	// Experimental.
 	Compatibility_EXTERNAL Compatibility = "EXTERNAL"
 )
 

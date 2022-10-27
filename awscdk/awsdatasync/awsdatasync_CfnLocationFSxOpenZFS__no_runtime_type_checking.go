@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) validateSetSecurityGroupArnsParameters
 	return nil
 }
 
-func validateNewCfnLocationFSxOpenZFSParameters(scope awscdk.Construct, id *string, props *CfnLocationFSxOpenZFSProps) error {
+func validateNewCfnLocationFSxOpenZFSParameters(scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) error {
 	return nil
 }
 

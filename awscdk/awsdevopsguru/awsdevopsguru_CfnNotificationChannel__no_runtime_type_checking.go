@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnNotificationChannel) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotificationChannel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNotificationChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNotificationChannel) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnNotificationChannel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnNotificationChannel) validateSetConfigParameters(val inter
 	return nil
 }
 
-func validateNewCfnNotificationChannelParameters(scope awscdk.Construct, id *string, props *CfnNotificationChannelProps) error {
+func validateNewCfnNotificationChannelParameters(scope constructs.Construct, id *string, props *CfnNotificationChannelProps) error {
 	return nil
 }
 

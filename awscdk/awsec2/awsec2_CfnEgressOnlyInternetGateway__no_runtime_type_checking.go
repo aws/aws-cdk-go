@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateInspectParameters(inspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway) validateSetVpcIdParameters(val 
 	return nil
 }
 
-func validateNewCfnEgressOnlyInternetGatewayParameters(scope awscdk.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) error {
+func validateNewCfnEgressOnlyInternetGatewayParameters(scope constructs.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) error {
 	return nil
 }
 

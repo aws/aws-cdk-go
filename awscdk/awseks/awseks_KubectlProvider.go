@@ -1,15 +1,14 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
-	"github.com/aws/aws-cdk-go/awscdk/cxapi"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Implementation of Kubectl Lambda.
@@ -27,7 +26,6 @@ import (
 //   	kubectlProvider: kubectlProvider,
 //   })
 //
-// Experimental.
 type KubectlProvider interface {
 	awscdk.NestedStack
 	IKubectlProvider
@@ -36,9 +34,9 @@ type KubectlProvider interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.account` when the stack is defined. This can
-	//     either be a concerete account (e.g. `585695031111`) or the
-	//     `Aws.accountId` token.
-	// 3. `Aws.accountId`, which represents the CloudFormation intrinsic reference
+	//     either be a concrete account (e.g. `585695031111`) or the
+	//     `Aws.ACCOUNT_ID` token.
+	// 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -49,10 +47,8 @@ type KubectlProvider interface {
 	// into a **account-agnostic template**. In this case, your code should either
 	// fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
 	// implement some other region-agnostic behavior.
-	// Experimental.
 	Account() *string
 	// The ID of the cloud assembly artifact for this stack.
-	// Experimental.
 	ArtifactId() *string
 	// Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack.
 	//
@@ -66,13 +62,10 @@ type KubectlProvider interface {
 	// `DescribeAvailabilityZones` on the target environment.
 	//
 	// To specify a different strategy for selecting availability zones override this method.
-	// Experimental.
 	AvailabilityZones() *[]*string
 	// Indicates whether the stack requires bundling or not.
-	// Experimental.
 	BundlingRequired() *bool
 	// Return the stacks this stack depends on.
-	// Experimental.
 	Dependencies() *[]awscdk.Stack
 	// The environment coordinates in which this stack is deployed.
 	//
@@ -84,45 +77,34 @@ type KubectlProvider interface {
 	// environment.
 	//
 	// If either `stack.account` or `stack.region` are not concrete values (e.g.
-	// `Aws.account` or `Aws.region`) the special strings `unknown-account` and/or
+	// `Aws.ACCOUNT_ID` or `Aws.REGION`) the special strings `unknown-account` and/or
 	// `unknown-region` will be used respectively to indicate this stack is
 	// region/account-agnostic.
-	// Experimental.
 	Environment() *string
 	// The IAM execution role of the handler.
-	// Experimental.
 	HandlerRole() awsiam.IRole
 	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
-	// Experimental.
 	Nested() *bool
 	// If this is a nested stack, returns it's parent stack.
-	// Experimental.
 	NestedStackParent() awscdk.Stack
 	// If this is a nested stack, this represents its `AWS::CloudFormation::Stack` resource.
 	//
 	// `undefined` for top-level (non-nested) stacks.
-	// Experimental.
 	NestedStackResource() awscdk.CfnResource
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns the list of notification Amazon Resource Names (ARNs) for the current stack.
-	// Experimental.
 	NotificationArns() *[]*string
-	// Returns the parent of a nested stack.
-	// Deprecated: use `nestedStackParent`.
-	ParentStack() awscdk.Stack
 	// The partition in which this stack is defined.
-	// Experimental.
 	Partition() *string
 	// The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 	//
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.region` when the stack is defined. This can
-	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.region`
+	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
 	//     token.
-	// 3. `Aws.region`, which is represents the CloudFormation intrinsic reference
+	// 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::Region" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -133,13 +115,10 @@ type KubectlProvider interface {
 	// into a **region-agnostic template**. In this case, your code should either
 	// fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
 	// implement some other region-agnostic behavior.
-	// Experimental.
 	Region() *string
 	// The IAM role to assume in order to perform kubectl operations against this cluster.
-	// Experimental.
 	RoleArn() *string
 	// The custom resource provider's service token.
-	// Experimental.
 	ServiceToken() *string
 	// An attribute that represents the ID of the stack.
 	//
@@ -148,7 +127,6 @@ type KubectlProvider interface {
 	// - If this is referenced from the context of the nested stack, it will return `{ "Ref": "AWS::StackId" }`
 	//
 	// Example value: `arn:aws:cloudformation:us-east-2:123456789012:stack/mystack-mynestedstack-sggfrhxhum7w/f449b250-b969-11e0-a185-5081d0136786`.
-	// Experimental.
 	StackId() *string
 	// An attribute that represents the name of the nested stack.
 	//
@@ -157,42 +135,32 @@ type KubectlProvider interface {
 	// - If this is referenced from the context of the nested stack, it will return `{ "Ref": "AWS::StackName" }`
 	//
 	// Example value: `mystack-mynestedstack-sggfrhxhum7w`.
-	// Experimental.
 	StackName() *string
 	// Synthesis method for this stack.
-	// Experimental.
 	Synthesizer() awscdk.IStackSynthesizer
 	// Tags to be applied to the stack.
-	// Experimental.
 	Tags() awscdk.TagManager
 	// The name of the CloudFormation template file emitted to the output directory during synthesis.
 	//
 	// Example value: `MyStack.template.json`
-	// Experimental.
 	TemplateFile() *string
 	// Options for CloudFormation template (like version, transform, description).
-	// Experimental.
 	TemplateOptions() awscdk.ITemplateOptions
 	// Whether termination protection is enabled for this stack.
-	// Experimental.
 	TerminationProtection() *bool
 	// The Amazon domain suffix for the region in which this stack is defined.
-	// Experimental.
 	UrlSuffix() *string
 	// Add a dependency between this stack and another stack.
 	//
 	// This can be used to define dependencies between any two stacks within an
 	// app, and also supports nested stacks.
-	// Experimental.
 	AddDependency(target awscdk.Stack, reason *string)
-	// Register a docker image asset on this Stack.
-	// Deprecated: Use `stack.synthesizer.addDockerImageAsset()` if you are calling,
-	// and a different `IStackSynthesizer` class if you are implementing.
-	AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation
-	// Register a file asset on this Stack.
-	// Deprecated: Use `stack.synthesizer.addFileAsset()` if you are calling,
-	// and a different IStackSynthesizer class if you are implementing.
-	AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation
+	// Adds an arbitary key-value pair, with information you want to record about the stack.
+	//
+	// These get translated to the Metadata section of the generated template.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	AddMetadata(key *string, value interface{})
 	// Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
 	//
 	// Duplicate values are removed when stack is synthesized.
@@ -204,7 +172,6 @@ type KubectlProvider interface {
 	//
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
 	//
-	// Experimental.
 	AddTransform(transform *string)
 	// Returns the naming scheme used to allocate logical IDs.
 	//
@@ -244,7 +211,6 @@ type KubectlProvider interface {
 	// - If a component is named "Resource" it will be omitted from the user-visible
 	//    path, but included in the hash. This reduces visual noise in the human readable
 	//    part of the identifier.
-	// Experimental.
 	AllocateLogicalId(cfnElement awscdk.CfnElement) *string
 	// Create a CloudFormation Export for a value.
 	//
@@ -290,7 +256,6 @@ type KubectlProvider interface {
 	// - You are now free to remove the `bucket` resource from `producerStack`.
 	// - Don't forget to remove the `exportValue()` call as well.
 	// - Deploy again (this time only the `producerStack` will be changed -- the bucket will be deleted).
-	// Experimental.
 	ExportValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *string
 	// Creates an ARN from components.
 	//
@@ -302,12 +267,11 @@ type KubectlProvider interface {
 	//
 	// The ARN will be formatted as follows:
 	//
-	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}
+	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
 	//
 	// The required ARN pieces that are omitted will be taken from the stack that
 	// the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
 	// can be 'undefined'.
-	// Experimental.
 	FormatArn(components *awscdk.ArnComponents) *string
 	// Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource.
 	//
@@ -318,78 +282,7 @@ type KubectlProvider interface {
 	// This method uses the protected method `allocateLogicalId` to render the
 	// logical ID for an element. To modify the naming scheme, extend the `Stack`
 	// class and override this method.
-	// Experimental.
 	GetLogicalId(element awscdk.CfnElement) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Given an ARN, parses it and returns components.
-	//
-	// IF THE ARN IS A CONCRETE STRING...
-	//
-	// ...it will be parsed and validated. The separator (`sep`) will be set to '/'
-	// if the 6th component includes a '/', in which case, `resource` will be set
-	// to the value before the '/' and `resourceName` will be the rest. In case
-	// there is no '/', `resource` will be set to the 6th components and
-	// `resourceName` will be set to the rest of the string.
-	//
-	// IF THE ARN IS A TOKEN...
-	//
-	// ...it cannot be validated, since we don't have the actual value yet at the
-	// time of this function call. You will have to supply `sepIfToken` and
-	// whether or not ARNs of the expected format usually have resource names
-	// in order to parse it properly. The resulting `ArnComponents` object will
-	// contain tokens for the subexpressions of the ARN, not string literals.
-	//
-	// If the resource name could possibly contain the separator char, the actual
-	// resource name cannot be properly parsed. This only occurs if the separator
-	// char is '/', and happens for example for S3 object ARNs, IAM Role ARNs,
-	// IAM OIDC Provider ARNs, etc. To properly extract the resource name from a
-	// Tokenized ARN, you must know the resource type and call
-	// `Arn.extractResourceName`.
-	//
-	// Returns: an ArnComponents object which allows access to the various
-	// components of the ARN.
-	// Deprecated: use splitArn instead.
-	ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Deprecated.
-	//
-	// Returns: reference itself without any change.
-	// See: https://github.com/aws/aws-cdk/pull/7187
-	//
-	// Deprecated: cross reference handling has been moved to `App.prepare()`.
-	PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable
 	// Look up a fact value for the given fact for the region of this stack.
 	//
 	// Will return a definite value only if the region of the current stack is resolved.
@@ -407,28 +300,20 @@ type KubectlProvider interface {
 	//
 	// If `defaultValue` is not given, it is an error if the fact is unknown for
 	// the given region.
-	// Experimental.
 	RegionalFact(factName *string, defaultValue *string) *string
 	// Rename a generated logical identities.
 	//
 	// To modify the naming scheme strategy, extend the `Stack` class and
 	// override the `allocateLogicalId` method.
-	// Experimental.
 	RenameLogicalId(oldId *string, newId *string)
-	// DEPRECATED.
-	// Deprecated: use `reportMissingContextKey()`.
-	ReportMissingContext(report *cxapi.MissingContext)
 	// Indicate that a context key was expected.
 	//
 	// Contains instructions which will be emitted into the cloud assembly on how
 	// the key should be supplied.
-	// Experimental.
 	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	// Resolve a tokenized value in the context of the current stack.
-	// Experimental.
 	Resolve(obj interface{}) interface{}
 	// Assign a value to one of the nested stack parameters.
-	// Experimental.
 	SetParameter(name *string, value *string)
 	// Splits the provided ARN into its components.
 	//
@@ -436,28 +321,11 @@ type KubectlProvider interface {
 	// and a Token representing a dynamic CloudFormation expression
 	// (in which case the returned components will also be dynamic CloudFormation expressions,
 	// encoded as Tokens).
-	// Experimental.
 	SplitArn(arn *string, arnFormat awscdk.ArnFormat) *awscdk.ArnComponents
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Convert an object, potentially containing tokens, to a JSON string.
-	// Experimental.
 	ToJsonString(obj interface{}, space *float64) *string
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for KubectlProvider
@@ -566,8 +434,8 @@ func (j *jsiiProxy_KubectlProvider) NestedStackResource() awscdk.CfnResource {
 	return returns
 }
 
-func (j *jsiiProxy_KubectlProvider) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_KubectlProvider) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -581,16 +449,6 @@ func (j *jsiiProxy_KubectlProvider) NotificationArns() *[]*string {
 	_jsii_.Get(
 		j,
 		"notificationArns",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_KubectlProvider) ParentStack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"parentStack",
 		&returns,
 	)
 	return returns
@@ -717,7 +575,6 @@ func (j *jsiiProxy_KubectlProvider) UrlSuffix() *string {
 }
 
 
-// Experimental.
 func NewKubectlProvider(scope constructs.Construct, id *string, props *KubectlProviderProps) KubectlProvider {
 	_init_.Initialize()
 
@@ -727,7 +584,7 @@ func NewKubectlProvider(scope constructs.Construct, id *string, props *KubectlPr
 	j := jsiiProxy_KubectlProvider{}
 
 	_jsii_.Create(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -735,19 +592,17 @@ func NewKubectlProvider(scope constructs.Construct, id *string, props *KubectlPr
 	return &j
 }
 
-// Experimental.
 func NewKubectlProvider_Override(k KubectlProvider, scope constructs.Construct, id *string, props *KubectlProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		[]interface{}{scope, id, props},
 		k,
 	)
 }
 
 // Import an existing provider.
-// Experimental.
 func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, id *string, attrs *KubectlProviderAttributes) IKubectlProvider {
 	_init_.Initialize()
 
@@ -757,7 +612,7 @@ func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, i
 	var returns IKubectlProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		"fromKubectlProviderAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -767,7 +622,6 @@ func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, i
 }
 
 // Take existing provider or create new based on cluster.
-// Experimental.
 func KubectlProvider_GetOrCreate(scope constructs.Construct, cluster ICluster) IKubectlProvider {
 	_init_.Initialize()
 
@@ -777,7 +631,7 @@ func KubectlProvider_GetOrCreate(scope constructs.Construct, cluster ICluster) I
 	var returns IKubectlProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		"getOrCreate",
 		[]interface{}{scope, cluster},
 		&returns,
@@ -786,8 +640,23 @@ func KubectlProvider_GetOrCreate(scope constructs.Construct, cluster ICluster) I
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func KubectlProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -797,7 +666,7 @@ func KubectlProvider_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -807,7 +676,6 @@ func KubectlProvider_IsConstruct(x interface{}) *bool {
 }
 
 // Checks if `x` is an object of type `NestedStack`.
-// Experimental.
 func KubectlProvider_IsNestedStack(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -817,7 +685,7 @@ func KubectlProvider_IsNestedStack(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		"isNestedStack",
 		[]interface{}{x},
 		&returns,
@@ -829,7 +697,6 @@ func KubectlProvider_IsNestedStack(x interface{}) *bool {
 // Return whether the given object is a Stack.
 //
 // We do attribute detection since we can't reliably use 'instanceof'.
-// Experimental.
 func KubectlProvider_IsStack(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -839,7 +706,7 @@ func KubectlProvider_IsStack(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		"isStack",
 		[]interface{}{x},
 		&returns,
@@ -851,7 +718,6 @@ func KubectlProvider_IsStack(x interface{}) *bool {
 // Looks up the first stack scope in which `construct` is defined.
 //
 // Fails if there is no stack up the tree.
-// Experimental.
 func KubectlProvider_Of(construct constructs.IConstruct) awscdk.Stack {
 	_init_.Initialize()
 
@@ -861,7 +727,7 @@ func KubectlProvider_Of(construct constructs.IConstruct) awscdk.Stack {
 	var returns awscdk.Stack
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.KubectlProvider",
+		"aws-cdk-lib.aws_eks.KubectlProvider",
 		"of",
 		[]interface{}{construct},
 		&returns,
@@ -881,36 +747,15 @@ func (k *jsiiProxy_KubectlProvider) AddDependency(target awscdk.Stack, reason *s
 	)
 }
 
-func (k *jsiiProxy_KubectlProvider) AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation {
-	if err := k.validateAddDockerImageAssetParameters(asset); err != nil {
+func (k *jsiiProxy_KubectlProvider) AddMetadata(key *string, value interface{}) {
+	if err := k.validateAddMetadataParameters(key, value); err != nil {
 		panic(err)
 	}
-	var returns *awscdk.DockerImageAssetLocation
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		k,
-		"addDockerImageAsset",
-		[]interface{}{asset},
-		&returns,
+		"addMetadata",
+		[]interface{}{key, value},
 	)
-
-	return returns
-}
-
-func (k *jsiiProxy_KubectlProvider) AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation {
-	if err := k.validateAddFileAssetParameters(asset); err != nil {
-		panic(err)
-	}
-	var returns *awscdk.FileAssetLocation
-
-	_jsii_.Invoke(
-		k,
-		"addFileAsset",
-		[]interface{}{asset},
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubectlProvider) AddTransform(transform *string) {
@@ -988,78 +833,6 @@ func (k *jsiiProxy_KubectlProvider) GetLogicalId(element awscdk.CfnElement) *str
 	return returns
 }
 
-func (k *jsiiProxy_KubectlProvider) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubectlProvider) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := k.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubectlProvider) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (k *jsiiProxy_KubectlProvider) ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents {
-	if err := k.validateParseArnParameters(arn); err != nil {
-		panic(err)
-	}
-	var returns *awscdk.ArnComponents
-
-	_jsii_.Invoke(
-		k,
-		"parseArn",
-		[]interface{}{arn, sepIfToken, hasName},
-		&returns,
-	)
-
-	return returns
-}
-
-func (k *jsiiProxy_KubectlProvider) Prepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubectlProvider) PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable {
-	if err := k.validatePrepareCrossReferenceParameters(_sourceStack, reference); err != nil {
-		panic(err)
-	}
-	var returns awscdk.IResolvable
-
-	_jsii_.Invoke(
-		k,
-		"prepareCrossReference",
-		[]interface{}{_sourceStack, reference},
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubectlProvider) RegionalFact(factName *string, defaultValue *string) *string {
 	if err := k.validateRegionalFactParameters(factName); err != nil {
 		panic(err)
@@ -1084,17 +857,6 @@ func (k *jsiiProxy_KubectlProvider) RenameLogicalId(oldId *string, newId *string
 		k,
 		"renameLogicalId",
 		[]interface{}{oldId, newId},
-	)
-}
-
-func (k *jsiiProxy_KubectlProvider) ReportMissingContext(report *cxapi.MissingContext) {
-	if err := k.validateReportMissingContextParameters(report); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		k,
-		"reportMissingContext",
-		[]interface{}{report},
 	)
 }
 
@@ -1152,17 +914,6 @@ func (k *jsiiProxy_KubectlProvider) SplitArn(arn *string, arnFormat awscdk.ArnFo
 	return returns
 }
 
-func (k *jsiiProxy_KubectlProvider) Synthesize(session awscdk.ISynthesisSession) {
-	if err := k.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		k,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (k *jsiiProxy_KubectlProvider) ToJsonString(obj interface{}, space *float64) *string {
 	if err := k.validateToJsonStringParameters(obj); err != nil {
 		panic(err)
@@ -1185,19 +936,6 @@ func (k *jsiiProxy_KubectlProvider) ToString() *string {
 	_jsii_.Invoke(
 		k,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (k *jsiiProxy_KubectlProvider) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

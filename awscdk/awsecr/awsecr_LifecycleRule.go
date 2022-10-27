@@ -1,7 +1,7 @@
 package awsecr
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // An ECR life cycle rule.
@@ -19,20 +19,16 @@ import (
 //   	maxImageAge: awscdk.Duration.days(jsii.Number(30)),
 //   })
 //
-// Experimental.
 type LifecycleRule struct {
 	// Describes the purpose of the rule.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The maximum age of images to retain. The value must represent a number of days.
 	//
 	// Specify exactly one of maxImageCount and maxImageAge.
-	// Experimental.
 	MaxImageAge awscdk.Duration `field:"optional" json:"maxImageAge" yaml:"maxImageAge"`
 	// The maximum number of images to retain.
 	//
 	// Specify exactly one of maxImageCount and maxImageAge.
-	// Experimental.
 	MaxImageCount *float64 `field:"optional" json:"maxImageCount" yaml:"maxImageCount"`
 	// Controls the order in which rules are evaluated (low to high).
 	//
@@ -44,18 +40,15 @@ type LifecycleRule struct {
 	//
 	// All rules without a specified priority will have incrementing priorities
 	// automatically assigned to them, higher than any rules that DO have priorities.
-	// Experimental.
 	RulePriority *float64 `field:"optional" json:"rulePriority" yaml:"rulePriority"`
 	// Select images that have ALL the given prefixes in their tag.
 	//
 	// Only if tagStatus == TagStatus.Tagged
-	// Experimental.
 	TagPrefixList *[]*string `field:"optional" json:"tagPrefixList" yaml:"tagPrefixList"`
 	// Select images based on tags.
 	//
 	// Only one rule is allowed to select untagged images, and it must
 	// have the highest rulePriority.
-	// Experimental.
 	TagStatus TagStatus `field:"optional" json:"tagStatus" yaml:"tagStatus"`
 }
 

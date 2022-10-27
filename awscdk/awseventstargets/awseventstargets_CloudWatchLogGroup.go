@@ -1,39 +1,34 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
 // Use an AWS CloudWatch LogGroup as an event rule target.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
+//   var rule rule
 //
 //
-//   logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"), &logGroupProps{
-//   	logGroupName: jsii.String("MyLogGroup"),
-//   })
+//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+//   	logEvent: targets.logGroupTargetInput(map[string]*string{
+//   		"message": JSON.stringify(map[string]*string{
+//   			"CustomField": jsii.String("CustomValue"),
+//   		}),
+//   	}),
+//   }))
 //
-//   rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
-//   	eventPattern: &eventPattern{
-//   		source: []*string{
-//   			jsii.String("aws.ec2"),
-//   		},
-//   	},
-//   })
-//
-//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup))
-//
-// Experimental.
 type CloudWatchLogGroup interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to log an event into a CloudWatch LogGroup.
-	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -42,7 +37,6 @@ type jsiiProxy_CloudWatchLogGroup struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) CloudWatchLogGroup {
 	_init_.Initialize()
 
@@ -52,7 +46,7 @@ func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) Clo
 	j := jsiiProxy_CloudWatchLogGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.CloudWatchLogGroup",
+		"aws-cdk-lib.aws_events_targets.CloudWatchLogGroup",
 		[]interface{}{logGroup, props},
 		&j,
 	)
@@ -60,12 +54,11 @@ func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) Clo
 	return &j
 }
 
-// Experimental.
 func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogGroup, props *LogGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.CloudWatchLogGroup",
+		"aws-cdk-lib.aws_events_targets.CloudWatchLogGroup",
 		[]interface{}{logGroup, props},
 		c,
 	)

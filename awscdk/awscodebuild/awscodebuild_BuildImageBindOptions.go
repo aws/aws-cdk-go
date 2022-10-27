@@ -11,7 +11,6 @@ package awscodebuild
 //   buildImageBindOptions := &buildImageBindOptions{
 //   }
 //
-// Experimental.
 type BuildImageBindOptions struct {
 }
 

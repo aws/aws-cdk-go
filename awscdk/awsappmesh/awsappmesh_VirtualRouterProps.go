@@ -4,6 +4,7 @@ package awsappmesh
 // The properties used when creating a new VirtualRouter.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var infraStack stack
 //   var appStack stack
 //
@@ -23,16 +24,12 @@ package awsappmesh
 //   	},
 //   })
 //
-// Experimental.
 type VirtualRouterProps struct {
 	// Listener specification for the VirtualRouter.
-	// Experimental.
 	Listeners *[]VirtualRouterListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// The name of the VirtualRouter.
-	// Experimental.
 	VirtualRouterName *string `field:"optional" json:"virtualRouterName" yaml:"virtualRouterName"`
 	// The Mesh which the VirtualRouter belongs to.
-	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 }
 

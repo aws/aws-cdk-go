@@ -5,7 +5,7 @@ package pipelines
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
 )
 
 func (s *jsiiProxy_StackDeployment) validateAddStackDependencyParameters(stackDeployment StackDeployment) error {

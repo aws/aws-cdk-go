@@ -1,7 +1,7 @@
 # Assertions
 
 If you're migrating from the old `assert` library, the migration guide can be found in
-[our GitHub repository](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/assertions/MIGRATING.md).
+[our GitHub repository](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/assertions/MIGRATING.md).
 
 Functions for writing test asserting against CDK applications, with focus on CloudFormation templates.
 
@@ -24,6 +24,11 @@ Alternatively, assertions can be run on an existing CloudFormation template -
 templateJson := "{ \"Resources\": ... }" /* The CloudFormation template as JSON serialized string. */
 template := awscdk.Template.fromString(templateJson)
 ```
+
+**Cyclical Resources Note**
+
+If allowing cyclical references is desired, for example in the case of unprocessed Transform templates, supply TemplateParsingOptions and
+set skipCyclicalDependenciesCheck to true. In all other cases, will fail on detecting cyclical dependencies.
 
 ## Full Template Match
 
@@ -65,6 +70,20 @@ in a template.
 
 ```go
 template.resourceCountIs(jsii.String("Foo::Bar"), jsii.Number(2))
+```
+
+You can also count the number of resources of a specific type whose `Properties`
+section contains the specified properties:
+
+```go
+template.resourcePropertiesCountIs(jsii.String("Foo::Bar"), map[string]interface{}{
+	"Foo": jsii.String("Bar"),
+	"Baz": jsii.Number(5),
+	"Qux": []*string{
+		jsii.String("Waldo"),
+		jsii.String("Fred"),
+	},
+}, jsii.Number(1))
 ```
 
 ## Resource Matching & Retrieval

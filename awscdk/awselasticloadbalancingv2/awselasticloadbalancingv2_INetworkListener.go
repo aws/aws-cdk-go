@@ -3,16 +3,14 @@ package awselasticloadbalancingv2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
 )
 
 // Properties to reference an existing listener.
-// Experimental.
 type INetworkListener interface {
 	awscdk.IResource
 	// ARN of the listener.
-	// Experimental.
 	ListenerArn() *string
 }
 
