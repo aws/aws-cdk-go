@@ -701,7 +701,11 @@ The kubectl handler uses `kubectl`, `helm` and the `aws` CLI in order to
 interact with the cluster. These are bundled into AWS Lambda layers included in
 the `@aws-cdk/lambda-layer-awscli` and `@aws-cdk/lambda-layer-kubectl` modules.
 
-The version of kubectl used must be compatible wtih the Kubernetes version of the cluster. kubectl is supported within one minor version (older or newer) of Kubernetes (see [Kubernetes version skew policy](https://kubernetes.io/releases/version-skew-policy/#kubectl)). Only version 1.20 of kubectl is available in `aws-cdk-lib`. If you need a different version, you will need to use one of the `@aws-cdk/lambda-layer-kubectlvXY` packages.
+The version of kubectl used must be compatible with the Kubernetes version of the
+cluster. kubectl is supported within one minor version (older or newer) of Kubernetes
+(see [Kubernetes version skew policy](https://kubernetes.io/releases/version-skew-policy/#kubectl)).
+Only version 1.20 of kubectl is available in `aws-cdk-lib`. If you need a different
+version, you will need to use one of the `@aws-cdk/lambda-layer-kubectlvXY` packages.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
