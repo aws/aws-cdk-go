@@ -23,6 +23,13 @@ import (
 //   			"TEST_ENVIRONMENT_VARIABLE1": jsii.String("test environment variable 1 value"),
 //   			"TEST_ENVIRONMENT_VARIABLE2": jsii.String("test environment variable 2 value"),
 //   		},
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//   		entryPoint: []*string{
+//   			jsii.String("entry"),
+//   			jsii.String("point"),
+//   		},
 //   	},
 //   	desiredCount: jsii.Number(2),
 //   })

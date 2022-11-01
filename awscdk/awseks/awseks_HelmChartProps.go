@@ -43,7 +43,7 @@ type HelmChartProps struct {
 	Release *string `field:"optional" json:"release" yaml:"release"`
 	// The repository which contains the chart.
 	//
-	// For example: https://kubernetes-charts.storage.googleapis.com/
+	// For example: https://charts.helm.sh/stable/
 	Repository *string `field:"optional" json:"repository" yaml:"repository"`
 	// Amount of time to wait for any individual Kubernetes operation.
 	//

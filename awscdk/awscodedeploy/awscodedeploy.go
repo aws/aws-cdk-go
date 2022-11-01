@@ -398,6 +398,10 @@ func init() {
 		"aws-cdk-lib.aws_codedeploy.EcsApplicationProps",
 		reflect.TypeOf((*EcsApplicationProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codedeploy.EcsBlueGreenDeploymentConfig",
+		reflect.TypeOf((*EcsBlueGreenDeploymentConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codedeploy.EcsDeploymentConfig",
 		reflect.TypeOf((*EcsDeploymentConfig)(nil)).Elem(),
@@ -428,14 +432,37 @@ func init() {
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codedeploy.EcsDeploymentGroup",
 		reflect.TypeOf((*EcsDeploymentGroup)(nil)).Elem(),
-		nil, // no members
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAlarm", GoMethod: "AddAlarm"},
+			_jsii_.MemberProperty{JsiiProperty: "application", GoGetter: "Application"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentConfig", GoGetter: "DeploymentConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentGroupArn", GoGetter: "DeploymentGroupArn"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentGroupName", GoGetter: "DeploymentGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
 		func() interface{} {
-			return &jsiiProxy_EcsDeploymentGroup{}
+			j := jsiiProxy_EcsDeploymentGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEcsDeploymentGroup)
+			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.EcsDeploymentGroupAttributes",
 		reflect.TypeOf((*EcsDeploymentGroupAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codedeploy.EcsDeploymentGroupProps",
+		reflect.TypeOf((*EcsDeploymentGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codedeploy.IBaseDeploymentConfig",

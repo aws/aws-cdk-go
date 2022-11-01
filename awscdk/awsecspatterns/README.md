@@ -26,6 +26,13 @@ loadBalancedEcsService := ecsPatterns.NewApplicationLoadBalancedEc2Service(this,
 			"TEST_ENVIRONMENT_VARIABLE1": jsii.String("test environment variable 1 value"),
 			"TEST_ENVIRONMENT_VARIABLE2": jsii.String("test environment variable 2 value"),
 		},
+		command: []*string{
+			jsii.String("command"),
+		},
+		entryPoint: []*string{
+			jsii.String("entry"),
+			jsii.String("point"),
+		},
 	},
 	desiredCount: jsii.Number(2),
 })
@@ -42,6 +49,13 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	cpu: jsii.Number(512),
 	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
 		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+		command: []*string{
+			jsii.String("command"),
+		},
+		entryPoint: []*string{
+			jsii.String("entry"),
+			jsii.String("point"),
+		},
 	},
 })
 

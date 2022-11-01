@@ -8,19 +8,18 @@ import (
 // Properties for a Distribution.
 //
 // Example:
-//   // Adding an existing Lambda@Edge function created in a different stack
-//   // to a CloudFront distribution.
 //   var s3Bucket bucket
-//
-//   functionVersion := lambda.version.fromVersionArn(this, jsii.String("Version"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:functionName:1"))
-//
+//   // Add a cloudfront Function to a Distribution
+//   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &functionProps{
+//   	code: cloudfront.functionCode.fromInline(jsii.String("function handler(event) { return event.request }")),
+//   })
 //   cloudfront.NewDistribution(this, jsii.String("distro"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
 //   		origin: origins.NewS3Origin(s3Bucket),
-//   		edgeLambdas: []edgeLambda{
-//   			&edgeLambda{
-//   				functionVersion: functionVersion,
-//   				eventType: cloudfront.lambdaEdgeEventType_VIEWER_REQUEST,
+//   		functionAssociations: []functionAssociation{
+//   			&functionAssociation{
+//   				function: cfFunction,
+//   				eventType: cloudfront.functionEventType_VIEWER_REQUEST,
 //   			},
 //   		},
 //   	},

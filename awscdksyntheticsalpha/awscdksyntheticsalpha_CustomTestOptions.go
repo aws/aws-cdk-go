@@ -11,7 +11,7 @@ package awscdksyntheticsalpha
 //   		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		handler: jsii.String("index.handler"),
 //   	}),
-//   	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_7(),
+//   	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_8(),
 //   	environmentVariables: map[string]*string{
 //   		"stage": jsii.String("prod"),
 //   	},

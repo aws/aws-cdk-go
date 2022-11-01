@@ -293,6 +293,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_BaseListener{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListener)
 			return &j
 		},
 	)
@@ -778,7 +779,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IApplicationListener{}
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListener)
 			return &j
 		},
 	)
@@ -836,6 +837,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.IListener",
+		reflect.TypeOf((*IListener)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IListener{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IListenerAction",
 		reflect.TypeOf((*IListenerAction)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -884,7 +901,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_INetworkListener{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListener)
 			return &j
 		},
 	)

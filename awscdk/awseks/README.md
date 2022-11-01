@@ -705,22 +705,22 @@ The version of kubectl used must be compatible with the Kubernetes version of th
 cluster. kubectl is supported within one minor version (older or newer) of Kubernetes
 (see [Kubernetes version skew policy](https://kubernetes.io/releases/version-skew-policy/#kubectl)).
 Only version 1.20 of kubectl is available in `aws-cdk-lib`. If you need a different
-version, you will need to use one of the `@aws-cdk/lambda-layer-kubectlvXY` packages.
+version, you will need to use one of the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/awscdkliblambdalayerkubectlv22"
+import "github.com/aws-samples/dummy/awscdkliblambdalayerkubectlv23"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &clusterProps{
-	version: eks.kubernetesVersion_V1_22(),
-	kubectlLayer: *awscdkliblambdalayerkubectlv22.NewKubectlV22Layer(this, jsii.String("kubectl")),
+	version: eks.kubernetesVersion_V1_23(),
+	kubectlLayer: *awscdkliblambdalayerkubectlv23.NewKubectlV23Layer(this, jsii.String("kubectl")),
 })
 ```
 
 You can also specify a custom `lambda.LayerVersion` if you wish to use a
 different version of these tools, or a version not available in any of the
-`@aws-cdk/lambda-layer-kubectlvXY` packages. The handler expects the layer to
+`@aws-cdk/lambda-layer-kubectl-vXY` packages. The handler expects the layer to
 include the following two executables:
 
 ```text

@@ -41,6 +41,7 @@ type ApplicationListener interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// ARN of the listener.
 	ListenerArn() *string
 	// Load balancer this listener is associated with.
 	LoadBalancer() IApplicationLoadBalancer

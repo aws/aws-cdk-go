@@ -105,6 +105,11 @@ type VpcProps struct {
 	//
 	// Only necessary if you have more than one public subnet group.
 	NatGatewaySubnets *SubnetSelection `field:"optional" json:"natGatewaySubnets" yaml:"natGatewaySubnets"`
+	// Define the number of AZs to reserve.
+	//
+	// When specified, the IP space is reserved for the azs but no actual
+	// resources are provisioned.
+	ReservedAzs *float64 `field:"optional" json:"reservedAzs" yaml:"reservedAzs"`
 	// Configure the subnets to build for each AZ.
 	//
 	// Each entry in this list configures a Subnet Group; each group will contain a

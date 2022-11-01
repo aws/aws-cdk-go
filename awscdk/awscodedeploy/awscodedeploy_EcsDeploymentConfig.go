@@ -12,11 +12,24 @@ import (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   codedeploy.NewEcsDeploymentConfig(this, jsii.String("CustomConfig"), &ecsDeploymentConfigProps{
-//   	trafficRoutingConfig: codedeploy.NewTimeBasedCanaryTrafficRoutingConfig(map[string]interface{}{
-//   		"interval": cdk.Duration_minutes(jsii.Number(15)),
-//   		"percentage": jsii.Number(5),
-//   	}),
+//   codedeploy.NewEcsDeploymentGroup(stack, jsii.String("BlueGreenDG"), &ecsDeploymentGroupProps{
+//   	service: service,
+//   	blueGreenDeploymentConfig: &ecsBlueGreenDeploymentConfig{
+//   		blueTargetGroup: blueTargetGroup,
+//   		greenTargetGroup: greenTargetGroup,
+//   		listener: listener,
+//   		// CodeDeploy will wait for 30 minutes after completing the blue-green deployment before it terminates the blue tasks
+//   		terminationWaitTime: awscdk.Duration.minutes(jsii.Number(30)),
+//   	},
+//   	// CodeDeploy will continue to monitor these alarms during the 30-minute bake time and will automatically
+//   	// roll back if they go into a failed state at any point during the deployment.
+//   	alarms: []iAlarm{
+//   		blueUnhealthyHosts,
+//   		greenUnhealthyHosts,
+//   		blueApiFailure,
+//   		greenApiFailure,
+//   	},
+//   	deploymentConfig: codedeploy.ecsDeploymentConfig_CANARY_10PERCENT_5MINUTES(),
 //   })
 //
 type EcsDeploymentConfig interface {

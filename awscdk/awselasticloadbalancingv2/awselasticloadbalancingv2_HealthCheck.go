@@ -7,19 +7,26 @@ import (
 // Properties for configuring a health check.
 //
 // Example:
-//   var vpc vpc
+//   var cluster cluster
 //
-//
-//   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
-//   	targetType: elbv2.targetType_IP,
-//   	port: jsii.Number(50051),
-//   	protocol: elbv2.applicationProtocol_HTTP,
-//   	protocolVersion: elbv2.applicationProtocolVersion_GRPC,
-//   	healthCheck: &healthCheck{
-//   		enabled: jsii.Boolean(true),
-//   		healthyGrpcCodes: jsii.String("0-99"),
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   	cluster: cluster,
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
+//   		entryPoint: []*string{
+//   			jsii.String("entry"),
+//   			jsii.String("point"),
+//   		},
 //   	},
-//   	vpc: vpc,
+//   })
+//
+//   loadBalancedFargateService.targetGroup.configureHealthCheck(&healthCheck{
+//   	path: jsii.String("/custom-health-path"),
 //   })
 //
 type HealthCheck struct {

@@ -181,7 +181,8 @@ Nested stacks also support the use of Docker image and file assets.
 ## Accessing resources in a different stack
 
 You can access resources in a different stack, as long as they are in the
-same account and AWS Region. The following example defines the stack `stack1`,
+same account and AWS Region (see [next section](#accessing-resources-in-a-different-stack-and-region) for an exception).
+The following example defines the stack `stack1`,
 which defines an Amazon S3 bucket. Then it defines a second stack, `stack2`,
 which takes the bucket from stack1 as a constructor property.
 
@@ -211,6 +212,59 @@ in the producing stack and an
 [Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
 in the consuming stack to transfer that information from one stack to the
 other.
+
+## Accessing resources in a different stack and region
+
+> **This feature is currently experimental**
+
+You can enable the Stack property `crossRegionReferences`
+in order to access resources in a different stack *and* region. With this feature flag
+enabled it is possible to do something like creating a CloudFront distribution in `us-east-2` and
+an ACM certificate in `us-east-1`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-1"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), &certificateProps{
+	domainName: jsii.String("*.example.com"),
+	validation: acm.certificateValidation.fromDns(route53.publicHostedZone.fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+})
+
+stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-2"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &distributionProps{
+	defaultBehavior: &behaviorOptions{
+		origin: origins.NewHttpOrigin(jsii.String("example.com")),
+	},
+	domainNames: []*string{
+		jsii.String("dev.example.com"),
+	},
+	certificate: cert,
+})
+```
+
+When the AWS CDK determines that the resource is in a different stack *and* is in a different
+region, it will "export" the value by creating a custom resource in the producing stack which
+creates SSM Parameters in the consuming region for each exported value. The parameters will be
+created with the name '/cdk/exports/${consumingStackName}/${export-name}'.
+In order to "import" the exports into the consuming stack a [SSM Dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-ssm)
+is used to reference the SSM parameter which was created.
+
+In order to mimic strong references, a Custom Resource is also created in the consuming
+stack which marks the SSM parameters as being "imported". When a parameter has been successfully
+imported, the producing stack cannot update the value.
+
+See the [adr](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/core/adr/cross-region-stack-references)
+for more details on this feature.
 
 ### Removing automatic cross-stack references
 

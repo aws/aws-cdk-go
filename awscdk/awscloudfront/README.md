@@ -132,6 +132,45 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
 })
 ```
 
+#### Cross Region Certificates
+
+> **This feature is currently experimental**
+
+You can enable the Stack property `crossRegionReferences`
+in order to access resources in a different stack *and* region. With this feature flag
+enabled it is possible to do something like creating a CloudFront distribution in `us-east-2` and
+an ACM certificate in `us-east-1`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-1"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), map[string]interface{}{
+	"domainName": jsii.String("*.example.com"),
+	"validation": acm.CertificateValidation_fromDns(route53.PublicHostedZone_fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+})
+
+stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-2"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &distributionProps{
+	defaultBehavior: &behaviorOptions{
+		origin: origins.NewHttpOrigin(jsii.String("example.com")),
+	},
+	domainNames: []*string{
+		jsii.String("dev.example.com"),
+	},
+	certificate: cert,
+})
+```
+
 ### Multiple Behaviors & Origins
 
 Each distribution has a default behavior which applies to all requests to that distribution; additional behaviors may be specified for a

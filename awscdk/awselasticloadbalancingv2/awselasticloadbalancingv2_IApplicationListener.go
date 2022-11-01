@@ -12,7 +12,7 @@ import (
 // Properties to reference an existing listener.
 type IApplicationListener interface {
 	awsec2.IConnectable
-	awscdk.IResource
+	IListener
 	// Perform the given action on incoming requests.
 	//
 	// This allows full control of the default action of the load balancer,
@@ -46,14 +46,12 @@ type IApplicationListener interface {
 	//
 	// Don't call this directly. It is called by ApplicationTargetGroup.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
-	// ARN of the listener.
-	ListenerArn() *string
 }
 
 // The jsii proxy for IApplicationListener
 type jsiiProxy_IApplicationListener struct {
 	internal.Type__awsec2IConnectable
-	internal.Type__awscdkIResource
+	jsiiProxy_IListener
 }
 
 func (i *jsiiProxy_IApplicationListener) AddAction(id *string, props *AddApplicationActionProps) {
@@ -127,16 +125,6 @@ func (i *jsiiProxy_IApplicationListener) ApplyRemovalPolicy(policy awscdk.Remova
 	)
 }
 
-func (j *jsiiProxy_IApplicationListener) ListenerArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"listenerArn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_IApplicationListener) Connections() awsec2.Connections {
 	var returns awsec2.Connections
 	_jsii_.Get(
@@ -152,6 +140,16 @@ func (j *jsiiProxy_IApplicationListener) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplicationListener) ListenerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"listenerArn",
 		&returns,
 	)
 	return returns

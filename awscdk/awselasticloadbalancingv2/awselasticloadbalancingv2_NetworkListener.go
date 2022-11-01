@@ -41,6 +41,7 @@ type NetworkListener interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// ARN of the listener.
 	ListenerArn() *string
 	// The load balancer this listener is attached to.
 	LoadBalancer() INetworkLoadBalancer

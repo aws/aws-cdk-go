@@ -18,7 +18,7 @@ import (
 //
 //   var artifact artifact
 //   var artifactPath artifactPath
-//   var ecsDeploymentGroup iEcsDeploymentGroup
+//   var ecsDeploymentGroup ecsDeploymentGroup
 //   var role role
 //
 //   codeDeployEcsDeployActionProps := &codeDeployEcsDeployActionProps{

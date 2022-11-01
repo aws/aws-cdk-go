@@ -35,7 +35,7 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
 		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 		handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_7(),
+	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_8(),
 	environmentVariables: map[string]*string{
 		"stage": jsii.String("prod"),
 	},
@@ -124,7 +124,7 @@ synthetics.NewCanary(this, jsii.String("Inline Canary"), &canaryProps{
 		code: synthetics.code.fromInline(jsii.String("/* Synthetics handler code */")),
 		handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_7(),
+	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_8(),
 })
 
 // To supply the code from your local filesystem:
@@ -134,7 +134,7 @@ synthetics.NewCanary(this, jsii.String("Asset Canary"), &canaryProps{
 		code: synthetics.*code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 		handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.*runtime_SYNTHETICS_NODEJS_PUPPETEER_3_7(),
+	runtime: synthetics.*runtime_SYNTHETICS_NODEJS_PUPPETEER_3_8(),
 })
 bucket := s3.NewBucket(this, jsii.String("Code Bucket"))
 synthetics.NewCanary(this, jsii.String("Bucket Canary"), &canaryProps{
@@ -142,7 +142,7 @@ synthetics.NewCanary(this, jsii.String("Bucket Canary"), &canaryProps{
 		code: synthetics.*code.fromBucket(bucket, jsii.String("canary.zip")),
 		handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.*runtime_SYNTHETICS_NODEJS_PUPPETEER_3_7(),
+	runtime: synthetics.*runtime_SYNTHETICS_NODEJS_PUPPETEER_3_8(),
 })
 ```
 
@@ -181,7 +181,7 @@ synthetics.NewCanary(this, jsii.String("Vpc Canary"), &canaryProps{
 		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 		handler: jsii.String("index.handler"),
 	}),
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_7(),
+	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_8(),
 	vpc: vpc,
 })
 ```

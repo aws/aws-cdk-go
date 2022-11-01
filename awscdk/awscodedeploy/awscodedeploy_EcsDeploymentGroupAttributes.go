@@ -4,20 +4,12 @@ package awscodedeploy
 // Properties of a reference to a CodeDeploy ECS Deployment Group.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var application ecsApplication
 //
-//   var ecsApplication ecsApplication
-//   var ecsDeploymentConfig ecsDeploymentConfig
-//
-//   ecsDeploymentGroupAttributes := &ecsDeploymentGroupAttributes{
-//   	application: ecsApplication,
-//   	deploymentGroupName: jsii.String("deploymentGroupName"),
-//
-//   	// the properties below are optional
-//   	deploymentConfig: ecsDeploymentConfig,
-//   }
+//   deploymentGroup := codedeploy.ecsDeploymentGroup.fromEcsDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &ecsDeploymentGroupAttributes{
+//   	application: application,
+//   	deploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
+//   })
 //
 // See: EcsDeploymentGroup#fromEcsDeploymentGroupAttributes.
 //

@@ -58,6 +58,14 @@ type IntegTestCaseStackProps struct {
 	// Include runtime versioning information in this Stack.
 	// Experimental.
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
+	// Enable this flag to allow native cross region stack references.
+	//
+	// Enabling this will create a CloudFormation custom resource
+	// in both the producing stack and consuming stack in order to perform the export/import
+	//
+	// This feature is currently experimental.
+	// Experimental.
+	CrossRegionReferences *bool `field:"optional" json:"crossRegionReferences" yaml:"crossRegionReferences"`
 	// A description of the stack.
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`

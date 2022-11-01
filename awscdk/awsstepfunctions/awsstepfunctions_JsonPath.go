@@ -65,6 +65,191 @@ func JsonPath_Array(values ...*string) *string {
 	return returns
 }
 
+// Make an intrinsic States.ArrayContains expression.
+//
+// Use this function to determine if a specific value is present in an array. For example, you can use this function to detect if there was an error in a Map state iteration.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_ArrayContains(array interface{}, value interface{}) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_ArrayContainsParameters(array, value); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"arrayContains",
+		[]interface{}{array, value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.ArrayGetItem expression.
+//
+// Use this function to get a specified index's value in an array.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_ArrayGetItem(array interface{}, index *float64) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_ArrayGetItemParameters(array, index); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"arrayGetItem",
+		[]interface{}{array, index},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.ArrayLength expression.
+//
+// Use this function to get the length of an array.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_ArrayLength(array interface{}) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_ArrayLengthParameters(array); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"arrayLength",
+		[]interface{}{array},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.ArrayPartition expression.
+//
+// Use this function to partition a large array. You can also use this intrinsic to slice the data and then send the payload in smaller chunks.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_ArrayPartition(array interface{}, chunkSize *float64) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_ArrayPartitionParameters(array, chunkSize); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"arrayPartition",
+		[]interface{}{array, chunkSize},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.ArrayRange expression.
+//
+// Use this function to create a new array containing a specific range of elements. The new array can contain up to 1000 elements.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_ArrayRange(start *float64, end *float64, step *float64) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_ArrayRangeParameters(start, end, step); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"arrayRange",
+		[]interface{}{start, end, step},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.ArrayUnique expression.
+//
+// Use this function to get the length of an array.
+// Use this function to remove duplicate values from an array and returns an array containing only unique elements. This function takes an array, which can be unsorted, as its sole argument.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_ArrayUnique(array interface{}) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_ArrayUniqueParameters(array); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"arrayUnique",
+		[]interface{}{array},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.Base64Decode expression.
+//
+// Use this function to decode data based on MIME Base64 decoding scheme. You can use this function to pass data to other AWS services without using a Lambda function.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_Base64Decode(base64 *string) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_Base64DecodeParameters(base64); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"base64Decode",
+		[]interface{}{base64},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.Base64Encode expression.
+//
+// Use this function to encode data based on MIME Base64 encoding scheme. You can use this function to pass data to other AWS services without using an AWS Lambda function.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_Base64Encode(input *string) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_Base64EncodeParameters(input); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"base64Encode",
+		[]interface{}{input},
+		&returns,
+	)
+
+	return returns
+}
+
 // Make an intrinsic States.Format expression.
 //
 // This can be used to embed JSON Path variables inside a format string.
@@ -99,6 +284,29 @@ func JsonPath_Format(formatString *string, values ...*string) *string {
 	return returns
 }
 
+// Make an intrinsic States.Hash expression.
+//
+// Use this function to calculate the hash value of a given input. You can use this function to pass data to other AWS services without using a Lambda function.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_Hash(data interface{}, algorithm *string) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_HashParameters(data, algorithm); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"hash",
+		[]interface{}{data, algorithm},
+		&returns,
+	)
+
+	return returns
+}
+
 // Determines if the indicated string is an encoded JSON path.
 func JsonPath_IsEncodedJsonPath(value *string) *bool {
 	_init_.Initialize()
@@ -112,6 +320,29 @@ func JsonPath_IsEncodedJsonPath(value *string) *bool {
 		"aws-cdk-lib.aws_stepfunctions.JsonPath",
 		"isEncodedJsonPath",
 		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.JsonMerge expression.
+//
+// Use this function to merge two JSON objects into a single object.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_JsonMerge(value1 interface{}, value2 interface{}) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_JsonMergeParameters(value1, value2); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"jsonMerge",
+		[]interface{}{value1, value2},
 		&returns,
 	)
 
@@ -161,6 +392,52 @@ func JsonPath_ListAt(path *string) *[]*string {
 		"aws-cdk-lib.aws_stepfunctions.JsonPath",
 		"listAt",
 		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.MathAdd expression.
+//
+// Use this function to return the sum of two numbers. For example, you can use this function to increment values inside a loop without invoking a Lambda function.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_MathAdd(num1 *float64, num2 *float64) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_MathAddParameters(num1, num2); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"mathAdd",
+		[]interface{}{num1, num2},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.MathRandom expression.
+//
+// Use this function to return a random number between the specified start and end number. For example, you can use this function to distribute a specific task between two or more resources.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_MathRandom(start *float64, end *float64) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_MathRandomParameters(start, end); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"mathRandom",
+		[]interface{}{start, end},
 		&returns,
 	)
 
@@ -224,6 +501,29 @@ func JsonPath_StringAt(path *string) *string {
 	return returns
 }
 
+// Make an intrinsic States.StringSplit expression.
+//
+// Use this function to split a string into an array of values. This function takes two arguments.The first argument is a string and the second argument is the delimiting character that the function will use to divide the string.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_StringSplit(inputString *string, splitter *string) *string {
+	_init_.Initialize()
+
+	if err := validateJsonPath_StringSplitParameters(inputString, splitter); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"stringSplit",
+		[]interface{}{inputString, splitter},
+		&returns,
+	)
+
+	return returns
+}
+
 // Make an intrinsic States.StringToJson expression.
 //
 // During the execution of the Step Functions state machine, parse the given
@@ -248,6 +548,26 @@ func JsonPath_StringToJson(jsonString *string) awscdk.IResolvable {
 		"aws-cdk-lib.aws_stepfunctions.JsonPath",
 		"stringToJson",
 		[]interface{}{jsonString},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an intrinsic States.UUID expression.
+//
+// Use this function to return a version 4 universally unique identifier (v4 UUID) generated using random numbers. For example, you can use this function to call other AWS services or resources that need a UUID parameter or insert items in a DynamoDB table.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
+//
+func JsonPath_Uuid() *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"uuid",
+		nil, // no parameters
 		&returns,
 	)
 

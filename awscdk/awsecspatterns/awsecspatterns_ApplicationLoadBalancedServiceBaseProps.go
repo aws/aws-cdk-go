@@ -89,12 +89,18 @@ import (
 //   		image: containerImage,
 //
 //   		// the properties below are optional
+//   		command: []*string{
+//   			jsii.String("command"),
+//   		},
 //   		containerName: jsii.String("containerName"),
 //   		containerPort: jsii.Number(123),
 //   		dockerLabels: map[string]*string{
 //   			"dockerLabelsKey": jsii.String("dockerLabels"),
 //   		},
 //   		enableLogging: jsii.Boolean(false),
+//   		entryPoint: []*string{
+//   			jsii.String("entryPoint"),
+//   		},
 //   		environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
 //   		},

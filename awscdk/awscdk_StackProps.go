@@ -3,45 +3,44 @@ package awscdk
 
 
 // Example:
-//   type stackUnderTestProps struct {
-//   	stackProps
-//   	architecture architecture
-//   }
-//
-//   type stackUnderTest struct {
-//   	stack
-//   }
-//
-//   func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *stackUnderTest {
-//   	this := &stackUnderTest{}
-//   	newStack_Override(this, scope, id, props)
-//
-//   	lambda.NewFunction(this, jsii.String("Handler"), &functionProps{
-//   		runtime: lambda.runtime_NODEJS_14_X(),
-//   		handler: jsii.String("index.handler"),
-//   		code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
-//   		architecture: props.architecture,
-//   	})
-//   	return this
-//   }
-//
-//   // Beginning of the test suite
-//   app := awscdk.NewApp()
-//
-//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("DifferentArchitectures"), &integTestProps{
-//   	testCases: []*stack{
-//   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
-//   			architecture: lambda.*architecture_ARM_64(),
-//   		}),
-//   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
-//   			architecture: lambda.*architecture_X86_64(),
-//   		}),
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+//   	env: &environment{
+//   		region: jsii.String("us-east-1"),
 //   	},
+//   	crossRegionReferences: jsii.Boolean(true),
+//   })
+//   cert := acm.NewCertificate(stack1, jsii.String("Cert"), &certificateProps{
+//   	domainName: jsii.String("*.example.com"),
+//   	validation: acm.certificateValidation.fromDns(route53.publicHostedZone.fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+//   })
+//
+//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+//   	env: &environment{
+//   		region: jsii.String("us-east-2"),
+//   	},
+//   	crossRegionReferences: jsii.Boolean(true),
+//   })
+//   cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &distributionProps{
+//   	defaultBehavior: &behaviorOptions{
+//   		origin: origins.NewHttpOrigin(jsii.String("example.com")),
+//   	},
+//   	domainNames: []*string{
+//   		jsii.String("dev.example.com"),
+//   	},
+//   	certificate: cert,
 //   })
 //
 type StackProps struct {
 	// Include runtime versioning information in this Stack.
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
+	// Enable this flag to allow native cross region stack references.
+	//
+	// Enabling this will create a CloudFormation custom resource
+	// in both the producing stack and consuming stack in order to perform the export/import
+	//
+	// This feature is currently experimental.
+	CrossRegionReferences *bool `field:"optional" json:"crossRegionReferences" yaml:"crossRegionReferences"`
 	// A description of the stack.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS environment (account/region) where this stack will be deployed.

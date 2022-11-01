@@ -29,6 +29,16 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	//
 	// Image or taskDefinition must be specified, not both.
 	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
+	// The command that's passed to the container.
+	//
+	// If there are multiple arguments, make sure that each argument is a separated string in the array.
+	//
+	// This parameter maps to `Cmd` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section
+	// of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `COMMAND` parameter to
+	// [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+	//
+	// For more information about the Docker `CMD` parameter, see https://docs.docker.com/engine/reference/builder/#cmd.
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The container name value to be specified in the task definition.
 	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
@@ -46,6 +56,14 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	DockerLabels *map[string]*string `field:"optional" json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
 	EnableLogging *bool `field:"optional" json:"enableLogging" yaml:"enableLogging"`
+	// The entry point that's passed to the container.
+	//
+	// This parameter maps to `Entrypoint` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section
+	// of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--entrypoint` option to
+	// [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+	//
+	// For more information about the Docker `ENTRYPOINT` parameter, see https://docs.docker.com/engine/reference/builder/#entrypoint.
+	EntryPoint *[]*string `field:"optional" json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.

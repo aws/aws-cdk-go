@@ -13,28 +13,32 @@ import (
 // Create a Route53 public hosted zone.
 //
 // Example:
-//   subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &publicHostedZoneProps{
-//   	zoneName: jsii.String("sub.someexample.com"),
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+//   	env: &environment{
+//   		region: jsii.String("us-east-1"),
+//   	},
+//   	crossRegionReferences: jsii.Boolean(true),
+//   })
+//   cert := acm.NewCertificate(stack1, jsii.String("Cert"), &certificateProps{
+//   	domainName: jsii.String("*.example.com"),
+//   	validation: acm.certificateValidation.fromDns(route53.publicHostedZone.fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 //   })
 //
-//   // import the delegation role by constructing the roleArn
-//   delegationRoleArn := awscdk.stack.of(this).formatArn(&arnComponents{
-//   	region: jsii.String(""),
-//   	 // IAM is global in each partition
-//   	service: jsii.String("iam"),
-//   	account: jsii.String("parent-account-id"),
-//   	resource: jsii.String("role"),
-//   	resourceName: jsii.String("MyDelegationRole"),
+//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+//   	env: &environment{
+//   		region: jsii.String("us-east-2"),
+//   	},
+//   	crossRegionReferences: jsii.Boolean(true),
 //   })
-//   delegationRole := iam.role.fromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
-//
-//   // create the record
-//   // create the record
-//   route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &crossAccountZoneDelegationRecordProps{
-//   	delegatedZone: subZone,
-//   	parentHostedZoneName: jsii.String("someexample.com"),
-//   	 // or you can use parentHostedZoneId
-//   	delegationRole: delegationRole,
+//   cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &distributionProps{
+//   	defaultBehavior: &behaviorOptions{
+//   		origin: origins.NewHttpOrigin(jsii.String("example.com")),
+//   	},
+//   	domainNames: []*string{
+//   		jsii.String("dev.example.com"),
+//   	},
+//   	certificate: cert,
 //   })
 //
 type PublicHostedZone interface {

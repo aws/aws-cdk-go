@@ -12,6 +12,7 @@ import (
 // Base class for listeners.
 type BaseListener interface {
 	awscdk.Resource
+	IListener
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -21,6 +22,7 @@ type BaseListener interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// ARN of the listener.
 	ListenerArn() *string
 	// The tree node.
 	Node() constructs.Node
@@ -67,6 +69,7 @@ type BaseListener interface {
 // The jsii proxy struct for BaseListener
 type jsiiProxy_BaseListener struct {
 	internal.Type__awscdkResource
+	jsiiProxy_IListener
 }
 
 func (j *jsiiProxy_BaseListener) Env() *awscdk.ResourceEnvironment {
