@@ -1,4 +1,5 @@
 //go:build !no_runtime_type_checking
+// +build !no_runtime_type_checking
 
 // The CDK Construct Library for AWS::Cloud9
 package awscdkcloud9alpha
