@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -26,10 +25,6 @@ func validateUserData_ForLinuxParameters(options *LinuxUserDataOptions) error {
 }
 
 func validateUserData_ForOperatingSystemParameters(os OperatingSystemType) error {
-	return nil
-}
-
-func validateUserData_ForWindowsParameters(options *WindowsUserDataOptions) error {
 	return nil
 }
 

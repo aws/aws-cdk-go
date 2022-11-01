@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiotevents
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnInput) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
+func (c *jsiiProxy_CfnInput) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInput) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnInput) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInput) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnInput) validateSetInputDefinitionParameters(val interface{
 	return nil
 }
 
-func validateNewCfnInputParameters(scope constructs.Construct, id *string, props *CfnInputProps) error {
+func validateNewCfnInputParameters(scope awscdk.Construct, id *string, props *CfnInputProps) error {
 	return nil
 }
 

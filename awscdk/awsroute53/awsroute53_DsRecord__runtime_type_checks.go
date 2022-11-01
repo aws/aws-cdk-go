@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsroute53
 
@@ -8,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (d *jsiiProxy_DsRecord) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -43,6 +42,22 @@ func (d *jsiiProxy_DsRecord) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
+func (d *jsiiProxy_DsRecord) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DsRecord) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateDsRecord_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -51,15 +66,7 @@ func validateDsRecord_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDsRecord_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateDsRecord_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDsRecord_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsservicecatalog
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResourceUpdateConstraint) validateInspectParameters(inspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnResourceUpdateConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResourceUpdateConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResourceUpdateConstraint) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResourceUpdateConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnResourceUpdateConstraint) validateSetTagUpdateOnProvisione
 	return nil
 }
 
-func validateNewCfnResourceUpdateConstraintParameters(scope constructs.Construct, id *string, props *CfnResourceUpdateConstraintProps) error {
+func validateNewCfnResourceUpdateConstraintParameters(scope awscdk.Construct, id *string, props *CfnResourceUpdateConstraintProps) error {
 	return nil
 }
 

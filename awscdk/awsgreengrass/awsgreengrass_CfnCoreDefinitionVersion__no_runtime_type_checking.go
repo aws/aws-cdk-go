@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsgreengrass
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) validateInspectParameters(inspector
 	return nil
 }
 
+func (c *jsiiProxy_CfnCoreDefinitionVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCoreDefinitionVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCoreDefinitionVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCoreDefinitionVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) validateSetCoresParameters(val inte
 	return nil
 }
 
-func validateNewCfnCoreDefinitionVersionParameters(scope constructs.Construct, id *string, props *CfnCoreDefinitionVersionProps) error {
+func validateNewCfnCoreDefinitionVersionParameters(scope awscdk.Construct, id *string, props *CfnCoreDefinitionVersionProps) error {
 	return nil
 }
 

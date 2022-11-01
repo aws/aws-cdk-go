@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapplicationautoscaling
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnScalingPolicy) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnScalingPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnScalingPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnScalingPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnScalingPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetTargetTrackingScalingPolicyConfi
 	return nil
 }
 
-func validateNewCfnScalingPolicyParameters(scope constructs.Construct, id *string, props *CfnScalingPolicyProps) error {
+func validateNewCfnScalingPolicyParameters(scope awscdk.Construct, id *string, props *CfnScalingPolicyProps) error {
 	return nil
 }
 

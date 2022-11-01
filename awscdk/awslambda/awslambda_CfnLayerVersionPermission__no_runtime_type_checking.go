@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslambda
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnLayerVersionPermission) validateInspectParameters(inspecto
 	return nil
 }
 
+func (c *jsiiProxy_CfnLayerVersionPermission) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLayerVersionPermission) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLayerVersionPermission) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLayerVersionPermission) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnLayerVersionPermission) validateSetPrincipalParameters(val
 	return nil
 }
 
-func validateNewCfnLayerVersionPermissionParameters(scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) error {
+func validateNewCfnLayerVersionPermissionParameters(scope awscdk.Construct, id *string, props *CfnLayerVersionPermissionProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssecretsmanager
 
@@ -10,6 +9,10 @@ func (s *jsiiProxy_Secret) validateAddReplicaRegionParameters(region *string) er
 }
 
 func (s *jsiiProxy_Secret) validateAddRotationScheduleParameters(id *string, options *RotationScheduleOptions) error {
+	return nil
+}
+
+func (s *jsiiProxy_Secret) validateAddTargetAttachmentParameters(id *string, options *AttachedSecretOptions) error {
 	return nil
 }
 
@@ -41,7 +44,19 @@ func (s *jsiiProxy_Secret) validateGrantWriteParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
+func (s *jsiiProxy_Secret) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (s *jsiiProxy_Secret) validateSecretValueFromJsonParameters(jsonField *string) error {
+	return nil
+}
+
+func (s *jsiiProxy_Secret) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func validateSecret_FromSecretArnParameters(scope constructs.Construct, id *string, secretArn *string) error {
 	return nil
 }
 
@@ -50,6 +65,10 @@ func validateSecret_FromSecretAttributesParameters(scope constructs.Construct, i
 }
 
 func validateSecret_FromSecretCompleteArnParameters(scope constructs.Construct, id *string, secretCompleteArn *string) error {
+	return nil
+}
+
+func validateSecret_FromSecretNameParameters(scope constructs.Construct, id *string, secretName *string) error {
 	return nil
 }
 
@@ -65,15 +84,7 @@ func validateSecret_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSecret_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSecret_IsResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSecret_IsSecretParameters(x interface{}) error {
+func validateSecret_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

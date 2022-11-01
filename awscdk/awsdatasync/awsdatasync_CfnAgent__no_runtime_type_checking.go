@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsdatasync
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnAgent) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
+func (c *jsiiProxy_CfnAgent) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAgent) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAgent) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAgent) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnAgent) validateSetActivationKeyParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnAgentParameters(scope constructs.Construct, id *string, props *CfnAgentProps) error {
+func validateNewCfnAgentParameters(scope awscdk.Construct, id *string, props *CfnAgentProps) error {
 	return nil
 }
 

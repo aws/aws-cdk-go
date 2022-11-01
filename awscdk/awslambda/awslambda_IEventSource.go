@@ -5,8 +5,10 @@ import (
 )
 
 // An abstract class which represents an AWS Lambda event source.
+// Experimental.
 type IEventSource interface {
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
+	// Experimental.
 	Bind(target IFunction)
 }
 

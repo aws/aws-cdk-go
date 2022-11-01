@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateInspectParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateSetVpcIdPara
 	return nil
 }
 
-func validateNewCfnLocalGatewayRouteTableVPCAssociationParameters(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteTableVPCAssociationProps) error {
+func validateNewCfnLocalGatewayRouteTableVPCAssociationParameters(scope awscdk.Construct, id *string, props *CfnLocalGatewayRouteTableVPCAssociationProps) error {
 	return nil
 }
 

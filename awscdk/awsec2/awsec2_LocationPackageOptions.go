@@ -17,12 +17,15 @@ package awsec2
 //   	},
 //   }
 //
+// Experimental.
 type LocationPackageOptions struct {
 	// Identifier key for this package.
 	//
 	// You can use this to order package installs.
+	// Experimental.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Restart the given service after this command has run.
+	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 }
 

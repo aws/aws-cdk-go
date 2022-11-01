@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsrds
 
@@ -21,6 +20,14 @@ func (d *jsiiProxy_DatabaseProxy) validateGrantConnectParameters(grantee awsiam.
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseProxy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseProxy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDatabaseProxy_FromDatabaseProxyAttributesParameters(scope constructs.Construct, id *string, attrs *DatabaseProxyAttributes) error {
 	return nil
 }
@@ -29,11 +36,7 @@ func validateDatabaseProxy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDatabaseProxy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDatabaseProxy_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDatabaseProxy_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

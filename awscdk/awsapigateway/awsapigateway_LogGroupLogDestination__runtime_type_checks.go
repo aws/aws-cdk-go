@@ -1,12 +1,11 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsapigateway
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
 )
 
 func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(_stage IStage) error {

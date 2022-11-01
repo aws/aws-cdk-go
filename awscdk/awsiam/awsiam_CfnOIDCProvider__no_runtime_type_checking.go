@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiam
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnOIDCProvider) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnOIDCProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnOIDCProvider) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnOIDCProvider) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnOIDCProvider) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnOIDCProvider) validateSetThumbprintListParameters(val *[]*
 	return nil
 }
 
-func validateNewCfnOIDCProviderParameters(scope constructs.Construct, id *string, props *CfnOIDCProviderProps) error {
+func validateNewCfnOIDCProviderParameters(scope awscdk.Construct, id *string, props *CfnOIDCProviderProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) validateSetVpnGatewayIdParamet
 	return nil
 }
 
-func validateNewCfnVPNGatewayRoutePropagationParameters(scope constructs.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) error {
+func validateNewCfnVPNGatewayRoutePropagationParameters(scope awscdk.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) error {
 	return nil
 }
 

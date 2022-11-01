@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package experimental
 
@@ -73,15 +72,19 @@ func (e *jsiiProxy_EdgeFunction) validateMetricThrottlesParameters(props *awsclo
 	return nil
 }
 
+func (e *jsiiProxy_EdgeFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EdgeFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateEdgeFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEdgeFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateEdgeFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateEdgeFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

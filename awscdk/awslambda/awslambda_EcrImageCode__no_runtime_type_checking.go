@@ -1,15 +1,26 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslambda
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (e *jsiiProxy_EcrImageCode) validateBindParameters(_arg constructs.Construct) error {
+func (e *jsiiProxy_EcrImageCode) validateBindParameters(_arg awscdk.Construct) error {
 	return nil
 }
 
 func (e *jsiiProxy_EcrImageCode) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *ResourceBindOptions) error {
+	return nil
+}
+
+func validateEcrImageCode_AssetParameters(path *string) error {
+	return nil
+}
+
+func validateEcrImageCode_BucketParameters(bucket awss3.IBucket, key *string) error {
+	return nil
+}
+
+func validateEcrImageCode_CfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }
 
@@ -38,6 +49,10 @@ func validateEcrImageCode_FromEcrImageParameters(repository awsecr.IRepository, 
 }
 
 func validateEcrImageCode_FromInlineParameters(code *string) error {
+	return nil
+}
+
+func validateEcrImageCode_InlineParameters(code *string) error {
 	return nil
 }
 

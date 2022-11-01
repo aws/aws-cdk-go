@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter",
+		"monocdk.aws_lakeformation.CfnDataCellsFilter",
 		reflect.TypeOf((*CfnDataCellsFilter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -31,17 +31,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "rowFilter", GoGetter: "RowFilter"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tableCatalogId", GoGetter: "TableCatalogId"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -52,19 +57,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter.ColumnWildcardProperty",
+		"monocdk.aws_lakeformation.CfnDataCellsFilter.ColumnWildcardProperty",
 		reflect.TypeOf((*CfnDataCellsFilter_ColumnWildcardProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter.RowFilterProperty",
+		"monocdk.aws_lakeformation.CfnDataCellsFilter.RowFilterProperty",
 		reflect.TypeOf((*CfnDataCellsFilter_RowFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilterProps",
+		"monocdk.aws_lakeformation.CfnDataCellsFilterProps",
 		reflect.TypeOf((*CfnDataCellsFilterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings",
+		"monocdk.aws_lakeformation.CfnDataLakeSettings",
 		reflect.TypeOf((*CfnDataLakeSettings)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -84,15 +89,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trustedResourceOwners", GoGetter: "TrustedResourceOwners"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -103,15 +113,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings.DataLakePrincipalProperty",
+		"monocdk.aws_lakeformation.CfnDataLakeSettings.DataLakePrincipalProperty",
 		reflect.TypeOf((*CfnDataLakeSettings_DataLakePrincipalProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettingsProps",
+		"monocdk.aws_lakeformation.CfnDataLakeSettingsProps",
 		reflect.TypeOf((*CfnDataLakeSettingsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions",
+		"monocdk.aws_lakeformation.CfnPermissions",
 		reflect.TypeOf((*CfnPermissions)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -131,17 +141,22 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permissions", GoGetter: "Permissions"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsWithGrantOption", GoGetter: "PermissionsWithGrantOption"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -152,43 +167,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.ColumnWildcardProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.ColumnWildcardProperty",
 		reflect.TypeOf((*CfnPermissions_ColumnWildcardProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.DataLakePrincipalProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.DataLakePrincipalProperty",
 		reflect.TypeOf((*CfnPermissions_DataLakePrincipalProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.DataLocationResourceProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.DataLocationResourceProperty",
 		reflect.TypeOf((*CfnPermissions_DataLocationResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.DatabaseResourceProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.DatabaseResourceProperty",
 		reflect.TypeOf((*CfnPermissions_DatabaseResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.ResourceProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.ResourceProperty",
 		reflect.TypeOf((*CfnPermissions_ResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.TableResourceProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.TableResourceProperty",
 		reflect.TypeOf((*CfnPermissions_TableResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.TableWildcardProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.TableWildcardProperty",
 		reflect.TypeOf((*CfnPermissions_TableWildcardProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissions.TableWithColumnsResourceProperty",
+		"monocdk.aws_lakeformation.CfnPermissions.TableWithColumnsResourceProperty",
 		reflect.TypeOf((*CfnPermissions_TableWithColumnsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPermissionsProps",
+		"monocdk.aws_lakeformation.CfnPermissionsProps",
 		reflect.TypeOf((*CfnPermissionsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions",
 		reflect.TypeOf((*CfnPrincipalPermissions)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -210,18 +225,23 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permissions", GoGetter: "Permissions"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsWithGrantOption", GoGetter: "PermissionsWithGrantOption"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "principal", GoGetter: "Principal"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -232,55 +252,55 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.ColumnWildcardProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.ColumnWildcardProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_ColumnWildcardProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.DataCellsFilterResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.DataCellsFilterResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_DataCellsFilterResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.DataLakePrincipalProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.DataLakePrincipalProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_DataLakePrincipalProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.DataLocationResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.DataLocationResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_DataLocationResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.DatabaseResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.DatabaseResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_DatabaseResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.LFTagKeyResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.LFTagKeyResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_LFTagKeyResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.LFTagPolicyResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.LFTagPolicyResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_LFTagPolicyResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.LFTagProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.LFTagProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_LFTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.ResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.ResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_ResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.TableResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.TableResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_TableResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions.TableWithColumnsResourceProperty",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissions.TableWithColumnsResourceProperty",
 		reflect.TypeOf((*CfnPrincipalPermissions_TableWithColumnsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissionsProps",
+		"monocdk.aws_lakeformation.CfnPrincipalPermissionsProps",
 		reflect.TypeOf((*CfnPrincipalPermissionsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lakeformation.CfnResource",
+		"monocdk.aws_lakeformation.CfnResource",
 		reflect.TypeOf((*CfnResource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -299,17 +319,22 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceArn", GoGetter: "ResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "useServiceLinkedRole", GoGetter: "UseServiceLinkedRole"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -320,11 +345,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnResourceProps",
+		"monocdk.aws_lakeformation.CfnResourceProps",
 		reflect.TypeOf((*CfnResourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lakeformation.CfnTag",
+		"monocdk.aws_lakeformation.CfnTag",
 		reflect.TypeOf((*CfnTag)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -344,16 +369,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tagKey", GoGetter: "TagKey"},
 			_jsii_.MemberProperty{JsiiProperty: "tagValues", GoGetter: "TagValues"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -364,7 +394,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation",
+		"monocdk.aws_lakeformation.CfnTagAssociation",
 		reflect.TypeOf((*CfnTagAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -386,15 +416,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "lfTags", GoGetter: "LfTags"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -405,31 +440,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation.DatabaseResourceProperty",
+		"monocdk.aws_lakeformation.CfnTagAssociation.DatabaseResourceProperty",
 		reflect.TypeOf((*CfnTagAssociation_DatabaseResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation.LFTagPairProperty",
+		"monocdk.aws_lakeformation.CfnTagAssociation.LFTagPairProperty",
 		reflect.TypeOf((*CfnTagAssociation_LFTagPairProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation.ResourceProperty",
+		"monocdk.aws_lakeformation.CfnTagAssociation.ResourceProperty",
 		reflect.TypeOf((*CfnTagAssociation_ResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation.TableResourceProperty",
+		"monocdk.aws_lakeformation.CfnTagAssociation.TableResourceProperty",
 		reflect.TypeOf((*CfnTagAssociation_TableResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation.TableWithColumnsResourceProperty",
+		"monocdk.aws_lakeformation.CfnTagAssociation.TableWithColumnsResourceProperty",
 		reflect.TypeOf((*CfnTagAssociation_TableWithColumnsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnTagAssociationProps",
+		"monocdk.aws_lakeformation.CfnTagAssociationProps",
 		reflect.TypeOf((*CfnTagAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lakeformation.CfnTagProps",
+		"monocdk.aws_lakeformation.CfnTagProps",
 		reflect.TypeOf((*CfnTagProps)(nil)).Elem(),
 	)
 }

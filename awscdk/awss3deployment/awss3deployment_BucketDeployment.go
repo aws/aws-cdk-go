@@ -1,12 +1,13 @@
 package awss3deployment
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3deployment/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3deployment/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // `BucketDeployment` populates an S3 bucket with the contents of .zip files from other S3 buckets or from local disk.
@@ -27,8 +28,9 @@ import (
 //   	"bucket": deployment.deployedBucket,
 //   })
 //
+// Experimental.
 type BucketDeployment interface {
-	constructs.Construct
+	awscdk.Construct
 	// The bucket after the deployment.
 	//
 	// If you want to reference the destination bucket in another construct and make sure the
@@ -36,27 +38,67 @@ type BucketDeployment interface {
 	// a reference to `deployment.deployedBucket`.
 	//
 	// Doing this replaces calling `otherResource.node.addDependency(deployment)`.
+	// Experimental.
 	DeployedBucket() awss3.IBucket
-	// The tree node.
-	Node() constructs.Node
-	// The object keys for the sources deployed to the S3 bucket.
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Perform final modifications before synthesis.
 	//
-	// This returns a list of tokenized object keys for source files that are deployed to the bucket.
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
 	//
-	// This can be useful when using `BucketDeployment` with `extract` set to `false` and you need to reference
-	// the object key that resides in the bucket for that zip source file somewhere else in your CDK
-	// application, such as in a CFN output.
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
 	//
-	// For example, use `Fn.select(0, myBucketDeployment.objectKeys)` to reference the object key of the
-	// first source file in your bucket deployment.
-	ObjectKeys() *[]*string
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for BucketDeployment
 type jsiiProxy_BucketDeployment struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_BucketDeployment) DeployedBucket() awss3.IBucket {
@@ -69,8 +111,8 @@ func (j *jsiiProxy_BucketDeployment) DeployedBucket() awss3.IBucket {
 	return returns
 }
 
-func (j *jsiiProxy_BucketDeployment) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_BucketDeployment) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -79,17 +121,8 @@ func (j *jsiiProxy_BucketDeployment) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_BucketDeployment) ObjectKeys() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"objectKeys",
-		&returns,
-	)
-	return returns
-}
 
-
+// Experimental.
 func NewBucketDeployment(scope constructs.Construct, id *string, props *BucketDeploymentProps) BucketDeployment {
 	_init_.Initialize()
 
@@ -99,7 +132,7 @@ func NewBucketDeployment(scope constructs.Construct, id *string, props *BucketDe
 	j := jsiiProxy_BucketDeployment{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
+		"monocdk.aws_s3_deployment.BucketDeployment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -107,33 +140,19 @@ func NewBucketDeployment(scope constructs.Construct, id *string, props *BucketDe
 	return &j
 }
 
+// Experimental.
 func NewBucketDeployment_Override(b BucketDeployment, scope constructs.Construct, id *string, props *BucketDeploymentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
+		"monocdk.aws_s3_deployment.BucketDeployment",
 		[]interface{}{scope, id, props},
 		b,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func BucketDeployment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -143,7 +162,7 @@ func BucketDeployment_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
+		"monocdk.aws_s3_deployment.BucketDeployment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -152,12 +171,76 @@ func BucketDeployment_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func (b *jsiiProxy_BucketDeployment) OnPrepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BucketDeployment) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := b.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (b *jsiiProxy_BucketDeployment) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BucketDeployment) Prepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (b *jsiiProxy_BucketDeployment) Synthesize(session awscdk.ISynthesisSession) {
+	if err := b.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (b *jsiiProxy_BucketDeployment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		b,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BucketDeployment) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

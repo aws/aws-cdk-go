@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsrolesanywhere
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnCRL) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnCRL) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCRL) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCRL) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCRL) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnCRL) validateSetEnabledParameters(val interface{}) error {
 	return nil
 }
 
-func validateNewCfnCRLParameters(scope constructs.Construct, id *string, props *CfnCRLProps) error {
+func validateNewCfnCRLParameters(scope awscdk.Construct, id *string, props *CfnCRLProps) error {
 	return nil
 }
 

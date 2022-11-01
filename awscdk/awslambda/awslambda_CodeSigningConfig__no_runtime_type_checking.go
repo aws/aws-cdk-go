@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslambda
 
@@ -17,6 +16,14 @@ func (c *jsiiProxy_CodeSigningConfig) validateGetResourceNameAttributeParameters
 	return nil
 }
 
+func (c *jsiiProxy_CodeSigningConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_CodeSigningConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateCodeSigningConfig_FromCodeSigningConfigArnParameters(scope constructs.Construct, id *string, codeSigningConfigArn *string) error {
 	return nil
 }
@@ -25,11 +32,7 @@ func validateCodeSigningConfig_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCodeSigningConfig_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateCodeSigningConfig_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCodeSigningConfig_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

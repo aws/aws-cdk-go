@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awspinpoint
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnBaiduChannel) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnBaiduChannel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBaiduChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnBaiduChannel) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBaiduChannel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnBaiduChannel) validateSetSecretKeyParameters(val *string) 
 	return nil
 }
 
-func validateNewCfnBaiduChannelParameters(scope constructs.Construct, id *string, props *CfnBaiduChannelProps) error {
+func validateNewCfnBaiduChannelParameters(scope awscdk.Construct, id *string, props *CfnBaiduChannelProps) error {
 	return nil
 }
 

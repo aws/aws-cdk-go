@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsemr
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) validateInspectParameters(inspector a
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceFleetConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceFleetConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnInstanceFleetConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInstanceFleetConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetLaunchSpecificationsParame
 	return nil
 }
 
-func validateNewCfnInstanceFleetConfigParameters(scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) error {
+func validateNewCfnInstanceFleetConfigParameters(scope awscdk.Construct, id *string, props *CfnInstanceFleetConfigProps) error {
 	return nil
 }
 

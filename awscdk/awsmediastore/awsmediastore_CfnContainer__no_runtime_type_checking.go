@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsmediastore
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnContainer) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnContainer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnContainer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnContainer) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnContainer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnContainer) validateSetMetricPolicyParameters(val interface
 	return nil
 }
 
-func validateNewCfnContainerParameters(scope constructs.Construct, id *string, props *CfnContainerProps) error {
+func validateNewCfnContainerParameters(scope awscdk.Construct, id *string, props *CfnContainerProps) error {
 	return nil
 }
 

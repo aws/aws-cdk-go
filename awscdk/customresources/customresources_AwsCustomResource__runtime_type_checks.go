@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package customresources
 
@@ -8,7 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (a *jsiiProxy_AwsCustomResource) validateGetResponseFieldParameters(dataPath *string) error {
@@ -22,6 +22,22 @@ func (a *jsiiProxy_AwsCustomResource) validateGetResponseFieldParameters(dataPat
 func (a *jsiiProxy_AwsCustomResource) validateGetResponseFieldReferenceParameters(dataPath *string) error {
 	if dataPath == nil {
 		return fmt.Errorf("parameter dataPath is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_AwsCustomResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_AwsCustomResource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

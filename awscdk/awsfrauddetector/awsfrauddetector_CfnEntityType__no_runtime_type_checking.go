@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsfrauddetector
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnEntityType) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnEntityType) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEntityType) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnEntityType) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEntityType) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnEntityType) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnEntityTypeParameters(scope constructs.Construct, id *string, props *CfnEntityTypeProps) error {
+func validateNewCfnEntityTypeParameters(scope awscdk.Construct, id *string, props *CfnEntityTypeProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsroute53
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnRecordSet) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnRecordSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRecordSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRecordSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRecordSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +100,7 @@ func (j *jsiiProxy_CfnRecordSet) validateSetTypeParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnRecordSetParameters(scope constructs.Construct, id *string, props *CfnRecordSetProps) error {
+func validateNewCfnRecordSetParameters(scope awscdk.Construct, id *string, props *CfnRecordSetProps) error {
 	return nil
 }
 

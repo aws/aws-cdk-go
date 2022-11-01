@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscassandra
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnKeyspace) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnKeyspace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnKeyspace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnKeyspace) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnKeyspace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -69,7 +76,7 @@ func validateCfnKeyspace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnKeyspaceParameters(scope constructs.Construct, id *string, props *CfnKeyspaceProps) error {
+func validateNewCfnKeyspaceParameters(scope awscdk.Construct, id *string, props *CfnKeyspaceProps) error {
 	return nil
 }
 

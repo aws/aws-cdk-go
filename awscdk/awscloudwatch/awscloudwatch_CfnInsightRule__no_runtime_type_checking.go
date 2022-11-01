@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudwatch
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnInsightRule) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnInsightRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInsightRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnInsightRule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInsightRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnInsightRule) validateSetRuleStateParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnInsightRuleParameters(scope constructs.Construct, id *string, props *CfnInsightRuleProps) error {
+func validateNewCfnInsightRuleParameters(scope awscdk.Construct, id *string, props *CfnInsightRuleProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsemrcontainers
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVirtualCluster) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVirtualCluster) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVirtualCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnVirtualCluster) validateSetNameParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnVirtualClusterParameters(scope constructs.Construct, id *string, props *CfnVirtualClusterProps) error {
+func validateNewCfnVirtualClusterParameters(scope awscdk.Construct, id *string, props *CfnVirtualClusterProps) error {
 	return nil
 }
 

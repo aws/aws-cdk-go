@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsecs
 
@@ -14,6 +13,10 @@ func (s *jsiiProxy_ScalableTaskCount) validateDoScaleOnScheduleParameters(id *st
 }
 
 func (s *jsiiProxy_ScalableTaskCount) validateDoScaleToTrackMetricParameters(id *string, props *awsapplicationautoscaling.BasicTargetTrackingScalingPolicyProps) error {
+	return nil
+}
+
+func (s *jsiiProxy_ScalableTaskCount) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
@@ -38,6 +41,10 @@ func (s *jsiiProxy_ScalableTaskCount) validateScaleOnScheduleParameters(id *stri
 }
 
 func (s *jsiiProxy_ScalableTaskCount) validateScaleToTrackCustomMetricParameters(id *string, props *TrackCustomMetricProps) error {
+	return nil
+}
+
+func (s *jsiiProxy_ScalableTaskCount) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

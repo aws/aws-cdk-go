@@ -16,14 +16,18 @@ package awsecs
 //   	softLimit: jsii.Number(123),
 //   }
 //
+// Experimental.
 type Ulimit struct {
 	// The hard limit for the ulimit type.
+	// Experimental.
 	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
 	// The type of the ulimit.
 	//
 	// For more information, see [UlimitName](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-ecs/ulimitname.html#aws_ecs_UlimitName).
+	// Experimental.
 	Name UlimitName `field:"required" json:"name" yaml:"name"`
 	// The soft limit for the ulimit type.
+	// Experimental.
 	SoftLimit *float64 `field:"required" json:"softLimit" yaml:"softLimit"`
 }
 

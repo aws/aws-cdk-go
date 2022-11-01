@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateInspectParameters(inspect
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnNetworkInsightsAnalysis) validateSetNetworkInsightsPathIdP
 	return nil
 }
 
-func validateNewCfnNetworkInsightsAnalysisParameters(scope constructs.Construct, id *string, props *CfnNetworkInsightsAnalysisProps) error {
+func validateNewCfnNetworkInsightsAnalysisParameters(scope awscdk.Construct, id *string, props *CfnNetworkInsightsAnalysisProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsstepfunctionstasks
 
@@ -82,6 +81,14 @@ func (e *jsiiProxy_EmrCreateCluster) validateMetricTimedOutParameters(props *aws
 }
 
 func (e *jsiiProxy_EmrCreateCluster) validateNextParameters(next awsstepfunctions.IChainable) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrCreateCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrCreateCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

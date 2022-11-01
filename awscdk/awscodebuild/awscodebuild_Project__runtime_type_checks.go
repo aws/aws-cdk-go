@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodebuild
 
@@ -8,12 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (p *jsiiProxy_Project) validateAddFileSystemLocationParameters(fileSystemLocation IFileSystemLocation) error {
@@ -64,7 +63,7 @@ func (p *jsiiProxy_Project) validateBindAsNotificationRuleSourceParameters(_scop
 	return nil
 }
 
-func (p *jsiiProxy_Project) validateBindToCodePipelineParameters(_scope constructs.Construct, options *BindToCodePipelineOptions) error {
+func (p *jsiiProxy_Project) validateBindToCodePipelineParameters(_scope awscdk.Construct, options *BindToCodePipelineOptions) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}
@@ -269,6 +268,22 @@ func (p *jsiiProxy_Project) validateOnStateChangeParameters(id *string, options 
 	return nil
 }
 
+func (p *jsiiProxy_Project) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_Project) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateProject_FromProjectArnParameters(scope constructs.Construct, id *string, projectArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -309,15 +324,7 @@ func validateProject_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateProject_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateProject_IsResourceParameters(construct constructs.IConstruct) error {
+func validateProject_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

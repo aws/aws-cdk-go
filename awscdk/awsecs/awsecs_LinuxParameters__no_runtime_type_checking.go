@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsecs
 
@@ -10,6 +9,14 @@ func (l *jsiiProxy_LinuxParameters) validateAddDevicesParameters(device *[]*Devi
 }
 
 func (l *jsiiProxy_LinuxParameters) validateAddTmpfsParameters(tmpfs *[]*Tmpfs) error {
+	return nil
+}
+
+func (l *jsiiProxy_LinuxParameters) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (l *jsiiProxy_LinuxParameters) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

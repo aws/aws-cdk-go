@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awslambda
 
@@ -8,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (d *jsiiProxy_DockerImageFunction) validateAddAliasParameters(aliasName *string, options *AliasOptions) error {
@@ -96,6 +95,18 @@ func (d *jsiiProxy_DockerImageFunction) validateAddToRolePolicyParameters(statem
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageFunction) validateAddVersionParameters(name *string, asyncInvokeConfig *EventInvokeConfigOptions) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(asyncInvokeConfig, func() string { return "parameter asyncInvokeConfig" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_DockerImageFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")
@@ -115,7 +126,7 @@ func (d *jsiiProxy_DockerImageFunction) validateConfigureAsyncInvokeParameters(o
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (d *jsiiProxy_DockerImageFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -210,7 +221,23 @@ func (d *jsiiProxy_DockerImageFunction) validateMetricThrottlesParameters(props 
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (d *jsiiProxy_DockerImageFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -289,15 +316,7 @@ func validateDockerImageFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDockerImageFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateDockerImageFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDockerImageFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

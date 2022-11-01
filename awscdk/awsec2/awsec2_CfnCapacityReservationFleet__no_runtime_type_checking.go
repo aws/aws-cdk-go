@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) validateInspectParameters(inspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnCapacityReservationFleet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCapacityReservationFleet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCapacityReservationFleet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCapacityReservationFleet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) validateSetTagSpecificationsPara
 	return nil
 }
 
-func validateNewCfnCapacityReservationFleetParameters(scope constructs.Construct, id *string, props *CfnCapacityReservationFleetProps) error {
+func validateNewCfnCapacityReservationFleetParameters(scope awscdk.Construct, id *string, props *CfnCapacityReservationFleetProps) error {
 	return nil
 }
 

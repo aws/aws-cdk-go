@@ -1,12 +1,11 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscertificatemanager
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 func validateCertificateValidation_FromDnsMultiZoneParameters(hostedZones *map[string]awsroute53.IHostedZone) error {

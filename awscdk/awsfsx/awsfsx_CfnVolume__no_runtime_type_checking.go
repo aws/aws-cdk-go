@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsfsx
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVolume) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnVolume) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVolume) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVolume) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVolume) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnVolume) validateSetOpenZfsConfigurationParameters(val inte
 	return nil
 }
 
-func validateNewCfnVolumeParameters(scope constructs.Construct, id *string, props *CfnVolumeProps) error {
+func validateNewCfnVolumeParameters(scope awscdk.Construct, id *string, props *CfnVolumeProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateInspectParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateSetTransitGate
 	return nil
 }
 
-func validateNewCfnTransitGatewayMulticastGroupMemberParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupMemberProps) error {
+func validateNewCfnTransitGatewayMulticastGroupMemberParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayMulticastGroupMemberProps) error {
 	return nil
 }
 

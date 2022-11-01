@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudwatch
 
@@ -17,15 +16,19 @@ func (d *jsiiProxy_Dashboard) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
+func (d *jsiiProxy_Dashboard) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_Dashboard) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDashboard_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDashboard_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDashboard_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDashboard_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

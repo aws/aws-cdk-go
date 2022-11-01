@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsstepfunctionstasks
 
@@ -82,6 +81,14 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) validateMetricTimedOutParamete
 }
 
 func (s *jsiiProxy_SageMakerCreateEndpointConfig) validateNextParameters(next awsstepfunctions.IChainable) error {
+	return nil
+}
+
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

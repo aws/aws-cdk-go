@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsdynamodb
 
@@ -8,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (t *jsiiProxy_Table) validateAddGlobalSecondaryIndexParameters(props *GlobalSecondaryIndexProps) error {
@@ -227,6 +226,14 @@ func (t *jsiiProxy_Table) validateMetricSuccessfulRequestLatencyParameters(props
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateMetricSystemErrorsParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateMetricSystemErrorsForOperationsParameters(props *SystemErrorsForOperationsMetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
@@ -255,7 +262,7 @@ func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationParameters(
 	return nil
 }
 
-func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationsParameters(props *OperationsMetricOptions) error {
+func (t *jsiiProxy_Table) validateMetricUserErrorsParameters(props *awscloudwatch.MetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}
@@ -263,9 +270,17 @@ func (t *jsiiProxy_Table) validateMetricThrottledRequestsForOperationsParameters
 	return nil
 }
 
-func (t *jsiiProxy_Table) validateMetricUserErrorsParameters(props *awscloudwatch.MetricOptions) error {
-	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
+func (t *jsiiProxy_Table) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (t *jsiiProxy_Table) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -322,6 +337,14 @@ func validateTable_FromTableNameParameters(scope constructs.Construct, id *strin
 	return nil
 }
 
+func validateTable_GrantListStreamsParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateTable_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -330,15 +353,7 @@ func validateTable_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTable_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateTable_IsResourceParameters(construct constructs.IConstruct) error {
+func validateTable_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

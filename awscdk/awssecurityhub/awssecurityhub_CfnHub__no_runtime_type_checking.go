@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssecurityhub
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnHub) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnHub) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnHub) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnHub) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnHub) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -69,7 +76,7 @@ func validateCfnHub_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnHubParameters(scope constructs.Construct, id *string, props *CfnHubProps) error {
+func validateNewCfnHubParameters(scope awscdk.Construct, id *string, props *CfnHubProps) error {
 	return nil
 }
 

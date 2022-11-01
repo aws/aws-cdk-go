@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiot
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDimension) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnDimension) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDimension) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDimension) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDimension) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnDimension) validateSetTypeParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnDimensionParameters(scope constructs.Construct, id *string, props *CfnDimensionProps) error {
+func validateNewCfnDimensionParameters(scope awscdk.Construct, id *string, props *CfnDimensionProps) error {
 	return nil
 }
 

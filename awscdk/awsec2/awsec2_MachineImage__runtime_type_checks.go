@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsec2
 
@@ -16,6 +15,18 @@ func validateMachineImage_FromSsmParameterParameters(parameterName *string, opti
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func validateMachineImage_FromSSMParameterParameters(parameterName *string, os OperatingSystemType) error {
+	if parameterName == nil {
+		return fmt.Errorf("parameter parameterName is required, but nil was provided")
+	}
+
+	if os == "" {
+		return fmt.Errorf("parameter os is required, but nil was provided")
 	}
 
 	return nil

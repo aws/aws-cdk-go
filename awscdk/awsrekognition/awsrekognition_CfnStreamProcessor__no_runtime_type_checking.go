@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsrekognition
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnStreamProcessor) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnStreamProcessor) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStreamProcessor) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStreamProcessor) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStreamProcessor) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -109,7 +116,7 @@ func (j *jsiiProxy_CfnStreamProcessor) validateSetS3DestinationParameters(val in
 	return nil
 }
 
-func validateNewCfnStreamProcessorParameters(scope constructs.Construct, id *string, props *CfnStreamProcessorProps) error {
+func validateNewCfnStreamProcessorParameters(scope awscdk.Construct, id *string, props *CfnStreamProcessorProps) error {
 	return nil
 }
 

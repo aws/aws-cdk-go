@@ -1,17 +1,16 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsacmpca"
 )
 
 // Defines the TLS Validation Context Trust.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var service service
 //
@@ -46,9 +45,11 @@ import (
 //
 //   cdk.tags.of(node).add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type TlsValidationTrust interface {
 	// Returns Trust context based on trust type.
-	Bind(scope constructs.Construct) *TlsValidationTrustConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *TlsValidationTrustConfig
 }
 
 // The jsii proxy struct for TlsValidationTrust
@@ -56,17 +57,19 @@ type jsiiProxy_TlsValidationTrust struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewTlsValidationTrust_Override(t TlsValidationTrust) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appmesh.TlsValidationTrust",
+		"monocdk.aws_appmesh.TlsValidationTrust",
 		nil, // no parameters
 		t,
 	)
 }
 
 // TLS Validation Context Trust for ACM Private Certificate Authority (CA).
+// Experimental.
 func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuthority) TlsValidationTrust {
 	_init_.Initialize()
 
@@ -76,7 +79,7 @@ func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuth
 	var returns TlsValidationTrust
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.TlsValidationTrust",
+		"monocdk.aws_appmesh.TlsValidationTrust",
 		"acm",
 		[]interface{}{certificateAuthorities},
 		&returns,
@@ -86,6 +89,7 @@ func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuth
 }
 
 // Tells envoy where to fetch the validation context from.
+// Experimental.
 func TlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
@@ -95,7 +99,7 @@ func TlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust 
 	var returns MutualTlsValidationTrust
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.TlsValidationTrust",
+		"monocdk.aws_appmesh.TlsValidationTrust",
 		"file",
 		[]interface{}{certificateChain},
 		&returns,
@@ -105,6 +109,7 @@ func TlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust 
 }
 
 // TLS Validation Context Trust for Envoy' service discovery service.
+// Experimental.
 func TlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
@@ -114,7 +119,7 @@ func TlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 	var returns MutualTlsValidationTrust
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.TlsValidationTrust",
+		"monocdk.aws_appmesh.TlsValidationTrust",
 		"sds",
 		[]interface{}{secretName},
 		&returns,
@@ -123,7 +128,7 @@ func TlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 	return returns
 }
 
-func (t *jsiiProxy_TlsValidationTrust) Bind(scope constructs.Construct) *TlsValidationTrustConfig {
+func (t *jsiiProxy_TlsValidationTrust) Bind(scope awscdk.Construct) *TlsValidationTrustConfig {
 	if err := t.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

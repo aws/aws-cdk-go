@@ -1,13 +1,12 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsrds
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 func (i *jsiiProxy_IServerlessCluster) validateGrantDataApiAccessParameters(grantee awsiam.IGrantable) error {

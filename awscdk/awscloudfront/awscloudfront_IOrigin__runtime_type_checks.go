@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscloudfront
 
@@ -8,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (i *jsiiProxy_IOrigin) validateBindParameters(scope constructs.Construct, options *OriginBindOptions) error {
+func (i *jsiiProxy_IOrigin) validateBindParameters(scope awscdk.Construct, options *OriginBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

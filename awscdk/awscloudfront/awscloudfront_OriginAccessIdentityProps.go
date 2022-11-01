@@ -12,8 +12,10 @@ package awscloudfront
 //   	comment: jsii.String("comment"),
 //   }
 //
+// Experimental.
 type OriginAccessIdentityProps struct {
 	// Any comments you want to include about the origin access identity.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

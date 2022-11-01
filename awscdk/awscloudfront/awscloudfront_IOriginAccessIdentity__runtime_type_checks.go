@@ -1,12 +1,11 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscloudfront
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 func (i *jsiiProxy_IOriginAccessIdentity) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {

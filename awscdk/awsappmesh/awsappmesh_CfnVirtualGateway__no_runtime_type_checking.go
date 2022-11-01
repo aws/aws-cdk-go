@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsappmesh
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVirtualGateway) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVirtualGateway) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVirtualGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnVirtualGateway) validateSetSpecParameters(val interface{})
 	return nil
 }
 
-func validateNewCfnVirtualGatewayParameters(scope constructs.Construct, id *string, props *CfnVirtualGatewayProps) error {
+func validateNewCfnVirtualGatewayParameters(scope awscdk.Construct, id *string, props *CfnVirtualGatewayProps) error {
 	return nil
 }
 

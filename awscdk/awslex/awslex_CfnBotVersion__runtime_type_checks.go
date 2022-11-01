@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awslex
 
@@ -8,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnBotVersion) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,6 +103,14 @@ func (c *jsiiProxy_CfnBotVersion) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnBotVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnBotVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -115,6 +122,14 @@ func (c *jsiiProxy_CfnBotVersion) validateOverrideLogicalIdParameters(newLogical
 func (c *jsiiProxy_CfnBotVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnBotVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -223,7 +238,7 @@ func (j *jsiiProxy_CfnBotVersion) validateSetBotVersionLocaleSpecificationParame
 	return nil
 }
 
-func validateNewCfnBotVersionParameters(scope constructs.Construct, id *string, props *CfnBotVersionProps) error {
+func validateNewCfnBotVersionParameters(scope awscdk.Construct, id *string, props *CfnBotVersionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

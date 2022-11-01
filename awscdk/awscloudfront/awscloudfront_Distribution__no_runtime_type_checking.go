@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudfront
 
@@ -21,6 +20,14 @@ func (d *jsiiProxy_Distribution) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
+func (d *jsiiProxy_Distribution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDistribution_FromDistributionAttributesParameters(scope constructs.Construct, id *string, attrs *DistributionAttributes) error {
 	return nil
 }
@@ -29,11 +36,7 @@ func validateDistribution_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDistribution_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDistribution_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDistribution_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

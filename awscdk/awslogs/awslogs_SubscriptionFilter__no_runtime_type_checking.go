@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslogs
 
@@ -17,15 +16,19 @@ func (s *jsiiProxy_SubscriptionFilter) validateGetResourceNameAttributeParameter
 	return nil
 }
 
+func (s *jsiiProxy_SubscriptionFilter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SubscriptionFilter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateSubscriptionFilter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSubscriptionFilter_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSubscriptionFilter_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSubscriptionFilter_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

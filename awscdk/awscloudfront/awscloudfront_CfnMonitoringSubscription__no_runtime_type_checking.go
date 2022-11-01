@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudfront
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnMonitoringSubscription) validateInspectParameters(inspecto
 	return nil
 }
 
+func (c *jsiiProxy_CfnMonitoringSubscription) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMonitoringSubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMonitoringSubscription) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMonitoringSubscription) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnMonitoringSubscription) validateSetMonitoringSubscriptionP
 	return nil
 }
 
-func validateNewCfnMonitoringSubscriptionParameters(scope constructs.Construct, id *string, props *CfnMonitoringSubscriptionProps) error {
+func validateNewCfnMonitoringSubscriptionParameters(scope awscdk.Construct, id *string, props *CfnMonitoringSubscriptionProps) error {
 	return nil
 }
 

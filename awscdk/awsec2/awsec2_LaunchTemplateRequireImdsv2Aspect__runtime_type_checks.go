@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsec2
 
@@ -8,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateVisitParameters(node constructs.IConstruct) error {
+func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateVisitParameters(node awscdk.IConstruct) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}
@@ -19,7 +18,7 @@ func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateVisitParameters(no
 	return nil
 }
 
-func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateWarnParameters(node constructs.IConstruct, message *string) error {
+func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateWarnParameters(node awscdk.IConstruct, message *string) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}

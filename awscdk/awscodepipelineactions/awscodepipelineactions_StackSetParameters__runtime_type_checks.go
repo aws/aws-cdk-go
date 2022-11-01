@@ -1,12 +1,11 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodepipelineactions
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
 )
 
 func validateStackSetParameters_FromArtifactPathParameters(artifactPath awscodepipeline.ArtifactPath) error {

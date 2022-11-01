@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudfront
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResponseHeadersPolicy) validateInspectParameters(inspector
 	return nil
 }
 
+func (c *jsiiProxy_CfnResponseHeadersPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResponseHeadersPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResponseHeadersPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResponseHeadersPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnResponseHeadersPolicy) validateSetResponseHeadersPolicyCon
 	return nil
 }
 
-func validateNewCfnResponseHeadersPolicyParameters(scope constructs.Construct, id *string, props *CfnResponseHeadersPolicyProps) error {
+func validateNewCfnResponseHeadersPolicyParameters(scope awscdk.Construct, id *string, props *CfnResponseHeadersPolicyProps) error {
 	return nil
 }
 

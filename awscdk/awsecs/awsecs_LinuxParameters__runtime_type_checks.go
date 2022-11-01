@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsecs
 
@@ -8,7 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (l *jsiiProxy_LinuxParameters) validateAddDevicesParameters(device *[]*Device) error {
@@ -26,6 +26,22 @@ func (l *jsiiProxy_LinuxParameters) validateAddTmpfsParameters(tmpfs *[]*Tmpfs) 
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter tmpfs[%#v]", idx_02dae1) }); err != nil {
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (l *jsiiProxy_LinuxParameters) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (l *jsiiProxy_LinuxParameters) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

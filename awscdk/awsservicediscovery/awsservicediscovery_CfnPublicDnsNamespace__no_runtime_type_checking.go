@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsservicediscovery
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) validateInspectParameters(inspector aw
 	return nil
 }
 
+func (c *jsiiProxy_CfnPublicDnsNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPublicDnsNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPublicDnsNamespace) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPublicDnsNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) validateSetPropertiesParameters(val in
 	return nil
 }
 
-func validateNewCfnPublicDnsNamespaceParameters(scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) error {
+func validateNewCfnPublicDnsNamespaceParameters(scope awscdk.Construct, id *string, props *CfnPublicDnsNamespaceProps) error {
 	return nil
 }
 

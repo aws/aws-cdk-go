@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslakeformation
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnTag) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnTag) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTag) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTag) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTag) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnTag) validateSetTagValuesParameters(val *[]*string) error 
 	return nil
 }
 
-func validateNewCfnTagParameters(scope constructs.Construct, id *string, props *CfnTagProps) error {
+func validateNewCfnTagParameters(scope awscdk.Construct, id *string, props *CfnTagProps) error {
 	return nil
 }
 

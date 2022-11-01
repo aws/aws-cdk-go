@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsapigateway
 
@@ -8,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (r *jsiiProxy_RestApiBase) validateAddApiKeyParameters(id *string, options *ApiKeyOptions) error {
@@ -70,6 +69,25 @@ func (r *jsiiProxy_RestApiBase) validateAddUsagePlanParameters(id *string, props
 func (r *jsiiProxy_RestApiBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (r *jsiiProxy_RestApiBase) validateConfigureCloudWatchRoleParameters(apiResource CfnRestApi) error {
+	if apiResource == nil {
+		return fmt.Errorf("parameter apiResource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (r *jsiiProxy_RestApiBase) validateConfigureDeploymentParameters(props *RestApiBaseProps) error {
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil
@@ -166,6 +184,22 @@ func (r *jsiiProxy_RestApiBase) validateMetricServerErrorParameters(props *awscl
 	return nil
 }
 
+func (r *jsiiProxy_RestApiBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (r *jsiiProxy_RestApiBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateRestApiBase_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -174,15 +208,7 @@ func validateRestApiBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRestApiBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateRestApiBase_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRestApiBase_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awselasticloadbalancingv2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnTargetGroup) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnTargetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTargetGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTargetGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTargetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnTargetGroup) validateSetTargetsParameters(val interface{})
 	return nil
 }
 
-func validateNewCfnTargetGroupParameters(scope constructs.Construct, id *string, props *CfnTargetGroupProps) error {
+func validateNewCfnTargetGroupParameters(scope awscdk.Construct, id *string, props *CfnTargetGroupProps) error {
 	return nil
 }
 

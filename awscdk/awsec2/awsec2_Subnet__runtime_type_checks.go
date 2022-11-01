@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsec2
 
@@ -8,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
-func (s *jsiiProxy_Subnet) validateAddDefaultInternetRouteParameters(gatewayId *string, gatewayAttachment constructs.IDependable) error {
+func (s *jsiiProxy_Subnet) validateAddDefaultInternetRouteParameters(gatewayId *string, gatewayAttachment awscdk.IDependable) error {
 	if gatewayId == nil {
 		return fmt.Errorf("parameter gatewayId is required, but nil was provided")
 	}
@@ -90,6 +89,22 @@ func (s *jsiiProxy_Subnet) validateGetResourceNameAttributeParameters(nameAttr *
 	return nil
 }
 
+func (s *jsiiProxy_Subnet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_Subnet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateSubnet_FromSubnetAttributesParameters(scope constructs.Construct, id *string, attrs *SubnetAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -133,15 +148,7 @@ func validateSubnet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSubnet_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateSubnet_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSubnet_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsgroundstation
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnMissionProfile) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnMissionProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMissionProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMissionProfile) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMissionProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnMissionProfile) validateSetTrackingConfigArnParameters(val
 	return nil
 }
 
-func validateNewCfnMissionProfileParameters(scope constructs.Construct, id *string, props *CfnMissionProfileProps) error {
+func validateNewCfnMissionProfileParameters(scope awscdk.Construct, id *string, props *CfnMissionProfileProps) error {
 	return nil
 }
 

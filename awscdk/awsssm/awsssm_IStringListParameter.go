@@ -5,12 +5,14 @@ import (
 )
 
 // A StringList SSM Parameter.
+// Experimental.
 type IStringListParameter interface {
 	IParameter
 	// The parameter value.
 	//
 	// Value must not nest another parameter. Do not use {{}} in the value. Values in the array
 	// cannot contain commas (``,``).
+	// Experimental.
 	StringListValue() *[]*string
 }
 

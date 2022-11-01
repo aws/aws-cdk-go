@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsecspatterns
 
@@ -13,7 +12,15 @@ func (n *jsiiProxy_NetworkLoadBalancedServiceBase) validateCreateAWSLogDriverPar
 	return nil
 }
 
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) validateGetDefaultClusterParameters(scope constructs.Construct) error {
+func (n *jsiiProxy_NetworkLoadBalancedServiceBase) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
+	return nil
+}
+
+func (n *jsiiProxy_NetworkLoadBalancedServiceBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (n *jsiiProxy_NetworkLoadBalancedServiceBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

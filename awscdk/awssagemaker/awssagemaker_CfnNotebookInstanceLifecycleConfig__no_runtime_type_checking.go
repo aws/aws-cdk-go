@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssagemaker
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateInspectParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateSetOnStartParamet
 	return nil
 }
 
-func validateNewCfnNotebookInstanceLifecycleConfigParameters(scope constructs.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) error {
+func validateNewCfnNotebookInstanceLifecycleConfigParameters(scope awscdk.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) error {
 	return nil
 }
 

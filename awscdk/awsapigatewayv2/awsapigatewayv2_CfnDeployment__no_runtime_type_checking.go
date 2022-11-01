@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapigatewayv2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDeployment) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnDeployment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDeployment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDeployment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDeployment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnDeployment) validateSetApiIdParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnDeploymentParameters(scope constructs.Construct, id *string, props *CfnDeploymentProps) error {
+func validateNewCfnDeploymentParameters(scope awscdk.Construct, id *string, props *CfnDeploymentProps) error {
 	return nil
 }
 

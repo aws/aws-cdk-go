@@ -41,8 +41,6 @@ configure it on the asset itself.
 Use `asset.imageUri` to reference the image. It includes both the ECR image URL
 and tag.
 
-Use `asset.imageTag` to reference only the image tag.
-
 You can optionally pass build args to the `docker build` command by specifying
 the `buildArgs` property. It is recommended to skip hashing of `buildArgs` for
 values that can change between different machines to maintain a consistent
@@ -136,7 +134,7 @@ Here an example from the [cdklabs/cdk-ecr-deployment](https://github.com/cdklabs
 ```text
 // This example available in TypeScript only
 
-import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
+import { DockerImageAsset } from 'monocdk/aws-ecr-assets';
 import * as ecrdeploy from 'cdk-ecr-deployment';
 
 const image = new DockerImageAsset(this, 'CDKDockerImage', {

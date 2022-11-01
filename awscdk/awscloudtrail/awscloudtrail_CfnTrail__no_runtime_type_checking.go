@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudtrail
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnTrail) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrail) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrail) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTrail) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTrail) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -101,7 +108,7 @@ func (j *jsiiProxy_CfnTrail) validateSetS3BucketNameParameters(val *string) erro
 	return nil
 }
 
-func validateNewCfnTrailParameters(scope constructs.Construct, id *string, props *CfnTrailProps) error {
+func validateNewCfnTrailParameters(scope awscdk.Construct, id *string, props *CfnTrailProps) error {
 	return nil
 }
 

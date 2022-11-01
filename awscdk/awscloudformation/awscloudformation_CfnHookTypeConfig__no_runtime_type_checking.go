@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudformation
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnHookTypeConfig) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnHookTypeConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnHookTypeConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnHookTypeConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnHookTypeConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnHookTypeConfig) validateSetConfigurationParameters(val *st
 	return nil
 }
 
-func validateNewCfnHookTypeConfigParameters(scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) error {
+func validateNewCfnHookTypeConfigParameters(scope awscdk.Construct, id *string, props *CfnHookTypeConfigProps) error {
 	return nil
 }
 

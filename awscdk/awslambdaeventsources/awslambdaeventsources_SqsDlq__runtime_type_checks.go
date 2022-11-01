@@ -1,13 +1,12 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awslambdaeventsources
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
 )
 
 func (s *jsiiProxy_SqsDlq) validateBindParameters(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) error {

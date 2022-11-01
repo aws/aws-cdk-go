@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapplicationautoscaling
 
@@ -14,6 +13,14 @@ func (b *jsiiProxy_BaseScalableAttribute) validateDoScaleOnScheduleParameters(id
 }
 
 func (b *jsiiProxy_BaseScalableAttribute) validateDoScaleToTrackMetricParameters(id *string, props *BasicTargetTrackingScalingPolicyProps) error {
+	return nil
+}
+
+func (b *jsiiProxy_BaseScalableAttribute) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_BaseScalableAttribute) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

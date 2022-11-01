@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiot
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResourceSpecificLogging) validateInspectParameters(inspect
 	return nil
 }
 
+func (c *jsiiProxy_CfnResourceSpecificLogging) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResourceSpecificLogging) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResourceSpecificLogging) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResourceSpecificLogging) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnResourceSpecificLogging) validateSetTargetTypeParameters(v
 	return nil
 }
 
-func validateNewCfnResourceSpecificLoggingParameters(scope constructs.Construct, id *string, props *CfnResourceSpecificLoggingProps) error {
+func validateNewCfnResourceSpecificLoggingParameters(scope awscdk.Construct, id *string, props *CfnResourceSpecificLoggingProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsappstream
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnApplicationFleetAssociation) validateInspectParameters(ins
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationFleetAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationFleetAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnApplicationFleetAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnApplicationFleetAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnApplicationFleetAssociation) validateSetFleetNameParameter
 	return nil
 }
 
-func validateNewCfnApplicationFleetAssociationParameters(scope constructs.Construct, id *string, props *CfnApplicationFleetAssociationProps) error {
+func validateNewCfnApplicationFleetAssociationParameters(scope awscdk.Construct, id *string, props *CfnApplicationFleetAssociationProps) error {
 	return nil
 }
 

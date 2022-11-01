@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsacmpca
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnCertificateAuthority) validateInspectParameters(inspector 
 	return nil
 }
 
+func (c *jsiiProxy_CfnCertificateAuthority) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCertificateAuthority) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCertificateAuthority) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCertificateAuthority) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +100,7 @@ func (j *jsiiProxy_CfnCertificateAuthority) validateSetTypeParameters(val *strin
 	return nil
 }
 
-func validateNewCfnCertificateAuthorityParameters(scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) error {
+func validateNewCfnCertificateAuthorityParameters(scope awscdk.Construct, id *string, props *CfnCertificateAuthorityProps) error {
 	return nil
 }
 

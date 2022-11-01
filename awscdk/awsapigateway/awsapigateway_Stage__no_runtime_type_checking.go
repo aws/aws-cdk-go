@@ -1,13 +1,8 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
-
-func (s *jsiiProxy_Stage) validateAddApiKeyParameters(id *string, options *ApiKeyOptions) error {
-	return nil
-}
 
 func (s *jsiiProxy_Stage) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
@@ -21,39 +16,11 @@ func (s *jsiiProxy_Stage) validateGetResourceNameAttributeParameters(nameAttr *s
 	return nil
 }
 
-func (s *jsiiProxy_Stage) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+func (s *jsiiProxy_Stage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (s *jsiiProxy_Stage) validateMetricCacheHitCountParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stage) validateMetricCacheMissCountParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stage) validateMetricClientErrorParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stage) validateMetricCountParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stage) validateMetricIntegrationLatencyParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stage) validateMetricLatencyParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (s *jsiiProxy_Stage) validateMetricServerErrorParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func validateStage_FromStageAttributesParameters(scope constructs.Construct, id *string, attrs *StageAttributes) error {
+func (s *jsiiProxy_Stage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -61,11 +28,7 @@ func validateStage_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStage_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateStage_IsResourceParameters(construct constructs.IConstruct) error {
+func validateStage_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

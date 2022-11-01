@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package cxapi
 
@@ -10,6 +9,10 @@ func (c *jsiiProxy_CloudAssembly) validateGetNestedAssemblyParameters(artifactId
 }
 
 func (c *jsiiProxy_CloudAssembly) validateGetNestedAssemblyArtifactParameters(artifactId *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CloudAssembly) validateGetStackParameters(stackName *string) error {
 	return nil
 }
 

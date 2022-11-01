@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscustomerprofiles
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnObjectType) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnObjectType) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnObjectType) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnObjectType) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnObjectType) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnObjectType) validateSetKeysParameters(val interface{}) err
 	return nil
 }
 
-func validateNewCfnObjectTypeParameters(scope constructs.Construct, id *string, props *CfnObjectTypeProps) error {
+func validateNewCfnObjectTypeParameters(scope awscdk.Construct, id *string, props *CfnObjectTypeProps) error {
 	return nil
 }
 

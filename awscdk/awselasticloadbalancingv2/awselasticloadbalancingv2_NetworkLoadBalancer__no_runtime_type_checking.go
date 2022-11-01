@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awselasticloadbalancingv2
 
@@ -37,6 +36,10 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateMetricConsumedLCUsParameters(pro
 	return nil
 }
 
+func (n *jsiiProxy_NetworkLoadBalancer) validateMetricHealthyHostCountParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkLoadBalancer) validateMetricNewFlowCountParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
@@ -57,11 +60,23 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateMetricTcpTargetResetCountParamet
 	return nil
 }
 
+func (n *jsiiProxy_NetworkLoadBalancer) validateMetricUnHealthyHostCountParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkLoadBalancer) validateRemoveAttributeParameters(key *string) error {
 	return nil
 }
 
 func (n *jsiiProxy_NetworkLoadBalancer) validateSetAttributeParameters(key *string) error {
+	return nil
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,11 +92,7 @@ func validateNetworkLoadBalancer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNetworkLoadBalancer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateNetworkLoadBalancer_IsResourceParameters(construct constructs.IConstruct) error {
+func validateNetworkLoadBalancer_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnTransitGatewayRoute) validateInspectParameters(inspector a
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRoute) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRoute) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTransitGatewayRoute) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayRoute) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnTransitGatewayRoute) validateSetTransitGatewayRouteTableId
 	return nil
 }
 
-func validateNewCfnTransitGatewayRouteParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayRouteProps) error {
+func validateNewCfnTransitGatewayRouteParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayRouteProps) error {
 	return nil
 }
 

@@ -1,7 +1,6 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -19,6 +18,18 @@ func (d *jsiiProxy_DockerImage) validateCpParameters(imagePath *string) error {
 }
 
 func (d *jsiiProxy_DockerImage) validateRunParameters(options *DockerRunOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateDockerImage_FromAssetParameters(path *string, options *DockerBuildOptions) error {
+	if path == nil {
+		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

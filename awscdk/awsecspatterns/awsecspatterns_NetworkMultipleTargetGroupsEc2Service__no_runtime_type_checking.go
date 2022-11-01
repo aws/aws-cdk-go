@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsecspatterns
 
@@ -17,11 +16,27 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) validateGetDefaultClus
 	return nil
 }
 
+func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) validateRegisterECSTargetsParameters(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) error {
 	return nil
 }
 
+func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateNetworkMultipleTargetGroupsEc2Service_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) validateSetListenersParameters(val *[]awselasticloadbalancingv2.NetworkListener) error {
+	return nil
+}
+
+func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) validateSetTargetGroupsParameters(val *[]awselasticloadbalancingv2.NetworkTargetGroup) error {
 	return nil
 }
 

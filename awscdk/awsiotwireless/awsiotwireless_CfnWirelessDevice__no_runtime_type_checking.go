@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiotwireless
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnWirelessDevice) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnWirelessDevice) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWirelessDevice) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWirelessDevice) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnWirelessDevice) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnWirelessDevice) validateSetTypeParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnWirelessDeviceParameters(scope constructs.Construct, id *string, props *CfnWirelessDeviceProps) error {
+func validateNewCfnWirelessDeviceParameters(scope awscdk.Construct, id *string, props *CfnWirelessDeviceProps) error {
 	return nil
 }
 

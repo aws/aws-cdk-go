@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsroute53
 
@@ -22,6 +21,14 @@ func (p *jsiiProxy_PublicHostedZone) validateGetResourceArnAttributeParameters(a
 }
 
 func (p *jsiiProxy_PublicHostedZone) validateGetResourceNameAttributeParameters(nameAttr *string) error {
+	return nil
+}
+
+func (p *jsiiProxy_PublicHostedZone) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_PublicHostedZone) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -49,11 +56,7 @@ func validatePublicHostedZone_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePublicHostedZone_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validatePublicHostedZone_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePublicHostedZone_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

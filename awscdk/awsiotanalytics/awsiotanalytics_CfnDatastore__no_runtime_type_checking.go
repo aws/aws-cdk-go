@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiotanalytics
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDatastore) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnDatastore) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDatastore) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDatastore) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDatastore) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnDatastore) validateSetRetentionPeriodParameters(val interf
 	return nil
 }
 
-func validateNewCfnDatastoreParameters(scope constructs.Construct, id *string, props *CfnDatastoreProps) error {
+func validateNewCfnDatastoreParameters(scope awscdk.Construct, id *string, props *CfnDatastoreProps) error {
 	return nil
 }
 

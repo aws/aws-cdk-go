@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awselasticloadbalancingv2
 
@@ -21,6 +20,10 @@ func (n *jsiiProxy_NetworkTargetGroup) validateMetricUnHealthyHostCountParameter
 	return nil
 }
 
+func (n *jsiiProxy_NetworkTargetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListener) error {
 	return nil
 }
@@ -29,7 +32,15 @@ func (n *jsiiProxy_NetworkTargetGroup) validateSetAttributeParameters(key *strin
 	return nil
 }
 
+func (n *jsiiProxy_NetworkTargetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateNetworkTargetGroup_FromTargetGroupAttributesParameters(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) error {
+	return nil
+}
+
+func validateNetworkTargetGroup_ImportParameters(scope constructs.Construct, id *string, props *TargetGroupImportProps) error {
 	return nil
 }
 

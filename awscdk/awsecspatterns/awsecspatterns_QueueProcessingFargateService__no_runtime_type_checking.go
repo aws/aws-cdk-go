@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsecspatterns
 
@@ -14,6 +13,14 @@ func (q *jsiiProxy_QueueProcessingFargateService) validateGetDefaultClusterParam
 }
 
 func (q *jsiiProxy_QueueProcessingFargateService) validateGrantPermissionsToServiceParameters(service awsecs.BaseService) error {
+	return nil
+}
+
+func (q *jsiiProxy_QueueProcessingFargateService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (q *jsiiProxy_QueueProcessingFargateService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

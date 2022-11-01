@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awss3assets
 
@@ -10,6 +9,14 @@ func (a *jsiiProxy_Asset) validateAddResourceMetadataParameters(resource awscdk.
 }
 
 func (a *jsiiProxy_Asset) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (a *jsiiProxy_Asset) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_Asset) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

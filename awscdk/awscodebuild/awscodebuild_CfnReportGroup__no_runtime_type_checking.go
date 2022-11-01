@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscodebuild
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnReportGroup) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnReportGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnReportGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnReportGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnReportGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnReportGroup) validateSetTypeParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnReportGroupParameters(scope constructs.Construct, id *string, props *CfnReportGroupProps) error {
+func validateNewCfnReportGroupParameters(scope awscdk.Construct, id *string, props *CfnReportGroupProps) error {
 	return nil
 }
 

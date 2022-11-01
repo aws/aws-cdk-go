@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awswafregional
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnWebACLAssociation) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnWebACLAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWebACLAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWebACLAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnWebACLAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnWebACLAssociation) validateSetWebAclIdParameters(val *stri
 	return nil
 }
 
-func validateNewCfnWebACLAssociationParameters(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) error {
+func validateNewCfnWebACLAssociationParameters(scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) error {
 	return nil
 }
 

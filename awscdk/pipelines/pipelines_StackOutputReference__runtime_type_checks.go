@@ -1,12 +1,11 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package pipelines
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 func (s *jsiiProxy_StackOutputReference) validateIsProducedByParameters(stack StackDeployment) error {

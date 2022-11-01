@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapigateway
 
@@ -22,6 +21,14 @@ func (r *jsiiProxy_RestApiBase) validateAddUsagePlanParameters(id *string, props
 }
 
 func (r *jsiiProxy_RestApiBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+
+func (r *jsiiProxy_RestApiBase) validateConfigureCloudWatchRoleParameters(apiResource CfnRestApi) error {
+	return nil
+}
+
+func (r *jsiiProxy_RestApiBase) validateConfigureDeploymentParameters(props *RestApiBaseProps) error {
 	return nil
 }
 
@@ -65,15 +72,19 @@ func (r *jsiiProxy_RestApiBase) validateMetricServerErrorParameters(props *awscl
 	return nil
 }
 
+func (r *jsiiProxy_RestApiBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_RestApiBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateRestApiBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRestApiBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateRestApiBase_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRestApiBase_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

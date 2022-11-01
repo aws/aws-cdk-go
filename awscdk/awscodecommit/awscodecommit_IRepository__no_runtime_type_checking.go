@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscodecommit
 
@@ -18,6 +17,10 @@ func (i *jsiiProxy_IRepository) validateGrantPullPushParameters(grantee awsiam.I
 }
 
 func (i *jsiiProxy_IRepository) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (i *jsiiProxy_IRepository) validateNotifiyOnPullRequestMergedParameters(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) error {
 	return nil
 }
 

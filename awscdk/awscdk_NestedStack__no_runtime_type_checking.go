@@ -1,7 +1,6 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -10,7 +9,11 @@ func (n *jsiiProxy_NestedStack) validateAddDependencyParameters(target Stack) er
 	return nil
 }
 
-func (n *jsiiProxy_NestedStack) validateAddMetadataParameters(key *string, value interface{}) error {
+func (n *jsiiProxy_NestedStack) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validateAddFileAssetParameters(asset *FileAssetSource) error {
 	return nil
 }
 
@@ -34,11 +37,27 @@ func (n *jsiiProxy_NestedStack) validateGetLogicalIdParameters(element CfnElemen
 	return nil
 }
 
+func (n *jsiiProxy_NestedStack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validateParseArnParameters(arn *string) error {
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validatePrepareCrossReferenceParameters(_sourceStack Stack, reference Reference) error {
+	return nil
+}
+
 func (n *jsiiProxy_NestedStack) validateRegionalFactParameters(factName *string) error {
 	return nil
 }
 
 func (n *jsiiProxy_NestedStack) validateRenameLogicalIdParameters(oldId *string, newId *string) error {
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
 	return nil
 }
 
@@ -55,6 +74,10 @@ func (n *jsiiProxy_NestedStack) validateSetParameterParameters(name *string, val
 }
 
 func (n *jsiiProxy_NestedStack) validateSplitArnParameters(arn *string, arnFormat ArnFormat) error {
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 

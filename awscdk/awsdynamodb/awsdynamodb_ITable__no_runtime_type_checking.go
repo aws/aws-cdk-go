@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsdynamodb
 
@@ -57,15 +56,15 @@ func (i *jsiiProxy_ITable) validateMetricSuccessfulRequestLatencyParameters(prop
 	return nil
 }
 
+func (i *jsiiProxy_ITable) validateMetricSystemErrorsParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_ITable) validateMetricSystemErrorsForOperationsParameters(props *SystemErrorsForOperationsMetricOptions) error {
 	return nil
 }
 
 func (i *jsiiProxy_ITable) validateMetricThrottledRequestsParameters(props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
-func (i *jsiiProxy_ITable) validateMetricThrottledRequestsForOperationsParameters(props *OperationsMetricOptions) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awstransfer
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnProfile) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
+func (c *jsiiProxy_CfnProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnProfile) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnProfile) validateSetProfileTypeParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnProfileParameters(scope constructs.Construct, id *string, props *CfnProfileProps) error {
+func validateNewCfnProfileParameters(scope awscdk.Construct, id *string, props *CfnProfileProps) error {
 	return nil
 }
 

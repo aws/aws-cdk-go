@@ -11,58 +11,68 @@ Cognito](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lis
 Here's an example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), map[string]interface{}{
-	"vpc": vpc,
-	"internetFacing": jsii.Boolean(true),
+import cognito "github.com/aws/aws-cdk-go/awscdk"
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/constructs-go/constructs"
+import actions "github.com/aws/aws-cdk-go/awscdk"
+
+cognitoStack struct {
+stack
+}
+
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
+	vpc: vpc,
+	internetFacing: jsii.Boolean(true),
 })
 
 userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
-userPoolClient := cognito.NewUserPoolClient(this, jsii.String("Client"), map[string]interface{}{
-	"userPool": userPool,
+userPoolClient := cognito.NewUserPoolClient(this, jsii.String("Client"), &userPoolClientProps{
+	userPool: userPool,
 
 	// Required minimal configuration for use with an ELB
-	"generateSecret": jsii.Boolean(true),
-	"authFlows": map[string]*bool{
-		"userPassword": jsii.Boolean(true),
+	generateSecret: jsii.Boolean(true),
+	authFlows: &authFlow{
+		userPassword: jsii.Boolean(true),
 	},
-	"oAuth": map[string]interface{}{
-		"flows": map[string]*bool{
-			"authorizationCodeGrant": jsii.Boolean(true),
+	oAuth: &oAuthSettings{
+		flows: &oAuthFlows{
+			authorizationCodeGrant: jsii.Boolean(true),
 		},
-		"scopes": []interface{}{
-			cognito.OAuthScope_EMAIL,
+		scopes: []oAuthScope{
+			cognito.*oAuthScope_EMAIL(),
 		},
-		"callbackUrls": []*string{
+		callbackUrls: []*string{
 			fmt.Sprintf("https://%v/oauth2/idpresponse", lb.loadBalancerDnsName),
 		},
 	},
 })
-cfnClient := userPoolClient.node.defaultChild.(cognito.CfnUserPoolClient)
+cfnClient := userPoolClient.node.defaultChild.(cfnUserPoolClient)
 cfnClient.addPropertyOverride(jsii.String("RefreshTokenValidity"), jsii.Number(1))
 cfnClient.addPropertyOverride(jsii.String("SupportedIdentityProviders"), []interface{}{
 	jsii.String("COGNITO"),
 })
 
-userPoolDomain := cognito.NewUserPoolDomain(this, jsii.String("Domain"), map[string]interface{}{
-	"userPool": userPool,
-	"cognitoDomain": map[string]*string{
-		"domainPrefix": jsii.String("test-cdk-prefix"),
+userPoolDomain := cognito.NewUserPoolDomain(this, jsii.String("Domain"), &userPoolDomainProps{
+	userPool: userPool,
+	cognitoDomain: &cognitoDomainOptions{
+		domainPrefix: jsii.String("test-cdk-prefix"),
 	},
 })
 
-lb.addListener(jsii.String("Listener"), map[string]interface{}{
-	"port": jsii.Number(443),
-	"certificates": []interface{}{
+lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+	port: jsii.Number(443),
+	certificates: []iListenerCertificate{
 		certificate,
 	},
-	"defaultAction": actions.NewAuthenticateCognitoAction(map[string]interface{}{
-		"userPool": userPool,
-		"userPoolClient": userPoolClient,
-		"userPoolDomain": userPoolDomain,
-		"next": elbv2.ListenerAction_fixedResponse(jsii.Number(200), map[string]*string{
-			"contentType": jsii.String("text/plain"),
-			"messageBody": jsii.String("Authenticated"),
+	defaultAction: actions.NewAuthenticateCognitoAction(&authenticateCognitoActionProps{
+		userPool: userPool,
+		userPoolClient: userPoolClient,
+		userPoolDomain: userPoolDomain,
+		next: elbv2.listenerAction.fixedResponse(jsii.Number(200), &fixedResponseOptions{
+			contentType: jsii.String("text/plain"),
+			messageBody: jsii.String("Authenticated"),
 		}),
 	}),
 })
@@ -70,4 +80,12 @@ lb.addListener(jsii.String("Listener"), map[string]interface{}{
 awscdk.NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
 	value: lb.loadBalancerDnsName,
 })
+
+app := awscdk.NewApp()
+NewCognitoStack(app, jsii.String("integ-cognito"))
+app.synth()
 ```
+
+> NOTE: this example seems incomplete, I was not able to get the redirect back to the
+> Load Balancer after authentication working. Would love some pointers on what a full working
+> setup actually looks like!

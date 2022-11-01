@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsguardduty
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnThreatIntelSet) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnThreatIntelSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnThreatIntelSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnThreatIntelSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnThreatIntelSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnThreatIntelSet) validateSetLocationParameters(val *string)
 	return nil
 }
 
-func validateNewCfnThreatIntelSetParameters(scope constructs.Construct, id *string, props *CfnThreatIntelSetProps) error {
+func validateNewCfnThreatIntelSetParameters(scope awscdk.Construct, id *string, props *CfnThreatIntelSetProps) error {
 	return nil
 }
 

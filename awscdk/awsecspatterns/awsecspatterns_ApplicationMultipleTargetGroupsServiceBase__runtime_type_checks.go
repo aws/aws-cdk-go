@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsecspatterns
 
@@ -8,8 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateAddPortMappingForTargetsParameters(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) error {
@@ -45,6 +46,14 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateGetDefaul
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateRegisterECSTargetsParameters(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) error {
 	if service == nil {
 		return fmt.Errorf("parameter service is required, but nil was provided")
@@ -66,9 +75,33 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateRegisterE
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateApplicationMultipleTargetGroupsServiceBase_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateSetListenersParameters(val *[]awselasticloadbalancingv2.ApplicationListener) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) validateSetTargetGroupsParameters(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

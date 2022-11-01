@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -17,15 +16,19 @@ func (n *jsiiProxy_NetworkAclEntry) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
+func (n *jsiiProxy_NetworkAclEntry) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (n *jsiiProxy_NetworkAclEntry) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateNetworkAclEntry_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNetworkAclEntry_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateNetworkAclEntry_IsResourceParameters(construct constructs.IConstruct) error {
+func validateNetworkAclEntry_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

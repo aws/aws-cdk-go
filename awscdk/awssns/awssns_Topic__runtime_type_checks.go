@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awssns
 
@@ -8,15 +7,15 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
-func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
-	if topicSubscription == nil {
-		return fmt.Errorf("parameter topicSubscription is required, but nil was provided")
+func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(subscription ITopicSubscription) error {
+	if subscription == nil {
+		return fmt.Errorf("parameter subscription is required, but nil was provided")
 	}
 
 	return nil
@@ -161,6 +160,22 @@ func (t *jsiiProxy_Topic) validateMetricSMSSuccessRateParameters(props *awscloud
 	return nil
 }
 
+func (t *jsiiProxy_Topic) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (t *jsiiProxy_Topic) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateTopic_FromTopicArnParameters(scope constructs.Construct, id *string, topicArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -185,15 +200,7 @@ func validateTopic_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTopic_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateTopic_IsResourceParameters(construct constructs.IConstruct) error {
+func validateTopic_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

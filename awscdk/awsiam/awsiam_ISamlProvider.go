@@ -3,14 +3,16 @@ package awsiam
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam/internal"
 )
 
 // A SAML provider.
+// Experimental.
 type ISamlProvider interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) of the provider.
+	// Experimental.
 	SamlProviderArn() *string
 }
 

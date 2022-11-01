@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslocation
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnTracker) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
+func (c *jsiiProxy_CfnTracker) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTracker) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTracker) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTracker) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnTracker) validateSetTrackerNameParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnTrackerParameters(scope constructs.Construct, id *string, props *CfnTrackerProps) error {
+func validateNewCfnTrackerParameters(scope awscdk.Construct, id *string, props *CfnTrackerProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsapigateway
 
@@ -8,12 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
-func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope constructs.Construct) error {
+func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -21,7 +20,7 @@ func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope constructs.C
 	return nil
 }
 
-func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope constructs.Construct, restApi IRestApi) error {
+func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope awscdk.Construct, restApi IRestApi) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

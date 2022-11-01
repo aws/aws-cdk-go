@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awselasticloadbalancingv2
 
@@ -13,7 +12,15 @@ func (t *jsiiProxy_TargetGroupBase) validateConfigureHealthCheckParameters(healt
 	return nil
 }
 
+func (t *jsiiProxy_TargetGroupBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (t *jsiiProxy_TargetGroupBase) validateSetAttributeParameters(key *string) error {
+	return nil
+}
+
+func (t *jsiiProxy_TargetGroupBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -33,6 +32,14 @@ func (v *jsiiProxy_Volume) validateGrantDetachVolumeByResourceTagParameters(gran
 	return nil
 }
 
+func (v *jsiiProxy_Volume) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (v *jsiiProxy_Volume) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (v *jsiiProxy_Volume) validateValidatePropsParameters(props *VolumeProps) error {
 	return nil
 }
@@ -45,11 +52,7 @@ func validateVolume_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVolume_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateVolume_IsResourceParameters(construct constructs.IConstruct) error {
+func validateVolume_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

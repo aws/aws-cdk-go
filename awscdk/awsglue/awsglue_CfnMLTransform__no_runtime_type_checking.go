@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsglue
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnMLTransform) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnMLTransform) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMLTransform) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMLTransform) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMLTransform) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnMLTransform) validateSetTransformParametersParameters(val 
 	return nil
 }
 
-func validateNewCfnMLTransformParameters(scope constructs.Construct, id *string, props *CfnMLTransformProps) error {
+func validateNewCfnMLTransformParameters(scope awscdk.Construct, id *string, props *CfnMLTransformProps) error {
 	return nil
 }
 

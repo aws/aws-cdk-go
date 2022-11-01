@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsnetworkmanager
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnCustomerGatewayAssociation) validateSetGlobalNetworkIdPara
 	return nil
 }
 
-func validateNewCfnCustomerGatewayAssociationParameters(scope constructs.Construct, id *string, props *CfnCustomerGatewayAssociationProps) error {
+func validateNewCfnCustomerGatewayAssociationParameters(scope awscdk.Construct, id *string, props *CfnCustomerGatewayAssociationProps) error {
 	return nil
 }
 

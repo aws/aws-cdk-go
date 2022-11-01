@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiam
 
@@ -45,6 +44,14 @@ func (r *jsiiProxy_Role) validateGrantPassRoleParameters(identity IPrincipal) er
 	return nil
 }
 
+func (r *jsiiProxy_Role) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_Role) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (r *jsiiProxy_Role) validateWithoutPolicyUpdatesParameters(options *WithoutPolicyUpdatesOptions) error {
 	return nil
 }
@@ -53,7 +60,7 @@ func validateRole_FromRoleArnParameters(scope constructs.Construct, id *string, 
 	return nil
 }
 
-func validateRole_FromRoleNameParameters(scope constructs.Construct, id *string, roleName *string, options *FromRoleNameOptions) error {
+func validateRole_FromRoleNameParameters(scope constructs.Construct, id *string, roleName *string) error {
 	return nil
 }
 
@@ -61,11 +68,7 @@ func validateRole_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRole_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateRole_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRole_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

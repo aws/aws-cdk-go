@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsroute53targets
 
@@ -9,7 +8,7 @@ func (i *jsiiProxy_InterfaceVpcEndpointTarget) validateBindParameters(_record aw
 	return nil
 }
 
-func validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint awsec2.InterfaceVpcEndpoint) error {
+func validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint awsec2.IInterfaceVpcEndpoint) error {
 	return nil
 }
 

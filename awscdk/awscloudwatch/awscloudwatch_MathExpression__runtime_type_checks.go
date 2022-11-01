@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscloudwatch
 
@@ -8,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (m *jsiiProxy_MathExpression) validateCreateAlarmParameters(scope constructs.Construct, id *string, props *CreateAlarmOptions) error {
+func (m *jsiiProxy_MathExpression) validateCreateAlarmParameters(scope awscdk.Construct, id *string, props *CreateAlarmOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

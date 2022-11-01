@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslightsail
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDatabase) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnDatabase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDatabase) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDatabase) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDatabase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -105,7 +112,7 @@ func (j *jsiiProxy_CfnDatabase) validateSetRotateMasterUserPasswordParameters(va
 	return nil
 }
 
-func validateNewCfnDatabaseParameters(scope constructs.Construct, id *string, props *CfnDatabaseProps) error {
+func validateNewCfnDatabaseParameters(scope awscdk.Construct, id *string, props *CfnDatabaseProps) error {
 	return nil
 }
 

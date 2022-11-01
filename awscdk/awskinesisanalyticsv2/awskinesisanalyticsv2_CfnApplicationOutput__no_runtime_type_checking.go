@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awskinesisanalyticsv2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnApplicationOutput) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationOutput) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationOutput) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnApplicationOutput) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnApplicationOutput) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnApplicationOutput) validateSetOutputParameters(val interfa
 	return nil
 }
 
-func validateNewCfnApplicationOutputParameters(scope constructs.Construct, id *string, props *CfnApplicationOutputProps) error {
+func validateNewCfnApplicationOutputParameters(scope awscdk.Construct, id *string, props *CfnApplicationOutputProps) error {
 	return nil
 }
 

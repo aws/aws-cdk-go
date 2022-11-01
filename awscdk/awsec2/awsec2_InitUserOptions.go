@@ -16,18 +16,22 @@ package awsec2
 //   	userId: jsii.Number(123),
 //   }
 //
+// Experimental.
 type InitUserOptions struct {
 	// A list of group names.
 	//
 	// The user will be added to each group in the list.
+	// Experimental.
 	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// The user's home directory.
+	// Experimental.
 	HomeDir *string `field:"optional" json:"homeDir" yaml:"homeDir"`
 	// A user ID.
 	//
 	// The creation process fails if the user name exists with a different user ID.
 	// If the user ID is already assigned to an existing user the operating system may
 	// reject the creation request.
+	// Experimental.
 	UserId *float64 `field:"optional" json:"userId" yaml:"userId"`
 }
 

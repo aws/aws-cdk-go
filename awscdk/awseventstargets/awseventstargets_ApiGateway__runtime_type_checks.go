@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awseventstargets
 
@@ -8,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 func (a *jsiiProxy_ApiGateway) validateBindParameters(rule awsevents.IRule) error {

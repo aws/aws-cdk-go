@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsroute53
 
@@ -17,15 +16,19 @@ func (c *jsiiProxy_CnameRecord) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
+func (c *jsiiProxy_CnameRecord) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_CnameRecord) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateCnameRecord_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCnameRecord_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateCnameRecord_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCnameRecord_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

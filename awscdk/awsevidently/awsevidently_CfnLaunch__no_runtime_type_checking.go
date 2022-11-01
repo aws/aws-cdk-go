@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsevidently
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnLaunch) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnLaunch) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLaunch) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLaunch) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLaunch) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +100,7 @@ func (j *jsiiProxy_CfnLaunch) validateSetScheduledSplitsConfigParameters(val int
 	return nil
 }
 
-func validateNewCfnLaunchParameters(scope constructs.Construct, id *string, props *CfnLaunchProps) error {
+func validateNewCfnLaunchParameters(scope awscdk.Construct, id *string, props *CfnLaunchProps) error {
 	return nil
 }
 

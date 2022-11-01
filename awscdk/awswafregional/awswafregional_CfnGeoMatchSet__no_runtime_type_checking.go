@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awswafregional
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnGeoMatchSet) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnGeoMatchSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGeoMatchSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGeoMatchSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGeoMatchSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnGeoMatchSet) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnGeoMatchSetParameters(scope constructs.Construct, id *string, props *CfnGeoMatchSetProps) error {
+func validateNewCfnGeoMatchSetParameters(scope awscdk.Construct, id *string, props *CfnGeoMatchSetProps) error {
 	return nil
 }
 

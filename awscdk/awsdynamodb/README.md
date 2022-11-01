@@ -29,8 +29,6 @@ If you intend to use the `tableStreamArn` (including indirectly, for example by 
 `@aws-cdk/aws-lambda-event-source.DynamoEventSource` on the imported table), you *must* use the
 `Table.fromTableAttributes` method and the `tableStreamArn` property *must* be populated.
 
-In order to grant permissions to indexes on imported tables you can either set `grantIndexPermissions` to `true`, or you can provide the indexes via the `globalIndexes` or `localIndexes` properties. This will enable `grant*` methods to also grant permissions to *all* table indexes.
-
 ## Keys
 
 When a table is defined, you must define it's schema using the `partitionKey`
@@ -263,35 +261,5 @@ table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
 		type: dynamodb.attributeType_STRING,
 	},
 	kinesisStream: stream,
-})
-```
-
-## Alarm metrics
-
-Alarms can be configured on the DynamoDB table to captured metric data
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-
-
-table := dynamodb.NewTable(this, jsii.String("Table"), &tableProps{
-	partitionKey: &attribute{
-		name: jsii.String("id"),
-		type: dynamodb.attributeType_STRING,
-	},
-})
-
-metric := table.metricThrottledRequestsForOperations(&operationsMetricOptions{
-	operations: []operation{
-		dynamodb.*operation_PUT_ITEM,
-	},
-	period: awscdk.Duration.minutes(jsii.Number(1)),
-})
-
-cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &alarmProps{
-	metric: metric,
-	evaluationPeriods: jsii.Number(1),
-	threshold: jsii.Number(1),
 })
 ```

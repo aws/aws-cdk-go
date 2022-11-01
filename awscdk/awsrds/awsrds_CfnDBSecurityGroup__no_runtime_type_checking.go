@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsrds
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDBSecurityGroup) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnDBSecurityGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDBSecurityGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDBSecurityGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDBSecurityGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnDBSecurityGroup) validateSetGroupDescriptionParameters(val
 	return nil
 }
 
-func validateNewCfnDBSecurityGroupParameters(scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) error {
+func validateNewCfnDBSecurityGroupParameters(scope awscdk.Construct, id *string, props *CfnDBSecurityGroupProps) error {
 	return nil
 }
 

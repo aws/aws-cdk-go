@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodestarnotifications
 
@@ -8,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (n *jsiiProxy_NotificationRule) validateAddTargetParameters(target INotificationRuleTarget) error {
@@ -51,6 +50,22 @@ func (n *jsiiProxy_NotificationRule) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
+func (n *jsiiProxy_NotificationRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NotificationRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNotificationRule_FromNotificationRuleArnParameters(scope constructs.Construct, id *string, notificationRuleArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -75,15 +90,7 @@ func validateNotificationRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNotificationRule_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateNotificationRule_IsResourceParameters(construct constructs.IConstruct) error {
+func validateNotificationRule_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

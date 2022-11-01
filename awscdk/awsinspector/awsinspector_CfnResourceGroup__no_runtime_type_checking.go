@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsinspector
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResourceGroup) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnResourceGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResourceGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResourceGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResourceGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnResourceGroup) validateSetResourceGroupTagsParameters(val 
 	return nil
 }
 
-func validateNewCfnResourceGroupParameters(scope constructs.Construct, id *string, props *CfnResourceGroupProps) error {
+func validateNewCfnResourceGroupParameters(scope awscdk.Construct, id *string, props *CfnResourceGroupProps) error {
 	return nil
 }
 

@@ -1,7 +1,6 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -9,7 +8,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnStack) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,6 +103,14 @@ func (c *jsiiProxy_CfnStack) validateInspectParameters(inspector TreeInspector) 
 	return nil
 }
 
+func (c *jsiiProxy_CfnStack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnStack) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -115,6 +122,14 @@ func (c *jsiiProxy_CfnStack) validateOverrideLogicalIdParameters(newLogicalId *s
 func (c *jsiiProxy_CfnStack) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnStack) validateSynthesizeParameters(session ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -177,7 +192,7 @@ func (j *jsiiProxy_CfnStack) validateSetTemplateUrlParameters(val *string) error
 	return nil
 }
 
-func validateNewCfnStackParameters(scope constructs.Construct, id *string, props *CfnStackProps) error {
+func validateNewCfnStackParameters(scope Construct, id *string, props *CfnStackProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

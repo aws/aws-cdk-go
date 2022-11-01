@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsstepfunctions
 
@@ -8,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (s *jsiiProxy_StateMachine) validateAddToRolePolicyParameters(statement awsiam.PolicyStatement) error {
@@ -169,6 +168,22 @@ func (s *jsiiProxy_StateMachine) validateMetricTimedOutParameters(props *awsclou
 	return nil
 }
 
+func (s *jsiiProxy_StateMachine) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_StateMachine) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateStateMachine_FromStateMachineArnParameters(scope constructs.Construct, id *string, stateMachineArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -185,22 +200,6 @@ func validateStateMachine_FromStateMachineArnParameters(scope constructs.Constru
 	return nil
 }
 
-func validateStateMachine_FromStateMachineNameParameters(scope constructs.Construct, id *string, stateMachineName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if stateMachineName == nil {
-		return fmt.Errorf("parameter stateMachineName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateStateMachine_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -209,15 +208,7 @@ func validateStateMachine_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStateMachine_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateStateMachine_IsResourceParameters(construct constructs.IConstruct) error {
+func validateStateMachine_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

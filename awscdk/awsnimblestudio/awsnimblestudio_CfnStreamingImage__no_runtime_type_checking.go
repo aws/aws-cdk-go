@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsnimblestudio
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnStreamingImage) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnStreamingImage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStreamingImage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStreamingImage) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStreamingImage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnStreamingImage) validateSetStudioIdParameters(val *string)
 	return nil
 }
 
-func validateNewCfnStreamingImageParameters(scope constructs.Construct, id *string, props *CfnStreamingImageProps) error {
+func validateNewCfnStreamingImageParameters(scope awscdk.Construct, id *string, props *CfnStreamingImageProps) error {
 	return nil
 }
 

@@ -1,13 +1,12 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodecommit
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_Code) validateBindParameters(scope constructs.Construct) error {

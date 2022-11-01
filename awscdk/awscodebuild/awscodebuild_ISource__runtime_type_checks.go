@@ -1,15 +1,14 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodebuild
 
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (i *jsiiProxy_ISource) validateBindParameters(scope constructs.Construct, project IProject) error {
+func (i *jsiiProxy_ISource) validateBindParameters(scope awscdk.Construct, project IProject) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

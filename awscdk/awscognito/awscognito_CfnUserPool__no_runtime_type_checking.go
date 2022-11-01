@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscognito
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnUserPool) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPool) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnUserPool) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPool) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -117,7 +124,7 @@ func (j *jsiiProxy_CfnUserPool) validateSetVerificationMessageTemplateParameters
 	return nil
 }
 
-func validateNewCfnUserPoolParameters(scope constructs.Construct, id *string, props *CfnUserPoolProps) error {
+func validateNewCfnUserPoolParameters(scope awscdk.Construct, id *string, props *CfnUserPoolProps) error {
 	return nil
 }
 

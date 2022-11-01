@@ -1,15 +1,12 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (t *jsiiProxy_Tags) validateAddParameters(key *string, value *string, props *TagProps) error {
@@ -40,7 +37,7 @@ func (t *jsiiProxy_Tags) validateRemoveParameters(key *string, props *TagProps) 
 	return nil
 }
 
-func validateTags_OfParameters(scope constructs.IConstruct) error {
+func validateTags_OfParameters(scope IConstruct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

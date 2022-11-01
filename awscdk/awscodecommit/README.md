@@ -56,11 +56,11 @@ var project pipelineProject
 var myTopic topic
 
 
-// starts a CodeBuild project when a commit is pushed to the "main" branch of the repo
-repo.onCommit(jsii.String("CommitToMain"), &onCommitOptions{
+// starts a CodeBuild project when a commit is pushed to the "master" branch of the repo
+repo.onCommit(jsii.String("CommitToMaster"), &onCommitOptions{
 	target: targets.NewCodeBuildProject(project),
 	branches: []*string{
-		jsii.String("main"),
+		jsii.String("master"),
 	},
 })
 

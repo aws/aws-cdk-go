@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsautoscaling
 
@@ -8,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (i *jsiiProxy_ILifecycleHookTarget) validateBindParameters(scope constructs.Construct, options *BindHookTargetOptions) error {

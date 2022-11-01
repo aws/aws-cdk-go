@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awselasticloadbalancingv2
 
@@ -17,15 +16,19 @@ func (b *jsiiProxy_BaseListener) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
+func (b *jsiiProxy_BaseListener) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_BaseListener) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateBaseListener_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBaseListener_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateBaseListener_IsResourceParameters(construct constructs.IConstruct) error {
+func validateBaseListener_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

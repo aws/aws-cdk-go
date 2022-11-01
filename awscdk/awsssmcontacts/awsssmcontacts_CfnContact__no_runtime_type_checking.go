@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsssmcontacts
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnContact) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
+func (c *jsiiProxy_CfnContact) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnContact) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnContact) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnContact) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnContact) validateSetTypeParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnContactParameters(scope constructs.Construct, id *string, props *CfnContactProps) error {
+func validateNewCfnContactParameters(scope awscdk.Construct, id *string, props *CfnContactProps) error {
 	return nil
 }
 

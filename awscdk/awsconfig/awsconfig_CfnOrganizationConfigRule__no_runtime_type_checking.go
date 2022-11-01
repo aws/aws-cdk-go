@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsconfig
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) validateInspectParameters(inspecto
 	return nil
 }
 
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnOrganizationConfigRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnOrganizationConfigRule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnOrganizationConfigRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) validateSetOrganizationManagedRule
 	return nil
 }
 
-func validateNewCfnOrganizationConfigRuleParameters(scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) error {
+func validateNewCfnOrganizationConfigRuleParameters(scope awscdk.Construct, id *string, props *CfnOrganizationConfigRuleProps) error {
 	return nil
 }
 

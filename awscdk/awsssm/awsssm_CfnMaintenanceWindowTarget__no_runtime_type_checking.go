@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsssm
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateInspectParameters(inspect
 	return nil
 }
 
+func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMaintenanceWindowTarget) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTarget) validateSetWindowIdParameters(val
 	return nil
 }
 
-func validateNewCfnMaintenanceWindowTargetParameters(scope constructs.Construct, id *string, props *CfnMaintenanceWindowTargetProps) error {
+func validateNewCfnMaintenanceWindowTargetParameters(scope awscdk.Construct, id *string, props *CfnMaintenanceWindowTargetProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package customresources
 
@@ -10,6 +9,14 @@ func (a *jsiiProxy_AwsCustomResource) validateGetResponseFieldParameters(dataPat
 }
 
 func (a *jsiiProxy_AwsCustomResource) validateGetResponseFieldReferenceParameters(dataPath *string) error {
+	return nil
+}
+
+func (a *jsiiProxy_AwsCustomResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AwsCustomResource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

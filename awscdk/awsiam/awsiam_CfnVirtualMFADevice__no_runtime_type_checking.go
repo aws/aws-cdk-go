@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiam
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVirtualMFADevice) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualMFADevice) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualMFADevice) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVirtualMFADevice) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVirtualMFADevice) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnVirtualMFADevice) validateSetUsersParameters(val *[]*strin
 	return nil
 }
 
-func validateNewCfnVirtualMFADeviceParameters(scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) error {
+func validateNewCfnVirtualMFADeviceParameters(scope awscdk.Construct, id *string, props *CfnVirtualMFADeviceProps) error {
 	return nil
 }
 

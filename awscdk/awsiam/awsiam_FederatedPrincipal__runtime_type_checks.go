@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsiam
 
@@ -39,9 +38,13 @@ func (f *jsiiProxy_FederatedPrincipal) validateWithConditionsParameters(conditio
 	return nil
 }
 
-func validateNewFederatedPrincipalParameters(federated *string) error {
+func validateNewFederatedPrincipalParameters(federated *string, conditions *map[string]interface{}) error {
 	if federated == nil {
 		return fmt.Errorf("parameter federated is required, but nil was provided")
+	}
+
+	if conditions == nil {
+		return fmt.Errorf("parameter conditions is required, but nil was provided")
 	}
 
 	return nil

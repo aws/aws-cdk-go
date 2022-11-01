@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnNetworkInterface) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInterface) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInterface) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNetworkInterface) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNetworkInterface) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnNetworkInterface) validateSetSubnetIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnNetworkInterfaceParameters(scope constructs.Construct, id *string, props *CfnNetworkInterfaceProps) error {
+func validateNewCfnNetworkInterfaceParameters(scope awscdk.Construct, id *string, props *CfnNetworkInterfaceProps) error {
 	return nil
 }
 

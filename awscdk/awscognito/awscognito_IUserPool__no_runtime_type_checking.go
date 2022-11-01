@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscognito
 
@@ -14,10 +13,6 @@ func (i *jsiiProxy_IUserPool) validateAddDomainParameters(id *string, options *U
 }
 
 func (i *jsiiProxy_IUserPool) validateAddResourceServerParameters(id *string, options *UserPoolResourceServerOptions) error {
-	return nil
-}
-
-func (i *jsiiProxy_IUserPool) validateGrantParameters(grantee awsiam.IGrantable) error {
 	return nil
 }
 

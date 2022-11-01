@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsmediaconvert
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnJobTemplate) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnJobTemplate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnJobTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnJobTemplate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnJobTemplate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnJobTemplate) validateSetSettingsJsonParameters(val interfa
 	return nil
 }
 
-func validateNewCfnJobTemplateParameters(scope constructs.Construct, id *string, props *CfnJobTemplateProps) error {
+func validateNewCfnJobTemplateParameters(scope awscdk.Construct, id *string, props *CfnJobTemplateProps) error {
 	return nil
 }
 

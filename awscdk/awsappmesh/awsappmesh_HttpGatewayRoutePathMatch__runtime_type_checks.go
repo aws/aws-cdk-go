@@ -1,15 +1,14 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsappmesh
 
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (h *jsiiProxy_HttpGatewayRoutePathMatch) validateBindParameters(scope constructs.Construct) error {
+func (h *jsiiProxy_HttpGatewayRoutePathMatch) validateBindParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

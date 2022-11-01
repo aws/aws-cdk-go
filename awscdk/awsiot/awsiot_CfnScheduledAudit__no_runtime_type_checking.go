@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiot
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnScheduledAudit) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnScheduledAudit) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnScheduledAudit) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnScheduledAudit) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnScheduledAudit) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnScheduledAudit) validateSetTargetCheckNamesParameters(val 
 	return nil
 }
 
-func validateNewCfnScheduledAuditParameters(scope constructs.Construct, id *string, props *CfnScheduledAuditProps) error {
+func validateNewCfnScheduledAuditParameters(scope awscdk.Construct, id *string, props *CfnScheduledAuditProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsneptune
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDBSubnetGroup) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnDBSubnetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDBSubnetGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDBSubnetGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDBSubnetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnDBSubnetGroup) validateSetSubnetIdsParameters(val *[]*stri
 	return nil
 }
 
-func validateNewCfnDBSubnetGroupParameters(scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) error {
+func validateNewCfnDBSubnetGroupParameters(scope awscdk.Construct, id *string, props *CfnDBSubnetGroupProps) error {
 	return nil
 }
 

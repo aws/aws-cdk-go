@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsappmesh
 
@@ -29,6 +28,14 @@ func (v *jsiiProxy_VirtualNode) validateGrantStreamAggregatedResourcesParameters
 	return nil
 }
 
+func (v *jsiiProxy_VirtualNode) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (v *jsiiProxy_VirtualNode) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateVirtualNode_FromVirtualNodeArnParameters(scope constructs.Construct, id *string, virtualNodeArn *string) error {
 	return nil
 }
@@ -41,11 +48,7 @@ func validateVirtualNode_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVirtualNode_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateVirtualNode_IsResourceParameters(construct constructs.IConstruct) error {
+func validateVirtualNode_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

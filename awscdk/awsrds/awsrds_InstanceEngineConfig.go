@@ -18,12 +18,15 @@ package awsrds
 //   	optionGroup: optionGroup,
 //   }
 //
+// Experimental.
 type InstanceEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
+	// Experimental.
 	Features *InstanceEngineFeatures `field:"optional" json:"features" yaml:"features"`
 	// Option group of the database.
+	// Experimental.
 	OptionGroup IOptionGroup `field:"optional" json:"optionGroup" yaml:"optionGroup"`
 }
 

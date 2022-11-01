@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsredshiftserverless
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnNamespace) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNamespace) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnNamespace) validateSetNamespaceNameParameters(val *string)
 	return nil
 }
 
-func validateNewCfnNamespaceParameters(scope constructs.Construct, id *string, props *CfnNamespaceProps) error {
+func validateNewCfnNamespaceParameters(scope awscdk.Construct, id *string, props *CfnNamespaceProps) error {
 	return nil
 }
 

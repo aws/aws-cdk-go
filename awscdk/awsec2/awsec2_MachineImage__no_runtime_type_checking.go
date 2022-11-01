@@ -1,11 +1,14 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
 func validateMachineImage_FromSsmParameterParameters(parameterName *string, options *SsmParameterImageOptions) error {
+	return nil
+}
+
+func validateMachineImage_FromSSMParameterParameters(parameterName *string, os OperatingSystemType) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscodebuild
 
@@ -29,7 +28,7 @@ func (p *jsiiProxy_PipelineProject) validateBindAsNotificationRuleSourceParamete
 	return nil
 }
 
-func (p *jsiiProxy_PipelineProject) validateBindToCodePipelineParameters(_scope constructs.Construct, options *BindToCodePipelineOptions) error {
+func (p *jsiiProxy_PipelineProject) validateBindToCodePipelineParameters(_scope awscdk.Construct, options *BindToCodePipelineOptions) error {
 	return nil
 }
 
@@ -97,6 +96,14 @@ func (p *jsiiProxy_PipelineProject) validateOnStateChangeParameters(id *string, 
 	return nil
 }
 
+func (p *jsiiProxy_PipelineProject) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_PipelineProject) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validatePipelineProject_FromProjectArnParameters(scope constructs.Construct, id *string, projectArn *string) error {
 	return nil
 }
@@ -109,11 +116,7 @@ func validatePipelineProject_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePipelineProject_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validatePipelineProject_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePipelineProject_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsstepfunctionstasks
 
@@ -82,6 +81,14 @@ func (a *jsiiProxy_AthenaStartQueryExecution) validateMetricTimedOutParameters(p
 }
 
 func (a *jsiiProxy_AthenaStartQueryExecution) validateNextParameters(next awsstepfunctions.IChainable) error {
+	return nil
+}
+
+func (a *jsiiProxy_AthenaStartQueryExecution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AthenaStartQueryExecution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

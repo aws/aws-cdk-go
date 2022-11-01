@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsconnect
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnQuickConnect) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnQuickConnect) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnQuickConnect) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnQuickConnect) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnQuickConnect) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnQuickConnect) validateSetQuickConnectConfigParameters(val 
 	return nil
 }
 
-func validateNewCfnQuickConnectParameters(scope constructs.Construct, id *string, props *CfnQuickConnectProps) error {
+func validateNewCfnQuickConnectParameters(scope awscdk.Construct, id *string, props *CfnQuickConnectProps) error {
 	return nil
 }
 

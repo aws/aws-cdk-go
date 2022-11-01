@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awspersonalize
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnSchema) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnSchema) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSchema) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSchema) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSchema) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnSchema) validateSetSchemaParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnSchemaParameters(scope constructs.Construct, id *string, props *CfnSchemaProps) error {
+func validateNewCfnSchemaParameters(scope awscdk.Construct, id *string, props *CfnSchemaProps) error {
 	return nil
 }
 

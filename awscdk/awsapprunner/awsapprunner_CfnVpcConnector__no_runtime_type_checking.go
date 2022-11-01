@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapprunner
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVpcConnector) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnVpcConnector) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVpcConnector) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVpcConnector) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVpcConnector) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnVpcConnector) validateSetSubnetsParameters(val *[]*string)
 	return nil
 }
 
-func validateNewCfnVpcConnectorParameters(scope constructs.Construct, id *string, props *CfnVpcConnectorProps) error {
+func validateNewCfnVpcConnectorParameters(scope awscdk.Construct, id *string, props *CfnVpcConnectorProps) error {
 	return nil
 }
 

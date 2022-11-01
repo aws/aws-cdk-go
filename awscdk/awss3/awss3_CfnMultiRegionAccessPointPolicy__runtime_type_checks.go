@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awss3
 
@@ -8,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,6 +103,14 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateInspectParameters(in
 	return nil
 }
 
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -115,6 +122,14 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateOverrideLogicalIdPar
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -168,7 +183,7 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateSetPolicyParameters(
 	return nil
 }
 
-func validateNewCfnMultiRegionAccessPointPolicyParameters(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) error {
+func validateNewCfnMultiRegionAccessPointPolicyParameters(scope awscdk.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssupportapp
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) validateInspectParameters(inspe
 	return nil
 }
 
+func (c *jsiiProxy_CfnSlackChannelConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSlackChannelConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSlackChannelConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +104,7 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) validateSetTeamIdParameters(val
 	return nil
 }
 
-func validateNewCfnSlackChannelConfigurationParameters(scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) error {
+func validateNewCfnSlackChannelConfigurationParameters(scope awscdk.Construct, id *string, props *CfnSlackChannelConfigurationProps) error {
 	return nil
 }
 

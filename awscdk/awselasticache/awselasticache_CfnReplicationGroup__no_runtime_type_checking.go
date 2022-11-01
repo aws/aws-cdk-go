@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awselasticache
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnReplicationGroup) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnReplicationGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnReplicationGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnReplicationGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -105,7 +112,7 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetTransitEncryptionEnabledParam
 	return nil
 }
 
-func validateNewCfnReplicationGroupParameters(scope constructs.Construct, id *string, props *CfnReplicationGroupProps) error {
+func validateNewCfnReplicationGroupParameters(scope awscdk.Construct, id *string, props *CfnReplicationGroupProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsstepfunctions
 
@@ -61,6 +60,14 @@ func (a *jsiiProxy_Activity) validateMetricTimedOutParameters(props *awscloudwat
 	return nil
 }
 
+func (a *jsiiProxy_Activity) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_Activity) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateActivity_FromActivityArnParameters(scope constructs.Construct, id *string, activityArn *string) error {
 	return nil
 }
@@ -73,11 +80,7 @@ func validateActivity_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateActivity_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateActivity_IsResourceParameters(construct constructs.IConstruct) error {
+func validateActivity_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapigateway
 
@@ -25,6 +24,14 @@ func (u *jsiiProxy_UsagePlan) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
+func (u *jsiiProxy_UsagePlan) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (u *jsiiProxy_UsagePlan) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateUsagePlan_FromUsagePlanIdParameters(scope constructs.Construct, id *string, usagePlanId *string) error {
 	return nil
 }
@@ -33,11 +40,7 @@ func validateUsagePlan_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateUsagePlan_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateUsagePlan_IsResourceParameters(construct constructs.IConstruct) error {
+func validateUsagePlan_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

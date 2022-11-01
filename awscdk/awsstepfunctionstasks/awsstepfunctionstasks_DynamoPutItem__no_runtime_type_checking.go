@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsstepfunctionstasks
 
@@ -82,6 +81,14 @@ func (d *jsiiProxy_DynamoPutItem) validateMetricTimedOutParameters(props *awsclo
 }
 
 func (d *jsiiProxy_DynamoPutItem) validateNextParameters(next awsstepfunctions.IChainable) error {
+	return nil
+}
+
+func (d *jsiiProxy_DynamoPutItem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DynamoPutItem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

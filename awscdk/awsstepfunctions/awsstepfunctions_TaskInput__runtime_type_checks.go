@@ -1,11 +1,26 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsstepfunctions
 
 import (
 	"fmt"
 )
+
+func validateTaskInput_FromContextAtParameters(path *string) error {
+	if path == nil {
+		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateTaskInput_FromDataAtParameters(path *string) error {
+	if path == nil {
+		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
 
 func validateTaskInput_FromJsonPathAtParameters(path *string) error {
 	if path == nil {

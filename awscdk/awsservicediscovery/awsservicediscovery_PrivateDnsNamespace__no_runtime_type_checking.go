@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsservicediscovery
 
@@ -21,6 +20,14 @@ func (p *jsiiProxy_PrivateDnsNamespace) validateGetResourceNameAttributeParamete
 	return nil
 }
 
+func (p *jsiiProxy_PrivateDnsNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_PrivateDnsNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validatePrivateDnsNamespace_FromPrivateDnsNamespaceAttributesParameters(scope constructs.Construct, id *string, attrs *PrivateDnsNamespaceAttributes) error {
 	return nil
 }
@@ -29,11 +36,7 @@ func validatePrivateDnsNamespace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePrivateDnsNamespace_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validatePrivateDnsNamespace_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePrivateDnsNamespace_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,12 +1,14 @@
 package awsecrassets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/assets"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An asset that represents a Docker image.
@@ -21,36 +23,97 @@ import (
 //   	tarballFile: jsii.String("local-image.tar"),
 //   })
 //
+// Experimental.
 type TarballImageAsset interface {
-	constructs.Construct
+	awscdk.Construct
+	assets.IAsset
 	// A hash of this asset, which is available at construction time.
 	//
 	// As this is a plain string, it
 	// can be used in construct IDs in order to enforce creation of a new resource when the content
 	// hash has changed.
+	// Experimental.
 	AssetHash() *string
-	// The tag of this asset when it is uploaded to ECR.
-	//
-	// The tag may differ from the assetHash if a stack synthesizer adds a dockerTagPrefix.
-	ImageTag() *string
 	// The full URI of the image (including a tag).
 	//
 	// Use this reference to pull
 	// the asset.
+	// Experimental.
 	ImageUri() *string
+	// Experimental.
 	SetImageUri(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Repository where the image is stored.
+	// Experimental.
 	Repository() awsecr.IRepository
+	// Experimental.
 	SetRepository(val awsecr.IRepository)
+	// A hash of the source of this asset, which is available at construction time.
+	//
+	// As this is a plain
+	// string, it can be used in construct IDs in order to enforce creation of a new resource when
+	// the content hash has changed.
+	// Deprecated: use assetHash.
+	SourceHash() *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for TarballImageAsset
 type jsiiProxy_TarballImageAsset struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
+	internal.Type__assetsIAsset
 }
 
 func (j *jsiiProxy_TarballImageAsset) AssetHash() *string {
@@ -58,16 +121,6 @@ func (j *jsiiProxy_TarballImageAsset) AssetHash() *string {
 	_jsii_.Get(
 		j,
 		"assetHash",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TarballImageAsset) ImageTag() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"imageTag",
 		&returns,
 	)
 	return returns
@@ -83,8 +136,8 @@ func (j *jsiiProxy_TarballImageAsset) ImageUri() *string {
 	return returns
 }
 
-func (j *jsiiProxy_TarballImageAsset) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_TarballImageAsset) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -103,7 +156,18 @@ func (j *jsiiProxy_TarballImageAsset) Repository() awsecr.IRepository {
 	return returns
 }
 
+func (j *jsiiProxy_TarballImageAsset) SourceHash() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceHash",
+		&returns,
+	)
+	return returns
+}
 
+
+// Experimental.
 func NewTarballImageAsset(scope constructs.Construct, id *string, props *TarballImageAssetProps) TarballImageAsset {
 	_init_.Initialize()
 
@@ -113,7 +177,7 @@ func NewTarballImageAsset(scope constructs.Construct, id *string, props *Tarball
 	j := jsiiProxy_TarballImageAsset{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr_assets.TarballImageAsset",
+		"monocdk.aws_ecr_assets.TarballImageAsset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -121,11 +185,12 @@ func NewTarballImageAsset(scope constructs.Construct, id *string, props *Tarball
 	return &j
 }
 
+// Experimental.
 func NewTarballImageAsset_Override(t TarballImageAsset, scope constructs.Construct, id *string, props *TarballImageAssetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr_assets.TarballImageAsset",
+		"monocdk.aws_ecr_assets.TarballImageAsset",
 		[]interface{}{scope, id, props},
 		t,
 	)
@@ -153,23 +218,8 @@ func (j *jsiiProxy_TarballImageAsset)SetRepository(val awsecr.IRepository) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func TarballImageAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -179,7 +229,7 @@ func TarballImageAsset_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecr_assets.TarballImageAsset",
+		"monocdk.aws_ecr_assets.TarballImageAsset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -188,12 +238,76 @@ func TarballImageAsset_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func (t *jsiiProxy_TarballImageAsset) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (t *jsiiProxy_TarballImageAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := t.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (t *jsiiProxy_TarballImageAsset) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TarballImageAsset) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (t *jsiiProxy_TarballImageAsset) Synthesize(session awscdk.ISynthesisSession) {
+	if err := t.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (t *jsiiProxy_TarballImageAsset) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		t,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TarballImageAsset) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

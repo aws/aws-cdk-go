@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnTrafficMirrorSession) validateInspectParameters(inspector 
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrafficMirrorSession) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrafficMirrorSession) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorSession) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTrafficMirrorSession) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnTrafficMirrorSession) validateSetTrafficMirrorTargetIdPara
 	return nil
 }
 
-func validateNewCfnTrafficMirrorSessionParameters(scope constructs.Construct, id *string, props *CfnTrafficMirrorSessionProps) error {
+func validateNewCfnTrafficMirrorSessionParameters(scope awscdk.Construct, id *string, props *CfnTrafficMirrorSessionProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awss3
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnBucketPolicy) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnBucketPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBucketPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnBucketPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBucketPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnBucketPolicy) validateSetPolicyDocumentParameters(val inte
 	return nil
 }
 
-func validateNewCfnBucketPolicyParameters(scope constructs.Construct, id *string, props *CfnBucketPolicyProps) error {
+func validateNewCfnBucketPolicyParameters(scope awscdk.Construct, id *string, props *CfnBucketPolicyProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsecs
 
@@ -8,14 +7,27 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_Cluster) validateAddAsgCapacityProviderParameters(provider AsgCapacityProvider, options *AddAutoScalingGroupCapacityOptions) error {
 	if provider == nil {
 		return fmt.Errorf("parameter provider is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_Cluster) validateAddAutoScalingGroupParameters(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AddAutoScalingGroupCapacityOptions) error {
+	if autoScalingGroup == nil {
+		return fmt.Errorf("parameter autoScalingGroup is required, but nil was provided")
 	}
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
@@ -35,6 +47,14 @@ func (c *jsiiProxy_Cluster) validateAddCapacityParameters(id *string, options *A
 	}
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_Cluster) validateAddCapacityProviderParameters(provider *string) error {
+	if provider == nil {
+		return fmt.Errorf("parameter provider is required, but nil was provided")
 	}
 
 	return nil
@@ -126,6 +146,22 @@ func (c *jsiiProxy_Cluster) validateMetricMemoryUtilizationParameters(props *aws
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_Cluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCluster_FromClusterArnParameters(scope constructs.Construct, id *string, clusterArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -169,15 +205,7 @@ func validateCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCluster_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCluster_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCluster_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

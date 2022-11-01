@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awss3
 
@@ -89,6 +88,14 @@ func (b *jsiiProxy_Bucket) validateOnCloudTrailWriteObjectParameters(id *string,
 	return nil
 }
 
+func (b *jsiiProxy_Bucket) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_Bucket) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (b *jsiiProxy_Bucket) validateTransferAccelerationUrlForObjectParameters(options *TransferAccelerationUrlOptions) error {
 	return nil
 }
@@ -109,19 +116,11 @@ func validateBucket_FromBucketNameParameters(scope constructs.Construct, id *str
 	return nil
 }
 
-func validateBucket_FromCfnBucketParameters(cfnBucket CfnBucket) error {
-	return nil
-}
-
 func validateBucket_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBucket_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateBucket_IsResourceParameters(construct constructs.IConstruct) error {
+func validateBucket_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

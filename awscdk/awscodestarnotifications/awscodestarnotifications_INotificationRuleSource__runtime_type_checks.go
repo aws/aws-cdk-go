@@ -1,12 +1,11 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodestarnotifications
 
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (i *jsiiProxy_INotificationRuleSource) validateBindAsNotificationRuleSourceParameters(scope constructs.Construct) error {

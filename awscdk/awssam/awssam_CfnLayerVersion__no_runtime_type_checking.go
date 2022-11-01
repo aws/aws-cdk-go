@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssam
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnLayerVersion) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnLayerVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLayerVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLayerVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLayerVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnLayerVersion) validateSetContentUriParameters(val interfac
 	return nil
 }
 
-func validateNewCfnLayerVersionParameters(scope constructs.Construct, id *string, props *CfnLayerVersionProps) error {
+func validateNewCfnLayerVersionParameters(scope awscdk.Construct, id *string, props *CfnLayerVersionProps) error {
 	return nil
 }
 

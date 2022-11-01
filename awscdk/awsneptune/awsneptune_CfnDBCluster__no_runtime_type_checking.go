@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsneptune
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDBCluster) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnDBCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDBCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDBCluster) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDBCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +96,7 @@ func (j *jsiiProxy_CfnDBCluster) validateSetUseLatestRestorableTimeParameters(va
 	return nil
 }
 
-func validateNewCfnDBClusterParameters(scope constructs.Construct, id *string, props *CfnDBClusterProps) error {
+func validateNewCfnDBClusterParameters(scope awscdk.Construct, id *string, props *CfnDBClusterProps) error {
 	return nil
 }
 

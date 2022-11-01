@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awseks
 
@@ -18,6 +17,14 @@ func (a *jsiiProxy_AwsAuth) validateAddRoleMappingParameters(role awsiam.IRole, 
 }
 
 func (a *jsiiProxy_AwsAuth) validateAddUserMappingParameters(user awsiam.IUser, mapping *AwsAuthMapping) error {
+	return nil
+}
+
+func (a *jsiiProxy_AwsAuth) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AwsAuth) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

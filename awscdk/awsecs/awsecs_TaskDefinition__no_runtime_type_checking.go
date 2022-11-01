@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsecs
 
@@ -53,7 +52,11 @@ func (t *jsiiProxy_TaskDefinition) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (t *jsiiProxy_TaskDefinition) validateGrantRunParameters(grantee awsiam.IGrantable) error {
+func (t *jsiiProxy_TaskDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (t *jsiiProxy_TaskDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -69,11 +72,7 @@ func validateTaskDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTaskDefinition_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateTaskDefinition_IsResourceParameters(construct constructs.IConstruct) error {
+func validateTaskDefinition_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

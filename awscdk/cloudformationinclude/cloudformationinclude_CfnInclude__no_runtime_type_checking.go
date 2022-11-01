@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package cloudformationinclude
 
@@ -41,7 +40,15 @@ func (c *jsiiProxy_CfnInclude) validateLoadNestedStackParameters(logicalId *stri
 	return nil
 }
 
+func (c *jsiiProxy_CfnInclude) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInclude) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInclude) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

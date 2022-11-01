@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiam
 
@@ -17,15 +16,19 @@ func (a *jsiiProxy_AccessKey) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
+func (a *jsiiProxy_AccessKey) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AccessKey) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAccessKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAccessKey_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAccessKey_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAccessKey_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

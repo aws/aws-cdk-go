@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiam
 
@@ -10,6 +9,10 @@ func (i *jsiiProxy_IIdentity) validateAddManagedPolicyParameters(policy IManaged
 }
 
 func (i *jsiiProxy_IIdentity) validateAttachInlinePolicyParameters(policy Policy) error {
+	return nil
+}
+
+func (i *jsiiProxy_IIdentity) validateAddToPolicyParameters(statement PolicyStatement) error {
 	return nil
 }
 

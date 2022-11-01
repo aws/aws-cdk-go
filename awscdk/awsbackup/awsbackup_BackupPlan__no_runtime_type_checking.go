@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsbackup
 
@@ -22,6 +21,14 @@ func (b *jsiiProxy_BackupPlan) validateGetResourceArnAttributeParameters(arnAttr
 }
 
 func (b *jsiiProxy_BackupPlan) validateGetResourceNameAttributeParameters(nameAttr *string) error {
+	return nil
+}
+
+func (b *jsiiProxy_BackupPlan) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_BackupPlan) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -49,11 +56,7 @@ func validateBackupPlan_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBackupPlan_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateBackupPlan_IsResourceParameters(construct constructs.IConstruct) error {
+func validateBackupPlan_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

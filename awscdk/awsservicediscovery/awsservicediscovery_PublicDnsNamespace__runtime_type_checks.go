@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsservicediscovery
 
@@ -8,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (p *jsiiProxy_PublicDnsNamespace) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -55,6 +54,22 @@ func (p *jsiiProxy_PublicDnsNamespace) validateGetResourceNameAttributeParameter
 	return nil
 }
 
+func (p *jsiiProxy_PublicDnsNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_PublicDnsNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validatePublicDnsNamespace_FromPublicDnsNamespaceAttributesParameters(scope constructs.Construct, id *string, attrs *PublicDnsNamespaceAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -82,15 +97,7 @@ func validatePublicDnsNamespace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePublicDnsNamespace_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validatePublicDnsNamespace_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePublicDnsNamespace_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

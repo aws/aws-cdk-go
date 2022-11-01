@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapigateway
 
@@ -21,15 +20,19 @@ func (d *jsiiProxy_Deployment) validateGetResourceNameAttributeParameters(nameAt
 	return nil
 }
 
+func (d *jsiiProxy_Deployment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_Deployment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDeployment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDeployment_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDeployment_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDeployment_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

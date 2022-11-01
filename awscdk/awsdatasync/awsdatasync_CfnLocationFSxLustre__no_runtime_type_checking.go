@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsdatasync
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnLocationFSxLustre) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationFSxLustre) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationFSxLustre) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLocationFSxLustre) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLocationFSxLustre) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnLocationFSxLustre) validateSetSecurityGroupArnsParameters(
 	return nil
 }
 
-func validateNewCfnLocationFSxLustreParameters(scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) error {
+func validateNewCfnLocationFSxLustreParameters(scope awscdk.Construct, id *string, props *CfnLocationFSxLustreProps) error {
 	return nil
 }
 

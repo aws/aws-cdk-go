@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsrds
 
@@ -8,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (d *jsiiProxy_DatabaseSecret) validateAddReplicaRegionParameters(region *string) error {
@@ -23,6 +22,21 @@ func (d *jsiiProxy_DatabaseSecret) validateAddReplicaRegionParameters(region *st
 }
 
 func (d *jsiiProxy_DatabaseSecret) validateAddRotationScheduleParameters(id *string, options *awssecretsmanager.RotationScheduleOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseSecret) validateAddTargetAttachmentParameters(id *string, options *awssecretsmanager.AttachedSecretOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
@@ -100,9 +114,41 @@ func (d *jsiiProxy_DatabaseSecret) validateGrantWriteParameters(grantee awsiam.I
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseSecret) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseSecret) validateSecretValueFromJsonParameters(jsonField *string) error {
 	if jsonField == nil {
 		return fmt.Errorf("parameter jsonField is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseSecret) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateDatabaseSecret_FromSecretArnParameters(scope constructs.Construct, id *string, secretArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if secretArn == nil {
+		return fmt.Errorf("parameter secretArn is required, but nil was provided")
 	}
 
 	return nil
@@ -138,6 +184,22 @@ func validateDatabaseSecret_FromSecretCompleteArnParameters(scope constructs.Con
 
 	if secretCompleteArn == nil {
 		return fmt.Errorf("parameter secretCompleteArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateDatabaseSecret_FromSecretNameParameters(scope constructs.Construct, id *string, secretName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if secretName == nil {
+		return fmt.Errorf("parameter secretName is required, but nil was provided")
 	}
 
 	return nil
@@ -183,25 +245,9 @@ func validateDatabaseSecret_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDatabaseSecret_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+func validateDatabaseSecret_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateDatabaseSecret_IsResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateDatabaseSecret_IsSecretParameters(x interface{}) error {
-	if x == nil {
-		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

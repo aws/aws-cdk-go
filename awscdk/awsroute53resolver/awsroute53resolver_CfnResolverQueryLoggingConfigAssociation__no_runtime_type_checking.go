@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsroute53resolver
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateInspectPara
 	return nil
 }
 
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -69,7 +76,7 @@ func validateCfnResolverQueryLoggingConfigAssociation_IsConstructParameters(x in
 	return nil
 }
 
-func validateNewCfnResolverQueryLoggingConfigAssociationParameters(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) error {
+func validateNewCfnResolverQueryLoggingConfigAssociationParameters(scope awscdk.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) error {
 	return nil
 }
 

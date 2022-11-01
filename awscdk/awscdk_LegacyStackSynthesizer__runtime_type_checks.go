@@ -1,28 +1,13 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
-
-func (l *jsiiProxy_LegacyStackSynthesizer) validateAddBootstrapVersionRuleParameters(requiredVersion *float64, bootstrapStackVersionSsmParameter *string) error {
-	if requiredVersion == nil {
-		return fmt.Errorf("parameter requiredVersion is required, but nil was provided")
-	}
-
-	if bootstrapStackVersionSsmParameter == nil {
-		return fmt.Errorf("parameter bootstrapStackVersionSsmParameter is required, but nil was provided")
-	}
-
-	return nil
-}
 
 func (l *jsiiProxy_LegacyStackSynthesizer) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
 	if asset == nil {
@@ -49,40 +34,6 @@ func (l *jsiiProxy_LegacyStackSynthesizer) validateAddFileAssetParameters(asset 
 func (l *jsiiProxy_LegacyStackSynthesizer) validateBindParameters(stack Stack) error {
 	if stack == nil {
 		return fmt.Errorf("parameter stack is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (l *jsiiProxy_LegacyStackSynthesizer) validateCloudFormationLocationFromDockerImageAssetParameters(dest *cloudassemblyschema.DockerImageDestination) error {
-	if dest == nil {
-		return fmt.Errorf("parameter dest is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(dest, func() string { return "parameter dest" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (l *jsiiProxy_LegacyStackSynthesizer) validateCloudFormationLocationFromFileAssetParameters(location *cloudassemblyschema.FileDestination) error {
-	if location == nil {
-		return fmt.Errorf("parameter location is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(location, func() string { return "parameter location" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (l *jsiiProxy_LegacyStackSynthesizer) validateEmitArtifactParameters(session ISynthesisSession, options *SynthesizeStackArtifactOptions) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
 	}
 
 	return nil
@@ -117,14 +68,6 @@ func (l *jsiiProxy_LegacyStackSynthesizer) validateSynthesizeStackTemplateParame
 		return fmt.Errorf("parameter stack is required, but nil was provided")
 	}
 
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (l *jsiiProxy_LegacyStackSynthesizer) validateSynthesizeTemplateParameters(session ISynthesisSession) error {
 	if session == nil {
 		return fmt.Errorf("parameter session is required, but nil was provided")
 	}

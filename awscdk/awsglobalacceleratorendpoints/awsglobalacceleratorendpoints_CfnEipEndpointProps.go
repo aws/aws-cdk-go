@@ -16,10 +16,12 @@ package awsglobalacceleratorendpoints
 //   	},
 //   })
 //
+// Experimental.
 type CfnEipEndpointProps struct {
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
+	// Experimental.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

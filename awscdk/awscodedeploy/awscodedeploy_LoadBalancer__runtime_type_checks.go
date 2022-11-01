@@ -1,13 +1,12 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodedeploy
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
 )
 
 func validateLoadBalancer_ApplicationParameters(albTargetGroup awselasticloadbalancingv2.IApplicationTargetGroup) error {

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiot
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnSecurityProfile) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnSecurityProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSecurityProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSecurityProfile) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSecurityProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnSecurityProfile) validateSetBehaviorsParameters(val interf
 	return nil
 }
 
-func validateNewCfnSecurityProfileParameters(scope constructs.Construct, id *string, props *CfnSecurityProfileProps) error {
+func validateNewCfnSecurityProfileParameters(scope awscdk.Construct, id *string, props *CfnSecurityProfileProps) error {
 	return nil
 }
 

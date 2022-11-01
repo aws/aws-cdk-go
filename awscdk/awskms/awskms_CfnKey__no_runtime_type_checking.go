@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awskms
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnKey) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnKey) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnKey) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnKey) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnKey) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnKey) validateSetMultiRegionParameters(val interface{}) err
 	return nil
 }
 
-func validateNewCfnKeyParameters(scope constructs.Construct, id *string, props *CfnKeyProps) error {
+func validateNewCfnKeyParameters(scope awscdk.Construct, id *string, props *CfnKeyProps) error {
 	return nil
 }
 

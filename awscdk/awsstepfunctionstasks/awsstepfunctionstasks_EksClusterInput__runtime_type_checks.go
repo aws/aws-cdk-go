@@ -1,13 +1,12 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsstepfunctionstasks
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awseks"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 func validateEksClusterInput_FromClusterParameters(cluster awseks.ICluster) error {

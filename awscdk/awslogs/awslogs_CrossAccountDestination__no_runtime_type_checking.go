@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslogs
 
@@ -13,7 +12,7 @@ func (c *jsiiProxy_CrossAccountDestination) validateApplyRemovalPolicyParameters
 	return nil
 }
 
-func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(_scope constructs.Construct, _sourceLogGroup ILogGroup) error {
+func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(_scope awscdk.Construct, _sourceLogGroup ILogGroup) error {
 	return nil
 }
 
@@ -25,15 +24,19 @@ func (c *jsiiProxy_CrossAccountDestination) validateGetResourceNameAttributePara
 	return nil
 }
 
+func (c *jsiiProxy_CrossAccountDestination) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_CrossAccountDestination) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateCrossAccountDestination_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCrossAccountDestination_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateCrossAccountDestination_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCrossAccountDestination_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

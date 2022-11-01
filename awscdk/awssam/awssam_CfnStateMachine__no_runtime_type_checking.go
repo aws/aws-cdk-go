@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssam
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnStateMachine) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnStateMachine) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStateMachine) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStateMachine) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStateMachine) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +104,7 @@ func (j *jsiiProxy_CfnStateMachine) validateSetTracingParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnStateMachineParameters(scope constructs.Construct, id *string, props *CfnStateMachineProps) error {
+func validateNewCfnStateMachineParameters(scope awscdk.Construct, id *string, props *CfnStateMachineProps) error {
 	return nil
 }
 

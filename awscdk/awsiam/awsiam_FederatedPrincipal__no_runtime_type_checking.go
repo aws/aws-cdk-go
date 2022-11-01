@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiam
 
@@ -21,7 +20,7 @@ func (f *jsiiProxy_FederatedPrincipal) validateWithConditionsParameters(conditio
 	return nil
 }
 
-func validateNewFederatedPrincipalParameters(federated *string) error {
+func validateNewFederatedPrincipalParameters(federated *string, conditions *map[string]interface{}) error {
 	return nil
 }
 

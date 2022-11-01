@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssecretsmanager
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) validateInspectParameters(inspecto
 	return nil
 }
 
+func (c *jsiiProxy_CfnSecretTargetAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSecretTargetAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSecretTargetAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSecretTargetAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) validateSetTargetTypeParameters(va
 	return nil
 }
 
-func validateNewCfnSecretTargetAttachmentParameters(scope constructs.Construct, id *string, props *CfnSecretTargetAttachmentProps) error {
+func validateNewCfnSecretTargetAttachmentParameters(scope awscdk.Construct, id *string, props *CfnSecretTargetAttachmentProps) error {
 	return nil
 }
 

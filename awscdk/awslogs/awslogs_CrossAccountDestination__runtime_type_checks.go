@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awslogs
 
@@ -8,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CrossAccountDestination) validateAddToPolicyParameters(statement awsiam.PolicyStatement) error {
@@ -29,7 +28,7 @@ func (c *jsiiProxy_CrossAccountDestination) validateApplyRemovalPolicyParameters
 	return nil
 }
 
-func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(_scope constructs.Construct, _sourceLogGroup ILogGroup) error {
+func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(_scope awscdk.Construct, _sourceLogGroup ILogGroup) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}
@@ -64,6 +63,22 @@ func (c *jsiiProxy_CrossAccountDestination) validateGetResourceNameAttributePara
 	return nil
 }
 
+func (c *jsiiProxy_CrossAccountDestination) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CrossAccountDestination) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCrossAccountDestination_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -72,15 +87,7 @@ func validateCrossAccountDestination_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateCrossAccountDestination_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCrossAccountDestination_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCrossAccountDestination_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

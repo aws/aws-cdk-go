@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awspanorama
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnPackageVersion) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnPackageVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPackageVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPackageVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPackageVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnPackageVersion) validateSetPatchVersionParameters(val *str
 	return nil
 }
 
-func validateNewCfnPackageVersionParameters(scope constructs.Construct, id *string, props *CfnPackageVersionProps) error {
+func validateNewCfnPackageVersionParameters(scope awscdk.Construct, id *string, props *CfnPackageVersionProps) error {
 	return nil
 }
 

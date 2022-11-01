@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudformation
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) validateInspectParameters(inspecto
 	return nil
 }
 
+func (c *jsiiProxy_CfnResourceDefaultVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResourceDefaultVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResourceDefaultVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResourceDefaultVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -69,7 +76,7 @@ func validateCfnResourceDefaultVersion_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
-func validateNewCfnResourceDefaultVersionParameters(scope constructs.Construct, id *string, props *CfnResourceDefaultVersionProps) error {
+func validateNewCfnResourceDefaultVersionParameters(scope awscdk.Construct, id *string, props *CfnResourceDefaultVersionProps) error {
 	return nil
 }
 

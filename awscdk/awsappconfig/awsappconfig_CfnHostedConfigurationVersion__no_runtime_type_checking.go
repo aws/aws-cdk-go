@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsappconfig
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnHostedConfigurationVersion) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnHostedConfigurationVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnHostedConfigurationVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnHostedConfigurationVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnHostedConfigurationVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) validateSetContentTypeParamete
 	return nil
 }
 
-func validateNewCfnHostedConfigurationVersionParameters(scope constructs.Construct, id *string, props *CfnHostedConfigurationVersionProps) error {
+func validateNewCfnHostedConfigurationVersionParameters(scope awscdk.Construct, id *string, props *CfnHostedConfigurationVersionProps) error {
 	return nil
 }
 

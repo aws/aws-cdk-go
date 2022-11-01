@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsssm
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResourceDataSync) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnResourceDataSync) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResourceDataSync) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResourceDataSync) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResourceDataSync) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnResourceDataSync) validateSetSyncSourceParameters(val inte
 	return nil
 }
 
-func validateNewCfnResourceDataSyncParameters(scope constructs.Construct, id *string, props *CfnResourceDataSyncProps) error {
+func validateNewCfnResourceDataSyncParameters(scope awscdk.Construct, id *string, props *CfnResourceDataSyncProps) error {
 	return nil
 }
 

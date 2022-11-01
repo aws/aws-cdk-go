@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslambda
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnEventInvokeConfig) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnEventInvokeConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEventInvokeConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnEventInvokeConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEventInvokeConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnEventInvokeConfig) validateSetQualifierParameters(val *str
 	return nil
 }
 
-func validateNewCfnEventInvokeConfigParameters(scope constructs.Construct, id *string, props *CfnEventInvokeConfigProps) error {
+func validateNewCfnEventInvokeConfigParameters(scope awscdk.Construct, id *string, props *CfnEventInvokeConfigProps) error {
 	return nil
 }
 

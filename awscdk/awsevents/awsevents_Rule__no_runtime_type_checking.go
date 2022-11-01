@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsevents
 
@@ -21,6 +20,14 @@ func (r *jsiiProxy_Rule) validateGetResourceNameAttributeParameters(nameAttr *st
 	return nil
 }
 
+func (r *jsiiProxy_Rule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_Rule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateRule_FromEventRuleArnParameters(scope constructs.Construct, id *string, eventRuleArn *string) error {
 	return nil
 }
@@ -29,11 +36,7 @@ func validateRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRule_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateRule_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRule_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

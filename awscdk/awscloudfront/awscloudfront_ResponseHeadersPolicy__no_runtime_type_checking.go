@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudfront
 
@@ -17,6 +16,14 @@ func (r *jsiiProxy_ResponseHeadersPolicy) validateGetResourceNameAttributeParame
 	return nil
 }
 
+func (r *jsiiProxy_ResponseHeadersPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_ResponseHeadersPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateResponseHeadersPolicy_FromResponseHeadersPolicyIdParameters(scope constructs.Construct, id *string, responseHeadersPolicyId *string) error {
 	return nil
 }
@@ -25,11 +32,7 @@ func validateResponseHeadersPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateResponseHeadersPolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateResponseHeadersPolicy_IsResourceParameters(construct constructs.IConstruct) error {
+func validateResponseHeadersPolicy_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

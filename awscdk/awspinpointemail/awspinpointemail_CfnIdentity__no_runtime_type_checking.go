@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awspinpointemail
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnIdentity) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnIdentity) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIdentity) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnIdentity) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnIdentity) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -89,7 +96,7 @@ func (j *jsiiProxy_CfnIdentity) validateSetTagsParameters(val *[]*CfnIdentity_Ta
 	return nil
 }
 
-func validateNewCfnIdentityParameters(scope constructs.Construct, id *string, props *CfnIdentityProps) error {
+func validateNewCfnIdentityParameters(scope awscdk.Construct, id *string, props *CfnIdentityProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awselasticloadbalancingv2
 
@@ -21,6 +20,10 @@ func (b *jsiiProxy_BaseLoadBalancer) validateLogAccessLogsParameters(bucket awss
 	return nil
 }
 
+func (b *jsiiProxy_BaseLoadBalancer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (b *jsiiProxy_BaseLoadBalancer) validateRemoveAttributeParameters(key *string) error {
 	return nil
 }
@@ -29,15 +32,15 @@ func (b *jsiiProxy_BaseLoadBalancer) validateSetAttributeParameters(key *string)
 	return nil
 }
 
+func (b *jsiiProxy_BaseLoadBalancer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateBaseLoadBalancer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBaseLoadBalancer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateBaseLoadBalancer_IsResourceParameters(construct constructs.IConstruct) error {
+func validateBaseLoadBalancer_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

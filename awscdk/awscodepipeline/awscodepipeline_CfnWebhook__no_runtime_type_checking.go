@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscodepipeline
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnWebhook) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
+func (c *jsiiProxy_CfnWebhook) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWebhook) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWebhook) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnWebhook) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +104,7 @@ func (j *jsiiProxy_CfnWebhook) validateSetTargetPipelineVersionParameters(val *f
 	return nil
 }
 
-func validateNewCfnWebhookParameters(scope constructs.Construct, id *string, props *CfnWebhookProps) error {
+func validateNewCfnWebhookParameters(scope awscdk.Construct, id *string, props *CfnWebhookProps) error {
 	return nil
 }
 

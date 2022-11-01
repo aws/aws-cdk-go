@@ -1,16 +1,15 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsappmesh
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsacmpca"
 )
 
-func (t *jsiiProxy_TlsValidationTrust) validateBindParameters(scope constructs.Construct) error {
+func (t *jsiiProxy_TlsValidationTrust) validateBindParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

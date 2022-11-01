@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscodebuild
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnSourceCredential) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnSourceCredential) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSourceCredential) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSourceCredential) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSourceCredential) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -81,7 +88,7 @@ func (j *jsiiProxy_CfnSourceCredential) validateSetTokenParameters(val *string) 
 	return nil
 }
 
-func validateNewCfnSourceCredentialParameters(scope constructs.Construct, id *string, props *CfnSourceCredentialProps) error {
+func validateNewCfnSourceCredentialParameters(scope awscdk.Construct, id *string, props *CfnSourceCredentialProps) error {
 	return nil
 }
 

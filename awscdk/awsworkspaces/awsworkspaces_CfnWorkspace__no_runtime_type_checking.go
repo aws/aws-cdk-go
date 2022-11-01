@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsworkspaces
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnWorkspace) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnWorkspace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWorkspace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWorkspace) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnWorkspace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +100,7 @@ func (j *jsiiProxy_CfnWorkspace) validateSetWorkspacePropertiesParameters(val in
 	return nil
 }
 
-func validateNewCfnWorkspaceParameters(scope constructs.Construct, id *string, props *CfnWorkspaceProps) error {
+func validateNewCfnWorkspaceParameters(scope awscdk.Construct, id *string, props *CfnWorkspaceProps) error {
 	return nil
 }
 

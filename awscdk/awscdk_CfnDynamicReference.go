@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -12,35 +12,38 @@ import (
 // metadata to themselves without having to change call signatures.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   awscdk.NewCfnDynamicReference(awscdk.CfnDynamicReferenceService_SECRETS_MANAGER, jsii.String("secret-id:secret-string:json-key:version-stage:version-id"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDynamicReference := monocdk.NewCfnDynamicReference(monocdk.cfnDynamicReferenceService_SSM, jsii.String("key"))
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html
 //
+// Experimental.
 type CfnDynamicReference interface {
 	Intrinsic
 	// The captured stack trace which represents the location in which this token was created.
+	// Experimental.
 	CreationStack() *[]*string
 	// Creates a throwable Error object that contains the token creation stack trace.
+	// Experimental.
 	NewError(message *string) interface{}
 	// Produce the Token's value at resolution time.
+	// Experimental.
 	Resolve(_context IResolveContext) interface{}
 	// Turn this Token into JSON.
 	//
 	// Called automatically when JSON.stringify() is called on a Token.
+	// Experimental.
 	ToJSON() interface{}
 	// Convert an instance of this Token to a string.
 	//
 	// This method will be called implicitly by language runtimes if the object
 	// is embedded into a string. We treat it the same as an explicit
 	// stringification.
+	// Experimental.
 	ToString() *string
-	// Convert an instance of this Token to a string list.
-	//
-	// This method will be called implicitly by language runtimes if the object
-	// is embedded into a list. We treat it the same as an explicit
-	// stringification.
-	ToStringList() *[]*string
 }
 
 // The jsii proxy struct for CfnDynamicReference
@@ -59,6 +62,7 @@ func (j *jsiiProxy_CfnDynamicReference) CreationStack() *[]*string {
 }
 
 
+// Experimental.
 func NewCfnDynamicReference(service CfnDynamicReferenceService, key *string) CfnDynamicReference {
 	_init_.Initialize()
 
@@ -68,7 +72,7 @@ func NewCfnDynamicReference(service CfnDynamicReferenceService, key *string) Cfn
 	j := jsiiProxy_CfnDynamicReference{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.CfnDynamicReference",
+		"monocdk.CfnDynamicReference",
 		[]interface{}{service, key},
 		&j,
 	)
@@ -76,11 +80,12 @@ func NewCfnDynamicReference(service CfnDynamicReferenceService, key *string) Cfn
 	return &j
 }
 
+// Experimental.
 func NewCfnDynamicReference_Override(c CfnDynamicReference, service CfnDynamicReferenceService, key *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.CfnDynamicReference",
+		"monocdk.CfnDynamicReference",
 		[]interface{}{service, key},
 		c,
 	)
@@ -137,19 +142,6 @@ func (c *jsiiProxy_CfnDynamicReference) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDynamicReference) ToStringList() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"toStringList",
 		nil, // no parameters
 		&returns,
 	)

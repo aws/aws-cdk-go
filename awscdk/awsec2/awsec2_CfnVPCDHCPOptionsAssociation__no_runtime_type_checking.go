@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsec2
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateInspectParameters(inspe
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateSetVpcIdParameters(val 
 	return nil
 }
 
-func validateNewCfnVPCDHCPOptionsAssociationParameters(scope constructs.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) error {
+func validateNewCfnVPCDHCPOptionsAssociationParameters(scope awscdk.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) error {
 	return nil
 }
 

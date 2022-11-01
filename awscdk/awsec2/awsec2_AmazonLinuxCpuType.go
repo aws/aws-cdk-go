@@ -46,12 +46,15 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
+// Experimental.
 type AmazonLinuxCpuType string
 
 const (
 	// arm64 CPU type.
+	// Experimental.
 	AmazonLinuxCpuType_ARM_64 AmazonLinuxCpuType = "ARM_64"
 	// x86_64 CPU type.
+	// Experimental.
 	AmazonLinuxCpuType_X86_64 AmazonLinuxCpuType = "X86_64"
 )
 

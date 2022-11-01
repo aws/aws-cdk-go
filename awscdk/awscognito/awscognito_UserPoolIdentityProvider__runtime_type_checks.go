@@ -1,12 +1,11 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscognito
 
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func validateUserPoolIdentityProvider_FromProviderNameParameters(scope constructs.Construct, id *string, providerName *string) error {

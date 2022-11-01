@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsdatapipeline
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnPipeline) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnPipeline) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPipeline) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPipeline) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPipeline) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -93,7 +100,7 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineTagsParameters(val interface{
 	return nil
 }
 
-func validateNewCfnPipelineParameters(scope constructs.Construct, id *string, props *CfnPipelineProps) error {
+func validateNewCfnPipelineParameters(scope awscdk.Construct, id *string, props *CfnPipelineProps) error {
 	return nil
 }
 

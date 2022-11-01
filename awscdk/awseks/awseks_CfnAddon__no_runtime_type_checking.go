@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awseks
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnAddon) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
+func (c *jsiiProxy_CfnAddon) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAddon) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAddon) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAddon) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnAddon) validateSetClusterNameParameters(val *string) error
 	return nil
 }
 
-func validateNewCfnAddonParameters(scope constructs.Construct, id *string, props *CfnAddonProps) error {
+func validateNewCfnAddonParameters(scope awscdk.Construct, id *string, props *CfnAddonProps) error {
 	return nil
 }
 

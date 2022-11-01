@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsroute53recoveryreadiness
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnRecoveryGroup) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnRecoveryGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRecoveryGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRecoveryGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRecoveryGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -69,7 +76,7 @@ func validateCfnRecoveryGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnRecoveryGroupParameters(scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) error {
+func validateNewCfnRecoveryGroupParameters(scope awscdk.Construct, id *string, props *CfnRecoveryGroupProps) error {
 	return nil
 }
 

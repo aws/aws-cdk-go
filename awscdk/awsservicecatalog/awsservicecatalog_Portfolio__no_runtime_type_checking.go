@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsservicecatalog
 
@@ -57,6 +56,10 @@ func (p *jsiiProxy_Portfolio) validateNotifyOnStackEventsParameters(product IPro
 	return nil
 }
 
+func (p *jsiiProxy_Portfolio) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (p *jsiiProxy_Portfolio) validateSetLaunchRoleParameters(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions) error {
 	return nil
 }
@@ -73,6 +76,10 @@ func (p *jsiiProxy_Portfolio) validateShareWithAccountParameters(accountId *stri
 	return nil
 }
 
+func (p *jsiiProxy_Portfolio) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validatePortfolio_FromPortfolioArnParameters(scope constructs.Construct, id *string, portfolioArn *string) error {
 	return nil
 }
@@ -81,11 +88,7 @@ func validatePortfolio_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePortfolio_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validatePortfolio_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePortfolio_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsroute53resolver
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnFirewallRuleGroup) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnFirewallRuleGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFirewallRuleGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFirewallRuleGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnFirewallRuleGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) validateSetFirewallRulesParameters(val 
 	return nil
 }
 
-func validateNewCfnFirewallRuleGroupParameters(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupProps) error {
+func validateNewCfnFirewallRuleGroupParameters(scope awscdk.Construct, id *string, props *CfnFirewallRuleGroupProps) error {
 	return nil
 }
 

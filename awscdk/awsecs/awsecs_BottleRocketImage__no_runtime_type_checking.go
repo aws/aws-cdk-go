@@ -1,11 +1,10 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (b *jsiiProxy_BottleRocketImage) validateGetImageParameters(scope constructs.Construct) error {
+func (b *jsiiProxy_BottleRocketImage) validateGetImageParameters(scope awscdk.Construct) error {
 	return nil
 }
 

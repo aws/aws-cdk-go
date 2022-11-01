@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awswafregional
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnXssMatchSet) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnXssMatchSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnXssMatchSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnXssMatchSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnXssMatchSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnXssMatchSet) validateSetXssMatchTuplesParameters(val inter
 	return nil
 }
 
-func validateNewCfnXssMatchSetParameters(scope constructs.Construct, id *string, props *CfnXssMatchSetProps) error {
+func validateNewCfnXssMatchSetParameters(scope awscdk.Construct, id *string, props *CfnXssMatchSetProps) error {
 	return nil
 }
 

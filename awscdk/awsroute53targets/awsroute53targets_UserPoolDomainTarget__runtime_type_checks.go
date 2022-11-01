@@ -1,13 +1,12 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awsroute53targets
 
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awscognito"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 func (u *jsiiProxy_UserPoolDomainTarget) validateBindParameters(_record awsroute53.IRecordSet) error {

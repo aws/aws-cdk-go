@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsconnect
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnContactFlow) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnContactFlow) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnContactFlow) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnContactFlow) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnContactFlow) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnContactFlow) validateSetTypeParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnContactFlowParameters(scope constructs.Construct, id *string, props *CfnContactFlowProps) error {
+func validateNewCfnContactFlowParameters(scope awscdk.Construct, id *string, props *CfnContactFlowProps) error {
 	return nil
 }
 

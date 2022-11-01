@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsses
 
@@ -17,15 +16,19 @@ func (r *jsiiProxy_ReceiptFilter) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
+func (r *jsiiProxy_ReceiptFilter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_ReceiptFilter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateReceiptFilter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateReceiptFilter_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateReceiptFilter_IsResourceParameters(construct constructs.IConstruct) error {
+func validateReceiptFilter_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

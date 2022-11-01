@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscodebuild
 
@@ -8,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
 )
 
-func (l *jsiiProxy_LinuxGpuBuildImage) validateBindParameters(scope constructs.Construct, project IProject, _options *BuildImageBindOptions) error {
+func (l *jsiiProxy_LinuxGpuBuildImage) validateBindParameters(scope awscdk.Construct, project IProject, _options *BuildImageBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

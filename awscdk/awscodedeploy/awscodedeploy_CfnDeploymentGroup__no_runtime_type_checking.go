@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscodedeploy
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDeploymentGroup) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnDeploymentGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDeploymentGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDeploymentGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDeploymentGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -125,7 +132,7 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameter
 	return nil
 }
 
-func validateNewCfnDeploymentGroupParameters(scope constructs.Construct, id *string, props *CfnDeploymentGroupProps) error {
+func validateNewCfnDeploymentGroupParameters(scope awscdk.Construct, id *string, props *CfnDeploymentGroupProps) error {
 	return nil
 }
 

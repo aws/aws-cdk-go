@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsssmincidents
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnResponsePlan) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
+func (c *jsiiProxy_CfnResponsePlan) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResponsePlan) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnResponsePlan) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResponsePlan) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnResponsePlan) validateSetNameParameters(val *string) error
 	return nil
 }
 
-func validateNewCfnResponsePlanParameters(scope constructs.Construct, id *string, props *CfnResponsePlanProps) error {
+func validateNewCfnResponsePlanParameters(scope awscdk.Construct, id *string, props *CfnResponsePlanProps) error {
 	return nil
 }
 

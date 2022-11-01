@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslambda
 
@@ -17,6 +16,14 @@ func (e *jsiiProxy_EventSourceMapping) validateGetResourceNameAttributeParameter
 	return nil
 }
 
+func (e *jsiiProxy_EventSourceMapping) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EventSourceMapping) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateEventSourceMapping_FromEventSourceMappingIdParameters(scope constructs.Construct, id *string, eventSourceMappingId *string) error {
 	return nil
 }
@@ -25,11 +32,7 @@ func validateEventSourceMapping_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEventSourceMapping_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateEventSourceMapping_IsResourceParameters(construct constructs.IConstruct) error {
+func validateEventSourceMapping_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

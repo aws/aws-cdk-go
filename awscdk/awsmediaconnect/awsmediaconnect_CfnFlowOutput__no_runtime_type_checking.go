@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsmediaconnect
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnFlowOutput) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnFlowOutput) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFlowOutput) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFlowOutput) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnFlowOutput) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetVpcInterfaceAttachmentParameters(va
 	return nil
 }
 
-func validateNewCfnFlowOutputParameters(scope constructs.Construct, id *string, props *CfnFlowOutputProps) error {
+func validateNewCfnFlowOutputParameters(scope awscdk.Construct, id *string, props *CfnFlowOutputProps) error {
 	return nil
 }
 

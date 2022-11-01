@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscur
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnReportDefinition) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnReportDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnReportDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnReportDefinition) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnReportDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -105,7 +112,7 @@ func (j *jsiiProxy_CfnReportDefinition) validateSetTimeUnitParameters(val *strin
 	return nil
 }
 
-func validateNewCfnReportDefinitionParameters(scope constructs.Construct, id *string, props *CfnReportDefinitionProps) error {
+func validateNewCfnReportDefinitionParameters(scope awscdk.Construct, id *string, props *CfnReportDefinitionProps) error {
 	return nil
 }
 

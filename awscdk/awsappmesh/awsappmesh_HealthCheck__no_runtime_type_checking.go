@@ -1,11 +1,10 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsappmesh
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (h *jsiiProxy_HealthCheck) validateBindParameters(scope constructs.Construct, options *HealthCheckBindOptions) error {
+func (h *jsiiProxy_HealthCheck) validateBindParameters(scope awscdk.Construct, options *HealthCheckBindOptions) error {
 	return nil
 }
 

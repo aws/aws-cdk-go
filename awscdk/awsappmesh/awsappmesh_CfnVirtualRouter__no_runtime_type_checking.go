@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsappmesh
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnVirtualRouter) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualRouter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualRouter) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVirtualRouter) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVirtualRouter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnVirtualRouter) validateSetSpecParameters(val interface{}) 
 	return nil
 }
 
-func validateNewCfnVirtualRouterParameters(scope constructs.Construct, id *string, props *CfnVirtualRouterProps) error {
+func validateNewCfnVirtualRouterParameters(scope awscdk.Construct, id *string, props *CfnVirtualRouterProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awssagemaker
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateInspectParameters(inspecto
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnModelBiasJobDefinition) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -101,7 +108,7 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetStoppingConditionParame
 	return nil
 }
 
-func validateNewCfnModelBiasJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
+func validateNewCfnModelBiasJobDefinitionParameters(scope awscdk.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
 	return nil
 }
 

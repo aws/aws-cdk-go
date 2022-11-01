@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsquicksight
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnDataSet) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDataSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDataSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -105,7 +112,7 @@ func (j *jsiiProxy_CfnDataSet) validateSetRowLevelPermissionDataSetParameters(va
 	return nil
 }
 
-func validateNewCfnDataSetParameters(scope constructs.Construct, id *string, props *CfnDataSetProps) error {
+func validateNewCfnDataSetParameters(scope awscdk.Construct, id *string, props *CfnDataSetProps) error {
 	return nil
 }
 

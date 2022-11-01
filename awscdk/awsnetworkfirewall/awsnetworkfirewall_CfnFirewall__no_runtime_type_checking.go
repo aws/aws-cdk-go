@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsnetworkfirewall
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnFirewall) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
+func (c *jsiiProxy_CfnFirewall) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFirewall) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFirewall) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnFirewall) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -97,7 +104,7 @@ func (j *jsiiProxy_CfnFirewall) validateSetVpcIdParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnFirewallParameters(scope constructs.Construct, id *string, props *CfnFirewallProps) error {
+func validateNewCfnFirewallParameters(scope awscdk.Construct, id *string, props *CfnFirewallProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsappmesh
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnMesh) validateInspectParameters(inspector awscdk.TreeInspe
 	return nil
 }
 
+func (c *jsiiProxy_CfnMesh) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMesh) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMesh) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMesh) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -73,7 +80,7 @@ func (j *jsiiProxy_CfnMesh) validateSetSpecParameters(val interface{}) error {
 	return nil
 }
 
-func validateNewCfnMeshParameters(scope constructs.Construct, id *string, props *CfnMeshProps) error {
+func validateNewCfnMeshParameters(scope awscdk.Construct, id *string, props *CfnMeshProps) error {
 	return nil
 }
 

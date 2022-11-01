@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsefs
 
@@ -17,6 +16,14 @@ func (a *jsiiProxy_AccessPoint) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
+func (a *jsiiProxy_AccessPoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AccessPoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAccessPoint_FromAccessPointAttributesParameters(scope constructs.Construct, id *string, attrs *AccessPointAttributes) error {
 	return nil
 }
@@ -29,11 +36,7 @@ func validateAccessPoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAccessPoint_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAccessPoint_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAccessPoint_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

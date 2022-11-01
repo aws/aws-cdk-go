@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsstepfunctions
 
@@ -34,6 +33,14 @@ func (w *jsiiProxy_Wait) validateMakeNextParameters(next State) error {
 }
 
 func (w *jsiiProxy_Wait) validateNextParameters(next IChainable) error {
+	return nil
+}
+
+func (w *jsiiProxy_Wait) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (w *jsiiProxy_Wait) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

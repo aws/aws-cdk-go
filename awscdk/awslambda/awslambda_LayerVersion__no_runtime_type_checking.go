@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awslambda
 
@@ -21,6 +20,14 @@ func (l *jsiiProxy_LayerVersion) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
+func (l *jsiiProxy_LayerVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (l *jsiiProxy_LayerVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateLayerVersion_FromLayerVersionArnParameters(scope constructs.Construct, id *string, layerVersionArn *string) error {
 	return nil
 }
@@ -33,11 +40,7 @@ func validateLayerVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLayerVersion_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateLayerVersion_IsResourceParameters(construct constructs.IConstruct) error {
+func validateLayerVersion_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awscloudfront
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRealtimeLogConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) validateSetSamplingRateParameters(val *
 	return nil
 }
 
-func validateNewCfnRealtimeLogConfigParameters(scope constructs.Construct, id *string, props *CfnRealtimeLogConfigProps) error {
+func validateNewCfnRealtimeLogConfigParameters(scope awscdk.Construct, id *string, props *CfnRealtimeLogConfigProps) error {
 	return nil
 }
 

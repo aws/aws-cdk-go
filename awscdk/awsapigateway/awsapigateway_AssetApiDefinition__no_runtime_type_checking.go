@@ -1,15 +1,14 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope constructs.Construct) error {
+func (a *jsiiProxy_AssetApiDefinition) validateBindParameters(scope awscdk.Construct) error {
 	return nil
 }
 
-func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope constructs.Construct, restApi IRestApi) error {
+func (a *jsiiProxy_AssetApiDefinition) validateBindAfterCreateParameters(scope awscdk.Construct, restApi IRestApi) error {
 	return nil
 }
 

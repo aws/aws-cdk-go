@@ -1,7 +1,6 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -46,11 +45,19 @@ func (c *jsiiProxy_CfnModuleVersion) validateInspectParameters(inspector TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnModuleVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModuleVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnModuleVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnModuleVersion) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 
@@ -78,7 +85,7 @@ func (j *jsiiProxy_CfnModuleVersion) validateSetModulePackageParameters(val *str
 	return nil
 }
 
-func validateNewCfnModuleVersionParameters(scope constructs.Construct, id *string, props *CfnModuleVersionProps) error {
+func validateNewCfnModuleVersionParameters(scope Construct, id *string, props *CfnModuleVersionProps) error {
 	return nil
 }
 

@@ -1,5 +1,4 @@
 //go:build !no_runtime_type_checking
-// +build !no_runtime_type_checking
 
 package awscloudwatch
 
@@ -8,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnInsightRule) validateAddDeletionOverrideParameters(path *string) error {
@@ -104,6 +103,14 @@ func (c *jsiiProxy_CfnInsightRule) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnInsightRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnInsightRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -115,6 +122,14 @@ func (c *jsiiProxy_CfnInsightRule) validateOverrideLogicalIdParameters(newLogica
 func (c *jsiiProxy_CfnInsightRule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnInsightRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -176,7 +191,7 @@ func (j *jsiiProxy_CfnInsightRule) validateSetRuleStateParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnInsightRuleParameters(scope constructs.Construct, id *string, props *CfnInsightRuleProps) error {
+func validateNewCfnInsightRuleParameters(scope awscdk.Construct, id *string, props *CfnInsightRuleProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

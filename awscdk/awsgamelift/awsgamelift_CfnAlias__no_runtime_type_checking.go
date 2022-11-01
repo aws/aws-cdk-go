@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsgamelift
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnAlias) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
+func (c *jsiiProxy_CfnAlias) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAlias) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAlias) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAlias) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -77,7 +84,7 @@ func (j *jsiiProxy_CfnAlias) validateSetRoutingStrategyParameters(val interface{
 	return nil
 }
 
-func validateNewCfnAliasParameters(scope constructs.Construct, id *string, props *CfnAliasProps) error {
+func validateNewCfnAliasParameters(scope awscdk.Construct, id *string, props *CfnAliasProps) error {
 	return nil
 }
 

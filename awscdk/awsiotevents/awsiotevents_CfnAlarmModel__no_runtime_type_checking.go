@@ -1,5 +1,4 @@
 //go:build no_runtime_type_checking
-// +build no_runtime_type_checking
 
 package awsiotevents
 
@@ -45,11 +44,19 @@ func (c *jsiiProxy_CfnAlarmModel) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnAlarmModel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAlarmModel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAlarmModel) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAlarmModel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +92,7 @@ func (j *jsiiProxy_CfnAlarmModel) validateSetRoleArnParameters(val *string) erro
 	return nil
 }
 
-func validateNewCfnAlarmModelParameters(scope constructs.Construct, id *string, props *CfnAlarmModelProps) error {
+func validateNewCfnAlarmModelParameters(scope awscdk.Construct, id *string, props *CfnAlarmModelProps) error {
 	return nil
 }
 
