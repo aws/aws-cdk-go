@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBClusterParameterGroup`.
@@ -19,6 +19,7 @@ import (
 //   	parameters: parameters,
 //
 //   	// the properties below are optional
+//   	dbClusterParameterGroupName: jsii.String("dbClusterParameterGroupName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -46,6 +47,8 @@ type CfnDBClusterParameterGroupProps struct {
 	Family *string `field:"required" json:"family" yaml:"family"`
 	// Provides a list of parameters for the DB cluster parameter group.
 	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
+	// `AWS::RDS::DBClusterParameterGroup.DBClusterParameterGroupName`.
+	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// Tags to assign to the DB cluster parameter group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

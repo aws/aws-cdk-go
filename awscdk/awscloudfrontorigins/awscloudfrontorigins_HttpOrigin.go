@@ -1,12 +1,12 @@
 package awscloudfrontorigins
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfrontorigins/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfrontorigins/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An Origin for an HTTP server or S3 bucket configured for website hosting.
@@ -26,17 +26,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type HttpOrigin interface {
 	awscloudfront.OriginBase
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	// Experimental.
-	Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
-	// Experimental.
+	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
-	// Experimental.
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
 
@@ -45,7 +41,6 @@ type jsiiProxy_HttpOrigin struct {
 	internal.Type__awscloudfrontOriginBase
 }
 
-// Experimental.
 func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	_init_.Initialize()
 
@@ -55,7 +50,7 @@ func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	j := jsiiProxy_HttpOrigin{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.HttpOrigin",
+		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		&j,
 	)
@@ -63,18 +58,17 @@ func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	return &j
 }
 
-// Experimental.
 func NewHttpOrigin_Override(h HttpOrigin, domainName *string, props *HttpOriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.HttpOrigin",
+		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		h,
 	)
 }
 
-func (h *jsiiProxy_HttpOrigin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (h *jsiiProxy_HttpOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	if err := h.validateBindParameters(_scope, options); err != nil {
 		panic(err)
 	}

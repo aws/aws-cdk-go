@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnBot) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnBot) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnBot) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnBot) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnBot) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -116,7 +108,7 @@ func (j *jsiiProxy_CfnBot) validateSetTestBotAliasTagsParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnBotParameters(scope awscdk.Construct, id *string, props *CfnBotProps) error {
+func validateNewCfnBotParameters(scope constructs.Construct, id *string, props *CfnBotProps) error {
 	return nil
 }
 

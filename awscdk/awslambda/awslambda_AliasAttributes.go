@@ -13,11 +13,8 @@ package awslambda
 //   	aliasVersion: version,
 //   }
 //
-// Experimental.
 type AliasAttributes struct {
-	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
-	// Experimental.
 	AliasVersion IVersion `field:"required" json:"aliasVersion" yaml:"aliasVersion"`
 }
 

@@ -8,11 +8,9 @@ import (
 //
 // This only needs to be implemented for principals that could potentially be value-equal.
 // Identity-equal principals will be handled correctly by default.
-// Experimental.
 type IComparablePrincipal interface {
 	IPrincipal
 	// Return a string format of this principal which should be identical if the two principals are the same.
-	// Experimental.
 	DedupeString() *string
 }
 

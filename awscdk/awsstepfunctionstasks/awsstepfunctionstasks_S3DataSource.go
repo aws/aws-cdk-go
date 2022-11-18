@@ -37,19 +37,14 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_S3DataSource.html
 //
-// Experimental.
 type S3DataSource struct {
 	// S3 Uri.
-	// Experimental.
 	S3Location S3Location `field:"required" json:"s3Location" yaml:"s3Location"`
 	// List of one or more attribute names to use that are found in a specified augmented manifest file.
-	// Experimental.
 	AttributeNames *[]*string `field:"optional" json:"attributeNames" yaml:"attributeNames"`
 	// S3 Data Distribution Type.
-	// Experimental.
 	S3DataDistributionType S3DataDistributionType `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// S3 Data Type.
-	// Experimental.
 	S3DataType S3DataType `field:"optional" json:"s3DataType" yaml:"s3DataType"`
 }
 

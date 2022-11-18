@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnAnomalyMonitor) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalyMonitor) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAnomalyMonitor) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAnomalyMonitor) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnAnomalyMonitor) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnAnomalyMonitor) validateSetResourceTagsParameters(val inte
 	return nil
 }
 
-func validateNewCfnAnomalyMonitorParameters(scope awscdk.Construct, id *string, props *CfnAnomalyMonitorProps) error {
+func validateNewCfnAnomalyMonitorParameters(scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) error {
 	return nil
 }
 

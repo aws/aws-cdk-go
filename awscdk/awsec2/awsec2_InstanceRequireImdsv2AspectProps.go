@@ -13,16 +13,13 @@ package awsec2
 //   	suppressWarnings: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type InstanceRequireImdsv2AspectProps struct {
 	// Whether warnings that would be raised when an Instance is associated with an existing Launch Template should be suppressed or not.
 	//
 	// You can set this to `true` if `LaunchTemplateImdsAspect` is being used alongside this Aspect to
 	// suppress false-positive warnings because any Launch Templates associated with Instances will still be covered.
-	// Experimental.
 	SuppressLaunchTemplateWarning *bool `field:"optional" json:"suppressLaunchTemplateWarning" yaml:"suppressLaunchTemplateWarning"`
 	// Whether warning annotations from this Aspect should be suppressed or not.
-	// Experimental.
 	SuppressWarnings *bool `field:"optional" json:"suppressWarnings" yaml:"suppressWarnings"`
 }
 

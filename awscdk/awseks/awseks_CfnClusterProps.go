@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -59,6 +59,11 @@ import (
 //   		controlPlaneInstanceType: jsii.String("controlPlaneInstanceType"),
 //   		outpostArns: []*string{
 //   			jsii.String("outpostArns"),
+//   		},
+//
+//   		// the properties below are optional
+//   		controlPlanePlacement: &controlPlanePlacementProperty{
+//   			groupName: jsii.String("groupName"),
 //   		},
 //   	},
 //   	tags: []cfnTag{

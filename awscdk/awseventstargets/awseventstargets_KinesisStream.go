@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 )
 
 // Use a Kinesis Stream as a target for AWS CloudWatch event rules.
@@ -18,11 +18,9 @@ import (
 //   	target: targets.NewKinesisStream(stream),
 //   })
 //
-// Experimental.
 type KinesisStream interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Kinesis Stream as a result from a CloudWatch event.
-	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -31,7 +29,6 @@ type jsiiProxy_KinesisStream struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) KinesisStream {
 	_init_.Initialize()
 
@@ -41,7 +38,7 @@ func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) Kine
 	j := jsiiProxy_KinesisStream{}
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.KinesisStream",
+		"aws-cdk-lib.aws_events_targets.KinesisStream",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -49,12 +46,11 @@ func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) Kine
 	return &j
 }
 
-// Experimental.
 func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props *KinesisStreamProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.KinesisStream",
+		"aws-cdk-lib.aws_events_targets.KinesisStream",
 		[]interface{}{stream, props},
 		k,
 	)

@@ -16,19 +16,15 @@ func (t *jsiiProxy_TagOptions) validateGetResourceNameAttributeParameters(nameAt
 	return nil
 }
 
-func (t *jsiiProxy_TagOptions) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (t *jsiiProxy_TagOptions) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateTagOptions_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTagOptions_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateTagOptions_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateTagOptions_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

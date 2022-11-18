@@ -16,19 +16,15 @@ package awsroute53
 //   	queryLogsLogGroupArn: jsii.String("queryLogsLogGroupArn"),
 //   }
 //
-// Experimental.
 type CommonHostedZoneProps struct {
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
-	// Experimental.
 	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	// Experimental.
 	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
 }
 

@@ -72,14 +72,6 @@ func (b *jsiiProxy_BucketBase) validateOnCloudTrailWriteObjectParameters(id *str
 	return nil
 }
 
-func (b *jsiiProxy_BucketBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (b *jsiiProxy_BucketBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (b *jsiiProxy_BucketBase) validateTransferAccelerationUrlForObjectParameters(options *TransferAccelerationUrlOptions) error {
 	return nil
 }
@@ -92,7 +84,11 @@ func validateBucketBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBucketBase_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateBucketBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateBucketBase_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

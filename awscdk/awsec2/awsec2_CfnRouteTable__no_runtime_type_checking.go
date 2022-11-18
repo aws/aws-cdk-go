@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnRouteTable) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteTable) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRouteTable) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRouteTable) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnRouteTable) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnRouteTable) validateSetVpcIdParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnRouteTableParameters(scope awscdk.Construct, id *string, props *CfnRouteTableProps) error {
+func validateNewCfnRouteTableParameters(scope constructs.Construct, id *string, props *CfnRouteTableProps) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsnetworkfirewall
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFirewallPolicy`.
@@ -32,6 +32,9 @@ import (
 //   				resourceArn: jsii.String("resourceArn"),
 //
 //   				// the properties below are optional
+//   				override: &statefulRuleGroupOverrideProperty{
+//   					action: jsii.String("action"),
+//   				},
 //   				priority: jsii.Number(123),
 //   			},
 //   		},

@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_amplifyuibuilder.CfnComponent",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
 		reflect.TypeOf((*CfnComponent)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -36,12 +36,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "overrides", GoGetter: "Overrides"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "properties", GoGetter: "Properties"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -49,11 +45,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceId", GoGetter: "SourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "variants", GoGetter: "Variants"},
 		},
@@ -65,63 +60,63 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ActionParametersProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ActionParametersProperty",
 		reflect.TypeOf((*CfnComponent_ActionParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentBindingPropertiesValuePropertiesProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentBindingPropertiesValuePropertiesProperty",
 		reflect.TypeOf((*CfnComponent_ComponentBindingPropertiesValuePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentBindingPropertiesValueProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentBindingPropertiesValueProperty",
 		reflect.TypeOf((*CfnComponent_ComponentBindingPropertiesValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentChildProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentChildProperty",
 		reflect.TypeOf((*CfnComponent_ComponentChildProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentConditionPropertyProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentConditionPropertyProperty",
 		reflect.TypeOf((*CfnComponent_ComponentConditionPropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentDataConfigurationProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentDataConfigurationProperty",
 		reflect.TypeOf((*CfnComponent_ComponentDataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentEventProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentEventProperty",
 		reflect.TypeOf((*CfnComponent_ComponentEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentPropertyBindingPropertiesProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentPropertyBindingPropertiesProperty",
 		reflect.TypeOf((*CfnComponent_ComponentPropertyBindingPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentPropertyProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentPropertyProperty",
 		reflect.TypeOf((*CfnComponent_ComponentPropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.ComponentVariantProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.ComponentVariantProperty",
 		reflect.TypeOf((*CfnComponent_ComponentVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.MutationActionSetStateParameterProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.MutationActionSetStateParameterProperty",
 		reflect.TypeOf((*CfnComponent_MutationActionSetStateParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.PredicateProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.PredicateProperty",
 		reflect.TypeOf((*CfnComponent_PredicateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponent.SortPropertyProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent.SortPropertyProperty",
 		reflect.TypeOf((*CfnComponent_SortPropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnComponentProps",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponentProps",
 		reflect.TypeOf((*CfnComponentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_amplifyuibuilder.CfnTheme",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		reflect.TypeOf((*CfnTheme)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -146,21 +141,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "overrides", GoGetter: "Overrides"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "values", GoGetter: "Values"},
 		},
@@ -172,15 +162,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnTheme.ThemeValueProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme.ThemeValueProperty",
 		reflect.TypeOf((*CfnTheme_ThemeValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnTheme.ThemeValuesProperty",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme.ThemeValuesProperty",
 		reflect.TypeOf((*CfnTheme_ThemeValuesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amplifyuibuilder.CfnThemeProps",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnThemeProps",
 		reflect.TypeOf((*CfnThemeProps)(nil)).Elem(),
 	)
 }

@@ -5,7 +5,7 @@ package awsroute53targets
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
 )
 
 func (r *jsiiProxy_Route53RecordTarget) validateBindParameters(_record awsroute53.IRecordSet) error {

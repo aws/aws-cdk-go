@@ -35,13 +35,10 @@ package cloudassemblyschema
 //   	},
 //   }
 //
-// Experimental.
 type DockerImageAsset struct {
 	// Destinations for this file asset.
-	// Experimental.
 	Destinations *map[string]*DockerImageDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
-	// Experimental.
 	Source *DockerImageSource `field:"required" json:"source" yaml:"source"`
 }
 

@@ -7,13 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (f *jsiiProxy_FargateService) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -64,18 +64,6 @@ func (f *jsiiProxy_FargateService) validateAutoScaleTaskCountParameters(props *a
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (f *jsiiProxy_FargateService) validateConfigureAwsVpcNetworkingParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
-	if vpc == nil {
-		return fmt.Errorf("parameter vpc is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(vpcSubnets, func() string { return "parameter vpcSubnets" }); err != nil {
 		return err
 	}
 
@@ -167,27 +155,11 @@ func (f *jsiiProxy_FargateService) validateMetricMemoryUtilizationParameters(pro
 	return nil
 }
 
-func (f *jsiiProxy_FargateService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (f *jsiiProxy_FargateService) validateRegisterLoadBalancerTargetsParameters(targets *[]*EcsTarget) error {
 	for idx_26cafb, v := range *targets {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter targets[%#v]", idx_26cafb) }); err != nil {
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (f *jsiiProxy_FargateService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -252,7 +224,15 @@ func validateFargateService_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFargateService_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateFargateService_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateFargateService_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

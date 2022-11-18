@@ -183,6 +183,31 @@ asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
 Use `BundlingOutput.ARCHIVED` if the bundling output contains a single archive file and
 you don't want it to be zipped.
 
+### Docker options
+
+Depending on your build environment, you may need to pass certain docker options to the `docker run` command that bundles assets.
+This can be done using [BundlingOptions](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.BundlingOptions.html) properties.
+
+Some optional properties to pass to the docker bundling
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
+	path: jsii.String("/path/to/asset"),
+	bundling: &bundlingOptions{
+		image: ambda.runtime_PYTHON_3_9_BundlingImage,
+		command: []*string{
+			jsii.String("bash"),
+			jsii.String("-c"),
+			jsii.String("pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"),
+		},
+		securityOpt: jsii.String("no-new-privileges:true"),
+		 // https://docs.docker.com/engine/reference/commandline/run/#optional-security-options---security-opt
+		network: jsii.String("host"),
+	},
+})
+```
+
 ## CloudFormation Resource Metadata
 
 > NOTE: This section is relevant for authors of AWS Resource Constructs.

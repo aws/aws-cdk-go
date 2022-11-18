@@ -1,8 +1,8 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // The properties of a scalable attribute representing task count.
@@ -27,25 +27,18 @@ import (
 //   	minCapacity: jsii.Number(123),
 //   }
 //
-// Experimental.
 type ScalableTaskCountProps struct {
 	// Maximum capacity to scale to.
-	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	// Experimental.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 	// Scalable dimension of the attribute.
-	// Experimental.
 	Dimension *string `field:"required" json:"dimension" yaml:"dimension"`
 	// Resource ID of the attribute.
-	// Experimental.
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// Role to use for scaling.
-	// Experimental.
 	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 	// Service namespace of the scalable attribute.
-	// Experimental.
 	ServiceNamespace awsapplicationautoscaling.ServiceNamespace `field:"required" json:"serviceNamespace" yaml:"serviceNamespace"`
 }
 

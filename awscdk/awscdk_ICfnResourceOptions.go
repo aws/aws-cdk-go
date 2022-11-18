@@ -1,77 +1,60 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Experimental.
 type ICfnResourceOptions interface {
 	// A condition to associate with this resource.
 	//
 	// This means that only if the condition evaluates to 'true' when the stack
-	// is deployed, the resource will be included. This is provided to allow CDK projects to produce legacy templates, but noramlly
+	// is deployed, the resource will be included. This is provided to allow CDK projects to produce legacy templates, but normally
 	// there is no need to use it in CDK projects.
-	// Experimental.
 	Condition() CfnCondition
-	// Experimental.
 	SetCondition(c CfnCondition)
 	// Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded.
 	//
 	// To signal a
 	// resource, you can use the cfn-signal helper script or SignalResource API. AWS CloudFormation publishes valid signals
 	// to the stack events so that you track the number of signals sent.
-	// Experimental.
 	CreationPolicy() *CfnCreationPolicy
-	// Experimental.
 	SetCreationPolicy(c *CfnCreationPolicy)
 	// With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted.
 	//
 	// You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy
 	// attribute, AWS CloudFormation deletes the resource by default. Note that this capability also applies to update operations
 	// that lead to resources being removed.
-	// Experimental.
 	DeletionPolicy() CfnDeletionPolicy
-	// Experimental.
 	SetDeletionPolicy(d CfnDeletionPolicy)
 	// The description of this resource.
 	//
 	// Used for informational purposes only, is not processed in any way
 	// (and stays with the CloudFormation template, is not passed to the underlying resource,
 	// even if it does have a 'description' property).
-	// Experimental.
 	Description() *string
-	// Experimental.
 	SetDescription(d *string)
 	// Metadata associated with the CloudFormation resource.
 	//
 	// This is not the same as the construct metadata which can be added
 	// using construct.addMetadata(), but would not appear in the CloudFormation template automatically.
-	// Experimental.
 	Metadata() *map[string]interface{}
-	// Experimental.
 	SetMetadata(m *map[string]interface{})
 	// Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource.
 	//
 	// AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a
 	// scheduled action is associated with the Auto Scaling group.
-	// Experimental.
 	UpdatePolicy() *CfnUpdatePolicy
-	// Experimental.
 	SetUpdatePolicy(u *CfnUpdatePolicy)
 	// Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
-	// Experimental.
 	UpdateReplacePolicy() CfnDeletionPolicy
-	// Experimental.
 	SetUpdateReplacePolicy(u CfnDeletionPolicy)
 	// The version of this resource.
 	//
 	// Used only for custom CloudFormation resources.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
 	//
-	// Experimental.
 	Version() *string
-	// Experimental.
 	SetVersion(v *string)
 }
 

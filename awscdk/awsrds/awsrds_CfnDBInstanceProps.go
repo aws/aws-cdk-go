@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBInstance`.
@@ -73,9 +73,11 @@ import (
 //   	},
 //   	promotionTier: jsii.Number(123),
 //   	publiclyAccessible: jsii.Boolean(false),
+//   	replicaMode: jsii.String("replicaMode"),
 //   	sourceDbInstanceIdentifier: jsii.String("sourceDbInstanceIdentifier"),
 //   	sourceRegion: jsii.String("sourceRegion"),
 //   	storageEncrypted: jsii.Boolean(false),
+//   	storageThroughput: jsii.Number(123),
 //   	storageType: jsii.String("storageType"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -710,6 +712,8 @@ type CfnDBInstanceProps struct {
 	//
 	// > If you specify DBSecurityGroups, AWS CloudFormation ignores this property. To specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
+	// `AWS::RDS::DBInstance.ReplicaMode`.
+	ReplicaMode *string `field:"optional" json:"replicaMode" yaml:"replicaMode"`
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
 	// Each DB instance can have a limited number of read replicas. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html) in the *Amazon RDS User Guide* .
@@ -741,6 +745,8 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. The encryption for DB instances is managed by the DB cluster.
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
+	// `AWS::RDS::DBInstance.StorageThroughput`.
+	StorageThroughput *float64 `field:"optional" json:"storageThroughput" yaml:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
 	//
 	// Valid values: `standard | gp2 | io1`

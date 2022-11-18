@@ -24,14 +24,6 @@ func (s *jsiiProxy_SpecRestApi) validateApplyRemovalPolicyParameters(policy awsc
 	return nil
 }
 
-func (s *jsiiProxy_SpecRestApi) validateConfigureCloudWatchRoleParameters(apiResource CfnRestApi) error {
-	return nil
-}
-
-func (s *jsiiProxy_SpecRestApi) validateConfigureDeploymentParameters(props *RestApiBaseProps) error {
-	return nil
-}
-
 func (s *jsiiProxy_SpecRestApi) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }
@@ -72,19 +64,15 @@ func (s *jsiiProxy_SpecRestApi) validateMetricServerErrorParameters(props *awscl
 	return nil
 }
 
-func (s *jsiiProxy_SpecRestApi) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_SpecRestApi) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateSpecRestApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSpecRestApi_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateSpecRestApi_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateSpecRestApi_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

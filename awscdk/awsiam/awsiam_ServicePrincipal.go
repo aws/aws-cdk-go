@@ -1,7 +1,7 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -20,17 +20,13 @@ import (
 //   // give lambda permissions to read stream
 //   stream.grantRead(lambdaRole)
 //
-// Experimental.
 type ServicePrincipal interface {
 	PrincipalBase
 	// When this Principal is used in an AssumeRole policy, the action to use.
-	// Experimental.
 	AssumeRoleAction() *string
 	// The principal to grant permissions to.
-	// Experimental.
 	GrantPrincipal() IPrincipal
 	// Return the policy fragment that identifies this principal in a Policy.
-	// Experimental.
 	PolicyFragment() PrincipalPolicyFragment
 	// The AWS account ID of this principal.
 	//
@@ -38,33 +34,25 @@ type ServicePrincipal interface {
 	// (for example, for service principals).
 	// Can be a Token - in that case,
 	// it's assumed to be AWS::AccountId.
-	// Experimental.
 	PrincipalAccount() *string
 	// AWS service (i.e. sqs.amazonaws.com).
-	// Experimental.
 	Service() *string
 	// Add the princpial to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.
-	// Experimental.
 	AddToAssumeRolePolicy(document PolicyDocument)
 	// Add to the policy of this principal.
-	// Experimental.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
-	// Experimental.
 	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
-	// Experimental.
 	ToJSON() *map[string]*[]*string
 	// Returns a string representation of an object.
-	// Experimental.
 	ToString() *string
 	// Returns a new PrincipalWithConditions using this principal as the base, with the passed conditions added.
 	//
@@ -72,12 +60,10 @@ type ServicePrincipal interface {
 	// conditions parameter, the value from the conditions parameter will be used.
 	//
 	// Returns: a new PrincipalWithConditions object.
-	// Experimental.
 	WithConditions(conditions *map[string]interface{}) PrincipalBase
 	// Returns a new principal using this principal as the base, with session tags enabled.
 	//
 	// Returns: a new SessionTagsPrincipal object.
-	// Experimental.
 	WithSessionTags() PrincipalBase
 }
 
@@ -137,7 +123,7 @@ func (j *jsiiProxy_ServicePrincipal) Service() *string {
 }
 
 
-// Experimental.
+// Reference an AWS service, optionally in a given region.
 func NewServicePrincipal(service *string, opts *ServicePrincipalOpts) ServicePrincipal {
 	_init_.Initialize()
 
@@ -147,7 +133,7 @@ func NewServicePrincipal(service *string, opts *ServicePrincipalOpts) ServicePri
 	j := jsiiProxy_ServicePrincipal{}
 
 	_jsii_.Create(
-		"monocdk.aws_iam.ServicePrincipal",
+		"aws-cdk-lib.aws_iam.ServicePrincipal",
 		[]interface{}{service, opts},
 		&j,
 	)
@@ -155,12 +141,12 @@ func NewServicePrincipal(service *string, opts *ServicePrincipalOpts) ServicePri
 	return &j
 }
 
-// Experimental.
+// Reference an AWS service, optionally in a given region.
 func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *ServicePrincipalOpts) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iam.ServicePrincipal",
+		"aws-cdk-lib.aws_iam.ServicePrincipal",
 		[]interface{}{service, opts},
 		s,
 	)
@@ -176,7 +162,6 @@ func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *Ser
 // Example:
 //   principalName := iam.servicePrincipal.servicePrincipalName(jsii.String("ec2.amazonaws.com"))
 //
-// Experimental.
 func ServicePrincipal_ServicePrincipalName(service *string) *string {
 	_init_.Initialize()
 
@@ -186,7 +171,7 @@ func ServicePrincipal_ServicePrincipalName(service *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.ServicePrincipal",
+		"aws-cdk-lib.aws_iam.ServicePrincipal",
 		"servicePrincipalName",
 		[]interface{}{service},
 		&returns,

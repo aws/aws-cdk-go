@@ -28,6 +28,9 @@ package awsnetworkfirewall
 //   			resourceArn: jsii.String("resourceArn"),
 //
 //   			// the properties below are optional
+//   			override: &statefulRuleGroupOverrideProperty{
+//   				action: jsii.String("action"),
+//   			},
 //   			priority: jsii.Number(123),
 //   		},
 //   	},

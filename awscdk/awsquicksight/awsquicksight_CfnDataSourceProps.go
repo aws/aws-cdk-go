@@ -1,7 +1,7 @@
 package awsquicksight
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDataSource`.
@@ -191,6 +191,7 @@ import (
 //   				},
 //   			},
 //   		},
+//   		secretArn: jsii.String("secretArn"),
 //   	},
 //   	dataSourceId: jsii.String("dataSourceId"),
 //   	dataSourceParameters: &dataSourceParametersProperty{

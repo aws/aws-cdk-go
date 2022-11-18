@@ -13,20 +13,17 @@ package awsec2
 //   	type: jsii.Number(123),
 //   }
 //
-// Experimental.
 type AclIcmp struct {
 	// The Internet Control Message Protocol (ICMP) code.
 	//
 	// You can use -1 to specify all ICMP
 	// codes for the given ICMP type. Requirement is conditional: Required if you
 	// specify 1 (ICMP) for the protocol parameter.
-	// Experimental.
 	Code *float64 `field:"optional" json:"code" yaml:"code"`
 	// The Internet Control Message Protocol (ICMP) type.
 	//
 	// You can use -1 to specify all ICMP types.
 	// Conditional requirement: Required if you specify 1 (ICMP) for the CreateNetworkAclEntry protocol parameter.
-	// Experimental.
 	Type *float64 `field:"optional" json:"type" yaml:"type"`
 }
 

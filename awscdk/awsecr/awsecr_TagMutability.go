@@ -8,15 +8,12 @@ package awsecr
 //   	imageTagMutability: ecr.tagMutability_IMMUTABLE,
 //   })
 //
-// Experimental.
 type TagMutability string
 
 const (
 	// allow image tags to be overwritten.
-	// Experimental.
 	TagMutability_MUTABLE TagMutability = "MUTABLE"
 	// all image tags within the repository will be immutable which will prevent them from being overwritten.
-	// Experimental.
 	TagMutability_IMMUTABLE TagMutability = "IMMUTABLE"
 )
 

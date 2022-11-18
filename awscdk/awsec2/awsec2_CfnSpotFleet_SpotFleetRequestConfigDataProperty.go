@@ -66,6 +66,9 @@ package awsec2
 //   				acceleratorTypes: []*string{
 //   					jsii.String("acceleratorTypes"),
 //   				},
+//   				allowedInstanceTypes: []*string{
+//   					jsii.String("allowedInstanceTypes"),
+//   				},
 //   				bareMetal: jsii.String("bareMetal"),
 //   				baselineEbsBandwidthMbps: &baselineEbsBandwidthMbpsRequestProperty{
 //   					max: jsii.Number(123),
@@ -90,6 +93,10 @@ package awsec2
 //   					min: jsii.Number(123),
 //   				},
 //   				memoryMiB: &memoryMiBRequestProperty{
+//   					max: jsii.Number(123),
+//   					min: jsii.Number(123),
+//   				},
+//   				networkBandwidthGbps: &networkBandwidthGbpsRequestProperty{
 //   					max: jsii.Number(123),
 //   					min: jsii.Number(123),
 //   				},
@@ -201,6 +208,9 @@ package awsec2
 //   						acceleratorTypes: []*string{
 //   							jsii.String("acceleratorTypes"),
 //   						},
+//   						allowedInstanceTypes: []*string{
+//   							jsii.String("allowedInstanceTypes"),
+//   						},
 //   						bareMetal: jsii.String("bareMetal"),
 //   						baselineEbsBandwidthMbps: &baselineEbsBandwidthMbpsRequestProperty{
 //   							max: jsii.Number(123),
@@ -225,6 +235,10 @@ package awsec2
 //   							min: jsii.Number(123),
 //   						},
 //   						memoryMiB: &memoryMiBRequestProperty{
+//   							max: jsii.Number(123),
+//   							min: jsii.Number(123),
+//   						},
+//   						networkBandwidthGbps: &networkBandwidthGbpsRequestProperty{
 //   							max: jsii.Number(123),
 //   							min: jsii.Number(123),
 //   						},
@@ -281,6 +295,17 @@ package awsec2
 //   	},
 //   	spotMaxTotalPrice: jsii.String("spotMaxTotalPrice"),
 //   	spotPrice: jsii.String("spotPrice"),
+//   	tagSpecifications: []interface{}{
+//   		&spotFleetTagSpecificationProperty{
+//   			resourceType: jsii.String("resourceType"),
+//   			tags: []*cfnTag{
+//   				&cfnTag{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	targetCapacityUnitType: jsii.String("targetCapacityUnitType"),
 //   	terminateInstancesWithExpiration: jsii.Boolean(false),
 //   	type: jsii.String("type"),
@@ -357,6 +382,8 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	//
 	// The default is the On-Demand price.
 	SpotPrice *string `field:"optional" json:"spotPrice" yaml:"spotPrice"`
+	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TagSpecifications`.
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// The unit for the target capacity.
 	//
 	// Default: `units` (translates to number of instances).

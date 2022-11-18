@@ -20,14 +20,6 @@ func (n *jsiiProxy_NotificationRule) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
-func (n *jsiiProxy_NotificationRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (n *jsiiProxy_NotificationRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateNotificationRule_FromNotificationRuleArnParameters(scope constructs.Construct, id *string, notificationRuleArn *string) error {
 	return nil
 }
@@ -36,7 +28,11 @@ func validateNotificationRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNotificationRule_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateNotificationRule_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateNotificationRule_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

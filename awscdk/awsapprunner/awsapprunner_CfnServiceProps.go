@@ -1,7 +1,7 @@
 package awsapprunner
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnService`.
@@ -88,6 +88,9 @@ import (
 //
 //   			// the properties below are optional
 //   			vpcConnectorArn: jsii.String("vpcConnectorArn"),
+//   		},
+//   		ingressConfiguration: &ingressConfigurationProperty{
+//   			isPubliclyAccessible: jsii.Boolean(false),
 //   		},
 //   	},
 //   	observabilityConfiguration: &serviceObservabilityConfigurationProperty{

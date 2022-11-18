@@ -16,14 +16,6 @@ func (l *jsiiProxy_LambdaApplication) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (l *jsiiProxy_LambdaApplication) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (l *jsiiProxy_LambdaApplication) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateLambdaApplication_FromLambdaApplicationNameParameters(scope constructs.Construct, id *string, lambdaApplicationName *string) error {
 	return nil
 }
@@ -32,7 +24,11 @@ func validateLambdaApplication_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLambdaApplication_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLambdaApplication_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateLambdaApplication_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

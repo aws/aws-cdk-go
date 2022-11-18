@@ -1,7 +1,7 @@
 package awsmediapackage
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnOriginEndpoint`.
@@ -144,6 +144,7 @@ import (
 //   			keyRotationIntervalSeconds: jsii.Number(123),
 //   			repeatExtXKey: jsii.Boolean(false),
 //   		},
+//   		includeDvbSubtitles: jsii.Boolean(false),
 //   		includeIframeOnlyStream: jsii.Boolean(false),
 //   		playlistType: jsii.String("playlistType"),
 //   		playlistWindowSeconds: jsii.Number(123),

@@ -28,6 +28,12 @@ package awsmediapackage
 //   				jsii.String("systemIds"),
 //   			},
 //   			url: jsii.String("url"),
+//
+//   			// the properties below are optional
+//   			encryptionContractConfiguration: &encryptionContractConfigurationProperty{
+//   				presetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   				presetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   			},
 //   		},
 //   	},
 //   	segmentDurationSeconds: jsii.Number(123),

@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (h *jsiiProxy_HttpNamespace) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -54,22 +54,6 @@ func (h *jsiiProxy_HttpNamespace) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
-func (h *jsiiProxy_HttpNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (h *jsiiProxy_HttpNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateHttpNamespace_FromHttpNamespaceAttributesParameters(scope constructs.Construct, id *string, attrs *HttpNamespaceAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -97,7 +81,15 @@ func validateHttpNamespace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateHttpNamespace_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateHttpNamespace_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateHttpNamespace_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

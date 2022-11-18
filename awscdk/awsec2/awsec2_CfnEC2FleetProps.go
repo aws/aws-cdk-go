@@ -12,9 +12,11 @@ package awsec2
 //   	launchTemplateConfigs: []interface{}{
 //   		&fleetLaunchTemplateConfigRequestProperty{
 //   			launchTemplateSpecification: &fleetLaunchTemplateSpecificationRequestProperty{
+//   				version: jsii.String("version"),
+//
+//   				// the properties below are optional
 //   				launchTemplateId: jsii.String("launchTemplateId"),
 //   				launchTemplateName: jsii.String("launchTemplateName"),
-//   				version: jsii.String("version"),
 //   			},
 //   			overrides: []interface{}{
 //   				&fleetLaunchTemplateOverridesRequestProperty{
@@ -36,6 +38,9 @@ package awsec2
 //   						},
 //   						acceleratorTypes: []*string{
 //   							jsii.String("acceleratorTypes"),
+//   						},
+//   						allowedInstanceTypes: []*string{
+//   							jsii.String("allowedInstanceTypes"),
 //   						},
 //   						bareMetal: jsii.String("bareMetal"),
 //   						baselineEbsBandwidthMbps: &baselineEbsBandwidthMbpsRequestProperty{
@@ -61,6 +66,10 @@ package awsec2
 //   							min: jsii.Number(123),
 //   						},
 //   						memoryMiB: &memoryMiBRequestProperty{
+//   							max: jsii.Number(123),
+//   							min: jsii.Number(123),
+//   						},
+//   						networkBandwidthGbps: &networkBandwidthGbpsRequestProperty{
 //   							max: jsii.Number(123),
 //   							min: jsii.Number(123),
 //   						},

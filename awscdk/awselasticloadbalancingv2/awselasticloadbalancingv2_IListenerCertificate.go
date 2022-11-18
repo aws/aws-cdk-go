@@ -5,10 +5,8 @@ import (
 )
 
 // A certificate source for an ELBv2 listener.
-// Experimental.
 type IListenerCertificate interface {
 	// The ARN of the certificate to use.
-	// Experimental.
 	CertificateArn() *string
 }
 

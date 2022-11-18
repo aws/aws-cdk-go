@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -10,7 +10,7 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnAutoScalingRollingUpdate := &cfnAutoScalingRollingUpdate{
 //   	maxBatchSize: jsii.Number(123),
@@ -23,13 +23,10 @@ package awscdk
 //   	waitOnResourceSignals: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type CfnAutoScalingRollingUpdate struct {
 	// Specifies the maximum number of instances that AWS CloudFormation updates.
-	// Experimental.
 	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
 	// Specifies the minimum number of instances that must be in service within the Auto Scaling group while AWS CloudFormation updates old instances.
-	// Experimental.
 	MinInstancesInService *float64 `field:"optional" json:"minInstancesInService" yaml:"minInstancesInService"`
 	// Specifies the percentage of instances in an Auto Scaling rolling update that must signal success for an update to succeed.
 	//
@@ -40,7 +37,6 @@ type CfnAutoScalingRollingUpdate struct {
 	// that the instance wasn't updated.
 	//
 	// If you specify this property, you must also enable the WaitOnResourceSignals and PauseTime properties.
-	// Experimental.
 	MinSuccessfulInstancesPercent *float64 `field:"optional" json:"minSuccessfulInstancesPercent" yaml:"minSuccessfulInstancesPercent"`
 	// The amount of time that AWS CloudFormation pauses after making a change to a batch of instances to give those instances time to start software applications.
 	//
@@ -55,7 +51,6 @@ type CfnAutoScalingRollingUpdate struct {
 	//
 	// Specify PauseTime in the ISO8601 duration format (in the format PT#H#M#S, where each # is the number of hours, minutes,
 	// and seconds, respectively). The maximum PauseTime is one hour (PT1H).
-	// Experimental.
 	PauseTime *string `field:"optional" json:"pauseTime" yaml:"pauseTime"`
 	// Specifies the Auto Scaling processes to suspend during a stack update.
 	//
@@ -63,7 +58,6 @@ type CfnAutoScalingRollingUpdate struct {
 	// interfering with a stack update. For example, you can suspend alarming so that Auto Scaling doesn't execute scaling
 	// policies associated with an alarm. For valid values, see the ScalingProcesses.member.N parameter for the SuspendProcesses
 	// action in the Auto Scaling API Reference.
-	// Experimental.
 	SuspendProcesses *[]*string `field:"optional" json:"suspendProcesses" yaml:"suspendProcesses"`
 	// Specifies whether the Auto Scaling group waits on signals from new instances during an update.
 	//
@@ -76,7 +70,6 @@ type CfnAutoScalingRollingUpdate struct {
 	// To have instances wait for an Elastic Load Balancing health check before they signal success, add a health-check
 	// verification by using the cfn-init helper script. For an example, see the verify_instance_health command in the Auto Scaling
 	// rolling updates sample template.
-	// Experimental.
 	WaitOnResourceSignals *bool `field:"optional" json:"waitOnResourceSignals" yaml:"waitOnResourceSignals"`
 }
 

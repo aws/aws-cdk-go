@@ -1,7 +1,7 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -43,74 +43,56 @@ import (
 //   	service: ec2.interfaceVpcEndpointAwsService_ECR_DOCKER(),
 //   })
 //
-// Experimental.
 type PolicyStatement interface {
 	// The Actions added to this statement.
-	// Experimental.
 	Actions() *[]*string
 	// The conditions added to this statement.
-	// Experimental.
 	Conditions() interface{}
-	// Whether to allow or deny the actions in this statement.
-	// Experimental.
+	// Whether to allow or deny the actions in this statement Set effect for this statement.
 	Effect() Effect
-	// Experimental.
 	SetEffect(val Effect)
+	// Whether the PolicyStatement has been frozen.
+	//
+	// The statement object is frozen when `freeze()` is called.
+	Frozen() *bool
 	// Indicates if this permission has a "Principal" section.
-	// Experimental.
 	HasPrincipal() *bool
 	// Indicates if this permission has at least one resource associated with it.
-	// Experimental.
 	HasResource() *bool
 	// The NotActions added to this statement.
-	// Experimental.
 	NotActions() *[]*string
 	// The NotPrincipals added to this statement.
-	// Experimental.
 	NotPrincipals() *[]IPrincipal
 	// The NotResources added to this statement.
-	// Experimental.
 	NotResources() *[]*string
 	// The Principals added to this statement.
-	// Experimental.
 	Principals() *[]IPrincipal
 	// The Resources added to this statement.
-	// Experimental.
 	Resources() *[]*string
-	// Statement ID for this statement.
-	// Experimental.
+	// Statement ID for this statement Set Statement ID for this statement.
 	Sid() *string
-	// Experimental.
 	SetSid(val *string)
 	// Add a condition that limits to a given account.
 	//
 	// This method can only be called once: subsequent calls will overwrite earlier calls.
-	// Experimental.
 	AddAccountCondition(accountId *string)
 	// Adds an AWS account root user principal to this policy statement.
-	// Experimental.
 	AddAccountRootPrincipal()
 	// Specify allowed actions into the "Action" section of the policy statement.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html
 	//
-	// Experimental.
 	AddActions(actions ...*string)
 	// Adds a ``"*"`` resource to this statement.
-	// Experimental.
 	AddAllResources()
 	// Adds all identities in all accounts ("*") to this policy statement.
-	// Experimental.
 	AddAnyPrincipal()
 	// Specify a principal using the ARN  identifier of the principal.
 	//
 	// You cannot specify IAM groups and instance profiles as principals.
-	// Experimental.
 	AddArnPrincipal(arn *string)
 	// Specify AWS account ID as the principal entity to the "Principal" section of a policy statement.
-	// Experimental.
 	AddAwsAccountPrincipal(accountId *string)
 	// Adds a canonical user ID principal to this policy document.
-	// Experimental.
 	AddCanonicalUserPrincipal(canonicalUserId *string)
 	// Add a condition to the Policy.
 	//
@@ -134,76 +116,68 @@ type PolicyStatement interface {
 	//
 	// stmt.addCondition('StringEquals', { 'aws:SomeField': ['1', '2'] });
 	// ```.
-	// Experimental.
 	AddCondition(key *string, value interface{})
 	// Add multiple conditions to the Policy.
 	//
 	// See the `addCondition` function for a caveat on calling this method multiple times.
-	// Experimental.
 	AddConditions(conditions *map[string]interface{})
 	// Adds a federated identity provider such as Amazon Cognito to this policy statement.
-	// Experimental.
 	AddFederatedPrincipal(federated interface{}, conditions *map[string]interface{})
 	// Explicitly allow all actions except the specified list of actions into the "NotAction" section of the policy document.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html
 	//
-	// Experimental.
 	AddNotActions(notActions ...*string)
 	// Specify principals that is not allowed or denied access to the "NotPrincipal" section of a policy statement.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html
 	//
-	// Experimental.
 	AddNotPrincipals(notPrincipals ...IPrincipal)
 	// Specify resources that this policy statement will not apply to in the "NotResource" section of this policy statement.
 	//
 	// All resources except the specified list will be matched.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notresource.html
 	//
-	// Experimental.
 	AddNotResources(arns ...*string)
 	// Adds principals to the "Principal" section of a policy statement.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
 	//
-	// Experimental.
 	AddPrincipals(principals ...IPrincipal)
 	// Specify resources that this policy statement applies into the "Resource" section of this policy statement.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html
 	//
-	// Experimental.
 	AddResources(arns ...*string)
 	// Adds a service principal to this policy statement.
-	// Experimental.
 	AddServicePrincipal(service *string, opts *ServicePrincipalOpts)
 	// Create a new `PolicyStatement` with the same exact properties as this one, except for the overrides.
-	// Experimental.
 	Copy(overrides *PolicyStatementProps) PolicyStatement
+	// Make the PolicyStatement immutable.
+	//
+	// After calling this, any of the `addXxx()` methods will throw an exception.
+	//
+	// Libraries that lazily generate statement bodies can override this method to
+	// fill the actual PolicyStatement fields. Be aware that this method may be called
+	// multiple times.
+	Freeze() PolicyStatement
 	// JSON-ify the statement.
 	//
 	// Used when JSON.stringify() is called
-	// Experimental.
 	ToJSON() interface{}
 	// JSON-ify the policy statement.
 	//
 	// Used when JSON.stringify() is called
-	// Experimental.
 	ToStatementJson() interface{}
 	// String representation of this policy statement.
-	// Experimental.
 	ToString() *string
 	// Validate that the policy statement satisfies base requirements for a policy.
 	//
 	// Returns: An array of validation error messages, or an empty array if the statement is valid.
-	// Experimental.
 	ValidateForAnyPolicy() *[]*string
 	// Validate that the policy statement satisfies all requirements for an identity-based policy.
 	//
 	// Returns: An array of validation error messages, or an empty array if the statement is valid.
-	// Experimental.
 	ValidateForIdentityPolicy() *[]*string
 	// Validate that the policy statement satisfies all requirements for a resource-based policy.
 	//
 	// Returns: An array of validation error messages, or an empty array if the statement is valid.
-	// Experimental.
 	ValidateForResourcePolicy() *[]*string
 }
 
@@ -237,6 +211,16 @@ func (j *jsiiProxy_PolicyStatement) Effect() Effect {
 	_jsii_.Get(
 		j,
 		"effect",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PolicyStatement) Frozen() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"frozen",
 		&returns,
 	)
 	return returns
@@ -323,7 +307,6 @@ func (j *jsiiProxy_PolicyStatement) Sid() *string {
 }
 
 
-// Experimental.
 func NewPolicyStatement(props *PolicyStatementProps) PolicyStatement {
 	_init_.Initialize()
 
@@ -333,7 +316,7 @@ func NewPolicyStatement(props *PolicyStatementProps) PolicyStatement {
 	j := jsiiProxy_PolicyStatement{}
 
 	_jsii_.Create(
-		"monocdk.aws_iam.PolicyStatement",
+		"aws-cdk-lib.aws_iam.PolicyStatement",
 		[]interface{}{props},
 		&j,
 	)
@@ -341,12 +324,11 @@ func NewPolicyStatement(props *PolicyStatementProps) PolicyStatement {
 	return &j
 }
 
-// Experimental.
 func NewPolicyStatement_Override(p PolicyStatement, props *PolicyStatementProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iam.PolicyStatement",
+		"aws-cdk-lib.aws_iam.PolicyStatement",
 		[]interface{}{props},
 		p,
 	)
@@ -374,7 +356,6 @@ func (j *jsiiProxy_PolicyStatement)SetSid(val *string) {
 // Creates a new PolicyStatement based on the object provided.
 //
 // This will accept an object created from the `.toJSON()` call
-// Experimental.
 func PolicyStatement_FromJson(obj interface{}) PolicyStatement {
 	_init_.Initialize()
 
@@ -384,7 +365,7 @@ func PolicyStatement_FromJson(obj interface{}) PolicyStatement {
 	var returns PolicyStatement
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.PolicyStatement",
+		"aws-cdk-lib.aws_iam.PolicyStatement",
 		"fromJson",
 		[]interface{}{obj},
 		&returns,
@@ -593,6 +574,19 @@ func (p *jsiiProxy_PolicyStatement) Copy(overrides *PolicyStatementProps) Policy
 		p,
 		"copy",
 		[]interface{}{overrides},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PolicyStatement) Freeze() PolicyStatement {
+	var returns PolicyStatement
+
+	_jsii_.Invoke(
+		p,
+		"freeze",
+		nil, // no parameters
 		&returns,
 	)
 
