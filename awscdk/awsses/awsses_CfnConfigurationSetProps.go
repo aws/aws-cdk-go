@@ -28,6 +28,14 @@ package awsses
 //   	trackingOptions: &trackingOptionsProperty{
 //   		customRedirectDomain: jsii.String("customRedirectDomain"),
 //   	},
+//   	vdmOptions: &vdmOptionsProperty{
+//   		dashboardOptions: &dashboardOptionsProperty{
+//   			engagementMetrics: jsii.String("engagementMetrics"),
+//   		},
+//   		guardianOptions: &guardianOptionsProperty{
+//   			optimizedSharedDelivery: jsii.String("optimizedSharedDelivery"),
+//   		},
+//   	},
 //   }
 //
 type CfnConfigurationSetProps struct {
@@ -46,5 +54,7 @@ type CfnConfigurationSetProps struct {
 	SuppressionOptions interface{} `field:"optional" json:"suppressionOptions" yaml:"suppressionOptions"`
 	// `AWS::SES::ConfigurationSet.TrackingOptions`.
 	TrackingOptions interface{} `field:"optional" json:"trackingOptions" yaml:"trackingOptions"`
+	// `AWS::SES::ConfigurationSet.VdmOptions`.
+	VdmOptions interface{} `field:"optional" json:"vdmOptions" yaml:"vdmOptions"`
 }
 

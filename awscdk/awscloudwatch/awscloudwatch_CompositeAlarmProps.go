@@ -1,5 +1,8 @@
 package awscloudwatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for creating a Composite Alarm.
 //
@@ -16,19 +19,24 @@ package awscloudwatch
 //   	alarmRule: alarmRule,
 //   })
 //
-// Experimental.
 type CompositeAlarmProps struct {
 	// Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.
-	// Experimental.
 	AlarmRule IAlarmRule `field:"required" json:"alarmRule" yaml:"alarmRule"`
 	// Whether the actions for this alarm are enabled.
-	// Experimental.
 	ActionsEnabled *bool `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor IAlarm `field:"optional" json:"actionsSuppressor" yaml:"actionsSuppressor"`
+	// The maximum duration that the composite alarm waits after suppressor alarm goes out of the ALARM state.
+	//
+	// After this time, the composite alarm performs its actions.
+	ActionsSuppressorExtensionPeriod awscdk.Duration `field:"optional" json:"actionsSuppressorExtensionPeriod" yaml:"actionsSuppressorExtensionPeriod"`
+	// The maximum duration that the composite alarm waits for the suppressor alarm to go into the ALARM state.
+	//
+	// After this time, the composite alarm performs its actions.
+	ActionsSuppressorWaitPeriod awscdk.Duration `field:"optional" json:"actionsSuppressorWaitPeriod" yaml:"actionsSuppressorWaitPeriod"`
 	// Description for the alarm.
-	// Experimental.
 	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// Name of the alarm.
-	// Experimental.
 	CompositeAlarmName *string `field:"optional" json:"compositeAlarmName" yaml:"compositeAlarmName"`
 }
 

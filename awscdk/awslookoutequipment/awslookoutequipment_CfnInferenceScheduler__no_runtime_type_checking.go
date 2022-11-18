@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnInferenceScheduler) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnInferenceScheduler) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnInferenceScheduler) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnInferenceScheduler) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnInferenceScheduler) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +88,7 @@ func (j *jsiiProxy_CfnInferenceScheduler) validateSetRoleArnParameters(val *stri
 	return nil
 }
 
-func validateNewCfnInferenceSchedulerParameters(scope awscdk.Construct, id *string, props *CfnInferenceSchedulerProps) error {
+func validateNewCfnInferenceSchedulerParameters(scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) error {
 	return nil
 }
 

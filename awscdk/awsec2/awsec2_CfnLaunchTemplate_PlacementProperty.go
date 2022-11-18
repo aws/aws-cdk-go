@@ -13,6 +13,7 @@ package awsec2
 //   placementProperty := &placementProperty{
 //   	affinity: jsii.String("affinity"),
 //   	availabilityZone: jsii.String("availabilityZone"),
+//   	groupId: jsii.String("groupId"),
 //   	groupName: jsii.String("groupName"),
 //   	hostId: jsii.String("hostId"),
 //   	hostResourceGroupArn: jsii.String("hostResourceGroupArn"),
@@ -26,6 +27,8 @@ type CfnLaunchTemplate_PlacementProperty struct {
 	Affinity *string `field:"optional" json:"affinity" yaml:"affinity"`
 	// The Availability Zone for the instance.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// `CfnLaunchTemplate.PlacementProperty.GroupId`.
+	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
 	// The name of the placement group for the instance.
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// The ID of the Dedicated Host for the instance.

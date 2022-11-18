@@ -1,7 +1,7 @@
 package customresources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,13 +30,10 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type PhysicalResourceId interface {
 	// Literal string to be used as the physical id.
-	// Experimental.
 	Id() *string
 	// Path to a response data element to be used as the physical id.
-	// Experimental.
 	ResponsePath() *string
 }
 
@@ -67,7 +64,6 @@ func (j *jsiiProxy_PhysicalResourceId) ResponsePath() *string {
 
 
 // Extract the physical resource id from the path (dot notation) to the data in the API call response.
-// Experimental.
 func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 	_init_.Initialize()
 
@@ -77,7 +73,7 @@ func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 	var returns PhysicalResourceId
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.PhysicalResourceId",
+		"aws-cdk-lib.custom_resources.PhysicalResourceId",
 		"fromResponse",
 		[]interface{}{responsePath},
 		&returns,
@@ -87,7 +83,6 @@ func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 }
 
 // Explicit physical resource id.
-// Experimental.
 func PhysicalResourceId_Of(id *string) PhysicalResourceId {
 	_init_.Initialize()
 
@@ -97,7 +92,7 @@ func PhysicalResourceId_Of(id *string) PhysicalResourceId {
 	var returns PhysicalResourceId
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.PhysicalResourceId",
+		"aws-cdk-lib.custom_resources.PhysicalResourceId",
 		"of",
 		[]interface{}{id},
 		&returns,

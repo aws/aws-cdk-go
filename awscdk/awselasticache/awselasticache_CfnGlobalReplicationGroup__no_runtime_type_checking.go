@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGlobalReplicationGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 	return nil
 }
 
-func validateNewCfnGlobalReplicationGroupParameters(scope awscdk.Construct, id *string, props *CfnGlobalReplicationGroupProps) error {
+func validateNewCfnGlobalReplicationGroupParameters(scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnOptionGroup`.
@@ -38,6 +38,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	optionGroupName: jsii.String("optionGroupName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -69,6 +70,8 @@ type CfnOptionGroupProps struct {
 	OptionGroupDescription *string `field:"required" json:"optionGroupDescription" yaml:"optionGroupDescription"`
 	// A list of options and the settings for each option.
 	OptionConfigurations interface{} `field:"optional" json:"optionConfigurations" yaml:"optionConfigurations"`
+	// `AWS::RDS::OptionGroup.OptionGroupName`.
+	OptionGroupName *string `field:"optional" json:"optionGroupName" yaml:"optionGroupName"`
 	// Tags to assign to the option group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

@@ -3,16 +3,14 @@ package awsfsx
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
 )
 
 // Interface to implement FSx File Systems.
-// Experimental.
 type IFileSystem interface {
 	awsec2.IConnectable
 	// The ID of the file system, assigned by Amazon FSx.
-	// Experimental.
 	FileSystemId() *string
 }
 

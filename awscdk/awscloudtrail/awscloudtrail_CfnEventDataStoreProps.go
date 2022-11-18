@@ -1,7 +1,7 @@
 package awscloudtrail
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnEventDataStore`.
@@ -44,6 +44,7 @@ import (
 //   			name: jsii.String("name"),
 //   		},
 //   	},
+//   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	multiRegionEnabled: jsii.Boolean(false),
 //   	name: jsii.String("name"),
 //   	organizationEnabled: jsii.Boolean(false),
@@ -60,6 +61,8 @@ import (
 type CfnEventDataStoreProps struct {
 	// `AWS::CloudTrail::EventDataStore.AdvancedEventSelectors`.
 	AdvancedEventSelectors interface{} `field:"optional" json:"advancedEventSelectors" yaml:"advancedEventSelectors"`
+	// `AWS::CloudTrail::EventDataStore.KmsKeyId`.
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// `AWS::CloudTrail::EventDataStore.MultiRegionEnabled`.
 	MultiRegionEnabled interface{} `field:"optional" json:"multiRegionEnabled" yaml:"multiRegionEnabled"`
 	// `AWS::CloudTrail::EventDataStore.Name`.

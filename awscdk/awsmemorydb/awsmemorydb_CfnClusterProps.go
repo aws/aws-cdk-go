@@ -1,7 +1,7 @@
 package awsmemorydb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -18,6 +18,7 @@ import (
 //
 //   	// the properties below are optional
 //   	autoMinorVersionUpgrade: jsii.Boolean(false),
+//   	dataTiering: jsii.String("dataTiering"),
 //   	description: jsii.String("description"),
 //   	engineVersion: jsii.String("engineVersion"),
 //   	finalSnapshotName: jsii.String("finalSnapshotName"),
@@ -57,6 +58,8 @@ type CfnClusterProps struct {
 	NodeType *string `field:"required" json:"nodeType" yaml:"nodeType"`
 	// When set to true, the cluster will automatically receive minor engine version upgrades after launch.
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	// `AWS::MemoryDB::Cluster.DataTiering`.
+	DataTiering *string `field:"optional" json:"dataTiering" yaml:"dataTiering"`
 	// A description of the cluster .
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Redis engine version used by the cluster .

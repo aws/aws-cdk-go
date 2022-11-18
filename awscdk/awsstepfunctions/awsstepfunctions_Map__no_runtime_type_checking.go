@@ -48,14 +48,6 @@ func (m *jsiiProxy_Map) validateNextParameters(next IChainable) error {
 	return nil
 }
 
-func (m *jsiiProxy_Map) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (m *jsiiProxy_Map) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (m *jsiiProxy_Map) validateWhenBoundToGraphParameters(graph StateGraph) error {
 	return nil
 }

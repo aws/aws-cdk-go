@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateInspectParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnApplicationReferenceDataSourceV2) validateSetReferenceData
 	return nil
 }
 
-func validateNewCfnApplicationReferenceDataSourceV2Parameters(scope awscdk.Construct, id *string, props *CfnApplicationReferenceDataSourceV2Props) error {
+func validateNewCfnApplicationReferenceDataSourceV2Parameters(scope constructs.Construct, id *string, props *CfnApplicationReferenceDataSourceV2Props) error {
 	return nil
 }
 

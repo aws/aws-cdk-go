@@ -7,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsefs"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func validateBackupResource_FromArnParameters(arn *string) error {
@@ -54,9 +54,25 @@ func validateBackupResource_FromEfsFileSystemParameters(fileSystem awsefs.IFileS
 	return nil
 }
 
+func validateBackupResource_FromRdsDatabaseClusterParameters(cluster awsrds.IDatabaseCluster) error {
+	if cluster == nil {
+		return fmt.Errorf("parameter cluster is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateBackupResource_FromRdsDatabaseInstanceParameters(instance awsrds.IDatabaseInstance) error {
 	if instance == nil {
 		return fmt.Errorf("parameter instance is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateBackupResource_FromRdsServerlessClusterParameters(cluster awsrds.IServerlessCluster) error {
+	if cluster == nil {
+		return fmt.Errorf("parameter cluster is required, but nil was provided")
 	}
 
 	return nil

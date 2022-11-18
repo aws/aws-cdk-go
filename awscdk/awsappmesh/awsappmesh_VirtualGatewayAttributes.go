@@ -15,13 +15,10 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("virtualGatewayName"),
 //   }
 //
-// Experimental.
 type VirtualGatewayAttributes struct {
 	// The Mesh that the VirtualGateway belongs to.
-	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualGateway.
-	// Experimental.
 	VirtualGatewayName *string `field:"required" json:"virtualGatewayName" yaml:"virtualGatewayName"`
 }
 

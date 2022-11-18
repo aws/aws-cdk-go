@@ -6,6 +6,7 @@ package awsappmesh
 // At least one match type must be selected.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -27,20 +28,16 @@ package awsappmesh
 //   	}),
 //   })
 //
-// Experimental.
 type GrpcRouteMatch struct {
 	// Create metadata based gRPC route match.
 	//
 	// All specified metadata must match for the route to match.
-	// Experimental.
 	Metadata *[]HeaderMatch `field:"optional" json:"metadata" yaml:"metadata"`
 	// The method name to match from the request.
 	//
 	// If the method name is specified, service name must be also provided.
-	// Experimental.
 	MethodName *string `field:"optional" json:"methodName" yaml:"methodName"`
 	// Create service name based gRPC route match.
-	// Experimental.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 

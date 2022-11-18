@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnCostCategory) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnCostCategory) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCostCategory) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCostCategory) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCostCategory) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnCostCategory) validateSetRuleVersionParameters(val *string
 	return nil
 }
 
-func validateNewCfnCostCategoryParameters(scope awscdk.Construct, id *string, props *CfnCostCategoryProps) error {
+func validateNewCfnCostCategoryParameters(scope constructs.Construct, id *string, props *CfnCostCategoryProps) error {
 	return nil
 }
 

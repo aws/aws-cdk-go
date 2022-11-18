@@ -22,6 +22,28 @@ package awsrum
 //   	includedPages: []*string{
 //   		jsii.String("includedPages"),
 //   	},
+//   	metricDestinations: []interface{}{
+//   		&metricDestinationProperty{
+//   			destination: jsii.String("destination"),
+//
+//   			// the properties below are optional
+//   			destinationArn: jsii.String("destinationArn"),
+//   			iamRoleArn: jsii.String("iamRoleArn"),
+//   			metricDefinitions: []interface{}{
+//   				&metricDefinitionProperty{
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					dimensionKeys: map[string]*string{
+//   						"dimensionKeysKey": jsii.String("dimensionKeys"),
+//   					},
+//   					eventPattern: jsii.String("eventPattern"),
+//   					unitLabel: jsii.String("unitLabel"),
+//   					valueKey: jsii.String("valueKey"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	sessionSampleRate: jsii.Number(123),
 //   	telemetries: []*string{
 //   		jsii.String("telemetries"),
@@ -51,6 +73,8 @@ type CfnAppMonitor_AppMonitorConfigurationProperty struct {
 	//
 	// You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.
 	IncludedPages *[]*string `field:"optional" json:"includedPages" yaml:"includedPages"`
+	// `CfnAppMonitor.AppMonitorConfigurationProperty.MetricDestinations`.
+	MetricDestinations interface{} `field:"optional" json:"metricDestinations" yaml:"metricDestinations"`
 	// Specifies the portion of user sessions to use for CloudWatch RUM data collection.
 	//
 	// Choosing a higher portion gives you more data but also incurs more costs.

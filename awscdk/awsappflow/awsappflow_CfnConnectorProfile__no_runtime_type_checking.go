@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnConnectorProfile) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectorProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnConnectorProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnConnectorProfile) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnConnectorProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +84,7 @@ func (j *jsiiProxy_CfnConnectorProfile) validateSetConnectorTypeParameters(val *
 	return nil
 }
 
-func validateNewCfnConnectorProfileParameters(scope awscdk.Construct, id *string, props *CfnConnectorProfileProps) error {
+func validateNewCfnConnectorProfileParameters(scope constructs.Construct, id *string, props *CfnConnectorProfileProps) error {
 	return nil
 }
 

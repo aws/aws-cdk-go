@@ -9,24 +9,6 @@ started quickly by using prepackaged build environments, or you can create
 custom build environments that use your own build tools. With CodeBuild, you are
 charged by the minute for the compute resources you use.
 
-## Installation
-
-Install the module:
-
-```console
-$ npm i @aws-cdk/aws-codebuild
-```
-
-Import it into your code:
-
-```go
-import codebuild "github.com/aws/aws-cdk-go/awscdk"
-```
-
-The `codebuild.Project` construct represents a build project resource. See the
-reference documentation for a comprehensive list of initialization properties,
-methods and attributes.
-
 ## Source
 
 Build projects are usually associated with a *source*, which is specified via
@@ -101,7 +83,7 @@ gitHubSource := codebuild.source.gitHub(&gitHubSourceProps{
 	webhookTriggersBatchBuild: jsii.Boolean(true),
 	 // optional, default is false
 	webhookFilters: []filterGroup{
-		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
+		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
 	},
 })
 ```
@@ -424,6 +406,48 @@ codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 })
 ```
 
+## Debugging builds interactively using SSM Session Manager
+
+Integration with SSM Session Manager makes it possible to add breakpoints to your
+build commands, pause the build there and log into the container to interactively
+debug the environment.
+
+To do so, you need to:
+
+* Create the build with `ssmSessionPermissions: true`.
+* Use a build image with SSM agent installed and configured (default CodeBuild images come with the image preinstalled).
+* Start the build with [debugSessionEnabled](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html#CodeBuild-StartBuild-request-debugSessionEnabled) set to true.
+
+If these conditions are met, execution of the command `codebuild-breakpoint`
+will suspend your build and allow you to attach a Session Manager session from
+the CodeBuild console.
+
+For more information, see [View a running build in Session
+Manager](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html)
+in the CodeBuild documentation.
+
+Example:
+
+```go
+codebuild.NewProject(this, jsii.String("Project"), &projectProps{
+	environment: &buildEnvironment{
+		buildImage: codebuild.linuxBuildImage_STANDARD_6_0(),
+	},
+	ssmSessionPermissions: jsii.Boolean(true),
+	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+		"version": jsii.String("0.2"),
+		"phases": map[string]map[string][]*string{
+			"build": map[string][]*string{
+				"commands": []*string{
+					jsii.String("codebuild-breakpoint"),
+					jsii.String("./my-build.sh"),
+				},
+			},
+		},
+	}),
+})
+```
+
 ## Credentials
 
 CodeBuild allows you to store credentials used when communicating with various sources,
@@ -517,7 +541,33 @@ project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 })
 ```
 
-If you do that, you need to grant the project's role permissions to write reports to that report group:
+For a code coverage report, you can specify a report group with the code coverage report group type.
+
+```go
+var source source
+
+
+// create a new ReportGroup
+reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"), &reportGroupProps{
+	type: codebuild.reportGroupType_CODE_COVERAGE,
+})
+
+project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
+	source: source,
+	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+		// ...
+		"reports": map[string]map[string]*string{
+			reportGroup.reportGroupArn: map[string]*string{
+				"files": jsii.String("**/*"),
+				"base-directory": jsii.String("build/coverage-report.xml"),
+				"file-format": jsii.String("JACOCOXML"),
+			},
+		},
+	}),
+})
+```
+
+If you specify a report group, you need to grant the project's role permissions to write reports to that report group:
 
 ```go
 var project project
@@ -526,6 +576,8 @@ var reportGroup reportGroup
 
 reportGroup.grantWrite(project)
 ```
+
+The created policy will adjust to the report group type. If no type is specified when creating the report group the created policy will contain the action for the test report group type.
 
 For more information on the test reports feature,
 see the [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/test-reporting.html).

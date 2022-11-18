@@ -21,17 +21,14 @@ package awslambda
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   }
 //
-// Experimental.
 type CodeImageConfig struct {
 	// URI to the Docker image.
-	// Experimental.
 	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Experimental.
 	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -39,14 +36,12 @@ type CodeImageConfig struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Experimental.
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	// Experimental.
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 

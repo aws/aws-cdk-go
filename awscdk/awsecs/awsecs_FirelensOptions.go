@@ -14,21 +14,17 @@ package awsecs
 //   	enableECSLogMetadata: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type FirelensOptions struct {
 	// Custom configuration file, s3 or file.
 	//
 	// Both configFileType and configFileValue must be used together
 	// to define a custom configuration source.
-	// Experimental.
 	ConfigFileType FirelensConfigFileType `field:"optional" json:"configFileType" yaml:"configFileType"`
 	// Custom configuration file, S3 ARN or a file path Both configFileType and configFileValue must be used together to define a custom configuration source.
-	// Experimental.
 	ConfigFileValue *string `field:"optional" json:"configFileValue" yaml:"configFileValue"`
 	// By default, Amazon ECS adds additional fields in your log entries that help identify the source of the logs.
 	//
 	// You can disable this action by setting enable-ecs-log-metadata to false.
-	// Experimental.
 	EnableECSLogMetadata *bool `field:"optional" json:"enableECSLogMetadata" yaml:"enableECSLogMetadata"`
 }
 

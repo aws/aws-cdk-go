@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnCrawler) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnCrawler) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCrawler) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCrawler) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCrawler) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +88,7 @@ func (j *jsiiProxy_CfnCrawler) validateSetTargetsParameters(val interface{}) err
 	return nil
 }
 
-func validateNewCfnCrawlerParameters(scope awscdk.Construct, id *string, props *CfnCrawlerProps) error {
+func validateNewCfnCrawlerParameters(scope constructs.Construct, id *string, props *CfnCrawlerProps) error {
 	return nil
 }
 

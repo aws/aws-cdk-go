@@ -1,10 +1,10 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Represents the Wait state which delays a state machine from continuing for a specified time.
@@ -38,7 +38,6 @@ import (
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-wait-state.html
 //
-// Experimental.
 type WaitTime interface {
 }
 
@@ -48,7 +47,6 @@ type jsiiProxy_WaitTime struct {
 }
 
 // Wait a fixed amount of time.
-// Experimental.
 func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 	_init_.Initialize()
 
@@ -58,7 +56,7 @@ func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions.WaitTime",
+		"aws-cdk-lib.aws_stepfunctions.WaitTime",
 		"duration",
 		[]interface{}{duration},
 		&returns,
@@ -70,7 +68,6 @@ func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 // Wait for a number of seconds stored in the state object.
 //
 // Example value: `$.waitSeconds`
-// Experimental.
 func WaitTime_SecondsPath(path *string) WaitTime {
 	_init_.Initialize()
 
@@ -80,7 +77,7 @@ func WaitTime_SecondsPath(path *string) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions.WaitTime",
+		"aws-cdk-lib.aws_stepfunctions.WaitTime",
 		"secondsPath",
 		[]interface{}{path},
 		&returns,
@@ -92,7 +89,6 @@ func WaitTime_SecondsPath(path *string) WaitTime {
 // Wait until the given ISO8601 timestamp.
 //
 // Example value: `2016-03-14T01:59:00Z`.
-// Experimental.
 func WaitTime_Timestamp(timestamp *string) WaitTime {
 	_init_.Initialize()
 
@@ -102,7 +98,7 @@ func WaitTime_Timestamp(timestamp *string) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions.WaitTime",
+		"aws-cdk-lib.aws_stepfunctions.WaitTime",
 		"timestamp",
 		[]interface{}{timestamp},
 		&returns,
@@ -114,7 +110,6 @@ func WaitTime_Timestamp(timestamp *string) WaitTime {
 // Wait until a timestamp found in the state object.
 //
 // Example value: `$.waitTimestamp`
-// Experimental.
 func WaitTime_TimestampPath(path *string) WaitTime {
 	_init_.Initialize()
 
@@ -124,7 +119,7 @@ func WaitTime_TimestampPath(path *string) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions.WaitTime",
+		"aws-cdk-lib.aws_stepfunctions.WaitTime",
 		"timestampPath",
 		[]interface{}{path},
 		&returns,

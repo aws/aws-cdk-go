@@ -3,114 +3,92 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Create a clustered database with a given number of instances.
-// Experimental.
 type IDatabaseCluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this cluster.
-	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Return the given named metric for this DBCluster.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of deadlocks in the database per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of time that the instance has been running, in seconds.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory, in bytes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of local storage available, in bytes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput received from clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput sent to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes for which you are billed.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of storage used by your Aurora DB instance, in bytes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The endpoint to use for read/write operations.
-	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
-	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
-	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// The engine of this Cluster.
 	//
 	// May be not known for imported Clusters if it wasn't provided explicitly.
-	// Experimental.
 	Engine() IClusterEngine
 	// Endpoints which address each individual replica.
-	// Experimental.
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
-	// Experimental.
 	InstanceIdentifiers() *[]*string
 }
 
@@ -481,8 +459,8 @@ func (j *jsiiProxy_IDatabaseCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IDatabaseCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IDatabaseCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

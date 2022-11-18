@@ -24,7 +24,15 @@ func validateBackupResource_FromEfsFileSystemParameters(fileSystem awsefs.IFileS
 	return nil
 }
 
+func validateBackupResource_FromRdsDatabaseClusterParameters(cluster awsrds.IDatabaseCluster) error {
+	return nil
+}
+
 func validateBackupResource_FromRdsDatabaseInstanceParameters(instance awsrds.IDatabaseInstance) error {
+	return nil
+}
+
+func validateBackupResource_FromRdsServerlessClusterParameters(cluster awsrds.IServerlessCluster) error {
 	return nil
 }
 

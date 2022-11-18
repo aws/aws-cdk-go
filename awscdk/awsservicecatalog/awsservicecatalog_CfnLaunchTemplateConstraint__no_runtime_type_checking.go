@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) validateSetRulesParameters(val *
 	return nil
 }
 
-func validateNewCfnLaunchTemplateConstraintParameters(scope awscdk.Construct, id *string, props *CfnLaunchTemplateConstraintProps) error {
+func validateNewCfnLaunchTemplateConstraintParameters(scope constructs.Construct, id *string, props *CfnLaunchTemplateConstraintProps) error {
 	return nil
 }
 

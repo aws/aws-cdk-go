@@ -37,6 +37,7 @@ package awsmediapackage
 //   		keyRotationIntervalSeconds: jsii.Number(123),
 //   		repeatExtXKey: jsii.Boolean(false),
 //   	},
+//   	includeDvbSubtitles: jsii.Boolean(false),
 //   	includeIframeOnlyStream: jsii.Boolean(false),
 //   	playlistType: jsii.String("playlistType"),
 //   	playlistWindowSeconds: jsii.Number(123),
@@ -78,6 +79,8 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Parameters for encrypting content.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
+	// `CfnOriginEndpoint.HlsPackageProperty.IncludeDvbSubtitles`.
+	IncludeDvbSubtitles interface{} `field:"optional" json:"includeDvbSubtitles" yaml:"includeDvbSubtitles"`
 	// Only applies to stream sets with a single video track.
 	//
 	// When true, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included.

@@ -5,10 +5,8 @@ import (
 )
 
 // An abstract route table.
-// Experimental.
 type IRouteTable interface {
 	// Route table ID.
-	// Experimental.
 	RouteTableId() *string
 }
 

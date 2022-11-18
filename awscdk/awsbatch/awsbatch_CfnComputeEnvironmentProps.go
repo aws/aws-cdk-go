@@ -30,6 +30,7 @@ package awsbatch
 //
 //   				// the properties below are optional
 //   				imageIdOverride: jsii.String("imageIdOverride"),
+//   				imageKubernetesVersion: jsii.String("imageKubernetesVersion"),
 //   			},
 //   		},
 //   		ec2KeyPair: jsii.String("ec2KeyPair"),
@@ -53,6 +54,10 @@ package awsbatch
 //   			"tagsKey": jsii.String("tags"),
 //   		},
 //   		updateToLatestImageVersion: jsii.Boolean(false),
+//   	},
+//   	eksConfiguration: &eksConfigurationProperty{
+//   		eksClusterArn: jsii.String("eksClusterArn"),
+//   		kubernetesNamespace: jsii.String("kubernetesNamespace"),
 //   	},
 //   	replaceComputeEnvironment: jsii.Boolean(false),
 //   	serviceRole: jsii.String("serviceRole"),
@@ -80,6 +85,8 @@ type CfnComputeEnvironmentProps struct {
 	//
 	// This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
 	ComputeResources interface{} `field:"optional" json:"computeResources" yaml:"computeResources"`
+	// `AWS::Batch::ComputeEnvironment.EksConfiguration`.
+	EksConfiguration interface{} `field:"optional" json:"eksConfiguration" yaml:"eksConfiguration"`
 	// Specifies whether the compute environment should be replaced if an update is made that requires replacing the instances in the compute environment.
 	//
 	// The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , no other properties should be changed at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .

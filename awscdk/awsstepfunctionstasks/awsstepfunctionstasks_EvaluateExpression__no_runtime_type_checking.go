@@ -84,14 +84,6 @@ func (e *jsiiProxy_EvaluateExpression) validateNextParameters(next awsstepfuncti
 	return nil
 }
 
-func (e *jsiiProxy_EvaluateExpression) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (e *jsiiProxy_EvaluateExpression) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (e *jsiiProxy_EvaluateExpression) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

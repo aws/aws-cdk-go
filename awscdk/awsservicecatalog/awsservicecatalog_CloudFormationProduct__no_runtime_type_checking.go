@@ -20,14 +20,6 @@ func (c *jsiiProxy_CloudFormationProduct) validateGetResourceNameAttributeParame
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationProduct) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CloudFormationProduct) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCloudFormationProduct_FromProductArnParameters(scope constructs.Construct, id *string, productArn *string) error {
 	return nil
 }
@@ -36,7 +28,11 @@ func validateCloudFormationProduct_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCloudFormationProduct_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCloudFormationProduct_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCloudFormationProduct_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

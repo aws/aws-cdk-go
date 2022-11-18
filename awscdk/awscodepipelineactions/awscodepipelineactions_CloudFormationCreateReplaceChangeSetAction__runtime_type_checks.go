@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateAddToDeploymentRolePolicyParameters(statement awsiam.PolicyStatement) error {
@@ -21,7 +21,7 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateAddToDepl
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBindParameters(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBindParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -40,7 +40,7 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBindParam
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBoundParameters(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

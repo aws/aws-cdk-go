@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnMonitoringSubscription) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnMonitoringSubscription) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnMonitoringSubscription) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnMonitoringSubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnMonitoringSubscription) validateOverrideLogicalIdParameter
 func (c *jsiiProxy_CfnMonitoringSubscription) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnMonitoringSubscription) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -202,7 +186,7 @@ func (j *jsiiProxy_CfnMonitoringSubscription) validateSetMonitoringSubscriptionP
 	return nil
 }
 
-func validateNewCfnMonitoringSubscriptionParameters(scope awscdk.Construct, id *string, props *CfnMonitoringSubscriptionProps) error {
+func validateNewCfnMonitoringSubscriptionParameters(scope constructs.Construct, id *string, props *CfnMonitoringSubscriptionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

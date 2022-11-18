@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // The properties for a task definition run on an EC2 cluster.
@@ -17,56 +17,45 @@ import (
 //   	memoryLimitMiB: jsii.Number(1024),
 //   })
 //
-// Experimental.
 type Ec2TaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
-	// Experimental.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	// Experimental.
 	Family *string `field:"optional" json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
-	// Experimental.
 	ProxyConfiguration ProxyConfiguration `field:"optional" json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	// Experimental.
 	TaskRole awsiam.IRole `field:"optional" json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
-	// Experimental.
 	Volumes *[]*Volume `field:"optional" json:"volumes" yaml:"volumes"`
 	// The inference accelerators to use for the containers in the task.
 	//
 	// Not supported in Fargate.
-	// Experimental.
 	InferenceAccelerators *[]*InferenceAccelerator `field:"optional" json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
-	// Experimental.
 	IpcMode IpcMode `field:"optional" json:"ipcMode" yaml:"ipcMode"`
 	// The Docker networking mode to use for the containers in the task.
 	//
 	// The valid values are NONE, BRIDGE, AWS_VPC, and HOST.
-	// Experimental.
 	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
-	// Experimental.
 	PidMode PidMode `field:"optional" json:"pidMode" yaml:"pidMode"`
 	// An array of placement constraint objects to use for the task.
 	//
 	// You can
 	// specify a maximum of 10 constraints per task (this limit includes
 	// constraints in the task definition and those specified at run time).
-	// Experimental.
 	PlacementConstraints *[]PlacementConstraint `field:"optional" json:"placementConstraints" yaml:"placementConstraints"`
 }
 
