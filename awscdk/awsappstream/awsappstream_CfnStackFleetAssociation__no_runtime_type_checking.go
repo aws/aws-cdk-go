@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnStackFleetAssociation) validateInspectParameters(inspector
 	return nil
 }
 
+func (c *jsiiProxy_CfnStackFleetAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStackFleetAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStackFleetAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStackFleetAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnStackFleetAssociation) validateSetStackNameParameters(val 
 	return nil
 }
 
-func validateNewCfnStackFleetAssociationParameters(scope constructs.Construct, id *string, props *CfnStackFleetAssociationProps) error {
+func validateNewCfnStackFleetAssociationParameters(scope awscdk.Construct, id *string, props *CfnStackFleetAssociationProps) error {
 	return nil
 }
 

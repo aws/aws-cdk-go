@@ -13,19 +13,6 @@ package awsiot
 //   	topic: jsii.String("topic"),
 //
 //   	// the properties below are optional
-//   	headers: &republishActionHeadersProperty{
-//   		contentType: jsii.String("contentType"),
-//   		correlationData: jsii.String("correlationData"),
-//   		messageExpiry: jsii.String("messageExpiry"),
-//   		payloadFormatIndicator: jsii.String("payloadFormatIndicator"),
-//   		responseTopic: jsii.String("responseTopic"),
-//   		userProperties: []interface{}{
-//   			&userPropertyProperty{
-//   				key: jsii.String("key"),
-//   				value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	qos: jsii.Number(123),
 //   }
 //
@@ -34,8 +21,6 @@ type CfnTopicRule_RepublishActionProperty struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the MQTT topic.
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
-	// `CfnTopicRule.RepublishActionProperty.Headers`.
-	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// The Quality of Service (QoS) level to use when republishing messages.
 	//
 	// The default value is 0.

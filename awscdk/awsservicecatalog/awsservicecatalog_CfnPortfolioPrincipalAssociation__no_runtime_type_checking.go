@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) validateInspectParameters(i
 	return nil
 }
 
+func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +88,7 @@ func (j *jsiiProxy_CfnPortfolioPrincipalAssociation) validateSetPrincipalTypePar
 	return nil
 }
 
-func validateNewCfnPortfolioPrincipalAssociationParameters(scope constructs.Construct, id *string, props *CfnPortfolioPrincipalAssociationProps) error {
+func validateNewCfnPortfolioPrincipalAssociationParameters(scope awscdk.Construct, id *string, props *CfnPortfolioPrincipalAssociationProps) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,10 +30,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CacheCookieBehavior interface {
 	// The behavior of cookies: allow all, none, an allow list, or a deny list.
+	// Experimental.
 	Behavior() *string
 	// The cookies to allow or deny, if the behavior is an allow or deny list.
+	// Experimental.
 	Cookies() *[]*string
 }
 
@@ -64,13 +67,14 @@ func (j *jsiiProxy_CacheCookieBehavior) Cookies() *[]*string {
 
 
 // All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
+// Experimental.
 func CacheCookieBehavior_All() CacheCookieBehavior {
 	_init_.Initialize()
 
 	var returns CacheCookieBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.CacheCookieBehavior",
+		"monocdk.aws_cloudfront.CacheCookieBehavior",
 		"all",
 		nil, // no parameters
 		&returns,
@@ -80,6 +84,7 @@ func CacheCookieBehavior_All() CacheCookieBehavior {
 }
 
 // Only the provided `cookies` are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+// Experimental.
 func CacheCookieBehavior_AllowList(cookies ...*string) CacheCookieBehavior {
 	_init_.Initialize()
 
@@ -91,7 +96,7 @@ func CacheCookieBehavior_AllowList(cookies ...*string) CacheCookieBehavior {
 	var returns CacheCookieBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.CacheCookieBehavior",
+		"monocdk.aws_cloudfront.CacheCookieBehavior",
 		"allowList",
 		args,
 		&returns,
@@ -101,6 +106,7 @@ func CacheCookieBehavior_AllowList(cookies ...*string) CacheCookieBehavior {
 }
 
 // All cookies except the provided `cookies` are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+// Experimental.
 func CacheCookieBehavior_DenyList(cookies ...*string) CacheCookieBehavior {
 	_init_.Initialize()
 
@@ -112,7 +118,7 @@ func CacheCookieBehavior_DenyList(cookies ...*string) CacheCookieBehavior {
 	var returns CacheCookieBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.CacheCookieBehavior",
+		"monocdk.aws_cloudfront.CacheCookieBehavior",
 		"denyList",
 		args,
 		&returns,
@@ -122,13 +128,14 @@ func CacheCookieBehavior_DenyList(cookies ...*string) CacheCookieBehavior {
 }
 
 // Cookies in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin.
+// Experimental.
 func CacheCookieBehavior_None() CacheCookieBehavior {
 	_init_.Initialize()
 
 	var returns CacheCookieBehavior
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.CacheCookieBehavior",
+		"monocdk.aws_cloudfront.CacheCookieBehavior",
 		"none",
 		nil, // no parameters
 		&returns,

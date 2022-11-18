@@ -84,6 +84,14 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateNextParameters(ne
 	return nil
 }
 
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

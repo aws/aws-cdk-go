@@ -16,15 +16,19 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) validateGetResourceNameAttr
 	return nil
 }
 
+func (u *jsiiProxy_UserPoolIdentityProviderFacebook) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderFacebook) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateUserPoolIdentityProviderFacebook_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateUserPoolIdentityProviderFacebook_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateUserPoolIdentityProviderFacebook_IsResourceParameters(construct constructs.IConstruct) error {
+func validateUserPoolIdentityProviderFacebook_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

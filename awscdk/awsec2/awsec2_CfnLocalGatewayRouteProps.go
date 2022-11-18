@@ -11,10 +11,7 @@ package awsec2
 //   cfnLocalGatewayRouteProps := &cfnLocalGatewayRouteProps{
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	localGatewayRouteTableId: jsii.String("localGatewayRouteTableId"),
-//
-//   	// the properties below are optional
 //   	localGatewayVirtualInterfaceGroupId: jsii.String("localGatewayVirtualInterfaceGroupId"),
-//   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   }
 //
 type CfnLocalGatewayRouteProps struct {
@@ -23,8 +20,6 @@ type CfnLocalGatewayRouteProps struct {
 	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId *string `field:"required" json:"localGatewayRouteTableId" yaml:"localGatewayRouteTableId"`
 	// The ID of the virtual interface group.
-	LocalGatewayVirtualInterfaceGroupId *string `field:"optional" json:"localGatewayVirtualInterfaceGroupId" yaml:"localGatewayVirtualInterfaceGroupId"`
-	// `AWS::EC2::LocalGatewayRoute.NetworkInterfaceId`.
-	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	LocalGatewayVirtualInterfaceGroupId *string `field:"required" json:"localGatewayVirtualInterfaceGroupId" yaml:"localGatewayVirtualInterfaceGroupId"`
 }
 

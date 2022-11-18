@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnUserGroup) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnUserGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnUserGroup) validateSetUserGroupIdParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnUserGroupParameters(scope constructs.Construct, id *string, props *CfnUserGroupProps) error {
+func validateNewCfnUserGroupParameters(scope awscdk.Construct, id *string, props *CfnUserGroupProps) error {
 	return nil
 }
 

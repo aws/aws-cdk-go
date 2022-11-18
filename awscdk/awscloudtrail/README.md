@@ -185,14 +185,3 @@ trail.addLambdaEventSelector([]iFunction{
 	amazingFunction,
 })
 ```
-
-## Organization Trail
-
-It is possible to create a trail that will be applied to all accounts in an organization if the current account manages an organization.
-To enable this, the property `isOrganizationTrail` must be set. If this property is set and the current account does not manage an organization, the stack will fail to deploy.
-
-```go
-cloudtrail.NewTrail(this, jsii.String("OrganizationTrail"), &trailProps{
-	isOrganizationTrail: jsii.Boolean(true),
-})
-```

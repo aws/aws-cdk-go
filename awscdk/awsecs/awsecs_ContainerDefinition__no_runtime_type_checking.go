@@ -28,10 +28,6 @@ func (c *jsiiProxy_ContainerDefinition) validateAddScratchParameters(scratch *Sc
 	return nil
 }
 
-func (c *jsiiProxy_ContainerDefinition) validateAddSecretParameters(name *string, secret Secret) error {
-	return nil
-}
-
 func (c *jsiiProxy_ContainerDefinition) validateAddToExecutionPolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }
@@ -45,6 +41,14 @@ func (c *jsiiProxy_ContainerDefinition) validateAddVolumesFromParameters(volumes
 }
 
 func (c *jsiiProxy_ContainerDefinition) validateFindPortMappingParameters(containerPort *float64, protocol Protocol) error {
+	return nil
+}
+
+func (c *jsiiProxy_ContainerDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_ContainerDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

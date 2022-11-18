@@ -26,20 +26,25 @@ package awsec2
 //   				subnetFilter,
 //   			},
 //   			subnetGroupName: jsii.String("subnetGroupName"),
+//   			subnetName: jsii.String("subnetName"),
 //   			subnets: []iSubnet{
 //   				subnet,
 //   			},
-//   			subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
+//   			subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   		},
 //   	},
 //   }
 //
+// Experimental.
 type EnableVpnGatewayOptions struct {
 	// Default type ipsec.1.
+	// Experimental.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Explicitly specify an Asn or let aws pick an Asn for you.
+	// Experimental.
 	AmazonSideAsn *float64 `field:"optional" json:"amazonSideAsn" yaml:"amazonSideAsn"`
 	// Provide an array of subnets where the route propagation should be added.
+	// Experimental.
 	VpnRoutePropagation *[]*SubnetSelection `field:"optional" json:"vpnRoutePropagation" yaml:"vpnRoutePropagation"`
 }
 

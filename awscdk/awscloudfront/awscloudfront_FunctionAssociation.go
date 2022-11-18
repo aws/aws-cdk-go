@@ -17,10 +17,13 @@ package awscloudfront
 //   	function: function_,
 //   }
 //
+// Experimental.
 type FunctionAssociation struct {
 	// The type of event which should invoke the function.
+	// Experimental.
 	EventType FunctionEventType `field:"required" json:"eventType" yaml:"eventType"`
 	// The CloudFront function that will be invoked.
+	// Experimental.
 	Function IFunction `field:"required" json:"function" yaml:"function"`
 }
 

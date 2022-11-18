@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnBatchScramSecret) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBatchScramSecret) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnBatchScramSecret) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBatchScramSecret) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnBatchScramSecret) validateSetClusterArnParameters(val *str
 	return nil
 }
 
-func validateNewCfnBatchScramSecretParameters(scope constructs.Construct, id *string, props *CfnBatchScramSecretProps) error {
+func validateNewCfnBatchScramSecretParameters(scope awscdk.Construct, id *string, props *CfnBatchScramSecretProps) error {
 	return nil
 }
 

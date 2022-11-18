@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnPublicTypeVersion) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnPublicTypeVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPublicTypeVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPublicTypeVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPublicTypeVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -68,7 +76,7 @@ func validateCfnPublicTypeVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnPublicTypeVersionParameters(scope constructs.Construct, id *string, props *CfnPublicTypeVersionProps) error {
+func validateNewCfnPublicTypeVersionParameters(scope awscdk.Construct, id *string, props *CfnPublicTypeVersionProps) error {
 	return nil
 }
 

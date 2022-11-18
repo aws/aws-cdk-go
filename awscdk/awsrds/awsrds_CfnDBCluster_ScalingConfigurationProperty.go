@@ -17,7 +17,6 @@ package awsrds
 //   	maxCapacity: jsii.Number(123),
 //   	minCapacity: jsii.Number(123),
 //   	secondsUntilAutoPause: jsii.Number(123),
-//   	timeoutAction: jsii.String("timeoutAction"),
 //   }
 //
 type CfnDBCluster_ScalingConfigurationProperty struct {
@@ -47,7 +46,5 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 	//
 	// Specify a value between 300 and 86,400 seconds.
 	SecondsUntilAutoPause *float64 `field:"optional" json:"secondsUntilAutoPause" yaml:"secondsUntilAutoPause"`
-	// `CfnDBCluster.ScalingConfigurationProperty.TimeoutAction`.
-	TimeoutAction *string `field:"optional" json:"timeoutAction" yaml:"timeoutAction"`
 }
 

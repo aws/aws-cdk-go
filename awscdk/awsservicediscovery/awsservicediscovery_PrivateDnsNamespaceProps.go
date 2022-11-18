@@ -1,11 +1,10 @@
 package awsservicediscovery
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   // Cloud Map service discovery is currently required for host ejection by outlier detection
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
@@ -28,12 +27,16 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type PrivateDnsNamespaceProps struct {
 	// A name for the Namespace.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon VPC that you want to associate the namespace with.
+	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 

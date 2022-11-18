@@ -1,6 +1,7 @@
 package awsservicediscovery
 
 
+// Experimental.
 type IPrivateDnsNamespace interface {
 	INamespace
 }

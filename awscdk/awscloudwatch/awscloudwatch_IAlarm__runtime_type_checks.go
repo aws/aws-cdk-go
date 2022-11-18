@@ -5,7 +5,7 @@ package awscloudwatch
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 func (i *jsiiProxy_IAlarm) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {

@@ -1,11 +1,12 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Lambda function handler.
+// Experimental.
 type Handler interface {
 }
 
@@ -18,7 +19,7 @@ func Handler_FROM_IMAGE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lambda.Handler",
+		"monocdk.aws_lambda.Handler",
 		"FROM_IMAGE",
 		&returns,
 	)

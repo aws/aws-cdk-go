@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnReplicationTask) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnReplicationTask) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnReplicationTask) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnReplicationTask) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnReplicationTask) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +96,7 @@ func (j *jsiiProxy_CfnReplicationTask) validateSetTargetEndpointArnParameters(va
 	return nil
 }
 
-func validateNewCfnReplicationTaskParameters(scope constructs.Construct, id *string, props *CfnReplicationTaskProps) error {
+func validateNewCfnReplicationTaskParameters(scope awscdk.Construct, id *string, props *CfnReplicationTaskProps) error {
 	return nil
 }
 

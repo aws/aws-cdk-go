@@ -8,7 +8,7 @@ func (i *jsiiProxy_InterfaceVpcEndpointTarget) validateBindParameters(_record aw
 	return nil
 }
 
-func validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint awsec2.InterfaceVpcEndpoint) error {
+func validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint awsec2.IInterfaceVpcEndpoint) error {
 	return nil
 }
 

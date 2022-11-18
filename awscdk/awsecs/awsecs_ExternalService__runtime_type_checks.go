@@ -7,13 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (e *jsiiProxy_ExternalService) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -64,6 +64,18 @@ func (e *jsiiProxy_ExternalService) validateAutoScaleTaskCountParameters(_props 
 		return fmt.Errorf("parameter _props is required, but nil was provided")
 	}
 	if err := _jsii_.ValidateStruct(_props, func() string { return "parameter _props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (e *jsiiProxy_ExternalService) validateConfigureAwsVpcNetworkingParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
+	if vpc == nil {
+		return fmt.Errorf("parameter vpc is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(vpcSubnets, func() string { return "parameter vpcSubnets" }); err != nil {
 		return err
 	}
 
@@ -155,11 +167,27 @@ func (e *jsiiProxy_ExternalService) validateMetricMemoryUtilizationParameters(pr
 	return nil
 }
 
+func (e *jsiiProxy_ExternalService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_ExternalService) validateRegisterLoadBalancerTargetsParameters(_targets *[]*EcsTarget) error {
 	for idx_d55176, v := range *_targets {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter _targets[%#v]", idx_d55176) }); err != nil {
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (e *jsiiProxy_ExternalService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -224,15 +252,7 @@ func validateExternalService_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateExternalService_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateExternalService_IsResourceParameters(construct constructs.IConstruct) error {
+func validateExternalService_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

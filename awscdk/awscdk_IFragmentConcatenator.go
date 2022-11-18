@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -8,8 +8,10 @@ import (
 // Function used to concatenate symbols in the target document language.
 //
 // Interface so it could potentially be exposed over jsii.
+// Experimental.
 type IFragmentConcatenator interface {
 	// Join the fragment on the left and on the right.
+	// Experimental.
 	Join(left interface{}, right interface{}) interface{}
 }
 

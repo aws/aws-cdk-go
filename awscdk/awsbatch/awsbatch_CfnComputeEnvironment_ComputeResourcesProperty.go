@@ -27,7 +27,6 @@ package awsbatch
 //
 //   			// the properties below are optional
 //   			imageIdOverride: jsii.String("imageIdOverride"),
-//   			imageKubernetesVersion: jsii.String("imageKubernetesVersion"),
 //   		},
 //   	},
 //   	ec2KeyPair: jsii.String("ec2KeyPair"),

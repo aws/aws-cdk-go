@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // The mTLS authentication configuration for a custom domain name.
@@ -20,14 +20,18 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.
+	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The key in S3 to look at for the trust store.
+	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
+	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

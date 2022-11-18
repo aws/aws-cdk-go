@@ -1,14 +1,13 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
@@ -33,10 +32,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type BlockDeviceVolume interface {
 	// EBS device info.
+	// Experimental.
 	EbsDevice() *EbsDeviceProps
 	// Virtual device name.
+	// Experimental.
 	VirtualName() *string
 }
 
@@ -66,6 +68,7 @@ func (j *jsiiProxy_BlockDeviceVolume) VirtualName() *string {
 }
 
 
+// Experimental.
 func NewBlockDeviceVolume(ebsDevice *EbsDeviceProps, virtualName *string) BlockDeviceVolume {
 	_init_.Initialize()
 
@@ -75,7 +78,7 @@ func NewBlockDeviceVolume(ebsDevice *EbsDeviceProps, virtualName *string) BlockD
 	j := jsiiProxy_BlockDeviceVolume{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.BlockDeviceVolume",
+		"monocdk.aws_ec2.BlockDeviceVolume",
 		[]interface{}{ebsDevice, virtualName},
 		&j,
 	)
@@ -83,17 +86,19 @@ func NewBlockDeviceVolume(ebsDevice *EbsDeviceProps, virtualName *string) BlockD
 	return &j
 }
 
+// Experimental.
 func NewBlockDeviceVolume_Override(b BlockDeviceVolume, ebsDevice *EbsDeviceProps, virtualName *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.BlockDeviceVolume",
+		"monocdk.aws_ec2.BlockDeviceVolume",
 		[]interface{}{ebsDevice, virtualName},
 		b,
 	)
 }
 
 // Creates a new Elastic Block Storage device.
+// Experimental.
 func BlockDeviceVolume_Ebs(volumeSize *float64, options *EbsDeviceOptions) BlockDeviceVolume {
 	_init_.Initialize()
 
@@ -103,7 +108,7 @@ func BlockDeviceVolume_Ebs(volumeSize *float64, options *EbsDeviceOptions) Block
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.BlockDeviceVolume",
+		"monocdk.aws_ec2.BlockDeviceVolume",
 		"ebs",
 		[]interface{}{volumeSize, options},
 		&returns,
@@ -113,6 +118,7 @@ func BlockDeviceVolume_Ebs(volumeSize *float64, options *EbsDeviceOptions) Block
 }
 
 // Creates a new Elastic Block Storage device from an existing snapshot.
+// Experimental.
 func BlockDeviceVolume_EbsFromSnapshot(snapshotId *string, options *EbsDeviceSnapshotOptions) BlockDeviceVolume {
 	_init_.Initialize()
 
@@ -122,7 +128,7 @@ func BlockDeviceVolume_EbsFromSnapshot(snapshotId *string, options *EbsDeviceSna
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.BlockDeviceVolume",
+		"monocdk.aws_ec2.BlockDeviceVolume",
 		"ebsFromSnapshot",
 		[]interface{}{snapshotId, options},
 		&returns,
@@ -134,6 +140,7 @@ func BlockDeviceVolume_EbsFromSnapshot(snapshotId *string, options *EbsDeviceSna
 // Creates a virtual, ephemeral device.
 //
 // The name will be in the form ephemeral{volumeIndex}.
+// Experimental.
 func BlockDeviceVolume_Ephemeral(volumeIndex *float64) BlockDeviceVolume {
 	_init_.Initialize()
 
@@ -143,7 +150,7 @@ func BlockDeviceVolume_Ephemeral(volumeIndex *float64) BlockDeviceVolume {
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.BlockDeviceVolume",
+		"monocdk.aws_ec2.BlockDeviceVolume",
 		"ephemeral",
 		[]interface{}{volumeIndex},
 		&returns,

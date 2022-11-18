@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
@@ -19,13 +19,15 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnAutoScalingReplacingUpdate := &cfnAutoScalingReplacingUpdate{
 //   	willReplace: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type CfnAutoScalingReplacingUpdate struct {
+	// Experimental.
 	WillReplace *bool `field:"optional" json:"willReplace" yaml:"willReplace"`
 }
 

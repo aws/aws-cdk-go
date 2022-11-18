@@ -40,7 +40,15 @@ func (c *jsiiProxy_CfnInclude) validateLoadNestedStackParameters(logicalId *stri
 	return nil
 }
 
+func (c *jsiiProxy_CfnInclude) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInclude) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInclude) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

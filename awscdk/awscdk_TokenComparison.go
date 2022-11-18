@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,10 +13,11 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   tokenComparison := cdk.tokenComparison_BOTH_UNRESOLVED()
+//   tokenComparison := monocdk.tokenComparison_BOTH_UNRESOLVED()
 //
+// Experimental.
 type TokenComparison interface {
 }
 
@@ -29,7 +30,7 @@ func TokenComparison_BOTH_UNRESOLVED() TokenComparison {
 	_init_.Initialize()
 	var returns TokenComparison
 	_jsii_.StaticGet(
-		"aws-cdk-lib.TokenComparison",
+		"monocdk.TokenComparison",
 		"BOTH_UNRESOLVED",
 		&returns,
 	)
@@ -40,7 +41,7 @@ func TokenComparison_DIFFERENT() TokenComparison {
 	_init_.Initialize()
 	var returns TokenComparison
 	_jsii_.StaticGet(
-		"aws-cdk-lib.TokenComparison",
+		"monocdk.TokenComparison",
 		"DIFFERENT",
 		&returns,
 	)
@@ -51,7 +52,7 @@ func TokenComparison_ONE_UNRESOLVED() TokenComparison {
 	_init_.Initialize()
 	var returns TokenComparison
 	_jsii_.StaticGet(
-		"aws-cdk-lib.TokenComparison",
+		"monocdk.TokenComparison",
 		"ONE_UNRESOLVED",
 		&returns,
 	)
@@ -62,7 +63,7 @@ func TokenComparison_SAME() TokenComparison {
 	_init_.Initialize()
 	var returns TokenComparison
 	_jsii_.StaticGet(
-		"aws-cdk-lib.TokenComparison",
+		"monocdk.TokenComparison",
 		"SAME",
 		&returns,
 	)

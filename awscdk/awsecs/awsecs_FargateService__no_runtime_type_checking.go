@@ -28,6 +28,10 @@ func (f *jsiiProxy_FargateService) validateAutoScaleTaskCountParameters(props *a
 	return nil
 }
 
+func (f *jsiiProxy_FargateService) validateConfigureAwsVpcNetworkingParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateService) validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
 	return nil
 }
@@ -60,7 +64,15 @@ func (f *jsiiProxy_FargateService) validateMetricMemoryUtilizationParameters(pro
 	return nil
 }
 
+func (f *jsiiProxy_FargateService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateService) validateRegisterLoadBalancerTargetsParameters(targets *[]*EcsTarget) error {
+	return nil
+}
+
+func (f *jsiiProxy_FargateService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,11 +92,7 @@ func validateFargateService_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFargateService_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateFargateService_IsResourceParameters(construct constructs.IConstruct) error {
+func validateFargateService_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

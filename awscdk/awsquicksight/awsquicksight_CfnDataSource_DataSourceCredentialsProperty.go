@@ -103,7 +103,6 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
-//   	secretArn: jsii.String("secretArn"),
 //   }
 //
 type CfnDataSource_DataSourceCredentialsProperty struct {
@@ -115,7 +114,5 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 	//
 	// For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair interface{} `field:"optional" json:"credentialPair" yaml:"credentialPair"`
-	// `CfnDataSource.DataSourceCredentialsProperty.SecretArn`.
-	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
 }
 

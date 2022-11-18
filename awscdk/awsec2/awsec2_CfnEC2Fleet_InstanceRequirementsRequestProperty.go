@@ -34,9 +34,6 @@ package awsec2
 //   	acceleratorTypes: []*string{
 //   		jsii.String("acceleratorTypes"),
 //   	},
-//   	allowedInstanceTypes: []*string{
-//   		jsii.String("allowedInstanceTypes"),
-//   	},
 //   	bareMetal: jsii.String("bareMetal"),
 //   	baselineEbsBandwidthMbps: &baselineEbsBandwidthMbpsRequestProperty{
 //   		max: jsii.Number(123),
@@ -61,10 +58,6 @@ package awsec2
 //   		min: jsii.Number(123),
 //   	},
 //   	memoryMiB: &memoryMiBRequestProperty{
-//   		max: jsii.Number(123),
-//   		min: jsii.Number(123),
-//   	},
-//   	networkBandwidthGbps: &networkBandwidthGbpsRequestProperty{
 //   		max: jsii.Number(123),
 //   		min: jsii.Number(123),
 //   	},
@@ -125,8 +118,6 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	//
 	// Default: Any accelerator type.
 	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
-	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AllowedInstanceTypes`.
-	AllowedInstanceTypes *[]*string `field:"optional" json:"allowedInstanceTypes" yaml:"allowedInstanceTypes"`
 	// Indicates whether bare metal instance types must be included, excluded, or required.
 	//
 	// - To include bare metal instance types, specify `included` .
@@ -202,8 +193,6 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum amount of memory, in MiB.
 	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
-	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.NetworkBandwidthGbps`.
-	NetworkBandwidthGbps interface{} `field:"optional" json:"networkBandwidthGbps" yaml:"networkBandwidthGbps"`
 	// The minimum and maximum number of network interfaces.
 	//
 	// Default: No minimum or maximum limits.

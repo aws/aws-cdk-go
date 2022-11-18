@@ -191,18 +191,23 @@ package awsappmesh
 //   	priority: jsii.Number(123),
 //   }
 //
+// Experimental.
 type GatewayRouteSpecConfig struct {
 	// The spec for a grpc gateway route.
+	// Experimental.
 	GrpcSpecConfig *CfnGatewayRoute_GrpcGatewayRouteProperty `field:"optional" json:"grpcSpecConfig" yaml:"grpcSpecConfig"`
 	// The spec for an http2 gateway route.
+	// Experimental.
 	Http2SpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `field:"optional" json:"http2SpecConfig" yaml:"http2SpecConfig"`
 	// The spec for an http gateway route.
+	// Experimental.
 	HttpSpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `field:"optional" json:"httpSpecConfig" yaml:"httpSpecConfig"`
 	// The priority for the gateway route.
 	//
 	// When a Virtual Gateway has multiple gateway routes, gateway route match
 	// is performed in the order of specified value, where 0 is the highest priority,
 	// and first matched gateway route is selected.
+	// Experimental.
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 

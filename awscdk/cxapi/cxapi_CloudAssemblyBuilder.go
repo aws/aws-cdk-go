@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
 )
 
 // Can be used to build a cloud assembly.
@@ -22,18 +22,25 @@ import (
 //   	parentBuilder: cloudAssemblyBuilder,
 //   })
 //
+// Experimental.
 type CloudAssemblyBuilder interface {
 	// The directory where assets of this Cloud Assembly should be stored.
+	// Experimental.
 	AssetOutdir() *string
 	// The root directory of the resulting cloud assembly.
+	// Experimental.
 	Outdir() *string
 	// Adds an artifact into the cloud assembly.
+	// Experimental.
 	AddArtifact(id *string, manifest *cloudassemblyschema.ArtifactManifest)
 	// Reports that some context is missing in order for this cloud assembly to be fully synthesized.
+	// Experimental.
 	AddMissing(missing *cloudassemblyschema.MissingContext)
 	// Finalizes the cloud assembly into the output directory returns a `CloudAssembly` object that can be used to inspect the assembly.
+	// Experimental.
 	BuildAssembly(options *AssemblyBuildOptions) CloudAssembly
 	// Creates a nested cloud assembly.
+	// Experimental.
 	CreateNestedAssembly(artifactId *string, displayName *string) CloudAssemblyBuilder
 }
 
@@ -64,6 +71,7 @@ func (j *jsiiProxy_CloudAssemblyBuilder) Outdir() *string {
 
 
 // Initializes a cloud assembly builder.
+// Experimental.
 func NewCloudAssemblyBuilder(outdir *string, props *CloudAssemblyBuilderProps) CloudAssemblyBuilder {
 	_init_.Initialize()
 
@@ -73,7 +81,7 @@ func NewCloudAssemblyBuilder(outdir *string, props *CloudAssemblyBuilderProps) C
 	j := jsiiProxy_CloudAssemblyBuilder{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.CloudAssemblyBuilder",
+		"monocdk.cx_api.CloudAssemblyBuilder",
 		[]interface{}{outdir, props},
 		&j,
 	)
@@ -82,11 +90,12 @@ func NewCloudAssemblyBuilder(outdir *string, props *CloudAssemblyBuilderProps) C
 }
 
 // Initializes a cloud assembly builder.
+// Experimental.
 func NewCloudAssemblyBuilder_Override(c CloudAssemblyBuilder, outdir *string, props *CloudAssemblyBuilderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.CloudAssemblyBuilder",
+		"monocdk.cx_api.CloudAssemblyBuilder",
 		[]interface{}{outdir, props},
 		c,
 	)

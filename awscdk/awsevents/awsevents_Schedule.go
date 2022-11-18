@@ -1,15 +1,13 @@
 package awsevents
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Schedule for scheduled event rules.
-//
-// Note that rates cannot be defined in fractions of minutes.
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
@@ -30,10 +28,10 @@ import (
 //   	},
 //   })
 //
-// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html
-//
+// Experimental.
 type Schedule interface {
 	// Retrieve the expression for this schedule.
+	// Experimental.
 	ExpressionString() *string
 }
 
@@ -53,17 +51,19 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 }
 
 
+// Experimental.
 func NewSchedule_Override(s Schedule) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events.Schedule",
+		"monocdk.aws_events.Schedule",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Create a schedule from a set of cron fields.
+// Experimental.
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
@@ -73,7 +73,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.Schedule",
+		"monocdk.aws_events.Schedule",
 		"cron",
 		[]interface{}{options},
 		&returns,
@@ -83,6 +83,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 }
 
 // Construct a schedule from a literal schedule expression.
+// Experimental.
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
@@ -92,7 +93,7 @@ func Schedule_Expression(expression *string) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.Schedule",
+		"monocdk.aws_events.Schedule",
 		"expression",
 		[]interface{}{expression},
 		&returns,
@@ -102,8 +103,7 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // Construct a schedule from an interval and a time unit.
-//
-// Rates may be defined with any unit of time, but when converted into minutes, the duration must be a positive whole number of minutes.
+// Experimental.
 func Schedule_Rate(duration awscdk.Duration) Schedule {
 	_init_.Initialize()
 
@@ -113,7 +113,7 @@ func Schedule_Rate(duration awscdk.Duration) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.Schedule",
+		"monocdk.aws_events.Schedule",
 		"rate",
 		[]interface{}{duration},
 		&returns,

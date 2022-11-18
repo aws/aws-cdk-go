@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnRotationSchedule) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnRotationSchedule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRotationSchedule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRotationSchedule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRotationSchedule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +92,7 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetSecretIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnRotationScheduleParameters(scope constructs.Construct, id *string, props *CfnRotationScheduleProps) error {
+func validateNewCfnRotationScheduleParameters(scope awscdk.Construct, id *string, props *CfnRotationScheduleProps) error {
 	return nil
 }
 

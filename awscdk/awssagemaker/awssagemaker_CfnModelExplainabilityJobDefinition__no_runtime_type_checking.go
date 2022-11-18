@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateInspectParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +108,7 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetStoppingCondi
 	return nil
 }
 
-func validateNewCfnModelExplainabilityJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) error {
+func validateNewCfnModelExplainabilityJobDefinitionParameters(scope awscdk.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) error {
 	return nil
 }
 

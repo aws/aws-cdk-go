@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnRecordingConfiguration) validateInspectParameters(inspecto
 	return nil
 }
 
+func (c *jsiiProxy_CfnRecordingConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRecordingConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRecordingConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRecordingConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnRecordingConfiguration) validateSetThumbnailConfigurationP
 	return nil
 }
 
-func validateNewCfnRecordingConfigurationParameters(scope constructs.Construct, id *string, props *CfnRecordingConfigurationProps) error {
+func validateNewCfnRecordingConfigurationParameters(scope awscdk.Construct, id *string, props *CfnRecordingConfigurationProps) error {
 	return nil
 }
 

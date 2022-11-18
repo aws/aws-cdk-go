@@ -13,20 +13,12 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   fleetLaunchTemplateSpecificationRequestProperty := &fleetLaunchTemplateSpecificationRequestProperty{
-//   	version: jsii.String("version"),
-//
-//   	// the properties below are optional
 //   	launchTemplateId: jsii.String("launchTemplateId"),
 //   	launchTemplateName: jsii.String("launchTemplateName"),
+//   	version: jsii.String("version"),
 //   }
 //
 type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
-	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
-	//
-	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
-	//
-	// If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
-	Version *string `field:"required" json:"version" yaml:"version"`
 	// The ID of the launch template.
 	//
 	// If you specify the template ID, you can't specify the template name.
@@ -35,5 +27,11 @@ type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 	//
 	// If you specify the template name, you can't specify the template ID.
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
+	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
+	//
+	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
+	//
+	// If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

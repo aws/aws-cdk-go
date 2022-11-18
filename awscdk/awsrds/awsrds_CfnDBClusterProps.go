@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnDBCluster`.
@@ -69,7 +69,6 @@ import (
 //   		maxCapacity: jsii.Number(123),
 //   		minCapacity: jsii.Number(123),
 //   		secondsUntilAutoPause: jsii.Number(123),
-//   		timeoutAction: jsii.String("timeoutAction"),
 //   	},
 //   	serverlessV2ScalingConfiguration: &serverlessV2ScalingConfigurationProperty{
 //   		maxCapacity: jsii.Number(123),

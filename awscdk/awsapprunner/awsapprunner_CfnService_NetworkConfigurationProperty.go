@@ -17,15 +17,10 @@ package awsapprunner
 //   		// the properties below are optional
 //   		vpcConnectorArn: jsii.String("vpcConnectorArn"),
 //   	},
-//   	ingressConfiguration: &ingressConfigurationProperty{
-//   		isPubliclyAccessible: jsii.Boolean(false),
-//   	},
 //   }
 //
 type CfnService_NetworkConfigurationProperty struct {
 	// Network configuration settings for outbound message traffic.
-	EgressConfiguration interface{} `field:"optional" json:"egressConfiguration" yaml:"egressConfiguration"`
-	// `CfnService.NetworkConfigurationProperty.IngressConfiguration`.
-	IngressConfiguration interface{} `field:"optional" json:"ingressConfiguration" yaml:"ingressConfiguration"`
+	EgressConfiguration interface{} `field:"required" json:"egressConfiguration" yaml:"egressConfiguration"`
 }
 

@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) validateInspectParameters(inspector a
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceGroupConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceGroupConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnInstanceGroupConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInstanceGroupConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +104,7 @@ func (j *jsiiProxy_CfnInstanceGroupConfig) validateSetJobFlowIdParameters(val *s
 	return nil
 }
 
-func validateNewCfnInstanceGroupConfigParameters(scope constructs.Construct, id *string, props *CfnInstanceGroupConfigProps) error {
+func validateNewCfnInstanceGroupConfigParameters(scope awscdk.Construct, id *string, props *CfnInstanceGroupConfigProps) error {
 	return nil
 }
 

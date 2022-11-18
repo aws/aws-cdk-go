@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnFlowEntitlement) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnFlowEntitlement) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFlowEntitlement) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnFlowEntitlement) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnFlowEntitlement) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +96,7 @@ func (j *jsiiProxy_CfnFlowEntitlement) validateSetSubscribersParameters(val *[]*
 	return nil
 }
 
-func validateNewCfnFlowEntitlementParameters(scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) error {
+func validateNewCfnFlowEntitlementParameters(scope awscdk.Construct, id *string, props *CfnFlowEntitlementProps) error {
 	return nil
 }
 

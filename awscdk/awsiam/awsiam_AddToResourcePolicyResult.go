@@ -1,13 +1,12 @@
 package awsiam
 
 import (
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Result of calling addToResourcePolicy.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.bucket.fromBucketName(this, jsii.String("existingBucket"), jsii.String("bucket-name"))
 //
 //   // No policy statement will be added to the resource
@@ -23,10 +22,13 @@ import (
 //   	},
 //   }))
 //
+// Experimental.
 type AddToResourcePolicyResult struct {
 	// Whether the statement was added.
+	// Experimental.
 	StatementAdded *bool `field:"required" json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
-	PolicyDependable constructs.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
+	// Experimental.
+	PolicyDependable awscdk.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
 }
 
