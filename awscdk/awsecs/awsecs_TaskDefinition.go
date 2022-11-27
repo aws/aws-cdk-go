@@ -13,29 +13,32 @@ import (
 // The base class for all task definitions.
 //
 // Example:
-//   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var vpc vpc
+//   var cluster cluster
 //
-//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//
+//   // Add a container to the task definition
+//   specificContainer := taskDefinition.addContainer(jsii.String("Container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("/aws/aws-example-app")),
+//   	memoryLimitMiB: jsii.Number(2048),
+//   })
+//
+//   // Add a port mapping
+//   specificContainer.addPortMappings(&portMapping{
+//   	containerPort: jsii.Number(7600),
+//   	protocol: ecs.protocol_TCP,
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
 //   	cluster: cluster,
 //   	taskDefinition: taskDefinition,
-//   })
-//
-//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
-//   	vpc: vpc,
-//   	internetFacing: jsii.Boolean(true),
-//   })
-//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
-//   	port: jsii.Number(80),
-//   })
-//   service.registerLoadBalancerTargets(&ecsTarget{
-//   	containerName: jsii.String("web"),
-//   	containerPort: jsii.Number(80),
-//   	newTargetGroupId: jsii.String("ECS"),
-//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
-//   		protocol: elbv2.applicationProtocol_HTTPS,
-//   	}),
+//   	cloudMapOptions: &cloudMapOptions{
+//   		// Create SRV records - useful for bridge networking
+//   		dnsRecordType: cloudmap.dnsRecordType_SRV,
+//   		// Targets port TCP port 7600 `specificContainer`
+//   		container: specificContainer,
+//   		containerPort: jsii.Number(7600),
+//   	},
 //   })
 //
 type TaskDefinition interface {
@@ -130,6 +133,10 @@ type TaskDefinition interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Returns the container that match the provided containerName.
 	FindContainer(containerName *string) ContainerDefinition
+	// Determine the existing port mapping for the provided name.
+	//
+	// Returns: PortMapping for the provided name, if it exists.
+	FindPortMappingByName(name *string) *PortMapping
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -613,6 +620,22 @@ func (t *jsiiProxy_TaskDefinition) FindContainer(containerName *string) Containe
 		t,
 		"findContainer",
 		[]interface{}{containerName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TaskDefinition) FindPortMappingByName(name *string) *PortMapping {
+	if err := t.validateFindPortMappingByNameParameters(name); err != nil {
+		panic(err)
+	}
+	var returns *PortMapping
+
+	_jsii_.Invoke(
+		t,
+		"findPortMappingByName",
+		[]interface{}{name},
 		&returns,
 	)
 

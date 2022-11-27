@@ -93,6 +93,14 @@ func (e *jsiiProxy_Ec2Service) validateEnableCloudMapParameters(options *CloudMa
 	return nil
 }
 
+func (e *jsiiProxy_Ec2Service) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_Ec2Service) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

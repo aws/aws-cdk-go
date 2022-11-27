@@ -48,6 +48,10 @@ func (c *jsiiProxy_ContainerDefinition) validateFindPortMappingParameters(contai
 	return nil
 }
 
+func (c *jsiiProxy_ContainerDefinition) validateFindPortMappingByNameParameters(name *string) error {
+	return nil
+}
+
 func validateContainerDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }

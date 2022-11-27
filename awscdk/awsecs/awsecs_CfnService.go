@@ -86,6 +86,41 @@ import (
 //   	propagateTags: jsii.String("propagateTags"),
 //   	role: jsii.String("role"),
 //   	schedulingStrategy: jsii.String("schedulingStrategy"),
+//   	serviceConnectConfiguration: &serviceConnectConfigurationProperty{
+//   		enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		logConfiguration: &logConfigurationProperty{
+//   			logDriver: jsii.String("logDriver"),
+//   			options: map[string]*string{
+//   				"optionsKey": jsii.String("options"),
+//   			},
+//   			secretOptions: []interface{}{
+//   				&secretProperty{
+//   					name: jsii.String("name"),
+//   					valueFrom: jsii.String("valueFrom"),
+//   				},
+//   			},
+//   		},
+//   		namespace: jsii.String("namespace"),
+//   		services: []interface{}{
+//   			&serviceConnectServiceProperty{
+//   				portName: jsii.String("portName"),
+//
+//   				// the properties below are optional
+//   				clientAliases: []interface{}{
+//   					&serviceConnectClientAliasProperty{
+//   						port: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						dnsName: jsii.String("dnsName"),
+//   					},
+//   				},
+//   				discoveryName: jsii.String("discoveryName"),
+//   				ingressPortOverride: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	serviceName: jsii.String("serviceName"),
 //   	serviceRegistries: []interface{}{
 //   		&serviceRegistryProperty{
@@ -245,6 +280,9 @@ type CfnService interface {
 	// > Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy.
 	SchedulingStrategy() *string
 	SetSchedulingStrategy(val *string)
+	// `AWS::ECS::Service.ServiceConnectConfiguration`.
+	ServiceConnectConfiguration() interface{}
+	SetServiceConnectConfiguration(val interface{})
 	// The name of your service.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
@@ -669,6 +707,16 @@ func (j *jsiiProxy_CfnService) SchedulingStrategy() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) ServiceConnectConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"serviceConnectConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) ServiceName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -928,6 +976,17 @@ func (j *jsiiProxy_CfnService)SetSchedulingStrategy(val *string) {
 	_jsii_.Set(
 		j,
 		"schedulingStrategy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetServiceConnectConfiguration(val interface{}) {
+	if err := j.validateSetServiceConnectConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"serviceConnectConfiguration",
 		val,
 	)
 }

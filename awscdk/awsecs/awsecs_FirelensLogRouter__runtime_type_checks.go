@@ -124,6 +124,14 @@ func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingParameters(containe
 	return nil
 }
 
+func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingByNameParameters(name *string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFirelensLogRouter_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

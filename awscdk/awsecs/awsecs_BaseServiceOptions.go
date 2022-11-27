@@ -15,6 +15,7 @@ import (
 //
 //   var cluster cluster
 //   var containerDefinition containerDefinition
+//   var logDriver logDriver
 //   var namespace iNamespace
 //
 //   baseServiceOptions := &baseServiceOptions{
@@ -52,6 +53,21 @@ import (
 //   	maxHealthyPercent: jsii.Number(123),
 //   	minHealthyPercent: jsii.Number(123),
 //   	propagateTags: awscdk.*Aws_ecs.propagatedTagSource_SERVICE,
+//   	serviceConnectConfiguration: &serviceConnectProps{
+//   		logDriver: logDriver,
+//   		namespace: jsii.String("namespace"),
+//   		services: []serviceConnectService{
+//   			&serviceConnectService{
+//   				portMappingName: jsii.String("portMappingName"),
+//
+//   				// the properties below are optional
+//   				discoveryName: jsii.String("discoveryName"),
+//   				dnsName: jsii.String("dnsName"),
+//   				ingressPortOverride: jsii.Number(123),
+//   				port: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	serviceName: jsii.String("serviceName"),
 //   }
 //
@@ -91,6 +107,8 @@ type BaseServiceOptions struct {
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
 	PropagateTags PropagatedTagSource `field:"optional" json:"propagateTags" yaml:"propagateTags"`
+	// Configuration for Service Connect.
+	ServiceConnectConfiguration *ServiceConnectProps `field:"optional" json:"serviceConnectConfiguration" yaml:"serviceConnectConfiguration"`
 	// The name of the service.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }

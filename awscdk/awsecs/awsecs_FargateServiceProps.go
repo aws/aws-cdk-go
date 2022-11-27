@@ -69,6 +69,8 @@ type FargateServiceProps struct {
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
 	PropagateTags PropagatedTagSource `field:"optional" json:"propagateTags" yaml:"propagateTags"`
+	// Configuration for Service Connect.
+	ServiceConnectConfiguration *ServiceConnectProps `field:"optional" json:"serviceConnectConfiguration" yaml:"serviceConnectConfiguration"`
 	// The name of the service.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 	// The task definition to use for tasks in the service.

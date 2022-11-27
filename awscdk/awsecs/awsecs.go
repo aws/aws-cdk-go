@@ -45,6 +45,16 @@ func init() {
 		reflect.TypeOf((*AppMeshProxyConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.AppProtocol",
+		reflect.TypeOf((*AppProtocol)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AppProtocol{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.AsgCapacityProvider",
 		reflect.TypeOf((*AsgCapacityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -148,6 +158,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -354,6 +365,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceConnectDefaults", GoGetter: "ServiceConnectDefaults"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -388,6 +400,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCluster.ExecuteCommandLogConfigurationProperty",
 		reflect.TypeOf((*CfnCluster_ExecuteCommandLogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCluster.ServiceConnectDefaultsProperty",
+		reflect.TypeOf((*CfnCluster_ServiceConnectDefaultsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
@@ -527,6 +543,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "schedulingStrategy", GoGetter: "SchedulingStrategy"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceConnectConfiguration", GoGetter: "ServiceConnectConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -570,6 +587,10 @@ func init() {
 		reflect.TypeOf((*CfnService_LoadBalancerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.LogConfigurationProperty",
+		reflect.TypeOf((*CfnService_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnService_NetworkConfigurationProperty)(nil)).Elem(),
 	)
@@ -580,6 +601,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.PlacementStrategyProperty",
 		reflect.TypeOf((*CfnService_PlacementStrategyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.SecretProperty",
+		reflect.TypeOf((*CfnService_SecretProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectClientAliasProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectClientAliasProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectConfigurationProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectServiceProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectServiceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.ServiceRegistryProperty",
@@ -933,6 +970,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "environmentFiles", GoGetter: "EnvironmentFiles"},
 			_jsii_.MemberProperty{JsiiProperty: "essential", GoGetter: "Essential"},
 			_jsii_.MemberMethod{JsiiMethod: "findPortMapping", GoMethod: "FindPortMapping"},
+			_jsii_.MemberMethod{JsiiMethod: "findPortMappingByName", GoMethod: "FindPortMappingByName"},
 			_jsii_.MemberProperty{JsiiProperty: "imageName", GoGetter: "ImageName"},
 			_jsii_.MemberProperty{JsiiProperty: "ingressPort", GoGetter: "IngressPort"},
 			_jsii_.MemberProperty{JsiiProperty: "linuxParameters", GoGetter: "LinuxParameters"},
@@ -1054,6 +1092,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1110,6 +1149,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
 			_jsii_.MemberMethod{JsiiMethod: "findContainer", GoMethod: "FindContainer"},
+			_jsii_.MemberMethod{JsiiMethod: "findPortMappingByName", GoMethod: "FindPortMappingByName"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
@@ -1234,6 +1274,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1290,6 +1331,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
 			_jsii_.MemberMethod{JsiiMethod: "findContainer", GoMethod: "FindContainer"},
+			_jsii_.MemberMethod{JsiiMethod: "findPortMappingByName", GoMethod: "FindPortMappingByName"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
@@ -1351,6 +1393,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberMethod{JsiiMethod: "enableServiceConnect", GoMethod: "EnableServiceConnect"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1407,6 +1450,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
 			_jsii_.MemberMethod{JsiiMethod: "findContainer", GoMethod: "FindContainer"},
+			_jsii_.MemberMethod{JsiiMethod: "findPortMappingByName", GoMethod: "FindPortMappingByName"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
@@ -1489,6 +1533,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "environmentFiles", GoGetter: "EnvironmentFiles"},
 			_jsii_.MemberProperty{JsiiProperty: "essential", GoGetter: "Essential"},
 			_jsii_.MemberMethod{JsiiMethod: "findPortMapping", GoMethod: "FindPortMapping"},
+			_jsii_.MemberMethod{JsiiMethod: "findPortMappingByName", GoMethod: "FindPortMappingByName"},
 			_jsii_.MemberProperty{JsiiProperty: "firelensConfig", GoGetter: "FirelensConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "imageName", GoGetter: "ImageName"},
 			_jsii_.MemberProperty{JsiiProperty: "ingressPort", GoGetter: "IngressPort"},
@@ -2129,6 +2174,14 @@ func init() {
 		"aws-cdk-lib.aws_ecs.SecretVersionInfo",
 		reflect.TypeOf((*SecretVersionInfo)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ServiceConnectProps",
+		reflect.TypeOf((*ServiceConnectProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ServiceConnectService",
+		reflect.TypeOf((*ServiceConnectService)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
 		reflect.TypeOf((*SplunkLogDriver)(nil)).Elem(),
@@ -2209,6 +2262,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
 			_jsii_.MemberMethod{JsiiMethod: "findContainer", GoMethod: "FindContainer"},
+			_jsii_.MemberMethod{JsiiMethod: "findPortMappingByName", GoMethod: "FindPortMappingByName"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},

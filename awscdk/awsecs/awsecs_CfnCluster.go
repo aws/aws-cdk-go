@@ -49,6 +49,9 @@ import (
 //   			weight: jsii.Number(123),
 //   		},
 //   	},
+//   	serviceConnectDefaults: &serviceConnectDefaultsProperty{
+//   		namespace: jsii.String("namespace"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -115,6 +118,9 @@ type CfnCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::ECS::Cluster.ServiceConnectDefaults`.
+	ServiceConnectDefaults() interface{}
+	SetServiceConnectDefaults(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -392,6 +398,16 @@ func (j *jsiiProxy_CfnCluster) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) ServiceConnectDefaults() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"serviceConnectDefaults",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -507,6 +523,17 @@ func (j *jsiiProxy_CfnCluster)SetDefaultCapacityProviderStrategy(val interface{}
 	_jsii_.Set(
 		j,
 		"defaultCapacityProviderStrategy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetServiceConnectDefaults(val interface{}) {
+	if err := j.validateSetServiceConnectDefaultsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"serviceConnectDefaults",
 		val,
 	)
 }

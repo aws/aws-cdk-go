@@ -44,6 +44,10 @@ func (e *jsiiProxy_ExternalTaskDefinition) validateFindContainerParameters(conta
 	return nil
 }
 
+func (e *jsiiProxy_ExternalTaskDefinition) validateFindPortMappingByNameParameters(name *string) error {
+	return nil
+}
+
 func (e *jsiiProxy_ExternalTaskDefinition) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

@@ -112,6 +112,14 @@ func (e *jsiiProxy_Ec2TaskDefinition) validateFindContainerParameters(containerN
 	return nil
 }
 
+func (e *jsiiProxy_Ec2TaskDefinition) validateFindPortMappingByNameParameters(name *string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_Ec2TaskDefinition) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

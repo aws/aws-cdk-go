@@ -112,6 +112,14 @@ func (f *jsiiProxy_FargateTaskDefinition) validateFindContainerParameters(contai
 	return nil
 }
 
+func (f *jsiiProxy_FargateTaskDefinition) validateFindPortMappingByNameParameters(name *string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FargateTaskDefinition) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

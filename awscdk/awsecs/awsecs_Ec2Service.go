@@ -131,6 +131,8 @@ type Ec2Service interface {
 	//
 	// Returns: The created CloudMap service.
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
+	// * Enable Service Connect.
+	EnableServiceConnect(config *ServiceConnectProps)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -678,6 +680,17 @@ func (e *jsiiProxy_Ec2Service) EnableCloudMap(options *CloudMapOptions) awsservi
 	)
 
 	return returns
+}
+
+func (e *jsiiProxy_Ec2Service) EnableServiceConnect(config *ServiceConnectProps) {
+	if err := e.validateEnableServiceConnectParameters(config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"enableServiceConnect",
+		[]interface{}{config},
+	)
 }
 
 func (e *jsiiProxy_Ec2Service) GeneratePhysicalName() *string {

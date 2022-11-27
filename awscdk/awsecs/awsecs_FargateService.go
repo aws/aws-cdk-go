@@ -126,6 +126,8 @@ type FargateService interface {
 	//
 	// Returns: The created CloudMap service.
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
+	// * Enable Service Connect.
+	EnableServiceConnect(config *ServiceConnectProps)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -647,6 +649,17 @@ func (f *jsiiProxy_FargateService) EnableCloudMap(options *CloudMapOptions) awss
 	)
 
 	return returns
+}
+
+func (f *jsiiProxy_FargateService) EnableServiceConnect(config *ServiceConnectProps) {
+	if err := f.validateEnableServiceConnectParameters(config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"enableServiceConnect",
+		[]interface{}{config},
+	)
 }
 
 func (f *jsiiProxy_FargateService) GeneratePhysicalName() *string {

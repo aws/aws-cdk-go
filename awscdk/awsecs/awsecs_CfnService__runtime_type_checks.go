@@ -497,6 +497,30 @@ func (j *jsiiProxy_CfnService) validateSetPlacementStrategiesParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetServiceConnectConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnService_ServiceConnectConfigurationProperty:
+		val := val.(*CfnService_ServiceConnectConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnService_ServiceConnectConfigurationProperty:
+		val_ := val.(CfnService_ServiceConnectConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnService_ServiceConnectConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetServiceRegistriesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

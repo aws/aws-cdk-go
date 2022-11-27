@@ -106,6 +106,8 @@ type ExternalService interface {
 	ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup)
 	// Overriden method to throw error as `enableCloudMap` is not supported for external service.
 	EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service
+	// * Enable Service Connect.
+	EnableServiceConnect(config *ServiceConnectProps)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -591,6 +593,17 @@ func (e *jsiiProxy_ExternalService) EnableCloudMap(_options *CloudMapOptions) aw
 	)
 
 	return returns
+}
+
+func (e *jsiiProxy_ExternalService) EnableServiceConnect(config *ServiceConnectProps) {
+	if err := e.validateEnableServiceConnectParameters(config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"enableServiceConnect",
+		[]interface{}{config},
+	)
 }
 
 func (e *jsiiProxy_ExternalService) GeneratePhysicalName() *string {

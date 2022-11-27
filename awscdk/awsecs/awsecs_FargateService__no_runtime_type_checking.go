@@ -36,6 +36,10 @@ func (f *jsiiProxy_FargateService) validateEnableCloudMapParameters(options *Clo
 	return nil
 }
 
+func (f *jsiiProxy_FargateService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateService) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

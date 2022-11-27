@@ -80,6 +80,10 @@ func (j *jsiiProxy_CfnCluster) validateSetDefaultCapacityProviderStrategyParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetServiceConnectDefaultsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	return nil
 }

@@ -79,6 +79,41 @@ import (
 //   	propagateTags: jsii.String("propagateTags"),
 //   	role: jsii.String("role"),
 //   	schedulingStrategy: jsii.String("schedulingStrategy"),
+//   	serviceConnectConfiguration: &serviceConnectConfigurationProperty{
+//   		enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		logConfiguration: &logConfigurationProperty{
+//   			logDriver: jsii.String("logDriver"),
+//   			options: map[string]*string{
+//   				"optionsKey": jsii.String("options"),
+//   			},
+//   			secretOptions: []interface{}{
+//   				&secretProperty{
+//   					name: jsii.String("name"),
+//   					valueFrom: jsii.String("valueFrom"),
+//   				},
+//   			},
+//   		},
+//   		namespace: jsii.String("namespace"),
+//   		services: []interface{}{
+//   			&serviceConnectServiceProperty{
+//   				portName: jsii.String("portName"),
+//
+//   				// the properties below are optional
+//   				clientAliases: []interface{}{
+//   					&serviceConnectClientAliasProperty{
+//   						port: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						dnsName: jsii.String("dnsName"),
+//   					},
+//   				},
+//   				discoveryName: jsii.String("discoveryName"),
+//   				ingressPortOverride: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	serviceName: jsii.String("serviceName"),
 //   	serviceRegistries: []interface{}{
 //   		&serviceRegistryProperty{
@@ -189,6 +224,8 @@ type CfnServiceProps struct {
 	//
 	// > Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy.
 	SchedulingStrategy *string `field:"optional" json:"schedulingStrategy" yaml:"schedulingStrategy"`
+	// `AWS::ECS::Service.ServiceConnectConfiguration`.
+	ServiceConnectConfiguration interface{} `field:"optional" json:"serviceConnectConfiguration" yaml:"serviceConnectConfiguration"`
 	// The name of your service.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.

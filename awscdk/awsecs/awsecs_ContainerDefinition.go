@@ -117,6 +117,8 @@ type ContainerDefinition interface {
 	AddVolumesFrom(volumesFrom ...*VolumeFrom)
 	// Returns the host port for the requested container port if it exists.
 	FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping
+	// Returns the port mapping with the given name, if it exists.
+	FindPortMappingByName(name *string) *PortMapping
 	// Render this container definition to a CloudFormation object.
 	RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty
 	// Returns a string representation of this construct.
@@ -521,6 +523,22 @@ func (c *jsiiProxy_ContainerDefinition) FindPortMapping(containerPort *float64, 
 		c,
 		"findPortMapping",
 		[]interface{}{containerPort, protocol},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ContainerDefinition) FindPortMappingByName(name *string) *PortMapping {
+	if err := c.validateFindPortMappingByNameParameters(name); err != nil {
+		panic(err)
+	}
+	var returns *PortMapping
+
+	_jsii_.Invoke(
+		c,
+		"findPortMappingByName",
+		[]interface{}{name},
 		&returns,
 	)
 

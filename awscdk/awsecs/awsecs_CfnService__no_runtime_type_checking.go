@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnService) validateSetPlacementStrategiesParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetServiceConnectConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetServiceRegistriesParameters(val interface{}) error {
 	return nil
 }

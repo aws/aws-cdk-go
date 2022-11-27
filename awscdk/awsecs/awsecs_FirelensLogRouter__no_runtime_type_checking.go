@@ -48,6 +48,10 @@ func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingParameters(containe
 	return nil
 }
 
+func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingByNameParameters(name *string) error {
+	return nil
+}
+
 func validateFirelensLogRouter_IsConstructParameters(x interface{}) error {
 	return nil
 }

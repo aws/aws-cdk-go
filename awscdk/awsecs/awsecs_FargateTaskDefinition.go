@@ -113,6 +113,10 @@ type FargateTaskDefinition interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Returns the container that match the provided containerName.
 	FindContainer(containerName *string) ContainerDefinition
+	// Determine the existing port mapping for the provided name.
+	//
+	// Returns: PortMapping for the provided name, if it exists.
+	FindPortMappingByName(name *string) *PortMapping
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -634,6 +638,22 @@ func (f *jsiiProxy_FargateTaskDefinition) FindContainer(containerName *string) C
 		f,
 		"findContainer",
 		[]interface{}{containerName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FargateTaskDefinition) FindPortMappingByName(name *string) *PortMapping {
+	if err := f.validateFindPortMappingByNameParameters(name); err != nil {
+		panic(err)
+	}
+	var returns *PortMapping
+
+	_jsii_.Invoke(
+		f,
+		"findPortMappingByName",
+		[]interface{}{name},
 		&returns,
 	)
 

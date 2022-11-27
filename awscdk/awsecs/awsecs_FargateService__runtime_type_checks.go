@@ -93,6 +93,14 @@ func (f *jsiiProxy_FargateService) validateEnableCloudMapParameters(options *Clo
 	return nil
 }
 
+func (f *jsiiProxy_FargateService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FargateService) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

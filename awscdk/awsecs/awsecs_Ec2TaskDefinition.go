@@ -118,6 +118,10 @@ type Ec2TaskDefinition interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Returns the container that match the provided containerName.
 	FindContainer(containerName *string) ContainerDefinition
+	// Determine the existing port mapping for the provided name.
+	//
+	// Returns: PortMapping for the provided name, if it exists.
+	FindPortMappingByName(name *string) *PortMapping
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -639,6 +643,22 @@ func (e *jsiiProxy_Ec2TaskDefinition) FindContainer(containerName *string) Conta
 		e,
 		"findContainer",
 		[]interface{}{containerName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_Ec2TaskDefinition) FindPortMappingByName(name *string) *PortMapping {
+	if err := e.validateFindPortMappingByNameParameters(name); err != nil {
+		panic(err)
+	}
+	var returns *PortMapping
+
+	_jsii_.Invoke(
+		e,
+		"findPortMappingByName",
+		[]interface{}{name},
 		&returns,
 	)
 

@@ -44,6 +44,10 @@ func (f *jsiiProxy_FargateTaskDefinition) validateFindContainerParameters(contai
 	return nil
 }
 
+func (f *jsiiProxy_FargateTaskDefinition) validateFindPortMappingByNameParameters(name *string) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateTaskDefinition) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

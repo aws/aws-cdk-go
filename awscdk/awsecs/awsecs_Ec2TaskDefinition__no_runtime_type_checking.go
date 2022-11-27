@@ -44,6 +44,10 @@ func (e *jsiiProxy_Ec2TaskDefinition) validateFindContainerParameters(containerN
 	return nil
 }
 
+func (e *jsiiProxy_Ec2TaskDefinition) validateFindPortMappingByNameParameters(name *string) error {
+	return nil
+}
+
 func (e *jsiiProxy_Ec2TaskDefinition) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

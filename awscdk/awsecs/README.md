@@ -1330,3 +1330,83 @@ cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 	},
 })
 ```
+
+## Amazon ECS Service Connect
+
+Service Connect is a managed AWS mesh network offering. It simplifies DNS queries and inter-service communication for
+ECS Services by allowing customers to set up simple DNS aliases for their services, which are accessible to all
+services that have enabled Service Connect.
+
+To enable Service Connect, you must have created a CloudMap namespace. The CDK can infer your cluster's default CloudMap namespace,
+or you can specify a custom namespace. You must also have created a named port mapping on at least one container in your Task Definition.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var cluster cluster
+var taskDefinition taskDefinition
+var container containerDefinition
+
+
+container.addPortMappings(&portMapping{
+	name: jsii.String("api"),
+	containerPort: jsii.Number(8080),
+})
+
+taskDefinition.addContainer(container)
+
+cluster.addDefaultCloudMapNamespace(&cloudMapNamespaceOptions{
+	name: jsii.String("local"),
+})
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	serviceConnectConfiguration: &serviceConnectProps{
+		services: []serviceConnectService{
+			&serviceConnectService{
+				portMappingName: jsii.String("api"),
+				dnsName: jsii.String("http-api"),
+				port: jsii.Number(80),
+			},
+		},
+	},
+})
+```
+
+Service Connect-enabled services may now reach this service at `http-api:80`. Traffic to this endpoint will
+be routed to the container's port 8080.
+
+To opt a service into using service connect without advertising a port, simply call the 'enableServiceConnect' method on an initialized service.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+})
+service.enableServiceConnect()
+```
+
+Service Connect also allows custom logging, Service Discovery name, and configuration of the port where service connect traffic is received.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &fargateServiceProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	serviceConnectConfiguration: &serviceConnectProps{
+		logDriver: ecs.logDrivers.awslogs(map[string]*string{
+			"streamPrefix": jsii.String("sc-traffic"),
+		}),
+		services: []serviceConnectService{
+			&serviceConnectService{
+				portMappingName: jsii.String("api"),
+				dnsName: jsii.String("customized-api"),
+				port: jsii.Number(80),
+				ingressPortOverride: jsii.Number(20040),
+				discoveryName: jsii.String("custom"),
+			},
+		},
+	},
+})
+```

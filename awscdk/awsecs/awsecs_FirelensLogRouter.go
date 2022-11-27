@@ -16,6 +16,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var appProtocol appProtocol
 //   var containerImage containerImage
 //   var environmentFile environmentFile
 //   var linuxParameters linuxParameters
@@ -94,7 +95,9 @@ import (
 //   			containerPort: jsii.Number(123),
 //
 //   			// the properties below are optional
+//   			appProtocol: appProtocol,
 //   			hostPort: jsii.Number(123),
+//   			name: jsii.String("name"),
 //   			protocol: awscdk.*Aws_ecs.protocol_TCP,
 //   		},
 //   	},
@@ -194,6 +197,8 @@ type FirelensLogRouter interface {
 	AddVolumesFrom(volumesFrom ...*VolumeFrom)
 	// Returns the host port for the requested container port if it exists.
 	FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping
+	// Returns the port mapping with the given name, if it exists.
+	FindPortMappingByName(name *string) *PortMapping
 	// Render this container definition to a CloudFormation object.
 	RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty
 	// Returns a string representation of this construct.
@@ -608,6 +613,22 @@ func (f *jsiiProxy_FirelensLogRouter) FindPortMapping(containerPort *float64, pr
 		f,
 		"findPortMapping",
 		[]interface{}{containerPort, protocol},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FirelensLogRouter) FindPortMappingByName(name *string) *PortMapping {
+	if err := f.validateFindPortMappingByNameParameters(name); err != nil {
+		panic(err)
+	}
+	var returns *PortMapping
+
+	_jsii_.Invoke(
+		f,
+		"findPortMappingByName",
+		[]interface{}{name},
 		&returns,
 	)
 

@@ -124,6 +124,8 @@ type BaseService interface {
 	//
 	// Returns: The created CloudMap service.
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
+	// * Enable Service Connect.
+	EnableServiceConnect(config *ServiceConnectProps)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -594,6 +596,17 @@ func (b *jsiiProxy_BaseService) EnableCloudMap(options *CloudMapOptions) awsserv
 	)
 
 	return returns
+}
+
+func (b *jsiiProxy_BaseService) EnableServiceConnect(config *ServiceConnectProps) {
+	if err := b.validateEnableServiceConnectParameters(config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"enableServiceConnect",
+		[]interface{}{config},
+	)
 }
 
 func (b *jsiiProxy_BaseService) GeneratePhysicalName() *string {

@@ -36,6 +36,10 @@ func (e *jsiiProxy_ExternalService) validateEnableCloudMapParameters(_options *C
 	return nil
 }
 
+func (e *jsiiProxy_ExternalService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
+	return nil
+}
+
 func (e *jsiiProxy_ExternalService) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }
