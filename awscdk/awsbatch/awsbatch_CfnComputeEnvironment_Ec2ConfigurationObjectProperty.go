@@ -17,7 +17,6 @@ package awsbatch
 //
 //   	// the properties below are optional
 //   	imageIdOverride: jsii.String("imageIdOverride"),
-//   	imageKubernetesVersion: jsii.String("imageKubernetesVersion"),
 //   }
 //
 type CfnComputeEnvironment_Ec2ConfigurationObjectProperty struct {
@@ -35,7 +34,5 @@ type CfnComputeEnvironment_Ec2ConfigurationObjectProperty struct {
 	//
 	// > The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ImageIdOverride *string `field:"optional" json:"imageIdOverride" yaml:"imageIdOverride"`
-	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageKubernetesVersion`.
-	ImageKubernetesVersion *string `field:"optional" json:"imageKubernetesVersion" yaml:"imageKubernetesVersion"`
 }
 

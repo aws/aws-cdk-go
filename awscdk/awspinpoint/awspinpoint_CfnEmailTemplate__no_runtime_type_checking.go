@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnEmailTemplate) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnEmailTemplate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEmailTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnEmailTemplate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEmailTemplate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnEmailTemplate) validateSetTemplateNameParameters(val *stri
 	return nil
 }
 
-func validateNewCfnEmailTemplateParameters(scope constructs.Construct, id *string, props *CfnEmailTemplateProps) error {
+func validateNewCfnEmailTemplateParameters(scope awscdk.Construct, id *string, props *CfnEmailTemplateProps) error {
 	return nil
 }
 

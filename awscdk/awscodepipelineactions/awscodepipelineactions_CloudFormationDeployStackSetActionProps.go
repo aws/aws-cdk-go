@@ -1,14 +1,13 @@
 package awscodepipelineactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Properties for the CloudFormationDeployStackSetAction.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //
@@ -50,18 +49,22 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CloudFormationDeployStackSetActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
+	// Experimental.
 	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
+	// Experimental.
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
 	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -70,12 +73,14 @@ type CloudFormationDeployStackSetActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
+	// Experimental.
 	FailureTolerancePercentage *float64 `field:"optional" json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
@@ -83,6 +88,7 @@ type CloudFormationDeployStackSetActionProps struct {
 	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
+	// Experimental.
 	MaxAccountConcurrencyPercentage *float64 `field:"optional" json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
@@ -90,22 +96,26 @@ type CloudFormationDeployStackSetActionProps struct {
 	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	// Experimental.
 	StackSetRegion *string `field:"optional" json:"stackSetRegion" yaml:"stackSetRegion"`
 	// The name to associate with the stack set.
 	//
 	// This name must be unique in the Region where it is created.
 	//
 	// The name may only contain alphanumeric and hyphen characters. It must begin with an alphabetic character and be 128 characters or fewer.
+	// Experimental.
 	StackSetName *string `field:"required" json:"stackSetName" yaml:"stackSetName"`
 	// The location of the template that defines the resources in the stack set.
 	//
 	// This must point to a template with a maximum size of 460,800 bytes.
 	//
 	// Enter the path to the source artifact name and template file.
+	// Experimental.
 	Template StackSetTemplate `field:"required" json:"template" yaml:"template"`
 	// Indicates that the template can create and update resources, depending on the types of resources in the template.
 	//
 	// You must use this property if you have IAM resources in your stack template or you create a stack directly from a template containing macros.
+	// Experimental.
 	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// Determines how IAM roles are created and managed.
 	//
@@ -123,18 +133,22 @@ type CloudFormationDeployStackSetActionProps struct {
 	//
 	// Note: This parameter can only be changed when no stack instances exist in
 	// the stack set.
+	// Experimental.
 	DeploymentModel StackSetDeploymentModel `field:"optional" json:"deploymentModel" yaml:"deploymentModel"`
 	// A description of the stack set.
 	//
 	// You can use this to describe the stack set’s purpose or other relevant information.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The template parameters for your stack set.
 	//
 	// These parameters are shared between all instances of the stack set.
+	// Experimental.
 	Parameters StackSetParameters `field:"optional" json:"parameters" yaml:"parameters"`
 	// Specify where to create or update Stack Instances.
 	//
 	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
+	// Experimental.
 	StackInstances StackInstances `field:"optional" json:"stackInstances" yaml:"stackInstances"`
 }
 

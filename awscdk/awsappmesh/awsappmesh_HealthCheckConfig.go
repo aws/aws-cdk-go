@@ -33,10 +33,13 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type HealthCheckConfig struct {
 	// VirtualGateway CFN configuration for Health Checks.
+	// Experimental.
 	VirtualGatewayHealthCheck *CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty `field:"optional" json:"virtualGatewayHealthCheck" yaml:"virtualGatewayHealthCheck"`
 	// VirtualNode CFN configuration for Health Checks.
+	// Experimental.
 	VirtualNodeHealthCheck *CfnVirtualNode_HealthCheckProperty `field:"optional" json:"virtualNodeHealthCheck" yaml:"virtualNodeHealthCheck"`
 }
 

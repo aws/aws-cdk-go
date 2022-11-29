@@ -16,8 +16,10 @@ package awsrds
 //   	version: mariaDbEngineVersion,
 //   }
 //
+// Experimental.
 type MariaDbInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version MariaDbEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

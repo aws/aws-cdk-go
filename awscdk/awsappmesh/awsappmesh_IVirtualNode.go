@@ -3,25 +3,30 @@ package awsappmesh
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Interface which all VirtualNode based classes must implement.
+// Experimental.
 type IVirtualNode interface {
 	awscdk.IResource
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
+	// Experimental.
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// The Mesh which the VirtualNode belongs to.
+	// Experimental.
 	Mesh() IMesh
 	// The Amazon Resource Name belonging to the VirtualNode.
 	//
 	// Set this value as the APPMESH_VIRTUAL_NODE_NAME environment variable for
 	// your task group's Envoy proxy container in your task definition or pod
 	// spec.
+	// Experimental.
 	VirtualNodeArn() *string
 	// The name of the VirtualNode.
+	// Experimental.
 	VirtualNodeName() *string
 }
 

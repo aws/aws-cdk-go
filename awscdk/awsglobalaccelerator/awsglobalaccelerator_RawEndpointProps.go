@@ -17,10 +17,12 @@ package awsglobalaccelerator
 //   	weight: jsii.Number(123),
 //   }
 //
+// Experimental.
 type RawEndpointProps struct {
 	// Identifier of the endpoint.
 	//
 	// Load balancer ARN, instance ID or EIP allocation ID.
+	// Experimental.
 	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`
 	// Forward the client IP address.
 	//
@@ -31,12 +33,15 @@ type RawEndpointProps struct {
 	//
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
+	// Experimental.
 	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// The region where this endpoint is located.
+	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
+	// Experimental.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

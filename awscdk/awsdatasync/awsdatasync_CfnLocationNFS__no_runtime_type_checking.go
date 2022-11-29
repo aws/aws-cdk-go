@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnLocationNFS) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationNFS) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationNFS) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLocationNFS) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLocationNFS) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +92,7 @@ func (j *jsiiProxy_CfnLocationNFS) validateSetSubdirectoryParameters(val *string
 	return nil
 }
 
-func validateNewCfnLocationNFSParameters(scope constructs.Construct, id *string, props *CfnLocationNFSProps) error {
+func validateNewCfnLocationNFSParameters(scope awscdk.Construct, id *string, props *CfnLocationNFSProps) error {
 	return nil
 }
 

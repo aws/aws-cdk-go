@@ -14,12 +14,6 @@ package awsmediapackage
 //   		jsii.String("systemIds"),
 //   	},
 //   	url: jsii.String("url"),
-//
-//   	// the properties below are optional
-//   	encryptionContractConfiguration: &encryptionContractConfigurationProperty{
-//   		presetSpeke20Audio: jsii.String("presetSpeke20Audio"),
-//   		presetSpeke20Video: jsii.String("presetSpeke20Video"),
-//   	},
 //   }
 //
 type CfnPackagingConfiguration_SpekeKeyProviderProperty struct {
@@ -33,7 +27,5 @@ type CfnPackagingConfiguration_SpekeKeyProviderProperty struct {
 	//
 	// Must start with https://.
 	Url *string `field:"required" json:"url" yaml:"url"`
-	// `CfnPackagingConfiguration.SpekeKeyProviderProperty.EncryptionContractConfiguration`.
-	EncryptionContractConfiguration interface{} `field:"optional" json:"encryptionContractConfiguration" yaml:"encryptionContractConfiguration"`
 }
 

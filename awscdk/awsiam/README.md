@@ -23,7 +23,7 @@ the policy either by calling `xxx.attachInlinePolicy(policy)` or `policy.attachT
 
 ```go
 user := awscdk.NewUser(this, jsii.String("MyUser"), &userProps{
-	password: awscdk.SecretValue.plainText(jsii.String("1234")),
+	password: cdk.secretValue.unsafePlainText(jsii.String("1234")),
 })
 group := awscdk.NewGroup(this, jsii.String("MyGroup"))
 
@@ -135,132 +135,6 @@ role := iam.role.fromRoleArn(this, jsii.String("Role"), jsii.String("arn:aws:iam
 	// policies to it. The default is 'true', which means the role may be
 	// modified as part of the deployment.
 	mutable: jsii.Boolean(false),
-})
-```
-
-### Customizing role creation
-
-It is best practice to allow CDK to manage IAM roles and permissions. You can prevent CDK from
-creating roles by using the `customizeRoles` method for special cases. One such case is using CDK in
-an environment where role creation is not allowed or needs to be managed through a process outside
-of the CDK application.
-
-An example of how to opt in to this behavior is below:
-
-```go
-var stack stack
-
-iam.role.customizeRoles(stack)
-```
-
-CDK will not create any IAM roles or policies with the `stack` scope. `cdk synth` will fail and
-it will generate a policy report to the cloud assembly (i.e. cdk.out). The `iam-policy-report.txt`
-report will contain a list of IAM roles and associated permissions that would have been created.
-This report can be used to create the roles with the appropriate permissions outside of
-the CDK application.
-
-Once the missing roles have been created, their names can be added to the `usePrecreatedRoles`
-property, like shown below:
-
-```go
-var app app
-
-stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.role.customizeRoles(stack, &customizeRolesOptions{
-	usePrecreatedRoles: map[string]*string{
-		"MyStack/MyRole": jsii.String("my-precreated-role-name"),
-	},
-})
-
-iam.NewRole(stack, jsii.String("MyRole"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("sns.amazonaws.com")),
-})
-```
-
-If any IAM policies reference deploy time values (i.e. ARN of a resource that hasn't been created
-yet) you will have to modify the generated report to be more generic. For example, given the
-following CDK code:
-
-```go
-var app app
-
-stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.role.customizeRoles(stack)
-
-fn := lambda.NewFunction(stack, jsii.String("MyLambda"), &functionProps{
-	code: lambda.NewInlineCode(jsii.String("foo")),
-	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
-})
-
-bucket := s3.NewBucket(stack, jsii.String("Bucket"))
-bucket.grantRead(fn)
-```
-
-The following report will be generated.
-
-```txt
-<missing role> (MyStack/MyLambda/ServiceRole)
-
-AssumeRole Policy:
-[
-  {
-    "Action": "sts:AssumeRole",
-    "Effect": "Allow",
-    "Principal": {
-      "Service": "lambda.amazonaws.com"
-    }
-  }
-]
-
-Managed Policy ARNs:
-[
-  "arn:(PARTITION):iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-]
-
-Managed Policies Statements:
-NONE
-
-Identity Policy Statements:
-[
-  {
-    "Action": [
-      "s3:GetObject*",
-      "s3:GetBucket*",
-      "s3:List*"
-    ],
-    "Effect": "Allow",
-    "Resource": [
-      "(MyStack/Bucket/Resource.Arn)",
-      "(MyStack/Bucket/Resource.Arn)/*"
-    ]
-  }
-]
-```
-
-You would then need to create the role with the inline & managed policies in the report and then
-come back and update the `customizeRoles` with the role name.
-
-```go
-var app app
-
-stack := awscdk.Newstack(app, jsii.String("MyStack"))
-iam.role.customizeRoles(stack, &customizeRolesOptions{
-	usePrecreatedRoles: map[string]*string{
-		"MyStack/MyLambda/ServiceRole": jsii.String("my-role-name"),
-	},
-})
-```
-
-#### Generating a permissions report
-
-It is also possible to generate the report *without* preventing the role/policy creation.
-
-```go
-var stack stack
-
-iam.role.customizeRoles(stack, &customizeRolesOptions{
-	preventSynthesis: jsii.Boolean(false),
 })
 ```
 

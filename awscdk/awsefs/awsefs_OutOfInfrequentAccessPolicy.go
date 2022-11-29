@@ -15,10 +15,12 @@ package awsefs
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
 //
+// Experimental.
 type OutOfInfrequentAccessPolicy string
 
 const (
 	// After 1 access.
+	// Experimental.
 	OutOfInfrequentAccessPolicy_AFTER_1_ACCESS OutOfInfrequentAccessPolicy = "AFTER_1_ACCESS"
 )
 

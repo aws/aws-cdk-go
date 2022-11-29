@@ -17,12 +17,6 @@ package awsappstream
 //   		accountName: jsii.String("accountName"),
 //   		accountPassword: jsii.String("accountPassword"),
 //   	},
-//
-//   	// the properties below are optional
-//   	certificateBasedAuthProperties: &certificateBasedAuthPropertiesProperty{
-//   		certificateAuthorityArn: jsii.String("certificateAuthorityArn"),
-//   		status: jsii.String("status"),
-//   	},
 //   }
 //
 type CfnDirectoryConfigProps struct {
@@ -34,7 +28,5 @@ type CfnDirectoryConfigProps struct {
 	//
 	// Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
 	ServiceAccountCredentials interface{} `field:"required" json:"serviceAccountCredentials" yaml:"serviceAccountCredentials"`
-	// `AWS::AppStream::DirectoryConfig.CertificateBasedAuthProperties`.
-	CertificateBasedAuthProperties interface{} `field:"optional" json:"certificateBasedAuthProperties" yaml:"certificateBasedAuthProperties"`
 }
 

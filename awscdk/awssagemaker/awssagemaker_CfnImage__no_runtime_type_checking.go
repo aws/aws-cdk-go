@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnImage) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
+func (c *jsiiProxy_CfnImage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnImage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnImage) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnImage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnImage) validateSetImageRoleArnParameters(val *string) erro
 	return nil
 }
 
-func validateNewCfnImageParameters(scope constructs.Construct, id *string, props *CfnImageProps) error {
+func validateNewCfnImageParameters(scope awscdk.Construct, id *string, props *CfnImageProps) error {
 	return nil
 }
 

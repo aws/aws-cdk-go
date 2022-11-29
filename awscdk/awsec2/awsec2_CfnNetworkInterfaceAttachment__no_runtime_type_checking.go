@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNetworkInterfaceAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +92,7 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) validateSetNetworkInterfaceIdP
 	return nil
 }
 
-func validateNewCfnNetworkInterfaceAttachmentParameters(scope constructs.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) error {
+func validateNewCfnNetworkInterfaceAttachmentParameters(scope awscdk.Construct, id *string, props *CfnNetworkInterfaceAttachmentProps) error {
 	return nil
 }
 

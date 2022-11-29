@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnEndpointAuthorization) validateInspectParameters(inspector
 	return nil
 }
 
+func (c *jsiiProxy_CfnEndpointAuthorization) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEndpointAuthorization) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnEndpointAuthorization) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEndpointAuthorization) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +88,7 @@ func (j *jsiiProxy_CfnEndpointAuthorization) validateSetForceParameters(val inte
 	return nil
 }
 
-func validateNewCfnEndpointAuthorizationParameters(scope constructs.Construct, id *string, props *CfnEndpointAuthorizationProps) error {
+func validateNewCfnEndpointAuthorizationParameters(scope awscdk.Construct, id *string, props *CfnEndpointAuthorizationProps) error {
 	return nil
 }
 

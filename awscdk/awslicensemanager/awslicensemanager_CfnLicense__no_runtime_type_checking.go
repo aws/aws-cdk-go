@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnLicense) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
+func (c *jsiiProxy_CfnLicense) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLicense) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLicense) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLicense) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +108,7 @@ func (j *jsiiProxy_CfnLicense) validateSetValidityParameters(val interface{}) er
 	return nil
 }
 
-func validateNewCfnLicenseParameters(scope constructs.Construct, id *string, props *CfnLicenseProps) error {
+func validateNewCfnLicenseParameters(scope awscdk.Construct, id *string, props *CfnLicenseProps) error {
 	return nil
 }
 

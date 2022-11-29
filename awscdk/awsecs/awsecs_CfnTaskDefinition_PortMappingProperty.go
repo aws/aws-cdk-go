@@ -15,16 +15,12 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   portMappingProperty := &portMappingProperty{
-//   	appProtocol: jsii.String("appProtocol"),
 //   	containerPort: jsii.Number(123),
 //   	hostPort: jsii.Number(123),
-//   	name: jsii.String("name"),
 //   	protocol: jsii.String("protocol"),
 //   }
 //
 type CfnTaskDefinition_PortMappingProperty struct {
-	// `CfnTaskDefinition.PortMappingProperty.AppProtocol`.
-	AppProtocol *string `field:"optional" json:"appProtocol" yaml:"appProtocol"`
 	// The port number on the container that's bound to the user-specified or automatically assigned host port.
 	//
 	// If you use containers in a task with the `awsvpc` or `host` network mode, specify the exposed ports using `containerPort` .
@@ -43,8 +39,6 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	//
 	// The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released). The current reserved ports are displayed in the `remainingResources` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time, including the default reserved ports. Automatically assigned ports don't count toward the 100 reserved ports limit.
 	HostPort *float64 `field:"optional" json:"hostPort" yaml:"hostPort"`
-	// `CfnTaskDefinition.PortMappingProperty.Name`.
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The protocol used for the port mapping.
 	//
 	// Valid values are `tcp` and `udp` . The default is `tcp` .

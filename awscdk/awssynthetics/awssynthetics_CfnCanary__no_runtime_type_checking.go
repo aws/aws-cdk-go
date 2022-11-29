@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnCanary) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnCanary) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCanary) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCanary) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCanary) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -116,7 +124,7 @@ func (j *jsiiProxy_CfnCanary) validateSetVpcConfigParameters(val interface{}) er
 	return nil
 }
 
-func validateNewCfnCanaryParameters(scope constructs.Construct, id *string, props *CfnCanaryProps) error {
+func validateNewCfnCanaryParameters(scope awscdk.Construct, id *string, props *CfnCanaryProps) error {
 	return nil
 }
 

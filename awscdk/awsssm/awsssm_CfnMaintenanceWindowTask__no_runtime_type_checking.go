@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) validateInspectParameters(inspector
 	return nil
 }
 
+func (c *jsiiProxy_CfnMaintenanceWindowTask) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMaintenanceWindowTask) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMaintenanceWindowTask) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +108,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) validateSetWindowIdParameters(val *
 	return nil
 }
 
-func validateNewCfnMaintenanceWindowTaskParameters(scope constructs.Construct, id *string, props *CfnMaintenanceWindowTaskProps) error {
+func validateNewCfnMaintenanceWindowTaskParameters(scope awscdk.Construct, id *string, props *CfnMaintenanceWindowTaskProps) error {
 	return nil
 }
 

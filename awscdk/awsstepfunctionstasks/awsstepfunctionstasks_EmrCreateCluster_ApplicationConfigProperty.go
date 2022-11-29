@@ -28,17 +28,22 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_Application.html
 //
+// Experimental.
 type EmrCreateCluster_ApplicationConfigProperty struct {
 	// The name of the application.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// This option is for advanced users only.
 	//
 	// This is meta information about third-party applications that third-party vendors use
 	// for testing purposes.
+	// Experimental.
 	AdditionalInfo *map[string]*string `field:"optional" json:"additionalInfo" yaml:"additionalInfo"`
 	// Arguments for Amazon EMR to pass to the application.
+	// Experimental.
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 	// The version of the application.
+	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

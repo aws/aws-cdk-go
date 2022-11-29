@@ -11,6 +11,7 @@ package awsrds
 //   parameterGroupClusterBindOptions := &parameterGroupClusterBindOptions{
 //   }
 //
+// Experimental.
 type ParameterGroupClusterBindOptions struct {
 }
 

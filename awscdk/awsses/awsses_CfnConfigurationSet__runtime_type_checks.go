@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnConfigurationSet) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,6 +103,14 @@ func (c *jsiiProxy_CfnConfigurationSet) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnConfigurationSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnConfigurationSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -114,6 +122,14 @@ func (c *jsiiProxy_CfnConfigurationSet) validateOverrideLogicalIdParameters(newL
 func (c *jsiiProxy_CfnConfigurationSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnConfigurationSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -271,31 +287,7 @@ func (j *jsiiProxy_CfnConfigurationSet) validateSetTrackingOptionsParameters(val
 	return nil
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) validateSetVdmOptionsParameters(val interface{}) error {
-	switch val.(type) {
-	case *CfnConfigurationSet_VdmOptionsProperty:
-		val := val.(*CfnConfigurationSet_VdmOptionsProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnConfigurationSet_VdmOptionsProperty:
-		val_ := val.(CfnConfigurationSet_VdmOptionsProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnConfigurationSet_VdmOptionsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
-func validateNewCfnConfigurationSetParameters(scope constructs.Construct, id *string, props *CfnConfigurationSetProps) error {
+func validateNewCfnConfigurationSetParameters(scope awscdk.Construct, id *string, props *CfnConfigurationSetProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

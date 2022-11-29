@@ -5,10 +5,10 @@ package awsautoscaling
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) validateVisitParameters(node constructs.IConstruct) error {
+func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) validateVisitParameters(node awscdk.IConstruct) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}
@@ -16,7 +16,7 @@ func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) validateVisitParameters(
 	return nil
 }
 
-func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) validateWarnParameters(node constructs.IConstruct, message *string) error {
+func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) validateWarnParameters(node awscdk.IConstruct, message *string) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}

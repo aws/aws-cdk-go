@@ -11,11 +11,6 @@ package awseks
 //   	outpostArns: []*string{
 //   		jsii.String("outpostArns"),
 //   	},
-//
-//   	// the properties below are optional
-//   	controlPlanePlacement: &controlPlanePlacementProperty{
-//   		groupName: jsii.String("groupName"),
-//   	},
 //   }
 //
 type CfnCluster_OutpostConfigProperty struct {
@@ -23,7 +18,5 @@ type CfnCluster_OutpostConfigProperty struct {
 	ControlPlaneInstanceType *string `field:"required" json:"controlPlaneInstanceType" yaml:"controlPlaneInstanceType"`
 	// `CfnCluster.OutpostConfigProperty.OutpostArns`.
 	OutpostArns *[]*string `field:"required" json:"outpostArns" yaml:"outpostArns"`
-	// `CfnCluster.OutpostConfigProperty.ControlPlanePlacement`.
-	ControlPlanePlacement interface{} `field:"optional" json:"controlPlanePlacement" yaml:"controlPlanePlacement"`
 }
 

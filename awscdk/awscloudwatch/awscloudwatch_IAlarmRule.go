@@ -5,8 +5,10 @@ import (
 )
 
 // Interface for Alarm Rule.
+// Experimental.
 type IAlarmRule interface {
 	// serialized representation of Alarm Rule to be used when building the Composite Alarm resource.
+	// Experimental.
 	RenderAlarmRule() *string
 }
 

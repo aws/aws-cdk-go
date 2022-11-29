@@ -16,10 +16,13 @@ package awsec2
 //   	},
 //   })
 //
+// Experimental.
 type BastionHostLinuxProps struct {
 	// VPC to launch the instance in.
+	// Experimental.
 	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// In which AZ to place the instance within the VPC.
+	// Experimental.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
@@ -29,27 +32,36 @@ type BastionHostLinuxProps struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
+	// Experimental.
 	BlockDevices *[]*BlockDevice `field:"optional" json:"blockDevices" yaml:"blockDevices"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
+	// Experimental.
 	Init CloudFormationInit `field:"optional" json:"init" yaml:"init"`
 	// Use the given options for applying CloudFormation Init.
 	//
 	// Describes the configsets to use and the timeout to wait.
+	// Experimental.
 	InitOptions *ApplyCloudFormationInitOptions `field:"optional" json:"initOptions" yaml:"initOptions"`
 	// The name of the instance.
+	// Experimental.
 	InstanceName *string `field:"optional" json:"instanceName" yaml:"instanceName"`
 	// Type of instance to launch.
+	// Experimental.
 	InstanceType InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The machine image to use, assumed to have SSM Agent preinstalled.
+	// Experimental.
 	MachineImage IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`
 	// Whether IMDSv2 should be required on this instance.
+	// Experimental.
 	RequireImdsv2 *bool `field:"optional" json:"requireImdsv2" yaml:"requireImdsv2"`
 	// Security Group to assign to this instance.
+	// Experimental.
 	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Select the subnets to run the bastion host in.
 	//
 	// Set this to PUBLIC if you need to connect to this instance via the internet and cannot use SSM.
 	// You have to allow port 22 manually by using the connections field.
+	// Experimental.
 	SubnetSelection *SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 }
 

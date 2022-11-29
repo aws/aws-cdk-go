@@ -4,7 +4,7 @@ package awsrds
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IInstanceEngine) validateBindToInstanceParameters(scope constructs.Construct, options *InstanceEngineBindOptions) error {
+func (i *jsiiProxy_IInstanceEngine) validateBindToInstanceParameters(scope awscdk.Construct, options *InstanceEngineBindOptions) error {
 	return nil
 }
 

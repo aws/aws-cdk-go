@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnGlobalTable) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
+func (c *jsiiProxy_CfnGlobalTable) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGlobalTable) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGlobalTable) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGlobalTable) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -104,7 +112,7 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetWriteProvisionedThroughputSettings
 	return nil
 }
 
-func validateNewCfnGlobalTableParameters(scope constructs.Construct, id *string, props *CfnGlobalTableProps) error {
+func validateNewCfnGlobalTableParameters(scope awscdk.Construct, id *string, props *CfnGlobalTableProps) error {
 	return nil
 }
 

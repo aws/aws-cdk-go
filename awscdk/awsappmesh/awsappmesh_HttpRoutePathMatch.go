@@ -1,16 +1,15 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Defines HTTP route matching based on the URL path of the request.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -33,9 +32,11 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type HttpRoutePathMatch interface {
 	// Returns the route path match configuration.
-	Bind(scope constructs.Construct) *HttpRoutePathMatchConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *HttpRoutePathMatchConfig
 }
 
 // The jsii proxy struct for HttpRoutePathMatch
@@ -43,11 +44,12 @@ type jsiiProxy_HttpRoutePathMatch struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewHttpRoutePathMatch_Override(h HttpRoutePathMatch) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appmesh.HttpRoutePathMatch",
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
 		nil, // no parameters
 		h,
 	)
@@ -56,6 +58,7 @@ func NewHttpRoutePathMatch_Override(h HttpRoutePathMatch) {
 // The value of the path must match the specified value exactly.
 //
 // The provided `path` must start with the '/' character.
+// Experimental.
 func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
@@ -65,7 +68,7 @@ func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
 	var returns HttpRoutePathMatch
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.HttpRoutePathMatch",
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
 		"exactly",
 		[]interface{}{path},
 		&returns,
@@ -75,6 +78,7 @@ func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
 }
 
 // The value of the path must match the specified regex.
+// Experimental.
 func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
@@ -84,7 +88,7 @@ func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
 	var returns HttpRoutePathMatch
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.HttpRoutePathMatch",
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
 		"regex",
 		[]interface{}{regex},
 		&returns,
@@ -94,6 +98,7 @@ func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
 }
 
 // The value of the path must match the specified prefix.
+// Experimental.
 func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
@@ -103,7 +108,7 @@ func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
 	var returns HttpRoutePathMatch
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.HttpRoutePathMatch",
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
 		"startsWith",
 		[]interface{}{prefix},
 		&returns,
@@ -112,7 +117,7 @@ func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
 	return returns
 }
 
-func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope constructs.Construct) *HttpRoutePathMatchConfig {
+func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope awscdk.Construct) *HttpRoutePathMatchConfig {
 	if err := h.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

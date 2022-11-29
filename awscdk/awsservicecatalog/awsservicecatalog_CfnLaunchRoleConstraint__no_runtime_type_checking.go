@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) validateInspectParameters(inspector 
 	return nil
 }
 
+func (c *jsiiProxy_CfnLaunchRoleConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLaunchRoleConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLaunchRoleConstraint) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLaunchRoleConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnLaunchRoleConstraint) validateSetProductIdParameters(val *
 	return nil
 }
 
-func validateNewCfnLaunchRoleConstraintParameters(scope constructs.Construct, id *string, props *CfnLaunchRoleConstraintProps) error {
+func validateNewCfnLaunchRoleConstraintParameters(scope awscdk.Construct, id *string, props *CfnLaunchRoleConstraintProps) error {
 	return nil
 }
 

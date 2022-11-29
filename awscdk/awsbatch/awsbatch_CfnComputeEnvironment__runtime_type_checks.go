@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnComputeEnvironment) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,6 +103,14 @@ func (c *jsiiProxy_CfnComputeEnvironment) validateInspectParameters(inspector aw
 	return nil
 }
 
+func (c *jsiiProxy_CfnComputeEnvironment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnComputeEnvironment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -114,6 +122,14 @@ func (c *jsiiProxy_CfnComputeEnvironment) validateOverrideLogicalIdParameters(ne
 func (c *jsiiProxy_CfnComputeEnvironment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnComputeEnvironment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -175,30 +191,6 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetComputeResourcesParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnComputeEnvironment) validateSetEksConfigurationParameters(val interface{}) error {
-	switch val.(type) {
-	case *CfnComputeEnvironment_EksConfigurationProperty:
-		val := val.(*CfnComputeEnvironment_EksConfigurationProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnComputeEnvironment_EksConfigurationProperty:
-		val_ := val.(CfnComputeEnvironment_EksConfigurationProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnComputeEnvironment_EksConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnComputeEnvironment) validateSetReplaceComputeEnvironmentParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -248,7 +240,7 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetUpdatePolicyParameters(val 
 	return nil
 }
 
-func validateNewCfnComputeEnvironmentParameters(scope constructs.Construct, id *string, props *CfnComputeEnvironmentProps) error {
+func validateNewCfnComputeEnvironmentParameters(scope awscdk.Construct, id *string, props *CfnComputeEnvironmentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

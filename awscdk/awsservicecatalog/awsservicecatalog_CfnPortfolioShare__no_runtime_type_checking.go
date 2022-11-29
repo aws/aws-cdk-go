@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnPortfolioShare) validateInspectParameters(inspector awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnPortfolioShare) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPortfolioShare) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPortfolioShare) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPortfolioShare) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +88,7 @@ func (j *jsiiProxy_CfnPortfolioShare) validateSetShareTagOptionsParameters(val i
 	return nil
 }
 
-func validateNewCfnPortfolioShareParameters(scope constructs.Construct, id *string, props *CfnPortfolioShareProps) error {
+func validateNewCfnPortfolioShareParameters(scope awscdk.Construct, id *string, props *CfnPortfolioShareProps) error {
 	return nil
 }
 

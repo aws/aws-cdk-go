@@ -1,7 +1,7 @@
 package awsrum
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnAppMonitor`.
@@ -29,28 +29,6 @@ import (
 //   		identityPoolId: jsii.String("identityPoolId"),
 //   		includedPages: []*string{
 //   			jsii.String("includedPages"),
-//   		},
-//   		metricDestinations: []interface{}{
-//   			&metricDestinationProperty{
-//   				destination: jsii.String("destination"),
-//
-//   				// the properties below are optional
-//   				destinationArn: jsii.String("destinationArn"),
-//   				iamRoleArn: jsii.String("iamRoleArn"),
-//   				metricDefinitions: []interface{}{
-//   					&metricDefinitionProperty{
-//   						name: jsii.String("name"),
-//
-//   						// the properties below are optional
-//   						dimensionKeys: map[string]*string{
-//   							"dimensionKeysKey": jsii.String("dimensionKeys"),
-//   						},
-//   						eventPattern: jsii.String("eventPattern"),
-//   						unitLabel: jsii.String("unitLabel"),
-//   						valueKey: jsii.String("valueKey"),
-//   					},
-//   				},
-//   			},
 //   		},
 //   		sessionSampleRate: jsii.Number(123),
 //   		telemetries: []*string{

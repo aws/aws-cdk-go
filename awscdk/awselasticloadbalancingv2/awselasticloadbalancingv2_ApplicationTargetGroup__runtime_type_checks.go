@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (a *jsiiProxy_ApplicationTargetGroup) validateAddLoadBalancerTargetParameters(props *LoadBalancerTargetProps) error {
@@ -131,6 +131,14 @@ func (a *jsiiProxy_ApplicationTargetGroup) validateMetricUnhealthyHostCountParam
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationTargetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationTargetGroup) validateRegisterConnectableParameters(connectable awsec2.IConnectable) error {
 	if connectable == nil {
 		return fmt.Errorf("parameter connectable is required, but nil was provided")
@@ -155,6 +163,14 @@ func (a *jsiiProxy_ApplicationTargetGroup) validateSetAttributeParameters(key *s
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationTargetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateApplicationTargetGroup_FromTargetGroupAttributesParameters(scope constructs.Construct, id *string, attrs *TargetGroupAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -168,6 +184,25 @@ func validateApplicationTargetGroup_FromTargetGroupAttributesParameters(scope co
 		return fmt.Errorf("parameter attrs is required, but nil was provided")
 	}
 	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateApplicationTargetGroup_ImportParameters(scope constructs.Construct, id *string, props *TargetGroupImportProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}
 

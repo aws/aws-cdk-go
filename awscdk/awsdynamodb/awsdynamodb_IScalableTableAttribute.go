@@ -3,14 +3,17 @@ package awsdynamodb
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
 )
 
 // Interface for scalable attributes.
+// Experimental.
 type IScalableTableAttribute interface {
 	// Add scheduled scaling for this scaling attribute.
+	// Experimental.
 	ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule)
 	// Scale out or in to keep utilization at a given level.
+	// Experimental.
 	ScaleOnUtilization(props *UtilizationScalingProps)
 }
 

@@ -35,12 +35,15 @@ package awsstepfunctionstasks
 //   	},
 //   })
 //
+// Experimental.
 type InputMode string
 
 const (
 	// Pipe mode.
+	// Experimental.
 	InputMode_PIPE InputMode = "PIPE"
 	// File mode.
+	// Experimental.
 	InputMode_FILE InputMode = "FILE"
 )
 

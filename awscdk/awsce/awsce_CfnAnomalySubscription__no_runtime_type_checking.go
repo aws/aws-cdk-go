@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnAnomalySubscription) validateInspectParameters(inspector a
 	return nil
 }
 
+func (c *jsiiProxy_CfnAnomalySubscription) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAnomalySubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAnomalySubscription) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAnomalySubscription) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +100,7 @@ func (j *jsiiProxy_CfnAnomalySubscription) validateSetThresholdParameters(val *f
 	return nil
 }
 
-func validateNewCfnAnomalySubscriptionParameters(scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) error {
+func validateNewCfnAnomalySubscriptionParameters(scope awscdk.Construct, id *string, props *CfnAnomalySubscriptionProps) error {
 	return nil
 }
 

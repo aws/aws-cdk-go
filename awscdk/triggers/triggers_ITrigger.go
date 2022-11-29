@@ -3,28 +3,32 @@ package triggers
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/triggers/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/triggers/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Interface for triggers.
+// Experimental.
 type ITrigger interface {
-	constructs.IConstruct
+	awscdk.IConstruct
 	// Adds trigger dependencies.
 	//
 	// Execute this trigger only after these construct
 	// scopes have been provisioned.
+	// Experimental.
 	ExecuteAfter(scopes ...constructs.Construct)
 	// Adds this trigger as a dependency on other constructs.
 	//
 	// This means that this
 	// trigger will get executed *before* the given construct(s).
+	// Experimental.
 	ExecuteBefore(scopes ...constructs.Construct)
 }
 
 // The jsii proxy for ITrigger
 type jsiiProxy_ITrigger struct {
-	internal.Type__constructsIConstruct
+	internal.Type__awscdkIConstruct
 }
 
 func (i *jsiiProxy_ITrigger) ExecuteAfter(scopes ...constructs.Construct) {

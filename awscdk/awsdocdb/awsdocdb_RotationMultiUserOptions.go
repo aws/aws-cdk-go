@@ -1,8 +1,8 @@
 package awsdocdb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Options to add the multi user rotation.
@@ -18,6 +18,7 @@ import (
 //   	secret: myImportedSecret,
 //   })
 //
+// Experimental.
 type RotationMultiUserOptions struct {
 	// The secret to rotate.
 	//
@@ -35,8 +36,10 @@ type RotationMultiUserOptions struct {
 	//           where the cluster has TLS enabled>
 	// }
 	// ```.
+	// Experimental.
 	Secret awssecretsmanager.ISecret `field:"required" json:"secret" yaml:"secret"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Experimental.
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 }
 

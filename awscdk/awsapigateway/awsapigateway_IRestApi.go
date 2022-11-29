@@ -3,34 +3,40 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
 )
 
+// Experimental.
 type IRestApi interface {
 	awscdk.IResource
 	// Gets the "execute-api" ARN.
 	//
 	// Returns: The "execute-api" ARN.
+	// Experimental.
 	ArnForExecuteApi(method *string, path *string, stage *string) *string
 	// API Gateway stage that points to the latest deployment (if defined).
+	// Experimental.
 	DeploymentStage() Stage
+	// Experimental.
 	SetDeploymentStage(d Stage)
 	// API Gateway deployment that represents the latest changes of the API.
 	//
 	// This resource will be automatically updated every time the REST API model changes.
 	// `undefined` when no deployment is configured.
+	// Experimental.
 	LatestDeployment() Deployment
 	// The ID of this API Gateway RestApi.
+	// Experimental.
 	RestApiId() *string
-	// The name of this API Gateway RestApi.
-	RestApiName() *string
 	// The resource ID of the root resource.
+	// Experimental.
 	RestApiRootResourceId() *string
 	// Represents the root resource ("/") of this API. Use it to define the API model:.
 	//
 	// api.root.addMethod('ANY', redirectToHomePage); // "ANY /"
 	//     api.root.addResource('friends').addMethod('GET', getFriendsHandler); // "GET /friends"
+	// Experimental.
 	Root() IResource
 }
 
@@ -88,16 +94,6 @@ func (j *jsiiProxy_IRestApi) RestApiId() *string {
 	_jsii_.Get(
 		j,
 		"restApiId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IRestApi) RestApiName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"restApiName",
 		&returns,
 	)
 	return returns

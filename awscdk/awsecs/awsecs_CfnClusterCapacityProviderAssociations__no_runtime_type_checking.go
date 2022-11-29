@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateInspectParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +88,7 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) validateSetDefaultCap
 	return nil
 }
 
-func validateNewCfnClusterCapacityProviderAssociationsParameters(scope constructs.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) error {
+func validateNewCfnClusterCapacityProviderAssociationsParameters(scope awscdk.Construct, id *string, props *CfnClusterCapacityProviderAssociationsProps) error {
 	return nil
 }
 

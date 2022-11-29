@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -8,17 +8,21 @@ import (
 // Interface for values that can be resolvable later.
 //
 // Tokens are special objects that participate in synthesis.
+// Experimental.
 type IResolvable interface {
 	// Produce the Token's value at resolution time.
+	// Experimental.
 	Resolve(context IResolveContext) interface{}
 	// Return a string representation of this resolvable object.
 	//
 	// Returns a reversible string representation.
+	// Experimental.
 	ToString() *string
 	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
 	//
 	// This may return an array with a single informational element indicating how
 	// to get this property populated, if it was skipped for performance reasons.
+	// Experimental.
 	CreationStack() *[]*string
 }
 

@@ -16,6 +16,14 @@ func (o *jsiiProxy_OpenIdConnectProvider) validateGetResourceNameAttributeParame
 	return nil
 }
 
+func (o *jsiiProxy_OpenIdConnectProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (o *jsiiProxy_OpenIdConnectProvider) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateOpenIdConnectProvider_FromOpenIdConnectProviderArnParameters(scope constructs.Construct, id *string, openIdConnectProviderArn *string) error {
 	return nil
 }
@@ -24,11 +32,7 @@ func validateOpenIdConnectProvider_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateOpenIdConnectProvider_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateOpenIdConnectProvider_IsResourceParameters(construct constructs.IConstruct) error {
+func validateOpenIdConnectProvider_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

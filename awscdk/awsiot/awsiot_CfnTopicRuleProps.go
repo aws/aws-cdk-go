@@ -1,7 +1,7 @@
 package awsiot
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnTopicRule`.
@@ -178,19 +178,6 @@ import (
 //   					topic: jsii.String("topic"),
 //
 //   					// the properties below are optional
-//   					headers: &republishActionHeadersProperty{
-//   						contentType: jsii.String("contentType"),
-//   						correlationData: jsii.String("correlationData"),
-//   						messageExpiry: jsii.String("messageExpiry"),
-//   						payloadFormatIndicator: jsii.String("payloadFormatIndicator"),
-//   						responseTopic: jsii.String("responseTopic"),
-//   						userProperties: []interface{}{
-//   							&userPropertyProperty{
-//   								key: jsii.String("key"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
 //   					qos: jsii.Number(123),
 //   				},
 //   				s3: &s3ActionProperty{
@@ -410,19 +397,6 @@ import (
 //   				topic: jsii.String("topic"),
 //
 //   				// the properties below are optional
-//   				headers: &republishActionHeadersProperty{
-//   					contentType: jsii.String("contentType"),
-//   					correlationData: jsii.String("correlationData"),
-//   					messageExpiry: jsii.String("messageExpiry"),
-//   					payloadFormatIndicator: jsii.String("payloadFormatIndicator"),
-//   					responseTopic: jsii.String("responseTopic"),
-//   					userProperties: []interface{}{
-//   						&userPropertyProperty{
-//   							key: jsii.String("key"),
-//   							value: jsii.String("value"),
-//   						},
-//   					},
-//   				},
 //   				qos: jsii.Number(123),
 //   			},
 //   			s3: &s3ActionProperty{

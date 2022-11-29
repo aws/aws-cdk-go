@@ -15,12 +15,15 @@ package awsecspatterns
 //   	listener: jsii.String("listener"),
 //   }
 //
+// Experimental.
 type NetworkTargetProps struct {
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
+	// Experimental.
 	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
 	// Name of the listener the target group attached to.
+	// Experimental.
 	Listener *string `field:"optional" json:"listener" yaml:"listener"`
 }
 

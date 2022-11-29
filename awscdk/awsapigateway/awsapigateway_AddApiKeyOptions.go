@@ -12,8 +12,10 @@ package awsapigateway
 //   	overrideLogicalId: jsii.String("..."),
 //   })
 //
+// Experimental.
 type AddApiKeyOptions struct {
 	// Override the CloudFormation logical id of the AWS::ApiGateway::UsagePlanKey resource.
+	// Experimental.
 	OverrideLogicalId *string `field:"optional" json:"overrideLogicalId" yaml:"overrideLogicalId"`
 }
 

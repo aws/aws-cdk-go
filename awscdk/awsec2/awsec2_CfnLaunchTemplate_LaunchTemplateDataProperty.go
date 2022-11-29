@@ -96,9 +96,6 @@ package awsec2
 //   		acceleratorTypes: []*string{
 //   			jsii.String("acceleratorTypes"),
 //   		},
-//   		allowedInstanceTypes: []*string{
-//   			jsii.String("allowedInstanceTypes"),
-//   		},
 //   		bareMetal: jsii.String("bareMetal"),
 //   		baselineEbsBandwidthMbps: &baselineEbsBandwidthMbpsProperty{
 //   			max: jsii.Number(123),
@@ -123,10 +120,6 @@ package awsec2
 //   			min: jsii.Number(123),
 //   		},
 //   		memoryMiB: &memoryMiBProperty{
-//   			max: jsii.Number(123),
-//   			min: jsii.Number(123),
-//   		},
-//   		networkBandwidthGbps: &networkBandwidthGbpsProperty{
 //   			max: jsii.Number(123),
 //   			min: jsii.Number(123),
 //   		},
@@ -212,7 +205,6 @@ package awsec2
 //   	placement: &placementProperty{
 //   		affinity: jsii.String("affinity"),
 //   		availabilityZone: jsii.String("availabilityZone"),
-//   		groupId: jsii.String("groupId"),
 //   		groupName: jsii.String("groupName"),
 //   		hostId: jsii.String("hostId"),
 //   		hostResourceGroupArn: jsii.String("hostResourceGroupArn"),

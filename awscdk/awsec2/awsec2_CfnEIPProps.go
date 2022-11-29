@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnEIP`.
@@ -46,7 +46,5 @@ type CfnEIPProps struct {
 	//
 	// > Updates to the `Tags` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::EC2::EIP.TransferAddress`.
-	TransferAddress *string `field:"optional" json:"transferAddress" yaml:"transferAddress"`
 }
 
