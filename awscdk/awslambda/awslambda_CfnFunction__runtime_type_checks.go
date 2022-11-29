@@ -342,6 +342,30 @@ func (j *jsiiProxy_CfnFunction) validateSetRoleParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetSnapStartParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnFunction_SnapStartProperty:
+		val := val.(*CfnFunction_SnapStartProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFunction_SnapStartProperty:
+		val_ := val.(CfnFunction_SnapStartProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_SnapStartProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetTracingConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case *CfnFunction_TracingConfigProperty:

@@ -63,6 +63,9 @@ import (
 //   	packageType: jsii.String("packageType"),
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	runtime: jsii.String("runtime"),
+//   	snapStart: &snapStartProperty{
+//   		applyOn: jsii.String("applyOn"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -145,6 +148,8 @@ type CfnFunctionProps struct {
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
+	// `AWS::Lambda::Function.SnapStart`.
+	SnapStart interface{} `field:"optional" json:"snapStart" yaml:"snapStart"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.

@@ -80,6 +80,9 @@ import (
 //   	packageType: jsii.String("packageType"),
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	runtime: jsii.String("runtime"),
+//   	snapStart: &snapStartProperty{
+//   		applyOn: jsii.String("applyOn"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -210,6 +213,9 @@ type CfnFunction interface {
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
 	Runtime() *string
 	SetRuntime(val *string)
+	// `AWS::Lambda::Function.SnapStart`.
+	SnapStart() interface{}
+	SetSnapStart(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -616,6 +622,16 @@ func (j *jsiiProxy_CfnFunction) Runtime() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) SnapStart() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"snapStart",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -877,6 +893,17 @@ func (j *jsiiProxy_CfnFunction)SetRuntime(val *string) {
 	_jsii_.Set(
 		j,
 		"runtime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetSnapStart(val interface{}) {
+	if err := j.validateSetSnapStartParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"snapStart",
 		val,
 	)
 }

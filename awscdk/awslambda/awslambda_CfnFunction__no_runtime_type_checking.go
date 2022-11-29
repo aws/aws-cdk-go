@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnFunction) validateSetRoleParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetSnapStartParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetTracingConfigParameters(val interface{}) error {
 	return nil
 }
