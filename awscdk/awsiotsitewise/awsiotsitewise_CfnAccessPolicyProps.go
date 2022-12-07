@@ -34,7 +34,7 @@ package awsiotsitewise
 type CfnAccessPolicyProps struct {
 	// The identity for this access policy.
 	//
-	// Choose an AWS SSO user, an AWS SSO group, or an IAM user.
+	// Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.
 	AccessPolicyIdentity interface{} `field:"required" json:"accessPolicyIdentity" yaml:"accessPolicyIdentity"`
 	// The permission level for this access policy.
 	//

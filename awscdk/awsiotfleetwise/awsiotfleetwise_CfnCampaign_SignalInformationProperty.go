@@ -1,6 +1,8 @@
 package awsiotfleetwise
 
 
+// Information about a signal.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +17,13 @@ package awsiotfleetwise
 //   }
 //
 type CfnCampaign_SignalInformationProperty struct {
-	// `CfnCampaign.SignalInformationProperty.Name`.
+	// The name of the signal.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnCampaign.SignalInformationProperty.MaxSampleCount`.
+	// The maximum number of samples to collect.
 	MaxSampleCount *float64 `field:"optional" json:"maxSampleCount" yaml:"maxSampleCount"`
-	// `CfnCampaign.SignalInformationProperty.MinimumSamplingIntervalMs`.
+	// The minimum duration of time (in milliseconds) between two triggering events to collect data.
+	//
+	// > If a signal changes often, you might want to collect data at a slower rate.
 	MinimumSamplingIntervalMs *float64 `field:"optional" json:"minimumSamplingIntervalMs" yaml:"minimumSamplingIntervalMs"`
 }
 

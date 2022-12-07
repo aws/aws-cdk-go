@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnListenerCertificate) validateInspectParameters(inspector a
 	return nil
 }
 
+func (c *jsiiProxy_CfnListenerCertificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnListenerCertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnListenerCertificate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnListenerCertificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnListenerCertificate) validateSetListenerArnParameters(val 
 	return nil
 }
 
-func validateNewCfnListenerCertificateParameters(scope constructs.Construct, id *string, props *CfnListenerCertificateProps) error {
+func validateNewCfnListenerCertificateParameters(scope awscdk.Construct, id *string, props *CfnListenerCertificateProps) error {
 	return nil
 }
 

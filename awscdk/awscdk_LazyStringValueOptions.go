@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
@@ -7,14 +7,16 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   lazyStringValueOptions := &lazyStringValueOptions{
 //   	displayHint: jsii.String("displayHint"),
 //   }
 //
+// Experimental.
 type LazyStringValueOptions struct {
 	// Use the given name as a display hint.
+	// Experimental.
 	DisplayHint *string `field:"optional" json:"displayHint" yaml:"displayHint"`
 }
 

@@ -26,14 +26,18 @@ package awsservicecatalog
 //   	},
 //   })
 //
+// Experimental.
 type CloudFormationRuleConstraintOptions struct {
 	// The description of the constraint.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
+	// Experimental.
 	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// The rule with condition and assertions to apply to template.
+	// Experimental.
 	Rule *TemplateRule `field:"required" json:"rule" yaml:"rule"`
 }
 

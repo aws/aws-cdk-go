@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
 )
 
 func (c *jsiiProxy_CloudAssembly) validateGetNestedAssemblyParameters(artifactId *string) error {
@@ -21,6 +21,14 @@ func (c *jsiiProxy_CloudAssembly) validateGetNestedAssemblyParameters(artifactId
 func (c *jsiiProxy_CloudAssembly) validateGetNestedAssemblyArtifactParameters(artifactId *string) error {
 	if artifactId == nil {
 		return fmt.Errorf("parameter artifactId is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CloudAssembly) validateGetStackParameters(stackName *string) error {
+	if stackName == nil {
+		return fmt.Errorf("parameter stackName is required, but nil was provided")
 	}
 
 	return nil

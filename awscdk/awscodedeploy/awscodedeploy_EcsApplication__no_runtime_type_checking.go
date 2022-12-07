@@ -16,6 +16,14 @@ func (e *jsiiProxy_EcsApplication) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func (e *jsiiProxy_EcsApplication) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EcsApplication) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateEcsApplication_FromEcsApplicationNameParameters(scope constructs.Construct, id *string, ecsApplicationName *string) error {
 	return nil
 }
@@ -24,11 +32,7 @@ func validateEcsApplication_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateEcsApplication_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateEcsApplication_IsResourceParameters(construct constructs.IConstruct) error {
+func validateEcsApplication_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

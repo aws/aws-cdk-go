@@ -1,6 +1,8 @@
 package awslakeformation
 
 
+// A structure containing an LF-tag key and values for a resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +17,11 @@ package awslakeformation
 //   }
 //
 type CfnPrincipalPermissions_LFTagKeyResourceProperty struct {
-	// `CfnPrincipalPermissions.LFTagKeyResourceProperty.CatalogId`.
+	// The identifier for the Data Catalog where the location is registered with Data Catalog .
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
-	// `CfnPrincipalPermissions.LFTagKeyResourceProperty.TagKey`.
+	// The key-name for the LF-tag.
 	TagKey *string `field:"required" json:"tagKey" yaml:"tagKey"`
-	// `CfnPrincipalPermissions.LFTagKeyResourceProperty.TagValues`.
+	// A list of possible values for the corresponding `TagKey` of an LF-tag key-value pair.
 	TagValues *[]*string `field:"required" json:"tagValues" yaml:"tagValues"`
 }
 

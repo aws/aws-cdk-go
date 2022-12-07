@@ -1,13 +1,13 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
-	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A root construct which represents a single CloudFormation stack.
@@ -25,27 +25,34 @@ import (
 //
 //   service := namespace.createService(jsii.String("Service"), &dnsServiceProps{
 //   	name: jsii.String("foo"),
-//   	dnsRecordType: servicediscovery.dnsRecordType_CNAME,
+//   	dnsRecordType: servicediscovery.dnsRecordType_A,
 //   	dnsTtl: cdk.duration.seconds(jsii.Number(30)),
+//   	healthCheck: &healthCheckConfig{
+//   		type: servicediscovery.healthCheckType_HTTPS,
+//   		resourcePath: jsii.String("/healthcheck"),
+//   		failureThreshold: jsii.Number(2),
+//   	},
 //   })
 //
-//   service.registerCnameInstance(jsii.String("CnameInstance"), &cnameInstanceBaseProps{
-//   	instanceCname: jsii.String("service.pizza"),
+//   service.registerIpInstance(jsii.String("IpInstance"), &ipInstanceBaseProps{
+//   	ipv4: jsii.String("54.239.25.192"),
+//   	port: jsii.Number(443),
 //   })
 //
 //   app.synth()
 //
+// Experimental.
 type Stack interface {
-	constructs.Construct
+	Construct
 	ITaggable
 	// The AWS account into which this stack will be deployed.
 	//
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.account` when the stack is defined. This can
-	//     either be a concrete account (e.g. `585695031111`) or the
-	//     `Aws.ACCOUNT_ID` token.
-	// 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
+	//     either be a concerete account (e.g. `585695031111`) or the
+	//     `Aws.accountId` token.
+	// 3. `Aws.accountId`, which represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -56,8 +63,10 @@ type Stack interface {
 	// into a **account-agnostic template**. In this case, your code should either
 	// fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
 	// implement some other region-agnostic behavior.
+	// Experimental.
 	Account() *string
 	// The ID of the cloud assembly artifact for this stack.
+	// Experimental.
 	ArtifactId() *string
 	// Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack.
 	//
@@ -71,10 +80,13 @@ type Stack interface {
 	// `DescribeAvailabilityZones` on the target environment.
 	//
 	// To specify a different strategy for selecting availability zones override this method.
+	// Experimental.
 	AvailabilityZones() *[]*string
 	// Indicates whether the stack requires bundling or not.
+	// Experimental.
 	BundlingRequired() *bool
 	// Return the stacks this stack depends on.
+	// Experimental.
 	Dependencies() *[]Stack
 	// The environment coordinates in which this stack is deployed.
 	//
@@ -86,32 +98,42 @@ type Stack interface {
 	// environment.
 	//
 	// If either `stack.account` or `stack.region` are not concrete values (e.g.
-	// `Aws.ACCOUNT_ID` or `Aws.REGION`) the special strings `unknown-account` and/or
+	// `Aws.account` or `Aws.region`) the special strings `unknown-account` and/or
 	// `unknown-region` will be used respectively to indicate this stack is
 	// region/account-agnostic.
+	// Experimental.
 	Environment() *string
 	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
+	// Experimental.
 	Nested() *bool
 	// If this is a nested stack, returns it's parent stack.
+	// Experimental.
 	NestedStackParent() Stack
 	// If this is a nested stack, this represents its `AWS::CloudFormation::Stack` resource.
 	//
 	// `undefined` for top-level (non-nested) stacks.
+	// Experimental.
 	NestedStackResource() CfnResource
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() ConstructNode
 	// Returns the list of notification Amazon Resource Names (ARNs) for the current stack.
+	// Experimental.
 	NotificationArns() *[]*string
+	// Returns the parent of a nested stack.
+	// Deprecated: use `nestedStackParent`.
+	ParentStack() Stack
 	// The partition in which this stack is defined.
+	// Experimental.
 	Partition() *string
 	// The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 	//
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.region` when the stack is defined. This can
-	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
+	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.region`
 	//     token.
-	// 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
+	// 3. `Aws.region`, which is represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::Region" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -122,14 +144,15 @@ type Stack interface {
 	// into a **region-agnostic template**. In this case, your code should either
 	// fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
 	// implement some other region-agnostic behavior.
+	// Experimental.
 	Region() *string
 	// The ID of the stack.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // After resolving, looks like
 	//   "arn:aws:cloudformation:us-west-2:123456789012:stack/teststack/51af3dc0-da77-11e4-872e-1234567db123"
 	//
+	// Experimental.
 	StackId() *string
 	// The concrete CloudFormation physical stack name.
 	//
@@ -140,39 +163,48 @@ type Stack interface {
 	// scheme based on the construct path to ensure uniqueness.
 	//
 	// If you wish to obtain the deploy-time AWS::StackName intrinsic,
-	// you can use `Aws.STACK_NAME` directly.
+	// you can use `Aws.stackName` directly.
+	// Experimental.
 	StackName() *string
 	// Synthesis method for this stack.
+	// Experimental.
 	Synthesizer() IStackSynthesizer
 	// Tags to be applied to the stack.
+	// Experimental.
 	Tags() TagManager
 	// The name of the CloudFormation template file emitted to the output directory during synthesis.
 	//
 	// Example value: `MyStack.template.json`
+	// Experimental.
 	TemplateFile() *string
 	// Options for CloudFormation template (like version, transform, description).
+	// Experimental.
 	TemplateOptions() ITemplateOptions
 	// Whether termination protection is enabled for this stack.
+	// Experimental.
 	TerminationProtection() *bool
 	// The Amazon domain suffix for the region in which this stack is defined.
+	// Experimental.
 	UrlSuffix() *string
 	// Add a dependency between this stack and another stack.
 	//
 	// This can be used to define dependencies between any two stacks within an
 	// app, and also supports nested stacks.
+	// Experimental.
 	AddDependency(target Stack, reason *string)
-	// Adds an arbitary key-value pair, with information you want to record about the stack.
-	//
-	// These get translated to the Metadata section of the generated template.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
-	//
-	AddMetadata(key *string, value interface{})
+	// Register a docker image asset on this Stack.
+	// Deprecated: Use `stack.synthesizer.addDockerImageAsset()` if you are calling,
+	// and a different `IStackSynthesizer` class if you are implementing.
+	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
+	// Register a file asset on this Stack.
+	// Deprecated: Use `stack.synthesizer.addFileAsset()` if you are calling,
+	// and a different IStackSynthesizer class if you are implementing.
+	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
 	//
 	// Duplicate values are removed when stack is synthesized.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var stack stack
 	//
 	//
@@ -180,6 +212,7 @@ type Stack interface {
 	//
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
 	//
+	// Experimental.
 	AddTransform(transform *string)
 	// Returns the naming scheme used to allocate logical IDs.
 	//
@@ -219,6 +252,7 @@ type Stack interface {
 	// - If a component is named "Resource" it will be omitted from the user-visible
 	//    path, but included in the hash. This reduces visual noise in the human readable
 	//    part of the identifier.
+	// Experimental.
 	AllocateLogicalId(cfnElement CfnElement) *string
 	// Create a CloudFormation Export for a value.
 	//
@@ -264,6 +298,7 @@ type Stack interface {
 	// - You are now free to remove the `bucket` resource from `producerStack`.
 	// - Don't forget to remove the `exportValue()` call as well.
 	// - Deploy again (this time only the `producerStack` will be changed -- the bucket will be deleted).
+	// Experimental.
 	ExportValue(exportedValue interface{}, options *ExportValueOptions) *string
 	// Creates an ARN from components.
 	//
@@ -275,11 +310,12 @@ type Stack interface {
 	//
 	// The ARN will be formatted as follows:
 	//
-	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
+	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}
 	//
 	// The required ARN pieces that are omitted will be taken from the stack that
 	// the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
 	// can be 'undefined'.
+	// Experimental.
 	FormatArn(components *ArnComponents) *string
 	// Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource.
 	//
@@ -290,7 +326,78 @@ type Stack interface {
 	// This method uses the protected method `allocateLogicalId` to render the
 	// logical ID for an element. To modify the naming scheme, extend the `Stack`
 	// class and override this method.
+	// Experimental.
 	GetLogicalId(element CfnElement) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Given an ARN, parses it and returns components.
+	//
+	// IF THE ARN IS A CONCRETE STRING...
+	//
+	// ...it will be parsed and validated. The separator (`sep`) will be set to '/'
+	// if the 6th component includes a '/', in which case, `resource` will be set
+	// to the value before the '/' and `resourceName` will be the rest. In case
+	// there is no '/', `resource` will be set to the 6th components and
+	// `resourceName` will be set to the rest of the string.
+	//
+	// IF THE ARN IS A TOKEN...
+	//
+	// ...it cannot be validated, since we don't have the actual value yet at the
+	// time of this function call. You will have to supply `sepIfToken` and
+	// whether or not ARNs of the expected format usually have resource names
+	// in order to parse it properly. The resulting `ArnComponents` object will
+	// contain tokens for the subexpressions of the ARN, not string literals.
+	//
+	// If the resource name could possibly contain the separator char, the actual
+	// resource name cannot be properly parsed. This only occurs if the separator
+	// char is '/', and happens for example for S3 object ARNs, IAM Role ARNs,
+	// IAM OIDC Provider ARNs, etc. To properly extract the resource name from a
+	// Tokenized ARN, you must know the resource type and call
+	// `Arn.extractResourceName`.
+	//
+	// Returns: an ArnComponents object which allows access to the various
+	// components of the ARN.
+	// Deprecated: use splitArn instead.
+	ParseArn(arn *string, sepIfToken *string, hasName *bool) *ArnComponents
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Deprecated.
+	//
+	// Returns: reference itself without any change.
+	// See: https://github.com/aws/aws-cdk/pull/7187
+	//
+	// Deprecated: cross reference handling has been moved to `App.prepare()`.
+	PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable
 	// Look up a fact value for the given fact for the region of this stack.
 	//
 	// Will return a definite value only if the region of the current stack is resolved.
@@ -308,18 +415,25 @@ type Stack interface {
 	//
 	// If `defaultValue` is not given, it is an error if the fact is unknown for
 	// the given region.
+	// Experimental.
 	RegionalFact(factName *string, defaultValue *string) *string
 	// Rename a generated logical identities.
 	//
 	// To modify the naming scheme strategy, extend the `Stack` class and
 	// override the `allocateLogicalId` method.
+	// Experimental.
 	RenameLogicalId(oldId *string, newId *string)
+	// DEPRECATED.
+	// Deprecated: use `reportMissingContextKey()`.
+	ReportMissingContext(report *cxapi.MissingContext)
 	// Indicate that a context key was expected.
 	//
 	// Contains instructions which will be emitted into the cloud assembly on how
 	// the key should be supplied.
+	// Experimental.
 	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	// Resolve a tokenized value in the context of the current stack.
+	// Experimental.
 	Resolve(obj interface{}) interface{}
 	// Splits the provided ARN into its components.
 	//
@@ -327,16 +441,33 @@ type Stack interface {
 	// and a Token representing a dynamic CloudFormation expression
 	// (in which case the returned components will also be dynamic CloudFormation expressions,
 	// encoded as Tokens).
+	// Experimental.
 	SplitArn(arn *string, arnFormat ArnFormat) *ArnComponents
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session ISynthesisSession)
 	// Convert an object, potentially containing tokens, to a JSON string.
+	// Experimental.
 	ToJsonString(obj interface{}, space *float64) *string
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Stack
 type jsiiProxy_Stack struct {
-	internal.Type__constructsConstruct
+	jsiiProxy_Construct
 	jsiiProxy_ITaggable
 }
 
@@ -430,8 +561,8 @@ func (j *jsiiProxy_Stack) NestedStackResource() CfnResource {
 	return returns
 }
 
-func (j *jsiiProxy_Stack) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Stack) Node() ConstructNode {
+	var returns ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -445,6 +576,16 @@ func (j *jsiiProxy_Stack) NotificationArns() *[]*string {
 	_jsii_.Get(
 		j,
 		"notificationArns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Stack) ParentStack() Stack {
+	var returns Stack
+	_jsii_.Get(
+		j,
+		"parentStack",
 		&returns,
 	)
 	return returns
@@ -552,6 +693,7 @@ func (j *jsiiProxy_Stack) UrlSuffix() *string {
 
 
 // Creates a new stack.
+// Experimental.
 func NewStack(scope constructs.Construct, id *string, props *StackProps) Stack {
 	_init_.Initialize()
 
@@ -561,7 +703,7 @@ func NewStack(scope constructs.Construct, id *string, props *StackProps) Stack {
 	j := jsiiProxy_Stack{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.Stack",
+		"monocdk.Stack",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -570,33 +712,19 @@ func NewStack(scope constructs.Construct, id *string, props *StackProps) Stack {
 }
 
 // Creates a new stack.
+// Experimental.
 func NewStack_Override(s Stack, scope constructs.Construct, id *string, props *StackProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.Stack",
+		"monocdk.Stack",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func Stack_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -606,7 +734,7 @@ func Stack_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Stack",
+		"monocdk.Stack",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -618,6 +746,7 @@ func Stack_IsConstruct(x interface{}) *bool {
 // Return whether the given object is a Stack.
 //
 // We do attribute detection since we can't reliably use 'instanceof'.
+// Experimental.
 func Stack_IsStack(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -627,7 +756,7 @@ func Stack_IsStack(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Stack",
+		"monocdk.Stack",
 		"isStack",
 		[]interface{}{x},
 		&returns,
@@ -639,6 +768,7 @@ func Stack_IsStack(x interface{}) *bool {
 // Looks up the first stack scope in which `construct` is defined.
 //
 // Fails if there is no stack up the tree.
+// Experimental.
 func Stack_Of(construct constructs.IConstruct) Stack {
 	_init_.Initialize()
 
@@ -648,7 +778,7 @@ func Stack_Of(construct constructs.IConstruct) Stack {
 	var returns Stack
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Stack",
+		"monocdk.Stack",
 		"of",
 		[]interface{}{construct},
 		&returns,
@@ -668,15 +798,36 @@ func (s *jsiiProxy_Stack) AddDependency(target Stack, reason *string) {
 	)
 }
 
-func (s *jsiiProxy_Stack) AddMetadata(key *string, value interface{}) {
-	if err := s.validateAddMetadataParameters(key, value); err != nil {
+func (s *jsiiProxy_Stack) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	if err := s.validateAddDockerImageAssetParameters(asset); err != nil {
 		panic(err)
 	}
-	_jsii_.InvokeVoid(
+	var returns *DockerImageAssetLocation
+
+	_jsii_.Invoke(
 		s,
-		"addMetadata",
-		[]interface{}{key, value},
+		"addDockerImageAsset",
+		[]interface{}{asset},
+		&returns,
 	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Stack) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	if err := s.validateAddFileAssetParameters(asset); err != nil {
+		panic(err)
+	}
+	var returns *FileAssetLocation
+
+	_jsii_.Invoke(
+		s,
+		"addFileAsset",
+		[]interface{}{asset},
+		&returns,
+	)
+
+	return returns
 }
 
 func (s *jsiiProxy_Stack) AddTransform(transform *string) {
@@ -754,6 +905,78 @@ func (s *jsiiProxy_Stack) GetLogicalId(element CfnElement) *string {
 	return returns
 }
 
+func (s *jsiiProxy_Stack) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_Stack) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_Stack) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Stack) ParseArn(arn *string, sepIfToken *string, hasName *bool) *ArnComponents {
+	if err := s.validateParseArnParameters(arn); err != nil {
+		panic(err)
+	}
+	var returns *ArnComponents
+
+	_jsii_.Invoke(
+		s,
+		"parseArn",
+		[]interface{}{arn, sepIfToken, hasName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Stack) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_Stack) PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable {
+	if err := s.validatePrepareCrossReferenceParameters(_sourceStack, reference); err != nil {
+		panic(err)
+	}
+	var returns IResolvable
+
+	_jsii_.Invoke(
+		s,
+		"prepareCrossReference",
+		[]interface{}{_sourceStack, reference},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_Stack) RegionalFact(factName *string, defaultValue *string) *string {
 	if err := s.validateRegionalFactParameters(factName); err != nil {
 		panic(err)
@@ -778,6 +1001,17 @@ func (s *jsiiProxy_Stack) RenameLogicalId(oldId *string, newId *string) {
 		s,
 		"renameLogicalId",
 		[]interface{}{oldId, newId},
+	)
+}
+
+func (s *jsiiProxy_Stack) ReportMissingContext(report *cxapi.MissingContext) {
+	if err := s.validateReportMissingContextParameters(report); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"reportMissingContext",
+		[]interface{}{report},
 	)
 }
 
@@ -824,6 +1058,17 @@ func (s *jsiiProxy_Stack) SplitArn(arn *string, arnFormat ArnFormat) *ArnCompone
 	return returns
 }
 
+func (s *jsiiProxy_Stack) Synthesize(session ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_Stack) ToJsonString(obj interface{}, space *float64) *string {
 	if err := s.validateToJsonStringParameters(obj); err != nil {
 		panic(err)
@@ -846,6 +1091,19 @@ func (s *jsiiProxy_Stack) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Stack) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

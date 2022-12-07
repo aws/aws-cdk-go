@@ -55,20 +55,28 @@ package awsses
 //   	},
 //   }
 //
+// Experimental.
 type ReceiptRuleActionConfig struct {
 	// Adds a header to the received email.
+	// Experimental.
 	AddHeaderAction *AddHeaderActionConfig `field:"optional" json:"addHeaderAction" yaml:"addHeaderAction"`
 	// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	BounceAction *BounceActionConfig `field:"optional" json:"bounceAction" yaml:"bounceAction"`
 	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	LambdaAction *LambdaActionConfig `field:"optional" json:"lambdaAction" yaml:"lambdaAction"`
 	// Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	S3Action *S3ActionConfig `field:"optional" json:"s3Action" yaml:"s3Action"`
 	// Publishes the email content within a notification to Amazon SNS.
+	// Experimental.
 	SnsAction *SNSActionConfig `field:"optional" json:"snsAction" yaml:"snsAction"`
 	// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+	// Experimental.
 	StopAction *StopActionConfig `field:"optional" json:"stopAction" yaml:"stopAction"`
 	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+	// Experimental.
 	WorkmailAction *WorkmailActionConfig `field:"optional" json:"workmailAction" yaml:"workmailAction"`
 }
 

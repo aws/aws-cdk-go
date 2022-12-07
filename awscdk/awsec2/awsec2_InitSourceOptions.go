@@ -4,7 +4,6 @@ package awsec2
 // Additional options for an InitSource.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //
@@ -22,8 +21,10 @@ package awsec2
 //   	serviceRestartHandle: handle,
 //   }))
 //
+// Experimental.
 type InitSourceOptions struct {
 	// Restart the given services after this archive has been extracted.
+	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 }
 

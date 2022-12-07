@@ -65,9 +65,9 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	Urls interface{} `field:"required" json:"urls" yaml:"urls"`
 	// Configuration information required to connect to websites using authentication.
 	//
-	// You can connect to websites using basic authentication of user name and password.
+	// You can connect to websites using basic authentication of user name and password. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials.
 	//
-	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials.
+	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
 	AuthenticationConfiguration interface{} `field:"optional" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
 	// Specifies the number of levels in a website that you want to crawl.
 	//

@@ -31,15 +31,23 @@ package awscloudfront
 //   	}),
 //   })
 //
+// Experimental.
 type SecurityPolicyProtocol string
 
 const (
+	// Experimental.
 	SecurityPolicyProtocol_SSL_V3 SecurityPolicyProtocol = "SSL_V3"
+	// Experimental.
 	SecurityPolicyProtocol_TLS_V1 SecurityPolicyProtocol = "TLS_V1"
+	// Experimental.
 	SecurityPolicyProtocol_TLS_V1_2016 SecurityPolicyProtocol = "TLS_V1_2016"
+	// Experimental.
 	SecurityPolicyProtocol_TLS_V1_1_2016 SecurityPolicyProtocol = "TLS_V1_1_2016"
+	// Experimental.
 	SecurityPolicyProtocol_TLS_V1_2_2018 SecurityPolicyProtocol = "TLS_V1_2_2018"
+	// Experimental.
 	SecurityPolicyProtocol_TLS_V1_2_2019 SecurityPolicyProtocol = "TLS_V1_2_2019"
+	// Experimental.
 	SecurityPolicyProtocol_TLS_V1_2_2021 SecurityPolicyProtocol = "TLS_V1_2_2021"
 )
 

@@ -3,12 +3,14 @@ package awsapplicationautoscaling
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling/internal"
 )
 
+// Experimental.
 type IScalableTarget interface {
 	awscdk.IResource
+	// Experimental.
 	ScalableTargetId() *string
 }
 

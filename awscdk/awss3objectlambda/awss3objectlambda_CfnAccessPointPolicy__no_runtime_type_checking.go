@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnAccessPointPolicy) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnAccessPointPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAccessPointPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnAccessPointPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAccessPointPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnAccessPointPolicy) validateSetPolicyDocumentParameters(val
 	return nil
 }
 
-func validateNewCfnAccessPointPolicyParameters(scope constructs.Construct, id *string, props *CfnAccessPointPolicyProps) error {
+func validateNewCfnAccessPointPolicyParameters(scope awscdk.Construct, id *string, props *CfnAccessPointPolicyProps) error {
 	return nil
 }
 

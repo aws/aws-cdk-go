@@ -14,9 +14,11 @@ package awslakeformation
 //   }
 //
 type CfnPermissions_DataLocationResourceProperty struct {
-	// `CfnPermissions.DataLocationResourceProperty.CatalogId`.
+	// The identifier for the Data Catalog .
+	//
+	// By default, it is the account ID of the caller.
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
-	// Currently not supported by AWS CloudFormation .
+	// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 	S3Resource *string `field:"optional" json:"s3Resource" yaml:"s3Resource"`
 }
 

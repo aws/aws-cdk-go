@@ -3,7 +3,7 @@ package awslambda
 
 // Configuration values that override the container image Dockerfile settings.
 //
-// See [Container settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) .
+// For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

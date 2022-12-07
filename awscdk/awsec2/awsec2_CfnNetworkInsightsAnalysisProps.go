@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnNetworkInsightsAnalysis`.
@@ -15,9 +15,6 @@ import (
 //   	networkInsightsPathId: jsii.String("networkInsightsPathId"),
 //
 //   	// the properties below are optional
-//   	additionalAccounts: []*string{
-//   		jsii.String("additionalAccounts"),
-//   	},
 //   	filterInArns: []*string{
 //   		jsii.String("filterInArns"),
 //   	},
@@ -32,8 +29,6 @@ import (
 type CfnNetworkInsightsAnalysisProps struct {
 	// The ID of the path.
 	NetworkInsightsPathId *string `field:"required" json:"networkInsightsPathId" yaml:"networkInsightsPathId"`
-	// `AWS::EC2::NetworkInsightsAnalysis.AdditionalAccounts`.
-	AdditionalAccounts *[]*string `field:"optional" json:"additionalAccounts" yaml:"additionalAccounts"`
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
 	FilterInArns *[]*string `field:"optional" json:"filterInArns" yaml:"filterInArns"`
 	// The tags to apply.

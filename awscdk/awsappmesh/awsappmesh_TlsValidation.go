@@ -4,7 +4,6 @@ package awsappmesh
 // Represents the properties needed to define TLS Validation context.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var service service
 //
@@ -39,12 +38,15 @@ package awsappmesh
 //
 //   cdk.tags.of(node).add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type TlsValidation struct {
 	// Reference to where to retrieve the trust chain.
+	// Experimental.
 	Trust TlsValidationTrust `field:"required" json:"trust" yaml:"trust"`
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
+	// Experimental.
 	SubjectAlternativeNames SubjectAlternativeNames `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 

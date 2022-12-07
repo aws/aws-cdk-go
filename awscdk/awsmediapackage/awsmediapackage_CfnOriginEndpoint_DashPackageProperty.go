@@ -55,11 +55,11 @@ package awsmediapackage
 //   }
 //
 type CfnOriginEndpoint_DashPackageProperty struct {
-	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
+	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest.
 	//
-	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	// For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions *string `field:"optional" json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
-	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
+	// Specifies the SCTE-35 message types that AWS Elemental MediaPackage treats as ad markers in the output manifest.
 	//
 	// Valid values:
 	//
@@ -74,14 +74,16 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Parameters for encrypting content.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// `CfnOriginEndpoint.DashPackageProperty.IncludeIframeOnlyStream`.
+	// Only applies to stream sets with a single video track.
+	//
+	// When true, the stream set includes an additional I-frame trick-play only stream, along with the other tracks. If false, this extra stream is not included.
 	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
 	// Determines the position of some tags in the manifest.
 	//
-	// Options:
+	// Valid values:
 	//
-	// - `FULL` - elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation` .
-	// - `COMPACT` - duplicate elements are combined and presented at the `AdaptationSet` level.
+	// - `FULL` - Elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation` .
+	// - `COMPACT` - Duplicate elements are combined and presented at the `AdaptationSet` level.
 	ManifestLayout *string `field:"optional" json:"manifestLayout" yaml:"manifestLayout"`
 	// Time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *float64 `field:"optional" json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
@@ -89,21 +91,22 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	MinBufferTimeSeconds *float64 `field:"optional" json:"minBufferTimeSeconds" yaml:"minBufferTimeSeconds"`
 	// Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.
 	MinUpdatePeriodSeconds *float64 `field:"optional" json:"minUpdatePeriodSeconds" yaml:"minUpdatePeriodSeconds"`
-	// Controls whether MediaPackage produces single-period or multi-period DASH manifests.
+	// Controls whether AWS Elemental MediaPackage produces single-period or multi-period DASH manifests.
 	//
 	// For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html) .
 	//
 	// Valid values:
 	//
-	// - `ADS` - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
-	// - *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.
+	// - `ADS` - AWS Elemental MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
+	// - *No value* - AWS Elemental MediaPackage will produce single-period DASH manifests. This is the default setting.
 	PeriodTriggers *[]*string `field:"optional" json:"periodTriggers" yaml:"periodTriggers"`
-	// DASH profile for the output, such as HbbTV.
+	// The DASH profile for the output.
 	//
 	// Valid values:
 	//
-	// - `NONE` - the output doesn't use a DASH profile.
-	// - `HBBTV_1_5` - the output is HbbTV-compliant.
+	// - `NONE` - The output doesn't use a DASH profile.
+	// - `HBBTV_1_5` - The output is compliant with HbbTV v1.5.
+	// - `DVB_DASH_2014` - The output is compliant with DVB-DASH 2014.
 	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Duration (in seconds) of each fragment.
 	//
@@ -112,6 +115,8 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	// Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest.
 	//
 	// Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
+	//
+	// Valid values:
 	//
 	// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
 	// - `NUMBER_WITH_DURATION` - The `$Number$` variable is used in the `media` URL and a `duration` attribute is added to the segment template. The `SegmentTimeline` object is removed from the representation.

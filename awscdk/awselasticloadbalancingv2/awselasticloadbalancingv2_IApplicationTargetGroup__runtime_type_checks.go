@@ -5,7 +5,7 @@ package awselasticloadbalancingv2
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 func (i *jsiiProxy_IApplicationTargetGroup) validateRegisterConnectableParameters(connectable awsec2.IConnectable) error {

@@ -22,7 +22,7 @@ package awscloudwatch
 //   }
 //
 type CfnAlarm_MetricProperty struct {
-	// The metric dimensions that you want to be used for the metric that the alarm will watch..
+	// The metric dimensions that you want to be used for the metric that the alarm will watch.
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The name of the metric that you want the alarm to watch.
 	//

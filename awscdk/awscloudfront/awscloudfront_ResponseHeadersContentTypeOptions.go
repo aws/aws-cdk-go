@@ -88,8 +88,10 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ResponseHeadersContentTypeOptions struct {
 	// A Boolean that determines whether CloudFront overrides the X-Content-Type-Options HTTP response header received from the origin with the one specified in this response headers policy.
+	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 }
 

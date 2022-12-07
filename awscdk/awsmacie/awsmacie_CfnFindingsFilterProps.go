@@ -25,24 +25,22 @@ package awsmacie
 type CfnFindingsFilterProps struct {
 	// The criteria to use to filter findings.
 	FindingCriteria interface{} `field:"required" json:"findingCriteria" yaml:"findingCriteria"`
-	// A custom name for the filter.
+	// A custom name for the findings filter. The name can contain 3-64 characters.
 	//
-	// The name must contain at least 3 characters and can contain as many as 64 characters.
-	//
-	// We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie .
+	// Avoid including sensitive data in the name. Users of the account might be able to see the name, depending on the actions that they're allowed to perform in Amazon Macie .
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The action to perform on findings that meet the filter criteria ( `FindingCriteria` ). Valid values are:.
+	// The action to perform on findings that match the filter criteria ( `FindingCriteria` ). Valid values are:.
 	//
-	// - ARCHIVE - Suppress (automatically archive) the findings.
-	// - NOOP - Don't perform any action on the findings.
+	// - `ARCHIVE` - Suppress (automatically archive) the findings.
+	// - `NOOP` - Don't perform any action on the findings.
 	Action *string `field:"optional" json:"action" yaml:"action"`
-	// A custom description of the filter. The description can contain as many as 512 characters.
+	// A custom description of the findings filter. The description can contain 1-512 characters.
 	//
-	// We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie .
+	// Avoid including sensitive data in the description. Users of the account might be able to see the description, depending on the actions that they're allowed to perform in Amazon Macie .
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The position of the filter in the list of saved filters on the Amazon Macie console.
+	// The position of the findings filter in the list of saved filters on the Amazon Macie console.
 	//
-	// This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+	// This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to findings.
 	Position *float64 `field:"optional" json:"position" yaml:"position"`
 }
 

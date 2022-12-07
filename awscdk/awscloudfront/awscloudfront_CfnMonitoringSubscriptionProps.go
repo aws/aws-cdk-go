@@ -18,9 +18,9 @@ package awscloudfront
 //   }
 //
 type CfnMonitoringSubscriptionProps struct {
-	// `AWS::CloudFront::MonitoringSubscription.DistributionId`.
+	// The ID of the distribution that you are enabling metrics for.
 	DistributionId *string `field:"required" json:"distributionId" yaml:"distributionId"`
-	// `AWS::CloudFront::MonitoringSubscription.MonitoringSubscription`.
+	// A subscription configuration for additional CloudWatch metrics.
 	MonitoringSubscription interface{} `field:"required" json:"monitoringSubscription" yaml:"monitoringSubscription"`
 }
 

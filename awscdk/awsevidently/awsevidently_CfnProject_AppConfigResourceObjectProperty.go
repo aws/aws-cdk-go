@@ -1,6 +1,8 @@
 package awsevidently
 
 
+// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsevidently
 //   }
 //
 type CfnProject_AppConfigResourceObjectProperty struct {
-	// `CfnProject.AppConfigResourceObjectProperty.ApplicationId`.
+	// The ID of the AWS AppConfig application to use for client-side evaluation.
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
-	// `CfnProject.AppConfigResourceObjectProperty.EnvironmentId`.
+	// The ID of the AWS AppConfig environment to use for client-side evaluation.
 	EnvironmentId *string `field:"required" json:"environmentId" yaml:"environmentId"`
 }
 

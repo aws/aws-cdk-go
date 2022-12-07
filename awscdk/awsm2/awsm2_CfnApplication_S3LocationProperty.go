@@ -1,6 +1,8 @@
 package awsm2
 
 
+// The S3 bucket that contains the application definition.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsm2
 //   }
 //
 type CfnApplication_S3LocationProperty struct {
-	// `CfnApplication.S3LocationProperty.S3Location`.
+	// The S3 bucket that contains the application definition.
 	S3Location *string `field:"required" json:"s3Location" yaml:"s3Location"`
 }
 

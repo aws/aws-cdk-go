@@ -56,13 +56,17 @@ package awsbatch
 type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// The maximum number of Amazon EC2 vCPUs that an environment can reach.
 	//
-	// > With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` allocation strategies, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance. That is, no more than a single instance from among those specified in your compute environment.
+	// > With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` allocation strategies using On-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance. That is, no more than a single instance from among those specified in your compute environment.
 	MaxvCpus *float64 `field:"required" json:"maxvCpus" yaml:"maxvCpus"`
 	// The VPC subnets where the compute resources are launched.
 	//
 	// Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
 	//
 	// When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	//
+	// > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
+	// >
+	// > AWS Batch on Fargate doesn't currently support Local Zones.
 	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 	// The type of compute environment: `EC2` , `SPOT` , `FARGATE` , or `FARGATE_SPOT` .
 	//
@@ -86,21 +90,21 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// - **BEST_FIT_PROGRESSIVE** - AWS Batch will select additional instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types with a lower cost per unit vCPU. If additional instances of the previously selected instance types aren't available, AWS Batch will select new instance types.
 	// - **SPOT_CAPACITY_OPTIMIZED** - AWS Batch will select one or more instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types that are less likely to be interrupted. This allocation strategy is only available for Spot Instance compute resources.
 	//
-	// With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` strategies, AWS Batch might need to go above `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance.
+	// With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` allocation strategies using On-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to go above `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance.
 	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched.
 	//
-	// For example, if your maximum percentage is 20%, then the Spot price must be less than 20% of the current On-Demand price for that Amazon EC2 instance. You always pay the lowest (market) price and never more than your maximum percentage.
+	// For example, if your maximum percentage is 20%, the Spot price must be less than 20% of the current On-Demand price for that Amazon EC2 instance. You always pay the lowest (market) price and never more than your maximum percentage.
 	//
 	// When updating a compute environment, changing the bid percentage requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	BidPercentage *float64 `field:"optional" json:"bidPercentage" yaml:"bidPercentage"`
 	// The desired number of Amazon EC2 vCPUS in the compute environment.
 	//
 	// AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify this parameter for compute environments using Amazon EKS clusters.
 	DesiredvCpus *float64 `field:"optional" json:"desiredvCpus" yaml:"desiredvCpus"`
 	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment.
 	//
@@ -110,7 +114,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// One or two values can be provided.
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	Ec2Configuration interface{} `field:"optional" json:"ec2Configuration" yaml:"ec2Configuration"`
 	// The Amazon EC2 key pair that's used for instances launched in the compute environment.
 	//
@@ -118,7 +122,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// When updating a compute environment, changing the EC2 key pair requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	Ec2KeyPair *string `field:"optional" json:"ec2KeyPair" yaml:"ec2KeyPair"`
 	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
 	//
@@ -126,7 +130,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// When updating a compute environment, changing the AMI ID requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified. > The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
 	//
@@ -134,7 +138,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	InstanceRole *string `field:"optional" json:"instanceRole" yaml:"instanceRole"`
 	// The instances types that can be launched.
 	//
@@ -142,17 +146,19 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment. > Currently, `optimal` uses instance types from the C4, M4, and R4 instance families. In Regions that don't have instance types from those instance families, instance types from the C5, M5. and R5 instance families are used.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment. > Currently, `optimal` uses instance types from the C4, M4, and R4 instance families. In Regions that don't have instance types from those instance families, instance types from the C5, M5, and R5 instance families are used.
 	InstanceTypes *[]*string `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// The launch template to use for your compute resources.
 	//
-	// Any other compute resource parameters that you specify in a [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see [Launch Template Support](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the ** .
+	// Any other compute resource parameters that you specify in a [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see [Launch Template Support](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the ** . Removing the launch template from a compute environment will not remove the AMI specified in the launch template. In order to update the AMI specified in a launch template, the `updateToLatestImageVersion` parameter must be set to `true` .
+	//
+	// When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the ** .
 	//
 	// > This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
 	// The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if the compute environment is `DISABLED` ).
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	MinvCpus *float64 `field:"optional" json:"minvCpus" yaml:"minvCpus"`
 	// The Amazon EC2 placement group to associate with your compute resources.
 	//
@@ -160,9 +166,9 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// When updating a compute environment, changing the placement group requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	PlacementGroup *string `field:"optional" json:"placementGroup" yaml:"placementGroup"`
-	// The Amazon EC2 security groups associated with instances launched in the compute environment.
+	// The Amazon EC2 security groups that are associated with instances launched in the compute environment.
 	//
 	// This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For EC2 compute resources, providing an empty list removes the security groups from the compute resource.
 	//
@@ -172,21 +178,21 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	//
 	// This role is required if the allocation strategy set to `BEST_FIT` or if the allocation strategy isn't specified. For more information, see [Amazon EC2 spot fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified. > To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer *AmazonEC2SpotFleetTaggingRole* managed policy. The previously recommended *AmazonEC2SpotFleetRole* managed policy doesn't have the required permissions to tag Spot Instances. For more information, see [Spot instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the *AWS Batch User Guide* .
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer *AmazonEC2SpotFleetTaggingRole* managed policy. The previously recommended *AmazonEC2SpotFleetRole* managed policy doesn't have the required permissions to tag Spot Instances. For more information, see [Spot instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the *AWS Batch User Guide* .
 	SpotIamFleetRole *string `field:"optional" json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
 	// Key-value pair tags to be applied to EC2 resources that are launched in the compute environment.
 	//
-	// For AWS Batch , these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value−for example, `{ "Name": "Batch Instance - C4OnDemand" }` . This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation.
+	// For AWS Batch , these take the form of `"String1": "String2"` , where `String1` is the tag key and `String2` is the tag value-for example, `{ "Name": "Batch Instance - C4OnDemand" }` . This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation.
 	//
 	// When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
-	// > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Specifies whether the AMI ID is updated to the latest one that's supported by AWS Batch when the compute environment has an infrastructure update.
 	//
 	// The default value is `false` .
 	//
-	// > If an AMI ID is specified in the `imageId` or `imageIdOverride` parameters or by the launch template specified in the `launchTemplate` parameter, this parameter is ignored. For more information on updating AMI IDs during an infrastructure update, see [Updating the AMI ID](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami) in the *AWS Batch User Guide* .
+	// > An AMI ID can either be specified in the `imageId` or `imageIdOverride` parameters or be determined by the launch template that's specified in the `launchTemplate` parameter. If an AMI ID is specified any of these ways, this parameter is ignored. For more information about to update AMI IDs during an infrastructure update, see [Updating the AMI ID](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami) in the *AWS Batch User Guide* .
 	//
 	// When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	UpdateToLatestImageVersion interface{} `field:"optional" json:"updateToLatestImageVersion" yaml:"updateToLatestImageVersion"`

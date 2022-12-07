@@ -5,8 +5,10 @@ import (
 )
 
 // Represents a Cache Policy.
+// Experimental.
 type ICachePolicy interface {
 	// The ID of the cache policy.
+	// Experimental.
 	CachePolicyId() *string
 }
 

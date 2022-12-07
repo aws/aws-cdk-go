@@ -38,9 +38,6 @@ package awsiot
 //   		iotPolicyOverlyPermissiveCheck: &auditCheckConfigurationProperty{
 //   			enabled: jsii.Boolean(false),
 //   		},
-//   		ioTPolicyPotentialMisConfigurationCheck: &auditCheckConfigurationProperty{
-//   			enabled: jsii.Boolean(false),
-//   		},
 //   		iotRoleAliasAllowsAccessToUnusedServicesCheck: &auditCheckConfigurationProperty{
 //   			enabled: jsii.Boolean(false),
 //   		},

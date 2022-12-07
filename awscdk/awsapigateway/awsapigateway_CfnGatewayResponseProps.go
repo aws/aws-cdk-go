@@ -25,7 +25,7 @@ package awsapigateway
 type CfnGatewayResponseProps struct {
 	// The response type.
 	//
-	// For valid values, see [GatewayResponse](https://docs.aws.amazon.com/apigateway/api-reference/resource/gateway-response/) in the *API Gateway API Reference* .
+	// For valid values, see [GatewayResponse](https://docs.aws.amazon.com/apigateway/latest/api/API_GatewayResponse.html) in the *API Gateway API Reference* .
 	ResponseType *string `field:"required" json:"responseType" yaml:"responseType"`
 	// The identifier of the API.
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`

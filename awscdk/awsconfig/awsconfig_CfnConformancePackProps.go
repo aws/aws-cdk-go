@@ -48,7 +48,7 @@ type CfnConformancePackProps struct {
 	//
 	// > You must have access to read Amazon S3 bucket.
 	TemplateS3Uri *string `field:"optional" json:"templateS3Uri" yaml:"templateS3Uri"`
-	// `AWS::Config::ConformancePack.TemplateSSMDocumentDetails`.
+	// An object that contains the name or Amazon Resource Name (ARN) of the AWS Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.
 	TemplateSsmDocumentDetails interface{} `field:"optional" json:"templateSsmDocumentDetails" yaml:"templateSsmDocumentDetails"`
 }
 

@@ -1,6 +1,10 @@
 package awsroute53
 
 
+// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
+//
+// A `LocationName` with an asterisk “*” can be used to create a default CIDR record. `CollectionId` is still required for default record.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +16,9 @@ package awsroute53
 //   }
 //
 type CfnRecordSetGroup_CidrRoutingConfigProperty struct {
-	// `CfnRecordSetGroup.CidrRoutingConfigProperty.CollectionId`.
+	// The CIDR collection ID.
 	CollectionId *string `field:"required" json:"collectionId" yaml:"collectionId"`
-	// `CfnRecordSetGroup.CidrRoutingConfigProperty.LocationName`.
+	// The CIDR collection location name.
 	LocationName *string `field:"required" json:"locationName" yaml:"locationName"`
 }
 

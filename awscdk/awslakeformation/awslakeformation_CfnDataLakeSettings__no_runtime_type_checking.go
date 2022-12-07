@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnDataLakeSettings) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataLakeSettings) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataLakeSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDataLakeSettings) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDataLakeSettings) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnDataLakeSettings) validateSetAdminsParameters(val interfac
 	return nil
 }
 
-func validateNewCfnDataLakeSettingsParameters(scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) error {
+func validateNewCfnDataLakeSettingsParameters(scope awscdk.Construct, id *string, props *CfnDataLakeSettingsProps) error {
 	return nil
 }
 

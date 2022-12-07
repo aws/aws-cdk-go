@@ -1,12 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
 )
 
 // Construct an Bottlerocket image from the latest AMI published in SSM.
@@ -21,10 +21,12 @@ import (
 //   	machineImage: ecs.NewBottleRocketImage(),
 //   })
 //
+// Experimental.
 type BottleRocketImage interface {
 	awsec2.IMachineImage
 	// Return the correct image.
-	GetImage(scope constructs.Construct) *awsec2.MachineImageConfig
+	// Experimental.
+	GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig
 }
 
 // The jsii proxy struct for BottleRocketImage
@@ -33,6 +35,7 @@ type jsiiProxy_BottleRocketImage struct {
 }
 
 // Constructs a new instance of the BottleRocketImage class.
+// Experimental.
 func NewBottleRocketImage(props *BottleRocketImageProps) BottleRocketImage {
 	_init_.Initialize()
 
@@ -42,7 +45,7 @@ func NewBottleRocketImage(props *BottleRocketImageProps) BottleRocketImage {
 	j := jsiiProxy_BottleRocketImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.BottleRocketImage",
+		"monocdk.aws_ecs.BottleRocketImage",
 		[]interface{}{props},
 		&j,
 	)
@@ -51,17 +54,18 @@ func NewBottleRocketImage(props *BottleRocketImageProps) BottleRocketImage {
 }
 
 // Constructs a new instance of the BottleRocketImage class.
+// Experimental.
 func NewBottleRocketImage_Override(b BottleRocketImage, props *BottleRocketImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.BottleRocketImage",
+		"monocdk.aws_ecs.BottleRocketImage",
 		[]interface{}{props},
 		b,
 	)
 }
 
-func (b *jsiiProxy_BottleRocketImage) GetImage(scope constructs.Construct) *awsec2.MachineImageConfig {
+func (b *jsiiProxy_BottleRocketImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
 	if err := b.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}

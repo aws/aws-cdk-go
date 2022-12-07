@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Contains information about storage volumes attached to MSK broker nodes.
+// Contains information about storage volumes attached to Amazon MSK broker nodes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -42,7 +42,7 @@ type CfnStage_MethodSettingProperty struct {
 	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The logging level for this method.
 	//
-	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the *Amazon API Gateway API Reference* .
+	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/latest/api/API_MethodSetting.html#apigw-Type-MethodSetting-loggingLevel) resource in the *Amazon API Gateway API Reference* .
 	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
 	MetricsEnabled interface{} `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`

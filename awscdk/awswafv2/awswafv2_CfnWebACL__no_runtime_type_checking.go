@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnWebACL) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnWebACL) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWebACL) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWebACL) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnWebACL) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +100,7 @@ func (j *jsiiProxy_CfnWebACL) validateSetVisibilityConfigParameters(val interfac
 	return nil
 }
 
-func validateNewCfnWebACLParameters(scope constructs.Construct, id *string, props *CfnWebACLProps) error {
+func validateNewCfnWebACLParameters(scope awscdk.Construct, id *string, props *CfnWebACLProps) error {
 	return nil
 }
 

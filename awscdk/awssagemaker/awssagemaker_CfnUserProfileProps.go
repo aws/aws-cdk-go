@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnUserProfile`.
@@ -71,11 +71,11 @@ type CfnUserProfileProps struct {
 	UserProfileName *string `field:"required" json:"userProfileName" yaml:"userProfileName"`
 	// A specifier for the type of value specified in SingleSignOnUserValue.
 	//
-	// Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+	// Currently, the only supported value is "UserName". If the Domain's AuthMode is IAM Identity Center , this field is required. If the Domain's AuthMode is not IAM Identity Center , this field cannot be specified.
 	SingleSignOnUserIdentifier *string `field:"optional" json:"singleSignOnUserIdentifier" yaml:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this UserProfile.
 	//
-	// If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
+	// If the Domain's AuthMode is IAM Identity Center , this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not IAM Identity Center , this field cannot be specified.
 	SingleSignOnUserValue *string `field:"optional" json:"singleSignOnUserValue" yaml:"singleSignOnUserValue"`
 	// An array of key-value pairs to apply to this resource.
 	//

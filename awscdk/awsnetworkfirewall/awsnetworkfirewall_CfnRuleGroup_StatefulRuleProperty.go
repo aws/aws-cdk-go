@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A single Suricata rules specification, for use in a stateful rule group.
 //
-// Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#) .
+// Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/rules/intro.html#) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

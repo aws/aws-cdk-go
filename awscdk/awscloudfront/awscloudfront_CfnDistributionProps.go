@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnDistribution`.
@@ -146,7 +146,6 @@ import (
 //   			jsii.String("cnamEs"),
 //   		},
 //   		comment: jsii.String("comment"),
-//   		continuousDeploymentPolicyId: jsii.String("continuousDeploymentPolicyId"),
 //   		customErrorResponses: []interface{}{
 //   			&customErrorResponseProperty{
 //   				errorCode: jsii.Number(123),
@@ -258,7 +257,6 @@ import (
 //   			// the properties below are optional
 //   			originAccessIdentity: jsii.String("originAccessIdentity"),
 //   		},
-//   		staging: jsii.Boolean(false),
 //   		viewerCertificate: &viewerCertificateProperty{
 //   			acmCertificateArn: jsii.String("acmCertificateArn"),
 //   			cloudFrontDefaultCertificate: jsii.Boolean(false),
@@ -279,9 +277,7 @@ import (
 //   }
 //
 type CfnDistributionProps struct {
-	// The current configuration information for the distribution.
-	//
-	// Send a `GET` request to the `/ *CloudFront API version* /distribution ID/config` resource.
+	// The distribution’s configuration.
 	DistributionConfig interface{} `field:"required" json:"distributionConfig" yaml:"distributionConfig"`
 	// A complex type that contains zero or more `Tag` elements.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -150,19 +150,23 @@ type CfnUserPoolProps struct {
 	AutoVerifiedAttributes *[]*string `field:"optional" json:"autoVerifiedAttributes" yaml:"autoVerifiedAttributes"`
 	// `AWS::Cognito::UserPool.DeletionProtection`.
 	DeletionProtection *string `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
-	// The device configuration.
+	// The device-remembering configuration for a user pool.
+	//
+	// A null value indicates that you have deactivated device remembering in your user pool.
+	//
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
 	DeviceConfiguration interface{} `field:"optional" json:"deviceConfiguration" yaml:"deviceConfiguration"`
 	// The email configuration of your user pool.
 	//
 	// The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 	EmailConfiguration interface{} `field:"optional" json:"emailConfiguration" yaml:"emailConfiguration"`
-	// A string representing the email verification message.
+	// This parameter is no longer used.
 	//
-	// EmailVerificationMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	EmailVerificationMessage *string `field:"optional" json:"emailVerificationMessage" yaml:"emailVerificationMessage"`
-	// A string representing the email verification subject.
+	// This parameter is no longer used.
 	//
-	// EmailVerificationSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	EmailVerificationSubject *string `field:"optional" json:"emailVerificationSubject" yaml:"emailVerificationSubject"`
 	// Enables MFA on a specified user pool.
 	//
@@ -181,7 +185,7 @@ type CfnUserPoolProps struct {
 	// >
 	// > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
 	LambdaConfig interface{} `field:"optional" json:"lambdaConfig" yaml:"lambdaConfig"`
-	// The multi-factor (MFA) configuration. Valid values include:.
+	// The multi-factor authentication (MFA) configuration. Valid values include:.
 	//
 	// - `OFF` MFA won't be used for any users.
 	// - `ON` MFA is required for all users to sign in.
@@ -199,13 +203,15 @@ type CfnUserPoolProps struct {
 	//
 	// To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
 	SmsConfiguration interface{} `field:"optional" json:"smsConfiguration" yaml:"smsConfiguration"`
-	// A string representing the SMS verification message.
+	// This parameter is no longer used.
+	//
+	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	SmsVerificationMessage *string `field:"optional" json:"smsVerificationMessage" yaml:"smsVerificationMessage"`
 	// The settings for updates to user attributes.
 	//
 	// These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
 	// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
-	// more information, see [Verifying updates to to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
+	// more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
 	UserAttributeUpdateSettings interface{} `field:"optional" json:"userAttributeUpdateSettings" yaml:"userAttributeUpdateSettings"`
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
 	//

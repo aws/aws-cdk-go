@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 )
 
 func (s *jsiiProxy_SelfManagedKafkaEventSource) validateBindParameters(target awslambda.IFunction) error {

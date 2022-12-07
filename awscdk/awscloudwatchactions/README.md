@@ -25,14 +25,4 @@ alarm.addAlarmAction(
 actions.NewSsmAction(actions.opsItemSeverity_CRITICAL, actions.opsItemCategory_PERFORMANCE))
 ```
 
-## SSM Incident Manager Action Example
-
-```go
-var alarm alarm
-
-// Create an Incident Manager incident based on a specific response plan
-alarm.addAlarmAction(
-actions.NewSsmIncidentAction(jsii.String("ResponsePlanName")))
-```
-
 See `@aws-cdk/aws-cloudwatch` for more information.

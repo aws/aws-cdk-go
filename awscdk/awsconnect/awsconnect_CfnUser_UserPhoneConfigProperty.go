@@ -21,6 +21,8 @@ type CfnUser_UserPhoneConfigProperty struct {
 	// The phone type.
 	PhoneType *string `field:"required" json:"phoneType" yaml:"phoneType"`
 	// The After Call Work (ACW) timeout setting, in seconds.
+	//
+	// > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
 	AfterContactWorkTimeLimit *float64 `field:"optional" json:"afterContactWorkTimeLimit" yaml:"afterContactWorkTimeLimit"`
 	// The Auto accept setting.
 	AutoAccept interface{} `field:"optional" json:"autoAccept" yaml:"autoAccept"`

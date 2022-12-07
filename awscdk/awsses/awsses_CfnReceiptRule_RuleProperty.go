@@ -93,7 +93,9 @@ type CfnReceiptRule_RuleProperty struct {
 	ScanEnabled interface{} `field:"optional" json:"scanEnabled" yaml:"scanEnabled"`
 	// Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
 	//
-	// If this parameter is set to `Require` , Amazon SES bounces emails that are not received over TLS. The default is `Optional` .
+	// If this parameter is set to `REQUIRE` , Amazon SES bounces emails that are not received over TLS. The default is `OPTIONAL` .
+	//
+	// Valid Values: `REQUIRE | OPTIONAL`.
 	TlsPolicy *string `field:"optional" json:"tlsPolicy" yaml:"tlsPolicy"`
 }
 

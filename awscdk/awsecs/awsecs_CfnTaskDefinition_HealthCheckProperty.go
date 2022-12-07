@@ -29,7 +29,7 @@ package awsecs
 type CfnTaskDefinition_HealthCheckProperty struct {
 	// A string array representing the command that the container runs to determine if it is healthy.
 	//
-	// The string array must start with `CMD` to execute the command arguments directly, or `CMD-SHELL` to run the command with the container's default shell.
+	// The string array must start with `CMD` to run the command arguments directly, or `CMD-SHELL` to run the command with the container's default shell.
 	//
 	// When you use the AWS Management Console JSON panel, the AWS Command Line Interface , or the APIs, enclose the list of commands in brackets.
 	//

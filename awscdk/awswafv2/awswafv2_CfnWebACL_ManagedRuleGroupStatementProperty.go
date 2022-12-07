@@ -503,11 +503,9 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	//
 	// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
 	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
-	// Additional information that's used by a managed rule group. Most managed rule groups don't require this.
+	// Additional information that's used by a managed rule group. Many managed rule groups don't require this.
 	//
-	// Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet` , to provide information about the sign-in page of your application.
-	//
-	// You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
+	// Use the `AWSManagedRulesBotControlRuleSet` configuration object to configure the protection level that you want the Bot Control rule group to use.
 	ManagedRuleGroupConfigs interface{} `field:"optional" json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
 	// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group.
 	//

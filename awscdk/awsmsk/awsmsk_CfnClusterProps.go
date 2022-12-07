@@ -146,7 +146,7 @@ type CfnClusterProps struct {
 	LoggingInfo interface{} `field:"optional" json:"loggingInfo" yaml:"loggingInfo"`
 	// The settings for open monitoring.
 	OpenMonitoring interface{} `field:"optional" json:"openMonitoring" yaml:"openMonitoring"`
-	// `AWS::MSK::Cluster.StorageMode`.
+	// This controls storage mode for supported storage tiers.
 	StorageMode *string `field:"optional" json:"storageMode" yaml:"storageMode"`
 	// A map of key:value pairs to apply to this resource.
 	//

@@ -18,14 +18,18 @@ package awsecs
 //   	},
 //   }
 //
+// Experimental.
 type Device struct {
 	// The path for the device on the host container instance.
+	// Experimental.
 	HostPath *string `field:"required" json:"hostPath" yaml:"hostPath"`
 	// The path inside the container at which to expose the host device.
+	// Experimental.
 	ContainerPath *string `field:"optional" json:"containerPath" yaml:"containerPath"`
 	// The explicit permissions to provide to the container for the device.
 	//
 	// By default, the container has permissions for read, write, and mknod for the device.
+	// Experimental.
 	Permissions *[]DevicePermission `field:"optional" json:"permissions" yaml:"permissions"`
 }
 

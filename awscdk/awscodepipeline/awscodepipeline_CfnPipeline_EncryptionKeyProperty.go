@@ -20,7 +20,7 @@ type CfnPipeline_EncryptionKeyProperty struct {
 	//
 	// For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN.
 	//
-	// > Aliases are recognized only in the account that created the AWS KMS key. For cross-account actions, you can only use the key ID or key ARN to identify the key.
+	// > Aliases are recognized only in the account that created the AWS KMS key. For cross-account actions, you can only use the key ID or key ARN to identify the key. Cross-account actions involve using the role from the other account (AccountB), so specifying the key ID will use the key from the other account (AccountB).
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The type of encryption key, such as an AWS KMS key.
 	//

@@ -3,7 +3,7 @@ package awsbatch
 
 // Specifies the infrastructure update policy for the compute environment.
 //
-// For more information about infrastructure updates, see [Infrastructure updates](https://docs.aws.amazon.com/batch/latest/userguide/infrastructure-updates.html) in the *AWS Batch User Guide* .
+// For more information about infrastructure updates, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +16,7 @@ package awsbatch
 //   }
 //
 type CfnComputeEnvironment_UpdatePolicyProperty struct {
-	// Specifies the job timeout, in minutes, when the compute environment infrastructure is updated.
+	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
 	//
 	// The default value is 30.
 	JobExecutionTimeoutMinutes *float64 `field:"optional" json:"jobExecutionTimeoutMinutes" yaml:"jobExecutionTimeoutMinutes"`

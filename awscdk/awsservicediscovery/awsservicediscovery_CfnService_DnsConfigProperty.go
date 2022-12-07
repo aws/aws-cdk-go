@@ -3,6 +3,8 @@ package awsservicediscovery
 
 // A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 //
+// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

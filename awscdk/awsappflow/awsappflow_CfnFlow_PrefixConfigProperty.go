@@ -1,9 +1,7 @@
 package awsappflow
 
 
-// Determines the prefix that Amazon AppFlow applies to the destination folder name.
-//
-// You can name your destination folders according to the flow frequency and date.
+// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +14,7 @@ package awsappflow
 //   }
 //
 type CfnFlow_PrefixConfigProperty struct {
-	// Determines the level of granularity that's included in the prefix.
+	// Determines the level of granularity for the date and time that's included in the prefix.
 	PrefixFormat *string `field:"optional" json:"prefixFormat" yaml:"prefixFormat"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both.
 	PrefixType *string `field:"optional" json:"prefixType" yaml:"prefixType"`

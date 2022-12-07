@@ -1,7 +1,7 @@
 package awsredshift
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -117,7 +117,7 @@ type CfnClusterProps struct {
 	// - Must contain at least one uppercase letter.
 	// - Must contain at least one lowercase letter.
 	// - Must contain one number.
-	// - Can be any printable ASCII character (ASCII code 33-126) except ' (single quote), " (double quote), \, /, or @.
+	// - Can be any printable ASCII character (ASCII code 33-126) except `'` (single quote), `"` (double quote), `\` , `/` , or `@` .
 	MasterUserPassword *string `field:"required" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The node type to be provisioned for the cluster.
 	//
@@ -131,13 +131,9 @@ type CfnClusterProps struct {
 	//
 	// Default: `true`.
 	AllowVersionUpgrade interface{} `field:"optional" json:"allowVersionUpgrade" yaml:"allowVersionUpgrade"`
-	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) when it is created.
+	// This parameter is retired.
 	//
-	// Possible values include the following.
-	//
-	// - enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.
-	// - disabled - Don't use AQUA.
-	// - auto - Amazon Redshift determines whether to use AQUA.
+	// It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).
 	AquaConfigurationStatus *string `field:"optional" json:"aquaConfigurationStatus" yaml:"aquaConfigurationStatus"`
 	// The number of days that automated snapshots are retained.
 	//
@@ -217,7 +213,7 @@ type CfnClusterProps struct {
 	DestinationRegion *string `field:"optional" json:"destinationRegion" yaml:"destinationRegion"`
 	// The Elastic IP (EIP) address for the cluster.
 	//
-	// Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.
+	// Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. Don't specify the Elastic IP address for a publicly accessible cluster with availability zone relocation turned on. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.
 	ElasticIp *string `field:"optional" json:"elasticIp" yaml:"elasticIp"`
 	// If `true` , the data in the cluster is encrypted at rest.
 	//
@@ -319,7 +315,9 @@ type CfnClusterProps struct {
 	//
 	// Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
 	SnapshotCopyRetentionPeriod *float64 `field:"optional" json:"snapshotCopyRetentionPeriod" yaml:"snapshotCopyRetentionPeriod"`
-	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+	// The name of the snapshot from which to create the new cluster.
+	//
+	// This parameter isn't case sensitive. You can specify this parameter or `snapshotArn` , but not both.
 	//
 	// Example: `my-snapshot-id`.
 	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`

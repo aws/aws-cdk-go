@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember",
+		"monocdk.aws_managedblockchain.CfnMember",
 		reflect.TypeOf((*CfnMember)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -33,14 +33,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "networkId", GoGetter: "NetworkId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -51,43 +56,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.ApprovalThresholdPolicyProperty",
+		"monocdk.aws_managedblockchain.CfnMember.ApprovalThresholdPolicyProperty",
 		reflect.TypeOf((*CfnMember_ApprovalThresholdPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.MemberConfigurationProperty",
+		"monocdk.aws_managedblockchain.CfnMember.MemberConfigurationProperty",
 		reflect.TypeOf((*CfnMember_MemberConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.MemberFabricConfigurationProperty",
+		"monocdk.aws_managedblockchain.CfnMember.MemberFabricConfigurationProperty",
 		reflect.TypeOf((*CfnMember_MemberFabricConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.MemberFrameworkConfigurationProperty",
+		"monocdk.aws_managedblockchain.CfnMember.MemberFrameworkConfigurationProperty",
 		reflect.TypeOf((*CfnMember_MemberFrameworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.NetworkConfigurationProperty",
+		"monocdk.aws_managedblockchain.CfnMember.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnMember_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.NetworkFabricConfigurationProperty",
+		"monocdk.aws_managedblockchain.CfnMember.NetworkFabricConfigurationProperty",
 		reflect.TypeOf((*CfnMember_NetworkFabricConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.NetworkFrameworkConfigurationProperty",
+		"monocdk.aws_managedblockchain.CfnMember.NetworkFrameworkConfigurationProperty",
 		reflect.TypeOf((*CfnMember_NetworkFrameworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMember.VotingPolicyProperty",
+		"monocdk.aws_managedblockchain.CfnMember.VotingPolicyProperty",
 		reflect.TypeOf((*CfnMember_VotingPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnMemberProps",
+		"monocdk.aws_managedblockchain.CfnMemberProps",
 		reflect.TypeOf((*CfnMemberProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_managedblockchain.CfnNode",
+		"monocdk.aws_managedblockchain.CfnNode",
 		reflect.TypeOf((*CfnNode)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -113,14 +118,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkId", GoGetter: "NetworkId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodeConfiguration", GoGetter: "NodeConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -131,11 +141,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnNode.NodeConfigurationProperty",
+		"monocdk.aws_managedblockchain.CfnNode.NodeConfigurationProperty",
 		reflect.TypeOf((*CfnNode_NodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_managedblockchain.CfnNodeProps",
+		"monocdk.aws_managedblockchain.CfnNodeProps",
 		reflect.TypeOf((*CfnNodeProps)(nil)).Elem(),
 	)
 }

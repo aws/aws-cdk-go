@@ -27,7 +27,9 @@ type CfnLaunchTemplate_PlacementProperty struct {
 	Affinity *string `field:"optional" json:"affinity" yaml:"affinity"`
 	// The Availability Zone for the instance.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// `CfnLaunchTemplate.PlacementProperty.GroupId`.
+	// The ID of the placement group that the instance is in.
+	//
+	// If you specify `GroupId` , you can't specify `GroupName` .
 	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
 	// The name of the placement group for the instance.
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`

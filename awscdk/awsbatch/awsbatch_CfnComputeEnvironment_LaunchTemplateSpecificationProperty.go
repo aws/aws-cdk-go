@@ -1,7 +1,7 @@
 package awsbatch
 
 
-// An object representing a launch template associated with a compute resource.
+// An object that represents a launch template that's associated with a compute resource.
 //
 // You must specify either the launch template ID or launch template name in the request, but not both.
 //

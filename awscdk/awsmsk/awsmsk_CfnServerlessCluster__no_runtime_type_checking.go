@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnServerlessCluster) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnServerlessCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnServerlessCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnServerlessCluster) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnServerlessCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +88,7 @@ func (j *jsiiProxy_CfnServerlessCluster) validateSetVpcConfigsParameters(val int
 	return nil
 }
 
-func validateNewCfnServerlessClusterParameters(scope constructs.Construct, id *string, props *CfnServerlessClusterProps) error {
+func validateNewCfnServerlessClusterParameters(scope awscdk.Construct, id *string, props *CfnServerlessClusterProps) error {
 	return nil
 }
 

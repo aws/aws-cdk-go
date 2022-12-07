@@ -21,7 +21,7 @@ type CfnJob_JobCommandProperty struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The Python version being used to execute a Python shell job.
 	//
-	// Allowed values are 2 or 3.
+	// Allowed values are 3 or 3.9. Version 2 is deprecated.
 	PythonVersion *string `field:"optional" json:"pythonVersion" yaml:"pythonVersion"`
 	// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
 	ScriptLocation *string `field:"optional" json:"scriptLocation" yaml:"scriptLocation"`

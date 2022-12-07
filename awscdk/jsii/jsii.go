@@ -5,28 +5,22 @@
 package jsii
 
 import (
-	_                "embed"
+	_          "embed"
 
-	_jsii_           "github.com/aws/jsii-runtime-go/runtime"
+	_jsii_     "github.com/aws/jsii-runtime-go/runtime"
 
-	constructs       "github.com/aws/constructs-go/constructs/v10/jsii"
-	awscliv1         "github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2/jsii"
-	kubectlv20       "github.com/cdklabs/awscdk-asset-kubectl-go/kubectlv20/v2/jsii"
-	nodeproxyagentv5 "github.com/cdklabs/awscdk-asset-node-proxy-agent-go/nodeproxyagentv5/v2/jsii"
+	constructs "github.com/aws/constructs-go/constructs/v3/jsii"
 )
 
-//go:embed aws-cdk-lib-2.54.0.tgz
+//go:embed monocdk-1.182.0.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
 // The implementation is idempotent (and hence safe to be called over and over).
 func Initialize() {
 	// Ensure all dependencies are initialized
-	awscliv1.Initialize()
-	kubectlv20.Initialize()
-	nodeproxyagentv5.Initialize()
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("aws-cdk-lib", "2.54.0", tarball)
+	_jsii_.Load("monocdk", "1.182.0", tarball)
 }

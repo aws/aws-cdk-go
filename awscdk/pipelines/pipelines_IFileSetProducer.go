@@ -7,8 +7,10 @@ import (
 // Any class that produces, or is itself, a `FileSet`.
 //
 // Steps implicitly produce a primary FileSet as an output.
+// Experimental.
 type IFileSetProducer interface {
 	// The `FileSet` produced by this file set producer.
+	// Experimental.
 	PrimaryOutput() FileSet
 }
 

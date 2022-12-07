@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (p *jsiiProxy_Portfolio) validateAddProductParameters(product IProduct) error {
@@ -150,6 +150,14 @@ func (p *jsiiProxy_Portfolio) validateNotifyOnStackEventsParameters(product IPro
 	return nil
 }
 
+func (p *jsiiProxy_Portfolio) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_Portfolio) validateSetLaunchRoleParameters(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions) error {
 	if product == nil {
 		return fmt.Errorf("parameter product is required, but nil was provided")
@@ -210,6 +218,14 @@ func (p *jsiiProxy_Portfolio) validateShareWithAccountParameters(accountId *stri
 	return nil
 }
 
+func (p *jsiiProxy_Portfolio) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validatePortfolio_FromPortfolioArnParameters(scope constructs.Construct, id *string, portfolioArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -234,15 +250,7 @@ func validatePortfolio_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePortfolio_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validatePortfolio_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePortfolio_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

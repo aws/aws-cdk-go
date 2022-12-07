@@ -142,7 +142,6 @@ package awscloudfront
 //   		jsii.String("cnamEs"),
 //   	},
 //   	comment: jsii.String("comment"),
-//   	continuousDeploymentPolicyId: jsii.String("continuousDeploymentPolicyId"),
 //   	customErrorResponses: []interface{}{
 //   		&customErrorResponseProperty{
 //   			errorCode: jsii.Number(123),
@@ -254,7 +253,6 @@ package awscloudfront
 //   		// the properties below are optional
 //   		originAccessIdentity: jsii.String("originAccessIdentity"),
 //   	},
-//   	staging: jsii.Boolean(false),
 //   	viewerCertificate: &viewerCertificateProperty{
 //   		acmCertificateArn: jsii.String("acmCertificateArn"),
 //   		cloudFrontDefaultCertificate: jsii.Boolean(false),
@@ -282,8 +280,6 @@ type CfnDistribution_DistributionConfigProperty struct {
 	//
 	// The comment cannot be longer than 128 characters.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
-	// `CfnDistribution.DistributionConfigProperty.ContinuousDeploymentPolicyId`.
-	ContinuousDeploymentPolicyId *string `field:"optional" json:"continuousDeploymentPolicyId" yaml:"continuousDeploymentPolicyId"`
 	// A complex type that controls the following:.
 	//
 	// - Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
@@ -293,7 +289,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	CustomErrorResponses interface{} `field:"optional" json:"customErrorResponses" yaml:"customErrorResponses"`
 	// `CfnDistribution.DistributionConfigProperty.CustomOrigin`.
 	CustomOrigin interface{} `field:"optional" json:"customOrigin" yaml:"customOrigin"`
-	// The object that you want CloudFront to request from your origin (for example, `index.html` ) when a viewer requests the root URL for your distribution ( `http://www.example.com` ) instead of an object in your distribution ( `http://www.example.com/product-description.html` ). Specifying a default root object avoids exposing the contents of your distribution.
+	// The object that you want CloudFront to request from your origin (for example, `index.html` ) when a viewer requests the root URL for your distribution ( `https://www.example.com` ) instead of an object in your distribution ( `https://www.example.com/product-description.html` ). Specifying a default root object avoids exposing the contents of your distribution.
 	//
 	// Specify only the object name, for example, `index.html` . Don't add a `/` before the object name.
 	//
@@ -305,13 +301,13 @@ type CfnDistribution_DistributionConfigProperty struct {
 	//
 	// For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide* .
 	DefaultRootObject *string `field:"optional" json:"defaultRootObject" yaml:"defaultRootObject"`
-	// (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront .
+	// (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CloudFront .
 	//
-	// The default value for new web distributions is `http1.1` .
+	// The default value for new distributions is `http1.1` .
 	//
-	// For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support server name identification (SNI).
+	// For viewers and CloudFront to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
 	//
-	// In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2.
+	// For viewers and CloudFront to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CloudFront supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) .
 	HttpVersion *string `field:"optional" json:"httpVersion" yaml:"httpVersion"`
 	// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify `true` .
 	//
@@ -348,8 +344,6 @@ type CfnDistribution_DistributionConfigProperty struct {
 	Restrictions interface{} `field:"optional" json:"restrictions" yaml:"restrictions"`
 	// `CfnDistribution.DistributionConfigProperty.S3Origin`.
 	S3Origin interface{} `field:"optional" json:"s3Origin" yaml:"s3Origin"`
-	// `CfnDistribution.DistributionConfigProperty.Staging`.
-	Staging interface{} `field:"optional" json:"staging" yaml:"staging"`
 	// A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate interface{} `field:"optional" json:"viewerCertificate" yaml:"viewerCertificate"`
 	// A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.

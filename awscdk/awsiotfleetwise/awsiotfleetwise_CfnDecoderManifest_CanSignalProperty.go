@@ -1,6 +1,8 @@
 package awsiotfleetwise
 
 
+// Information about a single controller area network (CAN) signal and the messages it receives and transmits.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -28,21 +30,21 @@ package awsiotfleetwise
 //   }
 //
 type CfnDecoderManifest_CanSignalProperty struct {
-	// `CfnDecoderManifest.CanSignalProperty.Factor`.
+	// A multiplier used to decode the CAN message.
 	Factor interface{} `field:"required" json:"factor" yaml:"factor"`
-	// `CfnDecoderManifest.CanSignalProperty.IsBigEndian`.
+	// Whether the byte ordering of a CAN message is big-endian.
 	IsBigEndian interface{} `field:"required" json:"isBigEndian" yaml:"isBigEndian"`
-	// `CfnDecoderManifest.CanSignalProperty.IsSigned`.
+	// Whether the message data is specified as a signed value.
 	IsSigned interface{} `field:"required" json:"isSigned" yaml:"isSigned"`
-	// `CfnDecoderManifest.CanSignalProperty.Length`.
+	// How many bytes of data are in the message.
 	Length interface{} `field:"required" json:"length" yaml:"length"`
-	// `CfnDecoderManifest.CanSignalProperty.MessageId`.
+	// The ID of the message.
 	MessageId interface{} `field:"required" json:"messageId" yaml:"messageId"`
-	// `CfnDecoderManifest.CanSignalProperty.Offset`.
+	// Indicates where data appears in the CAN message.
 	Offset interface{} `field:"required" json:"offset" yaml:"offset"`
-	// `CfnDecoderManifest.CanSignalProperty.StartBit`.
+	// Indicates the beginning of the CAN message.
 	StartBit interface{} `field:"required" json:"startBit" yaml:"startBit"`
-	// `CfnDecoderManifest.CanSignalProperty.Name`.
+	// The name of the signal.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

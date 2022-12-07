@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) validateInspectParameters(inspector
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPlaybackConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPlaybackConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -108,7 +116,7 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetVideoContentSourceUrlPar
 	return nil
 }
 
-func validateNewCfnPlaybackConfigurationParameters(scope constructs.Construct, id *string, props *CfnPlaybackConfigurationProps) error {
+func validateNewCfnPlaybackConfigurationParameters(scope awscdk.Construct, id *string, props *CfnPlaybackConfigurationProps) error {
 	return nil
 }
 

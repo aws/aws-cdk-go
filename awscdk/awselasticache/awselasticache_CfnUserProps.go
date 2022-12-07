@@ -33,7 +33,12 @@ type CfnUserProps struct {
 	UserName *string `field:"required" json:"userName" yaml:"userName"`
 	// Access permissions string used for this user.
 	AccessString *string `field:"optional" json:"accessString" yaml:"accessString"`
-	// `AWS::ElastiCache::User.AuthenticationMode`.
+	// Specifies the authentication mode to use. Below is an example of the possible JSON values:.
+	//
+	// ```
+	// { AuthenticationType: <iam | no-password-required | password> Passwords: ["*****", "******"] // If authentication-type is password.
+	// }
+	// ```.
 	AuthenticationMode interface{} `field:"optional" json:"authenticationMode" yaml:"authenticationMode"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired interface{} `field:"optional" json:"noPasswordRequired" yaml:"noPasswordRequired"`

@@ -43,19 +43,23 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	//
 	// EI instances provide on-demand GPU computing for inference. For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) . For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) .
 	AcceleratorType *string `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
-	// `CfnEndpointConfig.ProductionVariantProperty.ContainerStartupHealthCheckTimeoutInSeconds`.
+	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
+	//
+	// For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests) .
 	ContainerStartupHealthCheckTimeoutInSeconds *float64 `field:"optional" json:"containerStartupHealthCheckTimeoutInSeconds" yaml:"containerStartupHealthCheckTimeoutInSeconds"`
 	// Number of instances to launch initially.
 	InitialInstanceCount *float64 `field:"optional" json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// The ML compute instance type.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
-	// `CfnEndpointConfig.ProductionVariantProperty.ModelDataDownloadTimeoutInSeconds`.
+	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
 	ModelDataDownloadTimeoutInSeconds *float64 `field:"optional" json:"modelDataDownloadTimeoutInSeconds" yaml:"modelDataDownloadTimeoutInSeconds"`
 	// The serverless configuration for an endpoint.
 	//
 	// Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
 	ServerlessConfig interface{} `field:"optional" json:"serverlessConfig" yaml:"serverlessConfig"`
-	// `CfnEndpointConfig.ProductionVariantProperty.VolumeSizeInGB`.
+	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant.
+	//
+	// Currenly only Amazon EBS gp2 storage volumes are supported.
 	VolumeSizeInGb *float64 `field:"optional" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 }
 

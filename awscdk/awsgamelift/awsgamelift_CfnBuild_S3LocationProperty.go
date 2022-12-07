@@ -18,9 +18,9 @@ package awsgamelift
 //   }
 //
 type CfnBuild_S3LocationProperty struct {
-	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+	// An Amazon S3 bucket identifier. Thename of the S3 bucket.
 	//
-	// > GameLift currently does not support uploading from Amazon S3 buckets with names that contain a dot (.).
+	// > GameLift doesn't support uploading from Amazon S3 buckets with names that contain a dot (.).
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The name of the zip file that contains the build files or script files.
 	Key *string `field:"required" json:"key" yaml:"key"`

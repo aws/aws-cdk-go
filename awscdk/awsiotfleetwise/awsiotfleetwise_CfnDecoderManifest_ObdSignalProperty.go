@@ -1,6 +1,8 @@
 package awsiotfleetwise
 
 
+// Information about signal messages using the on-board diagnostics (OBD) II protocol in a vehicle.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,23 +33,23 @@ package awsiotfleetwise
 //   }
 //
 type CfnDecoderManifest_ObdSignalProperty struct {
-	// `CfnDecoderManifest.ObdSignalProperty.ByteLength`.
+	// The length of a message.
 	ByteLength interface{} `field:"required" json:"byteLength" yaml:"byteLength"`
-	// `CfnDecoderManifest.ObdSignalProperty.Offset`.
+	// Indicates where data appears in the message.
 	Offset interface{} `field:"required" json:"offset" yaml:"offset"`
-	// `CfnDecoderManifest.ObdSignalProperty.Pid`.
+	// The diagnostic code used to request data from a vehicle for this signal.
 	Pid interface{} `field:"required" json:"pid" yaml:"pid"`
-	// `CfnDecoderManifest.ObdSignalProperty.PidResponseLength`.
+	// The length of the requested data.
 	PidResponseLength interface{} `field:"required" json:"pidResponseLength" yaml:"pidResponseLength"`
-	// `CfnDecoderManifest.ObdSignalProperty.Scaling`.
+	// A multiplier used to decode the message.
 	Scaling interface{} `field:"required" json:"scaling" yaml:"scaling"`
-	// `CfnDecoderManifest.ObdSignalProperty.ServiceMode`.
+	// The mode of operation (diagnostic service) in a message.
 	ServiceMode interface{} `field:"required" json:"serviceMode" yaml:"serviceMode"`
-	// `CfnDecoderManifest.ObdSignalProperty.StartByte`.
+	// Indicates the beginning of the message.
 	StartByte interface{} `field:"required" json:"startByte" yaml:"startByte"`
-	// `CfnDecoderManifest.ObdSignalProperty.BitMaskLength`.
+	// The number of bits to mask in a message.
 	BitMaskLength interface{} `field:"optional" json:"bitMaskLength" yaml:"bitMaskLength"`
-	// `CfnDecoderManifest.ObdSignalProperty.BitRightShift`.
+	// The number of positions to shift bits in the message.
 	BitRightShift interface{} `field:"optional" json:"bitRightShift" yaml:"bitRightShift"`
 }
 

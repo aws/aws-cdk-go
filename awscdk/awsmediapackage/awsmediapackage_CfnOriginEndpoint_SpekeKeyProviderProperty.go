@@ -41,7 +41,7 @@ type CfnOriginEndpoint_SpekeKeyProviderProperty struct {
 	//
 	// For this feature to work, your DRM key provider must support content key encryption.
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
-	// `CfnOriginEndpoint.SpekeKeyProviderProperty.EncryptionContractConfiguration`.
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 	EncryptionContractConfiguration interface{} `field:"optional" json:"encryptionContractConfiguration" yaml:"encryptionContractConfiguration"`
 }
 

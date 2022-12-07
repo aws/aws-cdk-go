@@ -1,12 +1,12 @@
 package awssecretsmanager
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A hosted rotation.
@@ -18,11 +18,14 @@ import (
 //   	hostedRotation: secretsmanager.hostedRotation.mysqlSingleUser(),
 //   })
 //
+// Experimental.
 type HostedRotation interface {
 	awsec2.IConnectable
 	// Security group connections for this hosted rotation.
+	// Experimental.
 	Connections() awsec2.Connections
 	// Binds this hosted rotation to a secret.
+	// Experimental.
 	Bind(secret ISecret, scope constructs.Construct) *CfnRotationSchedule_HostedRotationLambdaProperty
 }
 
@@ -43,6 +46,7 @@ func (j *jsiiProxy_HostedRotation) Connections() awsec2.Connections {
 
 
 // MariaDB Multi User.
+// Experimental.
 func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -52,7 +56,7 @@ func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"mariaDbMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -62,6 +66,7 @@ func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 }
 
 // MariaDB Single User.
+// Experimental.
 func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -71,7 +76,7 @@ func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"mariaDbSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -81,6 +86,7 @@ func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) 
 }
 
 // MongoDB Multi User.
+// Experimental.
 func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -90,7 +96,7 @@ func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"mongoDbMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -100,6 +106,7 @@ func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 }
 
 // MongoDB Single User.
+// Experimental.
 func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -109,7 +116,7 @@ func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"mongoDbSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -119,6 +126,7 @@ func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) 
 }
 
 // MySQL Multi User.
+// Experimental.
 func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -128,7 +136,7 @@ func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) Host
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"mysqlMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -138,6 +146,7 @@ func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) Host
 }
 
 // MySQL Single User.
+// Experimental.
 func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -147,7 +156,7 @@ func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) Ho
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"mysqlSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -157,6 +166,7 @@ func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) Ho
 }
 
 // Oracle Multi User.
+// Experimental.
 func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -166,7 +176,7 @@ func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) Hos
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"oracleMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -176,6 +186,7 @@ func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) Hos
 }
 
 // Oracle Single User.
+// Experimental.
 func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -185,7 +196,7 @@ func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) H
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"oracleSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -195,6 +206,7 @@ func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) H
 }
 
 // PostgreSQL Multi User.
+// Experimental.
 func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -204,7 +216,7 @@ func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions)
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"postgreSqlMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -214,6 +226,7 @@ func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions)
 }
 
 // PostgreSQL Single User.
+// Experimental.
 func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -223,7 +236,7 @@ func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOption
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"postgreSqlSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -233,6 +246,7 @@ func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOption
 }
 
 // Redshift Multi User.
+// Experimental.
 func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -242,7 +256,7 @@ func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) H
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"redshiftMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -252,6 +266,7 @@ func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) H
 }
 
 // Redshift Single User.
+// Experimental.
 func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -261,7 +276,7 @@ func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions)
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"redshiftSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -271,6 +286,7 @@ func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions)
 }
 
 // SQL Server Multi User.
+// Experimental.
 func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -280,7 +296,7 @@ func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"sqlServerMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -290,6 +306,7 @@ func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) 
 }
 
 // SQL Server Single User.
+// Experimental.
 func HostedRotation_SqlServerSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -299,7 +316,7 @@ func HostedRotation_SqlServerSingleUser(options *SingleUserHostedRotationOptions
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
+		"monocdk.aws_secretsmanager.HostedRotation",
 		"sqlServerSingleUser",
 		[]interface{}{options},
 		&returns,

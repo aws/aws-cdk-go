@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnObservabilityConfiguration) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnObservabilityConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnObservabilityConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnObservabilityConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnObservabilityConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnObservabilityConfiguration) validateSetTraceConfigurationP
 	return nil
 }
 
-func validateNewCfnObservabilityConfigurationParameters(scope constructs.Construct, id *string, props *CfnObservabilityConfigurationProps) error {
+func validateNewCfnObservabilityConfigurationParameters(scope awscdk.Construct, id *string, props *CfnObservabilityConfigurationProps) error {
 	return nil
 }
 

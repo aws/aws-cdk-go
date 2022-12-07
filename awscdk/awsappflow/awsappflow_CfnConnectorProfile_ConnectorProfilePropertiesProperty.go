@@ -85,7 +85,7 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
-	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.CustomConnector`.
+	// The properties required by the custom connector.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific properties required by Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`

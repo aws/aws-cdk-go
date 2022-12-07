@@ -48,7 +48,7 @@ package awsconfig
 //   }
 //
 type CfnConfigRuleProps struct {
-	// Provides the rule owner ( AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
+	// Provides the rule owner ( `AWS` for managed rules, `CUSTOM_POLICY` for Custom Policy rules, and `CUSTOM_LAMBDA` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
 	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// A name for the AWS Config rule.
 	//

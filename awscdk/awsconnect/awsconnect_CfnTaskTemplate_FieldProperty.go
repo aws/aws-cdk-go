@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Describes a single task template field.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,13 +22,15 @@ package awsconnect
 //   }
 //
 type CfnTaskTemplate_FieldProperty struct {
-	// `CfnTaskTemplate.FieldProperty.Id`.
+	// The unique identifier for the field.
 	Id interface{} `field:"required" json:"id" yaml:"id"`
-	// `CfnTaskTemplate.FieldProperty.Type`.
+	// Indicates the type of field.
+	//
+	// Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnTaskTemplate.FieldProperty.Description`.
+	// The description of the field.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnTaskTemplate.FieldProperty.SingleSelectOptions`.
+	// A list of options for a single select field.
 	SingleSelectOptions *[]*string `field:"optional" json:"singleSelectOptions" yaml:"singleSelectOptions"`
 }
 

@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// A parameter to activate explainers.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -50,7 +52,7 @@ package awssagemaker
 //   }
 //
 type CfnEndpointConfig_ExplainerConfigProperty struct {
-	// `CfnEndpointConfig.ExplainerConfigProperty.ClarifyExplainerConfig`.
+	// A member of `ExplainerConfig` that contains configuration parameters for the SageMaker Clarify explainer.
 	ClarifyExplainerConfig interface{} `field:"optional" json:"clarifyExplainerConfig" yaml:"clarifyExplainerConfig"`
 }
 

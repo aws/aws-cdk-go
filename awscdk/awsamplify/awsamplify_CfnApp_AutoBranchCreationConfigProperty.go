@@ -50,17 +50,17 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
 	EnablePerformanceMode interface{} `field:"optional" json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
-	// Sets whether pull request previews are enabled for each branch that Amplify Console automatically creates for your app.
+	// Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app.
 	//
-	// Amplify Console creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+	// Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
 	//
-	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+	// To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview interface{} `field:"optional" json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// Environment variables for the auto created branch.
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
-	// `CfnApp.AutoBranchCreationConfigProperty.Framework`.
+	// The framework for the autocreated branch.
 	Framework *string `field:"optional" json:"framework" yaml:"framework"`
 	// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews.
 	//
@@ -68,7 +68,7 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	//
 	// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
 	//
-	// If you don't specify an environment, the Amplify Console provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Console deletes this environment when the pull request is closed.
+	// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
 	//
 	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
 	//

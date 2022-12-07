@@ -14,7 +14,9 @@ package awsec2
 //   }
 //
 type CfnPlacementGroupProps struct {
-	// `AWS::EC2::PlacementGroup.SpreadLevel`.
+	// The spread level for the placement group.
+	//
+	// *Only* Outpost placement groups can be spread across hosts.
 	SpreadLevel *string `field:"optional" json:"spreadLevel" yaml:"spreadLevel"`
 	// The placement strategy.
 	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`

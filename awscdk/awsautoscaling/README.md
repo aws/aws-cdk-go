@@ -307,39 +307,6 @@ autoScalingGroup.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &basicS
 })
 ```
 
-### Block Devices
-
-This type specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
-
-#### GP3 Volumes
-
-You can only specify the `throughput` on GP3 volumes.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var vpc vpc
-var instanceType instanceType
-var machineImage iMachineImage
-
-
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	instanceType: instanceType,
-	machineImage: machineImage,
-	blockDevices: []blockDevice{
-		&blockDevice{
-		},
-		&blockDevice{
-			deviceName: jsii.String("gp3-volume"),
-			volume: autoscaling.blockDeviceVolume.ebs(jsii.Number(15), &ebsDeviceOptions{
-				volumeType: autoscaling.ebsDeviceVolumeType_GP3,
-				throughput: jsii.Number(125),
-			}),
-		},
-	},
-})
-```
-
 ## Configuring Instances using CloudFormation Init
 
 It is possible to use the CloudFormation Init mechanism to configure the

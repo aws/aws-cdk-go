@@ -56,7 +56,7 @@ package awssagemaker
 type CfnModelQualityJobDefinition_ModelQualityJobInputProperty struct {
 	// The ground truth label provided for the model.
 	GroundTruthS3Input interface{} `field:"required" json:"groundTruthS3Input" yaml:"groundTruthS3Input"`
-	// `CfnModelQualityJobDefinition.ModelQualityJobInputProperty.BatchTransformInput`.
+	// Input object for the batch transform job.
 	BatchTransformInput interface{} `field:"optional" json:"batchTransformInput" yaml:"batchTransformInput"`
 	// Input object for the endpoint.
 	EndpointInput interface{} `field:"optional" json:"endpointInput" yaml:"endpointInput"`
