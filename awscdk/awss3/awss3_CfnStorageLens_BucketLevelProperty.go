@@ -12,6 +12,15 @@ package awss3
 //   	activityMetrics: &activityMetricsProperty{
 //   		isEnabled: jsii.Boolean(false),
 //   	},
+//   	advancedCostOptimizationMetrics: &advancedCostOptimizationMetricsProperty{
+//   		isEnabled: jsii.Boolean(false),
+//   	},
+//   	advancedDataProtectionMetrics: &advancedDataProtectionMetricsProperty{
+//   		isEnabled: jsii.Boolean(false),
+//   	},
+//   	detailedStatusCodesMetrics: &detailedStatusCodesMetricsProperty{
+//   		isEnabled: jsii.Boolean(false),
+//   	},
 //   	prefixLevel: &prefixLevelProperty{
 //   		storageMetrics: &prefixLevelStorageMetricsProperty{
 //   			isEnabled: jsii.Boolean(false),
@@ -27,6 +36,12 @@ package awss3
 type CfnStorageLens_BucketLevelProperty struct {
 	// A property for the bucket-level activity metrics for Amazon S3 Storage Lens.
 	ActivityMetrics interface{} `field:"optional" json:"activityMetrics" yaml:"activityMetrics"`
+	// `CfnStorageLens.BucketLevelProperty.AdvancedCostOptimizationMetrics`.
+	AdvancedCostOptimizationMetrics interface{} `field:"optional" json:"advancedCostOptimizationMetrics" yaml:"advancedCostOptimizationMetrics"`
+	// `CfnStorageLens.BucketLevelProperty.AdvancedDataProtectionMetrics`.
+	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
+	// `CfnStorageLens.BucketLevelProperty.DetailedStatusCodesMetrics`.
+	DetailedStatusCodesMetrics interface{} `field:"optional" json:"detailedStatusCodesMetrics" yaml:"detailedStatusCodesMetrics"`
 	// A property for the bucket-level prefix-level storage metrics for S3 Storage Lens.
 	PrefixLevel interface{} `field:"optional" json:"prefixLevel" yaml:"prefixLevel"`
 }

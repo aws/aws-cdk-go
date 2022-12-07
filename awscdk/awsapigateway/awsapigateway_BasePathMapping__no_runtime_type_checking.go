@@ -16,19 +16,15 @@ func (b *jsiiProxy_BasePathMapping) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
-func (b *jsiiProxy_BasePathMapping) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (b *jsiiProxy_BasePathMapping) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateBasePathMapping_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBasePathMapping_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateBasePathMapping_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateBasePathMapping_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

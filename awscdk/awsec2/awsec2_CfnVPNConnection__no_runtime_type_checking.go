@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnVPNConnection) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNConnection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVPNConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVPNConnection) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnVPNConnection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +84,7 @@ func (j *jsiiProxy_CfnVPNConnection) validateSetVpnTunnelOptionsSpecificationsPa
 	return nil
 }
 
-func validateNewCfnVPNConnectionParameters(scope awscdk.Construct, id *string, props *CfnVPNConnectionProps) error {
+func validateNewCfnVPNConnectionParameters(scope constructs.Construct, id *string, props *CfnVPNConnectionProps) error {
 	return nil
 }
 

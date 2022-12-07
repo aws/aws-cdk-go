@@ -1,7 +1,7 @@
 package awss3
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnStorageLens`.
@@ -20,6 +20,15 @@ import (
 //   				activityMetrics: &activityMetricsProperty{
 //   					isEnabled: jsii.Boolean(false),
 //   				},
+//   				advancedCostOptimizationMetrics: &advancedCostOptimizationMetricsProperty{
+//   					isEnabled: jsii.Boolean(false),
+//   				},
+//   				advancedDataProtectionMetrics: &advancedDataProtectionMetricsProperty{
+//   					isEnabled: jsii.Boolean(false),
+//   				},
+//   				detailedStatusCodesMetrics: &detailedStatusCodesMetricsProperty{
+//   					isEnabled: jsii.Boolean(false),
+//   				},
 //   				prefixLevel: &prefixLevelProperty{
 //   					storageMetrics: &prefixLevelStorageMetricsProperty{
 //   						isEnabled: jsii.Boolean(false),
@@ -34,6 +43,15 @@ import (
 //
 //   			// the properties below are optional
 //   			activityMetrics: &activityMetricsProperty{
+//   				isEnabled: jsii.Boolean(false),
+//   			},
+//   			advancedCostOptimizationMetrics: &advancedCostOptimizationMetricsProperty{
+//   				isEnabled: jsii.Boolean(false),
+//   			},
+//   			advancedDataProtectionMetrics: &advancedDataProtectionMetricsProperty{
+//   				isEnabled: jsii.Boolean(false),
+//   			},
+//   			detailedStatusCodesMetrics: &detailedStatusCodesMetricsProperty{
 //   				isEnabled: jsii.Boolean(false),
 //   			},
 //   		},

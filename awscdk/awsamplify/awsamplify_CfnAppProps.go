@@ -1,7 +1,7 @@
 package awsamplify
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnApp`.
@@ -36,6 +36,7 @@ import (
 //   				value: jsii.String("value"),
 //   			},
 //   		},
+//   		framework: jsii.String("framework"),
 //   		pullRequestEnvironmentName: jsii.String("pullRequestEnvironmentName"),
 //   		stage: jsii.String("stage"),
 //   	},
@@ -66,6 +67,7 @@ import (
 //   	},
 //   	iamServiceRole: jsii.String("iamServiceRole"),
 //   	oauthToken: jsii.String("oauthToken"),
+//   	platform: jsii.String("platform"),
 //   	repository: jsii.String("repository"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -144,6 +146,8 @@ type CfnAppProps struct {
 	//
 	// *Pattern:* (?s).*
 	OauthToken *string `field:"optional" json:"oauthToken" yaml:"oauthToken"`
+	// `AWS::Amplify::App.Platform`.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// The repository for an Amplify app.
 	//
 	// *Pattern:* (?s).*

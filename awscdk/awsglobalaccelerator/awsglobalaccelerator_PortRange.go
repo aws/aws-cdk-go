@@ -15,13 +15,10 @@ package awsglobalaccelerator
 //   	toPort: jsii.Number(123),
 //   }
 //
-// Experimental.
 type PortRange struct {
 	// The first port in the range of ports, inclusive.
-	// Experimental.
 	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
 	// The last port in the range of ports, inclusive.
-	// Experimental.
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 

@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Options for configuring scaling on an Aurora Serverless cluster.
@@ -12,6 +12,8 @@ import (
 //
 //   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
 //   	engine: rds.databaseClusterEngine_AURORA_POSTGRESQL(),
+//   	copyTagsToSnapshot: jsii.Boolean(true),
+//   	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
 //   	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
 //   	vpc: vpc,
 //   	scaling: &serverlessScalingOptions{
@@ -23,7 +25,6 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ServerlessScalingOptions struct {
 	// The time before an Aurora Serverless database cluster is paused.
 	//
@@ -35,13 +36,10 @@ type ServerlessScalingOptions struct {
 	// is a request to connect to it.
 	//
 	// Set to 0 to disable.
-	// Experimental.
 	AutoPause awscdk.Duration `field:"optional" json:"autoPause" yaml:"autoPause"`
 	// The maximum capacity for an Aurora Serverless database cluster.
-	// Experimental.
 	MaxCapacity AuroraCapacityUnit `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum capacity for an Aurora Serverless database cluster.
-	// Experimental.
 	MinCapacity AuroraCapacityUnit `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 

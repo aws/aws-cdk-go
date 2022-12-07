@@ -36,15 +36,7 @@ func (c *jsiiProxy_Choice) validateMakeNextParameters(next State) error {
 	return nil
 }
 
-func (c *jsiiProxy_Choice) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_Choice) validateOtherwiseParameters(def IChainable) error {
-	return nil
-}
-
-func (c *jsiiProxy_Choice) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

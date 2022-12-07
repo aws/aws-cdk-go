@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnContactList) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnContactList) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnContactList) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnContactList) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnContactList) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnContactList) validateSetTopicsParameters(val interface{}) 
 	return nil
 }
 
-func validateNewCfnContactListParameters(scope awscdk.Construct, id *string, props *CfnContactListProps) error {
+func validateNewCfnContactListParameters(scope constructs.Construct, id *string, props *CfnContactListProps) error {
 	return nil
 }
 

@@ -4,6 +4,7 @@ package awsappmesh
 // gRPC events.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -38,34 +39,28 @@ package awsappmesh
 //   	}),
 //   })
 //
-// Experimental.
 type GrpcRetryEvent string
 
 const (
 	// Request was cancelled.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
-	// Experimental.
 	GrpcRetryEvent_CANCELLED GrpcRetryEvent = "CANCELLED"
 	// The deadline was exceeded.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
-	// Experimental.
 	GrpcRetryEvent_DEADLINE_EXCEEDED GrpcRetryEvent = "DEADLINE_EXCEEDED"
 	// Internal error.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
-	// Experimental.
 	GrpcRetryEvent_INTERNAL_ERROR GrpcRetryEvent = "INTERNAL_ERROR"
 	// A resource was exhausted.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
-	// Experimental.
 	GrpcRetryEvent_RESOURCE_EXHAUSTED GrpcRetryEvent = "RESOURCE_EXHAUSTED"
 	// The service is unavailable.
 	// See: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
 	//
-	// Experimental.
 	GrpcRetryEvent_UNAVAILABLE GrpcRetryEvent = "UNAVAILABLE"
 )
 

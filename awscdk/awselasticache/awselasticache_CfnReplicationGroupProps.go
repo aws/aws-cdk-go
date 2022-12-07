@@ -1,7 +1,7 @@
 package awselasticache
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnReplicationGroup`.
@@ -29,6 +29,7 @@ import (
 //   	engine: jsii.String("engine"),
 //   	engineVersion: jsii.String("engineVersion"),
 //   	globalReplicationGroupId: jsii.String("globalReplicationGroupId"),
+//   	ipDiscovery: jsii.String("ipDiscovery"),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	logDeliveryConfigurations: []interface{}{
 //   		&logDeliveryConfigurationRequestProperty{
@@ -46,6 +47,7 @@ import (
 //   		},
 //   	},
 //   	multiAzEnabled: jsii.Boolean(false),
+//   	networkType: jsii.String("networkType"),
 //   	nodeGroupConfiguration: []interface{}{
 //   		&nodeGroupConfigurationProperty{
 //   			nodeGroupId: jsii.String("nodeGroupId"),
@@ -206,6 +208,8 @@ type CfnReplicationGroupProps struct {
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The name of the Global datastore.
 	GlobalReplicationGroupId *string `field:"optional" json:"globalReplicationGroupId" yaml:"globalReplicationGroupId"`
+	// `AWS::ElastiCache::ReplicationGroup.IpDiscovery`.
+	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
 	// The ID of the KMS key used to encrypt the disk on the cluster.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the destination, format and type of the logs.
@@ -214,6 +218,8 @@ type CfnReplicationGroupProps struct {
 	//
 	// For more information, see [Minimizing Downtime: Multi-AZ](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html) .
 	MultiAzEnabled interface{} `field:"optional" json:"multiAzEnabled" yaml:"multiAzEnabled"`
+	// `AWS::ElastiCache::ReplicationGroup.NetworkType`.
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
 	//
 	// If you set [UseOnlineResharding](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding) to `true` , you can update `NodeGroupConfiguration` without interruption. When `UseOnlineResharding` is set to `false` , or is not specified, updating `NodeGroupConfiguration` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .

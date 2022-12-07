@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnCompositeAlarm) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnCompositeAlarm) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCompositeAlarm) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCompositeAlarm) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCompositeAlarm) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,15 +72,11 @@ func (j *jsiiProxy_CfnCompositeAlarm) validateSetActionsEnabledParameters(val in
 	return nil
 }
 
-func (j *jsiiProxy_CfnCompositeAlarm) validateSetAlarmNameParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCompositeAlarm) validateSetAlarmRuleParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnCompositeAlarmParameters(scope awscdk.Construct, id *string, props *CfnCompositeAlarmProps) error {
+func validateNewCfnCompositeAlarmParameters(scope constructs.Construct, id *string, props *CfnCompositeAlarmProps) error {
 	return nil
 }
 

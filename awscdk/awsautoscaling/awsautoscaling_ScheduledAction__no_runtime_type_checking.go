@@ -16,19 +16,15 @@ func (s *jsiiProxy_ScheduledAction) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
-func (s *jsiiProxy_ScheduledAction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_ScheduledAction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateScheduledAction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateScheduledAction_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateScheduledAction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateScheduledAction_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

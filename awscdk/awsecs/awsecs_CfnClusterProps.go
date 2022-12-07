@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -42,6 +42,9 @@ import (
 //   			weight: jsii.Number(123),
 //   		},
 //   	},
+//   	serviceConnectDefaults: &serviceConnectDefaultsProperty{
+//   		namespace: jsii.String("namespace"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -73,6 +76,8 @@ type CfnClusterProps struct {
 	//
 	// When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 	DefaultCapacityProviderStrategy interface{} `field:"optional" json:"defaultCapacityProviderStrategy" yaml:"defaultCapacityProviderStrategy"`
+	// `AWS::ECS::Cluster.ServiceConnectDefaults`.
+	ServiceConnectDefaults interface{} `field:"optional" json:"serviceConnectDefaults" yaml:"serviceConnectDefaults"`
 	// The metadata that you apply to the cluster to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value. You define both.

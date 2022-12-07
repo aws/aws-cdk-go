@@ -3,40 +3,31 @@ package awsecs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
 )
 
 // A regional grouping of one or more container instances on which you can run tasks and services.
-// Experimental.
 type ICluster interface {
 	awscdk.IResource
 	// The autoscaling group added to the cluster if capacity is associated to the cluster.
-	// Experimental.
 	AutoscalingGroup() awsautoscaling.IAutoScalingGroup
 	// The Amazon Resource Name (ARN) that identifies the cluster.
-	// Experimental.
 	ClusterArn() *string
 	// The name of the cluster.
-	// Experimental.
 	ClusterName() *string
 	// Manage the allowed network connections for the cluster with Security Groups.
-	// Experimental.
 	Connections() awsec2.Connections
 	// The AWS Cloud Map namespace to associate with the cluster.
-	// Experimental.
 	DefaultCloudMapNamespace() awsservicediscovery.INamespace
 	// The execute command configuration for the cluster.
-	// Experimental.
 	ExecuteCommandConfiguration() *ExecuteCommandConfiguration
 	// Specifies whether the cluster has EC2 instance capacity.
-	// Experimental.
 	HasEc2Capacity() *bool
 	// The VPC associated with the cluster.
-	// Experimental.
 	Vpc() awsec2.IVpc
 }
 

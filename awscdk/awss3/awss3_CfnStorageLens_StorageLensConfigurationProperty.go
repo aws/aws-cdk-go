@@ -16,6 +16,15 @@ package awss3
 //   			activityMetrics: &activityMetricsProperty{
 //   				isEnabled: jsii.Boolean(false),
 //   			},
+//   			advancedCostOptimizationMetrics: &advancedCostOptimizationMetricsProperty{
+//   				isEnabled: jsii.Boolean(false),
+//   			},
+//   			advancedDataProtectionMetrics: &advancedDataProtectionMetricsProperty{
+//   				isEnabled: jsii.Boolean(false),
+//   			},
+//   			detailedStatusCodesMetrics: &detailedStatusCodesMetricsProperty{
+//   				isEnabled: jsii.Boolean(false),
+//   			},
 //   			prefixLevel: &prefixLevelProperty{
 //   				storageMetrics: &prefixLevelStorageMetricsProperty{
 //   					isEnabled: jsii.Boolean(false),
@@ -30,6 +39,15 @@ package awss3
 //
 //   		// the properties below are optional
 //   		activityMetrics: &activityMetricsProperty{
+//   			isEnabled: jsii.Boolean(false),
+//   		},
+//   		advancedCostOptimizationMetrics: &advancedCostOptimizationMetricsProperty{
+//   			isEnabled: jsii.Boolean(false),
+//   		},
+//   		advancedDataProtectionMetrics: &advancedDataProtectionMetricsProperty{
+//   			isEnabled: jsii.Boolean(false),
+//   		},
+//   		detailedStatusCodesMetrics: &detailedStatusCodesMetricsProperty{
 //   			isEnabled: jsii.Boolean(false),
 //   		},
 //   	},

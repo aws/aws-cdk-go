@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTaskDefinition`.
@@ -142,8 +142,10 @@ import (
 //   			},
 //   			portMappings: []interface{}{
 //   				&portMappingProperty{
+//   					appProtocol: jsii.String("appProtocol"),
 //   					containerPort: jsii.Number(123),
 //   					hostPort: jsii.Number(123),
+//   					name: jsii.String("name"),
 //   					protocol: jsii.String("protocol"),
 //   				},
 //   			},

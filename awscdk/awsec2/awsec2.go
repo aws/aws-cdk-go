@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.AclCidr",
+		"aws-cdk-lib.aws_ec2.AclCidr",
 		reflect.TypeOf((*AclCidr)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toCidrConfig", GoMethod: "ToCidrConfig"},
@@ -18,19 +18,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.AclCidrConfig",
+		"aws-cdk-lib.aws_ec2.AclCidrConfig",
 		reflect.TypeOf((*AclCidrConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.AclIcmp",
+		"aws-cdk-lib.aws_ec2.AclIcmp",
 		reflect.TypeOf((*AclIcmp)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.AclPortRange",
+		"aws-cdk-lib.aws_ec2.AclPortRange",
 		reflect.TypeOf((*AclPortRange)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.AclTraffic",
+		"aws-cdk-lib.aws_ec2.AclTraffic",
 		reflect.TypeOf((*AclTraffic)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toTrafficConfig", GoMethod: "ToTrafficConfig"},
@@ -40,11 +40,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.AclTrafficConfig",
+		"aws-cdk-lib.aws_ec2.AclTrafficConfig",
 		reflect.TypeOf((*AclTrafficConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.Action",
+		"aws-cdk-lib.aws_ec2.Action",
 		reflect.TypeOf((*Action)(nil)).Elem(),
 		map[string]interface{}{
 			"ALLOW": Action_ALLOW,
@@ -52,11 +52,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.AddRouteOptions",
+		"aws-cdk-lib.aws_ec2.AddRouteOptions",
 		reflect.TypeOf((*AddRouteOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AllocateCidrRequest",
+		reflect.TypeOf((*AllocateCidrRequest)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AllocatedSubnet",
+		reflect.TypeOf((*AllocatedSubnet)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.AmazonLinuxCpuType",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxCpuType",
 		reflect.TypeOf((*AmazonLinuxCpuType)(nil)).Elem(),
 		map[string]interface{}{
 			"ARM_64": AmazonLinuxCpuType_ARM_64,
@@ -64,7 +72,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.AmazonLinuxEdition",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxEdition",
 		reflect.TypeOf((*AmazonLinuxEdition)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD": AmazonLinuxEdition_STANDARD,
@@ -72,7 +80,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.AmazonLinuxGeneration",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxGeneration",
 		reflect.TypeOf((*AmazonLinuxGeneration)(nil)).Elem(),
 		map[string]interface{}{
 			"AMAZON_LINUX": AmazonLinuxGeneration_AMAZON_LINUX,
@@ -81,7 +89,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.AmazonLinuxImage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImage",
 		reflect.TypeOf((*AmazonLinuxImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -94,18 +102,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.AmazonLinuxImageProps",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImageProps",
 		reflect.TypeOf((*AmazonLinuxImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.AmazonLinuxKernel",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxKernel",
 		reflect.TypeOf((*AmazonLinuxKernel)(nil)).Elem(),
 		map[string]interface{}{
 			"KERNEL5_X": AmazonLinuxKernel_KERNEL5_X,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.AmazonLinuxStorage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxStorage",
 		reflect.TypeOf((*AmazonLinuxStorage)(nil)).Elem(),
 		map[string]interface{}{
 			"EBS": AmazonLinuxStorage_EBS,
@@ -114,7 +122,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.AmazonLinuxVirt",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxVirt",
 		reflect.TypeOf((*AmazonLinuxVirt)(nil)).Elem(),
 		map[string]interface{}{
 			"HVM": AmazonLinuxVirt_HVM,
@@ -122,15 +130,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ApplyCloudFormationInitOptions",
+		"aws-cdk-lib.aws_ec2.ApplyCloudFormationInitOptions",
 		reflect.TypeOf((*ApplyCloudFormationInitOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.AttachInitOptions",
+		"aws-cdk-lib.aws_ec2.AttachInitOptions",
 		reflect.TypeOf((*AttachInitOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AwsIpamProps",
+		reflect.TypeOf((*AwsIpamProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.BastionHostLinux",
+		"aws-cdk-lib.aws_ec2.BastionHostLinux",
 		reflect.TypeOf((*BastionHostLinux)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "allowSshAccessFrom", GoMethod: "AllowSshAccessFrom"},
@@ -149,16 +161,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instancePublicDnsName", GoGetter: "InstancePublicDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "instancePublicIp", GoGetter: "InstancePublicIp"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BastionHostLinux{}
@@ -168,15 +174,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.BastionHostLinuxProps",
+		"aws-cdk-lib.aws_ec2.BastionHostLinuxProps",
 		reflect.TypeOf((*BastionHostLinuxProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.BlockDevice",
+		"aws-cdk-lib.aws_ec2.BlockDevice",
 		reflect.TypeOf((*BlockDevice)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.BlockDeviceVolume",
+		"aws-cdk-lib.aws_ec2.BlockDeviceVolume",
 		reflect.TypeOf((*BlockDeviceVolume)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "ebsDevice", GoGetter: "EbsDevice"},
@@ -187,7 +193,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnCapacityReservation",
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservation",
 		reflect.TypeOf((*CfnCapacityReservation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -221,23 +227,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instanceType", GoGetter: "InstanceType"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outPostArn", GoGetter: "OutPostArn"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "placementGroupArn", GoGetter: "PlacementGroupArn"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tagSpecifications", GoGetter: "TagSpecifications"},
 			_jsii_.MemberProperty{JsiiProperty: "tenancy", GoGetter: "Tenancy"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -248,11 +249,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnCapacityReservation.TagSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservation.TagSpecificationProperty",
 		reflect.TypeOf((*CfnCapacityReservation_TagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservationFleet",
 		reflect.TypeOf((*CfnCapacityReservationFleet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -277,23 +278,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "noRemoveEndDate", GoGetter: "NoRemoveEndDate"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "removeEndDate", GoGetter: "RemoveEndDate"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tagSpecifications", GoGetter: "TagSpecifications"},
 			_jsii_.MemberProperty{JsiiProperty: "tenancy", GoGetter: "Tenancy"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "totalTargetCapacity", GoGetter: "TotalTargetCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -304,23 +300,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnCapacityReservationFleet.InstanceTypeSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservationFleet.InstanceTypeSpecificationProperty",
 		reflect.TypeOf((*CfnCapacityReservationFleet_InstanceTypeSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnCapacityReservationFleet.TagSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservationFleet.TagSpecificationProperty",
 		reflect.TypeOf((*CfnCapacityReservationFleet_TagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnCapacityReservationFleetProps",
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservationFleetProps",
 		reflect.TypeOf((*CfnCapacityReservationFleetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnCapacityReservationProps",
+		"aws-cdk-lib.aws_ec2.CfnCapacityReservationProps",
 		reflect.TypeOf((*CfnCapacityReservationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnCarrierGateway",
+		"aws-cdk-lib.aws_ec2.CfnCarrierGateway",
 		reflect.TypeOf((*CfnCarrierGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -342,20 +338,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -367,11 +358,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnCarrierGatewayProps",
+		"aws-cdk-lib.aws_ec2.CfnCarrierGatewayProps",
 		reflect.TypeOf((*CfnCarrierGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnClientVpnAuthorizationRule",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnAuthorizationRule",
 		reflect.TypeOf((*CfnClientVpnAuthorizationRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessGroupId", GoGetter: "AccessGroupId"},
@@ -394,20 +385,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "targetNetworkCidr", GoGetter: "TargetNetworkCidr"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -418,11 +404,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnAuthorizationRuleProps",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnAuthorizationRuleProps",
 		reflect.TypeOf((*CfnClientVpnAuthorizationRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint",
 		reflect.TypeOf((*CfnClientVpnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -448,11 +434,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupIds", GoGetter: "SecurityGroupIds"},
@@ -462,12 +444,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "splitTunnel", GoGetter: "SplitTunnel"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tagSpecifications", GoGetter: "TagSpecifications"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transportProtocol", GoGetter: "TransportProtocol"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnPort", GoGetter: "VpnPort"},
@@ -480,43 +461,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.CertificateAuthenticationRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.CertificateAuthenticationRequestProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_CertificateAuthenticationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.ClientAuthenticationRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ClientAuthenticationRequestProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_ClientAuthenticationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.ClientConnectOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ClientConnectOptionsProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_ClientConnectOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.ClientLoginBannerOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ClientLoginBannerOptionsProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.ConnectionLogOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ConnectionLogOptionsProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_ConnectionLogOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.DirectoryServiceAuthenticationRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.DirectoryServiceAuthenticationRequestProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_DirectoryServiceAuthenticationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.FederatedAuthenticationRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.FederatedAuthenticationRequestProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_FederatedAuthenticationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpoint.TagSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.TagSpecificationProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_TagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnEndpointProps",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpointProps",
 		reflect.TypeOf((*CfnClientVpnEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnClientVpnRoute",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnRoute",
 		reflect.TypeOf((*CfnClientVpnRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -538,20 +519,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "targetVpcSubnetId", GoGetter: "TargetVpcSubnetId"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -562,11 +538,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnRouteProps",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnRouteProps",
 		reflect.TypeOf((*CfnClientVpnRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnClientVpnTargetNetworkAssociation",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnTargetNetworkAssociation",
 		reflect.TypeOf((*CfnClientVpnTargetNetworkAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -586,20 +562,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -610,11 +581,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnClientVpnTargetNetworkAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnClientVpnTargetNetworkAssociationProps",
 		reflect.TypeOf((*CfnClientVpnTargetNetworkAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnCustomerGateway",
+		"aws-cdk-lib.aws_ec2.CfnCustomerGateway",
 		reflect.TypeOf((*CfnCustomerGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -636,21 +607,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipAddress", GoGetter: "IpAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -661,11 +627,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnCustomerGatewayProps",
+		"aws-cdk-lib.aws_ec2.CfnCustomerGatewayProps",
 		reflect.TypeOf((*CfnCustomerGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnDHCPOptions",
+		"aws-cdk-lib.aws_ec2.CfnDHCPOptions",
 		reflect.TypeOf((*CfnDHCPOptions)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -690,20 +656,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "netbiosNodeType", GoGetter: "NetbiosNodeType"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "ntpServers", GoGetter: "NtpServers"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -714,11 +675,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnDHCPOptionsProps",
+		"aws-cdk-lib.aws_ec2.CfnDHCPOptionsProps",
 		reflect.TypeOf((*CfnDHCPOptionsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnEC2Fleet",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet",
 		reflect.TypeOf((*CfnEC2Fleet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -742,25 +703,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "onDemandOptions", GoGetter: "OnDemandOptions"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "replaceUnhealthyInstances", GoGetter: "ReplaceUnhealthyInstances"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spotOptions", GoGetter: "SpotOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tagSpecifications", GoGetter: "TagSpecifications"},
 			_jsii_.MemberProperty{JsiiProperty: "targetCapacitySpecification", GoGetter: "TargetCapacitySpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "terminateInstancesWithExpiration", GoGetter: "TerminateInstancesWithExpiration"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "validFrom", GoGetter: "ValidFrom"},
 			_jsii_.MemberProperty{JsiiProperty: "validUntil", GoGetter: "ValidUntil"},
@@ -773,91 +729,95 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.AcceleratorCountRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.AcceleratorCountRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_AcceleratorCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.BaselineEbsBandwidthMbpsRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.BaselineEbsBandwidthMbpsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.CapacityRebalanceProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.CapacityRebalanceProperty",
 		reflect.TypeOf((*CfnEC2Fleet_CapacityRebalanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.CapacityReservationOptionsRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.CapacityReservationOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_CapacityReservationOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateConfigRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateConfigRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateOverridesRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateOverridesRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateSpecificationRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateSpecificationRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.InstanceRequirementsRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.InstanceRequirementsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_InstanceRequirementsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.MaintenanceStrategiesProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.MaintenanceStrategiesProperty",
 		reflect.TypeOf((*CfnEC2Fleet_MaintenanceStrategiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_MemoryGiBPerVCpuRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.MemoryMiBRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.MemoryMiBRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_MemoryMiBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.NetworkInterfaceCountRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.NetworkBandwidthGbpsRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_NetworkBandwidthGbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.NetworkInterfaceCountRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.OnDemandOptionsRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.OnDemandOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_OnDemandOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.PlacementProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.PlacementProperty",
 		reflect.TypeOf((*CfnEC2Fleet_PlacementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.SpotOptionsRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.SpotOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_SpotOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.TagSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.TagSpecificationProperty",
 		reflect.TypeOf((*CfnEC2Fleet_TagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_TargetCapacitySpecificationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.TotalLocalStorageGBRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.TotalLocalStorageGBRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_TotalLocalStorageGBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2Fleet.VCpuCountRangeRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.VCpuCountRangeRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_VCpuCountRangeRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEC2FleetProps",
+		"aws-cdk-lib.aws_ec2.CfnEC2FleetProps",
 		reflect.TypeOf((*CfnEC2FleetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnEIP",
+		"aws-cdk-lib.aws_ec2.CfnEIP",
 		reflect.TypeOf((*CfnEIP)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -881,21 +841,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkBorderGroup", GoGetter: "NetworkBorderGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publicIpv4Pool", GoGetter: "PublicIpv4Pool"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "transferAddress", GoGetter: "TransferAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -906,7 +862,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnEIPAssociation",
+		"aws-cdk-lib.aws_ec2.CfnEIPAssociation",
 		reflect.TypeOf((*CfnEIPAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -929,20 +885,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "privateIpAddress", GoGetter: "PrivateIpAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -953,15 +904,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEIPAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnEIPAssociationProps",
 		reflect.TypeOf((*CfnEIPAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEIPProps",
+		"aws-cdk-lib.aws_ec2.CfnEIPProps",
 		reflect.TypeOf((*CfnEIPProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnEgressOnlyInternetGateway",
+		"aws-cdk-lib.aws_ec2.CfnEgressOnlyInternetGateway",
 		reflect.TypeOf((*CfnEgressOnlyInternetGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -981,19 +932,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -1005,11 +951,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEgressOnlyInternetGatewayProps",
+		"aws-cdk-lib.aws_ec2.CfnEgressOnlyInternetGatewayProps",
 		reflect.TypeOf((*CfnEgressOnlyInternetGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnEnclaveCertificateIamRoleAssociation",
+		"aws-cdk-lib.aws_ec2.CfnEnclaveCertificateIamRoleAssociation",
 		reflect.TypeOf((*CfnEnclaveCertificateIamRoleAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1032,20 +978,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1056,11 +997,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnEnclaveCertificateIamRoleAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnEnclaveCertificateIamRoleAssociationProps",
 		reflect.TypeOf((*CfnEnclaveCertificateIamRoleAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnFlowLog",
+		"aws-cdk-lib.aws_ec2.CfnFlowLog",
 		reflect.TypeOf((*CfnFlowLog)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1087,23 +1028,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maxAggregationInterval", GoGetter: "MaxAggregationInterval"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceId", GoGetter: "ResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceType", GoGetter: "ResourceType"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficType", GoGetter: "TrafficType"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1114,11 +1050,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnFlowLogProps",
+		"aws-cdk-lib.aws_ec2.CfnFlowLogProps",
 		reflect.TypeOf((*CfnFlowLogProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnGatewayRouteTableAssociation",
+		"aws-cdk-lib.aws_ec2.CfnGatewayRouteTableAssociation",
 		reflect.TypeOf((*CfnGatewayRouteTableAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1139,20 +1075,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTableId", GoGetter: "RouteTableId"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1163,11 +1094,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnGatewayRouteTableAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnGatewayRouteTableAssociationProps",
 		reflect.TypeOf((*CfnGatewayRouteTableAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnHost",
+		"aws-cdk-lib.aws_ec2.CfnHost",
 		reflect.TypeOf((*CfnHost)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1192,20 +1123,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instanceType", GoGetter: "InstanceType"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outpostArn", GoGetter: "OutpostArn"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1216,11 +1142,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnHostProps",
+		"aws-cdk-lib.aws_ec2.CfnHostProps",
 		reflect.TypeOf((*CfnHostProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnIPAM",
+		"aws-cdk-lib.aws_ec2.CfnIPAM",
 		reflect.TypeOf((*CfnIPAM)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1245,21 +1171,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "operatingRegions", GoGetter: "OperatingRegions"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1270,11 +1191,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnIPAM.IpamOperatingRegionProperty",
+		"aws-cdk-lib.aws_ec2.CfnIPAM.IpamOperatingRegionProperty",
 		reflect.TypeOf((*CfnIPAM_IpamOperatingRegionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnIPAMAllocation",
+		"aws-cdk-lib.aws_ec2.CfnIPAMAllocation",
 		reflect.TypeOf((*CfnIPAMAllocation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1298,19 +1219,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "netmaskLength", GoGetter: "NetmaskLength"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1321,11 +1237,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnIPAMAllocationProps",
+		"aws-cdk-lib.aws_ec2.CfnIPAMAllocationProps",
 		reflect.TypeOf((*CfnIPAMAllocationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnIPAMPool",
+		"aws-cdk-lib.aws_ec2.CfnIPAMPool",
 		reflect.TypeOf((*CfnIPAMPool)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1362,11 +1278,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "locale", GoGetter: "Locale"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "provisionedCidrs", GoGetter: "ProvisionedCidrs"},
 			_jsii_.MemberProperty{JsiiProperty: "publiclyAdvertisable", GoGetter: "PubliclyAdvertisable"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -1374,11 +1286,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceIpamPoolId", GoGetter: "SourceIpamPoolId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1389,19 +1300,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnIPAMPool.ProvisionedCidrProperty",
+		"aws-cdk-lib.aws_ec2.CfnIPAMPool.ProvisionedCidrProperty",
 		reflect.TypeOf((*CfnIPAMPool_ProvisionedCidrProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnIPAMPoolProps",
+		"aws-cdk-lib.aws_ec2.CfnIPAMPoolProps",
 		reflect.TypeOf((*CfnIPAMPoolProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnIPAMProps",
+		"aws-cdk-lib.aws_ec2.CfnIPAMProps",
 		reflect.TypeOf((*CfnIPAMProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnIPAMScope",
+		"aws-cdk-lib.aws_ec2.CfnIPAMScope",
 		reflect.TypeOf((*CfnIPAMScope)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1428,20 +1339,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipamId", GoGetter: "IpamId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1452,11 +1358,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnIPAMScopeProps",
+		"aws-cdk-lib.aws_ec2.CfnIPAMScopeProps",
 		reflect.TypeOf((*CfnIPAMScopeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnInstance",
+		"aws-cdk-lib.aws_ec2.CfnInstance",
 		reflect.TypeOf((*CfnInstance)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1506,12 +1412,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "monitoring", GoGetter: "Monitoring"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaces", GoGetter: "NetworkInterfaces"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "placementGroupName", GoGetter: "PlacementGroupName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "privateDnsNameOptions", GoGetter: "PrivateDnsNameOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "privateIpAddress", GoGetter: "PrivateIpAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "propagateTagsToVolumeOnCreation", GoGetter: "PropagateTagsToVolumeOnCreation"},
@@ -1525,13 +1427,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ssmAssociations", GoGetter: "SsmAssociations"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tenancy", GoGetter: "Tenancy"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "userData", GoGetter: "UserData"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "volumes", GoGetter: "Volumes"},
 		},
@@ -1543,83 +1444,83 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.AssociationParameterProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.AssociationParameterProperty",
 		reflect.TypeOf((*CfnInstance_AssociationParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.BlockDeviceMappingProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.BlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnInstance_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.CpuOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.CpuOptionsProperty",
 		reflect.TypeOf((*CfnInstance_CpuOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.CreditSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.CreditSpecificationProperty",
 		reflect.TypeOf((*CfnInstance_CreditSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.EbsProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.EbsProperty",
 		reflect.TypeOf((*CfnInstance_EbsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.ElasticGpuSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.ElasticGpuSpecificationProperty",
 		reflect.TypeOf((*CfnInstance_ElasticGpuSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.ElasticInferenceAcceleratorProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.ElasticInferenceAcceleratorProperty",
 		reflect.TypeOf((*CfnInstance_ElasticInferenceAcceleratorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.EnclaveOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.EnclaveOptionsProperty",
 		reflect.TypeOf((*CfnInstance_EnclaveOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.HibernationOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.HibernationOptionsProperty",
 		reflect.TypeOf((*CfnInstance_HibernationOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.InstanceIpv6AddressProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.InstanceIpv6AddressProperty",
 		reflect.TypeOf((*CfnInstance_InstanceIpv6AddressProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.LaunchTemplateSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.LaunchTemplateSpecificationProperty",
 		reflect.TypeOf((*CfnInstance_LaunchTemplateSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.LicenseSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.LicenseSpecificationProperty",
 		reflect.TypeOf((*CfnInstance_LicenseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.NetworkInterfaceProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.NetworkInterfaceProperty",
 		reflect.TypeOf((*CfnInstance_NetworkInterfaceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.NoDeviceProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.NoDeviceProperty",
 		reflect.TypeOf((*CfnInstance_NoDeviceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.PrivateDnsNameOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.PrivateDnsNameOptionsProperty",
 		reflect.TypeOf((*CfnInstance_PrivateDnsNameOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.PrivateIpAddressSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.PrivateIpAddressSpecificationProperty",
 		reflect.TypeOf((*CfnInstance_PrivateIpAddressSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.SsmAssociationProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.SsmAssociationProperty",
 		reflect.TypeOf((*CfnInstance_SsmAssociationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstance.VolumeProperty",
+		"aws-cdk-lib.aws_ec2.CfnInstance.VolumeProperty",
 		reflect.TypeOf((*CfnInstance_VolumeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInstanceProps",
+		"aws-cdk-lib.aws_ec2.CfnInstanceProps",
 		reflect.TypeOf((*CfnInstanceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnInternetGateway",
+		"aws-cdk-lib.aws_ec2.CfnInternetGateway",
 		reflect.TypeOf((*CfnInternetGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1639,20 +1540,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1663,11 +1559,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnInternetGatewayProps",
+		"aws-cdk-lib.aws_ec2.CfnInternetGatewayProps",
 		reflect.TypeOf((*CfnInternetGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnKeyPair",
+		"aws-cdk-lib.aws_ec2.CfnKeyPair",
 		reflect.TypeOf((*CfnKeyPair)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1690,21 +1586,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "keyType", GoGetter: "KeyType"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publicKeyMaterial", GoGetter: "PublicKeyMaterial"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1715,11 +1606,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnKeyPairProps",
+		"aws-cdk-lib.aws_ec2.CfnKeyPairProps",
 		reflect.TypeOf((*CfnKeyPairProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnLaunchTemplate",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate",
 		reflect.TypeOf((*CfnLaunchTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1742,20 +1633,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplateName", GoGetter: "LaunchTemplateName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tagSpecifications", GoGetter: "TagSpecifications"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 		},
@@ -1767,155 +1653,159 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.AcceleratorCountProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.AcceleratorCountProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_AcceleratorCountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.AcceleratorTotalMemoryMiBProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.AcceleratorTotalMemoryMiBProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.BaselineEbsBandwidthMbpsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.BaselineEbsBandwidthMbpsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.BlockDeviceMappingProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.BlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.CapacityReservationSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.CapacityReservationSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_CapacityReservationSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.CapacityReservationTargetProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.CapacityReservationTargetProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_CapacityReservationTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.CpuOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.CpuOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_CpuOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.CreditSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.CreditSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_CreditSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.EbsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.EbsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_EbsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.ElasticGpuSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.ElasticGpuSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_ElasticGpuSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.EnclaveOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.EnclaveOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_EnclaveOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.HibernationOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.HibernationOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_HibernationOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.IamInstanceProfileProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.IamInstanceProfileProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_IamInstanceProfileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.InstanceMarketOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.InstanceMarketOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_InstanceMarketOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.InstanceRequirementsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.InstanceRequirementsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_InstanceRequirementsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.Ipv4PrefixSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.Ipv4PrefixSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_Ipv4PrefixSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.Ipv6AddProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.Ipv6AddProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_Ipv6AddProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.Ipv6PrefixSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.Ipv6PrefixSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_Ipv6PrefixSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.LaunchTemplateDataProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.LaunchTemplateDataProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_LaunchTemplateDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.LaunchTemplateElasticInferenceAcceleratorProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.LaunchTemplateElasticInferenceAcceleratorProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_LaunchTemplateElasticInferenceAcceleratorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.LaunchTemplateTagSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.LaunchTemplateTagSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.LicenseSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.LicenseSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_LicenseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.MaintenanceOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.MaintenanceOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_MaintenanceOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.MemoryGiBPerVCpuProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.MemoryGiBPerVCpuProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_MemoryGiBPerVCpuProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.MemoryMiBProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.MemoryMiBProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_MemoryMiBProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.MetadataOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.MetadataOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_MetadataOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.MonitoringProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.MonitoringProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_MonitoringProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.NetworkInterfaceCountProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.NetworkBandwidthGbpsProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_NetworkBandwidthGbpsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.NetworkInterfaceCountProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_NetworkInterfaceCountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.NetworkInterfaceProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.NetworkInterfaceProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_NetworkInterfaceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.PlacementProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.PlacementProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_PlacementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.PrivateDnsNameOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.PrivateDnsNameOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_PrivateDnsNameOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.PrivateIpAddProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.PrivateIpAddProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_PrivateIpAddProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.SpotOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.SpotOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_SpotOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.TagSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.TagSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_TagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.TotalLocalStorageGBProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.TotalLocalStorageGBProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_TotalLocalStorageGBProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplate.VCpuCountProperty",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.VCpuCountProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_VCpuCountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLaunchTemplateProps",
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplateProps",
 		reflect.TypeOf((*CfnLaunchTemplateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnLocalGatewayRoute",
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRoute",
 		reflect.TypeOf((*CfnLocalGatewayRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1938,20 +1828,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "localGatewayRouteTableId", GoGetter: "LocalGatewayRouteTableId"},
 			_jsii_.MemberProperty{JsiiProperty: "localGatewayVirtualInterfaceGroupId", GoGetter: "LocalGatewayVirtualInterfaceGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1962,11 +1848,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLocalGatewayRouteProps",
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteProps",
 		reflect.TypeOf((*CfnLocalGatewayRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnLocalGatewayRouteTableVPCAssociation",
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTableVPCAssociation",
 		reflect.TypeOf((*CfnLocalGatewayRouteTableVPCAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -1989,20 +1875,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "localGatewayRouteTableId", GoGetter: "LocalGatewayRouteTableId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -2014,11 +1895,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnLocalGatewayRouteTableVPCAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTableVPCAssociationProps",
 		reflect.TypeOf((*CfnLocalGatewayRouteTableVPCAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNatGateway",
+		"aws-cdk-lib.aws_ec2.CfnNatGateway",
 		reflect.TypeOf((*CfnNatGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2040,21 +1921,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "privateIpAddress", GoGetter: "PrivateIpAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2065,11 +1942,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNatGatewayProps",
+		"aws-cdk-lib.aws_ec2.CfnNatGatewayProps",
 		reflect.TypeOf((*CfnNatGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkAcl",
+		"aws-cdk-lib.aws_ec2.CfnNetworkAcl",
 		reflect.TypeOf((*CfnNetworkAcl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2089,20 +1966,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -2114,7 +1986,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkAclEntry",
+		"aws-cdk-lib.aws_ec2.CfnNetworkAclEntry",
 		reflect.TypeOf((*CfnNetworkAclEntry)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2139,12 +2011,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAclId", GoGetter: "NetworkAclId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "portRange", GoGetter: "PortRange"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -2152,10 +2020,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ruleNumber", GoGetter: "RuleNumber"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2166,23 +2033,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkAclEntry.IcmpProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkAclEntry.IcmpProperty",
 		reflect.TypeOf((*CfnNetworkAclEntry_IcmpProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkAclEntry.PortRangeProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkAclEntry.PortRangeProperty",
 		reflect.TypeOf((*CfnNetworkAclEntry_PortRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkAclEntryProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkAclEntryProps",
 		reflect.TypeOf((*CfnNetworkAclEntryProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkAclProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkAclProps",
 		reflect.TypeOf((*CfnNetworkAclProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScope",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScope)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2207,20 +2074,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "matchPaths", GoGetter: "MatchPaths"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2231,27 +2093,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScope.AccessScopePathRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope.AccessScopePathRequestProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScope_AccessScopePathRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScope.PacketHeaderStatementRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope.PacketHeaderStatementRequestProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScope_PacketHeaderStatementRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScope.PathStatementRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope.PathStatementRequestProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScope_PathStatementRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScope.ResourceStatementRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope.ResourceStatementRequestProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScope_ResourceStatementRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScope.ThroughResourcesStatementRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope.ThroughResourcesStatementRequestProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScope_ThroughResourcesStatementRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScopeAnalysis",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScopeAnalysis",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScopeAnalysis)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2279,20 +2141,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInsightsAccessScopeId", GoGetter: "NetworkInsightsAccessScopeId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2303,19 +2160,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScopeAnalysisProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScopeAnalysisProps",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScopeAnalysisProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAccessScopeProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScopeProps",
 		reflect.TypeOf((*CfnNetworkInsightsAccessScopeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "additionalAccounts", GoGetter: "AdditionalAccounts"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
@@ -2331,6 +2189,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrStartDate", GoGetter: "AttrStartDate"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatusMessage", GoGetter: "AttrStatusMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSuggestedAccounts", GoGetter: "AttrSuggestedAccounts"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -2342,20 +2201,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInsightsPathId", GoGetter: "NetworkInsightsPathId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2366,63 +2220,63 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AdditionalDetailProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AdditionalDetailProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AdditionalDetailProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AlternatePathHintProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AlternatePathHintProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AlternatePathHintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisAclRuleProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisAclRuleProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AnalysisAclRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisComponentProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisComponentProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AnalysisComponentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisLoadBalancerListenerProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisLoadBalancerListenerProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AnalysisLoadBalancerListenerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisLoadBalancerTargetProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisLoadBalancerTargetProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AnalysisLoadBalancerTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisPacketHeaderProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisPacketHeaderProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AnalysisPacketHeaderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisRouteTableRouteProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisRouteTableRouteProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisSecurityGroupRuleProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.AnalysisSecurityGroupRuleProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_AnalysisSecurityGroupRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.ExplanationProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.ExplanationProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_ExplanationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.PathComponentProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.PathComponentProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_PathComponentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.PortRangeProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.PortRangeProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_PortRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.TransitGatewayRouteTableRouteProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysis.TransitGatewayRouteTableRouteProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_TransitGatewayRouteTableRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsAnalysisProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAnalysisProps",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysisProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkInsightsPath",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsPath",
 		reflect.TypeOf((*CfnNetworkInsightsPath)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2433,8 +2287,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedDate", GoGetter: "AttrCreatedDate"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDestinationArn", GoGetter: "AttrDestinationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkInsightsPathArn", GoGetter: "AttrNetworkInsightsPathArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkInsightsPathId", GoGetter: "AttrNetworkInsightsPathId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSourceArn", GoGetter: "AttrSourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -2447,11 +2303,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -2459,11 +2311,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceIp", GoGetter: "SourceIp"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2474,11 +2325,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInsightsPathProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsPathProps",
 		reflect.TypeOf((*CfnNetworkInsightsPathProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkInterface",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterface",
 		reflect.TypeOf((*CfnNetworkInterface)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2505,11 +2356,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv6Addresses", GoGetter: "Ipv6Addresses"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "privateIpAddress", GoGetter: "PrivateIpAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "privateIpAddresses", GoGetter: "PrivateIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -2519,11 +2366,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sourceDestCheck", GoGetter: "SourceDestCheck"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2534,15 +2380,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInterface.InstanceIpv6AddressProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterface.InstanceIpv6AddressProperty",
 		reflect.TypeOf((*CfnNetworkInterface_InstanceIpv6AddressProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInterface.PrivateIpAddressSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterface.PrivateIpAddressSpecificationProperty",
 		reflect.TypeOf((*CfnNetworkInterface_PrivateIpAddressSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkInterfaceAttachment",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceAttachment",
 		reflect.TypeOf((*CfnNetworkInterfaceAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2565,19 +2411,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2588,11 +2429,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInterfaceAttachmentProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceAttachmentProps",
 		reflect.TypeOf((*CfnNetworkInterfaceAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnNetworkInterfacePermission",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfacePermission",
 		reflect.TypeOf((*CfnNetworkInterfacePermission)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2613,20 +2454,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permission", GoGetter: "Permission"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2637,15 +2473,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInterfacePermissionProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfacePermissionProps",
 		reflect.TypeOf((*CfnNetworkInterfacePermissionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnNetworkInterfaceProps",
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceProps",
 		reflect.TypeOf((*CfnNetworkInterfaceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnPlacementGroup",
+		"aws-cdk-lib.aws_ec2.CfnPlacementGroup",
 		reflect.TypeOf((*CfnPlacementGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2665,21 +2501,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spreadLevel", GoGetter: "SpreadLevel"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2690,11 +2521,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnPlacementGroupProps",
+		"aws-cdk-lib.aws_ec2.CfnPlacementGroupProps",
 		reflect.TypeOf((*CfnPlacementGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnPrefixList",
+		"aws-cdk-lib.aws_ec2.CfnPrefixList",
 		reflect.TypeOf((*CfnPrefixList)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2720,21 +2551,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maxEntries", GoGetter: "MaxEntries"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "prefixListName", GoGetter: "PrefixListName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2745,15 +2571,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnPrefixList.EntryProperty",
+		"aws-cdk-lib.aws_ec2.CfnPrefixList.EntryProperty",
 		reflect.TypeOf((*CfnPrefixList_EntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnPrefixListProps",
+		"aws-cdk-lib.aws_ec2.CfnPrefixListProps",
 		reflect.TypeOf((*CfnPrefixListProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnRoute",
+		"aws-cdk-lib.aws_ec2.CfnRoute",
 		reflect.TypeOf((*CfnRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2781,21 +2607,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "natGatewayId", GoGetter: "NatGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTableId", GoGetter: "RouteTableId"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcPeeringConnectionId", GoGetter: "VpcPeeringConnectionId"},
@@ -2808,11 +2629,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnRouteProps",
+		"aws-cdk-lib.aws_ec2.CfnRouteProps",
 		reflect.TypeOf((*CfnRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnRouteTable",
+		"aws-cdk-lib.aws_ec2.CfnRouteTable",
 		reflect.TypeOf((*CfnRouteTable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2832,20 +2653,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -2857,11 +2673,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnRouteTableProps",
+		"aws-cdk-lib.aws_ec2.CfnRouteTableProps",
 		reflect.TypeOf((*CfnRouteTableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSecurityGroup",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroup",
 		reflect.TypeOf((*CfnSecurityGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2884,22 +2700,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupEgress", GoGetter: "SecurityGroupEgress"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupIngress", GoGetter: "SecurityGroupIngress"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -2911,15 +2722,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSecurityGroup.EgressProperty",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroup.EgressProperty",
 		reflect.TypeOf((*CfnSecurityGroup_EgressProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSecurityGroup.IngressProperty",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroup.IngressProperty",
 		reflect.TypeOf((*CfnSecurityGroup_IngressProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSecurityGroupEgress",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroupEgress",
 		reflect.TypeOf((*CfnSecurityGroupEgress)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -2946,20 +2757,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipProtocol", GoGetter: "IpProtocol"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "toPort", GoGetter: "ToPort"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2970,11 +2776,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSecurityGroupEgressProps",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroupEgressProps",
 		reflect.TypeOf((*CfnSecurityGroupEgressProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSecurityGroupIngress",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
 		reflect.TypeOf((*CfnSecurityGroupIngress)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3000,11 +2806,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipProtocol", GoGetter: "IpProtocol"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -3013,11 +2815,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sourceSecurityGroupName", GoGetter: "SourceSecurityGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceSecurityGroupOwnerId", GoGetter: "SourceSecurityGroupOwnerId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "toPort", GoGetter: "ToPort"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3028,15 +2829,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSecurityGroupIngressProps",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroupIngressProps",
 		reflect.TypeOf((*CfnSecurityGroupIngressProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSecurityGroupProps",
+		"aws-cdk-lib.aws_ec2.CfnSecurityGroupProps",
 		reflect.TypeOf((*CfnSecurityGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSpotFleet",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet",
 		reflect.TypeOf((*CfnSpotFleet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3056,20 +2857,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "spotFleetRequestConfigData", GoGetter: "SpotFleetRequestConfigData"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3080,135 +2876,139 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.AcceleratorCountRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.AcceleratorCountRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_AcceleratorCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.BaselineEbsBandwidthMbpsRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.BaselineEbsBandwidthMbpsRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.BlockDeviceMappingProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.BlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnSpotFleet_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.ClassicLoadBalancerProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.ClassicLoadBalancerProperty",
 		reflect.TypeOf((*CfnSpotFleet_ClassicLoadBalancerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.ClassicLoadBalancersConfigProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.ClassicLoadBalancersConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_ClassicLoadBalancersConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.EbsBlockDeviceProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.EbsBlockDeviceProperty",
 		reflect.TypeOf((*CfnSpotFleet_EbsBlockDeviceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.FleetLaunchTemplateSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.FleetLaunchTemplateSpecificationProperty",
 		reflect.TypeOf((*CfnSpotFleet_FleetLaunchTemplateSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.GroupIdentifierProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.GroupIdentifierProperty",
 		reflect.TypeOf((*CfnSpotFleet_GroupIdentifierProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.IamInstanceProfileSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.IamInstanceProfileSpecificationProperty",
 		reflect.TypeOf((*CfnSpotFleet_IamInstanceProfileSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.InstanceIpv6AddressProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.InstanceIpv6AddressProperty",
 		reflect.TypeOf((*CfnSpotFleet_InstanceIpv6AddressProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.InstanceNetworkInterfaceSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.InstanceNetworkInterfaceSpecificationProperty",
 		reflect.TypeOf((*CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.InstanceRequirementsRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.InstanceRequirementsRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_InstanceRequirementsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.LaunchTemplateConfigProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.LaunchTemplateConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_LaunchTemplateConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.LaunchTemplateOverridesProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.LaunchTemplateOverridesProperty",
 		reflect.TypeOf((*CfnSpotFleet_LaunchTemplateOverridesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.LoadBalancersConfigProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.LoadBalancersConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_LoadBalancersConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.MemoryGiBPerVCpuRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.MemoryGiBPerVCpuRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_MemoryGiBPerVCpuRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.MemoryMiBRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.MemoryMiBRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_MemoryMiBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.NetworkInterfaceCountRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.NetworkBandwidthGbpsRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_NetworkBandwidthGbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.NetworkInterfaceCountRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.PrivateIpAddressSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.PrivateIpAddressSpecificationProperty",
 		reflect.TypeOf((*CfnSpotFleet_PrivateIpAddressSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.SpotCapacityRebalanceProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.SpotCapacityRebalanceProperty",
 		reflect.TypeOf((*CfnSpotFleet_SpotCapacityRebalanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.SpotFleetLaunchSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.SpotFleetLaunchSpecificationProperty",
 		reflect.TypeOf((*CfnSpotFleet_SpotFleetLaunchSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.SpotFleetMonitoringProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.SpotFleetMonitoringProperty",
 		reflect.TypeOf((*CfnSpotFleet_SpotFleetMonitoringProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.SpotFleetRequestConfigDataProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.SpotFleetRequestConfigDataProperty",
 		reflect.TypeOf((*CfnSpotFleet_SpotFleetRequestConfigDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.SpotFleetTagSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.SpotFleetTagSpecificationProperty",
 		reflect.TypeOf((*CfnSpotFleet_SpotFleetTagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.SpotMaintenanceStrategiesProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.SpotMaintenanceStrategiesProperty",
 		reflect.TypeOf((*CfnSpotFleet_SpotMaintenanceStrategiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.SpotPlacementProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.SpotPlacementProperty",
 		reflect.TypeOf((*CfnSpotFleet_SpotPlacementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.TargetGroupProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.TargetGroupProperty",
 		reflect.TypeOf((*CfnSpotFleet_TargetGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.TargetGroupsConfigProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.TargetGroupsConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_TargetGroupsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.TotalLocalStorageGBRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.TotalLocalStorageGBRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_TotalLocalStorageGBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleet.VCpuCountRangeRequestProperty",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.VCpuCountRangeRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_VCpuCountRangeRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSpotFleetProps",
+		"aws-cdk-lib.aws_ec2.CfnSpotFleetProps",
 		reflect.TypeOf((*CfnSpotFleetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSubnet",
+		"aws-cdk-lib.aws_ec2.CfnSubnet",
 		reflect.TypeOf((*CfnSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3241,22 +3041,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mapPublicIpOnLaunch", GoGetter: "MapPublicIpOnLaunch"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outpostArn", GoGetter: "OutpostArn"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "privateDnsNameOptionsOnLaunch", GoGetter: "PrivateDnsNameOptionsOnLaunch"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -3268,7 +3063,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSubnetCidrBlock",
+		"aws-cdk-lib.aws_ec2.CfnSubnetCidrBlock",
 		reflect.TypeOf((*CfnSubnetCidrBlock)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3288,20 +3083,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlock", GoGetter: "Ipv6CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3312,11 +3102,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSubnetCidrBlockProps",
+		"aws-cdk-lib.aws_ec2.CfnSubnetCidrBlockProps",
 		reflect.TypeOf((*CfnSubnetCidrBlockProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSubnetNetworkAclAssociation",
+		"aws-cdk-lib.aws_ec2.CfnSubnetNetworkAclAssociation",
 		reflect.TypeOf((*CfnSubnetNetworkAclAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3337,20 +3127,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAclId", GoGetter: "NetworkAclId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3361,15 +3146,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSubnetNetworkAclAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnSubnetNetworkAclAssociationProps",
 		reflect.TypeOf((*CfnSubnetNetworkAclAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSubnetProps",
+		"aws-cdk-lib.aws_ec2.CfnSubnetProps",
 		reflect.TypeOf((*CfnSubnetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnSubnetRouteTableAssociation",
+		"aws-cdk-lib.aws_ec2.CfnSubnetRouteTableAssociation",
 		reflect.TypeOf((*CfnSubnetRouteTableAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3389,21 +3174,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTableId", GoGetter: "RouteTableId"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3414,11 +3194,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnSubnetRouteTableAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnSubnetRouteTableAssociationProps",
 		reflect.TypeOf((*CfnSubnetRouteTableAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTrafficMirrorFilter",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilter",
 		reflect.TypeOf((*CfnTrafficMirrorFilter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3439,20 +3219,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkServices", GoGetter: "NetworkServices"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3463,11 +3238,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTrafficMirrorFilterProps",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilterProps",
 		reflect.TypeOf((*CfnTrafficMirrorFilterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTrafficMirrorFilterRule",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilterRule",
 		reflect.TypeOf((*CfnTrafficMirrorFilterRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3489,11 +3264,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -3503,12 +3274,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sourceCidrBlock", GoGetter: "SourceCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "sourcePortRange", GoGetter: "SourcePortRange"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficDirection", GoGetter: "TrafficDirection"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorFilterId", GoGetter: "TrafficMirrorFilterId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3519,15 +3289,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTrafficMirrorFilterRule.TrafficMirrorPortRangeProperty",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilterRule.TrafficMirrorPortRangeProperty",
 		reflect.TypeOf((*CfnTrafficMirrorFilterRule_TrafficMirrorPortRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTrafficMirrorFilterRuleProps",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilterRuleProps",
 		reflect.TypeOf((*CfnTrafficMirrorFilterRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTrafficMirrorSession",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorSession",
 		reflect.TypeOf((*CfnTrafficMirrorSession)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3548,24 +3318,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packetLength", GoGetter: "PacketLength"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "sessionNumber", GoGetter: "SessionNumber"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorFilterId", GoGetter: "TrafficMirrorFilterId"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorTargetId", GoGetter: "TrafficMirrorTargetId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualNetworkId", GoGetter: "VirtualNetworkId"},
 		},
@@ -3577,11 +3342,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTrafficMirrorSessionProps",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorSessionProps",
 		reflect.TypeOf((*CfnTrafficMirrorSessionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTrafficMirrorTarget",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorTarget",
 		reflect.TypeOf((*CfnTrafficMirrorTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3604,20 +3369,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkLoadBalancerArn", GoGetter: "NetworkLoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3628,11 +3388,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTrafficMirrorTargetProps",
+		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorTargetProps",
 		reflect.TypeOf((*CfnTrafficMirrorTargetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGateway",
+		"aws-cdk-lib.aws_ec2.CfnTransitGateway",
 		reflect.TypeOf((*CfnTransitGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3660,22 +3420,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "multicastSupport", GoGetter: "MulticastSupport"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "propagationDefaultRouteTableId", GoGetter: "PropagationDefaultRouteTableId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayCidrBlocks", GoGetter: "TransitGatewayCidrBlocks"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnEcmpSupport", GoGetter: "VpnEcmpSupport"},
 		},
@@ -3687,7 +3442,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachment",
 		reflect.TypeOf((*CfnTransitGatewayAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3707,23 +3462,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -3735,11 +3485,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayAttachmentProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachmentProps",
 		reflect.TypeOf((*CfnTransitGatewayAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayConnect",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayConnect",
 		reflect.TypeOf((*CfnTransitGatewayConnect)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3762,22 +3512,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transportTransitGatewayAttachmentId", GoGetter: "TransportTransitGatewayAttachmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3788,15 +3533,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayConnect.TransitGatewayConnectOptionsProperty",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayConnect.TransitGatewayConnectOptionsProperty",
 		reflect.TypeOf((*CfnTransitGatewayConnect_TransitGatewayConnectOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayConnectProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayConnectProps",
 		reflect.TypeOf((*CfnTransitGatewayConnectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastDomain",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomain",
 		reflect.TypeOf((*CfnTransitGatewayMulticastDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3819,22 +3564,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3845,7 +3585,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastDomainAssociation",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomainAssociation",
 		reflect.TypeOf((*CfnTransitGatewayMulticastDomainAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3867,22 +3607,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayAttachmentId", GoGetter: "TransitGatewayAttachmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMulticastDomainId", GoGetter: "TransitGatewayMulticastDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3893,15 +3628,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastDomainAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomainAssociationProps",
 		reflect.TypeOf((*CfnTransitGatewayMulticastDomainAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastDomainProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomainProps",
 		reflect.TypeOf((*CfnTransitGatewayMulticastDomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastGroupMember",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastGroupMember",
 		reflect.TypeOf((*CfnTransitGatewayMulticastGroupMember)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3930,20 +3665,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMulticastDomainId", GoGetter: "TransitGatewayMulticastDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -3954,11 +3684,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastGroupMemberProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastGroupMemberProps",
 		reflect.TypeOf((*CfnTransitGatewayMulticastGroupMemberProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastGroupSource",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastGroupSource",
 		reflect.TypeOf((*CfnTransitGatewayMulticastGroupSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -3987,20 +3717,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkInterfaceId", GoGetter: "NetworkInterfaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayMulticastDomainId", GoGetter: "TransitGatewayMulticastDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4011,11 +3736,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayMulticastGroupSourceProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastGroupSourceProps",
 		reflect.TypeOf((*CfnTransitGatewayMulticastGroupSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		reflect.TypeOf((*CfnTransitGatewayPeeringAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4037,24 +3762,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerAccountId", GoGetter: "PeerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerRegion", GoGetter: "PeerRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "peerTransitGatewayId", GoGetter: "PeerTransitGatewayId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4065,15 +3785,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachmentProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachmentProps",
 		reflect.TypeOf((*CfnTransitGatewayPeeringAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayProps",
 		reflect.TypeOf((*CfnTransitGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayRoute",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRoute",
 		reflect.TypeOf((*CfnTransitGatewayRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4094,21 +3814,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayAttachmentId", GoGetter: "TransitGatewayAttachmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTableId", GoGetter: "TransitGatewayRouteTableId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4119,11 +3834,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayRouteProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteProps",
 		reflect.TypeOf((*CfnTransitGatewayRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayRouteTable",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTable",
 		reflect.TypeOf((*CfnTransitGatewayRouteTable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4142,21 +3857,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4167,7 +3877,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayRouteTableAssociation",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTableAssociation",
 		reflect.TypeOf((*CfnTransitGatewayRouteTableAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4186,21 +3896,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayAttachmentId", GoGetter: "TransitGatewayAttachmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTableId", GoGetter: "TransitGatewayRouteTableId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4211,11 +3916,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayRouteTableAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTableAssociationProps",
 		reflect.TypeOf((*CfnTransitGatewayRouteTableAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayRouteTablePropagation",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTablePropagation",
 		reflect.TypeOf((*CfnTransitGatewayRouteTablePropagation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4234,21 +3939,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayAttachmentId", GoGetter: "TransitGatewayAttachmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayRouteTableId", GoGetter: "TransitGatewayRouteTableId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4259,15 +3959,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayRouteTablePropagationProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTablePropagationProps",
 		reflect.TypeOf((*CfnTransitGatewayRouteTablePropagationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayRouteTableProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTableProps",
 		reflect.TypeOf((*CfnTransitGatewayRouteTableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayVpcAttachment",
 		reflect.TypeOf((*CfnTransitGatewayVpcAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4288,24 +3988,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "removeSubnetIds", GoGetter: "RemoveSubnetIds"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -4317,11 +4012,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachmentProps",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayVpcAttachmentProps",
 		reflect.TypeOf((*CfnTransitGatewayVpcAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPC",
+		"aws-cdk-lib.aws_ec2.CfnVPC",
 		reflect.TypeOf((*CfnVPC)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4352,20 +4047,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv4NetmaskLength", GoGetter: "Ipv4NetmaskLength"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4376,7 +4066,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCCidrBlock",
+		"aws-cdk-lib.aws_ec2.CfnVPCCidrBlock",
 		reflect.TypeOf((*CfnVPCCidrBlock)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4403,19 +4093,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv6Pool", GoGetter: "Ipv6Pool"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -4427,11 +4112,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCCidrBlockProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCCidrBlockProps",
 		reflect.TypeOf((*CfnVPCCidrBlockProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCDHCPOptionsAssociation",
+		"aws-cdk-lib.aws_ec2.CfnVPCDHCPOptionsAssociation",
 		reflect.TypeOf((*CfnVPCDHCPOptionsAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4452,19 +4137,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -4476,11 +4156,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCDHCPOptionsAssociationProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCDHCPOptionsAssociationProps",
 		reflect.TypeOf((*CfnVPCDHCPOptionsAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCEndpoint",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpoint",
 		reflect.TypeOf((*CfnVPCEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4502,12 +4182,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "privateDnsEnabled", GoGetter: "PrivateDnsEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -4517,10 +4193,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointType", GoGetter: "VpcEndpointType"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
@@ -4533,7 +4208,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCEndpointConnectionNotification",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointConnectionNotification",
 		reflect.TypeOf((*CfnVPCEndpointConnectionNotification)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4554,20 +4229,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceId", GoGetter: "ServiceId"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
 		},
@@ -4579,15 +4249,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCEndpointConnectionNotificationProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointConnectionNotificationProps",
 		reflect.TypeOf((*CfnVPCEndpointConnectionNotificationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCEndpointProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointProps",
 		reflect.TypeOf((*CfnVPCEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCEndpointService",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointService",
 		reflect.TypeOf((*CfnVPCEndpointService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "acceptanceRequired", GoGetter: "AcceptanceRequired"},
@@ -4610,20 +4280,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkLoadBalancerArns", GoGetter: "NetworkLoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "payerResponsibility", GoGetter: "PayerResponsibility"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4634,7 +4299,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCEndpointServicePermissions",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointServicePermissions",
 		reflect.TypeOf((*CfnVPCEndpointServicePermissions)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4654,20 +4319,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceId", GoGetter: "ServiceId"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4678,15 +4338,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCEndpointServicePermissionsProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointServicePermissionsProps",
 		reflect.TypeOf((*CfnVPCEndpointServicePermissionsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCEndpointServiceProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpointServiceProps",
 		reflect.TypeOf((*CfnVPCEndpointServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCGatewayAttachment",
+		"aws-cdk-lib.aws_ec2.CfnVPCGatewayAttachment",
 		reflect.TypeOf((*CfnVPCGatewayAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4706,19 +4366,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "internetGatewayId", GoGetter: "InternetGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayId", GoGetter: "VpnGatewayId"},
@@ -4731,11 +4386,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCGatewayAttachmentProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCGatewayAttachmentProps",
 		reflect.TypeOf((*CfnVPCGatewayAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPCPeeringConnection",
+		"aws-cdk-lib.aws_ec2.CfnVPCPeeringConnection",
 		reflect.TypeOf((*CfnVPCPeeringConnection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4755,24 +4410,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerOwnerId", GoGetter: "PeerOwnerId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerRegion", GoGetter: "PeerRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "peerRoleArn", GoGetter: "PeerRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "peerVpcId", GoGetter: "PeerVpcId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -4784,15 +4434,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCPeeringConnectionProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCPeeringConnectionProps",
 		reflect.TypeOf((*CfnVPCPeeringConnectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPCProps",
+		"aws-cdk-lib.aws_ec2.CfnVPCProps",
 		reflect.TypeOf((*CfnVPCProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPNConnection",
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection",
 		reflect.TypeOf((*CfnVPNConnection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4813,23 +4463,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "staticRoutesOnly", GoGetter: "StaticRoutesOnly"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayId", GoGetter: "VpnGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnTunnelOptionsSpecifications", GoGetter: "VpnTunnelOptionsSpecifications"},
@@ -4842,15 +4487,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPNConnection.VpnTunnelOptionsSpecificationProperty",
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.VpnTunnelOptionsSpecificationProperty",
 		reflect.TypeOf((*CfnVPNConnection_VpnTunnelOptionsSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPNConnectionProps",
+		"aws-cdk-lib.aws_ec2.CfnVPNConnectionProps",
 		reflect.TypeOf((*CfnVPNConnectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPNConnectionRoute",
+		"aws-cdk-lib.aws_ec2.CfnVPNConnectionRoute",
 		reflect.TypeOf((*CfnVPNConnectionRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4870,19 +4515,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnConnectionId", GoGetter: "VpnConnectionId"},
 		},
@@ -4894,11 +4534,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPNConnectionRouteProps",
+		"aws-cdk-lib.aws_ec2.CfnVPNConnectionRouteProps",
 		reflect.TypeOf((*CfnVPNConnectionRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPNGateway",
+		"aws-cdk-lib.aws_ec2.CfnVPNGateway",
 		reflect.TypeOf((*CfnVPNGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4919,21 +4559,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -4944,11 +4579,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPNGatewayProps",
+		"aws-cdk-lib.aws_ec2.CfnVPNGatewayProps",
 		reflect.TypeOf((*CfnVPNGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVPNGatewayRoutePropagation",
+		"aws-cdk-lib.aws_ec2.CfnVPNGatewayRoutePropagation",
 		reflect.TypeOf((*CfnVPNGatewayRoutePropagation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -4968,20 +4603,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTableIds", GoGetter: "RouteTableIds"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnGatewayId", GoGetter: "VpnGatewayId"},
 		},
@@ -4993,11 +4623,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVPNGatewayRoutePropagationProps",
+		"aws-cdk-lib.aws_ec2.CfnVPNGatewayRoutePropagationProps",
 		reflect.TypeOf((*CfnVPNGatewayRoutePropagationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVolume",
+		"aws-cdk-lib.aws_ec2.CfnVolume",
 		reflect.TypeOf((*CfnVolume)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -5022,24 +4652,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "multiAttachEnabled", GoGetter: "MultiAttachEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outpostArn", GoGetter: "OutpostArn"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "size", GoGetter: "Size"},
 			_jsii_.MemberProperty{JsiiProperty: "snapshotId", GoGetter: "SnapshotId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "throughput", GoGetter: "Throughput"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "volumeType", GoGetter: "VolumeType"},
 		},
@@ -5051,7 +4676,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CfnVolumeAttachment",
+		"aws-cdk-lib.aws_ec2.CfnVolumeAttachment",
 		reflect.TypeOf((*CfnVolumeAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -5072,19 +4697,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "volumeId", GoGetter: "VolumeId"},
 		},
@@ -5096,15 +4716,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVolumeAttachmentProps",
+		"aws-cdk-lib.aws_ec2.CfnVolumeAttachmentProps",
 		reflect.TypeOf((*CfnVolumeAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CfnVolumeProps",
+		"aws-cdk-lib.aws_ec2.CfnVolumeProps",
 		reflect.TypeOf((*CfnVolumeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.ClientVpnAuthorizationRule",
+		"aws-cdk-lib.aws_ec2.ClientVpnAuthorizationRule",
 		reflect.TypeOf((*ClientVpnAuthorizationRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5113,15 +4733,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ClientVpnAuthorizationRule{}
@@ -5130,15 +4744,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ClientVpnAuthorizationRuleOptions",
+		"aws-cdk-lib.aws_ec2.ClientVpnAuthorizationRuleOptions",
 		reflect.TypeOf((*ClientVpnAuthorizationRuleOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ClientVpnAuthorizationRuleProps",
+		"aws-cdk-lib.aws_ec2.ClientVpnAuthorizationRuleProps",
 		reflect.TypeOf((*ClientVpnAuthorizationRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.ClientVpnEndpoint",
+		"aws-cdk-lib.aws_ec2.ClientVpnEndpoint",
 		reflect.TypeOf((*ClientVpnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAuthorizationRule", GoMethod: "AddAuthorizationRule"},
@@ -5151,16 +4765,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "targetNetworksAssociated", GoGetter: "TargetNetworksAssociated"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ClientVpnEndpoint{}
@@ -5170,19 +4778,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ClientVpnEndpointAttributes",
+		"aws-cdk-lib.aws_ec2.ClientVpnEndpointAttributes",
 		reflect.TypeOf((*ClientVpnEndpointAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ClientVpnEndpointOptions",
+		"aws-cdk-lib.aws_ec2.ClientVpnEndpointOptions",
 		reflect.TypeOf((*ClientVpnEndpointOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ClientVpnEndpointProps",
+		"aws-cdk-lib.aws_ec2.ClientVpnEndpointProps",
 		reflect.TypeOf((*ClientVpnEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.ClientVpnRoute",
+		"aws-cdk-lib.aws_ec2.ClientVpnRoute",
 		reflect.TypeOf((*ClientVpnRoute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5191,15 +4799,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ClientVpnRoute{}
@@ -5208,15 +4810,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ClientVpnRouteOptions",
+		"aws-cdk-lib.aws_ec2.ClientVpnRouteOptions",
 		reflect.TypeOf((*ClientVpnRouteOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ClientVpnRouteProps",
+		"aws-cdk-lib.aws_ec2.ClientVpnRouteProps",
 		reflect.TypeOf((*ClientVpnRouteProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.ClientVpnRouteTarget",
+		"aws-cdk-lib.aws_ec2.ClientVpnRouteTarget",
 		reflect.TypeOf((*ClientVpnRouteTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
@@ -5226,7 +4828,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.ClientVpnSessionTimeout",
+		"aws-cdk-lib.aws_ec2.ClientVpnSessionTimeout",
 		reflect.TypeOf((*ClientVpnSessionTimeout)(nil)).Elem(),
 		map[string]interface{}{
 			"EIGHT_HOURS": ClientVpnSessionTimeout_EIGHT_HOURS,
@@ -5236,7 +4838,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.ClientVpnUserBasedAuthentication",
+		"aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication",
 		reflect.TypeOf((*ClientVpnUserBasedAuthentication)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
@@ -5246,7 +4848,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.CloudFormationInit",
+		"aws-cdk-lib.aws_ec2.CloudFormationInit",
 		reflect.TypeOf((*CloudFormationInit)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addConfig", GoMethod: "AddConfig"},
@@ -5258,23 +4860,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.CommonNetworkAclEntryOptions",
+		"aws-cdk-lib.aws_ec2.CommonNetworkAclEntryOptions",
 		reflect.TypeOf((*CommonNetworkAclEntryOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ConfigSetProps",
+		"aws-cdk-lib.aws_ec2.ConfigSetProps",
 		reflect.TypeOf((*ConfigSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ConfigureNatOptions",
+		"aws-cdk-lib.aws_ec2.ConfigureNatOptions",
 		reflect.TypeOf((*ConfigureNatOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ConnectionRule",
+		"aws-cdk-lib.aws_ec2.ConnectionRule",
 		reflect.TypeOf((*ConnectionRule)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.Connections",
+		"aws-cdk-lib.aws_ec2.Connections",
 		reflect.TypeOf((*Connections)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addSecurityGroup", GoMethod: "AddSecurityGroup"},
@@ -5299,11 +4901,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ConnectionsProps",
+		"aws-cdk-lib.aws_ec2.ConnectionsProps",
 		reflect.TypeOf((*ConnectionsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.CpuCredits",
+		"aws-cdk-lib.aws_ec2.CpuCredits",
 		reflect.TypeOf((*CpuCredits)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD": CpuCredits_STANDARD,
@@ -5311,7 +4913,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.DefaultInstanceTenancy",
+		"aws-cdk-lib.aws_ec2.DefaultInstanceTenancy",
 		reflect.TypeOf((*DefaultInstanceTenancy)(nil)).Elem(),
 		map[string]interface{}{
 			"DEFAULT": DefaultInstanceTenancy_DEFAULT,
@@ -5319,23 +4921,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.EbsDeviceOptions",
+		"aws-cdk-lib.aws_ec2.DestinationOptions",
+		reflect.TypeOf((*DestinationOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.EbsDeviceOptions",
 		reflect.TypeOf((*EbsDeviceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.EbsDeviceOptionsBase",
+		"aws-cdk-lib.aws_ec2.EbsDeviceOptionsBase",
 		reflect.TypeOf((*EbsDeviceOptionsBase)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.EbsDeviceProps",
+		"aws-cdk-lib.aws_ec2.EbsDeviceProps",
 		reflect.TypeOf((*EbsDeviceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.EbsDeviceSnapshotOptions",
+		"aws-cdk-lib.aws_ec2.EbsDeviceSnapshotOptions",
 		reflect.TypeOf((*EbsDeviceSnapshotOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.EbsDeviceVolumeType",
+		"aws-cdk-lib.aws_ec2.EbsDeviceVolumeType",
 		reflect.TypeOf((*EbsDeviceVolumeType)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD": EbsDeviceVolumeType_STANDARD,
@@ -5348,15 +4954,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.EnableVpnGatewayOptions",
+		"aws-cdk-lib.aws_ec2.EnableVpnGatewayOptions",
 		reflect.TypeOf((*EnableVpnGatewayOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.ExecuteFileOptions",
+		"aws-cdk-lib.aws_ec2.ExecuteFileOptions",
 		reflect.TypeOf((*ExecuteFileOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.FlowLog",
+		"aws-cdk-lib.aws_ec2.FlowLog",
 		reflect.TypeOf((*FlowLog)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5370,15 +4976,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "keyPrefix", GoGetter: "KeyPrefix"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FlowLog{}
@@ -5388,7 +4988,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.FlowLogDestination",
+		"aws-cdk-lib.aws_ec2.FlowLogDestination",
 		reflect.TypeOf((*FlowLogDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -5398,27 +4998,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.FlowLogDestinationConfig",
+		"aws-cdk-lib.aws_ec2.FlowLogDestinationConfig",
 		reflect.TypeOf((*FlowLogDestinationConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.FlowLogDestinationType",
+		"aws-cdk-lib.aws_ec2.FlowLogDestinationType",
 		reflect.TypeOf((*FlowLogDestinationType)(nil)).Elem(),
 		map[string]interface{}{
 			"CLOUD_WATCH_LOGS": FlowLogDestinationType_CLOUD_WATCH_LOGS,
 			"S3": FlowLogDestinationType_S3,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.FlowLogFileFormat",
+		reflect.TypeOf((*FlowLogFileFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN_TEXT": FlowLogFileFormat_PLAIN_TEXT,
+			"PARQUET": FlowLogFileFormat_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval",
+		reflect.TypeOf((*FlowLogMaxAggregationInterval)(nil)).Elem(),
+		map[string]interface{}{
+			"ONE_MINUTE": FlowLogMaxAggregationInterval_ONE_MINUTE,
+			"TEN_MINUTES": FlowLogMaxAggregationInterval_TEN_MINUTES,
+		},
+	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.FlowLogOptions",
+		"aws-cdk-lib.aws_ec2.FlowLogOptions",
 		reflect.TypeOf((*FlowLogOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.FlowLogProps",
+		"aws-cdk-lib.aws_ec2.FlowLogProps",
 		reflect.TypeOf((*FlowLogProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.FlowLogResourceType",
+		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
 		reflect.TypeOf((*FlowLogResourceType)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "resourceId", GoGetter: "ResourceId"},
@@ -5429,7 +5045,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.FlowLogTrafficType",
+		"aws-cdk-lib.aws_ec2.FlowLogTrafficType",
 		reflect.TypeOf((*FlowLogTrafficType)(nil)).Elem(),
 		map[string]interface{}{
 			"ACCEPT": FlowLogTrafficType_ACCEPT,
@@ -5438,11 +5054,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.GatewayConfig",
+		"aws-cdk-lib.aws_ec2.GatewayConfig",
 		reflect.TypeOf((*GatewayConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.GatewayVpcEndpoint",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpoint",
 		reflect.TypeOf((*GatewayVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
@@ -5452,16 +5068,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointCreationTimestamp", GoGetter: "VpcEndpointCreationTimestamp"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointDnsEntries", GoGetter: "VpcEndpointDnsEntries"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
@@ -5475,7 +5085,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.GatewayVpcEndpointAwsService",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointAwsService",
 		reflect.TypeOf((*GatewayVpcEndpointAwsService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -5487,15 +5097,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.GatewayVpcEndpointOptions",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions",
 		reflect.TypeOf((*GatewayVpcEndpointOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.GatewayVpcEndpointProps",
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointProps",
 		reflect.TypeOf((*GatewayVpcEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.GenericLinuxImage",
+		"aws-cdk-lib.aws_ec2.GenericLinuxImage",
 		reflect.TypeOf((*GenericLinuxImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -5507,11 +5117,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.GenericLinuxImageProps",
+		"aws-cdk-lib.aws_ec2.GenericLinuxImageProps",
 		reflect.TypeOf((*GenericLinuxImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.GenericSSMParameterImage",
+		"aws-cdk-lib.aws_ec2.GenericSSMParameterImage",
 		reflect.TypeOf((*GenericSSMParameterImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -5524,7 +5134,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.GenericWindowsImage",
+		"aws-cdk-lib.aws_ec2.GenericWindowsImage",
 		reflect.TypeOf((*GenericWindowsImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -5536,11 +5146,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.GenericWindowsImageProps",
+		"aws-cdk-lib.aws_ec2.GenericWindowsImageProps",
 		reflect.TypeOf((*GenericWindowsImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IClientVpnConnectionHandler",
+		"aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler",
 		reflect.TypeOf((*IClientVpnConnectionHandler)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
@@ -5551,7 +5161,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IClientVpnEndpoint",
+		"aws-cdk-lib.aws_ec2.IClientVpnEndpoint",
 		reflect.TypeOf((*IClientVpnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5570,7 +5180,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IConnectable",
+		"aws-cdk-lib.aws_ec2.IConnectable",
 		reflect.TypeOf((*IConnectable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
@@ -5580,7 +5190,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IFlowLog",
+		"aws-cdk-lib.aws_ec2.IFlowLog",
 		reflect.TypeOf((*IFlowLog)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5596,7 +5206,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IGatewayVpcEndpoint",
+		"aws-cdk-lib.aws_ec2.IGatewayVpcEndpoint",
 		reflect.TypeOf((*IGatewayVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5612,7 +5222,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IGatewayVpcEndpointService",
+		"aws-cdk-lib.aws_ec2.IGatewayVpcEndpointService",
 		reflect.TypeOf((*IGatewayVpcEndpointService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -5622,7 +5232,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IInstance",
+		"aws-cdk-lib.aws_ec2.IInstance",
 		reflect.TypeOf((*IInstance)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5647,7 +5257,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IInterfaceVpcEndpoint",
+		"aws-cdk-lib.aws_ec2.IInterfaceVpcEndpoint",
 		reflect.TypeOf((*IInterfaceVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5665,7 +5275,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IInterfaceVpcEndpointService",
+		"aws-cdk-lib.aws_ec2.IInterfaceVpcEndpointService",
 		reflect.TypeOf((*IInterfaceVpcEndpointService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -5677,7 +5287,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.ILaunchTemplate",
+		"aws-cdk-lib.aws_ec2.IIpAddresses",
+		reflect.TypeOf((*IIpAddresses)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "allocateSubnetsCidr", GoMethod: "AllocateSubnetsCidr"},
+			_jsii_.MemberMethod{JsiiMethod: "allocateVpcCidr", GoMethod: "AllocateVpcCidr"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IIpAddresses{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ec2.ILaunchTemplate",
 		reflect.TypeOf((*ILaunchTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5695,7 +5316,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IMachineImage",
+		"aws-cdk-lib.aws_ec2.IMachineImage",
 		reflect.TypeOf((*IMachineImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -5705,7 +5326,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.INetworkAcl",
+		"aws-cdk-lib.aws_ec2.INetworkAcl",
 		reflect.TypeOf((*INetworkAcl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEntry", GoMethod: "AddEntry"},
@@ -5722,7 +5343,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.INetworkAclEntry",
+		"aws-cdk-lib.aws_ec2.INetworkAclEntry",
 		reflect.TypeOf((*INetworkAclEntry)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5738,7 +5359,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IPeer",
+		"aws-cdk-lib.aws_ec2.IPeer",
 		reflect.TypeOf((*IPeer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "canInlineRule", GoGetter: "CanInlineRule"},
@@ -5754,7 +5375,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IPrivateSubnet",
+		"aws-cdk-lib.aws_ec2.IPrivateSubnet",
 		reflect.TypeOf((*IPrivateSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5775,7 +5396,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IPublicSubnet",
+		"aws-cdk-lib.aws_ec2.IPublicSubnet",
 		reflect.TypeOf((*IPublicSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5796,7 +5417,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IRouteTable",
+		"aws-cdk-lib.aws_ec2.IRouteTable",
 		reflect.TypeOf((*IRouteTable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "routeTableId", GoGetter: "RouteTableId"},
@@ -5806,7 +5427,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.ISecurityGroup",
+		"aws-cdk-lib.aws_ec2.ISecurityGroup",
 		reflect.TypeOf((*ISecurityGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEgressRule", GoMethod: "AddEgressRule"},
@@ -5831,7 +5452,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.ISubnet",
+		"aws-cdk-lib.aws_ec2.ISubnet",
 		reflect.TypeOf((*ISubnet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5852,7 +5473,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.ISubnetNetworkAclAssociation",
+		"aws-cdk-lib.aws_ec2.ISubnetNetworkAclAssociation",
 		reflect.TypeOf((*ISubnetNetworkAclAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5868,7 +5489,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IVolume",
+		"aws-cdk-lib.aws_ec2.IVolume",
 		reflect.TypeOf((*IVolume)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5890,7 +5511,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IVpc",
+		"aws-cdk-lib.aws_ec2.IVpc",
 		reflect.TypeOf((*IVpc)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
@@ -5921,7 +5542,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IVpcEndpoint",
+		"aws-cdk-lib.aws_ec2.IVpcEndpoint",
 		reflect.TypeOf((*IVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5937,7 +5558,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IVpcEndpointService",
+		"aws-cdk-lib.aws_ec2.IVpcEndpointService",
 		reflect.TypeOf((*IVpcEndpointService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5954,7 +5575,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IVpcEndpointServiceLoadBalancer",
+		"aws-cdk-lib.aws_ec2.IVpcEndpointServiceLoadBalancer",
 		reflect.TypeOf((*IVpcEndpointServiceLoadBalancer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
@@ -5964,7 +5585,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IVpnConnection",
+		"aws-cdk-lib.aws_ec2.IVpnConnection",
 		reflect.TypeOf((*IVpnConnection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -5987,7 +5608,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_ec2.IVpnGateway",
+		"aws-cdk-lib.aws_ec2.IVpnGateway",
 		reflect.TypeOf((*IVpnGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -6003,7 +5624,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitCommand",
+		"aws-cdk-lib.aws_ec2.InitCommand",
 		reflect.TypeOf((*InitCommand)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6015,11 +5636,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InitCommandOptions",
+		"aws-cdk-lib.aws_ec2.InitCommandOptions",
 		reflect.TypeOf((*InitCommandOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitCommandWaitDuration",
+		"aws-cdk-lib.aws_ec2.InitCommandWaitDuration",
 		reflect.TypeOf((*InitCommandWaitDuration)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -6027,7 +5648,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitConfig",
+		"aws-cdk-lib.aws_ec2.InitConfig",
 		reflect.TypeOf((*InitConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "add", GoMethod: "Add"},
@@ -6038,7 +5659,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitElement",
+		"aws-cdk-lib.aws_ec2.InitElement",
 		reflect.TypeOf((*InitElement)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6048,7 +5669,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitFile",
+		"aws-cdk-lib.aws_ec2.InitFile",
 		reflect.TypeOf((*InitFile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6060,15 +5681,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InitFileAssetOptions",
+		"aws-cdk-lib.aws_ec2.InitFileAssetOptions",
 		reflect.TypeOf((*InitFileAssetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InitFileOptions",
+		"aws-cdk-lib.aws_ec2.InitFileOptions",
 		reflect.TypeOf((*InitFileOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitGroup",
+		"aws-cdk-lib.aws_ec2.InitGroup",
 		reflect.TypeOf((*InitGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6080,7 +5701,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitPackage",
+		"aws-cdk-lib.aws_ec2.InitPackage",
 		reflect.TypeOf((*InitPackage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6093,7 +5714,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitService",
+		"aws-cdk-lib.aws_ec2.InitService",
 		reflect.TypeOf((*InitService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6105,11 +5726,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InitServiceOptions",
+		"aws-cdk-lib.aws_ec2.InitServiceOptions",
 		reflect.TypeOf((*InitServiceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitServiceRestartHandle",
+		"aws-cdk-lib.aws_ec2.InitServiceRestartHandle",
 		reflect.TypeOf((*InitServiceRestartHandle)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -6117,7 +5738,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitSource",
+		"aws-cdk-lib.aws_ec2.InitSource",
 		reflect.TypeOf((*InitSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6129,15 +5750,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InitSourceAssetOptions",
+		"aws-cdk-lib.aws_ec2.InitSourceAssetOptions",
 		reflect.TypeOf((*InitSourceAssetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InitSourceOptions",
+		"aws-cdk-lib.aws_ec2.InitSourceOptions",
 		reflect.TypeOf((*InitSourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InitUser",
+		"aws-cdk-lib.aws_ec2.InitUser",
 		reflect.TypeOf((*InitUser)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "elementType", GoGetter: "ElementType"},
@@ -6149,11 +5770,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InitUserOptions",
+		"aws-cdk-lib.aws_ec2.InitUserOptions",
 		reflect.TypeOf((*InitUserOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.Instance",
+		"aws-cdk-lib.aws_ec2.Instance",
 		reflect.TypeOf((*Instance)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addSecurityGroup", GoMethod: "AddSecurityGroup"},
@@ -6174,18 +5795,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instancePublicDnsName", GoGetter: "InstancePublicDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "instancePublicIp", GoGetter: "InstancePublicIp"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "osType", GoGetter: "OsType"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userData", GoGetter: "UserData"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Instance{}
@@ -6195,7 +5810,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.InstanceArchitecture",
+		"aws-cdk-lib.aws_ec2.InstanceArchitecture",
 		reflect.TypeOf((*InstanceArchitecture)(nil)).Elem(),
 		map[string]interface{}{
 			"ARM_64": InstanceArchitecture_ARM_64,
@@ -6203,7 +5818,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.InstanceClass",
+		"aws-cdk-lib.aws_ec2.InstanceClass",
 		reflect.TypeOf((*InstanceClass)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD3": InstanceClass_STANDARD3,
@@ -6230,8 +5845,12 @@ func init() {
 			"R4": InstanceClass_R4,
 			"MEMORY5": InstanceClass_MEMORY5,
 			"R5": InstanceClass_R5,
+			"MEMORY6_AMD": InstanceClass_MEMORY6_AMD,
+			"R6A": InstanceClass_R6A,
 			"MEMORY6_INTEL": InstanceClass_MEMORY6_INTEL,
 			"R6I": InstanceClass_R6I,
+			"MEMORY6_INTEL_NVME_DRIVE": InstanceClass_MEMORY6_INTEL_NVME_DRIVE,
+			"R6ID": InstanceClass_R6ID,
 			"MEMORY5_HIGH_PERFORMANCE": InstanceClass_MEMORY5_HIGH_PERFORMANCE,
 			"R5N": InstanceClass_R5N,
 			"MEMORY5_NVME_DRIVE": InstanceClass_MEMORY5_NVME_DRIVE,
@@ -6241,6 +5860,8 @@ func init() {
 			"MEMORY5_AMD": InstanceClass_MEMORY5_AMD,
 			"R5A": InstanceClass_R5A,
 			"MEMORY5_AMD_NVME_DRIVE": InstanceClass_MEMORY5_AMD_NVME_DRIVE,
+			"HIGH_MEMORY_3TB_1": InstanceClass_HIGH_MEMORY_3TB_1,
+			"U_3TB1": InstanceClass_U_3TB1,
 			"HIGH_MEMORY_6TB_1": InstanceClass_HIGH_MEMORY_6TB_1,
 			"U_6TB1": InstanceClass_U_6TB1,
 			"HIGH_MEMORY_9TB_1": InstanceClass_HIGH_MEMORY_9TB_1,
@@ -6274,10 +5895,16 @@ func init() {
 			"C5N": InstanceClass_C5N,
 			"COMPUTE6_INTEL": InstanceClass_COMPUTE6_INTEL,
 			"C6I": InstanceClass_C6I,
+			"COMPUTE6_INTEL_NVME_DRIVE": InstanceClass_COMPUTE6_INTEL_NVME_DRIVE,
+			"C6ID": InstanceClass_C6ID,
+			"COMPUTE6_INTEL_HIGH_PERFORMANCE": InstanceClass_COMPUTE6_INTEL_HIGH_PERFORMANCE,
+			"C6IN": InstanceClass_C6IN,
 			"COMPUTE6_AMD": InstanceClass_COMPUTE6_AMD,
 			"C6A": InstanceClass_C6A,
 			"COMPUTE6_GRAVITON2": InstanceClass_COMPUTE6_GRAVITON2,
 			"C6G": InstanceClass_C6G,
+			"COMPUTE7_GRAVITON3": InstanceClass_COMPUTE7_GRAVITON3,
+			"C7G": InstanceClass_C7G,
 			"COMPUTE6_GRAVITON2_NVME_DRIVE": InstanceClass_COMPUTE6_GRAVITON2_NVME_DRIVE,
 			"C6GD": InstanceClass_C6GD,
 			"COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWITH": InstanceClass_COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWITH,
@@ -6325,6 +5952,8 @@ func init() {
 			"X2IEZN": InstanceClass_X2IEZN,
 			"FPGA1": InstanceClass_FPGA1,
 			"F1": InstanceClass_F1,
+			"GRAPHICS3_SMALL": InstanceClass_GRAPHICS3_SMALL,
+			"G3S": InstanceClass_G3S,
 			"GRAPHICS3": InstanceClass_GRAPHICS3,
 			"G3": InstanceClass_G3,
 			"GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE,
@@ -6339,6 +5968,10 @@ func init() {
 			"P2": InstanceClass_P2,
 			"PARALLEL3": InstanceClass_PARALLEL3,
 			"P3": InstanceClass_P3,
+			"PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE,
+			"P3DN": InstanceClass_P3DN,
+			"PARALLEL4_NVME_DRIVE_EXTENDED": InstanceClass_PARALLEL4_NVME_DRIVE_EXTENDED,
+			"P4DE": InstanceClass_P4DE,
 			"PARALLEL4": InstanceClass_PARALLEL4,
 			"P4D": InstanceClass_P4D,
 			"ARM1": InstanceClass_ARM1,
@@ -6347,6 +5980,8 @@ func init() {
 			"M6G": InstanceClass_M6G,
 			"STANDARD6_INTEL": InstanceClass_STANDARD6_INTEL,
 			"M6I": InstanceClass_M6I,
+			"STANDARD6_INTEL_NVME_DRIVE": InstanceClass_STANDARD6_INTEL_NVME_DRIVE,
+			"M6ID": InstanceClass_M6ID,
 			"STANDARD6_AMD": InstanceClass_STANDARD6_AMD,
 			"M6A": InstanceClass_M6A,
 			"STANDARD6_GRAVITON2_NVME_DRIVE": InstanceClass_STANDARD6_GRAVITON2_NVME_DRIVE,
@@ -6361,10 +5996,12 @@ func init() {
 			"VT1": InstanceClass_VT1,
 			"HIGH_PERFORMANCE_COMPUTING6_AMD": InstanceClass_HIGH_PERFORMANCE_COMPUTING6_AMD,
 			"HPC6A": InstanceClass_HPC6A,
+			"DEEP_LEARNING1": InstanceClass_DEEP_LEARNING1,
+			"DL1": InstanceClass_DL1,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.InstanceInitiatedShutdownBehavior",
+		"aws-cdk-lib.aws_ec2.InstanceInitiatedShutdownBehavior",
 		reflect.TypeOf((*InstanceInitiatedShutdownBehavior)(nil)).Elem(),
 		map[string]interface{}{
 			"STOP": InstanceInitiatedShutdownBehavior_STOP,
@@ -6372,11 +6009,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InstanceProps",
+		"aws-cdk-lib.aws_ec2.InstanceProps",
 		reflect.TypeOf((*InstanceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InstanceRequireImdsv2Aspect",
+		"aws-cdk-lib.aws_ec2.InstanceRequireImdsv2Aspect",
 		reflect.TypeOf((*InstanceRequireImdsv2Aspect)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "suppressWarnings", GoGetter: "SuppressWarnings"},
@@ -6390,11 +6027,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InstanceRequireImdsv2AspectProps",
+		"aws-cdk-lib.aws_ec2.InstanceRequireImdsv2AspectProps",
 		reflect.TypeOf((*InstanceRequireImdsv2AspectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.InstanceSize",
+		"aws-cdk-lib.aws_ec2.InstanceSize",
 		reflect.TypeOf((*InstanceSize)(nil)).Elem(),
 		map[string]interface{}{
 			"NANO": InstanceSize_NANO,
@@ -6422,7 +6059,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InstanceType",
+		"aws-cdk-lib.aws_ec2.InstanceType",
 		reflect.TypeOf((*InstanceType)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
@@ -6433,7 +6070,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InterfaceVpcEndpoint",
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpoint",
 		reflect.TypeOf((*InterfaceVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
@@ -6444,17 +6081,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
-			_jsii_.MemberProperty{JsiiProperty: "securityGroupId", GoGetter: "SecurityGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointCreationTimestamp", GoGetter: "VpcEndpointCreationTimestamp"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointDnsEntries", GoGetter: "VpcEndpointDnsEntries"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
@@ -6468,16 +6098,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InterfaceVpcEndpointAttributes",
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAttributes",
 		reflect.TypeOf((*InterfaceVpcEndpointAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InterfaceVpcEndpointAwsService",
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		reflect.TypeOf((*InterfaceVpcEndpointAwsService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
 			_jsii_.MemberProperty{JsiiProperty: "privateDnsDefault", GoGetter: "PrivateDnsDefault"},
+			_jsii_.MemberProperty{JsiiProperty: "shortName", GoGetter: "ShortName"},
 		},
 		func() interface{} {
 			j := jsiiProxy_InterfaceVpcEndpointAwsService{}
@@ -6486,15 +6117,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InterfaceVpcEndpointOptions",
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointOptions",
 		reflect.TypeOf((*InterfaceVpcEndpointOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.InterfaceVpcEndpointProps",
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointProps",
 		reflect.TypeOf((*InterfaceVpcEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.InterfaceVpcEndpointService",
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointService",
 		reflect.TypeOf((*InterfaceVpcEndpointService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -6508,7 +6139,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.LaunchTemplate",
+		"aws-cdk-lib.aws_ec2.IpAddresses",
+		reflect.TypeOf((*IpAddresses)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_IpAddresses{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.LaunchTemplate",
 		reflect.TypeOf((*LaunchTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -6525,19 +6164,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplateId", GoGetter: "LaunchTemplateId"},
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplateName", GoGetter: "LaunchTemplateName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "osType", GoGetter: "OsType"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userData", GoGetter: "UserData"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "versionNumber", GoGetter: "VersionNumber"},
 		},
 		func() interface{} {
@@ -6550,15 +6183,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.LaunchTemplateAttributes",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateAttributes",
 		reflect.TypeOf((*LaunchTemplateAttributes)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.LaunchTemplateHttpTokens",
+		reflect.TypeOf((*LaunchTemplateHttpTokens)(nil)).Elem(),
+		map[string]interface{}{
+			"OPTIONAL": LaunchTemplateHttpTokens_OPTIONAL,
+			"REQUIRED": LaunchTemplateHttpTokens_REQUIRED,
+		},
+	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.LaunchTemplateProps",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateProps",
 		reflect.TypeOf((*LaunchTemplateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.LaunchTemplateRequireImdsv2Aspect",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateRequireImdsv2Aspect",
 		reflect.TypeOf((*LaunchTemplateRequireImdsv2Aspect)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "suppressWarnings", GoGetter: "SuppressWarnings"},
@@ -6572,11 +6213,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.LaunchTemplateRequireImdsv2AspectProps",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateRequireImdsv2AspectProps",
 		reflect.TypeOf((*LaunchTemplateRequireImdsv2AspectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.LaunchTemplateSpecialVersions",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateSpecialVersions",
 		reflect.TypeOf((*LaunchTemplateSpecialVersions)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -6584,19 +6225,29 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.LaunchTemplateSpotOptions",
+		"aws-cdk-lib.aws_ec2.LaunchTemplateSpotOptions",
 		reflect.TypeOf((*LaunchTemplateSpotOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.LinuxUserDataOptions",
+		"aws-cdk-lib.aws_ec2.LinuxUserDataOptions",
 		reflect.TypeOf((*LinuxUserDataOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.LocationPackageOptions",
+		"aws-cdk-lib.aws_ec2.LocationPackageOptions",
 		reflect.TypeOf((*LocationPackageOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.LookupMachineImage",
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		reflect.TypeOf((*LogFormat)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_LogFormat{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.LookupMachineImage",
 		reflect.TypeOf((*LookupMachineImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -6608,11 +6259,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.LookupMachineImageProps",
+		"aws-cdk-lib.aws_ec2.LookupMachineImageProps",
 		reflect.TypeOf((*LookupMachineImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.MachineImage",
+		"aws-cdk-lib.aws_ec2.MachineImage",
 		reflect.TypeOf((*MachineImage)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -6620,11 +6271,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.MachineImageConfig",
+		"aws-cdk-lib.aws_ec2.MachineImageConfig",
 		reflect.TypeOf((*MachineImageConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.MultipartBody",
+		"aws-cdk-lib.aws_ec2.MultipartBody",
 		reflect.TypeOf((*MultipartBody)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "renderBodyPart", GoMethod: "RenderBodyPart"},
@@ -6634,11 +6285,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.MultipartBodyOptions",
+		"aws-cdk-lib.aws_ec2.MultipartBodyOptions",
 		reflect.TypeOf((*MultipartBodyOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.MultipartUserData",
+		"aws-cdk-lib.aws_ec2.MultipartUserData",
 		reflect.TypeOf((*MultipartUserData)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addCommands", GoMethod: "AddCommands"},
@@ -6657,19 +6308,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.MultipartUserDataOptions",
+		"aws-cdk-lib.aws_ec2.MultipartUserDataOptions",
 		reflect.TypeOf((*MultipartUserDataOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.NamedPackageOptions",
+		"aws-cdk-lib.aws_ec2.NamedPackageOptions",
 		reflect.TypeOf((*NamedPackageOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.NatGatewayProps",
+		"aws-cdk-lib.aws_ec2.NatGatewayProps",
 		reflect.TypeOf((*NatGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.NatInstanceImage",
+		"aws-cdk-lib.aws_ec2.NatInstanceImage",
 		reflect.TypeOf((*NatInstanceImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -6681,11 +6332,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.NatInstanceProps",
+		"aws-cdk-lib.aws_ec2.NatInstanceProps",
 		reflect.TypeOf((*NatInstanceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.NatInstanceProvider",
+		"aws-cdk-lib.aws_ec2.NatInstanceProvider",
 		reflect.TypeOf((*NatInstanceProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "configuredGateways", GoGetter: "ConfiguredGateways"},
@@ -6702,7 +6353,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.NatProvider",
+		"aws-cdk-lib.aws_ec2.NatProvider",
 		reflect.TypeOf((*NatProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "configuredGateways", GoGetter: "ConfiguredGateways"},
@@ -6714,7 +6365,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.NatTrafficDirection",
+		"aws-cdk-lib.aws_ec2.NatTrafficDirection",
 		reflect.TypeOf((*NatTrafficDirection)(nil)).Elem(),
 		map[string]interface{}{
 			"OUTBOUND_ONLY": NatTrafficDirection_OUTBOUND_ONLY,
@@ -6723,7 +6374,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.NetworkAcl",
+		"aws-cdk-lib.aws_ec2.NetworkAcl",
 		reflect.TypeOf((*NetworkAcl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEntry", GoMethod: "AddEntry"},
@@ -6736,15 +6387,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkAclId", GoGetter: "NetworkAclId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAclVpcId", GoGetter: "NetworkAclVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_NetworkAcl{}
@@ -6754,7 +6399,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.NetworkAclEntry",
+		"aws-cdk-lib.aws_ec2.NetworkAclEntry",
 		reflect.TypeOf((*NetworkAclEntry)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -6764,15 +6409,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAcl", GoGetter: "NetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_NetworkAclEntry{}
@@ -6782,15 +6421,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.NetworkAclEntryProps",
+		"aws-cdk-lib.aws_ec2.NetworkAclEntryProps",
 		reflect.TypeOf((*NetworkAclEntryProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.NetworkAclProps",
+		"aws-cdk-lib.aws_ec2.NetworkAclProps",
 		reflect.TypeOf((*NetworkAclProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.OperatingSystemType",
+		"aws-cdk-lib.aws_ec2.OperatingSystemType",
 		reflect.TypeOf((*OperatingSystemType)(nil)).Elem(),
 		map[string]interface{}{
 			"LINUX": OperatingSystemType_LINUX,
@@ -6799,7 +6438,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.Peer",
+		"aws-cdk-lib.aws_ec2.Peer",
 		reflect.TypeOf((*Peer)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -6807,7 +6446,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.Port",
+		"aws-cdk-lib.aws_ec2.Port",
 		reflect.TypeOf((*Port)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "canInlineRule", GoGetter: "CanInlineRule"},
@@ -6819,11 +6458,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.PortProps",
+		"aws-cdk-lib.aws_ec2.PortProps",
 		reflect.TypeOf((*PortProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.PrivateSubnet",
+		"aws-cdk-lib.aws_ec2.PrivateSubnet",
 		reflect.TypeOf((*PrivateSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultInternetRoute", GoMethod: "AddDefaultInternetRoute"},
@@ -6841,11 +6480,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAcl", GoGetter: "NetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetAvailabilityZone", GoGetter: "SubnetAvailabilityZone"},
@@ -6854,9 +6489,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "subnetNetworkAclAssociationId", GoGetter: "SubnetNetworkAclAssociationId"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetOutpostArn", GoGetter: "SubnetOutpostArn"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetVpcId", GoGetter: "SubnetVpcId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PrivateSubnet{}
@@ -6866,15 +6499,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.PrivateSubnetAttributes",
+		"aws-cdk-lib.aws_ec2.PrivateSubnetAttributes",
 		reflect.TypeOf((*PrivateSubnetAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.PrivateSubnetProps",
+		"aws-cdk-lib.aws_ec2.PrivateSubnetProps",
 		reflect.TypeOf((*PrivateSubnetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.Protocol",
+		"aws-cdk-lib.aws_ec2.Protocol",
 		reflect.TypeOf((*Protocol)(nil)).Elem(),
 		map[string]interface{}{
 			"ALL": Protocol_ALL,
@@ -7027,7 +6660,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.PublicSubnet",
+		"aws-cdk-lib.aws_ec2.PublicSubnet",
 		reflect.TypeOf((*PublicSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultInternetRoute", GoMethod: "AddDefaultInternetRoute"},
@@ -7046,11 +6679,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAcl", GoGetter: "NetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetAvailabilityZone", GoGetter: "SubnetAvailabilityZone"},
@@ -7059,9 +6688,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "subnetNetworkAclAssociationId", GoGetter: "SubnetNetworkAclAssociationId"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetOutpostArn", GoGetter: "SubnetOutpostArn"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetVpcId", GoGetter: "SubnetVpcId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PublicSubnet{}
@@ -7071,15 +6698,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.PublicSubnetAttributes",
+		"aws-cdk-lib.aws_ec2.PublicSubnetAttributes",
 		reflect.TypeOf((*PublicSubnetAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.PublicSubnetProps",
+		"aws-cdk-lib.aws_ec2.PublicSubnetProps",
 		reflect.TypeOf((*PublicSubnetProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.RequestedSubnet",
+		reflect.TypeOf((*RequestedSubnet)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.RouterType",
+		"aws-cdk-lib.aws_ec2.RouterType",
 		reflect.TypeOf((*RouterType)(nil)).Elem(),
 		map[string]interface{}{
 			"CARRIER_GATEWAY": RouterType_CARRIER_GATEWAY,
@@ -7095,15 +6726,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.S3DownloadOptions",
+		"aws-cdk-lib.aws_ec2.S3DestinationOptions",
+		reflect.TypeOf((*S3DestinationOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.S3DownloadOptions",
 		reflect.TypeOf((*S3DownloadOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.SecurityGroup",
+		"aws-cdk-lib.aws_ec2.SecurityGroup",
 		reflect.TypeOf((*SecurityGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEgressRule", GoMethod: "AddEgressRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addIngressRule", GoMethod: "AddIngressRule"},
+			_jsii_.MemberProperty{JsiiProperty: "allowAllIpv6Outbound", GoGetter: "AllowAllIpv6Outbound"},
 			_jsii_.MemberProperty{JsiiProperty: "allowAllOutbound", GoGetter: "AllowAllOutbound"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "canInlineRule", GoGetter: "CanInlineRule"},
@@ -7115,21 +6751,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupId", GoGetter: "SecurityGroupId"},
-			_jsii_.MemberProperty{JsiiProperty: "securityGroupName", GoGetter: "SecurityGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupVpcId", GoGetter: "SecurityGroupVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toEgressRuleConfig", GoMethod: "ToEgressRuleConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toIngressRuleConfig", GoMethod: "ToIngressRuleConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "uniqueId", GoGetter: "UniqueId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SecurityGroup{}
@@ -7139,19 +6768,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SecurityGroupImportOptions",
+		"aws-cdk-lib.aws_ec2.SecurityGroupImportOptions",
 		reflect.TypeOf((*SecurityGroupImportOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SecurityGroupProps",
+		"aws-cdk-lib.aws_ec2.SecurityGroupProps",
 		reflect.TypeOf((*SecurityGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SelectedSubnets",
+		"aws-cdk-lib.aws_ec2.SelectedSubnets",
 		reflect.TypeOf((*SelectedSubnets)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.SpotInstanceInterruption",
+		"aws-cdk-lib.aws_ec2.SpotInstanceInterruption",
 		reflect.TypeOf((*SpotInstanceInterruption)(nil)).Elem(),
 		map[string]interface{}{
 			"STOP": SpotInstanceInterruption_STOP,
@@ -7160,7 +6789,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.SpotRequestType",
+		"aws-cdk-lib.aws_ec2.SpotRequestType",
 		reflect.TypeOf((*SpotRequestType)(nil)).Elem(),
 		map[string]interface{}{
 			"ONE_TIME": SpotRequestType_ONE_TIME,
@@ -7168,11 +6797,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SsmParameterImageOptions",
+		"aws-cdk-lib.aws_ec2.SsmParameterImageOptions",
 		reflect.TypeOf((*SsmParameterImageOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.Subnet",
+		"aws-cdk-lib.aws_ec2.Subnet",
 		reflect.TypeOf((*Subnet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultInternetRoute", GoMethod: "AddDefaultInternetRoute"},
@@ -7190,11 +6819,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAcl", GoGetter: "NetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetAvailabilityZone", GoGetter: "SubnetAvailabilityZone"},
@@ -7203,9 +6828,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "subnetNetworkAclAssociationId", GoGetter: "SubnetNetworkAclAssociationId"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetOutpostArn", GoGetter: "SubnetOutpostArn"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetVpcId", GoGetter: "SubnetVpcId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Subnet{}
@@ -7215,15 +6838,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SubnetAttributes",
+		"aws-cdk-lib.aws_ec2.SubnetAttributes",
 		reflect.TypeOf((*SubnetAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SubnetConfiguration",
+		"aws-cdk-lib.aws_ec2.SubnetConfiguration",
 		reflect.TypeOf((*SubnetConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.SubnetFilter",
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
 		reflect.TypeOf((*SubnetFilter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "selectSubnets", GoMethod: "SelectSubnets"},
@@ -7232,8 +6855,12 @@ func init() {
 			return &jsiiProxy_SubnetFilter{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.SubnetIpamOptions",
+		reflect.TypeOf((*SubnetIpamOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.SubnetNetworkAclAssociation",
+		"aws-cdk-lib.aws_ec2.SubnetNetworkAclAssociation",
 		reflect.TypeOf((*SubnetNetworkAclAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -7243,17 +6870,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAcl", GoGetter: "NetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnet", GoGetter: "Subnet"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetNetworkAclAssociationAssociationId", GoGetter: "SubnetNetworkAclAssociationAssociationId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SubnetNetworkAclAssociation{}
@@ -7263,30 +6884,29 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SubnetNetworkAclAssociationProps",
+		"aws-cdk-lib.aws_ec2.SubnetNetworkAclAssociationProps",
 		reflect.TypeOf((*SubnetNetworkAclAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SubnetProps",
+		"aws-cdk-lib.aws_ec2.SubnetProps",
 		reflect.TypeOf((*SubnetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.SubnetSelection",
+		"aws-cdk-lib.aws_ec2.SubnetSelection",
 		reflect.TypeOf((*SubnetSelection)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.SubnetType",
+		"aws-cdk-lib.aws_ec2.SubnetType",
 		reflect.TypeOf((*SubnetType)(nil)).Elem(),
 		map[string]interface{}{
-			"ISOLATED": SubnetType_ISOLATED,
 			"PRIVATE_ISOLATED": SubnetType_PRIVATE_ISOLATED,
-			"PRIVATE": SubnetType_PRIVATE,
+			"PRIVATE_WITH_EGRESS": SubnetType_PRIVATE_WITH_EGRESS,
 			"PRIVATE_WITH_NAT": SubnetType_PRIVATE_WITH_NAT,
 			"PUBLIC": SubnetType_PUBLIC,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.TrafficDirection",
+		"aws-cdk-lib.aws_ec2.TrafficDirection",
 		reflect.TypeOf((*TrafficDirection)(nil)).Elem(),
 		map[string]interface{}{
 			"EGRESS": TrafficDirection_EGRESS,
@@ -7294,7 +6914,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.TransportProtocol",
+		"aws-cdk-lib.aws_ec2.TransportProtocol",
 		reflect.TypeOf((*TransportProtocol)(nil)).Elem(),
 		map[string]interface{}{
 			"TCP": TransportProtocol_TCP,
@@ -7302,7 +6922,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.UserData",
+		"aws-cdk-lib.aws_ec2.UserData",
 		reflect.TypeOf((*UserData)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addCommands", GoMethod: "AddCommands"},
@@ -7317,7 +6937,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.Volume",
+		"aws-cdk-lib.aws_ec2.Volume",
 		reflect.TypeOf((*Volume)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -7332,15 +6952,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantDetachVolume", GoMethod: "GrantDetachVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "grantDetachVolumeByResourceTag", GoMethod: "GrantDetachVolumeByResourceTag"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProps", GoMethod: "ValidateProps"},
 			_jsii_.MemberProperty{JsiiProperty: "volumeId", GoGetter: "VolumeId"},
 		},
@@ -7352,23 +6966,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VolumeAttributes",
+		"aws-cdk-lib.aws_ec2.VolumeAttributes",
 		reflect.TypeOf((*VolumeAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VolumeProps",
+		"aws-cdk-lib.aws_ec2.VolumeProps",
 		reflect.TypeOf((*VolumeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.Vpc",
+		"aws-cdk-lib.aws_ec2.Vpc",
 		reflect.TypeOf((*Vpc)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
-			_jsii_.MemberMethod{JsiiMethod: "addDynamoDbEndpoint", GoMethod: "AddDynamoDbEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addFlowLog", GoMethod: "AddFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
-			_jsii_.MemberMethod{JsiiMethod: "addS3Endpoint", GoMethod: "AddS3Endpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
@@ -7383,21 +6995,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "internetConnectivityEstablished", GoGetter: "InternetConnectivityEstablished"},
 			_jsii_.MemberProperty{JsiiProperty: "internetGatewayId", GoGetter: "InternetGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "isolatedSubnets", GoGetter: "IsolatedSubnets"},
-			_jsii_.MemberProperty{JsiiProperty: "natDependencies", GoGetter: "NatDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "privateSubnets", GoGetter: "PrivateSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "publicSubnets", GoGetter: "PublicSubnets"},
 			_jsii_.MemberMethod{JsiiMethod: "selectSubnetObjects", GoMethod: "SelectSubnetObjects"},
 			_jsii_.MemberMethod{JsiiMethod: "selectSubnets", GoMethod: "SelectSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcArn", GoGetter: "VpcArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlock", GoGetter: "VpcCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcCidrBlockAssociations", GoGetter: "VpcCidrBlockAssociations"},
@@ -7415,11 +7020,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpcAttributes",
+		"aws-cdk-lib.aws_ec2.VpcAttributes",
 		reflect.TypeOf((*VpcAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.VpcEndpoint",
+		"aws-cdk-lib.aws_ec2.VpcEndpoint",
 		reflect.TypeOf((*VpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
@@ -7429,16 +7034,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointId", GoGetter: "VpcEndpointId"},
 		},
 		func() interface{} {
@@ -7449,7 +7048,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.VpcEndpointService",
+		"aws-cdk-lib.aws_ec2.VpcEndpointService",
 		reflect.TypeOf((*VpcEndpointService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "acceptanceRequired", GoGetter: "AcceptanceRequired"},
@@ -7460,19 +7059,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceId", GoGetter: "VpcEndpointServiceId"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceLoadBalancers", GoGetter: "VpcEndpointServiceLoadBalancers"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceName", GoGetter: "VpcEndpointServiceName"},
-			_jsii_.MemberProperty{JsiiProperty: "whitelistedPrincipals", GoGetter: "WhitelistedPrincipals"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VpcEndpointService{}
@@ -7482,11 +7074,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpcEndpointServiceProps",
+		"aws-cdk-lib.aws_ec2.VpcEndpointServiceProps",
 		reflect.TypeOf((*VpcEndpointServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.VpcEndpointType",
+		"aws-cdk-lib.aws_ec2.VpcEndpointType",
 		reflect.TypeOf((*VpcEndpointType)(nil)).Elem(),
 		map[string]interface{}{
 			"INTERFACE": VpcEndpointType_INTERFACE,
@@ -7494,15 +7086,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpcLookupOptions",
+		"aws-cdk-lib.aws_ec2.VpcIpamOptions",
+		reflect.TypeOf((*VpcIpamOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.VpcLookupOptions",
 		reflect.TypeOf((*VpcLookupOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpcProps",
+		"aws-cdk-lib.aws_ec2.VpcProps",
 		reflect.TypeOf((*VpcProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.VpnConnection",
+		"aws-cdk-lib.aws_ec2.VpnConnection",
 		reflect.TypeOf((*VpnConnection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -7518,15 +7114,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTunnelDataOut", GoMethod: "MetricTunnelDataOut"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTunnelState", GoMethod: "MetricTunnelState"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnId", GoGetter: "VpnId"},
 		},
 		func() interface{} {
@@ -7536,11 +7126,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpnConnectionAttributes",
+		"aws-cdk-lib.aws_ec2.VpnConnectionAttributes",
 		reflect.TypeOf((*VpnConnectionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.VpnConnectionBase",
+		"aws-cdk-lib.aws_ec2.VpnConnectionBase",
 		reflect.TypeOf((*VpnConnectionBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -7556,15 +7146,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTunnelDataOut", GoMethod: "MetricTunnelDataOut"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTunnelState", GoMethod: "MetricTunnelState"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpnId", GoGetter: "VpnId"},
 		},
 		func() interface{} {
@@ -7575,15 +7159,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpnConnectionOptions",
+		"aws-cdk-lib.aws_ec2.VpnConnectionOptions",
 		reflect.TypeOf((*VpnConnectionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpnConnectionProps",
+		"aws-cdk-lib.aws_ec2.VpnConnectionProps",
 		reflect.TypeOf((*VpnConnectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.VpnConnectionType",
+		"aws-cdk-lib.aws_ec2.VpnConnectionType",
 		reflect.TypeOf((*VpnConnectionType)(nil)).Elem(),
 		map[string]interface{}{
 			"IPSEC_1": VpnConnectionType_IPSEC_1,
@@ -7591,7 +7175,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.VpnGateway",
+		"aws-cdk-lib.aws_ec2.VpnGateway",
 		reflect.TypeOf((*VpnGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -7601,15 +7185,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VpnGateway{}
@@ -7619,11 +7197,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpnGatewayProps",
+		"aws-cdk-lib.aws_ec2.VpnGatewayProps",
 		reflect.TypeOf((*VpnGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.VpnPort",
+		"aws-cdk-lib.aws_ec2.VpnPort",
 		reflect.TypeOf((*VpnPort)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTPS": VpnPort_HTTPS,
@@ -7631,11 +7209,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.VpnTunnelOption",
+		"aws-cdk-lib.aws_ec2.VpnTunnelOption",
 		reflect.TypeOf((*VpnTunnelOption)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_ec2.WindowsImage",
+		"aws-cdk-lib.aws_ec2.WindowsImage",
 		reflect.TypeOf((*WindowsImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -7648,11 +7226,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_ec2.WindowsImageProps",
+		"aws-cdk-lib.aws_ec2.WindowsImageProps",
 		reflect.TypeOf((*WindowsImageProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.WindowsUserDataOptions",
+		reflect.TypeOf((*WindowsUserDataOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_ec2.WindowsVersion",
+		"aws-cdk-lib.aws_ec2.WindowsVersion",
 		reflect.TypeOf((*WindowsVersion)(nil)).Elem(),
 		map[string]interface{}{
 			"WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS": WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS,
@@ -7664,12 +7246,10 @@ func init() {
 			"WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_BASE,
 			"WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERS": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERS,
 			"WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_WEB": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_WEB,
-			"WINDOWS_SERVER_2016_GERMAL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_GERMAL_FULL_BASE,
 			"WINDOWS_SERVER_2016_GERMAN_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_GERMAN_FULL_BASE,
 			"WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_32BIT_BASE": WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_32BIT_BASE,
 			"WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_WEB": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_WEB,
 			"WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS,
-			"WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE": WindowsVersion_WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE,
 			"WINDOWS_SERVER_2012_R2_SP1_PORTUGUESE_BRAZIL_64BIT_CORE": WindowsVersion_WINDOWS_SERVER_2012_R2_SP1_PORTUGUESE_BRAZIL_64BIT_CORE,
 			"WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_STANDARD": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_STANDARD,
 			"WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS": WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS,
@@ -7683,7 +7263,6 @@ func init() {
 			"WINDOWS_SERVER_2016_JAPANESE_FULL_FQL_2016_SP2_WEB": WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_FQL_2016_SP2_WEB,
 			"WINDOWS_SERVER_2016_KOREAN_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_BASE,
 			"WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD": WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD,
-			"WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE,
 			"WINDOWS_SERVER_2016_PORTUGUESE_PORTUGAL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_PORTUGUESE_PORTUGAL_FULL_BASE,
 			"WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_WEB": WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_WEB,
 			"WINDOWS_SERVER_2019_FRENCH_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_FRENCH_FULL_BASE,
@@ -7746,9 +7325,7 @@ func init() {
 			"WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS,
 			"WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_WEB": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_WEB,
 			"WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_WEB": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_WEB,
-			"WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_R2_RTM_PORTUGUESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGUESE_BRAZIL_64BIT_BASE,
-			"WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_R2_RTM_PORTUGUESE_PORTUGAL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGUESE_PORTUGAL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE,
 			"WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_EXPRESS": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_EXPRESS,
@@ -7761,7 +7338,6 @@ func init() {
 			"WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2007_R2_SP3_WEB": WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2007_R2_SP3_WEB,
 			"WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_WEB": WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_WEB,
 			"WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_ENTERPRISE": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_ENTERPRISE,
-			"WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE,
 			"WINDOWS_SERVER_2016_PORTUGUESE_BRAZIL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_PORTUGUESE_BRAZIL_FULL_BASE,
 			"WINDOWS_SERVER_2019_ENGLISH_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE,
 			"WINDOWS_SERVER_2003_R2_SP2_ENGLISH_32BIT_BASE": WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_32BIT_BASE,
@@ -7786,7 +7362,6 @@ func init() {
 			"WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_BASE,
 			"WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_BASE,
 			"WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS,
-			"WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_SP2_PORTUGUESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_SP2_PORTUGUESE_BRAZIL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_WEB": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_WEB,
 			"WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS,
@@ -7800,7 +7375,6 @@ func init() {
 			"WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_BASE,
 			"WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD": WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD,
 			"WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_BASE,
-			"WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_RTM_PORTUGUESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGUESE_BRAZIL_64BIT_BASE,
 			"WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_WEB": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_WEB,
 			"WINDOWS_SERVER_2016_ENGLISH_P3": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_P3,
@@ -7825,7 +7399,6 @@ func init() {
 			"WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE,
 			"WINDOWS_SERVER_2019_POLISH_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_POLISH_FULL_BASE,
 			"WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_WEB": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_WEB,
-			"WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE,
 			"WINDOWS_SERVER_2008_R2_SP1_PORTUGUESE_BRAZIL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_PORTUGUESE_BRAZIL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_ENTERPRISE": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_ENTERPRISE,
 			"WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS": WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS,
@@ -7857,11 +7430,9 @@ func init() {
 			"WINDOWS_SERVER_1709_ENGLISH_CORE_BASE": WindowsVersion_WINDOWS_SERVER_1709_ENGLISH_CORE_BASE,
 			"WINDOWS_SERVER_2008_R2_SP1_ENGLISH_61BIT_SQL_2012_RTM_SP2_ENTERPRISE": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_61BIT_SQL_2012_RTM_SP2_ENTERPRISE,
 			"WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_STANDARD": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_STANDARD,
-			"WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE": WindowsVersion_WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE,
 			"WINDOWS_SERVER_2008_SP2_PORTUGUESE_BRAZIL_32BIT_BASE": WindowsVersion_WINDOWS_SERVER_2008_SP2_PORTUGUESE_BRAZIL_32BIT_BASE,
 			"WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD,
 			"WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS": WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS,
-			"WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE,
 			"WINDOWS_SERVER_2012_RTM_PORTUGUESE_PORTUGAL_64BIT_BASE": WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGUESE_PORTUGAL_64BIT_BASE,
 			"WINDOWS_SERVER_2016_CZECH_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2016_CZECH_FULL_BASE,
 			"WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_STANDARD": WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_STANDARD,
@@ -7875,7 +7446,6 @@ func init() {
 			"WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_EXPRESS": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_EXPRESS,
 			"WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_WEB": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_WEB,
 			"WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_STANDARD": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_STANDARD,
-			"WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE,
 			"WINDOWS_SERVER_2019_PORTUGUESE_BRAZIL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_PORTUGUESE_BRAZIL_FULL_BASE,
 			"WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD,
 			"WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SHAREPOINT_2010_SP2_FOUNDATION": WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SHAREPOINT_2010_SP2_FOUNDATION,
@@ -7885,7 +7455,6 @@ func init() {
 			"WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS": WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS,
 			"WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_STANDARD": WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_STANDARD,
 			"WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_STANDARD": WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_STANDARD,
-			"WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE,
 			"WINDOWS_SERVER_2019_PORTUGUESE_PORTUGAL_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_PORTUGUESE_PORTUGAL_FULL_BASE,
 			"WINDOWS_SERVER_2019_SWEDISH_FULL_BASE": WindowsVersion_WINDOWS_SERVER_2019_SWEDISH_FULL_BASE,
 			"WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_HYPERV": WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_HYPERV,

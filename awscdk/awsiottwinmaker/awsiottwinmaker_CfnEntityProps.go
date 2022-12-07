@@ -44,6 +44,14 @@ package awsiottwinmaker
 //   					},
 //   				},
 //   			},
+//   			"propertyGroups": map[string]interface{}{
+//   				"propertyGroupsKey": &PropertyGroupProperty{
+//   					"groupType": jsii.String("groupType"),
+//   					"propertyNames": []*string{
+//   						jsii.String("propertyNames"),
+//   					},
+//   				},
+//   			},
 //   			"status": &StatusProperty{
 //   				"error": error,
 //   				"state": jsii.String("state"),

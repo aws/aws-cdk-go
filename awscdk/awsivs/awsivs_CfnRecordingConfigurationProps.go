@@ -1,7 +1,7 @@
 package awsivs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRecordingConfiguration`.
@@ -20,6 +20,7 @@ import (
 //
 //   	// the properties below are optional
 //   	name: jsii.String("name"),
+//   	recordingReconnectWindowSeconds: jsii.Number(123),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -43,6 +44,8 @@ type CfnRecordingConfigurationProps struct {
 	//
 	// The value does not need to be unique.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `AWS::IVS::RecordingConfiguration.RecordingReconnectWindowSeconds`.
+	RecordingReconnectWindowSeconds *float64 `field:"optional" json:"recordingReconnectWindowSeconds" yaml:"recordingReconnectWindowSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

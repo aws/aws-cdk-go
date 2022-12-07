@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnNatGateway`.
@@ -17,6 +17,7 @@ import (
 //   	// the properties below are optional
 //   	allocationId: jsii.String("allocationId"),
 //   	connectivityType: jsii.String("connectivityType"),
+//   	privateIpAddress: jsii.String("privateIpAddress"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -32,6 +33,8 @@ type CfnNatGatewayProps struct {
 	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
 	// Indicates whether the NAT gateway supports public or private connectivity.
 	ConnectivityType *string `field:"optional" json:"connectivityType" yaml:"connectivityType"`
+	// `AWS::EC2::NatGateway.PrivateIpAddress`.
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// The tags for the NAT gateway.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

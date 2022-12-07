@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // The extra options passed to the {@link IClusterEngine.bindToCluster} method.
@@ -21,16 +21,12 @@ import (
 //   	s3ImportRole: role,
 //   }
 //
-// Experimental.
 type ClusterEngineBindOptions struct {
 	// The customer-provided ParameterGroup.
-	// Experimental.
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The role used for S3 exporting.
-	// Experimental.
 	S3ExportRole awsiam.IRole `field:"optional" json:"s3ExportRole" yaml:"s3ExportRole"`
 	// The role used for S3 importing.
-	// Experimental.
 	S3ImportRole awsiam.IRole `field:"optional" json:"s3ImportRole" yaml:"s3ImportRole"`
 }
 

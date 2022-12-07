@@ -36,15 +36,12 @@ package awss3deployment
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
-// Experimental.
 type ServerSideEncryption string
 
 const (
 	// 'AES256'.
-	// Experimental.
 	ServerSideEncryption_AES_256 ServerSideEncryption = "AES_256"
 	// 'aws:kms'.
-	// Experimental.
 	ServerSideEncryption_AWS_KMS ServerSideEncryption = "AWS_KMS"
 )
 

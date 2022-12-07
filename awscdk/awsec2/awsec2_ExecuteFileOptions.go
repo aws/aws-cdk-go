@@ -4,6 +4,7 @@ package awsec2
 // Options when executing a file.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var instance instance
@@ -24,13 +25,10 @@ package awsec2
 //   })
 //   asset.grantRead(instance.role)
 //
-// Experimental.
 type ExecuteFileOptions struct {
 	// The path to the file.
-	// Experimental.
 	FilePath *string `field:"required" json:"filePath" yaml:"filePath"`
 	// The arguments to be passed to the file.
-	// Experimental.
 	Arguments *string `field:"optional" json:"arguments" yaml:"arguments"`
 }
 

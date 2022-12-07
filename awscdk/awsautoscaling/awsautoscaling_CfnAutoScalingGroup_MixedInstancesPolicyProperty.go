@@ -41,6 +41,9 @@ package awsautoscaling
 //   					acceleratorTypes: []*string{
 //   						jsii.String("acceleratorTypes"),
 //   					},
+//   					allowedInstanceTypes: []*string{
+//   						jsii.String("allowedInstanceTypes"),
+//   					},
 //   					bareMetal: jsii.String("bareMetal"),
 //   					baselineEbsBandwidthMbps: &baselineEbsBandwidthMbpsRequestProperty{
 //   						max: jsii.Number(123),
@@ -65,6 +68,10 @@ package awsautoscaling
 //   						min: jsii.Number(123),
 //   					},
 //   					memoryMiB: &memoryMiBRequestProperty{
+//   						max: jsii.Number(123),
+//   						min: jsii.Number(123),
+//   					},
+//   					networkBandwidthGbps: &networkBandwidthGbpsRequestProperty{
 //   						max: jsii.Number(123),
 //   						min: jsii.Number(123),
 //   					},

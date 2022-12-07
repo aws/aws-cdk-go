@@ -4,23 +4,11 @@ package awslambda
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3Code) validateBindParameters(_scope awscdk.Construct) error {
+func (s *jsiiProxy_S3Code) validateBindParameters(_scope constructs.Construct) error {
 	return nil
 }
 
 func (s *jsiiProxy_S3Code) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *ResourceBindOptions) error {
-	return nil
-}
-
-func validateS3Code_AssetParameters(path *string) error {
-	return nil
-}
-
-func validateS3Code_BucketParameters(bucket awss3.IBucket, key *string) error {
-	return nil
-}
-
-func validateS3Code_CfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }
 
@@ -49,10 +37,6 @@ func validateS3Code_FromEcrImageParameters(repository awsecr.IRepository, props 
 }
 
 func validateS3Code_FromInlineParameters(code *string) error {
-	return nil
-}
-
-func validateS3Code_InlineParameters(code *string) error {
 	return nil
 }
 

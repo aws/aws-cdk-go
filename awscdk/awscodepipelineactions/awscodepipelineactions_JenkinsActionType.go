@@ -7,6 +7,7 @@ package awscodepipelineactions
 // must be separately registered for each type.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var jenkinsProvider jenkinsProvider
 //
 //   buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
@@ -16,15 +17,12 @@ package awscodepipelineactions
 //   	type: codepipeline_actions.jenkinsActionType_BUILD,
 //   })
 //
-// Experimental.
 type JenkinsActionType string
 
 const (
 	// The Action will have the Build Category.
-	// Experimental.
 	JenkinsActionType_BUILD JenkinsActionType = "BUILD"
 	// The Action will have the Test Category.
-	// Experimental.
 	JenkinsActionType_TEST JenkinsActionType = "TEST"
 )
 

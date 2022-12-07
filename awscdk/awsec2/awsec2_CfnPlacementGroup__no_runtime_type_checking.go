@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnPlacementGroup) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnPlacementGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnPlacementGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPlacementGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnPlacementGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +68,7 @@ func validateCfnPlacementGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnPlacementGroupParameters(scope awscdk.Construct, id *string, props *CfnPlacementGroupProps) error {
+func validateNewCfnPlacementGroupParameters(scope constructs.Construct, id *string, props *CfnPlacementGroupProps) error {
 	return nil
 }
 

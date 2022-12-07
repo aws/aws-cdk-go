@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnContactFlowModule) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnContactFlowModule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnContactFlowModule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnContactFlowModule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnContactFlowModule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnContactFlowModule) validateSetNameParameters(val *string) 
 	return nil
 }
 
-func validateNewCfnContactFlowModuleParameters(scope awscdk.Construct, id *string, props *CfnContactFlowModuleProps) error {
+func validateNewCfnContactFlowModuleParameters(scope constructs.Construct, id *string, props *CfnContactFlowModuleProps) error {
 	return nil
 }
 

@@ -36,6 +36,9 @@ package awsautoscaling
 //   	acceleratorTypes: []*string{
 //   		jsii.String("acceleratorTypes"),
 //   	},
+//   	allowedInstanceTypes: []*string{
+//   		jsii.String("allowedInstanceTypes"),
+//   	},
 //   	bareMetal: jsii.String("bareMetal"),
 //   	baselineEbsBandwidthMbps: &baselineEbsBandwidthMbpsRequestProperty{
 //   		max: jsii.Number(123),
@@ -60,6 +63,10 @@ package awsautoscaling
 //   		min: jsii.Number(123),
 //   	},
 //   	memoryMiB: &memoryMiBRequestProperty{
+//   		max: jsii.Number(123),
+//   		min: jsii.Number(123),
+//   	},
+//   	networkBandwidthGbps: &networkBandwidthGbpsRequestProperty{
 //   		max: jsii.Number(123),
 //   		min: jsii.Number(123),
 //   	},
@@ -120,6 +127,8 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	//
 	// Default: Any accelerator type.
 	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AllowedInstanceTypes`.
+	AllowedInstanceTypes *[]*string `field:"optional" json:"allowedInstanceTypes" yaml:"allowedInstanceTypes"`
 	// Indicates whether bare metal instance types are included, excluded, or required.
 	//
 	// Default: `excluded`.
@@ -180,6 +189,8 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum instance memory size for an instance type, in MiB.
 	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.NetworkBandwidthGbps`.
+	NetworkBandwidthGbps interface{} `field:"optional" json:"networkBandwidthGbps" yaml:"networkBandwidthGbps"`
 	// The minimum and maximum number of network interfaces for an instance type.
 	//
 	// Default: No minimum or maximum.

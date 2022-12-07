@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,7 +14,6 @@ import (
 //
 //   builtInAttributes := awscdk.Aws_ecs.NewBuiltInAttributes()
 //
-// Experimental.
 type BuiltInAttributes interface {
 }
 
@@ -23,14 +22,13 @@ type jsiiProxy_BuiltInAttributes struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewBuiltInAttributes() BuiltInAttributes {
 	_init_.Initialize()
 
 	j := jsiiProxy_BuiltInAttributes{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.BuiltInAttributes",
+		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
 		nil, // no parameters
 		&j,
 	)
@@ -38,12 +36,11 @@ func NewBuiltInAttributes() BuiltInAttributes {
 	return &j
 }
 
-// Experimental.
 func NewBuiltInAttributes_Override(b BuiltInAttributes) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.BuiltInAttributes",
+		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
 		nil, // no parameters
 		b,
 	)
@@ -53,7 +50,7 @@ func BuiltInAttributes_AMI_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ecs.BuiltInAttributes",
+		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
 		"AMI_ID",
 		&returns,
 	)
@@ -64,7 +61,7 @@ func BuiltInAttributes_AVAILABILITY_ZONE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ecs.BuiltInAttributes",
+		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
 		"AVAILABILITY_ZONE",
 		&returns,
 	)
@@ -75,7 +72,7 @@ func BuiltInAttributes_INSTANCE_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ecs.BuiltInAttributes",
+		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
 		"INSTANCE_ID",
 		&returns,
 	)
@@ -86,7 +83,7 @@ func BuiltInAttributes_INSTANCE_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ecs.BuiltInAttributes",
+		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
 		"INSTANCE_TYPE",
 		&returns,
 	)
@@ -97,7 +94,7 @@ func BuiltInAttributes_OS_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ecs.BuiltInAttributes",
+		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
 		"OS_TYPE",
 		&returns,
 	)

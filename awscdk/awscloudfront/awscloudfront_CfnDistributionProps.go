@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDistribution`.
@@ -146,6 +146,7 @@ import (
 //   			jsii.String("cnamEs"),
 //   		},
 //   		comment: jsii.String("comment"),
+//   		continuousDeploymentPolicyId: jsii.String("continuousDeploymentPolicyId"),
 //   		customErrorResponses: []interface{}{
 //   			&customErrorResponseProperty{
 //   				errorCode: jsii.Number(123),
@@ -257,6 +258,7 @@ import (
 //   			// the properties below are optional
 //   			originAccessIdentity: jsii.String("originAccessIdentity"),
 //   		},
+//   		staging: jsii.Boolean(false),
 //   		viewerCertificate: &viewerCertificateProperty{
 //   			acmCertificateArn: jsii.String("acmCertificateArn"),
 //   			cloudFrontDefaultCertificate: jsii.Boolean(false),

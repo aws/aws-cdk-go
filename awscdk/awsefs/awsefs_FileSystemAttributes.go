@@ -1,7 +1,7 @@
 package awsefs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Properties that describe an existing EFS file system.
@@ -18,16 +18,12 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type FileSystemAttributes struct {
 	// The security group of the file system.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"required" json:"securityGroup" yaml:"securityGroup"`
 	// The File System's Arn.
-	// Experimental.
 	FileSystemArn *string `field:"optional" json:"fileSystemArn" yaml:"fileSystemArn"`
 	// The File System's ID.
-	// Experimental.
 	FileSystemId *string `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
 }
 

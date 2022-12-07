@@ -28,6 +28,7 @@ package awsamplify
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	framework: jsii.String("framework"),
 //   	pullRequestEnvironmentName: jsii.String("pullRequestEnvironmentName"),
 //   	stage: jsii.String("stage"),
 //   }
@@ -59,6 +60,8 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	EnablePullRequestPreview interface{} `field:"optional" json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// Environment variables for the auto created branch.
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// `CfnApp.AutoBranchCreationConfigProperty.Framework`.
+	Framework *string `field:"optional" json:"framework" yaml:"framework"`
 	// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews.
 	//
 	// For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.

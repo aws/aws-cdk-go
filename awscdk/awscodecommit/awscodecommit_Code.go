@@ -1,11 +1,11 @@
 package awscodecommit
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents the contents to initialize the repository with.
@@ -16,10 +16,8 @@ import (
 //   	code: codecommit.code.fromDirectory(path.join(__dirname, jsii.String("directory/")), jsii.String("develop")),
 //   })
 //
-// Experimental.
 type Code interface {
 	// This method is called after a repository is passed this instance of Code in its 'code' property.
-	// Experimental.
 	Bind(scope constructs.Construct) *CodeConfig
 }
 
@@ -28,19 +26,17 @@ type jsiiProxy_Code struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewCode_Override(c Code) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		nil, // no parameters
 		c,
 	)
 }
 
 // Code from user-supplied asset.
-// Experimental.
 func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
 	_init_.Initialize()
 
@@ -50,7 +46,7 @@ func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
 	var returns Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		"fromAsset",
 		[]interface{}{asset, branch},
 		&returns,
@@ -60,7 +56,6 @@ func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
 }
 
 // Code from directory.
-// Experimental.
 func Code_FromDirectory(directoryPath *string, branch *string) Code {
 	_init_.Initialize()
 
@@ -70,7 +65,7 @@ func Code_FromDirectory(directoryPath *string, branch *string) Code {
 	var returns Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		"fromDirectory",
 		[]interface{}{directoryPath, branch},
 		&returns,
@@ -80,7 +75,6 @@ func Code_FromDirectory(directoryPath *string, branch *string) Code {
 }
 
 // Code from preexisting ZIP file.
-// Experimental.
 func Code_FromZipFile(filePath *string, branch *string) Code {
 	_init_.Initialize()
 
@@ -90,7 +84,7 @@ func Code_FromZipFile(filePath *string, branch *string) Code {
 	var returns Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		"fromZipFile",
 		[]interface{}{filePath, branch},
 		&returns,

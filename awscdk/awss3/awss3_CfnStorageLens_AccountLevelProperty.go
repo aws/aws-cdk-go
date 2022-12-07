@@ -13,6 +13,15 @@ package awss3
 //   		activityMetrics: &activityMetricsProperty{
 //   			isEnabled: jsii.Boolean(false),
 //   		},
+//   		advancedCostOptimizationMetrics: &advancedCostOptimizationMetricsProperty{
+//   			isEnabled: jsii.Boolean(false),
+//   		},
+//   		advancedDataProtectionMetrics: &advancedDataProtectionMetricsProperty{
+//   			isEnabled: jsii.Boolean(false),
+//   		},
+//   		detailedStatusCodesMetrics: &detailedStatusCodesMetricsProperty{
+//   			isEnabled: jsii.Boolean(false),
+//   		},
 //   		prefixLevel: &prefixLevelProperty{
 //   			storageMetrics: &prefixLevelStorageMetricsProperty{
 //   				isEnabled: jsii.Boolean(false),
@@ -29,6 +38,15 @@ package awss3
 //   	activityMetrics: &activityMetricsProperty{
 //   		isEnabled: jsii.Boolean(false),
 //   	},
+//   	advancedCostOptimizationMetrics: &advancedCostOptimizationMetricsProperty{
+//   		isEnabled: jsii.Boolean(false),
+//   	},
+//   	advancedDataProtectionMetrics: &advancedDataProtectionMetricsProperty{
+//   		isEnabled: jsii.Boolean(false),
+//   	},
+//   	detailedStatusCodesMetrics: &detailedStatusCodesMetricsProperty{
+//   		isEnabled: jsii.Boolean(false),
+//   	},
 //   }
 //
 type CfnStorageLens_AccountLevelProperty struct {
@@ -36,5 +54,11 @@ type CfnStorageLens_AccountLevelProperty struct {
 	BucketLevel interface{} `field:"required" json:"bucketLevel" yaml:"bucketLevel"`
 	// This property contains the details of the account-level activity metrics for Amazon S3 Storage Lens.
 	ActivityMetrics interface{} `field:"optional" json:"activityMetrics" yaml:"activityMetrics"`
+	// `CfnStorageLens.AccountLevelProperty.AdvancedCostOptimizationMetrics`.
+	AdvancedCostOptimizationMetrics interface{} `field:"optional" json:"advancedCostOptimizationMetrics" yaml:"advancedCostOptimizationMetrics"`
+	// `CfnStorageLens.AccountLevelProperty.AdvancedDataProtectionMetrics`.
+	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
+	// `CfnStorageLens.AccountLevelProperty.DetailedStatusCodesMetrics`.
+	DetailedStatusCodesMetrics interface{} `field:"optional" json:"detailedStatusCodesMetrics" yaml:"detailedStatusCodesMetrics"`
 }
 

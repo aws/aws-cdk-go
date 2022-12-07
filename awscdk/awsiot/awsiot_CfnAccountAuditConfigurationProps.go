@@ -32,7 +32,13 @@ package awsiot
 //   		deviceCertificateSharedCheck: &auditCheckConfigurationProperty{
 //   			enabled: jsii.Boolean(false),
 //   		},
+//   		intermediateCaRevokedForActiveDeviceCertificatesCheck: &auditCheckConfigurationProperty{
+//   			enabled: jsii.Boolean(false),
+//   		},
 //   		iotPolicyOverlyPermissiveCheck: &auditCheckConfigurationProperty{
+//   			enabled: jsii.Boolean(false),
+//   		},
+//   		ioTPolicyPotentialMisConfigurationCheck: &auditCheckConfigurationProperty{
 //   			enabled: jsii.Boolean(false),
 //   		},
 //   		iotRoleAliasAllowsAccessToUnusedServicesCheck: &auditCheckConfigurationProperty{

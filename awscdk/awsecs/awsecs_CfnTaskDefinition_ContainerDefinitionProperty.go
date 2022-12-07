@@ -139,8 +139,10 @@ package awsecs
 //   	},
 //   	portMappings: []interface{}{
 //   		&portMappingProperty{
+//   			appProtocol: jsii.String("appProtocol"),
 //   			containerPort: jsii.Number(123),
 //   			hostPort: jsii.Number(123),
+//   			name: jsii.String("name"),
 //   			protocol: jsii.String("protocol"),
 //   		},
 //   	},

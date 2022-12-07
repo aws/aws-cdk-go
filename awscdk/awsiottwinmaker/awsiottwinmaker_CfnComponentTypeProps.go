@@ -90,6 +90,14 @@ package awsiottwinmaker
 //   			"isTimeSeries": jsii.Boolean(false),
 //   		},
 //   	},
+//   	propertyGroups: map[string]interface{}{
+//   		"propertyGroupsKey": &PropertyGroupProperty{
+//   			"groupType": jsii.String("groupType"),
+//   			"propertyNames": []*string{
+//   				jsii.String("propertyNames"),
+//   			},
+//   		},
+//   	},
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -118,6 +126,8 @@ type CfnComponentTypeProps struct {
 	//
 	// For information about the PropertyDefinitionResponse object, see the [PropertyDefinitionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_PropertyDefinitionResponse.html) API reference.
 	PropertyDefinitions interface{} `field:"optional" json:"propertyDefinitions" yaml:"propertyDefinitions"`
+	// `AWS::IoTTwinMaker::ComponentType.PropertyGroups`.
+	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// The ComponentType tags.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }

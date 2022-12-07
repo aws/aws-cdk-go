@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) validateSetRegionsParameters(val i
 	return nil
 }
 
-func validateNewCfnMultiRegionAccessPointParameters(scope awscdk.Construct, id *string, props *CfnMultiRegionAccessPointProps) error {
+func validateNewCfnMultiRegionAccessPointParameters(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointProps) error {
 	return nil
 }
 

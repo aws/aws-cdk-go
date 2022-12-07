@@ -17,7 +17,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClus
 		 // optional, defaults to the set "\"@/" and is also used for eventually created rotations
 		secretName: jsii.String("/myapp/mydocdb/masteruser"),
 	},
-	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+	instanceType: ec2.instanceType.of(ec2.instanceClass_MEMORY5, ec2.instanceSize_LARGE),
 	vpcSubnets: &subnetSelection{
 		subnetType: ec2.subnetType_PUBLIC,
 	},
@@ -74,7 +74,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClus
 	masterUser: &login{
 		username: jsii.String("myuser"),
 	},
-	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+	instanceType: ec2.instanceType.of(ec2.instanceClass_MEMORY5, ec2.instanceSize_LARGE),
 	vpcSubnets: &subnetSelection{
 		subnetType: ec2.subnetType_PUBLIC,
 	},
@@ -140,7 +140,7 @@ cluster.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
 **Note**: This user must be created manually in the database using the master credentials.
 The rotation will start as soon as this user exists.
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters.
 
 ## Audit and profiler Logs
 
@@ -162,7 +162,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClus
 	masterUser: &login{
 		username: jsii.String("myuser"),
 	},
-	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+	instanceType: ec2.instanceType.of(ec2.instanceClass_MEMORY5, ec2.instanceSize_LARGE),
 	vpcSubnets: &subnetSelection{
 		subnetType: ec2.subnetType_PUBLIC,
 	},

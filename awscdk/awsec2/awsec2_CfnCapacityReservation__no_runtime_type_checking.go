@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnCapacityReservation) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnCapacityReservation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCapacityReservation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCapacityReservation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCapacityReservation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -104,7 +96,7 @@ func (j *jsiiProxy_CfnCapacityReservation) validateSetTagSpecificationsParameter
 	return nil
 }
 
-func validateNewCfnCapacityReservationParameters(scope awscdk.Construct, id *string, props *CfnCapacityReservationProps) error {
+func validateNewCfnCapacityReservationParameters(scope constructs.Construct, id *string, props *CfnCapacityReservationProps) error {
 	return nil
 }
 

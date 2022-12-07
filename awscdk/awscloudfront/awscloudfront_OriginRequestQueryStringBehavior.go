@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -26,13 +26,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type OriginRequestQueryStringBehavior interface {
 	// The behavior of query strings -- allow all, none, or only an allow list.
-	// Experimental.
 	Behavior() *string
 	// The query strings to allow, if the behavior is an allow list.
-	// Experimental.
 	QueryStrings() *[]*string
 }
 
@@ -63,14 +60,13 @@ func (j *jsiiProxy_OriginRequestQueryStringBehavior) QueryStrings() *[]*string {
 
 
 // All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-// Experimental.
 func OriginRequestQueryStringBehavior_All() OriginRequestQueryStringBehavior {
 	_init_.Initialize()
 
 	var returns OriginRequestQueryStringBehavior
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.OriginRequestQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestQueryStringBehavior",
 		"all",
 		nil, // no parameters
 		&returns,
@@ -80,7 +76,6 @@ func OriginRequestQueryStringBehavior_All() OriginRequestQueryStringBehavior {
 }
 
 // Only the provided `queryStrings` are included in requests that CloudFront sends to the origin.
-// Experimental.
 func OriginRequestQueryStringBehavior_AllowList(queryStrings ...*string) OriginRequestQueryStringBehavior {
 	_init_.Initialize()
 
@@ -92,7 +87,7 @@ func OriginRequestQueryStringBehavior_AllowList(queryStrings ...*string) OriginR
 	var returns OriginRequestQueryStringBehavior
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.OriginRequestQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestQueryStringBehavior",
 		"allowList",
 		args,
 		&returns,
@@ -104,14 +99,13 @@ func OriginRequestQueryStringBehavior_AllowList(queryStrings ...*string) OriginR
 // Query strings in viewer requests are not included in requests that CloudFront sends to the origin.
 //
 // Any query strings that are listed in a CachePolicy are still included in origin requests.
-// Experimental.
 func OriginRequestQueryStringBehavior_None() OriginRequestQueryStringBehavior {
 	_init_.Initialize()
 
 	var returns OriginRequestQueryStringBehavior
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.OriginRequestQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestQueryStringBehavior",
 		"none",
 		nil, // no parameters
 		&returns,

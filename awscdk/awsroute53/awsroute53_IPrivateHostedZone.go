@@ -2,7 +2,6 @@ package awsroute53
 
 
 // Represents a Route 53 private hosted zone.
-// Experimental.
 type IPrivateHostedZone interface {
 	IHostedZone
 }

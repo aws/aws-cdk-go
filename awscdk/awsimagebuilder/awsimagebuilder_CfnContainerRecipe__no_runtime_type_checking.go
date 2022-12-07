@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnContainerRecipe) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnContainerRecipe) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnContainerRecipe) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnContainerRecipe) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnContainerRecipe) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -104,7 +96,7 @@ func (j *jsiiProxy_CfnContainerRecipe) validateSetVersionParameters(val *string)
 	return nil
 }
 
-func validateNewCfnContainerRecipeParameters(scope awscdk.Construct, id *string, props *CfnContainerRecipeProps) error {
+func validateNewCfnContainerRecipeParameters(scope constructs.Construct, id *string, props *CfnContainerRecipeProps) error {
 	return nil
 }
 

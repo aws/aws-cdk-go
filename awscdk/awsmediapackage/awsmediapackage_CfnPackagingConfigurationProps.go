@@ -1,7 +1,7 @@
 package awsmediapackage
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPackagingConfiguration`.
@@ -40,6 +40,12 @@ import (
 //   					jsii.String("systemIds"),
 //   				},
 //   				url: jsii.String("url"),
+//
+//   				// the properties below are optional
+//   				encryptionContractConfiguration: &encryptionContractConfigurationProperty{
+//   					presetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					presetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
 //   			},
 //   		},
 //   		includeEncoderConfigurationInSegments: jsii.Boolean(false),
@@ -69,6 +75,12 @@ import (
 //   					jsii.String("systemIds"),
 //   				},
 //   				url: jsii.String("url"),
+//
+//   				// the properties below are optional
+//   				encryptionContractConfiguration: &encryptionContractConfigurationProperty{
+//   					presetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					presetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
 //   			},
 //   		},
 //   		includeEncoderConfigurationInSegments: jsii.Boolean(false),
@@ -102,12 +114,19 @@ import (
 //   					jsii.String("systemIds"),
 //   				},
 //   				url: jsii.String("url"),
+//
+//   				// the properties below are optional
+//   				encryptionContractConfiguration: &encryptionContractConfigurationProperty{
+//   					presetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					presetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
 //   			},
 //
 //   			// the properties below are optional
 //   			constantInitializationVector: jsii.String("constantInitializationVector"),
 //   			encryptionMethod: jsii.String("encryptionMethod"),
 //   		},
+//   		includeDvbSubtitles: jsii.Boolean(false),
 //   		segmentDurationSeconds: jsii.Number(123),
 //   		useAudioRenditionGroup: jsii.Boolean(false),
 //   	},
@@ -131,6 +150,12 @@ import (
 //   					jsii.String("systemIds"),
 //   				},
 //   				url: jsii.String("url"),
+//
+//   				// the properties below are optional
+//   				encryptionContractConfiguration: &encryptionContractConfigurationProperty{
+//   					presetSpeke20Audio: jsii.String("presetSpeke20Audio"),
+//   					presetSpeke20Video: jsii.String("presetSpeke20Video"),
+//   				},
 //   			},
 //   		},
 //   		segmentDurationSeconds: jsii.Number(123),

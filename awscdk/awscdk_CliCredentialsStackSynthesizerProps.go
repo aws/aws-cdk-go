@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -7,7 +7,7 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cliCredentialsStackSynthesizerProps := &cliCredentialsStackSynthesizerProps{
 //   	bucketPrefix: jsii.String("bucketPrefix"),
@@ -17,16 +17,13 @@ package awscdk
 //   	qualifier: jsii.String("qualifier"),
 //   }
 //
-// Experimental.
 type CliCredentialsStackSynthesizerProps struct {
 	// bucketPrefix to use while storing S3 Assets.
-	// Experimental.
 	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// A prefix to use while tagging and uploading Docker images to ECR.
 	//
 	// This does not add any separators - the source hash will be appended to
 	// this string directly.
-	// Experimental.
 	DockerTagPrefix *string `field:"optional" json:"dockerTagPrefix" yaml:"dockerTagPrefix"`
 	// Name of the S3 bucket to hold file assets.
 	//
@@ -35,7 +32,6 @@ type CliCredentialsStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	// Experimental.
 	FileAssetsBucketName *string `field:"optional" json:"fileAssetsBucketName" yaml:"fileAssetsBucketName"`
 	// Name of the ECR repository to hold Docker Image assets.
 	//
@@ -44,13 +40,11 @@ type CliCredentialsStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	// Experimental.
 	ImageAssetsRepositoryName *string `field:"optional" json:"imageAssetsRepositoryName" yaml:"imageAssetsRepositoryName"`
 	// Qualifier to disambiguate multiple environments in the same account.
 	//
 	// You can use this and leave the other naming properties empty if you have deployed
 	// the bootstrap environment with standard names but only differnet qualifiers.
-	// Experimental.
 	Qualifier *string `field:"optional" json:"qualifier" yaml:"qualifier"`
 }
 

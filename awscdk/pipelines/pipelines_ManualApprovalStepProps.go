@@ -12,10 +12,8 @@ package pipelines
 //   	comment: jsii.String("comment"),
 //   }
 //
-// Experimental.
 type ManualApprovalStepProps struct {
 	// The comment to display with this manual approval.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

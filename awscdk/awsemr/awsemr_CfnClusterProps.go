@@ -1,7 +1,7 @@
 package awsemr
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -534,6 +534,7 @@ import (
 //   			maximumOnDemandCapacityUnits: jsii.Number(123),
 //   		},
 //   	},
+//   	osReleaseLabel: jsii.String("osReleaseLabel"),
 //   	releaseLabel: jsii.String("releaseLabel"),
 //   	scaleDownBehavior: jsii.String("scaleDownBehavior"),
 //   	securityConfiguration: jsii.String("securityConfiguration"),
@@ -615,6 +616,8 @@ type CfnClusterProps struct {
 	//
 	// The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 	ManagedScalingPolicy interface{} `field:"optional" json:"managedScalingPolicy" yaml:"managedScalingPolicy"`
+	// `AWS::EMR::Cluster.OSReleaseLabel`.
+	OsReleaseLabel *string `field:"optional" json:"osReleaseLabel" yaml:"osReleaseLabel"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
 	//
 	// Release labels are in the form `emr-x.x.x` , where x.x.x is an Amazon EMR release version such as `emr-5.14.0` . For more information about Amazon EMR release versions and included application versions and features, see [](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/) . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use `AmiVersion` .

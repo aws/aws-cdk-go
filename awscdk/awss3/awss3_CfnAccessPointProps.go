@@ -15,6 +15,7 @@ package awss3
 //   	bucket: jsii.String("bucket"),
 //
 //   	// the properties below are optional
+//   	bucketAccountId: jsii.String("bucketAccountId"),
 //   	name: jsii.String("name"),
 //   	policy: policy,
 //   	policyStatus: policyStatus,
@@ -32,6 +33,8 @@ package awss3
 type CfnAccessPointProps struct {
 	// The name of the bucket associated with this access point.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
+	// `AWS::S3::AccessPoint.BucketAccountId`.
+	BucketAccountId *string `field:"optional" json:"bucketAccountId" yaml:"bucketAccountId"`
 	// The name of this access point.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.

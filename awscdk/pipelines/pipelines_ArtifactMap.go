@@ -1,10 +1,10 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 )
 
 // Translate FileSets to CodePipeline Artifacts.
@@ -16,10 +16,8 @@ import (
 //
 //   artifactMap := awscdk.Pipelines.NewArtifactMap()
 //
-// Experimental.
 type ArtifactMap interface {
 	// Return the matching CodePipeline artifact for a FileSet.
-	// Experimental.
 	ToCodePipeline(x FileSet) awscodepipeline.Artifact
 }
 
@@ -28,14 +26,13 @@ type jsiiProxy_ArtifactMap struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewArtifactMap() ArtifactMap {
 	_init_.Initialize()
 
 	j := jsiiProxy_ArtifactMap{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ArtifactMap",
+		"aws-cdk-lib.pipelines.ArtifactMap",
 		nil, // no parameters
 		&j,
 	)
@@ -43,12 +40,11 @@ func NewArtifactMap() ArtifactMap {
 	return &j
 }
 
-// Experimental.
 func NewArtifactMap_Override(a ArtifactMap) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ArtifactMap",
+		"aws-cdk-lib.pipelines.ArtifactMap",
 		nil, // no parameters
 		a,
 	)

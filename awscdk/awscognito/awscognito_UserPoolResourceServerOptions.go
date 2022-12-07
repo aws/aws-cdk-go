@@ -43,16 +43,12 @@ package awscognito
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolResourceServerOptions struct {
 	// A unique resource server identifier for the resource server.
-	// Experimental.
 	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// Oauth scopes.
-	// Experimental.
 	Scopes *[]ResourceServerScope `field:"optional" json:"scopes" yaml:"scopes"`
 	// A friendly name for the resource server.
-	// Experimental.
 	UserPoolResourceServerName *string `field:"optional" json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
 }
 

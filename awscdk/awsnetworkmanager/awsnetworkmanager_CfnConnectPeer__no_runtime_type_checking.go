@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnConnectPeer) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectPeer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnConnectPeer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnConnectPeer) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnConnectPeer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnConnectPeer) validateSetBgpOptionsParameters(val interface
 	return nil
 }
 
-func validateNewCfnConnectPeerParameters(scope awscdk.Construct, id *string, props *CfnConnectPeerProps) error {
+func validateNewCfnConnectPeerParameters(scope constructs.Construct, id *string, props *CfnConnectPeerProps) error {
 	return nil
 }
 

@@ -7,9 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
+
+func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStage, options *ApiMappingOptions) error {
+	if targetStage == nil {
+		return fmt.Errorf("parameter targetStage is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
 
 func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi IRestApi, options *BasePathMappingOptions) error {
 	if targetApi == nil {
@@ -54,22 +66,6 @@ func (d *jsiiProxy_DomainName) validateGetResourceNameAttributeParameters(nameAt
 	return nil
 }
 
-func (d *jsiiProxy_DomainName) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (d *jsiiProxy_DomainName) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateDomainName_FromDomainNameAttributesParameters(scope constructs.Construct, id *string, attrs *DomainNameAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -97,7 +93,15 @@ func validateDomainName_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDomainName_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateDomainName_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateDomainName_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

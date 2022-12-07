@@ -21,19 +21,14 @@ package awsappmesh
 //   	routeName: jsii.String("routeName"),
 //   }
 //
-// Experimental.
 type RouteProps struct {
 	// Protocol specific spec.
-	// Experimental.
 	RouteSpec RouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the route.
-	// Experimental.
 	RouteName *string `field:"optional" json:"routeName" yaml:"routeName"`
 	// The service mesh to define the route in.
-	// Experimental.
 	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The VirtualRouter the Route belongs to.
-	// Experimental.
 	VirtualRouter IVirtualRouter `field:"required" json:"virtualRouter" yaml:"virtualRouter"`
 }
 

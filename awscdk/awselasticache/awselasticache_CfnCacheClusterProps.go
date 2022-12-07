@@ -1,7 +1,7 @@
 package awselasticache
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCacheCluster`.
@@ -26,6 +26,7 @@ import (
 //   	cacheSubnetGroupName: jsii.String("cacheSubnetGroupName"),
 //   	clusterName: jsii.String("clusterName"),
 //   	engineVersion: jsii.String("engineVersion"),
+//   	ipDiscovery: jsii.String("ipDiscovery"),
 //   	logDeliveryConfigurations: []interface{}{
 //   		&logDeliveryConfigurationRequestProperty{
 //   			destinationDetails: &destinationDetailsProperty{
@@ -41,6 +42,7 @@ import (
 //   			logType: jsii.String("logType"),
 //   		},
 //   	},
+//   	networkType: jsii.String("networkType"),
 //   	notificationTopicArn: jsii.String("notificationTopicArn"),
 //   	port: jsii.Number(123),
 //   	preferredAvailabilityZone: jsii.String("preferredAvailabilityZone"),
@@ -168,8 +170,12 @@ type CfnCacheClusterProps struct {
 	//
 	// *Important:* You can upgrade to a newer engine version (see [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement) ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
+	// `AWS::ElastiCache::CacheCluster.IpDiscovery`.
+	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
 	// Specifies the destination, format and type of the logs.
 	LogDeliveryConfigurations interface{} `field:"optional" json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
+	// `AWS::ElastiCache::CacheCluster.NetworkType`.
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
 	//
 	// > The Amazon SNS topic owner must be the same as the cluster owner.

@@ -1,7 +1,7 @@
 package awsbillingconductor
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPricingRule`.
@@ -18,6 +18,7 @@ import (
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	billingEntity: jsii.String("billingEntity"),
 //   	description: jsii.String("description"),
 //   	service: jsii.String("service"),
 //   	tags: []cfnTag{
@@ -37,6 +38,8 @@ type CfnPricingRuleProps struct {
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// The type of pricing rule.
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// `AWS::BillingConductor::PricingRule.BillingEntity`.
+	BillingEntity *string `field:"optional" json:"billingEntity" yaml:"billingEntity"`
 	// The pricing rule description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.

@@ -1,7 +1,7 @@
 package awsamplify
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnBranch`.
@@ -34,6 +34,7 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	framework: jsii.String("framework"),
 //   	pullRequestEnvironmentName: jsii.String("pullRequestEnvironmentName"),
 //   	stage: jsii.String("stage"),
 //   	tags: []cfnTag{
@@ -89,6 +90,8 @@ type CfnBranchProps struct {
 	EnablePullRequestPreview interface{} `field:"optional" json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// The environment variables for the branch.
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// `AWS::Amplify::Branch.Framework`.
+	Framework *string `field:"optional" json:"framework" yaml:"framework"`
 	// If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews.
 	//
 	// For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.

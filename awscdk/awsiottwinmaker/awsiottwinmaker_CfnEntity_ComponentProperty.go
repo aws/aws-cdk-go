@@ -38,6 +38,14 @@ package awsiottwinmaker
 //   			},
 //   		},
 //   	},
+//   	propertyGroups: map[string]interface{}{
+//   		"propertyGroupsKey": &PropertyGroupProperty{
+//   			"groupType": jsii.String("groupType"),
+//   			"propertyNames": []*string{
+//   				jsii.String("propertyNames"),
+//   			},
+//   		},
+//   	},
 //   	status: &statusProperty{
 //   		error: error,
 //   		state: jsii.String("state"),
@@ -57,6 +65,8 @@ type CfnEntity_ComponentProperty struct {
 	//
 	// Each string in the mapping must be unique to this object.
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
+	// `CfnEntity.ComponentProperty.PropertyGroups`.
+	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// The status of the component.
 	Status interface{} `field:"optional" json:"status" yaml:"status"`
 }

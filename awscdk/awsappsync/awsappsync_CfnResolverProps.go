@@ -22,6 +22,8 @@ package awsappsync
 //   			jsii.String("cachingKeys"),
 //   		},
 //   	},
+//   	code: jsii.String("code"),
+//   	codeS3Location: jsii.String("codeS3Location"),
 //   	dataSourceName: jsii.String("dataSourceName"),
 //   	kind: jsii.String("kind"),
 //   	maxBatchSize: jsii.Number(123),
@@ -34,6 +36,10 @@ package awsappsync
 //   	requestMappingTemplateS3Location: jsii.String("requestMappingTemplateS3Location"),
 //   	responseMappingTemplate: jsii.String("responseMappingTemplate"),
 //   	responseMappingTemplateS3Location: jsii.String("responseMappingTemplateS3Location"),
+//   	runtime: &appSyncRuntimeProperty{
+//   		name: jsii.String("name"),
+//   		runtimeVersion: jsii.String("runtimeVersion"),
+//   	},
 //   	syncConfig: &syncConfigProperty{
 //   		conflictDetection: jsii.String("conflictDetection"),
 //
@@ -54,6 +60,10 @@ type CfnResolverProps struct {
 	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The caching configuration for the resolver.
 	CachingConfig interface{} `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
+	// `AWS::AppSync::Resolver.Code`.
+	Code *string `field:"optional" json:"code" yaml:"code"`
+	// `AWS::AppSync::Resolver.CodeS3Location`.
+	CodeS3Location *string `field:"optional" json:"codeS3Location" yaml:"codeS3Location"`
 	// The resolver data source name.
 	DataSourceName *string `field:"optional" json:"dataSourceName" yaml:"dataSourceName"`
 	// The resolver type.
@@ -79,6 +89,8 @@ type CfnResolverProps struct {
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	ResponseMappingTemplateS3Location *string `field:"optional" json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
+	// `AWS::AppSync::Resolver.Runtime`.
+	Runtime interface{} `field:"optional" json:"runtime" yaml:"runtime"`
 	// The `SyncConfig` for a resolver attached to a versioned data source.
 	SyncConfig interface{} `field:"optional" json:"syncConfig" yaml:"syncConfig"`
 }

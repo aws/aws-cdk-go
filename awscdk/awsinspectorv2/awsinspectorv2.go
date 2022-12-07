@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_inspectorv2.CfnFilter",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
 		reflect.TypeOf((*CfnFilter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -32,19 +32,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -55,35 +50,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilter.DateFilterProperty",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter.DateFilterProperty",
 		reflect.TypeOf((*CfnFilter_DateFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilter.FilterCriteriaProperty",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter.FilterCriteriaProperty",
 		reflect.TypeOf((*CfnFilter_FilterCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilter.MapFilterProperty",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter.MapFilterProperty",
 		reflect.TypeOf((*CfnFilter_MapFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilter.NumberFilterProperty",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter.NumberFilterProperty",
 		reflect.TypeOf((*CfnFilter_NumberFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilter.PackageFilterProperty",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter.PackageFilterProperty",
 		reflect.TypeOf((*CfnFilter_PackageFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilter.PortRangeFilterProperty",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter.PortRangeFilterProperty",
 		reflect.TypeOf((*CfnFilter_PortRangeFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilter.StringFilterProperty",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter.StringFilterProperty",
 		reflect.TypeOf((*CfnFilter_StringFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_inspectorv2.CfnFilterProps",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilterProps",
 		reflect.TypeOf((*CfnFilterProps)(nil)).Elem(),
 	)
 }

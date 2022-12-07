@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnOriginRequestPolicy) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginRequestPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnOriginRequestPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnOriginRequestPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnOriginRequestPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnOriginRequestPolicy) validateSetOriginRequestPolicyConfigP
 	return nil
 }
 
-func validateNewCfnOriginRequestPolicyParameters(scope awscdk.Construct, id *string, props *CfnOriginRequestPolicyProps) error {
+func validateNewCfnOriginRequestPolicyParameters(scope constructs.Construct, id *string, props *CfnOriginRequestPolicyProps) error {
 	return nil
 }
 

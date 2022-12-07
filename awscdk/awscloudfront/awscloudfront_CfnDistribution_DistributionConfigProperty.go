@@ -142,6 +142,7 @@ package awscloudfront
 //   		jsii.String("cnamEs"),
 //   	},
 //   	comment: jsii.String("comment"),
+//   	continuousDeploymentPolicyId: jsii.String("continuousDeploymentPolicyId"),
 //   	customErrorResponses: []interface{}{
 //   		&customErrorResponseProperty{
 //   			errorCode: jsii.Number(123),
@@ -253,6 +254,7 @@ package awscloudfront
 //   		// the properties below are optional
 //   		originAccessIdentity: jsii.String("originAccessIdentity"),
 //   	},
+//   	staging: jsii.Boolean(false),
 //   	viewerCertificate: &viewerCertificateProperty{
 //   		acmCertificateArn: jsii.String("acmCertificateArn"),
 //   		cloudFrontDefaultCertificate: jsii.Boolean(false),
@@ -280,6 +282,8 @@ type CfnDistribution_DistributionConfigProperty struct {
 	//
 	// The comment cannot be longer than 128 characters.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// `CfnDistribution.DistributionConfigProperty.ContinuousDeploymentPolicyId`.
+	ContinuousDeploymentPolicyId *string `field:"optional" json:"continuousDeploymentPolicyId" yaml:"continuousDeploymentPolicyId"`
 	// A complex type that controls the following:.
 	//
 	// - Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
@@ -344,6 +348,8 @@ type CfnDistribution_DistributionConfigProperty struct {
 	Restrictions interface{} `field:"optional" json:"restrictions" yaml:"restrictions"`
 	// `CfnDistribution.DistributionConfigProperty.S3Origin`.
 	S3Origin interface{} `field:"optional" json:"s3Origin" yaml:"s3Origin"`
+	// `CfnDistribution.DistributionConfigProperty.Staging`.
+	Staging interface{} `field:"optional" json:"staging" yaml:"staging"`
 	// A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate interface{} `field:"optional" json:"viewerCertificate" yaml:"viewerCertificate"`
 	// A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.

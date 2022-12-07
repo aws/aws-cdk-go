@@ -84,14 +84,6 @@ func (d *jsiiProxy_DynamoDeleteItem) validateNextParameters(next awsstepfunction
 	return nil
 }
 
-func (d *jsiiProxy_DynamoDeleteItem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (d *jsiiProxy_DynamoDeleteItem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (d *jsiiProxy_DynamoDeleteItem) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

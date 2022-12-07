@@ -1,13 +1,14 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Properties of an EC2 Instance.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
@@ -32,24 +33,18 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type InstanceProps struct {
 	// Type of instance to launch.
-	// Experimental.
 	InstanceType InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// AMI to launch.
-	// Experimental.
 	MachineImage IMachineImage `field:"required" json:"machineImage" yaml:"machineImage"`
 	// VPC to launch the instance in.
-	// Experimental.
 	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Whether the instance could initiate connections to anywhere by default.
 	//
 	// This property is only used when you do not provide a security group.
-	// Experimental.
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// In which AZ to place the instance within the VPC.
-	// Experimental.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
@@ -59,68 +54,55 @@ type InstanceProps struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
-	// Experimental.
 	BlockDevices *[]*BlockDevice `field:"optional" json:"blockDevices" yaml:"blockDevices"`
 	// Whether "Detailed Monitoring" is enabled for this instance Keep in mind that Detailed Monitoring results in extra charges.
 	// See: http://aws.amazon.com/cloudwatch/pricing/
 	//
-	// Experimental.
 	DetailedMonitoring *bool `field:"optional" json:"detailedMonitoring" yaml:"detailedMonitoring"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
-	// Experimental.
 	Init CloudFormationInit `field:"optional" json:"init" yaml:"init"`
 	// Use the given options for applying CloudFormation Init.
 	//
 	// Describes the configsets to use and the timeout to wait.
-	// Experimental.
 	InitOptions *ApplyCloudFormationInitOptions `field:"optional" json:"initOptions" yaml:"initOptions"`
 	// The name of the instance.
-	// Experimental.
 	InstanceName *string `field:"optional" json:"instanceName" yaml:"instanceName"`
 	// Name of SSH keypair to grant access to instance.
-	// Experimental.
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// Defines a private IP address to associate with an instance.
 	//
 	// Private IP should be available within the VPC that the instance is build within.
-	// Experimental.
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// Propagate the EC2 instance tags to the EBS volumes.
-	// Experimental.
 	PropagateTagsToVolumeOnCreation *bool `field:"optional" json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`
 	// Whether IMDSv2 should be required on this instance.
-	// Experimental.
 	RequireImdsv2 *bool `field:"optional" json:"requireImdsv2" yaml:"requireImdsv2"`
 	// The length of time to wait for the resourceSignalCount.
 	//
 	// The maximum value is 43200 (12 hours).
-	// Experimental.
 	ResourceSignalTimeout awscdk.Duration `field:"optional" json:"resourceSignalTimeout" yaml:"resourceSignalTimeout"`
 	// An IAM role to associate with the instance profile assigned to this Auto Scaling Group.
 	//
 	// The role must be assumable by the service principal `ec2.amazonaws.com`:
 	//
 	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   role := iam.NewRole(this, jsii.String("MyRole"), &roleProps{
 	//   	assumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
 	//   })
 	//
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Security Group to assign to this instance.
-	// Experimental.
 	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Specifies whether to enable an instance launched in a VPC to perform NAT.
 	//
 	// This controls whether source/destination checking is enabled on the instance.
 	// A value of true means that checking is enabled, and false means that checking is disabled.
 	// The value must be false for the instance to perform NAT.
-	// Experimental.
 	SourceDestCheck *bool `field:"optional" json:"sourceDestCheck" yaml:"sourceDestCheck"`
 	// Specific UserData to use.
 	//
 	// The UserData may still be mutated after creation.
-	// Experimental.
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Changes to the UserData force replacement.
 	//
@@ -136,10 +118,8 @@ type InstanceProps struct {
 	// Setting this to `true` will make the instance's Logical ID depend on the
 	// UserData, which will cause CloudFormation to replace it if the UserData
 	// changes.
-	// Experimental.
 	UserDataCausesReplacement *bool `field:"optional" json:"userDataCausesReplacement" yaml:"userDataCausesReplacement"`
 	// Where to place the instance within the VPC.
-	// Experimental.
 	VpcSubnets *SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

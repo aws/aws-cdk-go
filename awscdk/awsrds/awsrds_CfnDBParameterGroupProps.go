@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBParameterGroup`.
@@ -18,6 +18,7 @@ import (
 //   	family: jsii.String("family"),
 //
 //   	// the properties below are optional
+//   	dbParameterGroupName: jsii.String("dbParameterGroupName"),
 //   	parameters: parameters,
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -44,6 +45,8 @@ type CfnDBParameterGroupProps struct {
 	//
 	// For more information, see `[CreateDBParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html)` .
 	Family *string `field:"required" json:"family" yaml:"family"`
+	// `AWS::RDS::DBParameterGroup.DBParameterGroupName`.
+	DbParameterGroupName *string `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// An array of parameter names and values for the parameter update.
 	//
 	// At least one parameter name and value must be supplied. Subsequent arguments are optional.

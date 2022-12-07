@@ -16,11 +16,7 @@ package cloudassemblyschema
 //   	requiresBootstrapStackVersion: jsii.Number(123),
 //   }
 //
-// Experimental.
 type AssetManifestProperties struct {
-	// Filename of the asset manifest.
-	// Experimental.
-	File *string `field:"required" json:"file" yaml:"file"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
 	// - If this value is not set, the bootstrap stack name must be known at
@@ -28,10 +24,10 @@ type AssetManifestProperties struct {
 	//    outputs.
 	// - If this value is set, the bootstrap stack can have any name because
 	//    we won't need to look it up.
-	// Experimental.
 	BootstrapStackVersionSsmParameter *string `field:"optional" json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// Version of bootstrap stack required to deploy this stack.
-	// Experimental.
 	RequiresBootstrapStackVersion *float64 `field:"optional" json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
+	// Filename of the asset manifest.
+	File *string `field:"required" json:"file" yaml:"file"`
 }
 

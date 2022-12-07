@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnLogGroup`.
@@ -11,7 +11,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dataProtectionPolicy interface{}
+//
 //   cfnLogGroupProps := &cfnLogGroupProps{
+//   	dataProtectionPolicy: dataProtectionPolicy,
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	logGroupName: jsii.String("logGroupName"),
 //   	retentionInDays: jsii.Number(123),
@@ -24,6 +27,8 @@ import (
 //   }
 //
 type CfnLogGroupProps struct {
+	// `AWS::Logs::LogGroup.DataProtectionPolicy`.
+	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
 	//
 	// To associate an AWS KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs . This enables CloudWatch Logs to decrypt this data whenever it is requested.

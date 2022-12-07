@@ -8,8 +8,10 @@ package awsbatch
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var limits interface{}
 //   var options interface{}
 //   var parameters interface{}
+//   var requests interface{}
 //   var tags interface{}
 //
 //   cfnJobDefinitionProps := &cfnJobDefinitionProps{
@@ -125,6 +127,72 @@ package awsbatch
 //   					sourcePath: jsii.String("sourcePath"),
 //   				},
 //   				name: jsii.String("name"),
+//   			},
+//   		},
+//   	},
+//   	eksProperties: &eksPropertiesProperty{
+//   		podProperties: &podPropertiesProperty{
+//   			containers: []interface{}{
+//   				&eksContainerProperty{
+//   					image: jsii.String("image"),
+//
+//   					// the properties below are optional
+//   					args: []*string{
+//   						jsii.String("args"),
+//   					},
+//   					command: []*string{
+//   						jsii.String("command"),
+//   					},
+//   					env: []interface{}{
+//   						&eksContainerEnvironmentVariableProperty{
+//   							name: jsii.String("name"),
+//
+//   							// the properties below are optional
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   					imagePullPolicy: jsii.String("imagePullPolicy"),
+//   					name: jsii.String("name"),
+//   					resources: &resourcesProperty{
+//   						limits: limits,
+//   						requests: requests,
+//   					},
+//   					securityContext: &securityContextProperty{
+//   						privileged: jsii.Boolean(false),
+//   						readOnlyRootFilesystem: jsii.Boolean(false),
+//   						runAsGroup: jsii.Number(123),
+//   						runAsNonRoot: jsii.Boolean(false),
+//   						runAsUser: jsii.Number(123),
+//   					},
+//   					volumeMounts: []interface{}{
+//   						&eksContainerVolumeMountProperty{
+//   							mountPath: jsii.String("mountPath"),
+//   							name: jsii.String("name"),
+//   							readOnly: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			dnsPolicy: jsii.String("dnsPolicy"),
+//   			hostNetwork: jsii.Boolean(false),
+//   			serviceAccountName: jsii.String("serviceAccountName"),
+//   			volumes: []interface{}{
+//   				&eksVolumeProperty{
+//   					name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					emptyDir: &emptyDirProperty{
+//   						medium: jsii.String("medium"),
+//   						sizeLimit: jsii.String("sizeLimit"),
+//   					},
+//   					hostPath: &hostPathProperty{
+//   						path: jsii.String("path"),
+//   					},
+//   					secret: &secretProperty{
+//   						name: jsii.String("name"),
+//   						valueFrom: jsii.String("valueFrom"),
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},
@@ -286,6 +354,8 @@ type CfnJobDefinitionProps struct {
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// An object with various properties specific to container-based jobs.
 	ContainerProperties interface{} `field:"optional" json:"containerProperties" yaml:"containerProperties"`
+	// `AWS::Batch::JobDefinition.EksProperties`.
+	EksProperties interface{} `field:"optional" json:"eksProperties" yaml:"eksProperties"`
 	// The name of the job definition.
 	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// An object with various properties specific to multi-node parallel jobs.

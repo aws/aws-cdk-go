@@ -16,10 +16,8 @@ package awsrds
 //   	version: auroraPostgresEngineVersion,
 //   }
 //
-// Experimental.
 type AuroraPostgresClusterEngineProps struct {
 	// The version of the Aurora PostgreSQL cluster engine.
-	// Experimental.
 	Version AuroraPostgresEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

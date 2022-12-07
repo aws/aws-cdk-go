@@ -9,7 +9,6 @@ package awscloudwatch
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCompositeAlarmProps := &cfnCompositeAlarmProps{
-//   	alarmName: jsii.String("alarmName"),
 //   	alarmRule: jsii.String("alarmRule"),
 //
 //   	// the properties below are optional
@@ -21,6 +20,7 @@ package awscloudwatch
 //   		jsii.String("alarmActions"),
 //   	},
 //   	alarmDescription: jsii.String("alarmDescription"),
+//   	alarmName: jsii.String("alarmName"),
 //   	insufficientDataActions: []*string{
 //   		jsii.String("insufficientDataActions"),
 //   	},
@@ -30,10 +30,6 @@ package awscloudwatch
 //   }
 //
 type CfnCompositeAlarmProps struct {
-	// The name for the composite alarm.
-	//
-	// This name must be unique within your AWS account.
-	AlarmName *string `field:"required" json:"alarmName" yaml:"alarmName"`
 	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.
 	//
 	// For each alarm that you reference, you designate a function that specifies whether that alarm needs to be in ALARM state, OK state, or INSUFFICIENT_DATA state. You can use operators (AND, OR and NOT) to combine multiple functions in a single expression. You can use parenthesis to logically group the functions in your expression.
@@ -68,6 +64,10 @@ type CfnCompositeAlarmProps struct {
 	AlarmActions *[]*string `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 	// The description for the composite alarm.
 	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
+	// The name for the composite alarm.
+	//
+	// This name must be unique within your AWS account.
+	AlarmName *string `field:"optional" json:"alarmName" yaml:"alarmName"`
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
