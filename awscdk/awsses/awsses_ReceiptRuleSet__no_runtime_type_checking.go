@@ -20,14 +20,6 @@ func (r *jsiiProxy_ReceiptRuleSet) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (r *jsiiProxy_ReceiptRuleSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (r *jsiiProxy_ReceiptRuleSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateReceiptRuleSet_FromReceiptRuleSetNameParameters(scope constructs.Construct, id *string, receiptRuleSetName *string) error {
 	return nil
 }
@@ -36,7 +28,11 @@ func validateReceiptRuleSet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateReceiptRuleSet_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateReceiptRuleSet_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateReceiptRuleSet_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

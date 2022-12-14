@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnComponent) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnComponent) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnComponent) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnComponent) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnComponent) validateOverrideLogicalIdParameters(newLogicalI
 func (c *jsiiProxy_CfnComponent) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnComponent) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -430,18 +414,6 @@ func (j *jsiiProxy_CfnComponent) validateSetOverridesParameters(val interface{})
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
-	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
-	case *map[string]interface{}:
-		// ok
-	case map[string]interface{}:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]interface{}; received %#v (a %T)", val, val)
-		}
-	}
 
 	return nil
 }
@@ -572,7 +544,7 @@ func (j *jsiiProxy_CfnComponent) validateSetVariantsParameters(val interface{}) 
 	return nil
 }
 
-func validateNewCfnComponentParameters(scope awscdk.Construct, id *string, props *CfnComponentProps) error {
+func validateNewCfnComponentParameters(scope constructs.Construct, id *string, props *CfnComponentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

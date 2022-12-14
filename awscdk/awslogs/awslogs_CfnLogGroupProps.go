@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnLogGroup`.
@@ -11,7 +11,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dataProtectionPolicy interface{}
+//
 //   cfnLogGroupProps := &cfnLogGroupProps{
+//   	dataProtectionPolicy: dataProtectionPolicy,
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	logGroupName: jsii.String("logGroupName"),
 //   	retentionInDays: jsii.Number(123),
@@ -24,6 +27,8 @@ import (
 //   }
 //
 type CfnLogGroupProps struct {
+	// `AWS::Logs::LogGroup.DataProtectionPolicy`.
+	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
 	//
 	// To associate an AWS KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs . This enables CloudWatch Logs to decrypt this data whenever it is requested.
@@ -40,7 +45,7 @@ type CfnLogGroupProps struct {
 	//
 	// Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.
 	//
-	// To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html) .
+	// To set a log group to never have log events expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html) .
 	RetentionInDays *float64 `field:"optional" json:"retentionInDays" yaml:"retentionInDays"`
 	// An array of key-value pairs to apply to the log group.
 	//

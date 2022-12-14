@@ -16,11 +16,9 @@ package awssupportapp
 //   }
 //
 type CfnSlackWorkspaceConfigurationProps struct {
-	// The team ID in Slack.
-	//
-	// This ID uniquely identifies a Slack workspace, such as `T012ABCDEFG` .
+	// `AWS::SupportApp::SlackWorkspaceConfiguration.TeamId`.
 	TeamId *string `field:"required" json:"teamId" yaml:"teamId"`
-	// An identifier used to update an existing Slack workspace configuration in AWS CloudFormation , such as `100` .
+	// `AWS::SupportApp::SlackWorkspaceConfiguration.VersionId`.
 	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 }
 

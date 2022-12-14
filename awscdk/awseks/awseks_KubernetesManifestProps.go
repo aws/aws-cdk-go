@@ -73,15 +73,12 @@ package awseks
 //   // or, option2: use `addManifest`
 //   cluster.addManifest(jsii.String("hello-kub"), service, deployment)
 //
-// Experimental.
 type KubernetesManifestProps struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
-	// Experimental.
 	IngressAlb *bool `field:"optional" json:"ingressAlb" yaml:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
-	// Experimental.
 	IngressAlbScheme AlbScheme `field:"optional" json:"ingressAlbScheme" yaml:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
@@ -100,15 +97,12 @@ type KubernetesManifestProps struct {
 	// empty.
 	// See: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#alternative-kubectl-apply-f-directory-prune-l-your-label
 	//
-	// Experimental.
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
 	// A flag to signify if the manifest validation should be skipped.
-	// Experimental.
 	SkipValidation *bool `field:"optional" json:"skipValidation" yaml:"skipValidation"`
 	// The EKS cluster to apply this manifest to.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// The manifest to apply.
 	//
@@ -142,14 +136,12 @@ type KubernetesManifestProps struct {
 	//   	},
 	//   }
 	//
-	// Experimental.
 	Manifest *[]*map[string]interface{} `field:"required" json:"manifest" yaml:"manifest"`
 	// Overwrite any existing resources.
 	//
 	// If this is set, we will use `kubectl apply` instead of `kubectl create`
 	// when the resource is created. Otherwise, if there is already a resource
 	// in the cluster with the same name, the operation will fail.
-	// Experimental.
 	Overwrite *bool `field:"optional" json:"overwrite" yaml:"overwrite"`
 }
 

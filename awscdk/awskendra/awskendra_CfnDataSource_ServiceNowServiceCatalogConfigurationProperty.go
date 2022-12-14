@@ -34,7 +34,7 @@ package awskendra
 type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
 	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
 	DocumentDataFieldName *string `field:"required" json:"documentDataFieldName" yaml:"documentDataFieldName"`
-	// `TRUE` to index attachments to service catalog items.
+	// Indicates whether Amazon Kendra should crawl attachments to the service catalog items.
 	CrawlAttachments interface{} `field:"optional" json:"crawlAttachments" yaml:"crawlAttachments"`
 	// The name of the ServiceNow field that is mapped to the index document title field.
 	DocumentTitleFieldName *string `field:"optional" json:"documentTitleFieldName" yaml:"documentTitleFieldName"`

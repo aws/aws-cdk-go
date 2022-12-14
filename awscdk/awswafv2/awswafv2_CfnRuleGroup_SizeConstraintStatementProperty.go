@@ -18,8 +18,6 @@ package awswafv2
 //   var allQueryArguments interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
-//   var singleQueryArgument interface{}
 //   var uriPath interface{}
 //
 //   sizeConstraintStatementProperty := &sizeConstraintStatementProperty{
@@ -70,8 +68,12 @@ package awswafv2
 //   		},
 //   		method: method,
 //   		queryString: queryString,
-//   		singleHeader: singleHeader,
-//   		singleQueryArgument: singleQueryArgument,
+//   		singleHeader: &singleHeaderProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   		singleQueryArgument: &singleQueryArgumentProperty{
+//   			name: jsii.String("name"),
+//   		},
 //   		uriPath: uriPath,
 //   	},
 //   	size: jsii.Number(123),

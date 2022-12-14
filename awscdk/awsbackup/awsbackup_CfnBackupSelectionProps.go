@@ -8,8 +8,6 @@ package awsbackup
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var conditions interface{}
-//
 //   cfnBackupSelectionProps := &cfnBackupSelectionProps{
 //   	backupPlanId: jsii.String("backupPlanId"),
 //   	backupSelection: &backupSelectionResourceTypeProperty{
@@ -17,7 +15,32 @@ package awsbackup
 //   		selectionName: jsii.String("selectionName"),
 //
 //   		// the properties below are optional
-//   		conditions: conditions,
+//   		conditions: &conditionsProperty{
+//   			stringEquals: []interface{}{
+//   				&conditionParameterProperty{
+//   					conditionKey: jsii.String("conditionKey"),
+//   					conditionValue: jsii.String("conditionValue"),
+//   				},
+//   			},
+//   			stringLike: []interface{}{
+//   				&conditionParameterProperty{
+//   					conditionKey: jsii.String("conditionKey"),
+//   					conditionValue: jsii.String("conditionValue"),
+//   				},
+//   			},
+//   			stringNotEquals: []interface{}{
+//   				&conditionParameterProperty{
+//   					conditionKey: jsii.String("conditionKey"),
+//   					conditionValue: jsii.String("conditionValue"),
+//   				},
+//   			},
+//   			stringNotLike: []interface{}{
+//   				&conditionParameterProperty{
+//   					conditionKey: jsii.String("conditionKey"),
+//   					conditionValue: jsii.String("conditionValue"),
+//   				},
+//   			},
+//   		},
 //   		listOfTags: []interface{}{
 //   			&conditionResourceTypeProperty{
 //   				conditionKey: jsii.String("conditionKey"),

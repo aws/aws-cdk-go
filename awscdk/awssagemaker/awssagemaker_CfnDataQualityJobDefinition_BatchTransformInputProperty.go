@@ -1,8 +1,6 @@
 package awssagemaker
 
 
-// Input object for the batch transform job.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,19 +25,15 @@ package awssagemaker
 //   }
 //
 type CfnDataQualityJobDefinition_BatchTransformInputProperty struct {
-	// The Amazon S3 location being used to capture the data.
+	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.DataCapturedDestinationS3Uri`.
 	DataCapturedDestinationS3Uri *string `field:"required" json:"dataCapturedDestinationS3Uri" yaml:"dataCapturedDestinationS3Uri"`
-	// The dataset format for your batch transform job.
+	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.DatasetFormat`.
 	DatasetFormat interface{} `field:"required" json:"datasetFormat" yaml:"datasetFormat"`
-	// Path to the filesystem where the batch transform data is available to the container.
+	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.LocalPath`.
 	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
-	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
-	//
-	// Defaults to `FullyReplicated`.
+	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.S3DataDistributionType`.
 	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
-	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
-	//
-	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
+	// `CfnDataQualityJobDefinition.BatchTransformInputProperty.S3InputMode`.
 	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
 }
 

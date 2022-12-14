@@ -16,7 +16,7 @@ package awsacmpca
 type CfnCertificateAuthority_OcspConfigurationProperty struct {
 	// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP).
+	// By default, ACM Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP).
 	//
 	// A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
 	//

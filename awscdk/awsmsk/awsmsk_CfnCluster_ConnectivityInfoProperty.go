@@ -14,6 +14,21 @@ package awsmsk
 //   	publicAccess: &publicAccessProperty{
 //   		type: jsii.String("type"),
 //   	},
+//   	vpcConnectivity: &vpcConnectivityProperty{
+//   		clientAuthentication: &vpcConnectivityClientAuthenticationProperty{
+//   			sasl: &vpcConnectivitySaslProperty{
+//   				iam: &vpcConnectivityIamProperty{
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   				scram: &vpcConnectivityScramProperty{
+//   					enabled: jsii.Boolean(false),
+//   				},
+//   			},
+//   			tls: &vpcConnectivityTlsProperty{
+//   				enabled: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
 //   }
 //
 type CfnCluster_ConnectivityInfoProperty struct {
@@ -21,5 +36,7 @@ type CfnCluster_ConnectivityInfoProperty struct {
 	//
 	// Public access is off by default.
 	PublicAccess interface{} `field:"optional" json:"publicAccess" yaml:"publicAccess"`
+	// `CfnCluster.ConnectivityInfoProperty.VpcConnectivity`.
+	VpcConnectivity interface{} `field:"optional" json:"vpcConnectivity" yaml:"vpcConnectivity"`
 }
 

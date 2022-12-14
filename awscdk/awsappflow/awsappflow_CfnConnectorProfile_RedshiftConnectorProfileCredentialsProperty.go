@@ -15,8 +15,8 @@ package awsappflow
 //
 type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `field:"required" json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `field:"required" json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 

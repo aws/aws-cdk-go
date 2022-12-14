@@ -20,7 +20,7 @@ type CfnAliasProps struct {
 	//
 	// The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with `alias/aws/` . The `alias/aws/` prefix is reserved for [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) .
 	//
-	// *Pattern* : `^alias/[a-zA-Z0-9/_-]+$`
+	// *Pattern* : `alias/^[a-zA-Z0-9/_-]+$`
 	//
 	// *Minimum* : `1`
 	//

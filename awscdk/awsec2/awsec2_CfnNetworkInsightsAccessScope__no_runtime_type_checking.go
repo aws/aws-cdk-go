@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScope) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInsightsAccessScope) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNetworkInsightsAccessScope) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsAccessScope) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnNetworkInsightsAccessScope) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScope) validateSetMatchPathsParameter
 	return nil
 }
 
-func validateNewCfnNetworkInsightsAccessScopeParameters(scope awscdk.Construct, id *string, props *CfnNetworkInsightsAccessScopeProps) error {
+func validateNewCfnNetworkInsightsAccessScopeParameters(scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeProps) error {
 	return nil
 }
 

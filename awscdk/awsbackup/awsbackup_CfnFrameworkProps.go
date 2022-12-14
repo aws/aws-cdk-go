@@ -8,8 +8,6 @@ package awsbackup
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var controlScope interface{}
-//
 //   cfnFrameworkProps := &cfnFrameworkProps{
 //   	frameworkControls: []interface{}{
 //   		&frameworkControlProperty{
@@ -22,7 +20,20 @@ package awsbackup
 //   					parameterValue: jsii.String("parameterValue"),
 //   				},
 //   			},
-//   			controlScope: controlScope,
+//   			controlScope: &controlScopeProperty{
+//   				complianceResourceIds: []*string{
+//   					jsii.String("complianceResourceIds"),
+//   				},
+//   				complianceResourceTypes: []*string{
+//   					jsii.String("complianceResourceTypes"),
+//   				},
+//   				tags: []cfnTag{
+//   					&cfnTag{
+//   						key: jsii.String("key"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //

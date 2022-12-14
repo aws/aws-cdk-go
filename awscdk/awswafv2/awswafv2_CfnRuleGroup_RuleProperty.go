@@ -11,15 +11,9 @@ package awswafv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
-//   var allow interface{}
 //   var allQueryArguments interface{}
-//   var block interface{}
-//   var captcha interface{}
-//   var count interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
-//   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
@@ -79,8 +73,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			positionalConstraint: jsii.String("positionalConstraint"),
@@ -184,8 +182,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			regexString: jsii.String("regexString"),
@@ -244,8 +246,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -303,8 +309,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			size: jsii.Number(123),
@@ -362,8 +372,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -423,8 +437,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -443,10 +461,50 @@ package awswafv2
 //
 //   	// the properties below are optional
 //   	action: &ruleActionProperty{
-//   		allow: allow,
-//   		block: block,
-//   		captcha: captcha,
-//   		count: count,
+//   		allow: &allowProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		block: &blockProperty{
+//   			customResponse: &customResponseProperty{
+//   				responseCode: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   				responseHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		captcha: &captchaProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		count: &countProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	captchaConfig: &captchaConfigProperty{
 //   		immunityTimeProperty: &immunityTimePropertyProperty{

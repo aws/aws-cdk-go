@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnTagOption) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnTagOption) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTagOption) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTagOption) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnTagOption) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnTagOption) validateSetValueParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnTagOptionParameters(scope awscdk.Construct, id *string, props *CfnTagOptionProps) error {
+func validateNewCfnTagOptionParameters(scope constructs.Construct, id *string, props *CfnTagOptionProps) error {
 	return nil
 }
 

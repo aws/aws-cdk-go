@@ -8,14 +8,21 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var oAuthCredentials interface{}
-//
 //   sAPODataConnectorProfileCredentialsProperty := &sAPODataConnectorProfileCredentialsProperty{
 //   	basicAuthCredentials: &basicAuthCredentialsProperty{
 //   		password: jsii.String("password"),
 //   		username: jsii.String("username"),
 //   	},
-//   	oAuthCredentials: oAuthCredentials,
+//   	oAuthCredentials: &oAuthCredentialsProperty{
+//   		accessToken: jsii.String("accessToken"),
+//   		clientId: jsii.String("clientId"),
+//   		clientSecret: jsii.String("clientSecret"),
+//   		connectorOAuthRequest: &connectorOAuthRequestProperty{
+//   			authCode: jsii.String("authCode"),
+//   			redirectUri: jsii.String("redirectUri"),
+//   		},
+//   		refreshToken: jsii.String("refreshToken"),
+//   	},
 //   }
 //
 type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {

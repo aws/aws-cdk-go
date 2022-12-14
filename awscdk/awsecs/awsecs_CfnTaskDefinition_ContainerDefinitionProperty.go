@@ -235,8 +235,6 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	//
 	// - Linux platform version `1.3.0` or later.
 	// - Windows platform version `1.0.0` or later.
-	//
-	// If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html) , the `dependsOn` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
 	DependsOn interface{} `field:"optional" json:"dependsOn" yaml:"dependsOn"`
 	// When this parameter is true, networking is disabled within the container.
 	//
@@ -364,9 +362,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	//
 	// For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a `memoryReservation` of 128 MiB, and a `memory` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
 	//
-	// The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.
-	//
-	// The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
+	// The Docker daemon reserves a minimum of 4 MiB of memory for a container. Therefore, we recommend that you specify fewer than 4 MiB of memory for your containers.
 	MemoryReservation *float64 `field:"optional" json:"memoryReservation" yaml:"memoryReservation"`
 	// The mount points for data volumes in your container.
 	//

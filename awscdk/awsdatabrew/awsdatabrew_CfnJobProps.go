@@ -1,7 +1,7 @@
 package awsdatabrew
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnJob`.
@@ -10,8 +10,6 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var parameters interface{}
 //
 //   cfnJobProps := &cfnJobProps{
 //   	name: jsii.String("name"),
@@ -121,7 +119,9 @@ import (
 //   					},
 //   					overrides: []interface{}{
 //   						&statisticOverrideProperty{
-//   							parameters: parameters,
+//   							parameters: map[string]*string{
+//   								"parametersKey": jsii.String("parameters"),
+//   							},
 //   							statistic: jsii.String("statistic"),
 //   						},
 //   					},
@@ -142,7 +142,9 @@ import (
 //   			},
 //   			overrides: []interface{}{
 //   				&statisticOverrideProperty{
-//   					parameters: parameters,
+//   					parameters: map[string]*string{
+//   						"parametersKey": jsii.String("parameters"),
+//   					},
 //   					statistic: jsii.String("statistic"),
 //   				},
 //   			},

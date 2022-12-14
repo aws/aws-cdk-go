@@ -55,21 +55,17 @@ package awscodecommit
 //   	},
 //   })
 //
-// Experimental.
 type RepositoryProps struct {
 	// Name of the repository.
 	//
 	// This property is required for all CodeCommit repositories.
-	// Experimental.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// The contents with which to initialize the repository after it has been created.
-	// Experimental.
 	Code Code `field:"optional" json:"code" yaml:"code"`
 	// A description of the repository.
 	//
 	// Use the description to identify the
 	// purpose of the repository.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

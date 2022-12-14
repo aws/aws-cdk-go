@@ -1,7 +1,7 @@
 package awskendra
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFaq`.
@@ -40,7 +40,7 @@ type CfnFaqProps struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Simple Storage Service (Amazon S3) location of the FAQ input data.
 	S3Path interface{} `field:"required" json:"s3Path" yaml:"s3Path"`
-	// A description for the FAQ.
+	// A description of the FAQ.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The format of the input file.
 	//

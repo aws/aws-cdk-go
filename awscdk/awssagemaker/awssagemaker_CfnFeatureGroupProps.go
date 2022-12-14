@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFeatureGroup`.
@@ -10,9 +10,6 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var offlineStoreConfig interface{}
-//   var onlineStoreConfig interface{}
 //
 //   cfnFeatureGroupProps := &cfnFeatureGroupProps{
 //   	eventTimeFeatureName: jsii.String("eventTimeFeatureName"),
@@ -27,8 +24,29 @@ import (
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
-//   	offlineStoreConfig: offlineStoreConfig,
-//   	onlineStoreConfig: onlineStoreConfig,
+//   	offlineStoreConfig: &offlineStoreConfigProperty{
+//   		s3StorageConfig: &s3StorageConfigProperty{
+//   			s3Uri: jsii.String("s3Uri"),
+//
+//   			// the properties below are optional
+//   			kmsKeyId: jsii.String("kmsKeyId"),
+//   		},
+//
+//   		// the properties below are optional
+//   		dataCatalogConfig: &dataCatalogConfigProperty{
+//   			catalog: jsii.String("catalog"),
+//   			database: jsii.String("database"),
+//   			tableName: jsii.String("tableName"),
+//   		},
+//   		disableGlueTableCreation: jsii.Boolean(false),
+//   		tableFormat: jsii.String("tableFormat"),
+//   	},
+//   	onlineStoreConfig: &onlineStoreConfigProperty{
+//   		enableOnlineStore: jsii.Boolean(false),
+//   		securityConfig: &onlineStoreSecurityConfigProperty{
+//   			kmsKeyId: jsii.String("kmsKeyId"),
+//   		},
+//   	},
 //   	roleArn: jsii.String("roleArn"),
 //   	tags: []cfnTag{
 //   		&cfnTag{

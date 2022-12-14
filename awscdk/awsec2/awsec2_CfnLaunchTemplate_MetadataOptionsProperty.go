@@ -33,7 +33,7 @@ type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	//
 	// The larger the number, the further instance metadata requests can travel.
 	//
-	// Default: `1`
+	// Default: 1
 	//
 	// Possible values: Integers from 1 to 64.
 	HttpPutResponseHopLimit *float64 `field:"optional" json:"httpPutResponseHopLimit" yaml:"httpPutResponseHopLimit"`

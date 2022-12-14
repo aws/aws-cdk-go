@@ -1,8 +1,6 @@
 package awssagemaker
 
 
-// Input object for the batch transform job.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,35 +31,27 @@ package awssagemaker
 //   }
 //
 type CfnModelBiasJobDefinition_BatchTransformInputProperty struct {
-	// The Amazon S3 location being used to capture the data.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.DataCapturedDestinationS3Uri`.
 	DataCapturedDestinationS3Uri *string `field:"required" json:"dataCapturedDestinationS3Uri" yaml:"dataCapturedDestinationS3Uri"`
-	// The dataset format for your batch transform job.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.DatasetFormat`.
 	DatasetFormat interface{} `field:"required" json:"datasetFormat" yaml:"datasetFormat"`
-	// Path to the filesystem where the batch transform data is available to the container.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.LocalPath`.
 	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
-	// If specified, monitoring jobs substract this time from the end time.
-	//
-	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.EndTimeOffset`.
 	EndTimeOffset *string `field:"optional" json:"endTimeOffset" yaml:"endTimeOffset"`
-	// The attributes of the input data that are the input features.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.FeaturesAttribute`.
 	FeaturesAttribute *string `field:"optional" json:"featuresAttribute" yaml:"featuresAttribute"`
-	// The attribute of the input data that represents the ground truth label.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.InferenceAttribute`.
 	InferenceAttribute *string `field:"optional" json:"inferenceAttribute" yaml:"inferenceAttribute"`
-	// In a classification problem, the attribute that represents the class probability.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.ProbabilityAttribute`.
 	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
-	// The threshold for the class probability to be evaluated as a positive result.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.ProbabilityThresholdAttribute`.
 	ProbabilityThresholdAttribute *float64 `field:"optional" json:"probabilityThresholdAttribute" yaml:"probabilityThresholdAttribute"`
-	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
-	//
-	// Defaults to `FullyReplicated`.
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.S3DataDistributionType`.
 	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
-	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
-	//
-	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.S3InputMode`.
 	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
-	// If specified, monitoring jobs substract this time from the start time.
-	//
-	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
+	// `CfnModelBiasJobDefinition.BatchTransformInputProperty.StartTimeOffset`.
 	StartTimeOffset *string `field:"optional" json:"startTimeOffset" yaml:"startTimeOffset"`
 }
 

@@ -43,7 +43,7 @@ package awssagemaker
 //   }
 //
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty struct {
-	// Input object for the batch transform job.
+	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty.BatchTransformInput`.
 	BatchTransformInput interface{} `field:"optional" json:"batchTransformInput" yaml:"batchTransformInput"`
 	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty.EndpointInput`.
 	EndpointInput interface{} `field:"optional" json:"endpointInput" yaml:"endpointInput"`

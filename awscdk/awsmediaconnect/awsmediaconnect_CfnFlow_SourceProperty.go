@@ -37,8 +37,12 @@ package awsmediaconnect
 //   	minLatency: jsii.Number(123),
 //   	name: jsii.String("name"),
 //   	protocol: jsii.String("protocol"),
+//   	senderControlPort: jsii.Number(123),
+//   	senderIpAddress: jsii.String("senderIpAddress"),
 //   	sourceArn: jsii.String("sourceArn"),
 //   	sourceIngestPort: jsii.String("sourceIngestPort"),
+//   	sourceListenerAddress: jsii.String("sourceListenerAddress"),
+//   	sourceListenerPort: jsii.Number(123),
 //   	streamId: jsii.String("streamId"),
 //   	vpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	whitelistCidr: jsii.String("whitelistCidr"),
@@ -75,10 +79,18 @@ type CfnFlow_SourceProperty struct {
 	//
 	// For a full list of available protocols, see: [Source protocols](https://docs.aws.amazon.com/mediaconnect/latest/api/v1-flows-flowarn-source.html#v1-flows-flowarn-source-prop-setsourcerequest-protocol) in the *AWS Elemental MediaConnect API Reference* .
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	// `CfnFlow.SourceProperty.SenderControlPort`.
+	SenderControlPort *float64 `field:"optional" json:"senderControlPort" yaml:"senderControlPort"`
+	// `CfnFlow.SourceProperty.SenderIpAddress`.
+	SenderIpAddress *string `field:"optional" json:"senderIpAddress" yaml:"senderIpAddress"`
 	// The ARN of the source.
 	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 	// The port that the flow will be listening on for incoming content.
 	SourceIngestPort *string `field:"optional" json:"sourceIngestPort" yaml:"sourceIngestPort"`
+	// `CfnFlow.SourceProperty.SourceListenerAddress`.
+	SourceListenerAddress *string `field:"optional" json:"sourceListenerAddress" yaml:"sourceListenerAddress"`
+	// `CfnFlow.SourceProperty.SourceListenerPort`.
+	SourceListenerPort *float64 `field:"optional" json:"sourceListenerPort" yaml:"sourceListenerPort"`
 	// The stream ID that you want to use for the transport.
 	//
 	// This parameter applies only to Zixi-based streams.

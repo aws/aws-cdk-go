@@ -1,7 +1,7 @@
 package awswafv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnWebACL`.
@@ -17,8 +17,6 @@ import (
 //   var method interface{}
 //   var none interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
-//   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
@@ -127,8 +125,12 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: singleHeader,
-//   						singleQueryArgument: singleQueryArgument,
+//   						singleHeader: &singleHeaderProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   						singleQueryArgument: &singleQueryArgumentProperty{
+//   							name: jsii.String("name"),
+//   						},
 //   						uriPath: uriPath,
 //   					},
 //   					positionalConstraint: jsii.String("positionalConstraint"),
@@ -257,8 +259,12 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: singleHeader,
-//   						singleQueryArgument: singleQueryArgument,
+//   						singleHeader: &singleHeaderProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   						singleQueryArgument: &singleQueryArgumentProperty{
+//   							name: jsii.String("name"),
+//   						},
 //   						uriPath: uriPath,
 //   					},
 //   					regexString: jsii.String("regexString"),
@@ -317,8 +323,12 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: singleHeader,
-//   						singleQueryArgument: singleQueryArgument,
+//   						singleHeader: &singleHeaderProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   						singleQueryArgument: &singleQueryArgumentProperty{
+//   							name: jsii.String("name"),
+//   						},
 //   						uriPath: uriPath,
 //   					},
 //   					textTransformations: []interface{}{
@@ -386,8 +396,12 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: singleHeader,
-//   						singleQueryArgument: singleQueryArgument,
+//   						singleHeader: &singleHeaderProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   						singleQueryArgument: &singleQueryArgumentProperty{
+//   							name: jsii.String("name"),
+//   						},
 //   						uriPath: uriPath,
 //   					},
 //   					size: jsii.Number(123),
@@ -445,8 +459,12 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: singleHeader,
-//   						singleQueryArgument: singleQueryArgument,
+//   						singleHeader: &singleHeaderProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   						singleQueryArgument: &singleQueryArgumentProperty{
+//   							name: jsii.String("name"),
+//   						},
 //   						uriPath: uriPath,
 //   					},
 //   					textTransformations: []interface{}{
@@ -506,8 +524,12 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: singleHeader,
-//   						singleQueryArgument: singleQueryArgument,
+//   						singleHeader: &singleHeaderProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   						singleQueryArgument: &singleQueryArgumentProperty{
+//   							name: jsii.String("name"),
+//   						},
 //   						uriPath: uriPath,
 //   					},
 //   					textTransformations: []interface{}{
@@ -600,7 +622,7 @@ type CfnWebACLProps struct {
 	DefaultAction interface{} `field:"required" json:"defaultAction" yaml:"defaultAction"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, or an Amazon Cognito user pool. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//

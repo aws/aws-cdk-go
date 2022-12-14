@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnVpcAttachment) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnVpcAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVpcAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVpcAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnVpcAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,11 +68,23 @@ func validateCfnVpcAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnVpcAttachment) validateSetCoreNetworkIdParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVpcAttachment) validateSetOptionsParameters(val interface{}) error {
 	return nil
 }
 
-func validateNewCfnVpcAttachmentParameters(scope awscdk.Construct, id *string, props *CfnVpcAttachmentProps) error {
+func (j *jsiiProxy_CfnVpcAttachment) validateSetSubnetArnsParameters(val *[]*string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnVpcAttachment) validateSetVpcArnParameters(val *string) error {
+	return nil
+}
+
+func validateNewCfnVpcAttachmentParameters(scope constructs.Construct, id *string, props *CfnVpcAttachmentProps) error {
 	return nil
 }
 

@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnConnectAttachment) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnConnectAttachment) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnConnectAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnConnectAttachment) validateOverrideLogicalIdParameters(new
 func (c *jsiiProxy_CfnConnectAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnConnectAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -167,7 +151,26 @@ func validateCfnConnectAttachment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnectAttachment) validateSetCoreNetworkIdParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnConnectAttachment) validateSetEdgeLocationParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnectAttachment) validateSetOptionsParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case *CfnConnectAttachment_ConnectAttachmentOptionsProperty:
 		val := val.(*CfnConnectAttachment_ConnectAttachmentOptionsProperty)
@@ -191,7 +194,15 @@ func (j *jsiiProxy_CfnConnectAttachment) validateSetOptionsParameters(val interf
 	return nil
 }
 
-func validateNewCfnConnectAttachmentParameters(scope awscdk.Construct, id *string, props *CfnConnectAttachmentProps) error {
+func (j *jsiiProxy_CfnConnectAttachment) validateSetTransportAttachmentIdParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateNewCfnConnectAttachmentParameters(scope constructs.Construct, id *string, props *CfnConnectAttachmentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -200,6 +211,9 @@ func validateNewCfnConnectAttachmentParameters(scope awscdk.Construct, id *strin
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

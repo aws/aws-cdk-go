@@ -18,9 +18,9 @@ package awsses
 //   }
 //
 type CfnVdmAttributesProps struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	// `AWS::SES::VdmAttributes.DashboardAttributes`.
 	DashboardAttributes interface{} `field:"optional" json:"dashboardAttributes" yaml:"dashboardAttributes"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	// `AWS::SES::VdmAttributes.GuardianAttributes`.
 	GuardianAttributes interface{} `field:"optional" json:"guardianAttributes" yaml:"guardianAttributes"`
 }
 

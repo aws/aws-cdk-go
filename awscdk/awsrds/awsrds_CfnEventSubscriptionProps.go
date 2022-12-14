@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnEventSubscription`.
@@ -65,11 +65,9 @@ type CfnEventSubscriptionProps struct {
 	//
 	// Valid values: `db-instance` | `db-cluster` | `db-parameter-group` | `db-security-group` | `db-snapshot` | `db-cluster-snapshot`.
 	SourceType *string `field:"optional" json:"sourceType" yaml:"sourceType"`
-	// The name of the subscription.
-	//
-	// Constraints: The name must be less than 255 characters.
+	// `AWS::RDS::EventSubscription.SubscriptionName`.
 	SubscriptionName *string `field:"optional" json:"subscriptionName" yaml:"subscriptionName"`
-	// An optional array of key-value pairs to apply to this subscription.
+	// `AWS::RDS::EventSubscription.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

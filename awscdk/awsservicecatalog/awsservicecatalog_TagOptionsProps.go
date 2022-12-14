@@ -36,13 +36,11 @@ package awsservicecatalog
 //   })
 //   product.associateTagOptions(tagOptionsForProduct)
 //
-// Experimental.
 type TagOptionsProps struct {
 	// The values that are allowed to be set for specific tags.
 	//
 	// The keys of the map represent the tag keys,
 	// and the values of the map are a list of allowed values for that particular tag key.
-	// Experimental.
 	AllowedValuesForTags *map[string]*[]*string `field:"required" json:"allowedValuesForTags" yaml:"allowedValuesForTags"`
 }
 

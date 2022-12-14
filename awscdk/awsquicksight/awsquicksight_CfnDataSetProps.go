@@ -1,7 +1,7 @@
 package awsquicksight
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDataSet`.
@@ -207,7 +207,7 @@ type CfnDataSetProps struct {
 	//
 	// This ID is unique per AWS Region for each AWS account.
 	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
-	// The usage configuration to apply to child datasets that reference this dataset as a source.
+	// `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
 	DataSetUsageConfiguration interface{} `field:"optional" json:"dataSetUsageConfiguration" yaml:"dataSetUsageConfiguration"`
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders interface{} `field:"optional" json:"fieldFolders" yaml:"fieldFolders"`

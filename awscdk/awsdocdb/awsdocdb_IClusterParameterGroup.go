@@ -3,16 +3,14 @@ package awsdocdb
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdocdb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdocdb/internal"
 )
 
 // A parameter group.
-// Experimental.
 type IClusterParameterGroup interface {
 	awscdk.IResource
 	// The name of this parameter group.
-	// Experimental.
 	ParameterGroupName() *string
 }
 

@@ -8,11 +8,9 @@ package awswafv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var jsonBody interface{}
-//   var loggingFilter interface{}
+//   var all interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
 //   var uriPath interface{}
 //
 //   cfnLoggingConfigurationProps := &cfnLoggingConfigurationProps{
@@ -22,13 +20,44 @@ package awswafv2
 //   	resourceArn: jsii.String("resourceArn"),
 //
 //   	// the properties below are optional
-//   	loggingFilter: loggingFilter,
+//   	loggingFilter: &loggingFilterProperty{
+//   		defaultBehavior: jsii.String("defaultBehavior"),
+//   		filters: []interface{}{
+//   			&filterProperty{
+//   				behavior: jsii.String("behavior"),
+//   				conditions: []interface{}{
+//   					&conditionProperty{
+//   						actionCondition: &actionConditionProperty{
+//   							action: jsii.String("action"),
+//   						},
+//   						labelNameCondition: &labelNameConditionProperty{
+//   							labelName: jsii.String("labelName"),
+//   						},
+//   					},
+//   				},
+//   				requirement: jsii.String("requirement"),
+//   			},
+//   		},
+//   	},
 //   	redactedFields: []interface{}{
 //   		&fieldToMatchProperty{
-//   			jsonBody: jsonBody,
+//   			jsonBody: &jsonBodyProperty{
+//   				matchPattern: &matchPatternProperty{
+//   					all: all,
+//   					includedPaths: []*string{
+//   						jsii.String("includedPaths"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//
+//   				// the properties below are optional
+//   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			},
 //   			method: method,
 //   			queryString: queryString,
-//   			singleHeader: singleHeader,
+//   			singleHeader: &singleHeaderProperty{
+//   				name: jsii.String("name"),
+//   			},
 //   			uriPath: uriPath,
 //   		},
 //   	},

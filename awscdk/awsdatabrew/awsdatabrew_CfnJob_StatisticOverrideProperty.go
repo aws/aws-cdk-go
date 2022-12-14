@@ -8,10 +8,10 @@ package awsdatabrew
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameters interface{}
-//
 //   statisticOverrideProperty := &statisticOverrideProperty{
-//   	parameters: parameters,
+//   	parameters: map[string]*string{
+//   		"parametersKey": jsii.String("parameters"),
+//   	},
 //   	statistic: jsii.String("statistic"),
 //   }
 //

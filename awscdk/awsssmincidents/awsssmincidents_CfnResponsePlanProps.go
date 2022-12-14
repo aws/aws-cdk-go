@@ -1,7 +1,7 @@
 package awsssmincidents
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnResponsePlan`.
@@ -71,6 +71,17 @@ import (
 //   	engagements: []*string{
 //   		jsii.String("engagements"),
 //   	},
+//   	integrations: []interface{}{
+//   		&integrationProperty{
+//   			pagerDutyConfiguration: &pagerDutyConfigurationProperty{
+//   				name: jsii.String("name"),
+//   				pagerDutyIncidentConfiguration: &pagerDutyIncidentConfigurationProperty{
+//   					serviceId: jsii.String("serviceId"),
+//   				},
+//   				secretId: jsii.String("secretId"),
+//   			},
+//   		},
+//   	},
 //   	tags: []*cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -90,8 +101,10 @@ type CfnResponsePlanProps struct {
 	ChatChannel interface{} `field:"optional" json:"chatChannel" yaml:"chatChannel"`
 	// The human readable name of the response plan.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// The contacts and escalation plans that the response plan engages during an incident.
 	Engagements *[]*string `field:"optional" json:"engagements" yaml:"engagements"`
+	// `AWS::SSMIncidents::ResponsePlan.Integrations`.
+	Integrations interface{} `field:"optional" json:"integrations" yaml:"integrations"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

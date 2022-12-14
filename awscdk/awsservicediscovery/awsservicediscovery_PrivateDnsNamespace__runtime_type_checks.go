@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (p *jsiiProxy_PrivateDnsNamespace) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -54,22 +54,6 @@ func (p *jsiiProxy_PrivateDnsNamespace) validateGetResourceNameAttributeParamete
 	return nil
 }
 
-func (p *jsiiProxy_PrivateDnsNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (p *jsiiProxy_PrivateDnsNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validatePrivateDnsNamespace_FromPrivateDnsNamespaceAttributesParameters(scope constructs.Construct, id *string, attrs *PrivateDnsNamespaceAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -97,7 +81,15 @@ func validatePrivateDnsNamespace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePrivateDnsNamespace_IsResourceParameters(construct awscdk.IConstruct) error {
+func validatePrivateDnsNamespace_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validatePrivateDnsNamespace_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

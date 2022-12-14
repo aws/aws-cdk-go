@@ -8,8 +8,6 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var customProperties interface{}
-//
 //   sourceFlowConfigProperty := &sourceFlowConfigProperty{
 //   	connectorType: jsii.String("connectorType"),
 //   	sourceConnectorProperties: &sourceConnectorPropertiesProperty{
@@ -20,7 +18,9 @@ package awsappflow
 //   			entityName: jsii.String("entityName"),
 //
 //   			// the properties below are optional
-//   			customProperties: customProperties,
+//   			customProperties: map[string]*string{
+//   				"customPropertiesKey": jsii.String("customProperties"),
+//   			},
 //   		},
 //   		datadog: &datadogSourcePropertiesProperty{
 //   			object: jsii.String("object"),
@@ -98,7 +98,7 @@ type CfnFlow_SourceFlowConfigProperty struct {
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
 	SourceConnectorProperties interface{} `field:"required" json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
-	// The API version of the connector when it's used as a source in the flow.
+	// `CfnFlow.SourceFlowConfigProperty.ApiVersion`.
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The name of the connector profile.
 	//

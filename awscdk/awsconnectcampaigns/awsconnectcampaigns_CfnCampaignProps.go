@@ -1,7 +1,7 @@
 package awsconnectcampaigns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCampaign`.
@@ -40,17 +40,15 @@ import (
 //   }
 //
 type CfnCampaignProps struct {
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// `AWS::ConnectCampaigns::Campaign.ConnectInstanceArn`.
 	ConnectInstanceArn *string `field:"required" json:"connectInstanceArn" yaml:"connectInstanceArn"`
-	// Contains information about the dialer configuration.
+	// `AWS::ConnectCampaigns::Campaign.DialerConfig`.
 	DialerConfig interface{} `field:"required" json:"dialerConfig" yaml:"dialerConfig"`
-	// The name of the campaign.
+	// `AWS::ConnectCampaigns::Campaign.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Contains information about the outbound call configuration.
+	// `AWS::ConnectCampaigns::Campaign.OutboundCallConfig`.
 	OutboundCallConfig interface{} `field:"required" json:"outboundCallConfig" yaml:"outboundCallConfig"`
-	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// `AWS::ConnectCampaigns::Campaign.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

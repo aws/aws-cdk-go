@@ -14,7 +14,7 @@ package awsbillingconductor
 //   }
 //
 type CfnCustomLineItem_BillingPeriodRangeProperty struct {
-	// The exclusive end billing period that defines a billing period range where a custom line is applied.
+	// The inclusive end billing period that defines a billing period range where a custom line is applied.
 	ExclusiveEndBillingPeriod *string `field:"optional" json:"exclusiveEndBillingPeriod" yaml:"exclusiveEndBillingPeriod"`
 	// The inclusive start billing period that defines a billing period range where a custom line is applied.
 	InclusiveStartBillingPeriod *string `field:"optional" json:"inclusiveStartBillingPeriod" yaml:"inclusiveStartBillingPeriod"`

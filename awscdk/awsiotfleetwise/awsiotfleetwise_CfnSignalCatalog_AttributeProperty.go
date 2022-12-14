@@ -1,8 +1,6 @@
 package awsiotfleetwise
 
 
-// A signal that represents static information about the vehicle, such as engine type or manufacturing date.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,25 +23,23 @@ package awsiotfleetwise
 //   }
 //
 type CfnSignalCatalog_AttributeProperty struct {
-	// The specified data type of the attribute.
+	// `CfnSignalCatalog.AttributeProperty.DataType`.
 	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
-	// The fully qualified name of the attribute.
-	//
-	// For example, the fully qualified name of an attribute might be `Vehicle.Body.Engine.Type` .
+	// `CfnSignalCatalog.AttributeProperty.FullyQualifiedName`.
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// A list of possible values an attribute can be assigned.
+	// `CfnSignalCatalog.AttributeProperty.AllowedValues`.
 	AllowedValues *[]*string `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// A specified value for the attribute.
+	// `CfnSignalCatalog.AttributeProperty.AssignedValue`.
 	AssignedValue *string `field:"optional" json:"assignedValue" yaml:"assignedValue"`
-	// The default value of the attribute.
+	// `CfnSignalCatalog.AttributeProperty.DefaultValue`.
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// A brief description of the attribute.
+	// `CfnSignalCatalog.AttributeProperty.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The specified possible maximum value of the attribute.
+	// `CfnSignalCatalog.AttributeProperty.Max`.
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
-	// The specified possible minimum value of the attribute.
+	// `CfnSignalCatalog.AttributeProperty.Min`.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
-	// The scientific unit for the attribute.
+	// `CfnSignalCatalog.AttributeProperty.Unit`.
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

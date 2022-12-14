@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnLocalGatewayRoute) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocalGatewayRoute) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLocalGatewayRoute) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLocalGatewayRoute) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnLocalGatewayRoute) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnLocalGatewayRoute) validateSetLocalGatewayRouteTableIdPara
 	return nil
 }
 
-func validateNewCfnLocalGatewayRouteParameters(scope awscdk.Construct, id *string, props *CfnLocalGatewayRouteProps) error {
+func validateNewCfnLocalGatewayRouteParameters(scope constructs.Construct, id *string, props *CfnLocalGatewayRouteProps) error {
 	return nil
 }
 

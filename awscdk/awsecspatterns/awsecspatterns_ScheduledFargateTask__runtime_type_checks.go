@@ -7,10 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (s *jsiiProxy_ScheduledFargateTask) validateAddTaskAsTargetParameters(ecsTaskTarget awseventstargets.EcsTask) error {
@@ -37,25 +36,9 @@ func (s *jsiiProxy_ScheduledFargateTask) validateCreateAWSLogDriverParameters(pr
 	return nil
 }
 
-func (s *jsiiProxy_ScheduledFargateTask) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
+func (s *jsiiProxy_ScheduledFargateTask) validateGetDefaultClusterParameters(scope constructs.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_ScheduledFargateTask) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_ScheduledFargateTask) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

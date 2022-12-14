@@ -10,6 +10,9 @@ package awsappflow
 //
 //   upsolverS3OutputFormatConfigProperty := &upsolverS3OutputFormatConfigProperty{
 //   	prefixConfig: &prefixConfigProperty{
+//   		pathPrefixHierarchy: []*string{
+//   			jsii.String("pathPrefixHierarchy"),
+//   		},
 //   		prefixFormat: jsii.String("prefixFormat"),
 //   		prefixType: jsii.String("prefixType"),
 //   	},
@@ -17,12 +20,15 @@ package awsappflow
 //   	// the properties below are optional
 //   	aggregationConfig: &aggregationConfigProperty{
 //   		aggregationType: jsii.String("aggregationType"),
+//   		targetFileSize: jsii.Number(123),
 //   	},
 //   	fileType: jsii.String("fileType"),
 //   }
 //
 type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
-	// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+	// Determines the prefix that Amazon AppFlow applies to the destination folder name.
+	//
+	// You can name your destination folders according to the flow frequency and date.
 	PrefixConfig interface{} `field:"required" json:"prefixConfig" yaml:"prefixConfig"`
 	// The aggregation settings that you can use to customize the output format of your flow data.
 	AggregationConfig interface{} `field:"optional" json:"aggregationConfig" yaml:"aggregationConfig"`

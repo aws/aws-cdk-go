@@ -1,18 +1,11 @@
 package awsec2
 
 
-// Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
+// Specifies the launch template to use for an EC2 Fleet.
 //
-// You must specify the following:
-//
-// - The ID or the name of the launch template, but not both.
-// - The version of the launch template.
+// You must specify either the launch template ID or launch template name in the request.
 //
 // `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
-//
-// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-//
-// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,11 +29,11 @@ type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// The ID of the launch template.
 	//
-	// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+	// If you specify the template ID, you can't specify the template name.
 	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template.
 	//
-	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
+	// If you specify the template name, you can't specify the template ID.
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 }
 

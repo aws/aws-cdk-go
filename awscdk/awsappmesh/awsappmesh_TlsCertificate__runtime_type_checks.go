@@ -5,11 +5,11 @@ package awsappmesh
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (t *jsiiProxy_TlsCertificate) validateBindParameters(_scope awscdk.Construct) error {
+func (t *jsiiProxy_TlsCertificate) validateBindParameters(_scope constructs.Construct) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

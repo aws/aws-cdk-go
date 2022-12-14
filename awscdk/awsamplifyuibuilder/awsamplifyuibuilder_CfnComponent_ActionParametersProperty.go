@@ -10,9 +10,7 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bindings interface{}
 //   var componentPropertyProperty_ componentPropertyProperty
-//   var fields interface{}
 //
 //   actionParametersProperty := &actionParametersProperty{
 //   	anchor: &componentPropertyProperty{
@@ -22,7 +20,12 @@ package awsamplifyuibuilder
 //   			// the properties below are optional
 //   			field: jsii.String("field"),
 //   		},
-//   		bindings: bindings,
+//   		bindings: map[string]interface{}{
+//   			"bindingsKey": &FormBindingElementProperty{
+//   				"element": jsii.String("element"),
+//   				"property": jsii.String("property"),
+//   			},
+//   		},
 //   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   			property: jsii.String("property"),
 //
@@ -52,7 +55,50 @@ package awsamplifyuibuilder
 //   		userAttribute: jsii.String("userAttribute"),
 //   		value: jsii.String("value"),
 //   	},
-//   	fields: fields,
+//   	fields: map[string]interface{}{
+//   		"fieldsKey": &componentPropertyProperty{
+//   			"bindingProperties": &componentPropertyBindingPropertiesProperty{
+//   				"property": jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				"field": jsii.String("field"),
+//   			},
+//   			"bindings": map[string]interface{}{
+//   				"bindingsKey": &FormBindingElementProperty{
+//   					"element": jsii.String("element"),
+//   					"property": jsii.String("property"),
+//   				},
+//   			},
+//   			"collectionBindingProperties": &componentPropertyBindingPropertiesProperty{
+//   				"property": jsii.String("property"),
+//
+//   				// the properties below are optional
+//   				"field": jsii.String("field"),
+//   			},
+//   			"componentName": jsii.String("componentName"),
+//   			"concat": []interface{}{
+//   				componentPropertyProperty_,
+//   			},
+//   			"condition": &componentConditionPropertyProperty{
+//   				"else": componentPropertyProperty_,
+//   				"field": jsii.String("field"),
+//   				"operand": jsii.String("operand"),
+//   				"operandType": jsii.String("operandType"),
+//   				"operator": jsii.String("operator"),
+//   				"property": jsii.String("property"),
+//   				"then": componentPropertyProperty_,
+//   			},
+//   			"configured": jsii.Boolean(false),
+//   			"defaultValue": jsii.String("defaultValue"),
+//   			"event": jsii.String("event"),
+//   			"importedValue": jsii.String("importedValue"),
+//   			"model": jsii.String("model"),
+//   			"property": jsii.String("property"),
+//   			"type": jsii.String("type"),
+//   			"userAttribute": jsii.String("userAttribute"),
+//   			"value": jsii.String("value"),
+//   		},
+//   	},
 //   	global: &componentPropertyProperty{
 //   		bindingProperties: &componentPropertyBindingPropertiesProperty{
 //   			property: jsii.String("property"),
@@ -60,7 +106,12 @@ package awsamplifyuibuilder
 //   			// the properties below are optional
 //   			field: jsii.String("field"),
 //   		},
-//   		bindings: bindings,
+//   		bindings: map[string]interface{}{
+//   			"bindingsKey": &FormBindingElementProperty{
+//   				"element": jsii.String("element"),
+//   				"property": jsii.String("property"),
+//   			},
+//   		},
 //   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   			property: jsii.String("property"),
 //
@@ -97,7 +148,12 @@ package awsamplifyuibuilder
 //   			// the properties below are optional
 //   			field: jsii.String("field"),
 //   		},
-//   		bindings: bindings,
+//   		bindings: map[string]interface{}{
+//   			"bindingsKey": &FormBindingElementProperty{
+//   				"element": jsii.String("element"),
+//   				"property": jsii.String("property"),
+//   			},
+//   		},
 //   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   			property: jsii.String("property"),
 //
@@ -138,7 +194,12 @@ package awsamplifyuibuilder
 //   				// the properties below are optional
 //   				field: jsii.String("field"),
 //   			},
-//   			bindings: bindings,
+//   			bindings: map[string]interface{}{
+//   				"bindingsKey": &FormBindingElementProperty{
+//   					"element": jsii.String("element"),
+//   					"property": jsii.String("property"),
+//   				},
+//   			},
 //   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   				property: jsii.String("property"),
 //
@@ -176,7 +237,12 @@ package awsamplifyuibuilder
 //   			// the properties below are optional
 //   			field: jsii.String("field"),
 //   		},
-//   		bindings: bindings,
+//   		bindings: map[string]interface{}{
+//   			"bindingsKey": &FormBindingElementProperty{
+//   				"element": jsii.String("element"),
+//   				"property": jsii.String("property"),
+//   			},
+//   		},
 //   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   			property: jsii.String("property"),
 //
@@ -213,7 +279,12 @@ package awsamplifyuibuilder
 //   			// the properties below are optional
 //   			field: jsii.String("field"),
 //   		},
-//   		bindings: bindings,
+//   		bindings: map[string]interface{}{
+//   			"bindingsKey": &FormBindingElementProperty{
+//   				"element": jsii.String("element"),
+//   				"property": jsii.String("property"),
+//   			},
+//   		},
 //   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   			property: jsii.String("property"),
 //
@@ -250,7 +321,12 @@ package awsamplifyuibuilder
 //   			// the properties below are optional
 //   			field: jsii.String("field"),
 //   		},
-//   		bindings: bindings,
+//   		bindings: map[string]interface{}{
+//   			"bindingsKey": &FormBindingElementProperty{
+//   				"element": jsii.String("element"),
+//   				"property": jsii.String("property"),
+//   			},
+//   		},
 //   		collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   			property: jsii.String("property"),
 //

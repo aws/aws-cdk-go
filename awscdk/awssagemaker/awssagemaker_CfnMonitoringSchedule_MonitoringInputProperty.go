@@ -37,7 +37,7 @@ package awssagemaker
 //   }
 //
 type CfnMonitoringSchedule_MonitoringInputProperty struct {
-	// Input object for the batch transform job.
+	// `CfnMonitoringSchedule.MonitoringInputProperty.BatchTransformInput`.
 	BatchTransformInput interface{} `field:"optional" json:"batchTransformInput" yaml:"batchTransformInput"`
 	// The endpoint for a monitoring job.
 	EndpointInput interface{} `field:"optional" json:"endpointInput" yaml:"endpointInput"`

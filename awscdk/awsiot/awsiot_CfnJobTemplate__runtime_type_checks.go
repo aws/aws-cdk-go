@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnJobTemplate) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnJobTemplate) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnJobTemplate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnJobTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnJobTemplate) validateOverrideLogicalIdParameters(newLogica
 func (c *jsiiProxy_CfnJobTemplate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnJobTemplate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -168,8 +152,24 @@ func validateCfnJobTemplate_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnJobTemplate) validateSetAbortConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnJobTemplate_AbortConfigProperty:
+		val := val.(*CfnJobTemplate_AbortConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnJobTemplate_AbortConfigProperty:
+		val_ := val.(CfnJobTemplate_AbortConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobTemplate_AbortConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
@@ -184,8 +184,24 @@ func (j *jsiiProxy_CfnJobTemplate) validateSetDescriptionParameters(val *string)
 }
 
 func (j *jsiiProxy_CfnJobTemplate) validateSetJobExecutionsRolloutConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnJobTemplate_JobExecutionsRolloutConfigProperty:
+		val := val.(*CfnJobTemplate_JobExecutionsRolloutConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnJobTemplate_JobExecutionsRolloutConfigProperty:
+		val_ := val.(CfnJobTemplate_JobExecutionsRolloutConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobTemplate_JobExecutionsRolloutConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
@@ -200,22 +216,54 @@ func (j *jsiiProxy_CfnJobTemplate) validateSetJobTemplateIdParameters(val *strin
 }
 
 func (j *jsiiProxy_CfnJobTemplate) validateSetPresignedUrlConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnJobTemplate_PresignedUrlConfigProperty:
+		val := val.(*CfnJobTemplate_PresignedUrlConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnJobTemplate_PresignedUrlConfigProperty:
+		val_ := val.(CfnJobTemplate_PresignedUrlConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobTemplate_PresignedUrlConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
 }
 
 func (j *jsiiProxy_CfnJobTemplate) validateSetTimeoutConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnJobTemplate_TimeoutConfigProperty:
+		val := val.(*CfnJobTemplate_TimeoutConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnJobTemplate_TimeoutConfigProperty:
+		val_ := val.(CfnJobTemplate_TimeoutConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnJobTemplate_TimeoutConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
 }
 
-func validateNewCfnJobTemplateParameters(scope awscdk.Construct, id *string, props *CfnJobTemplateProps) error {
+func validateNewCfnJobTemplateParameters(scope constructs.Construct, id *string, props *CfnJobTemplateProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -1,7 +1,7 @@
 package awsbillingconductor
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCustomLineItem`.
@@ -60,7 +60,7 @@ type CfnCustomLineItemProps struct {
 	//
 	// This is shown on the Bills page in association with the charge value.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// A map that contains tag keys and tag values that are attached to a custom line item.
+	// `AWS::BillingConductor::CustomLineItem.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

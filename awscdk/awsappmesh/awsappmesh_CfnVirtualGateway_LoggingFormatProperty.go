@@ -1,8 +1,6 @@
 package awsappmesh
 
 
-// An object that represents the format for the logs.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,9 +17,9 @@ package awsappmesh
 //   }
 //
 type CfnVirtualGateway_LoggingFormatProperty struct {
-	// The logging format for JSON.
+	// `CfnVirtualGateway.LoggingFormatProperty.Json`.
 	Json interface{} `field:"optional" json:"json" yaml:"json"`
-	// The logging format for text.
+	// `CfnVirtualGateway.LoggingFormatProperty.Text`.
 	Text *string `field:"optional" json:"text" yaml:"text"`
 }
 

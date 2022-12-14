@@ -8,15 +8,10 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bindings interface{}
 //   var componentChildProperty_ componentChildProperty
 //   var componentPropertyProperty_ componentPropertyProperty
-//   var events interface{}
-//   var fields interface{}
 //   var overrides interface{}
 //   var predicateProperty_ predicateProperty
-//   var properties interface{}
-//   var variantValues interface{}
 //
 //   cfnComponentProps := &cfnComponentProps{
 //   	bindingProperties: map[string]interface{}{
@@ -48,9 +43,7 @@ package awsamplifyuibuilder
 //   	},
 //   	componentType: jsii.String("componentType"),
 //   	name: jsii.String("name"),
-//   	overrides: map[string]interface{}{
-//   		"overridesKey": overrides,
-//   	},
+//   	overrides: overrides,
 //   	properties: map[string]interface{}{
 //   		"propertiesKey": &componentPropertyProperty{
 //   			"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
@@ -59,7 +52,12 @@ package awsamplifyuibuilder
 //   				// the properties below are optional
 //   				"field": jsii.String("field"),
 //   			},
-//   			"bindings": bindings,
+//   			"bindings": map[string]interface{}{
+//   				"bindingsKey": &FormBindingElementProperty{
+//   					"element": jsii.String("element"),
+//   					"property": jsii.String("property"),
+//   				},
+//   			},
 //   			"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   				"property": jsii.String("property"),
 //
@@ -93,7 +91,9 @@ package awsamplifyuibuilder
 //   	variants: []interface{}{
 //   		&componentVariantProperty{
 //   			overrides: overrides,
-//   			variantValues: variantValues,
+//   			variantValues: map[string]*string{
+//   				"variantValuesKey": jsii.String("variantValues"),
+//   			},
 //   		},
 //   	},
 //
@@ -102,13 +102,405 @@ package awsamplifyuibuilder
 //   		&componentChildProperty{
 //   			componentType: jsii.String("componentType"),
 //   			name: jsii.String("name"),
-//   			properties: properties,
+//   			properties: map[string]interface{}{
+//   				"propertiesKey": &componentPropertyProperty{
+//   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"bindings": map[string]interface{}{
+//   						"bindingsKey": &FormBindingElementProperty{
+//   							"element": jsii.String("element"),
+//   							"property": jsii.String("property"),
+//   						},
+//   					},
+//   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   						"property": jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						"field": jsii.String("field"),
+//   					},
+//   					"componentName": jsii.String("componentName"),
+//   					"concat": []interface{}{
+//   						componentPropertyProperty_,
+//   					},
+//   					"condition": &ComponentConditionPropertyProperty{
+//   						"else": componentPropertyProperty_,
+//   						"field": jsii.String("field"),
+//   						"operand": jsii.String("operand"),
+//   						"operandType": jsii.String("operandType"),
+//   						"operator": jsii.String("operator"),
+//   						"property": jsii.String("property"),
+//   						"then": componentPropertyProperty_,
+//   					},
+//   					"configured": jsii.Boolean(false),
+//   					"defaultValue": jsii.String("defaultValue"),
+//   					"event": jsii.String("event"),
+//   					"importedValue": jsii.String("importedValue"),
+//   					"model": jsii.String("model"),
+//   					"property": jsii.String("property"),
+//   					"type": jsii.String("type"),
+//   					"userAttribute": jsii.String("userAttribute"),
+//   					"value": jsii.String("value"),
+//   				},
+//   			},
 //
 //   			// the properties below are optional
 //   			children: []interface{}{
 //   				componentChildProperty_,
 //   			},
-//   			events: events,
+//   			events: map[string]interface{}{
+//   				"eventsKey": &ComponentEventProperty{
+//   					"action": jsii.String("action"),
+//   					"parameters": &ActionParametersProperty{
+//   						"anchor": &componentPropertyProperty{
+//   							"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"bindings": map[string]interface{}{
+//   								"bindingsKey": &FormBindingElementProperty{
+//   									"element": jsii.String("element"),
+//   									"property": jsii.String("property"),
+//   								},
+//   							},
+//   							"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"componentName": jsii.String("componentName"),
+//   							"concat": []interface{}{
+//   								componentPropertyProperty_,
+//   							},
+//   							"condition": &ComponentConditionPropertyProperty{
+//   								"else": componentPropertyProperty_,
+//   								"field": jsii.String("field"),
+//   								"operand": jsii.String("operand"),
+//   								"operandType": jsii.String("operandType"),
+//   								"operator": jsii.String("operator"),
+//   								"property": jsii.String("property"),
+//   								"then": componentPropertyProperty_,
+//   							},
+//   							"configured": jsii.Boolean(false),
+//   							"defaultValue": jsii.String("defaultValue"),
+//   							"event": jsii.String("event"),
+//   							"importedValue": jsii.String("importedValue"),
+//   							"model": jsii.String("model"),
+//   							"property": jsii.String("property"),
+//   							"type": jsii.String("type"),
+//   							"userAttribute": jsii.String("userAttribute"),
+//   							"value": jsii.String("value"),
+//   						},
+//   						"fields": map[string]interface{}{
+//   							"fieldsKey": &componentPropertyProperty{
+//   								"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   									"property": jsii.String("property"),
+//
+//   									// the properties below are optional
+//   									"field": jsii.String("field"),
+//   								},
+//   								"bindings": map[string]interface{}{
+//   									"bindingsKey": &FormBindingElementProperty{
+//   										"element": jsii.String("element"),
+//   										"property": jsii.String("property"),
+//   									},
+//   								},
+//   								"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   									"property": jsii.String("property"),
+//
+//   									// the properties below are optional
+//   									"field": jsii.String("field"),
+//   								},
+//   								"componentName": jsii.String("componentName"),
+//   								"concat": []interface{}{
+//   									componentPropertyProperty_,
+//   								},
+//   								"condition": &ComponentConditionPropertyProperty{
+//   									"else": componentPropertyProperty_,
+//   									"field": jsii.String("field"),
+//   									"operand": jsii.String("operand"),
+//   									"operandType": jsii.String("operandType"),
+//   									"operator": jsii.String("operator"),
+//   									"property": jsii.String("property"),
+//   									"then": componentPropertyProperty_,
+//   								},
+//   								"configured": jsii.Boolean(false),
+//   								"defaultValue": jsii.String("defaultValue"),
+//   								"event": jsii.String("event"),
+//   								"importedValue": jsii.String("importedValue"),
+//   								"model": jsii.String("model"),
+//   								"property": jsii.String("property"),
+//   								"type": jsii.String("type"),
+//   								"userAttribute": jsii.String("userAttribute"),
+//   								"value": jsii.String("value"),
+//   							},
+//   						},
+//   						"global": &componentPropertyProperty{
+//   							"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"bindings": map[string]interface{}{
+//   								"bindingsKey": &FormBindingElementProperty{
+//   									"element": jsii.String("element"),
+//   									"property": jsii.String("property"),
+//   								},
+//   							},
+//   							"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"componentName": jsii.String("componentName"),
+//   							"concat": []interface{}{
+//   								componentPropertyProperty_,
+//   							},
+//   							"condition": &ComponentConditionPropertyProperty{
+//   								"else": componentPropertyProperty_,
+//   								"field": jsii.String("field"),
+//   								"operand": jsii.String("operand"),
+//   								"operandType": jsii.String("operandType"),
+//   								"operator": jsii.String("operator"),
+//   								"property": jsii.String("property"),
+//   								"then": componentPropertyProperty_,
+//   							},
+//   							"configured": jsii.Boolean(false),
+//   							"defaultValue": jsii.String("defaultValue"),
+//   							"event": jsii.String("event"),
+//   							"importedValue": jsii.String("importedValue"),
+//   							"model": jsii.String("model"),
+//   							"property": jsii.String("property"),
+//   							"type": jsii.String("type"),
+//   							"userAttribute": jsii.String("userAttribute"),
+//   							"value": jsii.String("value"),
+//   						},
+//   						"id": &componentPropertyProperty{
+//   							"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"bindings": map[string]interface{}{
+//   								"bindingsKey": &FormBindingElementProperty{
+//   									"element": jsii.String("element"),
+//   									"property": jsii.String("property"),
+//   								},
+//   							},
+//   							"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"componentName": jsii.String("componentName"),
+//   							"concat": []interface{}{
+//   								componentPropertyProperty_,
+//   							},
+//   							"condition": &ComponentConditionPropertyProperty{
+//   								"else": componentPropertyProperty_,
+//   								"field": jsii.String("field"),
+//   								"operand": jsii.String("operand"),
+//   								"operandType": jsii.String("operandType"),
+//   								"operator": jsii.String("operator"),
+//   								"property": jsii.String("property"),
+//   								"then": componentPropertyProperty_,
+//   							},
+//   							"configured": jsii.Boolean(false),
+//   							"defaultValue": jsii.String("defaultValue"),
+//   							"event": jsii.String("event"),
+//   							"importedValue": jsii.String("importedValue"),
+//   							"model": jsii.String("model"),
+//   							"property": jsii.String("property"),
+//   							"type": jsii.String("type"),
+//   							"userAttribute": jsii.String("userAttribute"),
+//   							"value": jsii.String("value"),
+//   						},
+//   						"model": jsii.String("model"),
+//   						"state": &MutationActionSetStateParameterProperty{
+//   							"componentName": jsii.String("componentName"),
+//   							"property": jsii.String("property"),
+//   							"set": &componentPropertyProperty{
+//   								"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   									"property": jsii.String("property"),
+//
+//   									// the properties below are optional
+//   									"field": jsii.String("field"),
+//   								},
+//   								"bindings": map[string]interface{}{
+//   									"bindingsKey": &FormBindingElementProperty{
+//   										"element": jsii.String("element"),
+//   										"property": jsii.String("property"),
+//   									},
+//   								},
+//   								"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   									"property": jsii.String("property"),
+//
+//   									// the properties below are optional
+//   									"field": jsii.String("field"),
+//   								},
+//   								"componentName": jsii.String("componentName"),
+//   								"concat": []interface{}{
+//   									componentPropertyProperty_,
+//   								},
+//   								"condition": &ComponentConditionPropertyProperty{
+//   									"else": componentPropertyProperty_,
+//   									"field": jsii.String("field"),
+//   									"operand": jsii.String("operand"),
+//   									"operandType": jsii.String("operandType"),
+//   									"operator": jsii.String("operator"),
+//   									"property": jsii.String("property"),
+//   									"then": componentPropertyProperty_,
+//   								},
+//   								"configured": jsii.Boolean(false),
+//   								"defaultValue": jsii.String("defaultValue"),
+//   								"event": jsii.String("event"),
+//   								"importedValue": jsii.String("importedValue"),
+//   								"model": jsii.String("model"),
+//   								"property": jsii.String("property"),
+//   								"type": jsii.String("type"),
+//   								"userAttribute": jsii.String("userAttribute"),
+//   								"value": jsii.String("value"),
+//   							},
+//   						},
+//   						"target": &componentPropertyProperty{
+//   							"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"bindings": map[string]interface{}{
+//   								"bindingsKey": &FormBindingElementProperty{
+//   									"element": jsii.String("element"),
+//   									"property": jsii.String("property"),
+//   								},
+//   							},
+//   							"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"componentName": jsii.String("componentName"),
+//   							"concat": []interface{}{
+//   								componentPropertyProperty_,
+//   							},
+//   							"condition": &ComponentConditionPropertyProperty{
+//   								"else": componentPropertyProperty_,
+//   								"field": jsii.String("field"),
+//   								"operand": jsii.String("operand"),
+//   								"operandType": jsii.String("operandType"),
+//   								"operator": jsii.String("operator"),
+//   								"property": jsii.String("property"),
+//   								"then": componentPropertyProperty_,
+//   							},
+//   							"configured": jsii.Boolean(false),
+//   							"defaultValue": jsii.String("defaultValue"),
+//   							"event": jsii.String("event"),
+//   							"importedValue": jsii.String("importedValue"),
+//   							"model": jsii.String("model"),
+//   							"property": jsii.String("property"),
+//   							"type": jsii.String("type"),
+//   							"userAttribute": jsii.String("userAttribute"),
+//   							"value": jsii.String("value"),
+//   						},
+//   						"type": &componentPropertyProperty{
+//   							"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"bindings": map[string]interface{}{
+//   								"bindingsKey": &FormBindingElementProperty{
+//   									"element": jsii.String("element"),
+//   									"property": jsii.String("property"),
+//   								},
+//   							},
+//   							"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"componentName": jsii.String("componentName"),
+//   							"concat": []interface{}{
+//   								componentPropertyProperty_,
+//   							},
+//   							"condition": &ComponentConditionPropertyProperty{
+//   								"else": componentPropertyProperty_,
+//   								"field": jsii.String("field"),
+//   								"operand": jsii.String("operand"),
+//   								"operandType": jsii.String("operandType"),
+//   								"operator": jsii.String("operator"),
+//   								"property": jsii.String("property"),
+//   								"then": componentPropertyProperty_,
+//   							},
+//   							"configured": jsii.Boolean(false),
+//   							"defaultValue": jsii.String("defaultValue"),
+//   							"event": jsii.String("event"),
+//   							"importedValue": jsii.String("importedValue"),
+//   							"model": jsii.String("model"),
+//   							"property": jsii.String("property"),
+//   							"type": jsii.String("type"),
+//   							"userAttribute": jsii.String("userAttribute"),
+//   							"value": jsii.String("value"),
+//   						},
+//   						"url": &componentPropertyProperty{
+//   							"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"bindings": map[string]interface{}{
+//   								"bindingsKey": &FormBindingElementProperty{
+//   									"element": jsii.String("element"),
+//   									"property": jsii.String("property"),
+//   								},
+//   							},
+//   							"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   								"property": jsii.String("property"),
+//
+//   								// the properties below are optional
+//   								"field": jsii.String("field"),
+//   							},
+//   							"componentName": jsii.String("componentName"),
+//   							"concat": []interface{}{
+//   								componentPropertyProperty_,
+//   							},
+//   							"condition": &ComponentConditionPropertyProperty{
+//   								"else": componentPropertyProperty_,
+//   								"field": jsii.String("field"),
+//   								"operand": jsii.String("operand"),
+//   								"operandType": jsii.String("operandType"),
+//   								"operator": jsii.String("operator"),
+//   								"property": jsii.String("property"),
+//   								"then": componentPropertyProperty_,
+//   							},
+//   							"configured": jsii.Boolean(false),
+//   							"defaultValue": jsii.String("defaultValue"),
+//   							"event": jsii.String("event"),
+//   							"importedValue": jsii.String("importedValue"),
+//   							"model": jsii.String("model"),
+//   							"property": jsii.String("property"),
+//   							"type": jsii.String("type"),
+//   							"userAttribute": jsii.String("userAttribute"),
+//   							"value": jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	collectionProperties: map[string]interface{}{
@@ -149,7 +541,12 @@ package awsamplifyuibuilder
 //   						// the properties below are optional
 //   						"field": jsii.String("field"),
 //   					},
-//   					"bindings": bindings,
+//   					"bindings": map[string]interface{}{
+//   						"bindingsKey": &FormBindingElementProperty{
+//   							"element": jsii.String("element"),
+//   							"property": jsii.String("property"),
+//   						},
+//   					},
 //   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -179,7 +576,50 @@ package awsamplifyuibuilder
 //   					"userAttribute": jsii.String("userAttribute"),
 //   					"value": jsii.String("value"),
 //   				},
-//   				"fields": fields,
+//   				"fields": map[string]interface{}{
+//   					"fieldsKey": &componentPropertyProperty{
+//   						"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   							"property": jsii.String("property"),
+//
+//   							// the properties below are optional
+//   							"field": jsii.String("field"),
+//   						},
+//   						"bindings": map[string]interface{}{
+//   							"bindingsKey": &FormBindingElementProperty{
+//   								"element": jsii.String("element"),
+//   								"property": jsii.String("property"),
+//   							},
+//   						},
+//   						"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
+//   							"property": jsii.String("property"),
+//
+//   							// the properties below are optional
+//   							"field": jsii.String("field"),
+//   						},
+//   						"componentName": jsii.String("componentName"),
+//   						"concat": []interface{}{
+//   							componentPropertyProperty_,
+//   						},
+//   						"condition": &ComponentConditionPropertyProperty{
+//   							"else": componentPropertyProperty_,
+//   							"field": jsii.String("field"),
+//   							"operand": jsii.String("operand"),
+//   							"operandType": jsii.String("operandType"),
+//   							"operator": jsii.String("operator"),
+//   							"property": jsii.String("property"),
+//   							"then": componentPropertyProperty_,
+//   						},
+//   						"configured": jsii.Boolean(false),
+//   						"defaultValue": jsii.String("defaultValue"),
+//   						"event": jsii.String("event"),
+//   						"importedValue": jsii.String("importedValue"),
+//   						"model": jsii.String("model"),
+//   						"property": jsii.String("property"),
+//   						"type": jsii.String("type"),
+//   						"userAttribute": jsii.String("userAttribute"),
+//   						"value": jsii.String("value"),
+//   					},
+//   				},
 //   				"global": &componentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
@@ -187,7 +627,12 @@ package awsamplifyuibuilder
 //   						// the properties below are optional
 //   						"field": jsii.String("field"),
 //   					},
-//   					"bindings": bindings,
+//   					"bindings": map[string]interface{}{
+//   						"bindingsKey": &FormBindingElementProperty{
+//   							"element": jsii.String("element"),
+//   							"property": jsii.String("property"),
+//   						},
+//   					},
 //   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -224,7 +669,12 @@ package awsamplifyuibuilder
 //   						// the properties below are optional
 //   						"field": jsii.String("field"),
 //   					},
-//   					"bindings": bindings,
+//   					"bindings": map[string]interface{}{
+//   						"bindingsKey": &FormBindingElementProperty{
+//   							"element": jsii.String("element"),
+//   							"property": jsii.String("property"),
+//   						},
+//   					},
 //   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -265,7 +715,12 @@ package awsamplifyuibuilder
 //   							// the properties below are optional
 //   							"field": jsii.String("field"),
 //   						},
-//   						"bindings": bindings,
+//   						"bindings": map[string]interface{}{
+//   							"bindingsKey": &FormBindingElementProperty{
+//   								"element": jsii.String("element"),
+//   								"property": jsii.String("property"),
+//   							},
+//   						},
 //   						"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   							"property": jsii.String("property"),
 //
@@ -303,7 +758,12 @@ package awsamplifyuibuilder
 //   						// the properties below are optional
 //   						"field": jsii.String("field"),
 //   					},
-//   					"bindings": bindings,
+//   					"bindings": map[string]interface{}{
+//   						"bindingsKey": &FormBindingElementProperty{
+//   							"element": jsii.String("element"),
+//   							"property": jsii.String("property"),
+//   						},
+//   					},
 //   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -340,7 +800,12 @@ package awsamplifyuibuilder
 //   						// the properties below are optional
 //   						"field": jsii.String("field"),
 //   					},
-//   					"bindings": bindings,
+//   					"bindings": map[string]interface{}{
+//   						"bindingsKey": &FormBindingElementProperty{
+//   							"element": jsii.String("element"),
+//   							"property": jsii.String("property"),
+//   						},
+//   					},
 //   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //
@@ -377,7 +842,12 @@ package awsamplifyuibuilder
 //   						// the properties below are optional
 //   						"field": jsii.String("field"),
 //   					},
-//   					"bindings": bindings,
+//   					"bindings": map[string]interface{}{
+//   						"bindingsKey": &FormBindingElementProperty{
+//   							"element": jsii.String("element"),
+//   							"property": jsii.String("property"),
+//   						},
+//   					},
 //   					"collectionBindingProperties": &ComponentPropertyBindingPropertiesProperty{
 //   						"property": jsii.String("property"),
 //

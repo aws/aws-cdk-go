@@ -33,8 +33,12 @@ package awsmediaconnect
 //   		minLatency: jsii.Number(123),
 //   		name: jsii.String("name"),
 //   		protocol: jsii.String("protocol"),
+//   		senderControlPort: jsii.Number(123),
+//   		senderIpAddress: jsii.String("senderIpAddress"),
 //   		sourceArn: jsii.String("sourceArn"),
 //   		sourceIngestPort: jsii.String("sourceIngestPort"),
+//   		sourceListenerAddress: jsii.String("sourceListenerAddress"),
+//   		sourceListenerPort: jsii.Number(123),
 //   		streamId: jsii.String("streamId"),
 //   		vpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   		whitelistCidr: jsii.String("whitelistCidr"),
@@ -43,7 +47,11 @@ package awsmediaconnect
 //   	// the properties below are optional
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	sourceFailoverConfig: &failoverConfigProperty{
+//   		failoverMode: jsii.String("failoverMode"),
 //   		recoveryWindow: jsii.Number(123),
+//   		sourcePriority: &sourcePriorityProperty{
+//   			primarySource: jsii.String("primarySource"),
+//   		},
 //   		state: jsii.String("state"),
 //   	},
 //   }

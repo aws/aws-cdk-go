@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnFeatureGroup) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnFeatureGroup) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnFeatureGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnFeatureGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnFeatureGroup) validateOverrideLogicalIdParameters(newLogic
 func (c *jsiiProxy_CfnFeatureGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnFeatureGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -247,16 +231,48 @@ func (j *jsiiProxy_CfnFeatureGroup) validateSetFeatureGroupNameParameters(val *s
 }
 
 func (j *jsiiProxy_CfnFeatureGroup) validateSetOfflineStoreConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnFeatureGroup_OfflineStoreConfigProperty:
+		val := val.(*CfnFeatureGroup_OfflineStoreConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFeatureGroup_OfflineStoreConfigProperty:
+		val_ := val.(CfnFeatureGroup_OfflineStoreConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFeatureGroup_OfflineStoreConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
 }
 
 func (j *jsiiProxy_CfnFeatureGroup) validateSetOnlineStoreConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnFeatureGroup_OnlineStoreConfigProperty:
+		val := val.(*CfnFeatureGroup_OnlineStoreConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFeatureGroup_OnlineStoreConfigProperty:
+		val_ := val.(CfnFeatureGroup_OnlineStoreConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFeatureGroup_OnlineStoreConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
@@ -270,7 +286,7 @@ func (j *jsiiProxy_CfnFeatureGroup) validateSetRecordIdentifierFeatureNameParame
 	return nil
 }
 
-func validateNewCfnFeatureGroupParameters(scope awscdk.Construct, id *string, props *CfnFeatureGroupProps) error {
+func validateNewCfnFeatureGroupParameters(scope constructs.Construct, id *string, props *CfnFeatureGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

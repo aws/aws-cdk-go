@@ -1,7 +1,7 @@
 package awsevidently
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFeature`.
@@ -16,11 +16,13 @@ import (
 //   	project: jsii.String("project"),
 //   	variations: []interface{}{
 //   		&variationObjectProperty{
+//   			variationName: jsii.String("variationName"),
+//
+//   			// the properties below are optional
 //   			booleanValue: jsii.Boolean(false),
 //   			doubleValue: jsii.Number(123),
 //   			longValue: jsii.Number(123),
 //   			stringValue: jsii.String("stringValue"),
-//   			variationName: jsii.String("variationName"),
 //   		},
 //   	},
 //

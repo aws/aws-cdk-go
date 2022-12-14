@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnVpcAttachment`.
@@ -13,11 +13,14 @@ import (
 //
 //   cfnVpcAttachmentProps := &cfnVpcAttachmentProps{
 //   	coreNetworkId: jsii.String("coreNetworkId"),
-//   	options: &vpcOptionsProperty{
-//   		ipv6Support: jsii.Boolean(false),
-//   	},
 //   	subnetArns: []*string{
 //   		jsii.String("subnetArns"),
+//   	},
+//   	vpcArn: jsii.String("vpcArn"),
+//
+//   	// the properties below are optional
+//   	options: &vpcOptionsProperty{
+//   		ipv6Support: jsii.Boolean(false),
 //   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -25,19 +28,18 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
-//   	vpcArn: jsii.String("vpcArn"),
 //   }
 //
 type CfnVpcAttachmentProps struct {
 	// The core network ID.
-	CoreNetworkId *string `field:"optional" json:"coreNetworkId" yaml:"coreNetworkId"`
+	CoreNetworkId *string `field:"required" json:"coreNetworkId" yaml:"coreNetworkId"`
+	// The subnet ARNs.
+	SubnetArns *[]*string `field:"required" json:"subnetArns" yaml:"subnetArns"`
+	// The ARN of the VPC attachment.
+	VpcArn *string `field:"required" json:"vpcArn" yaml:"vpcArn"`
 	// Options for creating the VPC attachment.
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
-	// The subnet ARNs.
-	SubnetArns *[]*string `field:"optional" json:"subnetArns" yaml:"subnetArns"`
 	// The tags associated with the VPC attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The ARN of the VPC attachment.
-	VpcArn *string `field:"optional" json:"vpcArn" yaml:"vpcArn"`
 }
 

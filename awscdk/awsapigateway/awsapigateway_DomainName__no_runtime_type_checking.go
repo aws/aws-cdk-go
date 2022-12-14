@@ -4,6 +4,10 @@ package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (d *jsiiProxy_DomainName) validateAddApiMappingParameters(targetStage IStage, options *ApiMappingOptions) error {
+	return nil
+}
+
 func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi IRestApi, options *BasePathMappingOptions) error {
 	return nil
 }
@@ -20,14 +24,6 @@ func (d *jsiiProxy_DomainName) validateGetResourceNameAttributeParameters(nameAt
 	return nil
 }
 
-func (d *jsiiProxy_DomainName) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (d *jsiiProxy_DomainName) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateDomainName_FromDomainNameAttributesParameters(scope constructs.Construct, id *string, attrs *DomainNameAttributes) error {
 	return nil
 }
@@ -36,7 +32,11 @@ func validateDomainName_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDomainName_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateDomainName_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateDomainName_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

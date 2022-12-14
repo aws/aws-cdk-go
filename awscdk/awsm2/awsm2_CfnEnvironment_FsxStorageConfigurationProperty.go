@@ -1,8 +1,6 @@
 package awsm2
 
 
-// Defines the storage configuration for an Amazon FSx file system.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsm2
 //   }
 //
 type CfnEnvironment_FsxStorageConfigurationProperty struct {
-	// The file system identifier.
+	// `CfnEnvironment.FsxStorageConfigurationProperty.FileSystemId`.
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
-	// The mount point for the file system.
+	// `CfnEnvironment.FsxStorageConfigurationProperty.MountPoint`.
 	MountPoint *string `field:"required" json:"mountPoint" yaml:"mountPoint"`
 }
 

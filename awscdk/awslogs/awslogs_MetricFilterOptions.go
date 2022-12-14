@@ -17,23 +17,27 @@ package awslogs
 //
 //   	// the properties below are optional
 //   	defaultValue: jsii.Number(123),
+//   	dimensions: map[string]*string{
+//   		"dimensionsKey": jsii.String("dimensions"),
+//   	},
 //   	metricValue: jsii.String("metricValue"),
 //   }
 //
-// Experimental.
 type MetricFilterOptions struct {
 	// Pattern to search for log events.
-	// Experimental.
 	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The name of the metric to emit.
-	// Experimental.
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to emit.
-	// Experimental.
 	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
 	// The value to emit if the pattern does not match a particular event.
-	// Experimental.
 	DefaultValue *float64 `field:"optional" json:"defaultValue" yaml:"defaultValue"`
+	// The fields to use as dimensions for the metric.
+	//
+	// One metric filter can include as many as three dimensions.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-logs-metricfilter-metrictransformation-dimensions
+	//
+	Dimensions *map[string]*string `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The value to emit for the metric.
 	//
 	// Can either be a literal number (typically "1"), or the name of a field in the structure
@@ -45,7 +49,6 @@ type MetricFilterOptions struct {
 	//
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
-	// Experimental.
 	MetricValue *string `field:"optional" json:"metricValue" yaml:"metricValue"`
 }
 

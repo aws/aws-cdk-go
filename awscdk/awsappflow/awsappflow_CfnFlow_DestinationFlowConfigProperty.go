@@ -8,8 +8,6 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var customProperties interface{}
-//
 //   destinationFlowConfigProperty := &destinationFlowConfigProperty{
 //   	connectorType: jsii.String("connectorType"),
 //   	destinationConnectorProperties: &destinationConnectorPropertiesProperty{
@@ -17,7 +15,9 @@ package awsappflow
 //   			entityName: jsii.String("entityName"),
 //
 //   			// the properties below are optional
-//   			customProperties: customProperties,
+//   			customProperties: map[string]*string{
+//   				"customPropertiesKey": jsii.String("customProperties"),
+//   			},
 //   			errorHandlingConfig: &errorHandlingConfigProperty{
 //   				bucketName: jsii.String("bucketName"),
 //   				bucketPrefix: jsii.String("bucketPrefix"),
@@ -71,9 +71,13 @@ package awsappflow
 //   			s3OutputFormatConfig: &s3OutputFormatConfigProperty{
 //   				aggregationConfig: &aggregationConfigProperty{
 //   					aggregationType: jsii.String("aggregationType"),
+//   					targetFileSize: jsii.Number(123),
 //   				},
 //   				fileType: jsii.String("fileType"),
 //   				prefixConfig: &prefixConfigProperty{
+//   					pathPrefixHierarchy: []*string{
+//   						jsii.String("pathPrefixHierarchy"),
+//   					},
 //   					prefixFormat: jsii.String("prefixFormat"),
 //   					prefixType: jsii.String("prefixType"),
 //   				},
@@ -129,6 +133,9 @@ package awsappflow
 //   			bucketName: jsii.String("bucketName"),
 //   			s3OutputFormatConfig: &upsolverS3OutputFormatConfigProperty{
 //   				prefixConfig: &prefixConfigProperty{
+//   					pathPrefixHierarchy: []*string{
+//   						jsii.String("pathPrefixHierarchy"),
+//   					},
 //   					prefixFormat: jsii.String("prefixFormat"),
 //   					prefixType: jsii.String("prefixType"),
 //   				},
@@ -136,6 +143,7 @@ package awsappflow
 //   				// the properties below are optional
 //   				aggregationConfig: &aggregationConfigProperty{
 //   					aggregationType: jsii.String("aggregationType"),
+//   					targetFileSize: jsii.Number(123),
 //   				},
 //   				fileType: jsii.String("fileType"),
 //   			},
@@ -171,7 +179,7 @@ type CfnFlow_DestinationFlowConfigProperty struct {
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// This stores the information that is required to query a particular connector.
 	DestinationConnectorProperties interface{} `field:"required" json:"destinationConnectorProperties" yaml:"destinationConnectorProperties"`
-	// The API version that the destination connector uses.
+	// `CfnFlow.DestinationFlowConfigProperty.ApiVersion`.
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The name of the connector profile.
 	//

@@ -19,6 +19,6 @@ package awswisdom
 //
 type CfnKnowledgeBase_SourceConfigurationProperty struct {
 	// Configuration information for Amazon AppIntegrations to automatically ingest content.
-	AppIntegrations interface{} `field:"optional" json:"appIntegrations" yaml:"appIntegrations"`
+	AppIntegrations interface{} `field:"required" json:"appIntegrations" yaml:"appIntegrations"`
 }
 

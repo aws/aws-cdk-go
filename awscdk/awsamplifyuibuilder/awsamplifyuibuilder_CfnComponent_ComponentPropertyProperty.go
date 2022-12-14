@@ -10,7 +10,6 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bindings interface{}
 //   var componentConditionPropertyProperty_ componentConditionPropertyProperty
 //   var componentPropertyProperty_ componentPropertyProperty
 //
@@ -21,7 +20,12 @@ package awsamplifyuibuilder
 //   		// the properties below are optional
 //   		field: jsii.String("field"),
 //   	},
-//   	bindings: bindings,
+//   	bindings: map[string]interface{}{
+//   		"bindingsKey": &FormBindingElementProperty{
+//   			"element": jsii.String("element"),
+//   			"property": jsii.String("property"),
+//   		},
+//   	},
 //   	collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   		property: jsii.String("property"),
 //
@@ -37,7 +41,12 @@ package awsamplifyuibuilder
 //   				// the properties below are optional
 //   				field: jsii.String("field"),
 //   			},
-//   			bindings: bindings,
+//   			bindings: map[string]interface{}{
+//   				"bindingsKey": &FormBindingElementProperty{
+//   					"element": jsii.String("element"),
+//   					"property": jsii.String("property"),
+//   				},
+//   			},
 //   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   				property: jsii.String("property"),
 //
@@ -76,7 +85,12 @@ package awsamplifyuibuilder
 //   				// the properties below are optional
 //   				field: jsii.String("field"),
 //   			},
-//   			bindings: bindings,
+//   			bindings: map[string]interface{}{
+//   				"bindingsKey": &FormBindingElementProperty{
+//   					"element": jsii.String("element"),
+//   					"property": jsii.String("property"),
+//   				},
+//   			},
 //   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   				property: jsii.String("property"),
 //
@@ -110,7 +124,12 @@ package awsamplifyuibuilder
 //   				// the properties below are optional
 //   				field: jsii.String("field"),
 //   			},
-//   			bindings: bindings,
+//   			bindings: map[string]interface{}{
+//   				"bindingsKey": &FormBindingElementProperty{
+//   					"element": jsii.String("element"),
+//   					"property": jsii.String("property"),
+//   				},
+//   			},
 //   			collectionBindingProperties: &componentPropertyBindingPropertiesProperty{
 //   				property: jsii.String("property"),
 //

@@ -14,8 +14,6 @@ package awswafv2
 //   var allQueryArguments interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
-//   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
@@ -73,8 +71,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			positionalConstraint: jsii.String("positionalConstraint"),
@@ -178,8 +180,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			regexString: jsii.String("regexString"),
@@ -238,8 +244,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -297,8 +307,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			size: jsii.Number(123),
@@ -356,8 +370,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -417,8 +435,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{

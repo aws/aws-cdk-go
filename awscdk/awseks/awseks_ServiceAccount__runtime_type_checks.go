@@ -7,38 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
-
-func (s *jsiiProxy_ServiceAccount) validateAddToPolicyParameters(statement awsiam.PolicyStatement) error {
-	if statement == nil {
-		return fmt.Errorf("parameter statement is required, but nil was provided")
-	}
-
-	return nil
-}
 
 func (s *jsiiProxy_ServiceAccount) validateAddToPrincipalPolicyParameters(statement awsiam.PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_ServiceAccount) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_ServiceAccount) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

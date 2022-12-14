@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Properties that describe an existing cluster instance.
@@ -34,31 +34,22 @@ import (
 //   	},
 //   }
 //
-// Experimental.
 type DatabaseClusterAttributes struct {
 	// Identifier for the cluster.
-	// Experimental.
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
-	// Experimental.
 	ClusterEndpointAddress *string `field:"optional" json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// The engine of the existing Cluster.
-	// Experimental.
 	Engine IClusterEngine `field:"optional" json:"engine" yaml:"engine"`
 	// Endpoint addresses of individual instances.
-	// Experimental.
 	InstanceEndpointAddresses *[]*string `field:"optional" json:"instanceEndpointAddresses" yaml:"instanceEndpointAddresses"`
 	// Identifier for the instances.
-	// Experimental.
 	InstanceIdentifiers *[]*string `field:"optional" json:"instanceIdentifiers" yaml:"instanceIdentifiers"`
 	// The database port.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Reader endpoint address.
-	// Experimental.
 	ReaderEndpointAddress *string `field:"optional" json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The security groups of the database cluster.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

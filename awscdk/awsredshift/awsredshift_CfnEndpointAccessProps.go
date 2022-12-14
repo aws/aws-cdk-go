@@ -8,8 +8,6 @@ package awsredshift
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpcEndpoint interface{}
-//
 //   cfnEndpointAccessProps := &cfnEndpointAccessProps{
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
 //   	endpointName: jsii.String("endpointName"),
@@ -20,7 +18,18 @@ package awsredshift
 //
 //   	// the properties below are optional
 //   	resourceOwner: jsii.String("resourceOwner"),
-//   	vpcEndpoint: vpcEndpoint,
+//   	vpcEndpoint: &vpcEndpointProperty{
+//   		networkInterfaces: []interface{}{
+//   			&networkInterfaceProperty{
+//   				availabilityZone: jsii.String("availabilityZone"),
+//   				networkInterfaceId: jsii.String("networkInterfaceId"),
+//   				privateIpAddress: jsii.String("privateIpAddress"),
+//   				subnetId: jsii.String("subnetId"),
+//   			},
+//   		},
+//   		vpcEndpointId: jsii.String("vpcEndpointId"),
+//   		vpcId: jsii.String("vpcId"),
+//   	},
 //   	vpcSecurityGroups: []interface{}{
 //   		&vpcSecurityGroupProperty{
 //   			status: jsii.String("status"),
@@ -42,7 +51,7 @@ type CfnEndpointAccessProps struct {
 	ResourceOwner *string `field:"optional" json:"resourceOwner" yaml:"resourceOwner"`
 	// `AWS::Redshift::EndpointAccess.VpcEndpoint`.
 	VpcEndpoint interface{} `field:"optional" json:"vpcEndpoint" yaml:"vpcEndpoint"`
-	// The security groups associated with the endpoint.
+	// `AWS::Redshift::EndpointAccess.VpcSecurityGroups`.
 	VpcSecurityGroups interface{} `field:"optional" json:"vpcSecurityGroups" yaml:"vpcSecurityGroups"`
 }
 

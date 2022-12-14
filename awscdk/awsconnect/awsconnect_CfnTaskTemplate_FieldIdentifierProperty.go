@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The identifier of the task template field.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsconnect
 //   }
 //
 type CfnTaskTemplate_FieldIdentifierProperty struct {
-	// The name of the task template field.
+	// `CfnTaskTemplate.FieldIdentifierProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

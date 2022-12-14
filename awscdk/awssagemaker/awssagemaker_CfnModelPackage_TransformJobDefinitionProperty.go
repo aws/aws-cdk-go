@@ -8,8 +8,6 @@ package awssagemaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var environment interface{}
-//
 //   transformJobDefinitionProperty := &transformJobDefinitionProperty{
 //   	transformInput: &transformInputProperty{
 //   		dataSource: &dataSourceProperty{
@@ -42,7 +40,9 @@ package awssagemaker
 //
 //   	// the properties below are optional
 //   	batchStrategy: jsii.String("batchStrategy"),
-//   	environment: environment,
+//   	environment: map[string]*string{
+//   		"environmentKey": jsii.String("environment"),
+//   	},
 //   	maxConcurrentTransforms: jsii.Number(123),
 //   	maxPayloadInMb: jsii.Number(123),
 //   }

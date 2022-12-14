@@ -8,8 +8,6 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var customProperties interface{}
-//
 //   sourceConnectorPropertiesProperty := &sourceConnectorPropertiesProperty{
 //   	amplitude: &amplitudeSourcePropertiesProperty{
 //   		object: jsii.String("object"),
@@ -18,7 +16,9 @@ package awsappflow
 //   		entityName: jsii.String("entityName"),
 //
 //   		// the properties below are optional
-//   		customProperties: customProperties,
+//   		customProperties: map[string]*string{
+//   			"customPropertiesKey": jsii.String("customProperties"),
+//   		},
 //   	},
 //   	datadog: &datadogSourcePropertiesProperty{
 //   		object: jsii.String("object"),
@@ -84,7 +84,7 @@ package awsappflow
 type CfnFlow_SourceConnectorPropertiesProperty struct {
 	// Specifies the information that is required for querying Amplitude.
 	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
-	// The properties that are applied when the custom connector is being used as a source.
+	// `CfnFlow.SourceConnectorPropertiesProperty.CustomConnector`.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// Specifies the information that is required for querying Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`

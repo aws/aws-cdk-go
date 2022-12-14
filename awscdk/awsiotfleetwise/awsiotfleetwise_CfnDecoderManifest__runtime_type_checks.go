@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnDecoderManifest) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnDecoderManifest) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnDecoderManifest) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnDecoderManifest) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnDecoderManifest) validateOverrideLogicalIdParameters(newLo
 func (c *jsiiProxy_CfnDecoderManifest) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnDecoderManifest) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -185,15 +169,58 @@ func (j *jsiiProxy_CfnDecoderManifest) validateSetNameParameters(val *string) er
 
 func (j *jsiiProxy_CfnDecoderManifest) validateSetNetworkInterfacesParameters(val interface{}) error {
 	switch val.(type) {
-	case *[]interface{}:
-		// ok
-	case []interface{}:
-		// ok
 	case awscdk.IResolvable:
 		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case *CfnDecoderManifest_NetworkInterfacesItemsProperty:
+				v := v.(*CfnDecoderManifest_NetworkInterfacesItemsProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnDecoderManifest_NetworkInterfacesItemsProperty:
+				v_ := v.(CfnDecoderManifest_NetworkInterfacesItemsProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case awscdk.IResolvable:
+				// ok
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDecoderManifest_NetworkInterfacesItemsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case *CfnDecoderManifest_NetworkInterfacesItemsProperty:
+				v := v.(*CfnDecoderManifest_NetworkInterfacesItemsProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnDecoderManifest_NetworkInterfacesItemsProperty:
+				v_ := v.(CfnDecoderManifest_NetworkInterfacesItemsProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case awscdk.IResolvable:
+				// ok
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDecoderManifest_NetworkInterfacesItemsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *[]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -202,22 +229,65 @@ func (j *jsiiProxy_CfnDecoderManifest) validateSetNetworkInterfacesParameters(va
 
 func (j *jsiiProxy_CfnDecoderManifest) validateSetSignalDecodersParameters(val interface{}) error {
 	switch val.(type) {
-	case *[]interface{}:
-		// ok
-	case []interface{}:
-		// ok
 	case awscdk.IResolvable:
 		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case *CfnDecoderManifest_SignalDecodersItemsProperty:
+				v := v.(*CfnDecoderManifest_SignalDecodersItemsProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnDecoderManifest_SignalDecodersItemsProperty:
+				v_ := v.(CfnDecoderManifest_SignalDecodersItemsProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case awscdk.IResolvable:
+				// ok
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDecoderManifest_SignalDecodersItemsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case *CfnDecoderManifest_SignalDecodersItemsProperty:
+				v := v.(*CfnDecoderManifest_SignalDecodersItemsProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnDecoderManifest_SignalDecodersItemsProperty:
+				v_ := v.(CfnDecoderManifest_SignalDecodersItemsProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case awscdk.IResolvable:
+				// ok
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: *CfnDecoderManifest_SignalDecodersItemsProperty, awscdk.IResolvable; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *[]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
 		}
 	}
 
 	return nil
 }
 
-func validateNewCfnDecoderManifestParameters(scope awscdk.Construct, id *string, props *CfnDecoderManifestProps) error {
+func validateNewCfnDecoderManifestParameters(scope constructs.Construct, id *string, props *CfnDecoderManifestProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

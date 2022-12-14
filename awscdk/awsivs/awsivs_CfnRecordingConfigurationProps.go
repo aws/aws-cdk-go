@@ -1,7 +1,7 @@
 package awsivs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRecordingConfiguration`.
@@ -44,9 +44,7 @@ type CfnRecordingConfigurationProps struct {
 	//
 	// The value does not need to be unique.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
-	//
-	// *Default* : `0`.
+	// `AWS::IVS::RecordingConfiguration.RecordingReconnectWindowSeconds`.
 	RecordingReconnectWindowSeconds *float64 `field:"optional" json:"recordingReconnectWindowSeconds" yaml:"recordingReconnectWindowSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	//

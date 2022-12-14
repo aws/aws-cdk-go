@@ -164,9 +164,9 @@ type CfnRule_TargetProperty struct {
 	//
 	// For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
 	EcsParameters interface{} `field:"optional" json:"ecsParameters" yaml:"ecsParameters"`
-	// Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+	// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination.
 	//
-	// If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
+	// If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
 	HttpParameters interface{} `field:"optional" json:"httpParameters" yaml:"httpParameters"`
 	// Valid JSON text passed to the target.
 	//
@@ -174,7 +174,7 @@ type CfnRule_TargetProperty struct {
 	Input *string `field:"optional" json:"input" yaml:"input"`
 	// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target.
 	//
-	// You may use JSON dot notation or bracke notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+	// You must use JSON dot notation, not bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// Settings to enable you to provide custom input to a target based on certain event data.
 	//

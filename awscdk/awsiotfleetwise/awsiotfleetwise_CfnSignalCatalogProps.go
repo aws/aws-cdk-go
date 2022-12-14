@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnSignalCatalog`.
@@ -14,6 +14,13 @@ import (
 //   cfnSignalCatalogProps := &cfnSignalCatalogProps{
 //   	description: jsii.String("description"),
 //   	name: jsii.String("name"),
+//   	nodeCounts: &nodeCountsProperty{
+//   		totalActuators: jsii.Number(123),
+//   		totalAttributes: jsii.Number(123),
+//   		totalBranches: jsii.Number(123),
+//   		totalNodes: jsii.Number(123),
+//   		totalSensors: jsii.Number(123),
+//   	},
 //   	nodes: []interface{}{
 //   		&nodeProperty{
 //   			actuator: &actuatorProperty{
@@ -77,8 +84,10 @@ import (
 type CfnSignalCatalogProps struct {
 	// `AWS::IoTFleetWise::SignalCatalog.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the signal catalog.
+	// `AWS::IoTFleetWise::SignalCatalog.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `AWS::IoTFleetWise::SignalCatalog.NodeCounts`.
+	NodeCounts interface{} `field:"optional" json:"nodeCounts" yaml:"nodeCounts"`
 	// `AWS::IoTFleetWise::SignalCatalog.Nodes`.
 	Nodes interface{} `field:"optional" json:"nodes" yaml:"nodes"`
 	// `AWS::IoTFleetWise::SignalCatalog.Tags`.

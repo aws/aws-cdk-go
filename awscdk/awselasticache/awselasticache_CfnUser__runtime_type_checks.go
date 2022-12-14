@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnUser) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnUser) validateInspectParameters(inspector awscdk.TreeInspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnUser) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnUser) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnUser) validateOverrideLogicalIdParameters(newLogicalId *st
 func (c *jsiiProxy_CfnUser) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnUser) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -168,8 +152,24 @@ func validateCfnUser_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnUser) validateSetAuthenticationModeParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnUser_AuthenticationModeProperty:
+		val := val.(*CfnUser_AuthenticationModeProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnUser_AuthenticationModeProperty:
+		val_ := val.(CfnUser_AuthenticationModeProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnUser_AuthenticationModeProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
@@ -216,7 +216,7 @@ func (j *jsiiProxy_CfnUser) validateSetUserNameParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnUserParameters(scope awscdk.Construct, id *string, props *CfnUserProps) error {
+func validateNewCfnUserParameters(scope constructs.Construct, id *string, props *CfnUserProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

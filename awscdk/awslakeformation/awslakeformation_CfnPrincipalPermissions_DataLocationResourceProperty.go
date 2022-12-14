@@ -1,8 +1,6 @@
 package awslakeformation
 
 
-// A structure for a data location object where permissions are granted or revoked.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awslakeformation
 //   }
 //
 type CfnPrincipalPermissions_DataLocationResourceProperty struct {
-	// The identifier for the Data Catalog where the location is registered with AWS Lake Formation .
+	// `CfnPrincipalPermissions.DataLocationResourceProperty.CatalogId`.
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
-	// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	// `CfnPrincipalPermissions.DataLocationResourceProperty.ResourceArn`.
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 

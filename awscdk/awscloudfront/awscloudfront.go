@@ -8,15 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.AddBehaviorOptions",
+		"aws-cdk-lib.aws_cloudfront.AddBehaviorOptions",
 		reflect.TypeOf((*AddBehaviorOptions)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.AliasConfiguration",
-		reflect.TypeOf((*AliasConfiguration)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.AllowedMethods",
+		"aws-cdk-lib.aws_cloudfront.AllowedMethods",
 		reflect.TypeOf((*AllowedMethods)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "methods", GoGetter: "Methods"},
@@ -26,15 +22,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.Behavior",
+		"aws-cdk-lib.aws_cloudfront.Behavior",
 		reflect.TypeOf((*Behavior)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.BehaviorOptions",
+		"aws-cdk-lib.aws_cloudfront.BehaviorOptions",
 		reflect.TypeOf((*BehaviorOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CacheCookieBehavior",
+		"aws-cdk-lib.aws_cloudfront.CacheCookieBehavior",
 		reflect.TypeOf((*CacheCookieBehavior)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "behavior", GoGetter: "Behavior"},
@@ -45,7 +41,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CacheHeaderBehavior",
+		"aws-cdk-lib.aws_cloudfront.CacheHeaderBehavior",
 		reflect.TypeOf((*CacheHeaderBehavior)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "behavior", GoGetter: "Behavior"},
@@ -56,7 +52,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CachePolicy",
+		"aws-cdk-lib.aws_cloudfront.CachePolicy",
 		reflect.TypeOf((*CachePolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -66,15 +62,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CachePolicy{}
@@ -84,11 +74,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CachePolicyProps",
+		"aws-cdk-lib.aws_cloudfront.CachePolicyProps",
 		reflect.TypeOf((*CachePolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CacheQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.CacheQueryStringBehavior",
 		reflect.TypeOf((*CacheQueryStringBehavior)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "behavior", GoGetter: "Behavior"},
@@ -99,7 +89,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CachedMethods",
+		"aws-cdk-lib.aws_cloudfront.CachedMethods",
 		reflect.TypeOf((*CachedMethods)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "methods", GoGetter: "Methods"},
@@ -109,7 +99,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnCachePolicy",
+		"aws-cdk-lib.aws_cloudfront.CfnCachePolicy",
 		reflect.TypeOf((*CfnCachePolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -131,19 +121,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -154,31 +139,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCachePolicy.CachePolicyConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnCachePolicy.CachePolicyConfigProperty",
 		reflect.TypeOf((*CfnCachePolicy_CachePolicyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCachePolicy.CookiesConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnCachePolicy.CookiesConfigProperty",
 		reflect.TypeOf((*CfnCachePolicy_CookiesConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCachePolicy.HeadersConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnCachePolicy.HeadersConfigProperty",
 		reflect.TypeOf((*CfnCachePolicy_HeadersConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty",
 		reflect.TypeOf((*CfnCachePolicy_ParametersInCacheKeyAndForwardedToOriginProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCachePolicy.QueryStringsConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnCachePolicy.QueryStringsConfigProperty",
 		reflect.TypeOf((*CfnCachePolicy_QueryStringsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCachePolicyProps",
+		"aws-cdk-lib.aws_cloudfront.CfnCachePolicyProps",
 		reflect.TypeOf((*CfnCachePolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
+		"aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
 		reflect.TypeOf((*CfnCloudFrontOriginAccessIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -200,19 +185,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -223,15 +203,79 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty",
 		reflect.TypeOf((*CfnCloudFrontOriginAccessIdentity_CloudFrontOriginAccessIdentityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnCloudFrontOriginAccessIdentityProps",
+		"aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentityProps",
 		reflect.TypeOf((*CfnCloudFrontOriginAccessIdentityProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnDistribution",
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedTime", GoGetter: "AttrLastModifiedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "continuousDeploymentPolicyConfig", GoGetter: "ContinuousDeploymentPolicyConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnContinuousDeploymentPolicy{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy_ContinuousDeploymentPolicyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.SessionStickinessConfigProperty",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy_SessionStickinessConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.SingleHeaderConfigProperty",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy_SingleHeaderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.SingleWeightConfigProperty",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy_SingleWeightConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicy.TrafficConfigProperty",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicy_TrafficConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnContinuousDeploymentPolicyProps",
+		reflect.TypeOf((*CfnContinuousDeploymentPolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution",
 		reflect.TypeOf((*CfnDistribution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -253,20 +297,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -277,111 +316,111 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.CacheBehaviorProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.CacheBehaviorProperty",
 		reflect.TypeOf((*CfnDistribution_CacheBehaviorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.CookiesProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.CookiesProperty",
 		reflect.TypeOf((*CfnDistribution_CookiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.CustomErrorResponseProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.CustomErrorResponseProperty",
 		reflect.TypeOf((*CfnDistribution_CustomErrorResponseProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.CustomOriginConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.CustomOriginConfigProperty",
 		reflect.TypeOf((*CfnDistribution_CustomOriginConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.DefaultCacheBehaviorProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.DefaultCacheBehaviorProperty",
 		reflect.TypeOf((*CfnDistribution_DefaultCacheBehaviorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.DistributionConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.DistributionConfigProperty",
 		reflect.TypeOf((*CfnDistribution_DistributionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.ForwardedValuesProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.ForwardedValuesProperty",
 		reflect.TypeOf((*CfnDistribution_ForwardedValuesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.FunctionAssociationProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.FunctionAssociationProperty",
 		reflect.TypeOf((*CfnDistribution_FunctionAssociationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.GeoRestrictionProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.GeoRestrictionProperty",
 		reflect.TypeOf((*CfnDistribution_GeoRestrictionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.LambdaFunctionAssociationProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.LambdaFunctionAssociationProperty",
 		reflect.TypeOf((*CfnDistribution_LambdaFunctionAssociationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.LegacyCustomOriginProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.LegacyCustomOriginProperty",
 		reflect.TypeOf((*CfnDistribution_LegacyCustomOriginProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.LegacyS3OriginProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.LegacyS3OriginProperty",
 		reflect.TypeOf((*CfnDistribution_LegacyS3OriginProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.LoggingProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.LoggingProperty",
 		reflect.TypeOf((*CfnDistribution_LoggingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginCustomHeaderProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginCustomHeaderProperty",
 		reflect.TypeOf((*CfnDistribution_OriginCustomHeaderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginGroupFailoverCriteriaProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginGroupFailoverCriteriaProperty",
 		reflect.TypeOf((*CfnDistribution_OriginGroupFailoverCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginGroupMemberProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginGroupMemberProperty",
 		reflect.TypeOf((*CfnDistribution_OriginGroupMemberProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginGroupMembersProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginGroupMembersProperty",
 		reflect.TypeOf((*CfnDistribution_OriginGroupMembersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginGroupProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginGroupProperty",
 		reflect.TypeOf((*CfnDistribution_OriginGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginGroupsProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginGroupsProperty",
 		reflect.TypeOf((*CfnDistribution_OriginGroupsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginProperty",
 		reflect.TypeOf((*CfnDistribution_OriginProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.OriginShieldProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginShieldProperty",
 		reflect.TypeOf((*CfnDistribution_OriginShieldProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.RestrictionsProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.RestrictionsProperty",
 		reflect.TypeOf((*CfnDistribution_RestrictionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.S3OriginConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.S3OriginConfigProperty",
 		reflect.TypeOf((*CfnDistribution_S3OriginConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.StatusCodesProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.StatusCodesProperty",
 		reflect.TypeOf((*CfnDistribution_StatusCodesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistribution.ViewerCertificateProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.ViewerCertificateProperty",
 		reflect.TypeOf((*CfnDistribution_ViewerCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnDistributionProps",
+		"aws-cdk-lib.aws_cloudfront.CfnDistributionProps",
 		reflect.TypeOf((*CfnDistributionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnFunction",
+		"aws-cdk-lib.aws_cloudfront.CfnFunction",
 		reflect.TypeOf((*CfnFunction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -401,25 +440,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "functionCode", GoGetter: "FunctionCode"},
 			_jsii_.MemberProperty{JsiiProperty: "functionConfig", GoGetter: "FunctionConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "functionMetadata", GoGetter: "FunctionMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -430,19 +465,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnFunction.FunctionConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnFunction.FunctionConfigProperty",
 		reflect.TypeOf((*CfnFunction_FunctionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnFunction.FunctionMetadataProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnFunction.FunctionMetadataProperty",
 		reflect.TypeOf((*CfnFunction_FunctionMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnFunctionProps",
+		"aws-cdk-lib.aws_cloudfront.CfnFunctionProps",
 		reflect.TypeOf((*CfnFunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnKeyGroup",
+		"aws-cdk-lib.aws_cloudfront.CfnKeyGroup",
 		reflect.TypeOf((*CfnKeyGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -464,19 +499,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "keyGroupConfig", GoGetter: "KeyGroupConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -487,15 +517,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnKeyGroup.KeyGroupConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnKeyGroup.KeyGroupConfigProperty",
 		reflect.TypeOf((*CfnKeyGroup_KeyGroupConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnKeyGroupProps",
+		"aws-cdk-lib.aws_cloudfront.CfnKeyGroupProps",
 		reflect.TypeOf((*CfnKeyGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnMonitoringSubscription",
+		"aws-cdk-lib.aws_cloudfront.CfnMonitoringSubscription",
 		reflect.TypeOf((*CfnMonitoringSubscription)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -516,19 +546,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "monitoringSubscription", GoGetter: "MonitoringSubscription"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -539,19 +564,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnMonitoringSubscription.MonitoringSubscriptionProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnMonitoringSubscription.MonitoringSubscriptionProperty",
 		reflect.TypeOf((*CfnMonitoringSubscription_MonitoringSubscriptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnMonitoringSubscription.RealtimeMetricsSubscriptionConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnMonitoringSubscription.RealtimeMetricsSubscriptionConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSubscription_RealtimeMetricsSubscriptionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnMonitoringSubscriptionProps",
+		"aws-cdk-lib.aws_cloudfront.CfnMonitoringSubscriptionProps",
 		reflect.TypeOf((*CfnMonitoringSubscriptionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnOriginAccessControl",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginAccessControl",
 		reflect.TypeOf((*CfnOriginAccessControl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -571,20 +596,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "originAccessControlConfig", GoGetter: "OriginAccessControlConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -595,15 +615,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnOriginAccessControl.OriginAccessControlConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginAccessControl.OriginAccessControlConfigProperty",
 		reflect.TypeOf((*CfnOriginAccessControl_OriginAccessControlConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnOriginAccessControlProps",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginAccessControlProps",
 		reflect.TypeOf((*CfnOriginAccessControlProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnOriginRequestPolicy",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginRequestPolicy",
 		reflect.TypeOf((*CfnOriginRequestPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -624,20 +644,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "originRequestPolicyConfig", GoGetter: "OriginRequestPolicyConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -648,27 +663,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnOriginRequestPolicy.CookiesConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginRequestPolicy.CookiesConfigProperty",
 		reflect.TypeOf((*CfnOriginRequestPolicy_CookiesConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnOriginRequestPolicy.HeadersConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginRequestPolicy.HeadersConfigProperty",
 		reflect.TypeOf((*CfnOriginRequestPolicy_HeadersConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty",
 		reflect.TypeOf((*CfnOriginRequestPolicy_OriginRequestPolicyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty",
 		reflect.TypeOf((*CfnOriginRequestPolicy_QueryStringsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnOriginRequestPolicyProps",
+		"aws-cdk-lib.aws_cloudfront.CfnOriginRequestPolicyProps",
 		reflect.TypeOf((*CfnOriginRequestPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnPublicKey",
+		"aws-cdk-lib.aws_cloudfront.CfnPublicKey",
 		reflect.TypeOf((*CfnPublicKey)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -689,20 +704,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publicKeyConfig", GoGetter: "PublicKeyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -713,15 +723,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnPublicKey.PublicKeyConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnPublicKey.PublicKeyConfigProperty",
 		reflect.TypeOf((*CfnPublicKey_PublicKeyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnPublicKeyProps",
+		"aws-cdk-lib.aws_cloudfront.CfnPublicKeyProps",
 		reflect.TypeOf((*CfnPublicKeyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnRealtimeLogConfig",
+		"aws-cdk-lib.aws_cloudfront.CfnRealtimeLogConfig",
 		reflect.TypeOf((*CfnRealtimeLogConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -744,20 +754,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "samplingRate", GoGetter: "SamplingRate"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -768,19 +773,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnRealtimeLogConfig.EndPointProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnRealtimeLogConfig.EndPointProperty",
 		reflect.TypeOf((*CfnRealtimeLogConfig_EndPointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnRealtimeLogConfig.KinesisStreamConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnRealtimeLogConfig.KinesisStreamConfigProperty",
 		reflect.TypeOf((*CfnRealtimeLogConfig_KinesisStreamConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnRealtimeLogConfigProps",
+		"aws-cdk-lib.aws_cloudfront.CfnRealtimeLogConfigProps",
 		reflect.TypeOf((*CfnRealtimeLogConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy",
 		reflect.TypeOf((*CfnResponseHeadersPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -801,20 +806,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyConfig", GoGetter: "ResponseHeadersPolicyConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -825,75 +825,75 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlAllowHeadersProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlAllowHeadersProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_AccessControlAllowHeadersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlAllowMethodsProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlAllowMethodsProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_AccessControlAllowMethodsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlAllowOriginsProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlAllowOriginsProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_AccessControlAllowOriginsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlExposeHeadersProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.AccessControlExposeHeadersProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_AccessControlExposeHeadersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.ContentSecurityPolicyProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.ContentSecurityPolicyProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_ContentSecurityPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.ContentTypeOptionsProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.ContentTypeOptionsProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_ContentTypeOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.CorsConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.CorsConfigProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_CorsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.CustomHeaderProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.CustomHeaderProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_CustomHeaderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.CustomHeadersConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.CustomHeadersConfigProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_CustomHeadersConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.FrameOptionsProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.FrameOptionsProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_FrameOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.ReferrerPolicyProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.ReferrerPolicyProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_ReferrerPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_ResponseHeadersPolicyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.SecurityHeadersConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.SecurityHeadersConfigProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_SecurityHeadersConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.ServerTimingHeadersConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.ServerTimingHeadersConfigProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_ServerTimingHeadersConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.StrictTransportSecurityProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.StrictTransportSecurityProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_StrictTransportSecurityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicy.XSSProtectionProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.XSSProtectionProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_XSSProtectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnResponseHeadersPolicyProps",
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicyProps",
 		reflect.TypeOf((*CfnResponseHeadersPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CfnStreamingDistribution",
+		"aws-cdk-lib.aws_cloudfront.CfnStreamingDistribution",
 		reflect.TypeOf((*CfnStreamingDistribution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -913,21 +913,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "streamingDistributionConfig", GoGetter: "StreamingDistributionConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -938,27 +933,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnStreamingDistribution.LoggingProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnStreamingDistribution.LoggingProperty",
 		reflect.TypeOf((*CfnStreamingDistribution_LoggingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnStreamingDistribution.S3OriginProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnStreamingDistribution.S3OriginProperty",
 		reflect.TypeOf((*CfnStreamingDistribution_S3OriginProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnStreamingDistribution.StreamingDistributionConfigProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnStreamingDistribution.StreamingDistributionConfigProperty",
 		reflect.TypeOf((*CfnStreamingDistribution_StreamingDistributionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnStreamingDistribution.TrustedSignersProperty",
+		"aws-cdk-lib.aws_cloudfront.CfnStreamingDistribution.TrustedSignersProperty",
 		reflect.TypeOf((*CfnStreamingDistribution_TrustedSignersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CfnStreamingDistributionProps",
+		"aws-cdk-lib.aws_cloudfront.CfnStreamingDistributionProps",
 		reflect.TypeOf((*CfnStreamingDistributionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.CloudFrontAllowedCachedMethods",
+		"aws-cdk-lib.aws_cloudfront.CloudFrontAllowedCachedMethods",
 		reflect.TypeOf((*CloudFrontAllowedCachedMethods)(nil)).Elem(),
 		map[string]interface{}{
 			"GET_HEAD": CloudFrontAllowedCachedMethods_GET_HEAD,
@@ -966,7 +961,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.CloudFrontAllowedMethods",
+		"aws-cdk-lib.aws_cloudfront.CloudFrontAllowedMethods",
 		reflect.TypeOf((*CloudFrontAllowedMethods)(nil)).Elem(),
 		map[string]interface{}{
 			"GET_HEAD": CloudFrontAllowedMethods_GET_HEAD,
@@ -975,28 +970,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.CloudFrontWebDistribution",
+		"aws-cdk-lib.aws_cloudfront.CloudFrontWebDistribution",
 		reflect.TypeOf((*CloudFrontWebDistribution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionDomainName", GoGetter: "DistributionDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionId", GoGetter: "DistributionId"},
-			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantCreateInvalidation", GoMethod: "GrantCreateInvalidation"},
 			_jsii_.MemberProperty{JsiiProperty: "loggingBucket", GoGetter: "LoggingBucket"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CloudFrontWebDistribution{}
@@ -1006,19 +996,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CloudFrontWebDistributionAttributes",
+		"aws-cdk-lib.aws_cloudfront.CloudFrontWebDistributionAttributes",
 		reflect.TypeOf((*CloudFrontWebDistributionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CloudFrontWebDistributionProps",
+		"aws-cdk-lib.aws_cloudfront.CloudFrontWebDistributionProps",
 		reflect.TypeOf((*CloudFrontWebDistributionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.CustomOriginConfig",
+		"aws-cdk-lib.aws_cloudfront.CustomOriginConfig",
 		reflect.TypeOf((*CustomOriginConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.Distribution",
+		"aws-cdk-lib.aws_cloudfront.Distribution",
 		reflect.TypeOf((*Distribution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBehavior", GoMethod: "AddBehavior"},
@@ -1030,16 +1020,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantCreateInvalidation", GoMethod: "GrantCreateInvalidation"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Distribution{}
@@ -1049,23 +1035,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.DistributionAttributes",
+		"aws-cdk-lib.aws_cloudfront.DistributionAttributes",
 		reflect.TypeOf((*DistributionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.DistributionProps",
+		"aws-cdk-lib.aws_cloudfront.DistributionProps",
 		reflect.TypeOf((*DistributionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.EdgeLambda",
+		"aws-cdk-lib.aws_cloudfront.EdgeLambda",
 		reflect.TypeOf((*EdgeLambda)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ErrorResponse",
+		"aws-cdk-lib.aws_cloudfront.ErrorResponse",
 		reflect.TypeOf((*ErrorResponse)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.FailoverStatusCode",
+		"aws-cdk-lib.aws_cloudfront.FailoverStatusCode",
 		reflect.TypeOf((*FailoverStatusCode)(nil)).Elem(),
 		map[string]interface{}{
 			"FORBIDDEN": FailoverStatusCode_FORBIDDEN,
@@ -1077,11 +1063,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.FileCodeOptions",
+		"aws-cdk-lib.aws_cloudfront.FileCodeOptions",
 		reflect.TypeOf((*FileCodeOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.Function",
+		"aws-cdk-lib.aws_cloudfront.Function",
 		reflect.TypeOf((*Function)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1093,15 +1079,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Function{}
@@ -1111,15 +1091,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.FunctionAssociation",
+		"aws-cdk-lib.aws_cloudfront.FunctionAssociation",
 		reflect.TypeOf((*FunctionAssociation)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.FunctionAttributes",
+		"aws-cdk-lib.aws_cloudfront.FunctionAttributes",
 		reflect.TypeOf((*FunctionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.FunctionCode",
+		"aws-cdk-lib.aws_cloudfront.FunctionCode",
 		reflect.TypeOf((*FunctionCode)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
@@ -1129,7 +1109,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.FunctionEventType",
+		"aws-cdk-lib.aws_cloudfront.FunctionEventType",
 		reflect.TypeOf((*FunctionEventType)(nil)).Elem(),
 		map[string]interface{}{
 			"VIEWER_REQUEST": FunctionEventType_VIEWER_REQUEST,
@@ -1137,11 +1117,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.FunctionProps",
+		"aws-cdk-lib.aws_cloudfront.FunctionProps",
 		reflect.TypeOf((*FunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.GeoRestriction",
+		"aws-cdk-lib.aws_cloudfront.GeoRestriction",
 		reflect.TypeOf((*GeoRestriction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "locations", GoGetter: "Locations"},
@@ -1152,7 +1132,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.HeadersFrameOption",
+		"aws-cdk-lib.aws_cloudfront.HeadersFrameOption",
 		reflect.TypeOf((*HeadersFrameOption)(nil)).Elem(),
 		map[string]interface{}{
 			"DENY": HeadersFrameOption_DENY,
@@ -1160,7 +1140,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.HeadersReferrerPolicy",
+		"aws-cdk-lib.aws_cloudfront.HeadersReferrerPolicy",
 		reflect.TypeOf((*HeadersReferrerPolicy)(nil)).Elem(),
 		map[string]interface{}{
 			"NO_REFERRER": HeadersReferrerPolicy_NO_REFERRER,
@@ -1174,15 +1154,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.HttpVersion",
+		"aws-cdk-lib.aws_cloudfront.HttpVersion",
 		reflect.TypeOf((*HttpVersion)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTP1_1": HttpVersion_HTTP1_1,
 			"HTTP2": HttpVersion_HTTP2,
+			"HTTP2_AND_3": HttpVersion_HTTP2_AND_3,
+			"HTTP3": HttpVersion_HTTP3,
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.ICachePolicy",
+		"aws-cdk-lib.aws_cloudfront.ICachePolicy",
 		reflect.TypeOf((*ICachePolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "cachePolicyId", GoGetter: "CachePolicyId"},
@@ -1192,14 +1174,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IDistribution",
+		"aws-cdk-lib.aws_cloudfront.IDistribution",
 		reflect.TypeOf((*IDistribution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionDomainName", GoGetter: "DistributionDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionId", GoGetter: "DistributionId"},
-			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantCreateInvalidation", GoMethod: "GrantCreateInvalidation"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1210,7 +1193,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IFunction",
+		"aws-cdk-lib.aws_cloudfront.IFunction",
 		reflect.TypeOf((*IFunction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1227,7 +1210,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IKeyGroup",
+		"aws-cdk-lib.aws_cloudfront.IKeyGroup",
 		reflect.TypeOf((*IKeyGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1243,7 +1226,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IOrigin",
+		"aws-cdk-lib.aws_cloudfront.IOrigin",
 		reflect.TypeOf((*IOrigin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1253,13 +1236,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IOriginAccessIdentity",
+		"aws-cdk-lib.aws_cloudfront.IOriginAccessIdentity",
 		reflect.TypeOf((*IOriginAccessIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessIdentityId", GoGetter: "OriginAccessIdentityId"},
 			_jsii_.MemberProperty{JsiiProperty: "originAccessIdentityName", GoGetter: "OriginAccessIdentityName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1271,7 +1255,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IOriginRequestPolicy",
+		"aws-cdk-lib.aws_cloudfront.IOriginRequestPolicy",
 		reflect.TypeOf((*IOriginRequestPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "originRequestPolicyId", GoGetter: "OriginRequestPolicyId"},
@@ -1281,7 +1265,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IPublicKey",
+		"aws-cdk-lib.aws_cloudfront.IPublicKey",
 		reflect.TypeOf((*IPublicKey)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1297,7 +1281,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cloudfront.IResponseHeadersPolicy",
+		"aws-cdk-lib.aws_cloudfront.IResponseHeadersPolicy",
 		reflect.TypeOf((*IResponseHeadersPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyId", GoGetter: "ResponseHeadersPolicyId"},
@@ -1307,7 +1291,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.KeyGroup",
+		"aws-cdk-lib.aws_cloudfront.KeyGroup",
 		reflect.TypeOf((*KeyGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1317,15 +1301,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "keyGroupId", GoGetter: "KeyGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_KeyGroup{}
@@ -1335,11 +1313,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.KeyGroupProps",
+		"aws-cdk-lib.aws_cloudfront.KeyGroupProps",
 		reflect.TypeOf((*KeyGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.LambdaEdgeEventType",
+		"aws-cdk-lib.aws_cloudfront.LambdaEdgeEventType",
 		reflect.TypeOf((*LambdaEdgeEventType)(nil)).Elem(),
 		map[string]interface{}{
 			"ORIGIN_REQUEST": LambdaEdgeEventType_ORIGIN_REQUEST,
@@ -1349,15 +1327,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.LambdaFunctionAssociation",
+		"aws-cdk-lib.aws_cloudfront.LambdaFunctionAssociation",
 		reflect.TypeOf((*LambdaFunctionAssociation)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.LoggingConfiguration",
+		"aws-cdk-lib.aws_cloudfront.LoggingConfiguration",
 		reflect.TypeOf((*LoggingConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.OriginAccessIdentity",
+		"aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
 		reflect.TypeOf((*OriginAccessIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1369,16 +1347,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessIdentityId", GoGetter: "OriginAccessIdentityId"},
 			_jsii_.MemberProperty{JsiiProperty: "originAccessIdentityName", GoGetter: "OriginAccessIdentityName"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_OriginAccessIdentity{}
@@ -1388,11 +1361,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.OriginAccessIdentityProps",
+		"aws-cdk-lib.aws_cloudfront.OriginAccessIdentityProps",
 		reflect.TypeOf((*OriginAccessIdentityProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.OriginBase",
+		"aws-cdk-lib.aws_cloudfront.OriginBase",
 		reflect.TypeOf((*OriginBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1406,27 +1379,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.OriginBindConfig",
+		"aws-cdk-lib.aws_cloudfront.OriginBindConfig",
 		reflect.TypeOf((*OriginBindConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.OriginBindOptions",
+		"aws-cdk-lib.aws_cloudfront.OriginBindOptions",
 		reflect.TypeOf((*OriginBindOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.OriginFailoverConfig",
+		"aws-cdk-lib.aws_cloudfront.OriginFailoverConfig",
 		reflect.TypeOf((*OriginFailoverConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.OriginOptions",
+		"aws-cdk-lib.aws_cloudfront.OriginOptions",
 		reflect.TypeOf((*OriginOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.OriginProps",
+		"aws-cdk-lib.aws_cloudfront.OriginProps",
 		reflect.TypeOf((*OriginProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.OriginProtocolPolicy",
+		"aws-cdk-lib.aws_cloudfront.OriginProtocolPolicy",
 		reflect.TypeOf((*OriginProtocolPolicy)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTP_ONLY": OriginProtocolPolicy_HTTP_ONLY,
@@ -1435,7 +1408,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.OriginRequestCookieBehavior",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestCookieBehavior",
 		reflect.TypeOf((*OriginRequestCookieBehavior)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "behavior", GoGetter: "Behavior"},
@@ -1446,7 +1419,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.OriginRequestHeaderBehavior",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestHeaderBehavior",
 		reflect.TypeOf((*OriginRequestHeaderBehavior)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "behavior", GoGetter: "Behavior"},
@@ -1457,7 +1430,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.OriginRequestPolicy",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestPolicy",
 		reflect.TypeOf((*OriginRequestPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1466,16 +1439,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "originRequestPolicyId", GoGetter: "OriginRequestPolicyId"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_OriginRequestPolicy{}
@@ -1485,11 +1452,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.OriginRequestPolicyProps",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestPolicyProps",
 		reflect.TypeOf((*OriginRequestPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.OriginRequestQueryStringBehavior",
+		"aws-cdk-lib.aws_cloudfront.OriginRequestQueryStringBehavior",
 		reflect.TypeOf((*OriginRequestQueryStringBehavior)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "behavior", GoGetter: "Behavior"},
@@ -1500,7 +1467,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.OriginSslPolicy",
+		"aws-cdk-lib.aws_cloudfront.OriginSslPolicy",
 		reflect.TypeOf((*OriginSslPolicy)(nil)).Elem(),
 		map[string]interface{}{
 			"SSL_V3": OriginSslPolicy_SSL_V3,
@@ -1510,7 +1477,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.PriceClass",
+		"aws-cdk-lib.aws_cloudfront.PriceClass",
 		reflect.TypeOf((*PriceClass)(nil)).Elem(),
 		map[string]interface{}{
 			"PRICE_CLASS_100": PriceClass_PRICE_CLASS_100,
@@ -1519,7 +1486,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.PublicKey",
+		"aws-cdk-lib.aws_cloudfront.PublicKey",
 		reflect.TypeOf((*PublicKey)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1528,16 +1495,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publicKeyId", GoGetter: "PublicKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PublicKey{}
@@ -1547,35 +1508,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.PublicKeyProps",
+		"aws-cdk-lib.aws_cloudfront.PublicKeyProps",
 		reflect.TypeOf((*PublicKeyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseCustomHeader",
+		"aws-cdk-lib.aws_cloudfront.ResponseCustomHeader",
 		reflect.TypeOf((*ResponseCustomHeader)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseCustomHeadersBehavior",
+		"aws-cdk-lib.aws_cloudfront.ResponseCustomHeadersBehavior",
 		reflect.TypeOf((*ResponseCustomHeadersBehavior)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersContentSecurityPolicy",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersContentSecurityPolicy",
 		reflect.TypeOf((*ResponseHeadersContentSecurityPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersContentTypeOptions",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersContentTypeOptions",
 		reflect.TypeOf((*ResponseHeadersContentTypeOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersCorsBehavior",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersCorsBehavior",
 		reflect.TypeOf((*ResponseHeadersCorsBehavior)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersFrameOptions",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersFrameOptions",
 		reflect.TypeOf((*ResponseHeadersFrameOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.ResponseHeadersPolicy",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
 		reflect.TypeOf((*ResponseHeadersPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1584,16 +1545,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyId", GoGetter: "ResponseHeadersPolicyId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ResponseHeadersPolicy{}
@@ -1603,31 +1558,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersPolicyProps",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicyProps",
 		reflect.TypeOf((*ResponseHeadersPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersReferrerPolicy",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersReferrerPolicy",
 		reflect.TypeOf((*ResponseHeadersReferrerPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersStrictTransportSecurity",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersStrictTransportSecurity",
 		reflect.TypeOf((*ResponseHeadersStrictTransportSecurity)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseHeadersXSSProtection",
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersXSSProtection",
 		reflect.TypeOf((*ResponseHeadersXSSProtection)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ResponseSecurityHeadersBehavior",
+		"aws-cdk-lib.aws_cloudfront.ResponseSecurityHeadersBehavior",
 		reflect.TypeOf((*ResponseSecurityHeadersBehavior)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.S3OriginConfig",
+		"aws-cdk-lib.aws_cloudfront.S3OriginConfig",
 		reflect.TypeOf((*S3OriginConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.SSLMethod",
+		"aws-cdk-lib.aws_cloudfront.SSLMethod",
 		reflect.TypeOf((*SSLMethod)(nil)).Elem(),
 		map[string]interface{}{
 			"SNI": SSLMethod_SNI,
@@ -1635,7 +1590,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.SecurityPolicyProtocol",
+		"aws-cdk-lib.aws_cloudfront.SecurityPolicyProtocol",
 		reflect.TypeOf((*SecurityPolicyProtocol)(nil)).Elem(),
 		map[string]interface{}{
 			"SSL_V3": SecurityPolicyProtocol_SSL_V3,
@@ -1648,11 +1603,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.SourceConfiguration",
+		"aws-cdk-lib.aws_cloudfront.SourceConfiguration",
 		reflect.TypeOf((*SourceConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cloudfront.ViewerCertificate",
+		"aws-cdk-lib.aws_cloudfront.ViewerCertificate",
 		reflect.TypeOf((*ViewerCertificate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "aliases", GoGetter: "Aliases"},
@@ -1663,11 +1618,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cloudfront.ViewerCertificateOptions",
+		"aws-cdk-lib.aws_cloudfront.ViewerCertificateOptions",
 		reflect.TypeOf((*ViewerCertificateOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cloudfront.ViewerProtocolPolicy",
+		"aws-cdk-lib.aws_cloudfront.ViewerProtocolPolicy",
 		reflect.TypeOf((*ViewerProtocolPolicy)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTPS_ONLY": ViewerProtocolPolicy_HTTPS_ONLY,

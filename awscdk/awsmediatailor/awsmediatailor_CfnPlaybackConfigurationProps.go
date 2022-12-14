@@ -1,7 +1,7 @@
 package awsmediatailor
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPlaybackConfiguration`.
@@ -38,6 +38,9 @@ import (
 //   		manifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   		mpdLocation: jsii.String("mpdLocation"),
 //   		originManifestType: jsii.String("originManifestType"),
+//   	},
+//   	hlsConfiguration: &hlsConfigurationProperty{
+//   		manifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   	},
 //   	livePreRollConfiguration: &livePreRollConfigurationProperty{
 //   		adDecisionServerUrl: jsii.String("adDecisionServerUrl"),
@@ -86,6 +89,8 @@ type CfnPlaybackConfigurationProps struct {
 	ConfigurationAliases interface{} `field:"optional" json:"configurationAliases" yaml:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration interface{} `field:"optional" json:"dashConfiguration" yaml:"dashConfiguration"`
+	// `AWS::MediaTailor::PlaybackConfiguration.HlsConfiguration`.
+	HlsConfiguration interface{} `field:"optional" json:"hlsConfiguration" yaml:"hlsConfiguration"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration interface{} `field:"optional" json:"livePreRollConfiguration" yaml:"livePreRollConfiguration"`
 	// The configuration for manifest processing rules.

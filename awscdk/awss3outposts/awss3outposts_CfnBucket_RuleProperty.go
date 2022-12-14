@@ -8,20 +8,41 @@ package awss3outposts
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var filter interface{}
-//
 //   ruleProperty := &ruleProperty{
+//   	status: jsii.String("status"),
+//
+//   	// the properties below are optional
 //   	abortIncompleteMultipartUpload: &abortIncompleteMultipartUploadProperty{
 //   		daysAfterInitiation: jsii.Number(123),
 //   	},
 //   	expirationDate: jsii.String("expirationDate"),
 //   	expirationInDays: jsii.Number(123),
-//   	filter: filter,
+//   	filter: &filterProperty{
+//   		andOperator: &filterAndOperatorProperty{
+//   			tags: []filterTagProperty{
+//   				&filterTagProperty{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			prefix: jsii.String("prefix"),
+//   		},
+//   		prefix: jsii.String("prefix"),
+//   		tag: &filterTagProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   	id: jsii.String("id"),
-//   	status: jsii.String("status"),
 //   }
 //
 type CfnBucket_RuleProperty struct {
+	// If `Enabled` , the rule is currently being applied.
+	//
+	// If `Disabled` , the rule is not currently being applied.
+	Status *string `field:"required" json:"status" yaml:"status"`
 	// The container for the abort incomplete multipart upload rule.
 	AbortIncompleteMultipartUpload interface{} `field:"optional" json:"abortIncompleteMultipartUpload" yaml:"abortIncompleteMultipartUpload"`
 	// Specifies the expiration for the lifecycle of the object by specifying an expiry date.
@@ -34,9 +55,5 @@ type CfnBucket_RuleProperty struct {
 	//
 	// The value can't be longer than 255 characters.
 	Id *string `field:"optional" json:"id" yaml:"id"`
-	// If `Enabled` , the rule is currently being applied.
-	//
-	// If `Disabled` , the rule is not currently being applied.
-	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

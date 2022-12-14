@@ -43,21 +43,19 @@ package awsconnect
 //   }
 //
 type CfnInstanceStorageConfigProps struct {
-	// The Amazon Resource Name (ARN) of the instance.
+	// `AWS::Connect::InstanceStorageConfig.InstanceArn`.
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// A valid resource type.
-	//
-	// Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`.
+	// `AWS::Connect::InstanceStorageConfig.ResourceType`.
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
-	// A valid storage type.
+	// `AWS::Connect::InstanceStorageConfig.StorageType`.
 	StorageType *string `field:"required" json:"storageType" yaml:"storageType"`
-	// The configuration of the Kinesis Firehose delivery stream.
+	// `AWS::Connect::InstanceStorageConfig.KinesisFirehoseConfig`.
 	KinesisFirehoseConfig interface{} `field:"optional" json:"kinesisFirehoseConfig" yaml:"kinesisFirehoseConfig"`
-	// The configuration of the Kinesis data stream.
+	// `AWS::Connect::InstanceStorageConfig.KinesisStreamConfig`.
 	KinesisStreamConfig interface{} `field:"optional" json:"kinesisStreamConfig" yaml:"kinesisStreamConfig"`
-	// The configuration of the Kinesis video stream.
+	// `AWS::Connect::InstanceStorageConfig.KinesisVideoStreamConfig`.
 	KinesisVideoStreamConfig interface{} `field:"optional" json:"kinesisVideoStreamConfig" yaml:"kinesisVideoStreamConfig"`
-	// The S3 bucket configuration.
+	// `AWS::Connect::InstanceStorageConfig.S3Config`.
 	S3Config interface{} `field:"optional" json:"s3Config" yaml:"s3Config"`
 }
 

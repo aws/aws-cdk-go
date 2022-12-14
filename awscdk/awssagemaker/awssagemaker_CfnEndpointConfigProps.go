@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnEndpointConfig`.
@@ -115,6 +115,25 @@ import (
 //   		},
 //   	},
 //   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	shadowProductionVariants: []interface{}{
+//   		&productionVariantProperty{
+//   			initialVariantWeight: jsii.Number(123),
+//   			modelName: jsii.String("modelName"),
+//   			variantName: jsii.String("variantName"),
+//
+//   			// the properties below are optional
+//   			acceleratorType: jsii.String("acceleratorType"),
+//   			containerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			initialInstanceCount: jsii.Number(123),
+//   			instanceType: jsii.String("instanceType"),
+//   			modelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   			serverlessConfig: &serverlessConfigProperty{
+//   				maxConcurrency: jsii.Number(123),
+//   				memorySizeInMb: jsii.Number(123),
+//   			},
+//   			volumeSizeInGb: jsii.Number(123),
+//   		},
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -151,6 +170,8 @@ type CfnEndpointConfigProps struct {
 	// >
 	// > For more information about local instance storage encryption, see [SSD Instance Store Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html) .
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// `AWS::SageMaker::EndpointConfig.ShadowProductionVariants`.
+	ShadowProductionVariants interface{} `field:"optional" json:"shadowProductionVariants" yaml:"shadowProductionVariants"`
 	// A list of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) .

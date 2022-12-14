@@ -8,8 +8,6 @@ package awss3objectlambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var contentTransformation interface{}
-//
 //   cfnAccessPointProps := &cfnAccessPointProps{
 //   	objectLambdaConfiguration: &objectLambdaConfigurationProperty{
 //   		supportingAccessPoint: jsii.String("supportingAccessPoint"),
@@ -18,7 +16,14 @@ package awss3objectlambda
 //   				actions: []*string{
 //   					jsii.String("actions"),
 //   				},
-//   				contentTransformation: contentTransformation,
+//   				contentTransformation: &contentTransformationProperty{
+//   					awsLambda: &awsLambdaProperty{
+//   						functionArn: jsii.String("functionArn"),
+//
+//   						// the properties below are optional
+//   						functionPayload: jsii.String("functionPayload"),
+//   					},
+//   				},
 //   			},
 //   		},
 //

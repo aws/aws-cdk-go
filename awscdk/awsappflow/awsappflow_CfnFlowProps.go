@@ -1,7 +1,7 @@
 package awsappflow
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFlow`.
@@ -10,8 +10,6 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var customProperties interface{}
 //
 //   cfnFlowProps := &cfnFlowProps{
 //   	destinationFlowConfigList: []interface{}{
@@ -22,7 +20,9 @@ import (
 //   					entityName: jsii.String("entityName"),
 //
 //   					// the properties below are optional
-//   					customProperties: customProperties,
+//   					customProperties: map[string]*string{
+//   						"customPropertiesKey": jsii.String("customProperties"),
+//   					},
 //   					errorHandlingConfig: &errorHandlingConfigProperty{
 //   						bucketName: jsii.String("bucketName"),
 //   						bucketPrefix: jsii.String("bucketPrefix"),
@@ -76,9 +76,13 @@ import (
 //   					s3OutputFormatConfig: &s3OutputFormatConfigProperty{
 //   						aggregationConfig: &aggregationConfigProperty{
 //   							aggregationType: jsii.String("aggregationType"),
+//   							targetFileSize: jsii.Number(123),
 //   						},
 //   						fileType: jsii.String("fileType"),
 //   						prefixConfig: &prefixConfigProperty{
+//   							pathPrefixHierarchy: []*string{
+//   								jsii.String("pathPrefixHierarchy"),
+//   							},
 //   							prefixFormat: jsii.String("prefixFormat"),
 //   							prefixType: jsii.String("prefixType"),
 //   						},
@@ -134,6 +138,9 @@ import (
 //   					bucketName: jsii.String("bucketName"),
 //   					s3OutputFormatConfig: &upsolverS3OutputFormatConfigProperty{
 //   						prefixConfig: &prefixConfigProperty{
+//   							pathPrefixHierarchy: []*string{
+//   								jsii.String("pathPrefixHierarchy"),
+//   							},
 //   							prefixFormat: jsii.String("prefixFormat"),
 //   							prefixType: jsii.String("prefixType"),
 //   						},
@@ -141,6 +148,7 @@ import (
 //   						// the properties below are optional
 //   						aggregationConfig: &aggregationConfigProperty{
 //   							aggregationType: jsii.String("aggregationType"),
+//   							targetFileSize: jsii.Number(123),
 //   						},
 //   						fileType: jsii.String("fileType"),
 //   					},
@@ -180,7 +188,9 @@ import (
 //   				entityName: jsii.String("entityName"),
 //
 //   				// the properties below are optional
-//   				customProperties: customProperties,
+//   				customProperties: map[string]*string{
+//   					"customPropertiesKey": jsii.String("customProperties"),
+//   				},
 //   			},
 //   			datadog: &datadogSourcePropertiesProperty{
 //   				object: jsii.String("object"),
@@ -306,6 +316,13 @@ import (
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	kmsArn: jsii.String("kmsArn"),
+//   	metadataCatalogConfig: &metadataCatalogConfigProperty{
+//   		glueDataCatalog: &glueDataCatalogProperty{
+//   			databaseName: jsii.String("databaseName"),
+//   			roleArn: jsii.String("roleArn"),
+//   			tablePrefix: jsii.String("tablePrefix"),
+//   		},
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -333,6 +350,8 @@ type CfnFlowProps struct {
 	//
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
+	// `AWS::AppFlow::Flow.MetadataCatalogConfig`.
+	MetadataCatalogConfig interface{} `field:"optional" json:"metadataCatalogConfig" yaml:"metadataCatalogConfig"`
 	// The tags used to organize, track, or control access for your flow.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

@@ -9,11 +9,12 @@ package awsamplifyuibuilder
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var overrides interface{}
-//   var variantValues interface{}
 //
 //   componentVariantProperty := &componentVariantProperty{
 //   	overrides: overrides,
-//   	variantValues: variantValues,
+//   	variantValues: map[string]*string{
+//   		"variantValuesKey": jsii.String("variantValues"),
+//   	},
 //   }
 //
 type CfnComponent_ComponentVariantProperty struct {

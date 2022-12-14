@@ -18,17 +18,29 @@ package awswafv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var jsonBody interface{}
+//   var all interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
 //   var uriPath interface{}
 //
 //   fieldToMatchProperty := &fieldToMatchProperty{
-//   	jsonBody: jsonBody,
+//   	jsonBody: &jsonBodyProperty{
+//   		matchPattern: &matchPatternProperty{
+//   			all: all,
+//   			includedPaths: []*string{
+//   				jsii.String("includedPaths"),
+//   			},
+//   		},
+//   		matchScope: jsii.String("matchScope"),
+//
+//   		// the properties below are optional
+//   		invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   	},
 //   	method: method,
 //   	queryString: queryString,
-//   	singleHeader: singleHeader,
+//   	singleHeader: &singleHeaderProperty{
+//   		name: jsii.String("name"),
+//   	},
 //   	uriPath: uriPath,
 //   }
 //

@@ -14,12 +14,12 @@ package awspersonalize
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dataSource interface{}
-//
 //   datasetImportJobProperty := &datasetImportJobProperty{
 //   	datasetArn: jsii.String("datasetArn"),
 //   	datasetImportJobArn: jsii.String("datasetImportJobArn"),
-//   	dataSource: dataSource,
+//   	dataSource: &dataSourceProperty{
+//   		dataLocation: jsii.String("dataLocation"),
+//   	},
 //   	jobName: jsii.String("jobName"),
 //   	roleArn: jsii.String("roleArn"),
 //   }

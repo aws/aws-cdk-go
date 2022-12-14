@@ -8,16 +8,38 @@ package awstransfer
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var copyStepDetails interface{}
-//   var customStepDetails interface{}
-//   var deleteStepDetails interface{}
-//   var tagStepDetails interface{}
-//
 //   workflowStepProperty := &workflowStepProperty{
-//   	copyStepDetails: copyStepDetails,
-//   	customStepDetails: customStepDetails,
-//   	deleteStepDetails: deleteStepDetails,
-//   	tagStepDetails: tagStepDetails,
+//   	copyStepDetails: &copyStepDetailsProperty{
+//   		destinationFileLocation: &inputFileLocationProperty{
+//   			s3FileLocation: &s3InputFileLocationProperty{
+//   				bucket: jsii.String("bucket"),
+//   				key: jsii.String("key"),
+//   			},
+//   		},
+//   		name: jsii.String("name"),
+//   		overwriteExisting: jsii.String("overwriteExisting"),
+//   		sourceFileLocation: jsii.String("sourceFileLocation"),
+//   	},
+//   	customStepDetails: &customStepDetailsProperty{
+//   		name: jsii.String("name"),
+//   		sourceFileLocation: jsii.String("sourceFileLocation"),
+//   		target: jsii.String("target"),
+//   		timeoutSeconds: jsii.Number(123),
+//   	},
+//   	deleteStepDetails: &deleteStepDetailsProperty{
+//   		name: jsii.String("name"),
+//   		sourceFileLocation: jsii.String("sourceFileLocation"),
+//   	},
+//   	tagStepDetails: &tagStepDetailsProperty{
+//   		name: jsii.String("name"),
+//   		sourceFileLocation: jsii.String("sourceFileLocation"),
+//   		tags: []s3TagProperty{
+//   			&s3TagProperty{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   	type: jsii.String("type"),
 //   }
 //
@@ -42,10 +64,10 @@ type CfnWorkflow_WorkflowStepProperty struct {
 	TagStepDetails interface{} `field:"optional" json:"tagStepDetails" yaml:"tagStepDetails"`
 	// Currently, the following step types are supported.
 	//
-	// - *COPY* : Copy the file to another location.
-	// - *CUSTOM* : Perform a custom step with an AWS Lambda function target.
-	// - *DELETE* : Delete the file.
-	// - *TAG* : Add a tag to the file.
+	// - *COPY* : copy the file to another location
+	// - *CUSTOM* : custom step with a lambda target
+	// - *DELETE* : delete the file
+	// - *TAG* : add a tag to the file.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

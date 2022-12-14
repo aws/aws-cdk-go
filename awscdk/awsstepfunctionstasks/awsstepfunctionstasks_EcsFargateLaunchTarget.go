@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -48,11 +48,9 @@ import (
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/userguide/launch_types.html#launch-type-fargate
 //
-// Experimental.
 type EcsFargateLaunchTarget interface {
 	IEcsLaunchTarget
 	// Called when the Fargate launch type configured on RunTask.
-	// Experimental.
 	Bind(_task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig
 }
 
@@ -61,7 +59,6 @@ type jsiiProxy_EcsFargateLaunchTarget struct {
 	jsiiProxy_IEcsLaunchTarget
 }
 
-// Experimental.
 func NewEcsFargateLaunchTarget(options *EcsFargateLaunchTargetOptions) EcsFargateLaunchTarget {
 	_init_.Initialize()
 
@@ -71,7 +68,7 @@ func NewEcsFargateLaunchTarget(options *EcsFargateLaunchTargetOptions) EcsFargat
 	j := jsiiProxy_EcsFargateLaunchTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
 		[]interface{}{options},
 		&j,
 	)
@@ -79,12 +76,11 @@ func NewEcsFargateLaunchTarget(options *EcsFargateLaunchTargetOptions) EcsFargat
 	return &j
 }
 
-// Experimental.
 func NewEcsFargateLaunchTarget_Override(e EcsFargateLaunchTarget, options *EcsFargateLaunchTargetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
 		[]interface{}{options},
 		e,
 	)

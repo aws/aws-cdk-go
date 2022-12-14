@@ -22,8 +22,6 @@ package awswafv2
 //   var allQueryArguments interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
-//   var singleQueryArgument interface{}
 //   var uriPath interface{}
 //
 //   fieldToMatchProperty := &fieldToMatchProperty{
@@ -72,8 +70,12 @@ package awswafv2
 //   	},
 //   	method: method,
 //   	queryString: queryString,
-//   	singleHeader: singleHeader,
-//   	singleQueryArgument: singleQueryArgument,
+//   	singleHeader: &singleHeaderProperty{
+//   		name: jsii.String("name"),
+//   	},
+//   	singleQueryArgument: &singleQueryArgumentProperty{
+//   		name: jsii.String("name"),
+//   	},
 //   	uriPath: uriPath,
 //   }
 //

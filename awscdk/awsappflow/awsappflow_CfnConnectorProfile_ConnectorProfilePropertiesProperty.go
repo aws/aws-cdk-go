@@ -8,17 +8,18 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var profileProperties interface{}
-//   var tokenUrlCustomProperties interface{}
-//
 //   connectorProfilePropertiesProperty := &connectorProfilePropertiesProperty{
 //   	customConnector: &customConnectorProfilePropertiesProperty{
 //   		oAuth2Properties: &oAuth2PropertiesProperty{
 //   			oAuth2GrantType: jsii.String("oAuth2GrantType"),
 //   			tokenUrl: jsii.String("tokenUrl"),
-//   			tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   			tokenUrlCustomProperties: map[string]*string{
+//   				"tokenUrlCustomPropertiesKey": jsii.String("tokenUrlCustomProperties"),
+//   			},
 //   		},
-//   		profileProperties: profileProperties,
+//   		profileProperties: map[string]*string{
+//   			"profilePropertiesKey": jsii.String("profileProperties"),
+//   		},
 //   	},
 //   	datadog: &datadogConnectorProfilePropertiesProperty{
 //   		instanceUrl: jsii.String("instanceUrl"),
@@ -34,11 +35,16 @@ package awsappflow
 //   	},
 //   	redshift: &redshiftConnectorProfilePropertiesProperty{
 //   		bucketName: jsii.String("bucketName"),
-//   		databaseUrl: jsii.String("databaseUrl"),
 //   		roleArn: jsii.String("roleArn"),
 //
 //   		// the properties below are optional
 //   		bucketPrefix: jsii.String("bucketPrefix"),
+//   		clusterIdentifier: jsii.String("clusterIdentifier"),
+//   		dataApiRoleArn: jsii.String("dataApiRoleArn"),
+//   		databaseName: jsii.String("databaseName"),
+//   		databaseUrl: jsii.String("databaseUrl"),
+//   		isRedshiftServerless: jsii.Boolean(false),
+//   		workgroupName: jsii.String("workgroupName"),
 //   	},
 //   	salesforce: &salesforceConnectorProfilePropertiesProperty{
 //   		instanceUrl: jsii.String("instanceUrl"),
@@ -85,7 +91,7 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
-	// The properties required by the custom connector.
+	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.CustomConnector`.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific properties required by Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`

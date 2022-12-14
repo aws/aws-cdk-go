@@ -8,12 +8,33 @@ package awsbackup
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var reportDeliveryChannel interface{}
-//   var reportSetting interface{}
-//
 //   cfnReportPlanProps := &cfnReportPlanProps{
-//   	reportDeliveryChannel: reportDeliveryChannel,
-//   	reportSetting: reportSetting,
+//   	reportDeliveryChannel: &reportDeliveryChannelProperty{
+//   		s3BucketName: jsii.String("s3BucketName"),
+//
+//   		// the properties below are optional
+//   		formats: []*string{
+//   			jsii.String("formats"),
+//   		},
+//   		s3KeyPrefix: jsii.String("s3KeyPrefix"),
+//   	},
+//   	reportSetting: &reportSettingProperty{
+//   		reportTemplate: jsii.String("reportTemplate"),
+//
+//   		// the properties below are optional
+//   		accounts: []*string{
+//   			jsii.String("accounts"),
+//   		},
+//   		frameworkArns: []*string{
+//   			jsii.String("frameworkArns"),
+//   		},
+//   		organizationUnits: []*string{
+//   			jsii.String("organizationUnits"),
+//   		},
+//   		regions: []*string{
+//   			jsii.String("regions"),
+//   		},
+//   	},
 //
 //   	// the properties below are optional
 //   	reportPlanDescription: jsii.String("reportPlanDescription"),

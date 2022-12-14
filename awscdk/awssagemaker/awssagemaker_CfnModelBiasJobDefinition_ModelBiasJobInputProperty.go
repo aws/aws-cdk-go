@@ -56,7 +56,7 @@ package awssagemaker
 type CfnModelBiasJobDefinition_ModelBiasJobInputProperty struct {
 	// Location of ground truth labels to use in model bias job.
 	GroundTruthS3Input interface{} `field:"required" json:"groundTruthS3Input" yaml:"groundTruthS3Input"`
-	// Input object for the batch transform job.
+	// `CfnModelBiasJobDefinition.ModelBiasJobInputProperty.BatchTransformInput`.
 	BatchTransformInput interface{} `field:"optional" json:"batchTransformInput" yaml:"batchTransformInput"`
 	// Input object for the endpoint.
 	EndpointInput interface{} `field:"optional" json:"endpointInput" yaml:"endpointInput"`

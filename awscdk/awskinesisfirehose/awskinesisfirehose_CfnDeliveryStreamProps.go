@@ -1,7 +1,7 @@
 package awskinesisfirehose
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDeliveryStream`.
@@ -12,6 +12,75 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDeliveryStreamProps := &cfnDeliveryStreamProps{
+//   	amazonOpenSearchServerlessDestinationConfiguration: &amazonOpenSearchServerlessDestinationConfigurationProperty{
+//   		indexName: jsii.String("indexName"),
+//   		roleArn: jsii.String("roleArn"),
+//   		s3Configuration: &s3DestinationConfigurationProperty{
+//   			bucketArn: jsii.String("bucketArn"),
+//   			roleArn: jsii.String("roleArn"),
+//
+//   			// the properties below are optional
+//   			bufferingHints: &bufferingHintsProperty{
+//   				intervalInSeconds: jsii.Number(123),
+//   				sizeInMBs: jsii.Number(123),
+//   			},
+//   			cloudWatchLoggingOptions: &cloudWatchLoggingOptionsProperty{
+//   				enabled: jsii.Boolean(false),
+//   				logGroupName: jsii.String("logGroupName"),
+//   				logStreamName: jsii.String("logStreamName"),
+//   			},
+//   			compressionFormat: jsii.String("compressionFormat"),
+//   			encryptionConfiguration: &encryptionConfigurationProperty{
+//   				kmsEncryptionConfig: &kMSEncryptionConfigProperty{
+//   					awskmsKeyArn: jsii.String("awskmsKeyArn"),
+//   				},
+//   				noEncryptionConfig: jsii.String("noEncryptionConfig"),
+//   			},
+//   			errorOutputPrefix: jsii.String("errorOutputPrefix"),
+//   			prefix: jsii.String("prefix"),
+//   		},
+//
+//   		// the properties below are optional
+//   		bufferingHints: &amazonOpenSearchServerlessBufferingHintsProperty{
+//   			intervalInSeconds: jsii.Number(123),
+//   			sizeInMBs: jsii.Number(123),
+//   		},
+//   		cloudWatchLoggingOptions: &cloudWatchLoggingOptionsProperty{
+//   			enabled: jsii.Boolean(false),
+//   			logGroupName: jsii.String("logGroupName"),
+//   			logStreamName: jsii.String("logStreamName"),
+//   		},
+//   		collectionEndpoint: jsii.String("collectionEndpoint"),
+//   		processingConfiguration: &processingConfigurationProperty{
+//   			enabled: jsii.Boolean(false),
+//   			processors: []interface{}{
+//   				&processorProperty{
+//   					type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					parameters: []interface{}{
+//   						&processorParameterProperty{
+//   							parameterName: jsii.String("parameterName"),
+//   							parameterValue: jsii.String("parameterValue"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		retryOptions: &amazonOpenSearchServerlessRetryOptionsProperty{
+//   			durationInSeconds: jsii.Number(123),
+//   		},
+//   		s3BackupMode: jsii.String("s3BackupMode"),
+//   		vpcConfiguration: &vpcConfigurationProperty{
+//   			roleArn: jsii.String("roleArn"),
+//   			securityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			subnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   		},
+//   	},
 //   	amazonopensearchserviceDestinationConfiguration: &amazonopensearchserviceDestinationConfigurationProperty{
 //   		indexName: jsii.String("indexName"),
 //   		roleArn: jsii.String("roleArn"),
@@ -544,6 +613,8 @@ import (
 //   }
 //
 type CfnDeliveryStreamProps struct {
+	// `AWS::KinesisFirehose::DeliveryStream.AmazonOpenSearchServerlessDestinationConfiguration`.
+	AmazonOpenSearchServerlessDestinationConfiguration interface{} `field:"optional" json:"amazonOpenSearchServerlessDestinationConfiguration" yaml:"amazonOpenSearchServerlessDestinationConfiguration"`
 	// The destination in Amazon OpenSearch Service.
 	//
 	// You can specify only one destination.

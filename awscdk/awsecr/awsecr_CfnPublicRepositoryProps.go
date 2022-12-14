@@ -1,7 +1,7 @@
 package awsecr
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPublicRepository`.
@@ -11,11 +11,20 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var repositoryCatalogData interface{}
 //   var repositoryPolicyText interface{}
 //
 //   cfnPublicRepositoryProps := &cfnPublicRepositoryProps{
-//   	repositoryCatalogData: repositoryCatalogData,
+//   	repositoryCatalogData: &repositoryCatalogDataProperty{
+//   		aboutText: jsii.String("aboutText"),
+//   		architectures: []*string{
+//   			jsii.String("architectures"),
+//   		},
+//   		operatingSystems: []*string{
+//   			jsii.String("operatingSystems"),
+//   		},
+//   		repositoryDescription: jsii.String("repositoryDescription"),
+//   		usageText: jsii.String("usageText"),
+//   	},
 //   	repositoryName: jsii.String("repositoryName"),
 //   	repositoryPolicyText: repositoryPolicyText,
 //   	tags: []cfnTag{

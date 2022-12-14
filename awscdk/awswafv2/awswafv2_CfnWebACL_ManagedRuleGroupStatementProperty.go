@@ -16,8 +16,6 @@ package awswafv2
 //   var allQueryArguments interface{}
 //   var method interface{}
 //   var queryString interface{}
-//   var singleHeader interface{}
-//   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
@@ -96,8 +94,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			positionalConstraint: jsii.String("positionalConstraint"),
@@ -226,8 +228,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			regexString: jsii.String("regexString"),
@@ -286,8 +292,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -355,8 +365,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			size: jsii.Number(123),
@@ -414,8 +428,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -475,8 +493,12 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: singleHeader,
-//   				singleQueryArgument: singleQueryArgument,
+//   				singleHeader: &singleHeaderProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   				singleQueryArgument: &singleQueryArgumentProperty{
+//   					name: jsii.String("name"),
+//   				},
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -503,9 +525,11 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	//
 	// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
 	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
-	// Additional information that's used by a managed rule group. Many managed rule groups don't require this.
+	// Additional information that's used by a managed rule group. Most managed rule groups don't require this.
 	//
-	// Use the `AWSManagedRulesBotControlRuleSet` configuration object to configure the protection level that you want the Bot Control rule group to use.
+	// Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet` , to provide information about the sign-in page of your application.
+	//
+	// You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
 	ManagedRuleGroupConfigs interface{} `field:"optional" json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
 	// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group.
 	//

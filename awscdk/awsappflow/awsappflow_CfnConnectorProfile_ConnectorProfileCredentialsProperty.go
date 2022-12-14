@@ -8,9 +8,6 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var credentialsMap interface{}
-//   var oAuthCredentials interface{}
-//
 //   connectorProfileCredentialsProperty := &connectorProfileCredentialsProperty{
 //   	amplitude: &amplitudeConnectorProfileCredentialsProperty{
 //   		apiKey: jsii.String("apiKey"),
@@ -34,7 +31,9 @@ package awsappflow
 //   			customAuthenticationType: jsii.String("customAuthenticationType"),
 //
 //   			// the properties below are optional
-//   			credentialsMap: credentialsMap,
+//   			credentialsMap: map[string]*string{
+//   				"credentialsMapKey": jsii.String("credentialsMap"),
+//   			},
 //   		},
 //   		oauth2: &oAuth2CredentialsProperty{
 //   			accessToken: jsii.String("accessToken"),
@@ -101,7 +100,16 @@ package awsappflow
 //   			password: jsii.String("password"),
 //   			username: jsii.String("username"),
 //   		},
-//   		oAuthCredentials: oAuthCredentials,
+//   		oAuthCredentials: &oAuthCredentialsProperty{
+//   			accessToken: jsii.String("accessToken"),
+//   			clientId: jsii.String("clientId"),
+//   			clientSecret: jsii.String("clientSecret"),
+//   			connectorOAuthRequest: &connectorOAuthRequestProperty{
+//   				authCode: jsii.String("authCode"),
+//   				redirectUri: jsii.String("redirectUri"),
+//   			},
+//   			refreshToken: jsii.String("refreshToken"),
+//   		},
 //   	},
 //   	serviceNow: &serviceNowConnectorProfileCredentialsProperty{
 //   		password: jsii.String("password"),
@@ -148,7 +156,7 @@ package awsappflow
 type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	// The connector-specific credentials required when using Amplitude.
 	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
-	// The connector-specific profile credentials that are required when using the custom connector.
+	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.CustomConnector`.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific credentials required when using Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`

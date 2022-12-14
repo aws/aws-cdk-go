@@ -16,10 +16,6 @@ func (s *jsiiProxy_ScalableTaskCount) validateDoScaleToTrackMetricParameters(id 
 	return nil
 }
 
-func (s *jsiiProxy_ScalableTaskCount) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (s *jsiiProxy_ScalableTaskCount) validateScaleOnCpuUtilizationParameters(id *string, props *CpuUtilizationScalingProps) error {
 	return nil
 }
@@ -41,10 +37,6 @@ func (s *jsiiProxy_ScalableTaskCount) validateScaleOnScheduleParameters(id *stri
 }
 
 func (s *jsiiProxy_ScalableTaskCount) validateScaleToTrackCustomMetricParameters(id *string, props *TrackCustomMetricProps) error {
-	return nil
-}
-
-func (s *jsiiProxy_ScalableTaskCount) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

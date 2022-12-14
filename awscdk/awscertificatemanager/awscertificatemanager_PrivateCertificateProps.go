@@ -1,7 +1,7 @@
 package awscertificatemanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsacmpca"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca"
 )
 
 // Properties for your private certificate.
@@ -20,20 +20,16 @@ import (
 //   	certificateAuthority: acmpca.certificateAuthority.fromCertificateAuthorityArn(this, jsii.String("CA"), jsii.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/023077d8-2bfa-4eb0-8f22-05c96deade77")),
 //   })
 //
-// Experimental.
 type PrivateCertificateProps struct {
 	// Private certificate authority (CA) that will be used to issue the certificate.
-	// Experimental.
 	CertificateAuthority awsacmpca.ICertificateAuthority `field:"required" json:"certificateAuthority" yaml:"certificateAuthority"`
 	// Fully-qualified domain name to request a private certificate for.
 	//
 	// May contain wildcards, such as ``*.domain.com``.
-	// Experimental.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Alternative domain names on your private certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
-	// Experimental.
 	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 

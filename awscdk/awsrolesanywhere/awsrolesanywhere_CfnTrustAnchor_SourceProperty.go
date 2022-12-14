@@ -1,8 +1,6 @@
 package awsrolesanywhere
 
 
-// The trust anchor type and its related certificate data.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsrolesanywhere
 //   }
 //
 type CfnTrustAnchor_SourceProperty struct {
-	// The data field of the trust anchor depending on its type.
+	// `CfnTrustAnchor.SourceProperty.SourceData`.
 	SourceData interface{} `field:"optional" json:"sourceData" yaml:"sourceData"`
-	// The type of the trust anchor.
+	// `CfnTrustAnchor.SourceProperty.SourceType`.
 	SourceType *string `field:"optional" json:"sourceType" yaml:"sourceType"`
 }
 

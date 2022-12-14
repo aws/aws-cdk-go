@@ -1,7 +1,7 @@
 package awsrekognition
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnStreamProcessor`.
@@ -10,6 +10,8 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var polygonRegionsOfInterest interface{}
 //
 //   cfnStreamProcessorProps := &cfnStreamProcessorProps{
 //   	kinesisVideoStream: &kinesisVideoStreamProperty{
@@ -51,16 +53,7 @@ import (
 //   	notificationChannel: &notificationChannelProperty{
 //   		arn: jsii.String("arn"),
 //   	},
-//   	polygonRegionsOfInterest: []interface{}{
-//   		&polygonProperty{
-//   			polygon: []interface{}{
-//   				&pointProperty{
-//   					x: jsii.Number(123),
-//   					y: jsii.Number(123),
-//   				},
-//   			},
-//   		},
-//   	},
+//   	polygonRegionsOfInterest: polygonRegionsOfInterest,
 //   	s3Destination: &s3DestinationProperty{
 //   		bucketName: jsii.String("bucketName"),
 //

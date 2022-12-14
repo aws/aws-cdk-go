@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnSignalCatalog) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnSignalCatalog) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSignalCatalog) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSignalCatalog) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnSignalCatalog) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,11 +68,15 @@ func validateCfnSignalCatalog_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSignalCatalog) validateSetNodeCountsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSignalCatalog) validateSetNodesParameters(val interface{}) error {
 	return nil
 }
 
-func validateNewCfnSignalCatalogParameters(scope awscdk.Construct, id *string, props *CfnSignalCatalogProps) error {
+func validateNewCfnSignalCatalogParameters(scope constructs.Construct, id *string, props *CfnSignalCatalogProps) error {
 	return nil
 }
 

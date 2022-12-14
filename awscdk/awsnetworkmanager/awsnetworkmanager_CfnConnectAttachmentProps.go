@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnConnectAttachment`.
@@ -17,25 +17,27 @@ import (
 //   	options: &connectAttachmentOptionsProperty{
 //   		protocol: jsii.String("protocol"),
 //   	},
+//   	transportAttachmentId: jsii.String("transportAttachmentId"),
+//
+//   	// the properties below are optional
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),
 //   		},
 //   	},
-//   	transportAttachmentId: jsii.String("transportAttachmentId"),
 //   }
 //
 type CfnConnectAttachmentProps struct {
 	// The core network ID.
-	CoreNetworkId *string `field:"optional" json:"coreNetworkId" yaml:"coreNetworkId"`
+	CoreNetworkId *string `field:"required" json:"coreNetworkId" yaml:"coreNetworkId"`
 	// The Region where the edge is located.
-	EdgeLocation *string `field:"optional" json:"edgeLocation" yaml:"edgeLocation"`
+	EdgeLocation *string `field:"required" json:"edgeLocation" yaml:"edgeLocation"`
 	// Options for creating a Connect attachment.
-	Options interface{} `field:"optional" json:"options" yaml:"options"`
+	Options interface{} `field:"required" json:"options" yaml:"options"`
+	// The ID of the attachment between the two connections.
+	TransportAttachmentId *string `field:"required" json:"transportAttachmentId" yaml:"transportAttachmentId"`
 	// The tags associated with the Connect attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The ID of the attachment between the two connections.
-	TransportAttachmentId *string `field:"optional" json:"transportAttachmentId" yaml:"transportAttachmentId"`
 }
 

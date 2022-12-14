@@ -1,7 +1,7 @@
 package awsrolesanywhere
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnProfile`.
@@ -32,23 +32,21 @@ import (
 //   }
 //
 type CfnProfileProps struct {
-	// Sets the maximum number of seconds that vended temporary credentials through [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html) will be valid for, between 900 and 3600.
+	// `AWS::RolesAnywhere::Profile.DurationSeconds`.
 	DurationSeconds *float64 `field:"optional" json:"durationSeconds" yaml:"durationSeconds"`
-	// Indicates whether the profile is enabled.
+	// `AWS::RolesAnywhere::Profile.Enabled`.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// A list of managed policy ARNs that apply to the vended session credentials.
+	// `AWS::RolesAnywhere::Profile.ManagedPolicyArns`.
 	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
-	// The name of the profile.
+	// `AWS::RolesAnywhere::Profile.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Specifies whether instance properties are required in temporary credential requests with this profile.
+	// `AWS::RolesAnywhere::Profile.RequireInstanceProperties`.
 	RequireInstanceProperties interface{} `field:"optional" json:"requireInstanceProperties" yaml:"requireInstanceProperties"`
-	// A list of IAM role ARNs.
-	//
-	// During `CreateSession` , if a matching role ARN is provided, the properties in this profile will be applied to the intersection session policy.
+	// `AWS::RolesAnywhere::Profile.RoleArns`.
 	RoleArns *[]*string `field:"optional" json:"roleArns" yaml:"roleArns"`
-	// A session policy that applies to the trust boundary of the vended session credentials.
+	// `AWS::RolesAnywhere::Profile.SessionPolicy`.
 	SessionPolicy *string `field:"optional" json:"sessionPolicy" yaml:"sessionPolicy"`
-	// A list of tags to attach to the profile.
+	// `AWS::RolesAnywhere::Profile.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

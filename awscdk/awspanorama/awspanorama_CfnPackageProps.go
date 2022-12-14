@@ -1,7 +1,7 @@
 package awspanorama
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPackage`.
@@ -15,6 +15,13 @@ import (
 //   	packageName: jsii.String("packageName"),
 //
 //   	// the properties below are optional
+//   	storageLocation: &storageLocationProperty{
+//   		binaryPrefixLocation: jsii.String("binaryPrefixLocation"),
+//   		bucket: jsii.String("bucket"),
+//   		generatedPrefixLocation: jsii.String("generatedPrefixLocation"),
+//   		manifestPrefixLocation: jsii.String("manifestPrefixLocation"),
+//   		repoPrefixLocation: jsii.String("repoPrefixLocation"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -26,6 +33,8 @@ import (
 type CfnPackageProps struct {
 	// A name for the package.
 	PackageName *string `field:"required" json:"packageName" yaml:"packageName"`
+	// `AWS::Panorama::Package.StorageLocation`.
+	StorageLocation interface{} `field:"optional" json:"storageLocation" yaml:"storageLocation"`
 	// Tags for the package.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

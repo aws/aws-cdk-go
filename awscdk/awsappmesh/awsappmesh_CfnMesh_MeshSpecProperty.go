@@ -20,7 +20,7 @@ package awsappmesh
 type CfnMesh_MeshSpecProperty struct {
 	// The egress filter rules for the service mesh.
 	EgressFilter interface{} `field:"optional" json:"egressFilter" yaml:"egressFilter"`
-	// `CfnMesh.MeshSpecProperty.ServiceDiscovery`.
+	// An object that represents the service discovery information for a service mesh.
 	ServiceDiscovery interface{} `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 }
 

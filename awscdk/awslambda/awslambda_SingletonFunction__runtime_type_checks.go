@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (s *jsiiProxy_SingletonFunction) validateAddEnvironmentParameters(key *string, value *string, options *EnvironmentOptions) error {
@@ -102,7 +102,7 @@ func (s *jsiiProxy_SingletonFunction) validateConfigureAsyncInvokeParameters(opt
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
+func (s *jsiiProxy_SingletonFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -114,7 +114,7 @@ func (s *jsiiProxy_SingletonFunction) validateConsiderWarningOnInvokeFunctionPer
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateDependOnParameters(down awscdk.IConstruct) error {
+func (s *jsiiProxy_SingletonFunction) validateDependOnParameters(down constructs.IConstruct) error {
 	if down == nil {
 		return fmt.Errorf("parameter down is required, but nil was provided")
 	}
@@ -205,23 +205,7 @@ func (s *jsiiProxy_SingletonFunction) validateMetricThrottlesParameters(props *a
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_SingletonFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_SingletonFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
+func (s *jsiiProxy_SingletonFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -237,7 +221,15 @@ func validateSingletonFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSingletonFunction_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateSingletonFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateSingletonFunction_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

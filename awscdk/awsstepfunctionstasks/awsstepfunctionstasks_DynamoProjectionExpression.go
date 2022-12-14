@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,16 +14,12 @@ import (
 //
 //   dynamoProjectionExpression := awscdk.Aws_stepfunctions_tasks.NewDynamoProjectionExpression()
 //
-// Experimental.
 type DynamoProjectionExpression interface {
 	// Adds the array literal access for passed index.
-	// Experimental.
 	AtIndex(index *float64) DynamoProjectionExpression
 	// converts and return the string expression.
-	// Experimental.
 	ToString() *string
 	// Adds the passed attribute to the chain.
-	// Experimental.
 	WithAttribute(attr *string) DynamoProjectionExpression
 }
 
@@ -32,14 +28,13 @@ type jsiiProxy_DynamoProjectionExpression struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDynamoProjectionExpression() DynamoProjectionExpression {
 	_init_.Initialize()
 
 	j := jsiiProxy_DynamoProjectionExpression{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoProjectionExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoProjectionExpression",
 		nil, // no parameters
 		&j,
 	)
@@ -47,12 +42,11 @@ func NewDynamoProjectionExpression() DynamoProjectionExpression {
 	return &j
 }
 
-// Experimental.
 func NewDynamoProjectionExpression_Override(d DynamoProjectionExpression) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DynamoProjectionExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoProjectionExpression",
 		nil, // no parameters
 		d,
 	)

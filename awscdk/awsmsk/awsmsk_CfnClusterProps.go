@@ -21,6 +21,21 @@ package awsmsk
 //   			publicAccess: &publicAccessProperty{
 //   				type: jsii.String("type"),
 //   			},
+//   			vpcConnectivity: &vpcConnectivityProperty{
+//   				clientAuthentication: &vpcConnectivityClientAuthenticationProperty{
+//   					sasl: &vpcConnectivitySaslProperty{
+//   						iam: &vpcConnectivityIamProperty{
+//   							enabled: jsii.Boolean(false),
+//   						},
+//   						scram: &vpcConnectivityScramProperty{
+//   							enabled: jsii.Boolean(false),
+//   						},
+//   					},
+//   					tls: &vpcConnectivityTlsProperty{
+//   						enabled: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
 //   		},
 //   		securityGroups: []*string{
 //   			jsii.String("securityGroups"),
@@ -146,7 +161,7 @@ type CfnClusterProps struct {
 	LoggingInfo interface{} `field:"optional" json:"loggingInfo" yaml:"loggingInfo"`
 	// The settings for open monitoring.
 	OpenMonitoring interface{} `field:"optional" json:"openMonitoring" yaml:"openMonitoring"`
-	// This controls storage mode for supported storage tiers.
+	// `AWS::MSK::Cluster.StorageMode`.
 	StorageMode *string `field:"optional" json:"storageMode" yaml:"storageMode"`
 	// A map of key:value pairs to apply to this resource.
 	//

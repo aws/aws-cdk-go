@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPipeline`.
@@ -11,16 +11,25 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parallelismConfiguration interface{}
-//   var pipelineDefinition interface{}
-//
 //   cfnPipelineProps := &cfnPipelineProps{
-//   	pipelineDefinition: pipelineDefinition,
+//   	pipelineDefinition: &pipelineDefinitionProperty{
+//   		pipelineDefinitionBody: jsii.String("pipelineDefinitionBody"),
+//   		pipelineDefinitionS3Location: &s3LocationProperty{
+//   			bucket: jsii.String("bucket"),
+//   			key: jsii.String("key"),
+//
+//   			// the properties below are optional
+//   			eTag: jsii.String("eTag"),
+//   			version: jsii.String("version"),
+//   		},
+//   	},
 //   	pipelineName: jsii.String("pipelineName"),
 //   	roleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
-//   	parallelismConfiguration: parallelismConfiguration,
+//   	parallelismConfiguration: &parallelismConfigurationProperty{
+//   		maxParallelExecutionSteps: jsii.Number(123),
+//   	},
 //   	pipelineDescription: jsii.String("pipelineDescription"),
 //   	pipelineDisplayName: jsii.String("pipelineDisplayName"),
 //   	tags: []cfnTag{

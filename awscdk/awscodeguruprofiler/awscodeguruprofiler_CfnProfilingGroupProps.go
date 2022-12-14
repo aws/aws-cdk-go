@@ -1,7 +1,7 @@
 package awscodeguruprofiler
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnProfilingGroup`.
@@ -11,13 +11,15 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var agentPermissions interface{}
-//
 //   cfnProfilingGroupProps := &cfnProfilingGroupProps{
 //   	profilingGroupName: jsii.String("profilingGroupName"),
 //
 //   	// the properties below are optional
-//   	agentPermissions: agentPermissions,
+//   	agentPermissions: &agentPermissionsProperty{
+//   		principals: []*string{
+//   			jsii.String("principals"),
+//   		},
+//   	},
 //   	anomalyDetectionNotificationConfiguration: []interface{}{
 //   		&channelProperty{
 //   			channelUri: jsii.String("channelUri"),

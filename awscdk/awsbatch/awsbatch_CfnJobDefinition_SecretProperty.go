@@ -1,7 +1,7 @@
 package awsbatch
 
 
-// An object that represents the secret to expose to your container.
+// An object representing the secret to expose to your container.
 //
 // Secrets can be exposed to a container in the following ways:
 //
@@ -25,9 +25,9 @@ type CfnJobDefinition_SecretProperty struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The secret to expose to the container.
 	//
-	// The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	// The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
 	//
-	// > If the AWS Systems Manager Parameter Store parameter exists in the same Region as the job you're launching, then you can use either the full Amazon Resource Name (ARN) or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+	// > If the AWS Systems Manager Parameter Store parameter exists in the same Region as the job you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
 	ValueFrom *string `field:"required" json:"valueFrom" yaml:"valueFrom"`
 }
 

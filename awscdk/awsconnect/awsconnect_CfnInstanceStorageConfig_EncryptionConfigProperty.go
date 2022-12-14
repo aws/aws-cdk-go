@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The encryption configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,11 +12,9 @@ package awsconnect
 //   }
 //
 type CfnInstanceStorageConfig_EncryptionConfigProperty struct {
-	// The type of encryption.
+	// `CfnInstanceStorageConfig.EncryptionConfigProperty.EncryptionType`.
 	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
-	// The full ARN of the encryption key.
-	//
-	// > Be sure to provide the full ARN of the encryption key, not just the ID.
+	// `CfnInstanceStorageConfig.EncryptionConfigProperty.KeyId`.
 	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 

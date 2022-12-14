@@ -5,7 +5,7 @@ package awskms
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (v *jsiiProxy_ViaServicePrincipal) validateAddToAssumeRolePolicyParameters(document awsiam.PolicyDocument) error {

@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
 // AutoScalingGroup fleet change notifications configurations.
@@ -24,13 +24,10 @@ import (
 //   	scalingEvents: scalingEvents,
 //   }
 //
-// Experimental.
 type NotificationConfiguration struct {
 	// SNS topic to send notifications about fleet scaling events.
-	// Experimental.
 	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 	// Which fleet scaling events triggers a notification.
-	// Experimental.
 	ScalingEvents ScalingEvents `field:"optional" json:"scalingEvents" yaml:"scalingEvents"`
 }
 

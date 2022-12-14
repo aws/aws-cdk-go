@@ -8,9 +8,6 @@ package awspersonalize
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoMlConfig interface{}
-//   var hpoConfig interface{}
-//
 //   cfnSolutionProps := &cfnSolutionProps{
 //   	datasetGroupArn: jsii.String("datasetGroupArn"),
 //   	name: jsii.String("name"),
@@ -24,12 +21,51 @@ package awspersonalize
 //   		algorithmHyperParameters: map[string]*string{
 //   			"algorithmHyperParametersKey": jsii.String("algorithmHyperParameters"),
 //   		},
-//   		autoMlConfig: autoMlConfig,
+//   		autoMlConfig: &autoMLConfigProperty{
+//   			metricName: jsii.String("metricName"),
+//   			recipeList: []*string{
+//   				jsii.String("recipeList"),
+//   			},
+//   		},
 //   		eventValueThreshold: jsii.String("eventValueThreshold"),
 //   		featureTransformationParameters: map[string]*string{
 //   			"featureTransformationParametersKey": jsii.String("featureTransformationParameters"),
 //   		},
-//   		hpoConfig: hpoConfig,
+//   		hpoConfig: &hpoConfigProperty{
+//   			algorithmHyperParameterRanges: &algorithmHyperParameterRangesProperty{
+//   				categoricalHyperParameterRanges: []interface{}{
+//   					&categoricalHyperParameterRangeProperty{
+//   						name: jsii.String("name"),
+//   						values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   				continuousHyperParameterRanges: []interface{}{
+//   					&continuousHyperParameterRangeProperty{
+//   						maxValue: jsii.Number(123),
+//   						minValue: jsii.Number(123),
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   				integerHyperParameterRanges: []interface{}{
+//   					&integerHyperParameterRangeProperty{
+//   						maxValue: jsii.Number(123),
+//   						minValue: jsii.Number(123),
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			hpoObjective: &hpoObjectiveProperty{
+//   				metricName: jsii.String("metricName"),
+//   				metricRegex: jsii.String("metricRegex"),
+//   				type: jsii.String("type"),
+//   			},
+//   			hpoResourceConfig: &hpoResourceConfigProperty{
+//   				maxNumberOfTrainingJobs: jsii.String("maxNumberOfTrainingJobs"),
+//   				maxParallelTrainingJobs: jsii.String("maxParallelTrainingJobs"),
+//   			},
+//   		},
 //   	},
 //   }
 //

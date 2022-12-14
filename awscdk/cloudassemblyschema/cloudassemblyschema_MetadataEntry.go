@@ -18,16 +18,12 @@ package cloudassemblyschema
 //   	},
 //   }
 //
-// Experimental.
 type MetadataEntry struct {
 	// The type of the metadata entry.
-	// Experimental.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The data.
-	// Experimental.
 	Data interface{} `field:"optional" json:"data" yaml:"data"`
 	// A stack trace for when the entry was created.
-	// Experimental.
 	Trace *[]*string `field:"optional" json:"trace" yaml:"trace"`
 }
 

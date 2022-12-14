@@ -8,14 +8,14 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var customProperties interface{}
-//
 //   destinationConnectorPropertiesProperty := &destinationConnectorPropertiesProperty{
 //   	customConnector: &customConnectorDestinationPropertiesProperty{
 //   		entityName: jsii.String("entityName"),
 //
 //   		// the properties below are optional
-//   		customProperties: customProperties,
+//   		customProperties: map[string]*string{
+//   			"customPropertiesKey": jsii.String("customProperties"),
+//   		},
 //   		errorHandlingConfig: &errorHandlingConfigProperty{
 //   			bucketName: jsii.String("bucketName"),
 //   			bucketPrefix: jsii.String("bucketPrefix"),
@@ -69,9 +69,13 @@ package awsappflow
 //   		s3OutputFormatConfig: &s3OutputFormatConfigProperty{
 //   			aggregationConfig: &aggregationConfigProperty{
 //   				aggregationType: jsii.String("aggregationType"),
+//   				targetFileSize: jsii.Number(123),
 //   			},
 //   			fileType: jsii.String("fileType"),
 //   			prefixConfig: &prefixConfigProperty{
+//   				pathPrefixHierarchy: []*string{
+//   					jsii.String("pathPrefixHierarchy"),
+//   				},
 //   				prefixFormat: jsii.String("prefixFormat"),
 //   				prefixType: jsii.String("prefixType"),
 //   			},
@@ -127,6 +131,9 @@ package awsappflow
 //   		bucketName: jsii.String("bucketName"),
 //   		s3OutputFormatConfig: &upsolverS3OutputFormatConfigProperty{
 //   			prefixConfig: &prefixConfigProperty{
+//   				pathPrefixHierarchy: []*string{
+//   					jsii.String("pathPrefixHierarchy"),
+//   				},
 //   				prefixFormat: jsii.String("prefixFormat"),
 //   				prefixType: jsii.String("prefixType"),
 //   			},
@@ -134,6 +141,7 @@ package awsappflow
 //   			// the properties below are optional
 //   			aggregationConfig: &aggregationConfigProperty{
 //   				aggregationType: jsii.String("aggregationType"),
+//   				targetFileSize: jsii.Number(123),
 //   			},
 //   			fileType: jsii.String("fileType"),
 //   		},
@@ -158,7 +166,7 @@ package awsappflow
 //   }
 //
 type CfnFlow_DestinationConnectorPropertiesProperty struct {
-	// The properties that are required to query the custom Connector.
+	// `CfnFlow.DestinationConnectorPropertiesProperty.CustomConnector`.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The properties required to query Amazon EventBridge.
 	EventBridge interface{} `field:"optional" json:"eventBridge" yaml:"eventBridge"`

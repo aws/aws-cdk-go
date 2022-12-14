@@ -1,16 +1,10 @@
 package awssagemaker
 
 
-// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
-//
-// The data provided in the validation profile is made available to your buyers on AWS Marketplace.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var environment interface{}
 //
 //   validationProfileProperty := &validationProfileProperty{
 //   	profileName: jsii.String("profileName"),
@@ -46,16 +40,18 @@ package awssagemaker
 //
 //   		// the properties below are optional
 //   		batchStrategy: jsii.String("batchStrategy"),
-//   		environment: environment,
+//   		environment: map[string]*string{
+//   			"environmentKey": jsii.String("environment"),
+//   		},
 //   		maxConcurrentTransforms: jsii.Number(123),
 //   		maxPayloadInMb: jsii.Number(123),
 //   	},
 //   }
 //
 type CfnModelPackage_ValidationProfileProperty struct {
-	// The name of the profile for the model package.
+	// `CfnModelPackage.ValidationProfileProperty.ProfileName`.
 	ProfileName *string `field:"required" json:"profileName" yaml:"profileName"`
-	// The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
+	// `CfnModelPackage.ValidationProfileProperty.TransformJobDefinition`.
 	TransformJobDefinition interface{} `field:"required" json:"transformJobDefinition" yaml:"transformJobDefinition"`
 }
 

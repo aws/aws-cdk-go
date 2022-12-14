@@ -18,6 +18,9 @@ package awscloudfront
 //   		comment: jsii.String("comment"),
 //   		runtime: jsii.String("runtime"),
 //   	},
+//   	functionMetadata: &functionMetadataProperty{
+//   		functionArn: jsii.String("functionArn"),
+//   	},
 //   }
 //
 type CfnFunctionProps struct {
@@ -33,5 +36,7 @@ type CfnFunctionProps struct {
 	FunctionCode *string `field:"optional" json:"functionCode" yaml:"functionCode"`
 	// Contains configuration information about a CloudFront function.
 	FunctionConfig interface{} `field:"optional" json:"functionConfig" yaml:"functionConfig"`
+	// `AWS::CloudFront::Function.FunctionMetadata`.
+	FunctionMetadata interface{} `field:"optional" json:"functionMetadata" yaml:"functionMetadata"`
 }
 

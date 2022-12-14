@@ -10,16 +10,51 @@ package awswafv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var allow interface{}
-//   var block interface{}
-//   var captcha interface{}
-//   var count interface{}
-//
 //   ruleActionProperty := &ruleActionProperty{
-//   	allow: allow,
-//   	block: block,
-//   	captcha: captcha,
-//   	count: count,
+//   	allow: &allowProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	block: &blockProperty{
+//   		customResponse: &customResponseProperty{
+//   			responseCode: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   			responseHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	captcha: &captchaProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	count: &countProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 type CfnRuleGroup_RuleActionProperty struct {
@@ -42,7 +77,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	Captcha interface{} `field:"optional" json:"captcha" yaml:"captcha"`
-	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+	// Instructs AWS WAF to count the web request and allow it.
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
 }
 

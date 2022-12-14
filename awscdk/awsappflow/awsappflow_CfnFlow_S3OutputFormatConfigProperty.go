@@ -11,9 +11,13 @@ package awsappflow
 //   s3OutputFormatConfigProperty := &s3OutputFormatConfigProperty{
 //   	aggregationConfig: &aggregationConfigProperty{
 //   		aggregationType: jsii.String("aggregationType"),
+//   		targetFileSize: jsii.Number(123),
 //   	},
 //   	fileType: jsii.String("fileType"),
 //   	prefixConfig: &prefixConfigProperty{
+//   		pathPrefixHierarchy: []*string{
+//   			jsii.String("pathPrefixHierarchy"),
+//   		},
 //   		prefixFormat: jsii.String("prefixFormat"),
 //   		prefixType: jsii.String("prefixType"),
 //   	},

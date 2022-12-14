@@ -13,9 +13,7 @@ package awsresourceexplorer2
 //   }
 //
 type CfnDefaultViewAssociationProps struct {
-	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation.
-	//
-	// The specified view must already exist in the specified Region.
+	// `AWS::ResourceExplorer2::DefaultViewAssociation.ViewArn`.
 	ViewArn *string `field:"required" json:"viewArn" yaml:"viewArn"`
 }
 

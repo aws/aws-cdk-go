@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrafficMirrorTarget) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTrafficMirrorTarget) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorTarget) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnTrafficMirrorTarget) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +68,7 @@ func validateCfnTrafficMirrorTarget_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnTrafficMirrorTargetParameters(scope awscdk.Construct, id *string, props *CfnTrafficMirrorTargetProps) error {
+func validateNewCfnTrafficMirrorTargetParameters(scope constructs.Construct, id *string, props *CfnTrafficMirrorTargetProps) error {
 	return nil
 }
 

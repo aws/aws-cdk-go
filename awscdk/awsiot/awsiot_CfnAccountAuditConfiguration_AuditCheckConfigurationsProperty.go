@@ -36,6 +36,9 @@ package awsiot
 //   	iotPolicyOverlyPermissiveCheck: &auditCheckConfigurationProperty{
 //   		enabled: jsii.Boolean(false),
 //   	},
+//   	ioTPolicyPotentialMisConfigurationCheck: &auditCheckConfigurationProperty{
+//   		enabled: jsii.Boolean(false),
+//   	},
 //   	iotRoleAliasAllowsAccessToUnusedServicesCheck: &auditCheckConfigurationProperty{
 //   		enabled: jsii.Boolean(false),
 //   	},
@@ -85,6 +88,8 @@ type CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty struct {
 	IntermediateCaRevokedForActiveDeviceCertificatesCheck interface{} `field:"optional" json:"intermediateCaRevokedForActiveDeviceCertificatesCheck" yaml:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
 	// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
 	IotPolicyOverlyPermissiveCheck interface{} `field:"optional" json:"iotPolicyOverlyPermissiveCheck" yaml:"iotPolicyOverlyPermissiveCheck"`
+	// `CfnAccountAuditConfiguration.AuditCheckConfigurationsProperty.IoTPolicyPotentialMisConfigurationCheck`.
+	IoTPolicyPotentialMisConfigurationCheck interface{} `field:"optional" json:"ioTPolicyPotentialMisConfigurationCheck" yaml:"ioTPolicyPotentialMisConfigurationCheck"`
 	// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
 	IotRoleAliasAllowsAccessToUnusedServicesCheck interface{} `field:"optional" json:"iotRoleAliasAllowsAccessToUnusedServicesCheck" yaml:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
 	// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.

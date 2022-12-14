@@ -8,11 +8,6 @@ package awsappflow
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var credentialsMap interface{}
-//   var oAuthCredentials interface{}
-//   var profileProperties interface{}
-//   var tokenUrlCustomProperties interface{}
-//
 //   connectorProfileConfigProperty := &connectorProfileConfigProperty{
 //   	connectorProfileCredentials: &connectorProfileCredentialsProperty{
 //   		amplitude: &amplitudeConnectorProfileCredentialsProperty{
@@ -37,7 +32,9 @@ package awsappflow
 //   				customAuthenticationType: jsii.String("customAuthenticationType"),
 //
 //   				// the properties below are optional
-//   				credentialsMap: credentialsMap,
+//   				credentialsMap: map[string]*string{
+//   					"credentialsMapKey": jsii.String("credentialsMap"),
+//   				},
 //   			},
 //   			oauth2: &oAuth2CredentialsProperty{
 //   				accessToken: jsii.String("accessToken"),
@@ -104,7 +101,16 @@ package awsappflow
 //   				password: jsii.String("password"),
 //   				username: jsii.String("username"),
 //   			},
-//   			oAuthCredentials: oAuthCredentials,
+//   			oAuthCredentials: &oAuthCredentialsProperty{
+//   				accessToken: jsii.String("accessToken"),
+//   				clientId: jsii.String("clientId"),
+//   				clientSecret: jsii.String("clientSecret"),
+//   				connectorOAuthRequest: &connectorOAuthRequestProperty{
+//   					authCode: jsii.String("authCode"),
+//   					redirectUri: jsii.String("redirectUri"),
+//   				},
+//   				refreshToken: jsii.String("refreshToken"),
+//   			},
 //   		},
 //   		serviceNow: &serviceNowConnectorProfileCredentialsProperty{
 //   			password: jsii.String("password"),
@@ -147,16 +153,18 @@ package awsappflow
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
 //   	connectorProfileProperties: &connectorProfilePropertiesProperty{
 //   		customConnector: &customConnectorProfilePropertiesProperty{
 //   			oAuth2Properties: &oAuth2PropertiesProperty{
 //   				oAuth2GrantType: jsii.String("oAuth2GrantType"),
 //   				tokenUrl: jsii.String("tokenUrl"),
-//   				tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   				tokenUrlCustomProperties: map[string]*string{
+//   					"tokenUrlCustomPropertiesKey": jsii.String("tokenUrlCustomProperties"),
+//   				},
 //   			},
-//   			profileProperties: profileProperties,
+//   			profileProperties: map[string]*string{
+//   				"profilePropertiesKey": jsii.String("profileProperties"),
+//   			},
 //   		},
 //   		datadog: &datadogConnectorProfilePropertiesProperty{
 //   			instanceUrl: jsii.String("instanceUrl"),
@@ -172,11 +180,16 @@ package awsappflow
 //   		},
 //   		redshift: &redshiftConnectorProfilePropertiesProperty{
 //   			bucketName: jsii.String("bucketName"),
-//   			databaseUrl: jsii.String("databaseUrl"),
 //   			roleArn: jsii.String("roleArn"),
 //
 //   			// the properties below are optional
 //   			bucketPrefix: jsii.String("bucketPrefix"),
+//   			clusterIdentifier: jsii.String("clusterIdentifier"),
+//   			dataApiRoleArn: jsii.String("dataApiRoleArn"),
+//   			databaseName: jsii.String("databaseName"),
+//   			databaseUrl: jsii.String("databaseUrl"),
+//   			isRedshiftServerless: jsii.Boolean(false),
+//   			workgroupName: jsii.String("workgroupName"),
 //   		},
 //   		salesforce: &salesforceConnectorProfilePropertiesProperty{
 //   			instanceUrl: jsii.String("instanceUrl"),
@@ -225,7 +238,7 @@ package awsappflow
 //
 type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 	// The connector-specific credentials required by each connector.
-	ConnectorProfileCredentials interface{} `field:"required" json:"connectorProfileCredentials" yaml:"connectorProfileCredentials"`
+	ConnectorProfileCredentials interface{} `field:"optional" json:"connectorProfileCredentials" yaml:"connectorProfileCredentials"`
 	// The connector-specific properties of the profile configuration.
 	ConnectorProfileProperties interface{} `field:"optional" json:"connectorProfileProperties" yaml:"connectorProfileProperties"`
 }

@@ -1,9 +1,7 @@
 package awsautoscaling
 
 
-// Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
-//
-// `LaunchTemplate` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+// `LaunchTemplate` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type that describes a launch template and overrides. The overrides are used to override the instance type specified by the launch template with multiple instance types that can be used to launch On-Demand Instances and Spot Instances.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -104,9 +102,13 @@ package awsautoscaling
 //   }
 //
 type CfnAutoScalingGroup_LaunchTemplateProperty struct {
-	// The launch template.
+	// The launch template to use.
 	LaunchTemplateSpecification interface{} `field:"required" json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// Any properties that you specify override the same properties in the launch template.
+	//
+	// If not provided, Amazon EC2 Auto Scaling uses the instance type or instance type requirements specified in the launch template when it launches an instance.
+	//
+	// The overrides can include either one or more instance types or a set of instance requirements, but not both.
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 

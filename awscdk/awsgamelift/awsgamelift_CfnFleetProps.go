@@ -9,10 +9,17 @@ package awsgamelift
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnFleetProps := &cfnFleetProps{
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	anywhereConfiguration: &anywhereConfigurationProperty{
+//   		cost: jsii.String("cost"),
+//   	},
 //   	buildId: jsii.String("buildId"),
 //   	certificateConfiguration: &certificateConfigurationProperty{
 //   		certificateType: jsii.String("certificateType"),
 //   	},
+//   	computeType: jsii.String("computeType"),
 //   	description: jsii.String("description"),
 //   	desiredEc2Instances: jsii.Number(123),
 //   	ec2InboundPermissions: []interface{}{
@@ -43,7 +50,6 @@ package awsgamelift
 //   		jsii.String("metricGroups"),
 //   	},
 //   	minSize: jsii.Number(123),
-//   	name: jsii.String("name"),
 //   	newGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
 //   	peerVpcAwsAccountId: jsii.String("peerVpcAwsAccountId"),
 //   	peerVpcId: jsii.String("peerVpcId"),
@@ -68,6 +74,12 @@ package awsgamelift
 //   }
 //
 type CfnFleetProps struct {
+	// A descriptive label that is associated with a fleet.
+	//
+	// Fleet names do not need to be unique.
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// `AWS::GameLift::Fleet.AnywhereConfiguration`.
+	AnywhereConfiguration interface{} `field:"optional" json:"anywhereConfiguration" yaml:"anywhereConfiguration"`
 	// A unique identifier for a build to be deployed on the new fleet.
 	//
 	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a `READY` status. This fleet setting cannot be changed once the fleet is created.
@@ -80,7 +92,9 @@ type CfnFleetProps struct {
 	//
 	// > ACM isn't available in all AWS regions. A fleet creation request with certificate generation enabled in an unsupported Region, fails with a 4xx error. For more information about the supported Regions, see [Supported Regions](https://docs.aws.amazon.com/acm/latest/userguide/acm-regions.html) in the *AWS Certificate Manager User Guide* .
 	CertificateConfiguration interface{} `field:"optional" json:"certificateConfiguration" yaml:"certificateConfiguration"`
-	// A description for the fleet.
+	// `AWS::GameLift::Fleet.ComputeType`.
+	ComputeType *string `field:"optional" json:"computeType" yaml:"computeType"`
+	// A human-readable description of the fleet.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The number of EC2 instances that you want this fleet to host.
 	//
@@ -118,10 +132,6 @@ type CfnFleetProps struct {
 	//
 	// If this parameter is not set, the default is 0.
 	MinSize *float64 `field:"optional" json:"minSize" yaml:"minSize"`
-	// A descriptive label that is associated with a fleet.
-	//
-	// Fleet names do not need to be unique.
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The status of termination protection for active game sessions on the fleet.
 	//
 	// By default, this property is set to `NoProtection` .

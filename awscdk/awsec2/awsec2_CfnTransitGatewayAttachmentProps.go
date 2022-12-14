@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTransitGatewayAttachment`.
@@ -11,8 +11,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var options interface{}
-//
 //   cfnTransitGatewayAttachmentProps := &cfnTransitGatewayAttachmentProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -21,7 +19,11 @@ import (
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
-//   	options: options,
+//   	options: &optionsProperty{
+//   		applianceModeSupport: jsii.String("applianceModeSupport"),
+//   		dnsSupport: jsii.String("dnsSupport"),
+//   		ipv6Support: jsii.String("ipv6Support"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -39,11 +41,7 @@ type CfnTransitGatewayAttachmentProps struct {
 	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// The VPC attachment options, in JSON or YAML.
-	//
-	// - `ApplianceModeSupport` - Set to `enable` or `disable` . The default is `disable` .
-	// - `DnsSupport` - Set to `enable` or `disable` . The default is `enable` .
-	// - `Ipv6Support` - Set to `enable` or `disable` . The default is `disable` .
+	// `AWS::EC2::TransitGatewayAttachment.Options`.
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The tags for the attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

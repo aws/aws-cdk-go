@@ -1,17 +1,15 @@
 package awsiottwinmaker
 
 
-// The entity component.
+// The entity componenet.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
-//   var definition interface{}
-//   var error interface{}
-//   var relationshipValue interface{}
 //
 //   componentProperty := &componentProperty{
 //   	componentName: jsii.String("componentName"),
@@ -20,7 +18,65 @@ package awsiottwinmaker
 //   	description: jsii.String("description"),
 //   	properties: map[string]interface{}{
 //   		"propertiesKey": &PropertyProperty{
-//   			"definition": definition,
+//   			"definition": &DefinitionProperty{
+//   				"configuration": map[string]*string{
+//   					"configurationKey": jsii.String("configuration"),
+//   				},
+//   				"dataType": &dataTypeProperty{
+//   					"allowedValues": []interface{}{
+//   						&dataValueProperty{
+//   							"booleanValue": jsii.Boolean(false),
+//   							"doubleValue": jsii.Number(123),
+//   							"expression": jsii.String("expression"),
+//   							"integerValue": jsii.Number(123),
+//   							"listValue": []interface{}{
+//   								dataValueProperty_,
+//   							},
+//   							"longValue": jsii.Number(123),
+//   							"mapValue": map[string]interface{}{
+//   								"mapValueKey": dataValueProperty_,
+//   							},
+//   							"relationshipValue": &RelationshipValueProperty{
+//   								"targetComponentName": jsii.String("targetComponentName"),
+//   								"targetEntityId": jsii.String("targetEntityId"),
+//   							},
+//   							"stringValue": jsii.String("stringValue"),
+//   						},
+//   					},
+//   					"nestedType": dataTypeProperty_,
+//   					"relationship": &RelationshipProperty{
+//   						"relationshipType": jsii.String("relationshipType"),
+//   						"targetComponentTypeId": jsii.String("targetComponentTypeId"),
+//   					},
+//   					"type": jsii.String("type"),
+//   					"unitOfMeasure": jsii.String("unitOfMeasure"),
+//   				},
+//   				"defaultValue": &dataValueProperty{
+//   					"booleanValue": jsii.Boolean(false),
+//   					"doubleValue": jsii.Number(123),
+//   					"expression": jsii.String("expression"),
+//   					"integerValue": jsii.Number(123),
+//   					"listValue": []interface{}{
+//   						dataValueProperty_,
+//   					},
+//   					"longValue": jsii.Number(123),
+//   					"mapValue": map[string]interface{}{
+//   						"mapValueKey": dataValueProperty_,
+//   					},
+//   					"relationshipValue": &RelationshipValueProperty{
+//   						"targetComponentName": jsii.String("targetComponentName"),
+//   						"targetEntityId": jsii.String("targetEntityId"),
+//   					},
+//   					"stringValue": jsii.String("stringValue"),
+//   				},
+//   				"isExternalId": jsii.Boolean(false),
+//   				"isFinal": jsii.Boolean(false),
+//   				"isImported": jsii.Boolean(false),
+//   				"isInherited": jsii.Boolean(false),
+//   				"isRequiredInEntity": jsii.Boolean(false),
+//   				"isStoredExternally": jsii.Boolean(false),
+//   				"isTimeSeries": jsii.Boolean(false),
+//   			},
 //   			"value": &dataValueProperty{
 //   				"booleanValue": jsii.Boolean(false),
 //   				"doubleValue": jsii.Number(123),
@@ -33,7 +89,10 @@ package awsiottwinmaker
 //   				"mapValue": map[string]interface{}{
 //   					"mapValueKey": dataValueProperty_,
 //   				},
-//   				"relationshipValue": relationshipValue,
+//   				"relationshipValue": &RelationshipValueProperty{
+//   					"targetComponentName": jsii.String("targetComponentName"),
+//   					"targetEntityId": jsii.String("targetEntityId"),
+//   				},
 //   				"stringValue": jsii.String("stringValue"),
 //   			},
 //   		},
@@ -47,7 +106,10 @@ package awsiottwinmaker
 //   		},
 //   	},
 //   	status: &statusProperty{
-//   		error: error,
+//   		error: &errorProperty{
+//   			code: jsii.String("code"),
+//   			message: jsii.String("message"),
+//   		},
 //   		state: jsii.String("state"),
 //   	},
 //   }
@@ -65,9 +127,7 @@ type CfnEntity_ComponentProperty struct {
 	//
 	// Each string in the mapping must be unique to this object.
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
-	// An object that maps strings to the property groups in the component type.
-	//
-	// Each string in the mapping must be unique to this object.
+	// `CfnEntity.ComponentProperty.PropertyGroups`.
 	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// The status of the component.
 	Status interface{} `field:"optional" json:"status" yaml:"status"`

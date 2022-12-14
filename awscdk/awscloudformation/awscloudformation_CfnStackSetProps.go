@@ -1,7 +1,7 @@
 package awscloudformation
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnStackSet`.
@@ -10,8 +10,6 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var managedExecution interface{}
 //
 //   cfnStackSetProps := &cfnStackSetProps{
 //   	permissionModel: jsii.String("permissionModel"),
@@ -29,7 +27,9 @@ import (
 //   	},
 //   	description: jsii.String("description"),
 //   	executionRoleName: jsii.String("executionRoleName"),
-//   	managedExecution: managedExecution,
+//   	managedExecution: &managedExecutionProperty{
+//   		active: jsii.Boolean(false),
+//   	},
 //   	operationPreferences: &operationPreferencesProperty{
 //   		failureToleranceCount: jsii.Number(123),
 //   		failureTolerancePercentage: jsii.Number(123),

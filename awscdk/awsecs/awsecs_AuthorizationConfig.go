@@ -13,21 +13,18 @@ package awsecs
 //   	iam: jsii.String("iam"),
 //   }
 //
-// Experimental.
 type AuthorizationConfig struct {
 	// The access point ID to use.
 	//
 	// If an access point is specified, the root directory value will be
 	// relative to the directory set for the access point.
 	// If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
-	// Experimental.
 	AccessPointId *string `field:"optional" json:"accessPointId" yaml:"accessPointId"`
 	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.
 	//
 	// If enabled, transit encryption must be enabled in the EFSVolumeConfiguration.
 	//
 	// Valid values: ENABLED | DISABLED.
-	// Experimental.
 	Iam *string `field:"optional" json:"iam" yaml:"iam"`
 }
 

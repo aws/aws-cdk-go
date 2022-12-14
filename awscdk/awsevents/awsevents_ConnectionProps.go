@@ -24,25 +24,18 @@ package awsevents
 //   	},
 //   })
 //
-// Experimental.
 type ConnectionProps struct {
 	// The authorization type for the connection.
-	// Experimental.
 	Authorization Authorization `field:"required" json:"authorization" yaml:"authorization"`
 	// Additional string parameters to add to the invocation bodies.
-	// Experimental.
 	BodyParameters *map[string]HttpParameter `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
 	// The name of the connection.
-	// Experimental.
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The name of the connection.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional string parameters to add to the invocation headers.
-	// Experimental.
 	HeaderParameters *map[string]HttpParameter `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// Additional string parameters to add to the invocation query strings.
-	// Experimental.
 	QueryStringParameters *map[string]HttpParameter `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 

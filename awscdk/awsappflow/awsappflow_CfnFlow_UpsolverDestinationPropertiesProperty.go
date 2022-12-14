@@ -12,6 +12,9 @@ package awsappflow
 //   	bucketName: jsii.String("bucketName"),
 //   	s3OutputFormatConfig: &upsolverS3OutputFormatConfigProperty{
 //   		prefixConfig: &prefixConfigProperty{
+//   			pathPrefixHierarchy: []*string{
+//   				jsii.String("pathPrefixHierarchy"),
+//   			},
 //   			prefixFormat: jsii.String("prefixFormat"),
 //   			prefixType: jsii.String("prefixType"),
 //   		},
@@ -19,6 +22,7 @@ package awsappflow
 //   		// the properties below are optional
 //   		aggregationConfig: &aggregationConfigProperty{
 //   			aggregationType: jsii.String("aggregationType"),
+//   			targetFileSize: jsii.Number(123),
 //   		},
 //   		fileType: jsii.String("fileType"),
 //   	},

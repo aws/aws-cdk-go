@@ -29,7 +29,7 @@ type CfnCertificate_PolicyInformationProperty struct {
 	CertPolicyId *string `field:"required" json:"certPolicyId" yaml:"certPolicyId"`
 	// Modifies the given `CertPolicyId` with a qualifier.
 	//
-	// AWS Private CA supports the certification practice statement (CPS) qualifier.
+	// ACM Private CA supports the certification practice statement (CPS) qualifier.
 	PolicyQualifiers interface{} `field:"optional" json:"policyQualifiers" yaml:"policyQualifiers"`
 }
 

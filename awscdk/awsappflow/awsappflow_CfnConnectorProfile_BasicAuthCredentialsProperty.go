@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// The basic auth credentials required for basic authentication.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_BasicAuthCredentialsProperty struct {
-	// The password to use to connect to a resource.
+	// `CfnConnectorProfile.BasicAuthCredentialsProperty.Password`.
 	Password *string `field:"required" json:"password" yaml:"password"`
-	// The username to use to connect to a resource.
+	// `CfnConnectorProfile.BasicAuthCredentialsProperty.Username`.
 	Username *string `field:"required" json:"username" yaml:"username"`
 }
 

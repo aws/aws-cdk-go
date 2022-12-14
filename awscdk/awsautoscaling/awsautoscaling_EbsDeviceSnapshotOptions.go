@@ -11,14 +11,13 @@ package awsautoscaling
 //   ebsDeviceSnapshotOptions := &ebsDeviceSnapshotOptions{
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	iops: jsii.Number(123),
+//   	throughput: jsii.Number(123),
 //   	volumeSize: jsii.Number(123),
 //   	volumeType: awscdk.Aws_autoscaling.ebsDeviceVolumeType_STANDARD,
 //   }
 //
-// Experimental.
 type EbsDeviceSnapshotOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
-	// Experimental.
 	DeleteOnTermination *bool `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
@@ -28,17 +27,18 @@ type EbsDeviceSnapshotOptions struct {
 	// you need at least 100 GiB storage on the volume.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	// Experimental.
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
+	// The throughput that the volume supports, in MiB/s Takes a minimum of 125 and maximum of 1000.
+	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+	//
+	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	// Experimental.
 	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 	// The volume size, in Gibibytes (GiB).
 	//
 	// If you specify volumeSize, it must be equal or greater than the size of the snapshot.
-	// Experimental.
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 }
 

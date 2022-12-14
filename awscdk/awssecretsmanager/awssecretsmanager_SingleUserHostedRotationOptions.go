@@ -1,7 +1,7 @@
 package awssecretsmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // Single user hosted rotation options.
@@ -20,19 +20,16 @@ import (
 //   })
 //   dbConnections.allowDefaultPortFrom(myHostedRotation)
 //
-// Experimental.
 type SingleUserHostedRotationOptions struct {
+	// A string of the characters that you don't want in the password.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A name for the Lambda created to rotate the secret.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

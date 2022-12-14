@@ -77,7 +77,7 @@ type CfnWebACL_RuleActionProperty struct {
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	Captcha interface{} `field:"optional" json:"captcha" yaml:"captcha"`
-	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+	// Instructs AWS WAF to count the web request and allow it.
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
 }
 

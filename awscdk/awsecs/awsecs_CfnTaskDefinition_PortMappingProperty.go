@@ -23,13 +23,7 @@ package awsecs
 //   }
 //
 type CfnTaskDefinition_PortMappingProperty struct {
-	// The application protocol that's used for the port mapping.
-	//
-	// This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
-	//
-	// If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
-	//
-	// Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// `CfnTaskDefinition.PortMappingProperty.AppProtocol`.
 	AppProtocol *string `field:"optional" json:"appProtocol" yaml:"appProtocol"`
 	// The port number on the container that's bound to the user-specified or automatically assigned host port.
 	//
@@ -49,11 +43,7 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	//
 	// The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released). The current reserved ports are displayed in the `remainingResources` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time, including the default reserved ports. Automatically assigned ports don't count toward the 100 reserved ports limit.
 	HostPort *float64 `field:"optional" json:"hostPort" yaml:"hostPort"`
-	// The name that's used for the port mapping.
-	//
-	// This parameter only applies to Service Connect. This parameter is the name that you use in the `serviceConnectConfiguration` of a service. Up to 64 characters are allowed. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). A hyphen can't be the first character.
-	//
-	// For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// `CfnTaskDefinition.PortMappingProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The protocol used for the port mapping.
 	//

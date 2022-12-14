@@ -24,7 +24,7 @@ package awslambda
 //   }
 //
 type CfnFunction_VpcConfigProperty struct {
-	// A list of VPC security group IDs.
+	// A list of VPC security groups IDs.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of VPC subnet IDs.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`

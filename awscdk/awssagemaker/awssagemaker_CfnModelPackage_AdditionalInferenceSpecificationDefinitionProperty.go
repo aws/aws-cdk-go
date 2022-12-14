@@ -10,9 +10,6 @@ package awssagemaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var environment interface{}
-//   var modelInput interface{}
-//
 //   additionalInferenceSpecificationDefinitionProperty := &additionalInferenceSpecificationDefinitionProperty{
 //   	containers: []interface{}{
 //   		&modelPackageContainerDefinitionProperty{
@@ -20,12 +17,16 @@ package awssagemaker
 //
 //   			// the properties below are optional
 //   			containerHostname: jsii.String("containerHostname"),
-//   			environment: environment,
+//   			environment: map[string]*string{
+//   				"environmentKey": jsii.String("environment"),
+//   			},
 //   			framework: jsii.String("framework"),
 //   			frameworkVersion: jsii.String("frameworkVersion"),
 //   			imageDigest: jsii.String("imageDigest"),
 //   			modelDataUrl: jsii.String("modelDataUrl"),
-//   			modelInput: modelInput,
+//   			modelInput: &modelInputProperty{
+//   				dataInputConfig: jsii.String("dataInputConfig"),
+//   			},
 //   			nearestModelName: jsii.String("nearestModelName"),
 //   			productId: jsii.String("productId"),
 //   		},

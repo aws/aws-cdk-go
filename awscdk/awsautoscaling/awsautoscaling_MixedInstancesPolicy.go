@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 // MixedInstancesPolicy allows you to configure a group that diversifies across On-Demand Instances and Spot Instances of multiple instance types.
@@ -39,20 +39,16 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type MixedInstancesPolicy struct {
 	// Launch template to use.
-	// Experimental.
 	LaunchTemplate awsec2.ILaunchTemplate `field:"required" json:"launchTemplate" yaml:"launchTemplate"`
 	// InstancesDistribution to use.
-	// Experimental.
 	InstancesDistribution *InstancesDistribution `field:"optional" json:"instancesDistribution" yaml:"instancesDistribution"`
 	// Launch template overrides.
 	//
 	// The maximum number of instance types that can be associated with an Auto Scaling group is 40.
 	//
 	// The maximum number of distinct launch templates you can define for an Auto Scaling group is 20.
-	// Experimental.
 	LaunchTemplateOverrides *[]*LaunchTemplateOverrides `field:"optional" json:"launchTemplateOverrides" yaml:"launchTemplateOverrides"`
 }
 

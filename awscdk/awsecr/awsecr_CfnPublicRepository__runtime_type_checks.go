@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnPublicRepository) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnPublicRepository) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublicRepository) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnPublicRepository) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnPublicRepository) validateOverrideLogicalIdParameters(newL
 func (c *jsiiProxy_CfnPublicRepository) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnPublicRepository) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -168,8 +152,24 @@ func validateCfnPublicRepository_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnPublicRepository) validateSetRepositoryCatalogDataParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+	switch val.(type) {
+	case *CfnPublicRepository_RepositoryCatalogDataProperty:
+		val := val.(*CfnPublicRepository_RepositoryCatalogDataProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPublicRepository_RepositoryCatalogDataProperty:
+		val_ := val.(CfnPublicRepository_RepositoryCatalogDataProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPublicRepository_RepositoryCatalogDataProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
@@ -183,7 +183,7 @@ func (j *jsiiProxy_CfnPublicRepository) validateSetRepositoryPolicyTextParameter
 	return nil
 }
 
-func validateNewCfnPublicRepositoryParameters(scope awscdk.Construct, id *string, props *CfnPublicRepositoryProps) error {
+func validateNewCfnPublicRepositoryParameters(scope constructs.Construct, id *string, props *CfnPublicRepositoryProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -8,8 +8,6 @@ package awselasticache
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var authenticationMode interface{}
-//
 //   cfnUserProps := &cfnUserProps{
 //   	engine: jsii.String("engine"),
 //   	userId: jsii.String("userId"),
@@ -17,7 +15,14 @@ package awselasticache
 //
 //   	// the properties below are optional
 //   	accessString: jsii.String("accessString"),
-//   	authenticationMode: authenticationMode,
+//   	authenticationMode: &authenticationModeProperty{
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		passwords: []*string{
+//   			jsii.String("passwords"),
+//   		},
+//   	},
 //   	noPasswordRequired: jsii.Boolean(false),
 //   	passwords: []*string{
 //   		jsii.String("passwords"),
@@ -33,12 +38,7 @@ type CfnUserProps struct {
 	UserName *string `field:"required" json:"userName" yaml:"userName"`
 	// Access permissions string used for this user.
 	AccessString *string `field:"optional" json:"accessString" yaml:"accessString"`
-	// Specifies the authentication mode to use. Below is an example of the possible JSON values:.
-	//
-	// ```
-	// { AuthenticationType: <iam | no-password-required | password> Passwords: ["*****", "******"] // If authentication-type is password.
-	// }
-	// ```.
+	// `AWS::ElastiCache::User.AuthenticationMode`.
 	AuthenticationMode interface{} `field:"optional" json:"authenticationMode" yaml:"authenticationMode"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired interface{} `field:"optional" json:"noPasswordRequired" yaml:"noPasswordRequired"`

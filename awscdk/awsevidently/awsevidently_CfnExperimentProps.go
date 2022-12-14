@@ -1,7 +1,7 @@
 package awsevidently
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnExperiment`.
@@ -51,10 +51,12 @@ import (
 //   	randomizationSalt: jsii.String("randomizationSalt"),
 //   	removeSegment: jsii.Boolean(false),
 //   	runningStatus: &runningStatusObjectProperty{
+//   		status: jsii.String("status"),
+//
+//   		// the properties below are optional
 //   		analysisCompleteTime: jsii.String("analysisCompleteTime"),
 //   		desiredState: jsii.String("desiredState"),
 //   		reason: jsii.String("reason"),
-//   		status: jsii.String("status"),
 //   	},
 //   	samplingRate: jsii.Number(123),
 //   	segment: jsii.String("segment"),
@@ -87,9 +89,7 @@ type CfnExperimentProps struct {
 	//
 	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
 	RandomizationSalt *string `field:"optional" json:"randomizationSalt" yaml:"randomizationSalt"`
-	// Set this to `true` to remove the segment that is associated with this experiment.
-	//
-	// You can't use this parameter if the experiment is currently running.
+	// `AWS::Evidently::Experiment.RemoveSegment`.
 	RemoveSegment interface{} `field:"optional" json:"removeSegment" yaml:"removeSegment"`
 	// A structure that you can use to start and stop the experiment.
 	RunningStatus interface{} `field:"optional" json:"runningStatus" yaml:"runningStatus"`
@@ -99,11 +99,7 @@ type CfnExperimentProps struct {
 	//
 	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
 	SamplingRate *float64 `field:"optional" json:"samplingRate" yaml:"samplingRate"`
-	// Specifies an audience *segment* to use in the experiment.
-	//
-	// When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
-	//
-	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
+	// `AWS::Evidently::Experiment.Segment`.
 	Segment *string `field:"optional" json:"segment" yaml:"segment"`
 	// Assigns one or more tags (key-value pairs) to the experiment.
 	//

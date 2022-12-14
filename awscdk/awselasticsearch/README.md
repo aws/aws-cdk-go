@@ -1,6 +1,6 @@
 # Amazon Elasticsearch Service Construct Library
 
-> Amazon Elasticsearch Service has been renamed to Amazon OpenSearch Service; consequently, the [@aws-cdk/aws-opensearchservice](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-opensearchservice-readme.html) module should be used instead. See [Amazon OpenSearch Service FAQs](https://aws.amazon.com/opensearch-service/faqs/#Name_change) for details. See [Migrating to OpenSearch](#migrating-to-opensearch) for migration instructions.
+> Instead of this module, we recommend using the [@aws-cdk/aws-opensearchservice](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-opensearchservice-readme.html) module. See [Amazon OpenSearch Service FAQs](https://aws.amazon.com/opensearch-service/faqs/#Name_change) for details. See [Migrating to OpenSearch](#migrating-to-opensearch) for migration instructions.
 
 ## Quick start
 
@@ -51,7 +51,7 @@ logging the domain logs and slow search logs.
 
 Some cluster configurations (e.g VPC access) require the existence of the [`AWSServiceRoleForAmazonElasticsearchService`](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/slr-es.html) Service-Linked Role.
 
-When performing such operations via the AWS Console, this SLR is created automatically when needed. However, this is not the behavior when using CloudFormation. If an SLR is needed, but doesn't exist, you will encounter a failure message simlar to:
+When performing such operations via the AWS Console, this SLR is created automatically when needed. However, this is not the behavior when using CloudFormation. If an SLR is needed, but doesn't exist, you will encounter a failure message similar to:
 
 ```console
 Before you can proceed, you must enable a service-linked role to give Amazon ES...
@@ -190,7 +190,7 @@ means anyone can access the domain using the configured master username and
 password.
 
 To enable unsigned basic auth access the domain is configured with an access
-policy that allows anyonmous requests, HTTPS required, node to node encryption,
+policy that allows anonymous requests, HTTPS required, node to node encryption,
 encryption at rest and fine grained access control.
 
 If the above settings are not set they will be configured as part of enabling
@@ -385,18 +385,21 @@ Make the following modifications to your CDK application to migrate to the `@aws
   For example:
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   version := es.elasticsearchVersion_V7_1()
   ```
 
   ...becomes...
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   version := opensearch.engineVersion_ELASTICSEARCH_7_1()
   ```
 * Replace the `cognitoKibanaAuth` property of `DomainProps` with `cognitoDashboardsAuth`.
   For example:
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   es.NewDomain(this, jsii.String("Domain"), &domainProps{
   	cognitoKibanaAuth: &cognitoOptions{
   		identityPoolId: jsii.String("test-identity-pool-id"),
@@ -410,6 +413,7 @@ Make the following modifications to your CDK application to migrate to the `@aws
   ...becomes...
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
   	cognitoDashboardsAuth: &cognitoOptions{
   		identityPoolId: jsii.String("test-identity-pool-id"),
@@ -423,6 +427,7 @@ Make the following modifications to your CDK application to migrate to the `@aws
   For example:
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   es.NewDomain(this, jsii.String("Domain"), &domainProps{
   	capacity: &capacityConfig{
   		masterNodeInstanceType: jsii.String("r5.large.elasticsearch"),
@@ -434,6 +439,7 @@ Make the following modifications to your CDK application to migrate to the `@aws
   ...becomes...
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
   	capacity: &capacityConfig{
   		masterNodeInstanceType: jsii.String("r5.large.search"),

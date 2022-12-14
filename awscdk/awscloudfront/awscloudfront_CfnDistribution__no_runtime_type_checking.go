@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnDistribution) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnDistribution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDistribution) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDistribution) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnDistribution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnDistribution) validateSetDistributionConfigParameters(val 
 	return nil
 }
 
-func validateNewCfnDistributionParameters(scope awscdk.Construct, id *string, props *CfnDistributionProps) error {
+func validateNewCfnDistributionParameters(scope constructs.Construct, id *string, props *CfnDistributionProps) error {
 	return nil
 }
 
