@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateInspectParameters(i
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions) validateSetServiceIdParamet
 	return nil
 }
 
-func validateNewCfnVPCEndpointServicePermissionsParameters(scope constructs.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) error {
+func validateNewCfnVPCEndpointServicePermissionsParameters(scope awscdk.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) error {
 	return nil
 }
 

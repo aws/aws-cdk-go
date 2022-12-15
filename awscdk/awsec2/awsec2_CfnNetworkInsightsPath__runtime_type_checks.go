@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnNetworkInsightsPath) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,6 +103,14 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) validateInspectParameters(inspector a
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInsightsPath) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInsightsPath) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -114,6 +122,14 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) validateOverrideLogicalIdParameters(n
 func (c *jsiiProxy_CfnNetworkInsightsPath) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnNetworkInsightsPath) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -175,7 +191,7 @@ func (j *jsiiProxy_CfnNetworkInsightsPath) validateSetSourceParameters(val *stri
 	return nil
 }
 
-func validateNewCfnNetworkInsightsPathParameters(scope constructs.Construct, id *string, props *CfnNetworkInsightsPathProps) error {
+func validateNewCfnNetworkInsightsPathParameters(scope awscdk.Construct, id *string, props *CfnNetworkInsightsPathProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

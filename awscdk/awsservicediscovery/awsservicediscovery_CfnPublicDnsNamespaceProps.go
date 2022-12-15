@@ -1,7 +1,7 @@
 package awsservicediscovery
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnPublicDnsNamespace`.
@@ -33,6 +33,8 @@ import (
 //
 type CfnPublicDnsNamespaceProps struct {
 	// The name that you want to assign to this namespace.
+	//
+	// > Do not include sensitive information in the name. The name is publicly available using DNS queries.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description for the namespace.
 	Description *string `field:"optional" json:"description" yaml:"description"`

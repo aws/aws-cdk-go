@@ -1,19 +1,24 @@
 package awsmacie
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsmacie/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsmacie/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Macie::CustomDataIdentifier`.
 //
-// The `AWS::Macie::CustomDataIdentifier` resource is a set of criteria that you define to detect sensitive data in one or more data sources. Each identifier specifies a regular expression ( *regex* ) that defines a text pattern to match in the data. It can also specify character sequences, such as words and phrases, and a proximity rule that refine the analysis of a data source. By using custom data identifiers, you can tailor your analysis to meet your organization's specific needs and supplement the built-in, managed data identifiers that Amazon Macie provides.
+// The `AWS::Macie::CustomDataIdentifier` resource specifies a custom data identifier. A *custom data identifier* is a set of custom criteria for Amazon Macie to use when it inspects data sources for sensitive data. The criteria consist of a regular expression ( *regex* ) that defines a text pattern to match and, optionally, character sequences and a proximity rule that refine the results. The character sequences can be:
 //
-// A `Session` must exist for the account before you can create a `CustomDataIdentifier` . Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that the `Session` is created before the other resources. For example, `"DependsOn: Session"` .
+// - *Keywords* , which are words or phrases that must be in proximity of text that matches the regex, or
+// - *Ignore words* , which are words or phrases to exclude from the results.
+//
+// By using custom data identifiers, you can supplement the managed data identifiers that Macie provides and detect sensitive data that reflects your particular scenarios, intellectual property, or proprietary data. For more information, see [Building custom data identifiers](https://docs.aws.amazon.com/macie/latest/user/custom-data-identifiers.html) in the *Amazon Macie User Guide* .
+//
+// An `AWS::Macie::Session` resource must exist for an AWS account before you can create an `AWS::Macie::CustomDataIdentifier` resource for the account. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that an `AWS::Macie::Session` resource is created before other Macie resources are created for an account. For example, `"DependsOn": "Session"` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,27 +48,32 @@ type CfnCustomDataIdentifier interface {
 	// The unique identifier for the custom data identifier.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// The description of the custom data identifier.
+	// A custom description of the custom data identifier. The description can contain 1-512 characters.
 	//
-	// The description can contain as many as 512 characters.
+	// Avoid including sensitive data in the description. Users of the account might be able to see the description, depending on the actions that they're allowed to perform in Amazon Macie .
 	Description() *string
 	SetDescription(val *string)
-	// An array that lists specific character sequences (ignore words) to exclude from the results.
+	// An array of character sequences ( *ignore words* ) to exclude from the results.
 	//
-	// If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.
+	// If text matches the regular expression ( `Regex` ) but it contains a string in this array, Amazon Macie ignores the text and doesn't include it in the results.
+	//
+	// The array can contain 1-10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.
 	IgnoreWords() *[]*string
 	SetIgnoreWords(val *[]*string)
-	// An array that lists specific character sequences (keywords), one of which must be within proximity ( `MaximumMatchDistance` ) of the regular expression to match.
+	// An array of character sequences ( *keywords* ), one of which must precede and be in proximity ( `MaximumMatchDistance` ) of the regular expression ( `Regex` ) to match.
 	//
-	// The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.
+	// The array can contain 1-50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.
 	Keywords() *[]*string
 	SetKeywords(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -75,52 +85,53 @@ type CfnCustomDataIdentifier interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the `Keywords` array.
+	// The maximum number of characters that can exist between the end of at least one complete character sequence specified by the `Keywords` array and the end of text that matches the regular expression ( `Regex` ).
 	//
-	// Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.
+	// If a complete keyword precedes all the text that matches the regular expression and the keyword is within the specified distance, Amazon Macie includes the result.
+	//
+	// The distance can be 1-300 characters. The default value is 50.
 	MaximumMatchDistance() *float64
 	SetMaximumMatchDistance(val *float64)
-	// A custom name for the custom data identifier. The name can contain as many as 128 characters.
+	// A custom name for the custom data identifier. The name can contain 1-128 characters.
 	//
-	// We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie .
+	// Avoid including sensitive data in the name of a custom data identifier. Users of the account might be able to see the name, depending on the actions that they're allowed to perform in Amazon Macie .
 	Name() *string
 	SetName(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
-	// The regular expression ( *regex* ) that defines the pattern to match.
+	// The regular expression ( *regex* ) that defines the text pattern to match.
 	//
-	// The expression can contain as many as 512 characters.
+	// The expression can contain 1-512 characters.
 	Regex() *string
 	SetRegex(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
-	// Deprecated.
-	// Deprecated: use `updatedProperties`
-	//
-	// Return properties modified after initiation
-	//
-	// Resources that expose mutable properties should override this function to
-	// collect and return the properties object for this resource.
-	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	UpdatedProperties() *map[string]interface{}
+	// Experimental.
+	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -129,6 +140,7 @@ type CfnCustomDataIdentifier interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -173,12 +185,15 @@ type CfnCustomDataIdentifier interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -188,18 +203,15 @@ type CfnCustomDataIdentifier interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
+	// Experimental.
+	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -207,21 +219,74 @@ type CfnCustomDataIdentifier interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -351,8 +416,8 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomDataIdentifier) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCustomDataIdentifier) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -401,19 +466,9 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) UpdatedProperites() *map[string]inte
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomDataIdentifier) UpdatedProperties() *map[string]interface{} {
-	var returns *map[string]interface{}
-	_jsii_.Get(
-		j,
-		"updatedProperties",
-		&returns,
-	)
-	return returns
-}
-
 
 // Create a new `AWS::Macie::CustomDataIdentifier`.
-func NewCfnCustomDataIdentifier(scope constructs.Construct, id *string, props *CfnCustomDataIdentifierProps) CfnCustomDataIdentifier {
+func NewCfnCustomDataIdentifier(scope awscdk.Construct, id *string, props *CfnCustomDataIdentifierProps) CfnCustomDataIdentifier {
 	_init_.Initialize()
 
 	if err := validateNewCfnCustomDataIdentifierParameters(scope, id, props); err != nil {
@@ -422,7 +477,7 @@ func NewCfnCustomDataIdentifier(scope constructs.Construct, id *string, props *C
 	j := jsiiProxy_CfnCustomDataIdentifier{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"monocdk.aws_macie.CfnCustomDataIdentifier",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -431,11 +486,11 @@ func NewCfnCustomDataIdentifier(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::Macie::CustomDataIdentifier`.
-func NewCfnCustomDataIdentifier_Override(c CfnCustomDataIdentifier, scope constructs.Construct, id *string, props *CfnCustomDataIdentifierProps) {
+func NewCfnCustomDataIdentifier_Override(c CfnCustomDataIdentifier, scope awscdk.Construct, id *string, props *CfnCustomDataIdentifierProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"monocdk.aws_macie.CfnCustomDataIdentifier",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -501,6 +556,7 @@ func (j *jsiiProxy_CfnCustomDataIdentifier)SetRegex(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCustomDataIdentifier_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -510,7 +566,7 @@ func CfnCustomDataIdentifier_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"monocdk.aws_macie.CfnCustomDataIdentifier",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -520,6 +576,7 @@ func CfnCustomDataIdentifier_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCustomDataIdentifier_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -529,7 +586,7 @@ func CfnCustomDataIdentifier_IsCfnResource(construct constructs.IConstruct) *boo
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"monocdk.aws_macie.CfnCustomDataIdentifier",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -538,23 +595,8 @@ func CfnCustomDataIdentifier_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCustomDataIdentifier_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -564,7 +606,7 @@ func CfnCustomDataIdentifier_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"monocdk.aws_macie.CfnCustomDataIdentifier",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -577,7 +619,7 @@ func CfnCustomDataIdentifier_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_macie.CfnCustomDataIdentifier",
+		"monocdk.aws_macie.CfnCustomDataIdentifier",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -661,7 +703,7 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) ApplyRemovalPolicy(policy awscdk.Rem
 	)
 }
 
-func (c *jsiiProxy_CfnCustomDataIdentifier) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
+func (c *jsiiProxy_CfnCustomDataIdentifier) GetAtt(attributeName *string) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -670,7 +712,7 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) GetAtt(attributeName *string, typeHi
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName, typeHint},
+		[]interface{}{attributeName},
 		&returns,
 	)
 
@@ -704,6 +746,38 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
+func (c *jsiiProxy_CfnCustomDataIdentifier) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnCustomDataIdentifier) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnCustomDataIdentifier) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnCustomDataIdentifier) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -712,6 +786,14 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) OverrideLogicalId(newLogicalId *stri
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnCustomDataIdentifier) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -744,12 +826,36 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnCustomDataIdentifier) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnCustomDataIdentifier) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnCustomDataIdentifier) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

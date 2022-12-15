@@ -23,17 +23,19 @@ type CfnDomain_EBSOptionsProperty struct {
 	EbsEnabled interface{} `field:"optional" json:"ebsEnabled" yaml:"ebsEnabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
-	// This property applies only to the Provisioned IOPS (SSD) EBS volume type.
+	// This property applies only to the `gp3` and provisioned IOPS EBS volume types.
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
-	// `CfnDomain.EBSOptionsProperty.Throughput`.
+	// The throughput (in MiB/s) of the EBS volumes attached to data nodes.
+	//
+	// Applies only to the `gp3` volume type.
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
-	// The EBS volume type to use with the OpenSearch Service domain, such as standard, gp2, or io1.
+	// The EBS volume type to use with the OpenSearch Service domain.
 	//
-	// For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
+	// If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 

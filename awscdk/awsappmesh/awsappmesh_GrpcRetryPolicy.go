@@ -1,13 +1,12 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // gRPC retry policy.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -42,15 +41,19 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type GrpcRetryPolicy struct {
 	// The maximum number of retry attempts.
+	// Experimental.
 	RetryAttempts *float64 `field:"required" json:"retryAttempts" yaml:"retryAttempts"`
 	// The timeout for each retry attempt.
+	// Experimental.
 	RetryTimeout awscdk.Duration `field:"required" json:"retryTimeout" yaml:"retryTimeout"`
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
+	// Experimental.
 	HttpRetryEvents *[]HttpRetryEvent `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// TCP events on which to retry.
 	//
@@ -58,11 +61,13 @@ type GrpcRetryPolicy struct {
 	// request has started and is encountered when the upstream is temporarily or
 	// permanently unavailable. You must specify at least one value for at least
 	// one types of retry events.
+	// Experimental.
 	TcpRetryEvents *[]TcpRetryEvent `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 	// gRPC events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
+	// Experimental.
 	GrpcRetryEvents *[]GrpcRetryEvent `field:"optional" json:"grpcRetryEvents" yaml:"grpcRetryEvents"`
 }
 

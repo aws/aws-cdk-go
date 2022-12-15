@@ -25,7 +25,7 @@ type CfnInstanceGroupConfig_VolumeSpecificationProperty struct {
 	SizeInGb *float64 `field:"required" json:"sizeInGb" yaml:"sizeInGb"`
 	// The volume type.
 	//
-	// Volume types supported are gp2, io1, and standard.
+	// Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
 	VolumeType *string `field:"required" json:"volumeType" yaml:"volumeType"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`

@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateInspectParameters(inspe
 	return nil
 }
 
+func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPolicyPrincipalAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnPolicyPrincipalAttachment) validateSetPrincipalParameters(
 	return nil
 }
 
-func validateNewCfnPolicyPrincipalAttachmentParameters(scope constructs.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) error {
+func validateNewCfnPolicyPrincipalAttachmentParameters(scope awscdk.Construct, id *string, props *CfnPolicyPrincipalAttachmentProps) error {
 	return nil
 }
 

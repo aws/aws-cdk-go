@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -20,8 +20,10 @@ import (
 //   	target: ec2.clientVpnRouteTarget.local(),
 //   })
 //
+// Experimental.
 type ClientVpnRouteTarget interface {
 	// The subnet ID.
+	// Experimental.
 	SubnetId() *string
 }
 
@@ -41,24 +43,26 @@ func (j *jsiiProxy_ClientVpnRouteTarget) SubnetId() *string {
 }
 
 
+// Experimental.
 func NewClientVpnRouteTarget_Override(c ClientVpnRouteTarget) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.ClientVpnRouteTarget",
+		"monocdk.aws_ec2.ClientVpnRouteTarget",
 		nil, // no parameters
 		c,
 	)
 }
 
 // Local network.
+// Experimental.
 func ClientVpnRouteTarget_Local() ClientVpnRouteTarget {
 	_init_.Initialize()
 
 	var returns ClientVpnRouteTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.ClientVpnRouteTarget",
+		"monocdk.aws_ec2.ClientVpnRouteTarget",
 		"local",
 		nil, // no parameters
 		&returns,
@@ -71,6 +75,7 @@ func ClientVpnRouteTarget_Local() ClientVpnRouteTarget {
 //
 // The specified subnet must be an existing target network of the client VPN
 // endpoint.
+// Experimental.
 func ClientVpnRouteTarget_Subnet(subnet ISubnet) ClientVpnRouteTarget {
 	_init_.Initialize()
 
@@ -80,7 +85,7 @@ func ClientVpnRouteTarget_Subnet(subnet ISubnet) ClientVpnRouteTarget {
 	var returns ClientVpnRouteTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.ClientVpnRouteTarget",
+		"monocdk.aws_ec2.ClientVpnRouteTarget",
 		"subnet",
 		[]interface{}{subnet},
 		&returns,

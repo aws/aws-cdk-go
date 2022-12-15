@@ -1,6 +1,8 @@
 package awslakeformation
 
 
+// A wildcard object, consisting of an optional list of excluded column names or indexes.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +15,9 @@ package awslakeformation
 //   }
 //
 type CfnDataCellsFilter_ColumnWildcardProperty struct {
-	// `CfnDataCellsFilter.ColumnWildcardProperty.ExcludedColumnNames`.
+	// Excludes column names.
+	//
+	// Any column with this name will be excluded.
 	ExcludedColumnNames *[]*string `field:"optional" json:"excludedColumnNames" yaml:"excludedColumnNames"`
 }
 

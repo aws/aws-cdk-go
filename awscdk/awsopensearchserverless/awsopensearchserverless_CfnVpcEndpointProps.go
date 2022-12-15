@@ -22,13 +22,13 @@ package awsopensearchserverless
 //   }
 //
 type CfnVpcEndpointProps struct {
-	// `AWS::OpenSearchServerless::VpcEndpoint.Name`.
+	// The name of the endpoint.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::OpenSearchServerless::VpcEndpoint.VpcId`.
+	// The ID of the VPC from which you access OpenSearch Serverless.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// `AWS::OpenSearchServerless::VpcEndpoint.SecurityGroupIds`.
+	// The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// `AWS::OpenSearchServerless::VpcEndpoint.SubnetIds`.
+	// The ID of the subnets from which you access OpenSearch Serverless.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 

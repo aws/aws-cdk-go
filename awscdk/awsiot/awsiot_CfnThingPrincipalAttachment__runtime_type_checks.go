@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnThingPrincipalAttachment) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,6 +103,14 @@ func (c *jsiiProxy_CfnThingPrincipalAttachment) validateInspectParameters(inspec
 	return nil
 }
 
+func (c *jsiiProxy_CfnThingPrincipalAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnThingPrincipalAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -114,6 +122,14 @@ func (c *jsiiProxy_CfnThingPrincipalAttachment) validateOverrideLogicalIdParamet
 func (c *jsiiProxy_CfnThingPrincipalAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnThingPrincipalAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -167,7 +183,7 @@ func (j *jsiiProxy_CfnThingPrincipalAttachment) validateSetThingNameParameters(v
 	return nil
 }
 
-func validateNewCfnThingPrincipalAttachmentParameters(scope constructs.Construct, id *string, props *CfnThingPrincipalAttachmentProps) error {
+func validateNewCfnThingPrincipalAttachmentParameters(scope awscdk.Construct, id *string, props *CfnThingPrincipalAttachmentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -28,7 +28,7 @@ type CfnIndex_SearchProperty struct {
 	//
 	// If the `Searchable` field is `true` , you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for string fields and `false` for number and date fields.
 	Searchable interface{} `field:"optional" json:"searchable" yaml:"searchable"`
-	// Indicates that the field can be used to sort the search results.
+	// Determines whether the field can be used to sort the results of a query.
 	//
 	// The default is `false` .
 	Sortable interface{} `field:"optional" json:"sortable" yaml:"sortable"`

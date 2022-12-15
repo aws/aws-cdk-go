@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) validateInspectParameters(inspect
 	return nil
 }
 
+func (c *jsiiProxy_CfnDBClusterParameterGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDBClusterParameterGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDBClusterParameterGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDBClusterParameterGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +88,7 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) validateSetParametersParameters(v
 	return nil
 }
 
-func validateNewCfnDBClusterParameterGroupParameters(scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) error {
+func validateNewCfnDBClusterParameterGroupParameters(scope awscdk.Construct, id *string, props *CfnDBClusterParameterGroupProps) error {
 	return nil
 }
 

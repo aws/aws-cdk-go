@@ -86,7 +86,9 @@ type CfnBucket_ReplicationRuleProperty struct {
 	DeleteMarkerReplication interface{} `field:"optional" json:"deleteMarkerReplication" yaml:"deleteMarkerReplication"`
 	// A filter that identifies the subset of objects to which the replication rule applies.
 	//
-	// A `Filter` must specify exactly one `Prefix` , `TagFilter` , or an `And` child element. The use of the filter field indicates this is a V2 replication configuration. V1 does not have this field.
+	// A `Filter` must specify exactly one `Prefix` , `TagFilter` , or an `And` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
+	//
+	// > V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the `Prefix` directly as a child element of the `Rule` element.
 	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 	// A unique identifier for the rule.
 	//
@@ -94,7 +96,7 @@ type CfnBucket_ReplicationRuleProperty struct {
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// An object key name prefix that identifies the object or objects to which the rule applies.
 	//
-	// The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.
+	// The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the `Prefix` directly as a child element of the `Rule` element.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`

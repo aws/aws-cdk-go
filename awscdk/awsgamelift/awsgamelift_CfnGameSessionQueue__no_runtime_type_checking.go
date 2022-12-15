@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateInspectParameters(inspector awsc
 	return nil
 }
 
+func (c *jsiiProxy_CfnGameSessionQueue) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGameSessionQueue) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGameSessionQueue) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +96,7 @@ func (j *jsiiProxy_CfnGameSessionQueue) validateSetPriorityConfigurationParamete
 	return nil
 }
 
-func validateNewCfnGameSessionQueueParameters(scope constructs.Construct, id *string, props *CfnGameSessionQueueProps) error {
+func validateNewCfnGameSessionQueueParameters(scope awscdk.Construct, id *string, props *CfnGameSessionQueueProps) error {
 	return nil
 }
 

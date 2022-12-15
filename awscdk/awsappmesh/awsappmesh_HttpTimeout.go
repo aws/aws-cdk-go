@@ -1,13 +1,12 @@
 package awsappmesh
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Represents timeouts for HTTP protocols.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var service service
 //
@@ -42,12 +41,15 @@ import (
 //
 //   cdk.tags.of(node).add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type HttpTimeout struct {
 	// Represents an idle timeout.
 	//
 	// The amount of time that a connection may be idle.
+	// Experimental.
 	Idle awscdk.Duration `field:"optional" json:"idle" yaml:"idle"`
 	// Represents per request timeout.
+	// Experimental.
 	PerRequest awscdk.Duration `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 

@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnScheduledAction) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnScheduledAction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnScheduledAction) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnScheduledAction) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnScheduledAction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnScheduledAction) validateSetAutoScalingGroupNameParameters
 	return nil
 }
 
-func validateNewCfnScheduledActionParameters(scope constructs.Construct, id *string, props *CfnScheduledActionProps) error {
+func validateNewCfnScheduledActionParameters(scope awscdk.Construct, id *string, props *CfnScheduledActionProps) error {
 	return nil
 }
 

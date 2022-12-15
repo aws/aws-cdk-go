@@ -16,15 +16,19 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) validateGetResourceNameAttrib
 	return nil
 }
 
+func (u *jsiiProxy_UserPoolIdentityProviderAmazon) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderAmazon) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateUserPoolIdentityProviderAmazon_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateUserPoolIdentityProviderAmazon_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateUserPoolIdentityProviderAmazon_IsResourceParameters(construct constructs.IConstruct) error {
+func validateUserPoolIdentityProviderAmazon_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

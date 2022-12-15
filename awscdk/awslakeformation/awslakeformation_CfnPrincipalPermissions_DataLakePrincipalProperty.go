@@ -1,6 +1,8 @@
 package awslakeformation
 
 
+// The AWS Lake Formation principal.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awslakeformation
 //   }
 //
 type CfnPrincipalPermissions_DataLakePrincipalProperty struct {
-	// `CfnPrincipalPermissions.DataLakePrincipalProperty.DataLakePrincipalIdentifier`.
+	// An identifier for the AWS Lake Formation principal.
 	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 

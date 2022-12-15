@@ -1,11 +1,9 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // Uses conventionally named roles and asset storage locations.
@@ -23,121 +21,56 @@ import (
 // to support all features expected by this synthesizer.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   NewMyStack(app, jsii.String("MyStack"), &stackProps{
-//   	synthesizer: awscdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
-//   		fileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
+//   awscdk.Newstack(this, jsii.String("MyStack"), &stackProps{
+//   	// Update this qualifier to match the one used above.
+//   	synthesizer: cdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
+//   		qualifier: jsii.String("randchars1234"),
 //   	}),
 //   })
 //
+// Experimental.
 type DefaultStackSynthesizer interface {
 	StackSynthesizer
-	// The qualifier used to bootstrap this stack.
-	BootstrapQualifier() *string
-	// Retrieve the bound stack.
-	//
-	// Fails if the stack hasn't been bound yet.
-	BoundStack() Stack
 	// Returns the ARN of the CFN execution Role.
+	// Experimental.
 	CloudFormationExecutionRoleArn() *string
 	// Returns the ARN of the deploy Role.
+	// Experimental.
 	DeployRoleArn() *string
-	// Return the currently bound stack.
-	// Deprecated: Use `boundStack` instead.
+	// Experimental.
 	Stack() Stack
-	// Add a CfnRule to the bound stack that checks whether an SSM parameter exceeds a given version.
-	//
-	// This will modify the template, so must be called before the stack is synthesized.
-	AddBootstrapVersionRule(requiredVersion *float64, bootstrapStackVersionSsmParameter *string)
 	// Register a Docker Image Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
-	//
-	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
-	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
-	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
-	// mechanism.
+	// Experimental.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
 	// Register a File Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
-	//
-	// The synthesizer must rely on some out-of-band mechanism to make sure the given files
-	// are actually placed in the returned location before the deployment happens. This can
-	// be by writing the intructions to the asset manifest (for use by the `cdk-assets` tool),
-	// by relying on the CLI to upload files (legacy behavior), or some other operator controlled
-	// mechanism.
+	// Experimental.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
 	// Must be called before any of the other methods are called.
+	// Experimental.
 	Bind(stack Stack)
-	// Turn a docker asset location into a CloudFormation representation of that location.
-	//
-	// If any of the fields contain placeholders, the result will be wrapped in a `Fn.sub`.
-	CloudFormationLocationFromDockerImageAsset(dest *cloudassemblyschema.DockerImageDestination) *DockerImageAssetLocation
-	// Turn a file asset location into a CloudFormation representation of that location.
-	//
-	// If any of the fields contain placeholders, the result will be wrapped in a `Fn.sub`.
-	CloudFormationLocationFromFileAsset(location *cloudassemblyschema.FileDestination) *FileAssetLocation
-	// Write the CloudFormation stack artifact to the session.
-	//
-	// Use default settings to add a CloudFormationStackArtifact artifact to
-	// the given synthesis session. The Stack artifact will control the settings for the
-	// CloudFormation deployment.
-	EmitArtifact(session ISynthesisSession, options *SynthesizeStackArtifactOptions)
 	// Write the stack artifact to the session.
 	//
 	// Use default settings to add a CloudFormationStackArtifact artifact to
 	// the given synthesis session.
-	// Deprecated: Use `emitArtifact` instead.
+	// Experimental.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
 	// Synthesize the associated stack to the session.
+	// Experimental.
 	Synthesize(session ISynthesisSession)
-	// Synthesize the stack template to the given session, passing the configured lookup role ARN.
+	// Have the stack write out its template.
+	// Experimental.
 	SynthesizeStackTemplate(stack Stack, session ISynthesisSession)
-	// Write the stack template to the given session.
-	//
-	// Return a descriptor that represents the stack template as a file asset
-	// source, for adding to an asset manifest (if desired). This can be used to
-	// have the asset manifest system (`cdk-assets`) upload the template to S3
-	// using the appropriate role, so that afterwards only a CloudFormation
-	// deployment is necessary.
-	//
-	// If the template is uploaded as an asset, the `stackTemplateAssetObjectUrl`
-	// property should be set when calling `emitArtifact.`
-	//
-	// If the template is *NOT* uploaded as an asset first and the template turns
-	// out to be >50KB, it will need to be uploaded to S3 anyway. At that point
-	// the credentials will be the same identity that is doing the `UpdateStack`
-	// call, which may not have the right permissions to write to S3.
-	SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string) *FileAssetSource
 }
 
 // The jsii proxy struct for DefaultStackSynthesizer
 type jsiiProxy_DefaultStackSynthesizer struct {
 	jsiiProxy_StackSynthesizer
-}
-
-func (j *jsiiProxy_DefaultStackSynthesizer) BootstrapQualifier() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bootstrapQualifier",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DefaultStackSynthesizer) BoundStack() Stack {
-	var returns Stack
-	_jsii_.Get(
-		j,
-		"boundStack",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_DefaultStackSynthesizer) CloudFormationExecutionRoleArn() *string {
@@ -171,6 +104,7 @@ func (j *jsiiProxy_DefaultStackSynthesizer) Stack() Stack {
 }
 
 
+// Experimental.
 func NewDefaultStackSynthesizer(props *DefaultStackSynthesizerProps) DefaultStackSynthesizer {
 	_init_.Initialize()
 
@@ -180,7 +114,7 @@ func NewDefaultStackSynthesizer(props *DefaultStackSynthesizerProps) DefaultStac
 	j := jsiiProxy_DefaultStackSynthesizer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		[]interface{}{props},
 		&j,
 	)
@@ -188,11 +122,12 @@ func NewDefaultStackSynthesizer(props *DefaultStackSynthesizerProps) DefaultStac
 	return &j
 }
 
+// Experimental.
 func NewDefaultStackSynthesizer_Override(d DefaultStackSynthesizer, props *DefaultStackSynthesizerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		[]interface{}{props},
 		d,
 	)
@@ -202,7 +137,7 @@ func DefaultStackSynthesizer_DEFAULT_BOOTSTRAP_STACK_VERSION_SSM_PARAMETER() *st
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_BOOTSTRAP_STACK_VERSION_SSM_PARAMETER",
 		&returns,
 	)
@@ -213,7 +148,7 @@ func DefaultStackSynthesizer_DEFAULT_CLOUDFORMATION_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_CLOUDFORMATION_ROLE_ARN",
 		&returns,
 	)
@@ -224,7 +159,7 @@ func DefaultStackSynthesizer_DEFAULT_DEPLOY_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_DEPLOY_ROLE_ARN",
 		&returns,
 	)
@@ -235,7 +170,7 @@ func DefaultStackSynthesizer_DEFAULT_DOCKER_ASSET_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_DOCKER_ASSET_PREFIX",
 		&returns,
 	)
@@ -246,7 +181,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSET_KEY_ARN_EXPORT_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSET_KEY_ARN_EXPORT_NAME",
 		&returns,
 	)
@@ -257,7 +192,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSET_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSET_PREFIX",
 		&returns,
 	)
@@ -268,7 +203,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSET_PUBLISHING_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSET_PUBLISHING_ROLE_ARN",
 		&returns,
 	)
@@ -279,7 +214,7 @@ func DefaultStackSynthesizer_DEFAULT_FILE_ASSETS_BUCKET_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_FILE_ASSETS_BUCKET_NAME",
 		&returns,
 	)
@@ -290,7 +225,7 @@ func DefaultStackSynthesizer_DEFAULT_IMAGE_ASSET_PUBLISHING_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_IMAGE_ASSET_PUBLISHING_ROLE_ARN",
 		&returns,
 	)
@@ -301,7 +236,7 @@ func DefaultStackSynthesizer_DEFAULT_IMAGE_ASSETS_REPOSITORY_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_IMAGE_ASSETS_REPOSITORY_NAME",
 		&returns,
 	)
@@ -312,7 +247,7 @@ func DefaultStackSynthesizer_DEFAULT_LOOKUP_ROLE_ARN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_LOOKUP_ROLE_ARN",
 		&returns,
 	)
@@ -323,22 +258,11 @@ func DefaultStackSynthesizer_DEFAULT_QUALIFIER() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.DefaultStackSynthesizer",
+		"monocdk.DefaultStackSynthesizer",
 		"DEFAULT_QUALIFIER",
 		&returns,
 	)
 	return returns
-}
-
-func (d *jsiiProxy_DefaultStackSynthesizer) AddBootstrapVersionRule(requiredVersion *float64, bootstrapStackVersionSsmParameter *string) {
-	if err := d.validateAddBootstrapVersionRuleParameters(requiredVersion, bootstrapStackVersionSsmParameter); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		d,
-		"addBootstrapVersionRule",
-		[]interface{}{requiredVersion, bootstrapStackVersionSsmParameter},
-	)
 }
 
 func (d *jsiiProxy_DefaultStackSynthesizer) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
@@ -384,49 +308,6 @@ func (d *jsiiProxy_DefaultStackSynthesizer) Bind(stack Stack) {
 	)
 }
 
-func (d *jsiiProxy_DefaultStackSynthesizer) CloudFormationLocationFromDockerImageAsset(dest *cloudassemblyschema.DockerImageDestination) *DockerImageAssetLocation {
-	if err := d.validateCloudFormationLocationFromDockerImageAssetParameters(dest); err != nil {
-		panic(err)
-	}
-	var returns *DockerImageAssetLocation
-
-	_jsii_.Invoke(
-		d,
-		"cloudFormationLocationFromDockerImageAsset",
-		[]interface{}{dest},
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DefaultStackSynthesizer) CloudFormationLocationFromFileAsset(location *cloudassemblyschema.FileDestination) *FileAssetLocation {
-	if err := d.validateCloudFormationLocationFromFileAssetParameters(location); err != nil {
-		panic(err)
-	}
-	var returns *FileAssetLocation
-
-	_jsii_.Invoke(
-		d,
-		"cloudFormationLocationFromFileAsset",
-		[]interface{}{location},
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DefaultStackSynthesizer) EmitArtifact(session ISynthesisSession, options *SynthesizeStackArtifactOptions) {
-	if err := d.validateEmitArtifactParameters(session, options); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		d,
-		"emitArtifact",
-		[]interface{}{session, options},
-	)
-}
-
 func (d *jsiiProxy_DefaultStackSynthesizer) EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions) {
 	if err := d.validateEmitStackArtifactParameters(stack, session, options); err != nil {
 		panic(err)
@@ -458,21 +339,5 @@ func (d *jsiiProxy_DefaultStackSynthesizer) SynthesizeStackTemplate(stack Stack,
 		"synthesizeStackTemplate",
 		[]interface{}{stack, session},
 	)
-}
-
-func (d *jsiiProxy_DefaultStackSynthesizer) SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string) *FileAssetSource {
-	if err := d.validateSynthesizeTemplateParameters(session); err != nil {
-		panic(err)
-	}
-	var returns *FileAssetSource
-
-	_jsii_.Invoke(
-		d,
-		"synthesizeTemplate",
-		[]interface{}{session, lookupRoleArn},
-		&returns,
-	)
-
-	return returns
 }
 

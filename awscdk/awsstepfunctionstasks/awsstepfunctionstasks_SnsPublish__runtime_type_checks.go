@@ -7,9 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (s *jsiiProxy_SnsPublish) validateAddBranchParameters(branch awsstepfunctions.StateGraph) error {
@@ -179,6 +180,22 @@ func (s *jsiiProxy_SnsPublish) validateMetricTimedOutParameters(props *awscloudw
 func (s *jsiiProxy_SnsPublish) validateNextParameters(next awsstepfunctions.IChainable) error {
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_SnsPublish) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_SnsPublish) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

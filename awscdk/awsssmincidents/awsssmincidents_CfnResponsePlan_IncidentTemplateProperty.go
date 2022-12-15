@@ -41,7 +41,9 @@ type CfnResponsePlan_IncidentTemplateProperty struct {
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// Used to create only one incident record for an incident.
 	DedupeString *string `field:"optional" json:"dedupeString" yaml:"dedupeString"`
-	// `CfnResponsePlan.IncidentTemplateProperty.IncidentTags`.
+	// Tags to assign to the template.
+	//
+	// When the `StartIncident` API action is called, Incident Manager assigns the tags specified in the template to the incident.
 	IncidentTags interface{} `field:"optional" json:"incidentTags" yaml:"incidentTags"`
 	// The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
 	//

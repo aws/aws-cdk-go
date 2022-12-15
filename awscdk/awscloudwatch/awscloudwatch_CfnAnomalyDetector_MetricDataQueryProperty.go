@@ -7,7 +7,7 @@ package awscloudwatch
 //
 // When used in `GetMetricData` , it indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a Metrics Insights query or a math expression. A single `GetMetricData` call can include up to 500 `MetricDataQuery` structures.
 //
-// When used in `PutMetricAlarm` , it enables you to create an alarm based on a metric math expression. Each `MetricDataQuery` in the array specifies either a metric to retrieve, or a math expression to be performed on retrieved metrics. A single `PutMetricAlarm` call can include up to 20 `MetricDataQuery` structures in the array. The 20 structures can include as many as 10 structures that contain a `MetricStat` parameter to retrieve a metric, and as many as 10 structures that contain the `Expression` parameter to perform a math expression. Of those `Expression` structures, one must have `True` as the value for `ReturnData` . The result of this expression is the value the alarm watches.
+// When used in `PutMetricAlarm` , it enables you to create an alarm based on a metric math expression. Each `MetricDataQuery` in the array specifies either a metric to retrieve, or a math expression to be performed on retrieved metrics. A single `PutMetricAlarm` call can include up to 20 `MetricDataQuery` structures in the array. The 20 structures can include as many as 10 structures that contain a `MetricStat` parameter to retrieve a metric, and as many as 10 structures that contain the `Expression` parameter to perform a math expression. Of those `Expression` structures, one must have `true` as the value for `ReturnData` . The result of this expression is the value the alarm watches.
 //
 // Any expression used in a `PutMetricAlarm` operation must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *Amazon CloudWatch User Guide* .
 //
@@ -53,9 +53,11 @@ type CfnAnomalyDetector_MetricDataQueryProperty struct {
 	//
 	// This name must be unique within a single call to `GetMetricData` . If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 	Id *string `field:"required" json:"id" yaml:"id"`
-	// The ID of the account where the metrics are located, if this is a cross-account alarm.
+	// The ID of the account where the metrics are located.
 	//
-	// Use this field only for `PutMetricAlarm` operations. It is not used in `GetMetricData` operations.
+	// If you are performing a `GetMetricData` operation in a monitoring account, use this to specify which account to retrieve this metric from.
+	//
+	// If you are performing a `PutMetricAlarm` operation, use this to specify which account contains the metric that the alarm is watching.
 	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 	// This field can contain either a Metrics Insights query, or a metric math expression to be performed on the returned data.
 	//
@@ -83,9 +85,9 @@ type CfnAnomalyDetector_MetricDataQueryProperty struct {
 	Period *float64 `field:"optional" json:"period" yaml:"period"`
 	// When used in `GetMetricData` , this option indicates whether to return the timestamps and raw data values of this metric.
 	//
-	// If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify `False` . If you omit this, the default of `True` is used.
+	// If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify `false` . If you omit this, the default of `true` is used.
 	//
-	// When used in `PutMetricAlarm` , specify `True` for the one expression result to use as the alarm. For all other metrics and expressions in the same `PutMetricAlarm` operation, specify `ReturnData` as False.
+	// When used in `PutMetricAlarm` , specify `true` for the one expression result to use as the alarm. For all other metrics and expressions in the same `PutMetricAlarm` operation, specify `ReturnData` as False.
 	ReturnData interface{} `field:"optional" json:"returnData" yaml:"returnData"`
 }
 

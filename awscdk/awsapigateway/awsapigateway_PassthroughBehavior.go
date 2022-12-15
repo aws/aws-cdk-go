@@ -23,9 +23,7 @@ package awsapigateway
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
-//   	cloudWatchRole: jsii.Boolean(true),
-//   })
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
 //
 //   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
@@ -54,17 +52,21 @@ package awsapigateway
 //   	authorizer: authorizer,
 //   })
 //
+// Experimental.
 type PassthroughBehavior string
 
 const (
 	// Passes the request body for unmapped content types through to the integration back end without transformation.
+	// Experimental.
 	PassthroughBehavior_WHEN_NO_MATCH PassthroughBehavior = "WHEN_NO_MATCH"
 	// Rejects unmapped content types with an HTTP 415 'Unsupported Media Type' response.
+	// Experimental.
 	PassthroughBehavior_NEVER PassthroughBehavior = "NEVER"
 	// Allows pass-through when the integration has NO content types mapped to templates.
 	//
 	// However if there is at least one content type defined,
 	// unmapped content types will be rejected with the same 415 response.
+	// Experimental.
 	PassthroughBehavior_WHEN_NO_TEMPLATES PassthroughBehavior = "WHEN_NO_TEMPLATES"
 )
 

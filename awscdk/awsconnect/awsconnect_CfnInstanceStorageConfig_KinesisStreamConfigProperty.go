@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Configuration information of a Kinesis data stream.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsconnect
 //   }
 //
 type CfnInstanceStorageConfig_KinesisStreamConfigProperty struct {
-	// `CfnInstanceStorageConfig.KinesisStreamConfigProperty.StreamArn`.
+	// The Amazon Resource Name (ARN) of the data stream.
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 }
 

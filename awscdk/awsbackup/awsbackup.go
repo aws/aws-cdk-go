@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.BackupPlan",
+		"monocdk.aws_backup.BackupPlan",
 		reflect.TypeOf((*BackupPlan)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addRule", GoMethod: "AddRule"},
@@ -22,9 +22,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "versionId", GoGetter: "VersionId"},
 		},
 		func() interface{} {
@@ -35,15 +41,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupPlanCopyActionProps",
-		reflect.TypeOf((*BackupPlanCopyActionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupPlanProps",
+		"monocdk.aws_backup.BackupPlanProps",
 		reflect.TypeOf((*BackupPlanProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		reflect.TypeOf((*BackupPlanRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
@@ -53,11 +55,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupPlanRuleProps",
+		"monocdk.aws_backup.BackupPlanRuleProps",
 		reflect.TypeOf((*BackupPlanRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.BackupResource",
+		"monocdk.aws_backup.BackupResource",
 		reflect.TypeOf((*BackupResource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "construct", GoGetter: "Construct"},
@@ -69,7 +71,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.BackupSelection",
+		"monocdk.aws_backup.BackupSelection",
 		reflect.TypeOf((*BackupSelection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -80,10 +82,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "selectionId", GoGetter: "SelectionId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BackupSelection{}
@@ -93,15 +101,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupSelectionOptions",
+		"monocdk.aws_backup.BackupSelectionOptions",
 		reflect.TypeOf((*BackupSelectionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupSelectionProps",
+		"monocdk.aws_backup.BackupSelectionProps",
 		reflect.TypeOf((*BackupSelectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.BackupVault",
+		"monocdk.aws_backup.BackupVault",
 		reflect.TypeOf((*BackupVault)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAccessPolicy", GoMethod: "AddToAccessPolicy"},
@@ -115,9 +123,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BackupVault{}
@@ -127,7 +141,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_backup.BackupVaultEvents",
+		"monocdk.aws_backup.BackupVaultEvents",
 		reflect.TypeOf((*BackupVaultEvents)(nil)).Elem(),
 		map[string]interface{}{
 			"BACKUP_JOB_STARTED": BackupVaultEvents_BACKUP_JOB_STARTED,
@@ -145,16 +159,14 @@ func init() {
 			"RECOVERY_POINT_MODIFIED": BackupVaultEvents_RECOVERY_POINT_MODIFIED,
 			"BACKUP_PLAN_CREATED": BackupVaultEvents_BACKUP_PLAN_CREATED,
 			"BACKUP_PLAN_MODIFIED": BackupVaultEvents_BACKUP_PLAN_MODIFIED,
-			"S3_BACKUP_OBJECT_FAILED": BackupVaultEvents_S3_BACKUP_OBJECT_FAILED,
-			"S3_RESTORE_OBJECT_FAILED": BackupVaultEvents_S3_RESTORE_OBJECT_FAILED,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.BackupVaultProps",
+		"monocdk.aws_backup.BackupVaultProps",
 		reflect.TypeOf((*BackupVaultProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan",
+		"monocdk.aws_backup.CfnBackupPlan",
 		reflect.TypeOf((*CfnBackupPlan)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -178,14 +190,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -196,31 +213,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan.AdvancedBackupSettingResourceTypeProperty",
+		"monocdk.aws_backup.CfnBackupPlan.AdvancedBackupSettingResourceTypeProperty",
 		reflect.TypeOf((*CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan.BackupPlanResourceTypeProperty",
+		"monocdk.aws_backup.CfnBackupPlan.BackupPlanResourceTypeProperty",
 		reflect.TypeOf((*CfnBackupPlan_BackupPlanResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan.BackupRuleResourceTypeProperty",
+		"monocdk.aws_backup.CfnBackupPlan.BackupRuleResourceTypeProperty",
 		reflect.TypeOf((*CfnBackupPlan_BackupRuleResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan.CopyActionResourceTypeProperty",
+		"monocdk.aws_backup.CfnBackupPlan.CopyActionResourceTypeProperty",
 		reflect.TypeOf((*CfnBackupPlan_CopyActionResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupPlan.LifecycleResourceTypeProperty",
+		"monocdk.aws_backup.CfnBackupPlan.LifecycleResourceTypeProperty",
 		reflect.TypeOf((*CfnBackupPlan_LifecycleResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupPlanProps",
+		"monocdk.aws_backup.CfnBackupPlanProps",
 		reflect.TypeOf((*CfnBackupPlanProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.CfnBackupSelection",
+		"monocdk.aws_backup.CfnBackupSelection",
 		reflect.TypeOf((*CfnBackupSelection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -244,14 +261,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -262,27 +284,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupSelection.BackupSelectionResourceTypeProperty",
+		"monocdk.aws_backup.CfnBackupSelection.BackupSelectionResourceTypeProperty",
 		reflect.TypeOf((*CfnBackupSelection_BackupSelectionResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupSelection.ConditionParameterProperty",
+		"monocdk.aws_backup.CfnBackupSelection.ConditionParameterProperty",
 		reflect.TypeOf((*CfnBackupSelection_ConditionParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupSelection.ConditionResourceTypeProperty",
+		"monocdk.aws_backup.CfnBackupSelection.ConditionResourceTypeProperty",
 		reflect.TypeOf((*CfnBackupSelection_ConditionResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupSelection.ConditionsProperty",
+		"monocdk.aws_backup.CfnBackupSelection.ConditionsProperty",
 		reflect.TypeOf((*CfnBackupSelection_ConditionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupSelectionProps",
+		"monocdk.aws_backup.CfnBackupSelectionProps",
 		reflect.TypeOf((*CfnBackupSelectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.CfnBackupVault",
+		"monocdk.aws_backup.CfnBackupVault",
 		reflect.TypeOf((*CfnBackupVault)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessPolicy", GoGetter: "AccessPolicy"},
@@ -309,14 +331,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notifications", GoGetter: "Notifications"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -327,19 +354,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupVault.LockConfigurationTypeProperty",
+		"monocdk.aws_backup.CfnBackupVault.LockConfigurationTypeProperty",
 		reflect.TypeOf((*CfnBackupVault_LockConfigurationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupVault.NotificationObjectTypeProperty",
+		"monocdk.aws_backup.CfnBackupVault.NotificationObjectTypeProperty",
 		reflect.TypeOf((*CfnBackupVault_NotificationObjectTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnBackupVaultProps",
+		"monocdk.aws_backup.CfnBackupVaultProps",
 		reflect.TypeOf((*CfnBackupVaultProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.CfnFramework",
+		"monocdk.aws_backup.CfnFramework",
 		reflect.TypeOf((*CfnFramework)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -366,14 +393,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -384,23 +416,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnFramework.ControlInputParameterProperty",
+		"monocdk.aws_backup.CfnFramework.ControlInputParameterProperty",
 		reflect.TypeOf((*CfnFramework_ControlInputParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnFramework.ControlScopeProperty",
+		"monocdk.aws_backup.CfnFramework.ControlScopeProperty",
 		reflect.TypeOf((*CfnFramework_ControlScopeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnFramework.FrameworkControlProperty",
+		"monocdk.aws_backup.CfnFramework.FrameworkControlProperty",
 		reflect.TypeOf((*CfnFramework_FrameworkControlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnFrameworkProps",
+		"monocdk.aws_backup.CfnFrameworkProps",
 		reflect.TypeOf((*CfnFrameworkProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_backup.CfnReportPlan",
+		"monocdk.aws_backup.CfnReportPlan",
 		reflect.TypeOf((*CfnReportPlan)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -420,7 +452,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "reportDeliveryChannel", GoGetter: "ReportDeliveryChannel"},
@@ -430,9 +466,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "reportSetting", GoGetter: "ReportSetting"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -443,19 +480,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnReportPlan.ReportDeliveryChannelProperty",
+		"monocdk.aws_backup.CfnReportPlan.ReportDeliveryChannelProperty",
 		reflect.TypeOf((*CfnReportPlan_ReportDeliveryChannelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnReportPlan.ReportSettingProperty",
+		"monocdk.aws_backup.CfnReportPlan.ReportSettingProperty",
 		reflect.TypeOf((*CfnReportPlan_ReportSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.CfnReportPlanProps",
+		"monocdk.aws_backup.CfnReportPlanProps",
 		reflect.TypeOf((*CfnReportPlanProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IBackupPlan",
+		"monocdk.aws_backup.IBackupPlan",
 		reflect.TypeOf((*IBackupPlan)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -471,7 +508,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_backup.IBackupVault",
+		"monocdk.aws_backup.IBackupVault",
 		reflect.TypeOf((*IBackupVault)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -489,15 +526,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.LockConfiguration",
-		reflect.TypeOf((*LockConfiguration)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_backup.TagCondition",
+		"monocdk.aws_backup.TagCondition",
 		reflect.TypeOf((*TagCondition)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_backup.TagOperation",
+		"monocdk.aws_backup.TagOperation",
 		reflect.TypeOf((*TagOperation)(nil)).Elem(),
 		map[string]interface{}{
 			"STRING_EQUALS": TagOperation_STRING_EQUALS,

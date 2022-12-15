@@ -49,9 +49,9 @@ type CfnDBProxyProps struct {
 	DbProxyName *string `field:"required" json:"dbProxyName" yaml:"dbProxyName"`
 	// The kinds of databases that the proxy can connect to.
 	//
-	// This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora.
+	// This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL` . For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL` . For RDS for Microsoft SQL Server, specify `SQLSERVER` .
 	//
-	// *Valid values* : `MYSQL` | `POSTGRESQL`.
+	// *Valid values* : `MYSQL` | `POSTGRESQL` | `SQLSERVER`.
 	EngineFamily *string `field:"required" json:"engineFamily" yaml:"engineFamily"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

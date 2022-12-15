@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateInspectParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateSetCloudFrontOrigi
 	return nil
 }
 
-func validateNewCfnCloudFrontOriginAccessIdentityParameters(scope constructs.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) error {
+func validateNewCfnCloudFrontOriginAccessIdentityParameters(scope awscdk.Construct, id *string, props *CfnCloudFrontOriginAccessIdentityProps) error {
 	return nil
 }
 

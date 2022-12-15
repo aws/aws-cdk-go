@@ -56,7 +56,7 @@ type CfnAssociationProps struct {
 	//
 	// For example: `arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document`
 	//
-	// For AWS -predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, AWS -ApplyPatchBaseline or My-Document.
+	// For AWS -predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, `AWS -ApplyPatchBaseline` or `My-Document` .
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified.
 	//

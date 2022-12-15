@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateInspectParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateSetUserPoolIdPa
 	return nil
 }
 
-func validateNewCfnUserPoolUICustomizationAttachmentParameters(scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) error {
+func validateNewCfnUserPoolUICustomizationAttachmentParameters(scope awscdk.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) error {
 	return nil
 }
 

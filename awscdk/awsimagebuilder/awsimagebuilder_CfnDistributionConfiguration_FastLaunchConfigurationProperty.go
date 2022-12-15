@@ -1,6 +1,8 @@
 package awsimagebuilder
 
 
+// Define and configure faster launching for output Windows AMIs.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,15 +23,17 @@ package awsimagebuilder
 //   }
 //
 type CfnDistributionConfiguration_FastLaunchConfigurationProperty struct {
-	// `CfnDistributionConfiguration.FastLaunchConfigurationProperty.AccountId`.
+	// The owner account ID for the fast-launch enabled Windows AMI.
 	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
-	// `CfnDistributionConfiguration.FastLaunchConfigurationProperty.Enabled`.
+	// A Boolean that represents the current state of faster launching for the Windows AMI.
+	//
+	// Set to `true` to start using Windows faster launching, or `false` to stop using it.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// `CfnDistributionConfiguration.FastLaunchConfigurationProperty.LaunchTemplate`.
+	// The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
 	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
-	// `CfnDistributionConfiguration.FastLaunchConfigurationProperty.MaxParallelLaunches`.
+	// The maximum number of parallel instances that are launched for creating resources.
 	MaxParallelLaunches *float64 `field:"optional" json:"maxParallelLaunches" yaml:"maxParallelLaunches"`
-	// `CfnDistributionConfiguration.FastLaunchConfigurationProperty.SnapshotConfiguration`.
+	// Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
 	SnapshotConfiguration interface{} `field:"optional" json:"snapshotConfiguration" yaml:"snapshotConfiguration"`
 }
 

@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnSizeConstraintSet) validateInspectParameters(inspector aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnSizeConstraintSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSizeConstraintSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSizeConstraintSet) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSizeConstraintSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -76,7 +84,7 @@ func (j *jsiiProxy_CfnSizeConstraintSet) validateSetSizeConstraintsParameters(va
 	return nil
 }
 
-func validateNewCfnSizeConstraintSetParameters(scope constructs.Construct, id *string, props *CfnSizeConstraintSetProps) error {
+func validateNewCfnSizeConstraintSetParameters(scope awscdk.Construct, id *string, props *CfnSizeConstraintSetProps) error {
 	return nil
 }
 

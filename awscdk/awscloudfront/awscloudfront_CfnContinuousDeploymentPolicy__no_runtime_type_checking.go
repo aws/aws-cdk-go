@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateInspectParameters(insp
 	return nil
 }
 
+func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnContinuousDeploymentPolicy) validateSetContinuousDeploymen
 	return nil
 }
 
-func validateNewCfnContinuousDeploymentPolicyParameters(scope constructs.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) error {
+func validateNewCfnContinuousDeploymentPolicyParameters(scope awscdk.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) error {
 	return nil
 }
 

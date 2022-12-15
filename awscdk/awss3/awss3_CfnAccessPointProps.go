@@ -34,7 +34,7 @@ package awss3
 type CfnAccessPointProps struct {
 	// The name of the bucket associated with this access point.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `AWS::S3::AccessPoint.BucketAccountId`.
+	// The AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `field:"optional" json:"bucketAccountId" yaml:"bucketAccountId"`
 	// The name of this access point.
 	//

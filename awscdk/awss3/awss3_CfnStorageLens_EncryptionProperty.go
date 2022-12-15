@@ -1,7 +1,7 @@
 package awss3
 
 
-// This resource contains the type of server-side encryption used for Amazon S3 Storage Lens.
+// This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export.
 //
 // For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
 //
@@ -20,9 +20,9 @@ package awss3
 //   }
 //
 type CfnStorageLens_EncryptionProperty struct {
-	// `CfnStorageLens.EncryptionProperty.SSEKMS`.
+	// Specifies the use of AWS Key Management Service keys (SSE-KMS) to encrypt the S3 Storage Lens metrics export file.
 	Ssekms interface{} `field:"optional" json:"ssekms" yaml:"ssekms"`
-	// `CfnStorageLens.EncryptionProperty.SSES3`.
+	// Specifies the use of an Amazon S3-managed key (SSE-S3) to encrypt the S3 Storage Lens metrics export file.
 	Sses3 interface{} `field:"optional" json:"sses3" yaml:"sses3"`
 }
 

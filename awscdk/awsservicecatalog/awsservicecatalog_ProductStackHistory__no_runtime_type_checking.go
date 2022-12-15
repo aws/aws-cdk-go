@@ -4,6 +4,14 @@ package awsservicecatalog
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (p *jsiiProxy_ProductStackHistory) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProductStackHistory) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (p *jsiiProxy_ProductStackHistory) validateVersionFromSnapshotParameters(productVersionName *string) error {
 	return nil
 }

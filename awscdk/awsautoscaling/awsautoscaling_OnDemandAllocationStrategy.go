@@ -2,6 +2,7 @@ package awsautoscaling
 
 
 // Indicates how to allocate instance types to fulfill On-Demand capacity.
+// Experimental.
 type OnDemandAllocationStrategy string
 
 const (
@@ -11,6 +12,7 @@ const (
 	// last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then
 	// the Auto Scaling group launches the remaining capacity using the second priority instance type, and
 	// so on.
+	// Experimental.
 	OnDemandAllocationStrategy_PRIORITIZED OnDemandAllocationStrategy = "PRIORITIZED"
 )
 

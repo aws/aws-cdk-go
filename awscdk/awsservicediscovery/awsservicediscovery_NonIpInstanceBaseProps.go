@@ -9,7 +9,7 @@ package awsservicediscovery
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 //
 //   namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &httpNamespaceProps{
-//   	name: jsii.String("MyHTTPNamespace"),
+//   	name: jsii.String("covfefe"),
 //   })
 //
 //   service1 := namespace.createService(jsii.String("NonIpService"), &baseServiceProps{
@@ -36,10 +36,13 @@ package awsservicediscovery
 //
 //   app.synth()
 //
+// Experimental.
 type NonIpInstanceBaseProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 }
 

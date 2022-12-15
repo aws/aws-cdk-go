@@ -1,7 +1,9 @@
 package awsdlm
 
 
-// Specifies a rule for cross-Region snapshot copies.
+// *[Snapshot and AMI policies only]* Specifies a cross-Region copy rule for snapshot and AMI policies.
+//
+// > To specify a cross-Region copy action for event-based polices, use `CrossRegionCopyAction` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,21 +37,21 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	//
 	// If this parameter is not specified, the default KMS key for the account is used.
 	CmkArn *string `field:"optional" json:"cmkArn" yaml:"cmkArn"`
-	// Indicates whether to copy all user-defined tags from the source snapshot to the cross-Region snapshot copy.
+	// Indicates whether to copy all user-defined tags from the source snapshot or AMI to the cross-Region copy.
 	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
-	// The AMI deprecation rule for cross-Region AMI copies created by the rule.
+	// *[AMI policies only]* The AMI deprecation rule for cross-Region AMI copies created by the rule.
 	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`
-	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region.
+	// The retention rule that indicates how long the cross-Region snapshot or AMI copies are to be retained in the destination Region.
 	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`
 	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	//
 	// Use this parameter instead of *TargetRegion* . Do not specify both.
 	Target *string `field:"optional" json:"target" yaml:"target"`
-	// Avoid using this parameter when creating new policies.
+	// > Avoid using this parameter when creating new policies.
 	//
 	// Instead, use *Target* to specify a target Region or a target Outpost for snapshot copies.
-	//
-	// For policies created before the *Target* parameter was introduced, this parameter indicates the target Region for snapshot copies.
+	// >
+	// > For policies created before the *Target* parameter was introduced, this parameter indicates the target Region for snapshot copies.
 	TargetRegion *string `field:"optional" json:"targetRegion" yaml:"targetRegion"`
 }
 

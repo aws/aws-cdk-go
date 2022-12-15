@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 func (b *jsiiProxy_BatchJob) validateBindParameters(rule awsevents.IRule) error {
@@ -19,7 +19,7 @@ func (b *jsiiProxy_BatchJob) validateBindParameters(rule awsevents.IRule) error 
 	return nil
 }
 
-func validateNewBatchJobParameters(jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDefinitionArn *string, jobDefinitionScope constructs.IConstruct, props *BatchJobProps) error {
+func validateNewBatchJobParameters(jobQueueArn *string, jobQueueScope awscdk.IConstruct, jobDefinitionArn *string, jobDefinitionScope awscdk.IConstruct, props *BatchJobProps) error {
 	if jobQueueArn == nil {
 		return fmt.Errorf("parameter jobQueueArn is required, but nil was provided")
 	}

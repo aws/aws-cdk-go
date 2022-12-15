@@ -1,12 +1,12 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::EC2::FlowLog`.
@@ -51,17 +51,20 @@ type CfnFlowLog interface {
 	// For example, `fl-123456abc123abc1` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
+	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
 	//
-	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
+	// This parameter is required if the destination type is `cloud-watch-logs` and unsupported otherwise.
 	DeliverLogsPermissionArn() *string
 	SetDeliverLogsPermissionArn(val *string)
 	// The destination options. The following options are supported:.
@@ -71,34 +74,38 @@ type CfnFlowLog interface {
 	// - `PerHourPartition` - Indicates whether to partition the flow log per hour ( `true` | `false` ). The default is `false` .
 	DestinationOptions() interface{}
 	SetDestinationOptions(val interface{})
-	// The destination to which the flow log data is to be published.
+	// The destination for the flow log data. The meaning of this parameter depends on the destination type.
 	//
-	// Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for `LogDestinationType` .
+	// - If the destination type is `cloud-watch-logs` , specify the ARN of a CloudWatch Logs log group. For example:
 	//
-	// If `LogDestinationType` is not specified or `cloud-watch-logs` , specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example, to publish to a log group called `my-logs` , specify `arn:aws:logs:us-east-1:123456789012:log-group:my-logs` . Alternatively, use `LogGroupName` instead.
+	// arn:aws:logs: *region* : *account_id* :log-group: *my_group*
 	//
-	// If LogDestinationType is `s3` , specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: `bucket_ARN/subfolder_name/` . For example, to specify a subfolder named `my-logs` in a bucket named `my-bucket` , use the following ARN: `arn:aws:s3:::my-bucket/my-logs/` . You cannot use `AWSLogs` as a subfolder name. This is a reserved term.
+	// Alternatively, use the `LogGroupName` parameter.
+	// - If the destination type is `s3` , specify the ARN of an S3 bucket. For example:
+	//
+	// arn:aws:s3::: *my_bucket* / *my_subfolder* /
+	//
+	// The subfolder is optional. Note that you can't use `AWSLogs` as a subfolder name.
+	// - If the destination type is `kinesis-data-firehose` , specify the ARN of a Kinesis Data Firehose delivery stream. For example:
+	//
+	// arn:aws:firehose: *region* : *account_id* :deliverystream: *my_stream*.
 	LogDestination() *string
 	SetLogDestination(val *string)
-	// The type of destination to which the flow log data is to be published.
-	//
-	// Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify `cloud-watch-logs` . To publish flow log data to Amazon S3, specify `s3` .
-	//
-	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
+	// The type of destination for the flow log data.
 	//
 	// Default: `cloud-watch-logs`.
 	LogDestinationType() *string
 	SetLogDestinationType(val *string)
 	// The fields to include in the flow log record, in the order in which they should appear.
 	//
-	// For a list of available fields, see [Flow Log Records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) . If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.
+	// If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) in the *Amazon VPC User Guide* or [Transit Gateway Flow Log records](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records) in the *AWS Transit Gateway Guide* .
 	//
 	// Specify the fields using the `${field-id}` format, separated by spaces.
 	LogFormat() *string
 	SetLogFormat(val *string)
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.
 	//
-	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
+	// This parameter is valid only if the destination type is `cloud-watch-logs` .
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -110,61 +117,60 @@ type CfnFlowLog interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
 	//
-	// You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
+	// The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes). This parameter must be 60 seconds for transit gateway resource types.
 	//
 	// When a network interface is attached to a [Nitro-based instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) , the aggregation interval is always 60 seconds or less, regardless of the value that you specify.
 	//
 	// Default: 600.
 	MaxAggregationInterval() *float64
 	SetMaxAggregationInterval(val *float64)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
-	// The ID of the subnet, network interface, or VPC for which you want to create a flow log.
+	// The ID of the resource to monitor.
+	//
+	// For example, if the resource type is `VPC` , specify the ID of the VPC.
 	ResourceId() *string
 	SetResourceId(val *string)
-	// The type of resource for which to create the flow log.
-	//
-	// For example, if you specified a VPC ID for the `ResourceId` property, specify `VPC` for this property.
+	// The type of resource to monitor.
 	ResourceType() *string
 	SetResourceType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The tags to apply to the flow logs.
 	Tags() awscdk.TagManager
-	// The type of traffic to log.
+	// The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).
 	//
-	// You can log traffic that the resource accepts or rejects, or all traffic.
+	// This parameter is not supported for transit gateway resource types. It is required for the other resource types.
 	TrafficType() *string
 	SetTrafficType(val *string)
-	// Deprecated.
-	// Deprecated: use `updatedProperties`
-	//
-	// Return properties modified after initiation
-	//
-	// Resources that expose mutable properties should override this function to
-	// collect and return the properties object for this resource.
-	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	UpdatedProperties() *map[string]interface{}
+	// Experimental.
+	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -173,6 +179,7 @@ type CfnFlowLog interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -217,12 +224,15 @@ type CfnFlowLog interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -232,18 +242,15 @@ type CfnFlowLog interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
+	// Experimental.
+	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -251,21 +258,74 @@ type CfnFlowLog interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -405,8 +465,8 @@ func (j *jsiiProxy_CfnFlowLog) MaxAggregationInterval() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowLog) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFlowLog) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -485,19 +545,9 @@ func (j *jsiiProxy_CfnFlowLog) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowLog) UpdatedProperties() *map[string]interface{} {
-	var returns *map[string]interface{}
-	_jsii_.Get(
-		j,
-		"updatedProperties",
-		&returns,
-	)
-	return returns
-}
-
 
 // Create a new `AWS::EC2::FlowLog`.
-func NewCfnFlowLog(scope constructs.Construct, id *string, props *CfnFlowLogProps) CfnFlowLog {
+func NewCfnFlowLog(scope awscdk.Construct, id *string, props *CfnFlowLogProps) CfnFlowLog {
 	_init_.Initialize()
 
 	if err := validateNewCfnFlowLogParameters(scope, id, props); err != nil {
@@ -506,7 +556,7 @@ func NewCfnFlowLog(scope constructs.Construct, id *string, props *CfnFlowLogProp
 	j := jsiiProxy_CfnFlowLog{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
+		"monocdk.aws_ec2.CfnFlowLog",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -515,11 +565,11 @@ func NewCfnFlowLog(scope constructs.Construct, id *string, props *CfnFlowLogProp
 }
 
 // Create a new `AWS::EC2::FlowLog`.
-func NewCfnFlowLog_Override(c CfnFlowLog, scope constructs.Construct, id *string, props *CfnFlowLogProps) {
+func NewCfnFlowLog_Override(c CfnFlowLog, scope awscdk.Construct, id *string, props *CfnFlowLogProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
+		"monocdk.aws_ec2.CfnFlowLog",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -620,6 +670,7 @@ func (j *jsiiProxy_CfnFlowLog)SetTrafficType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFlowLog_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -629,7 +680,7 @@ func CfnFlowLog_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
+		"monocdk.aws_ec2.CfnFlowLog",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -639,6 +690,7 @@ func CfnFlowLog_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFlowLog_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -648,7 +700,7 @@ func CfnFlowLog_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
+		"monocdk.aws_ec2.CfnFlowLog",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -657,23 +709,8 @@ func CfnFlowLog_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFlowLog_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -683,7 +720,7 @@ func CfnFlowLog_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
+		"monocdk.aws_ec2.CfnFlowLog",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -696,7 +733,7 @@ func CfnFlowLog_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
+		"monocdk.aws_ec2.CfnFlowLog",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -780,7 +817,7 @@ func (c *jsiiProxy_CfnFlowLog) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 	)
 }
 
-func (c *jsiiProxy_CfnFlowLog) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
+func (c *jsiiProxy_CfnFlowLog) GetAtt(attributeName *string) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -789,7 +826,7 @@ func (c *jsiiProxy_CfnFlowLog) GetAtt(attributeName *string, typeHint awscdk.Res
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName, typeHint},
+		[]interface{}{attributeName},
 		&returns,
 	)
 
@@ -823,6 +860,38 @@ func (c *jsiiProxy_CfnFlowLog) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnFlowLog) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnFlowLog) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnFlowLog) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnFlowLog) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -831,6 +900,14 @@ func (c *jsiiProxy_CfnFlowLog) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnFlowLog) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -863,12 +940,36 @@ func (c *jsiiProxy_CfnFlowLog) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnFlowLog) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnFlowLog) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnFlowLog) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

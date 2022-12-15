@@ -52,13 +52,13 @@ package awss3
 type CfnStorageLens_AccountLevelProperty struct {
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
 	BucketLevel interface{} `field:"required" json:"bucketLevel" yaml:"bucketLevel"`
-	// This property contains the details of the account-level activity metrics for Amazon S3 Storage Lens.
+	// This property contains the details of account-level activity metrics for S3 Storage Lens.
 	ActivityMetrics interface{} `field:"optional" json:"activityMetrics" yaml:"activityMetrics"`
-	// `CfnStorageLens.AccountLevelProperty.AdvancedCostOptimizationMetrics`.
+	// This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
 	AdvancedCostOptimizationMetrics interface{} `field:"optional" json:"advancedCostOptimizationMetrics" yaml:"advancedCostOptimizationMetrics"`
-	// `CfnStorageLens.AccountLevelProperty.AdvancedDataProtectionMetrics`.
+	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
-	// `CfnStorageLens.AccountLevelProperty.DetailedStatusCodesMetrics`.
+	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics interface{} `field:"optional" json:"detailedStatusCodesMetrics" yaml:"detailedStatusCodesMetrics"`
 }
 

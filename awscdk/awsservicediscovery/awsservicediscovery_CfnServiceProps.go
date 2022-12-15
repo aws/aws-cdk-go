@@ -1,7 +1,7 @@
 package awsservicediscovery
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnService`.
@@ -50,6 +50,8 @@ type CfnServiceProps struct {
 	// The description of the service.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+	//
+	// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
 	DnsConfig interface{} `field:"optional" json:"dnsConfig" yaml:"dnsConfig"`
 	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
 	//

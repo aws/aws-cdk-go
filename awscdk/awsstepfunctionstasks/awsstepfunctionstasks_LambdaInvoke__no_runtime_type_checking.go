@@ -84,6 +84,14 @@ func (l *jsiiProxy_LambdaInvoke) validateNextParameters(next awsstepfunctions.IC
 	return nil
 }
 
+func (l *jsiiProxy_LambdaInvoke) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (l *jsiiProxy_LambdaInvoke) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (l *jsiiProxy_LambdaInvoke) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

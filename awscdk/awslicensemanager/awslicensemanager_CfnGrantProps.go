@@ -30,7 +30,13 @@ type CfnGrantProps struct {
 	HomeRegion *string `field:"optional" json:"homeRegion" yaml:"homeRegion"`
 	// License ARN.
 	LicenseArn *string `field:"optional" json:"licenseArn" yaml:"licenseArn"`
-	// The grant principals.
+	// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):.
+	//
+	// - An AWS account, which includes only the account specified.
+	//
+	// - An organizational unit (OU), which includes all accounts in the OU.
+	//
+	// - An organization, which will include all accounts across your organization.
 	Principals *[]*string `field:"optional" json:"principals" yaml:"principals"`
 	// Granted license status.
 	Status *string `field:"optional" json:"status" yaml:"status"`

@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -42,6 +42,22 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) validateGetResourceNameAttributeP
 	return nil
 }
 
+func (c *jsiiProxy_CognitoUserPoolsAuthorizer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CognitoUserPoolsAuthorizer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCognitoUserPoolsAuthorizer_IsAuthorizerParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -58,15 +74,7 @@ func validateCognitoUserPoolsAuthorizer_IsConstructParameters(x interface{}) err
 	return nil
 }
 
-func validateCognitoUserPoolsAuthorizer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCognitoUserPoolsAuthorizer_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCognitoUserPoolsAuthorizer_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

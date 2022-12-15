@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (u *jsiiProxy_UserPoolIdentityProviderApple) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -42,6 +42,22 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) validateGetResourceNameAttribu
 	return nil
 }
 
+func (u *jsiiProxy_UserPoolIdentityProviderApple) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderApple) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateUserPoolIdentityProviderApple_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -50,15 +66,7 @@ func validateUserPoolIdentityProviderApple_IsConstructParameters(x interface{}) 
 	return nil
 }
 
-func validateUserPoolIdentityProviderApple_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateUserPoolIdentityProviderApple_IsResourceParameters(construct constructs.IConstruct) error {
+func validateUserPoolIdentityProviderApple_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

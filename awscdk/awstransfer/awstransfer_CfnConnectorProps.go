@@ -1,7 +1,7 @@
 package awstransfer
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnConnector`.
@@ -36,15 +36,19 @@ import (
 //   }
 //
 type CfnConnectorProps struct {
-	// `AWS::Transfer::Connector.AccessRole`.
+	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
+	//
+	// We use the file’s parent directory (for example, for `--send-file-paths /bucket/dir/file.txt` , parent directory is `/bucket/dir/` ) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the `AccessRole` needs to provide read and write access to the parent directory of the file location used in the `StartFileTransfer` request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with `StartFileTransfer` .
 	AccessRole *string `field:"required" json:"accessRole" yaml:"accessRole"`
-	// `AWS::Transfer::Connector.As2Config`.
+	// A structure that contains the parameters for a connector object.
 	As2Config interface{} `field:"required" json:"as2Config" yaml:"as2Config"`
-	// `AWS::Transfer::Connector.Url`.
+	// The URL of the partner's AS2 endpoint.
 	Url *string `field:"required" json:"url" yaml:"url"`
-	// `AWS::Transfer::Connector.LoggingRole`.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
+	//
+	// When set, you can view connector activity in your CloudWatch logs.
 	LoggingRole *string `field:"optional" json:"loggingRole" yaml:"loggingRole"`
-	// `AWS::Transfer::Connector.Tags`.
+	// Key-value pairs that can be used to group and search for connectors.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

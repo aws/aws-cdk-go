@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,8 +13,10 @@ import (
 //   	defaultCapacityType: eks.defaultCapacityType_EC2,
 //   })
 //
+// Experimental.
 type KubernetesVersion interface {
 	// cluster version number.
+	// Experimental.
 	Version() *string
 }
 
@@ -35,6 +37,7 @@ func (j *jsiiProxy_KubernetesVersion) Version() *string {
 
 
 // Custom cluster version.
+// Experimental.
 func KubernetesVersion_Of(version *string) KubernetesVersion {
 	_init_.Initialize()
 
@@ -44,7 +47,7 @@ func KubernetesVersion_Of(version *string) KubernetesVersion {
 	var returns KubernetesVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -57,7 +60,7 @@ func KubernetesVersion_V1_14() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_14",
 		&returns,
 	)
@@ -68,7 +71,7 @@ func KubernetesVersion_V1_15() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_15",
 		&returns,
 	)
@@ -79,7 +82,7 @@ func KubernetesVersion_V1_16() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_16",
 		&returns,
 	)
@@ -90,7 +93,7 @@ func KubernetesVersion_V1_17() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_17",
 		&returns,
 	)
@@ -101,7 +104,7 @@ func KubernetesVersion_V1_18() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_18",
 		&returns,
 	)
@@ -112,7 +115,7 @@ func KubernetesVersion_V1_19() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_19",
 		&returns,
 	)
@@ -123,7 +126,7 @@ func KubernetesVersion_V1_20() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_20",
 		&returns,
 	)
@@ -134,41 +137,8 @@ func KubernetesVersion_V1_21() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_21",
-		&returns,
-	)
-	return returns
-}
-
-func KubernetesVersion_V1_22() KubernetesVersion {
-	_init_.Initialize()
-	var returns KubernetesVersion
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
-		"V1_22",
-		&returns,
-	)
-	return returns
-}
-
-func KubernetesVersion_V1_23() KubernetesVersion {
-	_init_.Initialize()
-	var returns KubernetesVersion
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
-		"V1_23",
-		&returns,
-	)
-	return returns
-}
-
-func KubernetesVersion_V1_24() KubernetesVersion {
-	_init_.Initialize()
-	var returns KubernetesVersion
-	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
-		"V1_24",
 		&returns,
 	)
 	return returns

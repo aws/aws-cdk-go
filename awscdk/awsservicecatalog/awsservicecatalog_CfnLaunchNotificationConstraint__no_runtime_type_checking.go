@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateInspectParameters(in
 	return nil
 }
 
+func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +88,7 @@ func (j *jsiiProxy_CfnLaunchNotificationConstraint) validateSetProductIdParamete
 	return nil
 }
 
-func validateNewCfnLaunchNotificationConstraintParameters(scope constructs.Construct, id *string, props *CfnLaunchNotificationConstraintProps) error {
+func validateNewCfnLaunchNotificationConstraintParameters(scope awscdk.Construct, id *string, props *CfnLaunchNotificationConstraintProps) error {
 	return nil
 }
 

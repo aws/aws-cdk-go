@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnDomainName) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,6 +103,14 @@ func (c *jsiiProxy_CfnDomainName) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
+func (c *jsiiProxy_CfnDomainName) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnDomainName) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -114,6 +122,14 @@ func (c *jsiiProxy_CfnDomainName) validateOverrideLogicalIdParameters(newLogical
 func (c *jsiiProxy_CfnDomainName) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnDomainName) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -199,7 +215,7 @@ func (j *jsiiProxy_CfnDomainName) validateSetMutualTlsAuthenticationParameters(v
 	return nil
 }
 
-func validateNewCfnDomainNameParameters(scope constructs.Construct, id *string, props *CfnDomainNameProps) error {
+func validateNewCfnDomainNameParameters(scope awscdk.Construct, id *string, props *CfnDomainNameProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

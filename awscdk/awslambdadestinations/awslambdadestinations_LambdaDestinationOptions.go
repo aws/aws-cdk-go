@@ -18,6 +18,7 @@ package awslambdadestinations
 //   	}),
 //   })
 //
+// Experimental.
 type LambdaDestinationOptions struct {
 	// Whether the destination function receives only the `responsePayload` of the source function.
 	//
@@ -28,6 +29,7 @@ type LambdaDestinationOptions struct {
 	// function will be invoked with the error object returned by source function.
 	//
 	// See the README of this module to see a full explanation of this option.
+	// Experimental.
 	ResponseOnly *bool `field:"optional" json:"responseOnly" yaml:"responseOnly"`
 }
 

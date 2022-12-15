@@ -19,7 +19,7 @@ package awslakeformation
 type CfnResourceProps struct {
 	// The Amazon Resource Name (ARN) of the resource.
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
-	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog.
+	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog .
 	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`

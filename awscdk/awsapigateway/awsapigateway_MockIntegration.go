@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -18,168 +18,61 @@ import (
 // Gateway responses are other examples of mock integrations.
 //
 // Example:
+//   import path "github.com/aws-samples/dummy/path"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   /**
-//    * This file showcases how to split up a RestApi's Resources and Methods across nested stacks.
-//    *
-//    * The root stack 'RootStack' first defines a RestApi.
-//    * Two nested stacks BooksStack and PetsStack, create corresponding Resources '/books' and '/pets'.
-//    * They are then deployed to a 'prod' Stage via a third nested stack - DeployStack.
-//    *
-//    * To verify this worked, go to the APIGateway
-//    */
+//   // Against the RestApi endpoint from the stack output, run
+//   // `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
+//   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>?allow=yes` should return 403
+//   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>?allow=yes` should return 200
 //
-//   type rootStack struct {
-//   	stack
-//   }
+//   app := awscdk.NewApp()
+//   stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
 //
-//   func newRootStack(scope construct) *rootStack {
-//   	this := &rootStack{}
-//   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
+//   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
+//   	runtime: lambda.runtime_NODEJS_14_X(),
+//   	handler: jsii.String("index.handler"),
+//   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
+//   })
 //
-//   	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
-//   		cloudWatchRole: jsii.Boolean(true),
-//   		deploy: jsii.Boolean(false),
-//   	})
-//   	restApi.root.addMethod(jsii.String("ANY"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
 //
-//   	petsStack := NewPetsStack(this, &resourceNestedStackProps{
-//   		restApiId: restApi.restApiId,
-//   		rootResourceId: restApi.restApiRootResourceId,
-//   	})
-//   	booksStack := NewBooksStack(this, &resourceNestedStackProps{
-//   		restApiId: restApi.restApiId,
-//   		rootResourceId: restApi.restApiRootResourceId,
-//   	})
-//   	NewDeployStack(this, &deployStackProps{
-//   		restApiId: restApi.restApiId,
-//   		methods: petsStack.methods.concat(booksStack.methods),
-//   	})
+//   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
+//   	handler: authorizerFn,
+//   	identitySources: []*string{
+//   		awscdk.IdentitySource.header(jsii.String("Authorization")),
+//   		awscdk.IdentitySource.queryString(jsii.String("allow")),
+//   	},
+//   })
 //
-//   	awscdk.NewCfnOutput(this, jsii.String("PetsURL"), &cfnOutputProps{
-//   		value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/pets", restApi.restApiId, this.region),
-//   	})
-//
-//   	awscdk.NewCfnOutput(this, jsii.String("BooksURL"), &cfnOutputProps{
-//   		value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/books", restApi.restApiId, this.region),
-//   	})
-//   	return this
-//   }
-//
-//   type resourceNestedStackProps struct {
-//   	nestedStackProps
-//   	restApiId *string
-//   	rootResourceId *string
-//   }
-//
-//   type petsStack struct {
-//   	nestedStack
-//   	methods []method
-//   }
-//
-//   func newPetsStack(scope construct, props resourceNestedStackProps) *petsStack {
-//   	this := &petsStack{}
-//   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-PetsStack"), props)
-//
-//   	api := awscdk.RestApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
-//   		restApiId: props.restApiId,
-//   		rootResourceId: props.rootResourceId,
-//   	})
-//
-//   	method := api.root.addResource(jsii.String("pets")).addMethod(jsii.String("GET"), awscdk.NewMockIntegration(&integrationOptions{
-//   		integrationResponses: []integrationResponse{
-//   			&integrationResponse{
-//   				statusCode: jsii.String("200"),
-//   			},
+//   restapi.root.addMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&integrationOptions{
+//   	integrationResponses: []integrationResponse{
+//   		&integrationResponse{
+//   			statusCode: jsii.String("200"),
 //   		},
-//   		passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-//   		requestTemplates: map[string]*string{
-//   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
+//   	},
+//   	passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+//   	requestTemplates: map[string]*string{
+//   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
+//   	},
+//   }), &methodOptions{
+//   	methodResponses: []methodResponse{
+//   		&methodResponse{
+//   			statusCode: jsii.String("200"),
 //   		},
-//   	}), &methodOptions{
-//   		methodResponses: []methodResponse{
-//   			&methodResponse{
-//   				statusCode: jsii.String("200"),
-//   			},
-//   		},
-//   	})
+//   	},
+//   	authorizer: authorizer,
+//   })
 //
-//   	this.methods.push(method)
-//   	return this
-//   }
-//
-//   type booksStack struct {
-//   	nestedStack
-//   	methods []*method
-//   }
-//
-//   func newBooksStack(scope construct, props resourceNestedStackProps) *booksStack {
-//   	this := &booksStack{}
-//   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-BooksStack"), props)
-//
-//   	api := awscdk.RestApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
-//   		restApiId: props.restApiId,
-//   		rootResourceId: props.rootResourceId,
-//   	})
-//
-//   	method := api.root.addResource(jsii.String("books")).addMethod(jsii.String("GET"), awscdk.NewMockIntegration(&integrationOptions{
-//   		integrationResponses: []*integrationResponse{
-//   			&integrationResponse{
-//   				statusCode: jsii.String("200"),
-//   			},
-//   		},
-//   		passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-//   		requestTemplates: map[string]*string{
-//   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
-//   		},
-//   	}), &methodOptions{
-//   		methodResponses: []*methodResponse{
-//   			&methodResponse{
-//   				statusCode: jsii.String("200"),
-//   			},
-//   		},
-//   	})
-//
-//   	this.methods.push(method)
-//   	return this
-//   }
-//
-//   type deployStackProps struct {
-//   	nestedStackProps
-//   	restApiId *string
-//   	methods []*method
-//   }
-//
-//   type deployStack struct {
-//   	nestedStack
-//   }
-//
-//   func newDeployStack(scope construct, props deployStackProps) *deployStack {
-//   	this := &deployStack{}
-//   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-DeployStack"), props)
-//
-//   	deployment := awscdk.NewDeployment(this, jsii.String("Deployment"), &deploymentProps{
-//   		api: awscdk.RestApi.fromRestApiId(this, jsii.String("RestApi"), props.restApiId),
-//   	})
-//   	if *props.methods {
-//   		for _, method := range *props.methods {
-//   			deployment.node.addDependency(method)
-//   		}
-//   	}
-//   	awscdk.NewStage(this, jsii.String("Stage"), &stageProps{
-//   		deployment: deployment,
-//   	})
-//   	return this
-//   }
-//
-//   NewRootStack(awscdk.NewApp())
-//
+// Experimental.
 type MockIntegration interface {
 	Integration
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
+	// Experimental.
 	Bind(_method Method) *IntegrationConfig
 }
 
@@ -188,6 +81,7 @@ type jsiiProxy_MockIntegration struct {
 	jsiiProxy_Integration
 }
 
+// Experimental.
 func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	_init_.Initialize()
 
@@ -197,7 +91,7 @@ func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	j := jsiiProxy_MockIntegration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.MockIntegration",
+		"monocdk.aws_apigateway.MockIntegration",
 		[]interface{}{options},
 		&j,
 	)
@@ -205,11 +99,12 @@ func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	return &j
 }
 
+// Experimental.
 func NewMockIntegration_Override(m MockIntegration, options *IntegrationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.MockIntegration",
+		"monocdk.aws_apigateway.MockIntegration",
 		[]interface{}{options},
 		m,
 	)

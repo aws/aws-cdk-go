@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnGameServerGroup) validateInspectParameters(inspector awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnGameServerGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGameServerGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnGameServerGroup) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGameServerGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +96,7 @@ func (j *jsiiProxy_CfnGameServerGroup) validateSetRoleArnParameters(val *string)
 	return nil
 }
 
-func validateNewCfnGameServerGroupParameters(scope constructs.Construct, id *string, props *CfnGameServerGroupProps) error {
+func validateNewCfnGameServerGroupParameters(scope awscdk.Construct, id *string, props *CfnGameServerGroupProps) error {
 	return nil
 }
 

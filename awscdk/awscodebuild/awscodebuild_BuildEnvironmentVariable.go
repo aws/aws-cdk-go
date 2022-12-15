@@ -2,7 +2,6 @@ package awscodebuild
 
 
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   // later:
 //   var project pipelineProject
 //   sourceOutput := codepipeline.NewArtifact()
@@ -37,6 +36,7 @@ package awscodebuild
 //   	},
 //   })
 //
+// Experimental.
 type BuildEnvironmentVariable struct {
 	// The value of the environment variable.
 	//
@@ -46,8 +46,10 @@ type BuildEnvironmentVariable struct {
 	// or the secret ARN (`secretArn` property of `ISecret`) here,
 	// along with optional SecretsManager qualifiers separated by ':', like the JSON key, or the version or stage
 	// (see https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager for details).
+	// Experimental.
 	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The type of environment variable.
+	// Experimental.
 	Type BuildEnvironmentVariableType `field:"optional" json:"type" yaml:"type"`
 }
 

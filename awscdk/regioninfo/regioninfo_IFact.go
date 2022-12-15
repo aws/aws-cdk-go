@@ -5,14 +5,18 @@ import (
 )
 
 // A fact that can be registered about a particular region.
+// Experimental.
 type IFact interface {
 	// The name of this fact.
 	//
 	// Standardized values are provided by the `Facts` class.
+	// Experimental.
 	Name() *string
 	// The region for which this fact applies.
+	// Experimental.
 	Region() *string
 	// The value of this fact.
+	// Experimental.
 	Value() *string
 }
 

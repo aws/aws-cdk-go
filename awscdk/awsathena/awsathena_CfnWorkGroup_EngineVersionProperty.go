@@ -1,7 +1,7 @@
 package awsathena
 
 
-// The Athena engine version for running queries.
+// The Athena engine version for running queries, or the PySpark engine version for running sessions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

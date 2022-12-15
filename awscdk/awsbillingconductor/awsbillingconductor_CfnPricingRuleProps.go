@@ -1,7 +1,7 @@
 package awsbillingconductor
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnPricingRule`.
@@ -41,7 +41,7 @@ type CfnPricingRuleProps struct {
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// The type of pricing rule.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `AWS::BillingConductor::PricingRule.BillingEntity`.
+	// The seller of services provided by AWS , their affiliates, or third-party providers selling services via AWS Marketplace .
 	BillingEntity *string `field:"optional" json:"billingEntity" yaml:"billingEntity"`
 	// The pricing rule description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -49,9 +49,9 @@ type CfnPricingRuleProps struct {
 	ModifierPercentage *float64 `field:"optional" json:"modifierPercentage" yaml:"modifierPercentage"`
 	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service *string `field:"optional" json:"service" yaml:"service"`
-	// `AWS::BillingConductor::PricingRule.Tags`.
+	// A map that contains tag keys and tag values that are attached to a pricing rule.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::BillingConductor::PricingRule.Tiering`.
+	// The set of tiering configurations for the pricing rule.
 	Tiering interface{} `field:"optional" json:"tiering" yaml:"tiering"`
 }
 

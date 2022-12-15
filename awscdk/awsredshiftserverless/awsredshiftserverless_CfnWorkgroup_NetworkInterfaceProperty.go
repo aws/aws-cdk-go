@@ -1,6 +1,8 @@
 package awsredshiftserverless
 
 
+// Contains information about a network interface in an Amazon Redshift Serverless managed VPC endpoint.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,13 +16,13 @@ package awsredshiftserverless
 //   }
 //
 type CfnWorkgroup_NetworkInterfaceProperty struct {
-	// `CfnWorkgroup.NetworkInterfaceProperty.AvailabilityZone`.
+	// The availability Zone.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// `CfnWorkgroup.NetworkInterfaceProperty.NetworkInterfaceId`.
+	// The unique identifier of the network interface.
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
-	// `CfnWorkgroup.NetworkInterfaceProperty.PrivateIpAddress`.
+	// The IPv4 address of the network interface within the subnet.
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
-	// `CfnWorkgroup.NetworkInterfaceProperty.SubnetId`.
+	// The unique identifier of the subnet.
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

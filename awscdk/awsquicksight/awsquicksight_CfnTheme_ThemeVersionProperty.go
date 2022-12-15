@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A version of a theme.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -73,21 +75,23 @@ package awsquicksight
 //   }
 //
 type CfnTheme_ThemeVersionProperty struct {
-	// `CfnTheme.ThemeVersionProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the resource.
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// `CfnTheme.ThemeVersionProperty.BaseThemeId`.
+	// The Amazon QuickSight-defined ID of the theme that a custom theme inherits from.
+	//
+	// All themes initially inherit from a default Amazon QuickSight theme.
 	BaseThemeId *string `field:"optional" json:"baseThemeId" yaml:"baseThemeId"`
-	// `CfnTheme.ThemeVersionProperty.Configuration`.
+	// The theme configuration, which contains all the theme display properties.
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
-	// `CfnTheme.ThemeVersionProperty.CreatedTime`.
+	// The date and time that this theme version was created.
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
-	// `CfnTheme.ThemeVersionProperty.Description`.
+	// The description of the theme.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnTheme.ThemeVersionProperty.Errors`.
+	// Errors associated with the theme.
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
-	// `CfnTheme.ThemeVersionProperty.Status`.
+	// The status of the theme version.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// `CfnTheme.ThemeVersionProperty.VersionNumber`.
+	// The version number of the theme.
 	VersionNumber *float64 `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 

@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // `StageDescription` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
@@ -91,7 +91,7 @@ type CfnDeployment_StageDescriptionProperty struct {
 	DocumentationVersion *string `field:"optional" json:"documentationVersion" yaml:"documentationVersion"`
 	// The logging level for this method.
 	//
-	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the *Amazon API Gateway API Reference* .
+	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/latest/api/API_Stage.html#loggingLevel) resource in the *Amazon API Gateway API Reference* .
 	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Configures settings for all of the stage's methods.
 	MethodSettings interface{} `field:"optional" json:"methodSettings" yaml:"methodSettings"`

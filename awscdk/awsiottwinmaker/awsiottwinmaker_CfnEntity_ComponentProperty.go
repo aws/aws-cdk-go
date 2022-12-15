@@ -1,7 +1,7 @@
 package awsiottwinmaker
 
 
-// The entity componenet.
+// The entity component.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -127,7 +127,9 @@ type CfnEntity_ComponentProperty struct {
 	//
 	// Each string in the mapping must be unique to this object.
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
-	// `CfnEntity.ComponentProperty.PropertyGroups`.
+	// An object that maps strings to the property groups in the component type.
+	//
+	// Each string in the mapping must be unique to this object.
 	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// The status of the component.
 	Status interface{} `field:"optional" json:"status" yaml:"status"`

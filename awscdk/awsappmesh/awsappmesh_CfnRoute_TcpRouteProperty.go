@@ -36,7 +36,7 @@ package awsappmesh
 type CfnRoute_TcpRouteProperty struct {
 	// The action to take if a match is determined.
 	Action interface{} `field:"required" json:"action" yaml:"action"`
-	// `CfnRoute.TcpRouteProperty.Match`.
+	// An object that represents the criteria for determining a request match.
 	Match interface{} `field:"optional" json:"match" yaml:"match"`
 	// An object that represents types of timeouts.
 	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`

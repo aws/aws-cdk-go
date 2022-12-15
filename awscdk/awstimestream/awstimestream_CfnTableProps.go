@@ -1,7 +1,7 @@
 package awstimestream
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnTable`.
@@ -78,7 +78,7 @@ type CfnTableProps struct {
 	// ```
 	// Type: AWS::Timestream::Table
 	// DependsOn: TestDatabase
-	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" MagneticStoreWriteProperties: EnableMagneticStoreWrites: true MagneticStoreRejectedDataLocation: S3Configuration: BucketName: "testbucket" EncryptionOption: "SSE_KMS" BucketName: "1234abcd-12ab-34cd-56ef-1234567890ab" EncryptionOption: "prefix"
+	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" MagneticStoreWriteProperties: EnableMagneticStoreWrites: true MagneticStoreRejectedDataLocation: S3Configuration: BucketName: "testbucket" EncryptionOption: "SSE_KMS" KmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab" ObjectKeyPrefix: "prefix"
 	// ```.
 	MagneticStoreWriteProperties interface{} `field:"optional" json:"magneticStoreWriteProperties" yaml:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. This object has the following attributes:.

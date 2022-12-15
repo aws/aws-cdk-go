@@ -16,15 +16,19 @@ func (c *jsiiProxy_CnameInstance) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
+func (c *jsiiProxy_CnameInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_CnameInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateCnameInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCnameInstance_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateCnameInstance_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCnameInstance_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

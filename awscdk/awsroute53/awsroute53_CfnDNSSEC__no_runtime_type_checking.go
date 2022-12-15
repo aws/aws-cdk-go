@@ -44,11 +44,19 @@ func (c *jsiiProxy_CfnDNSSEC) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
+func (c *jsiiProxy_CfnDNSSEC) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDNSSEC) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDNSSEC) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDNSSEC) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -72,7 +80,7 @@ func (j *jsiiProxy_CfnDNSSEC) validateSetHostedZoneIdParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnDNSSECParameters(scope constructs.Construct, id *string, props *CfnDNSSECProps) error {
+func validateNewCfnDNSSECParameters(scope awscdk.Construct, id *string, props *CfnDNSSECProps) error {
 	return nil
 }
 

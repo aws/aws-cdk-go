@@ -39,7 +39,7 @@ package awsmediaconnect
 //   }
 //
 type CfnFlowOutputProps struct {
-	// The Amazon Resource Name (ARN) of the flow.
+	// The Amazon Resource Name (ARN) of the flow this output is attached to.
 	FlowArn *string `field:"required" json:"flowArn" yaml:"flowArn"`
 	// The protocol to use for the output.
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
@@ -55,7 +55,9 @@ type CfnFlowOutputProps struct {
 	Destination *string `field:"optional" json:"destination" yaml:"destination"`
 	// The encryption credentials that you want to use for the output.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// The maximum latency in milliseconds for Zixi-based streams.
+	// The maximum latency in milliseconds.
+	//
+	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
@@ -71,9 +73,9 @@ type CfnFlowOutputProps struct {
 	RemoteId *string `field:"optional" json:"remoteId" yaml:"remoteId"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency *float64 `field:"optional" json:"smoothingLatency" yaml:"smoothingLatency"`
-	// The stream ID that you want to use for the transport.
+	// The stream ID that you want to use for this transport.
 	//
-	// This parameter applies only to Zixi-based streams.
+	// This parameter applies only to Zixi and SRT caller-based streams.
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
 	// The VPC interface that you want to send your output to.
 	VpcInterfaceAttachment interface{} `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`

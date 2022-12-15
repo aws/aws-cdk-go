@@ -2,15 +2,30 @@ package awscodedeploy
 
 
 // Lambda Deployment config type.
-// Deprecated: Use `LambdaDeploymentConfig`.
+//
+// Example:
+//   var application lambdaApplication
+//   var alias alias
+//   config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
+//   	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
+//   	interval: awscdk.Duration.minutes(jsii.Number(1)),
+//   	percentage: jsii.Number(5),
+//   })
+//   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
+//   	application: application,
+//   	alias: alias,
+//   	deploymentConfig: config,
+//   })
+//
+// Experimental.
 type CustomLambdaDeploymentConfigType string
 
 const (
 	// Canary deployment type.
-	// Deprecated: Use `LambdaDeploymentConfig`.
+	// Experimental.
 	CustomLambdaDeploymentConfigType_CANARY CustomLambdaDeploymentConfigType = "CANARY"
 	// Linear deployment type.
-	// Deprecated: Use `LambdaDeploymentConfig`.
+	// Experimental.
 	CustomLambdaDeploymentConfigType_LINEAR CustomLambdaDeploymentConfigType = "LINEAR"
 )
 
