@@ -34,7 +34,7 @@ type CfnTopicRule_RepublishActionProperty struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the MQTT topic.
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
-	// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+	// `CfnTopicRule.RepublishActionProperty.Headers`.
 	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// The Quality of Service (QoS) level to use when republishing messages.
 	//

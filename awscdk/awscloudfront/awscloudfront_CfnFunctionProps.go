@@ -36,7 +36,7 @@ type CfnFunctionProps struct {
 	FunctionCode *string `field:"optional" json:"functionCode" yaml:"functionCode"`
 	// Contains configuration information about a CloudFront function.
 	FunctionConfig interface{} `field:"optional" json:"functionConfig" yaml:"functionConfig"`
-	// Contains metadata about a CloudFront function.
+	// `AWS::CloudFront::Function.FunctionMetadata`.
 	FunctionMetadata interface{} `field:"optional" json:"functionMetadata" yaml:"functionMetadata"`
 }
 

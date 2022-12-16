@@ -148,13 +148,13 @@ type CfnCertificateProps struct {
 	ApiPassthrough interface{} `field:"optional" json:"apiPassthrough" yaml:"apiPassthrough"`
 	// Specifies a custom configuration template to use when issuing a certificate.
 	//
-	// If this parameter is not provided, AWS Private CA defaults to the `EndEntityCertificate/V1` template. For more information about AWS Private CA templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) .
+	// If this parameter is not provided, ACM Private CA defaults to the `EndEntityCertificate/V1` template. For more information about ACM Private CA templates, see [Using Templates](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) .
 	TemplateArn *string `field:"optional" json:"templateArn" yaml:"templateArn"`
 	// Information describing the start of the validity period of the certificate.
 	//
 	// This parameter sets the “Not Before" date for the certificate.
 	//
-	// By default, when issuing a certificate, AWS Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.
+	// By default, when issuing a certificate, ACM Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.
 	//
 	// Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.
 	//

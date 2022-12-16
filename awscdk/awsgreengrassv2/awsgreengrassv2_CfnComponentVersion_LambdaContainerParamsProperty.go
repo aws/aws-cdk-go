@@ -1,7 +1,7 @@
 package awsgreengrassv2
 
 
-// Contains information about a container in which AWS Lambda functions run on AWS IoT Greengrass core devices.
+// Contains information about a container in which AWS Lambda functions run on Greengrass core devices.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

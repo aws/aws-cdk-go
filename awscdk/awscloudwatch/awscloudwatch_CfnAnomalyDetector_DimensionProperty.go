@@ -5,7 +5,7 @@ package awscloudwatch
 //
 // Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish `InstanceId` as a dimension name, and the actual instance ID as the value for that dimension.
 //
-// You can assign up to 30 dimensions to a metric.
+// You can assign up to 10 dimensions to a metric.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

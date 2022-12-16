@@ -5,7 +5,7 @@ package awsacmpca
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func validateCertificateAuthority_FromCertificateAuthorityArnParameters(scope constructs.Construct, id *string, certificateAuthorityArn *string) error {

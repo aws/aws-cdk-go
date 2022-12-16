@@ -23,15 +23,13 @@ package awsopensearchserverless
 //   }
 //
 type CfnSecurityConfigProps struct {
-	// The description of the security configuration.
+	// `AWS::OpenSearchServerless::SecurityConfig.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the security configuration.
+	// `AWS::OpenSearchServerless::SecurityConfig.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// SAML options for the security configuration in the form of a key-value map.
+	// `AWS::OpenSearchServerless::SecurityConfig.SamlOptions`.
 	SamlOptions interface{} `field:"optional" json:"samlOptions" yaml:"samlOptions"`
-	// The type of security configuration.
-	//
-	// Currently the only option is `saml` .
+	// `AWS::OpenSearchServerless::SecurityConfig.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

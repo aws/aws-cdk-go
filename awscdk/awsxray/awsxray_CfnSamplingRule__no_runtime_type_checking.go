@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnSamplingRule) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnSamplingRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSamplingRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSamplingRule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnSamplingRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +80,7 @@ func (j *jsiiProxy_CfnSamplingRule) validateSetSamplingRuleUpdateParameters(val 
 	return nil
 }
 
-func validateNewCfnSamplingRuleParameters(scope awscdk.Construct, id *string, props *CfnSamplingRuleProps) error {
+func validateNewCfnSamplingRuleParameters(scope constructs.Construct, id *string, props *CfnSamplingRuleProps) error {
 	return nil
 }
 

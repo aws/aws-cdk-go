@@ -5,7 +5,7 @@ package awsstepfunctionstasks
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 func validateAcceleratorType_OfParameters(acceleratorClass AcceleratorClass, instanceSize awsec2.InstanceSize) error {

@@ -1,8 +1,6 @@
 package awsappmesh
 
 
-// An object representing the TCP route to match.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsappmesh
 //   }
 //
 type CfnRoute_TcpRouteMatchProperty struct {
-	// The port number to match on.
+	// `CfnRoute.TcpRouteMatchProperty.Port`.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

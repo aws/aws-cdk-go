@@ -1,13 +1,12 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 )
 
 // Interface for ECS load balancer target.
-// Experimental.
 type IEcsLoadBalancerTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancing.ILoadBalancerTarget

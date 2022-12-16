@@ -1,7 +1,7 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -54,27 +54,21 @@ import (
 //   	}
 //   }
 //
-// Experimental.
 type FileSet interface {
 	IFileSetProducer
 	// Human-readable descriptor for this file set (does not need to be unique).
-	// Experimental.
 	Id() *string
 	// The primary output of a file set producer.
 	//
 	// The primary output of a FileSet is itself.
-	// Experimental.
 	PrimaryOutput() FileSet
 	// The Step that produces this FileSet.
-	// Experimental.
 	Producer() Step
 	// Mark the given Step as the producer for this FileSet.
 	//
 	// This method can only be called once.
-	// Experimental.
 	ProducedBy(producer Step)
 	// Return a string representation of this FileSet.
-	// Experimental.
 	ToString() *string
 }
 
@@ -114,7 +108,6 @@ func (j *jsiiProxy_FileSet) Producer() Step {
 }
 
 
-// Experimental.
 func NewFileSet(id *string, producer Step) FileSet {
 	_init_.Initialize()
 
@@ -124,7 +117,7 @@ func NewFileSet(id *string, producer Step) FileSet {
 	j := jsiiProxy_FileSet{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.FileSet",
+		"aws-cdk-lib.pipelines.FileSet",
 		[]interface{}{id, producer},
 		&j,
 	)
@@ -132,12 +125,11 @@ func NewFileSet(id *string, producer Step) FileSet {
 	return &j
 }
 
-// Experimental.
 func NewFileSet_Override(f FileSet, id *string, producer Step) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.FileSet",
+		"aws-cdk-lib.pipelines.FileSet",
 		[]interface{}{id, producer},
 		f,
 	)

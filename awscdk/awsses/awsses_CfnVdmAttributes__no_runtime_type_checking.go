@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnVdmAttributes) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnVdmAttributes) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVdmAttributes) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVdmAttributes) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnVdmAttributes) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnVdmAttributes) validateSetGuardianAttributesParameters(val
 	return nil
 }
 
-func validateNewCfnVdmAttributesParameters(scope awscdk.Construct, id *string, props *CfnVdmAttributesProps) error {
+func validateNewCfnVdmAttributesParameters(scope constructs.Construct, id *string, props *CfnVdmAttributesProps) error {
 	return nil
 }
 

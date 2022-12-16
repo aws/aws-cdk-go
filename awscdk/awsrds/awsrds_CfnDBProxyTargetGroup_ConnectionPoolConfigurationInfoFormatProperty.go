@@ -37,21 +37,17 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 	//
 	// The value is expressed as a percentage of the `max_connections` setting for the RDS DB instance or Aurora DB cluster used by the target group.
 	//
-	// If you specify `MaxIdleConnectionsPercent` , then you must also include a value for this parameter.
+	// Default: 100
 	//
-	// Default: 10 for RDS for Microsoft SQL Server, and 100 for all other engines
-	//
-	// Constraints: Must be between 1 and 100.
+	// Constraints: between 1 and 100.
 	MaxConnectionsPercent *float64 `field:"optional" json:"maxConnectionsPercent" yaml:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
 	// The value is expressed as a percentage of the `max_connections` setting for the RDS DB instance or Aurora DB cluster used by the target group. With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.
 	//
-	// If you specify this parameter, then you must also include a value for `MaxConnectionsPercent` .
+	// Default: 50
 	//
-	// Default: The default value is half of the value of `MaxConnectionsPercent` . For example, if `MaxConnectionsPercent` is 80, then the default value of `MaxIdleConnectionsPercent` is 40. If the value of `MaxConnectionsPercent` isn't specified, then for SQL Server, `MaxIdleConnectionsPercent` is 5, and for all other engines, the default is 50.
-	//
-	// Constraints: Must be between 0 and the value of `MaxConnectionsPercent` .
+	// Constraints: between 0 and `MaxConnectionsPercent`.
 	MaxIdleConnectionsPercent *float64 `field:"optional" json:"maxIdleConnectionsPercent" yaml:"maxIdleConnectionsPercent"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//

@@ -1,7 +1,7 @@
 package awsevidently
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnProject`.
@@ -42,13 +42,7 @@ type CfnProjectProps struct {
 	//
 	// It can include up to 127 characters.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* .
-	//
-	// Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
-	//
-	// This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
-	//
-	// To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
+	// `AWS::Evidently::Project.AppConfigResource`.
 	AppConfigResource interface{} `field:"optional" json:"appConfigResource" yaml:"appConfigResource"`
 	// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so.
 	//

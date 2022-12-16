@@ -28,8 +28,6 @@ package awsresiliencehub
 type CfnApp_ResourceMappingProperty struct {
 	// Specifies the type of resource mapping.
 	//
-	// Valid Values: CfnStack | Resource | AppRegistryApp | ResourceGroup | Terraform
-	//
 	// - **AppRegistryApp** - The resource is mapped to another application. The name of the application is contained in the `appRegistryAppName` property.
 	// - **CfnStack** - The resource is mapped to a CloudFormation stack. The name of the CloudFormation stack is contained in the `logicalStackName` property.
 	// - **Resource** - The resource is mapped to another resource. The name of the resource is contained in the `resourceName` property.
@@ -41,7 +39,7 @@ type CfnApp_ResourceMappingProperty struct {
 	LogicalStackName *string `field:"optional" json:"logicalStackName" yaml:"logicalStackName"`
 	// The name of the resource this resource is mapped to.
 	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`
-	// The short name of the Terraform source.
+	// `CfnApp.ResourceMappingProperty.TerraformSourceName`.
 	TerraformSourceName *string `field:"optional" json:"terraformSourceName" yaml:"terraformSourceName"`
 }
 

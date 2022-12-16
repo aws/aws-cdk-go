@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBSubnetGroup`.
@@ -38,7 +38,7 @@ type CfnDBSubnetGroupProps struct {
 	//
 	// Example: `mysubnetgroup`.
 	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
-	// An optional array of key-value pairs to apply to this DB subnet group.
+	// Tags to assign to the DB subnet group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

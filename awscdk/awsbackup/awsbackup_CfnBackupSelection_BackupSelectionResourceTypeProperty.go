@@ -63,21 +63,16 @@ type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
 	SelectionName *string `field:"required" json:"selectionName" yaml:"selectionName"`
 	// A list of conditions that you define to assign resources to your backup plans using tags.
 	//
-	// For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+	// For example, `"StringEquals": {"Department": "accounting"` . Condition operators are case sensitive.
 	//
 	// `Conditions` differs from `ListOfTags` as follows:
 	//
 	// - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
 	// - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
 	Conditions interface{} `field:"optional" json:"conditions" yaml:"conditions"`
-	// A list of conditions that you define to assign resources to your backup plans using tags.
+	// An array of conditions used to specify a set of resources to assign to a backup plan;
 	//
-	// For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
-	//
-	// `ListOfTags` differs from `Conditions` as follows:
-	//
-	// - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
-	// - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
+	// for example, `"STRINGEQUALS": {"Department":"accounting"` .
 	ListOfTags interface{} `field:"optional" json:"listOfTags" yaml:"listOfTags"`
 	// A list of Amazon Resource Names (ARNs) to exclude from a backup plan.
 	//

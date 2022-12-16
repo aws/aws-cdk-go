@@ -28,14 +28,6 @@ func (m *jsiiProxy_Mesh) validateGetResourceNameAttributeParameters(nameAttr *st
 	return nil
 }
 
-func (m *jsiiProxy_Mesh) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (m *jsiiProxy_Mesh) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateMesh_FromMeshArnParameters(scope constructs.Construct, id *string, meshArn *string) error {
 	return nil
 }
@@ -48,7 +40,11 @@ func validateMesh_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateMesh_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateMesh_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateMesh_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

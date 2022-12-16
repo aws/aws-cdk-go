@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateInspectParameters(ins
 	return nil
 }
 
-func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) validateSetTeamIdParameters(v
 	return nil
 }
 
-func validateNewCfnSlackWorkspaceConfigurationParameters(scope awscdk.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) error {
+func validateNewCfnSlackWorkspaceConfigurationParameters(scope constructs.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) error {
 	return nil
 }
 

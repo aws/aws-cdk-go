@@ -1,12 +1,11 @@
 package triggers
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/triggers/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/triggers/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Triggers an AWS Lambda function during deployment.
@@ -14,9 +13,9 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import constructs "github.com/aws/constructs-go/constructs"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
 //   var function_ function
@@ -34,86 +33,33 @@ import (
 //   	executeOnHandlerChange: jsii.Boolean(false),
 //   })
 //
-// Experimental.
 type Trigger interface {
-	awscdk.Construct
+	constructs.Construct
 	ITrigger
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Adds trigger dependencies.
 	//
 	// Execute this trigger only after these construct
 	// scopes have been provisioned.
-	// Experimental.
 	ExecuteAfter(scopes ...constructs.Construct)
 	// Adds this trigger as a dependency on other constructs.
 	//
 	// This means that this
 	// trigger will get executed *before* the given construct(s).
-	// Experimental.
 	ExecuteBefore(scopes ...constructs.Construct)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Trigger
 type jsiiProxy_Trigger struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 	jsiiProxy_ITrigger
 }
 
-func (j *jsiiProxy_Trigger) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Trigger) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -123,7 +69,6 @@ func (j *jsiiProxy_Trigger) Node() awscdk.ConstructNode {
 }
 
 
-// Experimental.
 func NewTrigger(scope constructs.Construct, id *string, props *TriggerProps) Trigger {
 	_init_.Initialize()
 
@@ -133,7 +78,7 @@ func NewTrigger(scope constructs.Construct, id *string, props *TriggerProps) Tri
 	j := jsiiProxy_Trigger{}
 
 	_jsii_.Create(
-		"monocdk.triggers.Trigger",
+		"aws-cdk-lib.triggers.Trigger",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -141,19 +86,33 @@ func NewTrigger(scope constructs.Construct, id *string, props *TriggerProps) Tri
 	return &j
 }
 
-// Experimental.
 func NewTrigger_Override(t Trigger, scope constructs.Construct, id *string, props *TriggerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.triggers.Trigger",
+		"aws-cdk-lib.triggers.Trigger",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func Trigger_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -163,7 +122,7 @@ func Trigger_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.triggers.Trigger",
+		"aws-cdk-lib.triggers.Trigger",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -198,76 +157,12 @@ func (t *jsiiProxy_Trigger) ExecuteBefore(scopes ...constructs.Construct) {
 	)
 }
 
-func (t *jsiiProxy_Trigger) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_Trigger) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := t.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (t *jsiiProxy_Trigger) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_Trigger) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_Trigger) Synthesize(session awscdk.ISynthesisSession) {
-	if err := t.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (t *jsiiProxy_Trigger) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		t,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_Trigger) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

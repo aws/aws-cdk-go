@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateInspectParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +84,7 @@ func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateSetStatistic
 	return nil
 }
 
-func validateNewCfnNetworkPerformanceMetricSubscriptionParameters(scope awscdk.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) error {
+func validateNewCfnNetworkPerformanceMetricSubscriptionParameters(scope constructs.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) error {
 	return nil
 }
 

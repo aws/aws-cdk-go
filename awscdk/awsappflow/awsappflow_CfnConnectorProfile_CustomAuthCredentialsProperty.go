@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// The custom credentials required for custom authentication.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,9 +16,9 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_CustomAuthCredentialsProperty struct {
-	// The custom authentication type that the connector uses.
+	// `CfnConnectorProfile.CustomAuthCredentialsProperty.CustomAuthenticationType`.
 	CustomAuthenticationType *string `field:"required" json:"customAuthenticationType" yaml:"customAuthenticationType"`
-	// A map that holds custom authentication credentials.
+	// `CfnConnectorProfile.CustomAuthCredentialsProperty.CredentialsMap`.
 	CredentialsMap interface{} `field:"optional" json:"credentialsMap" yaml:"credentialsMap"`
 }
 

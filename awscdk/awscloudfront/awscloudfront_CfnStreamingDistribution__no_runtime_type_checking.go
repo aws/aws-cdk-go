@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnStreamingDistribution) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnStreamingDistribution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnStreamingDistribution) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnStreamingDistribution) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnStreamingDistribution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnStreamingDistribution) validateSetStreamingDistributionCon
 	return nil
 }
 
-func validateNewCfnStreamingDistributionParameters(scope awscdk.Construct, id *string, props *CfnStreamingDistributionProps) error {
+func validateNewCfnStreamingDistributionParameters(scope constructs.Construct, id *string, props *CfnStreamingDistributionProps) error {
 	return nil
 }
 

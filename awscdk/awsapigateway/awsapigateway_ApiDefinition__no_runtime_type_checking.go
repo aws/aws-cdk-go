@@ -4,11 +4,11 @@ package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_ApiDefinition) validateBindParameters(scope awscdk.Construct) error {
+func (a *jsiiProxy_ApiDefinition) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 
-func (a *jsiiProxy_ApiDefinition) validateBindAfterCreateParameters(_scope awscdk.Construct, _restApi IRestApi) error {
+func (a *jsiiProxy_ApiDefinition) validateBindAfterCreateParameters(_scope constructs.Construct, _restApi IRestApi) error {
 	return nil
 }
 

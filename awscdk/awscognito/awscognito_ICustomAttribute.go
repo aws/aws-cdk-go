@@ -5,10 +5,8 @@ import (
 )
 
 // Represents a custom attribute type.
-// Experimental.
 type ICustomAttribute interface {
 	// Bind this custom attribute type to the values as expected by CloudFormation.
-	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 

@@ -4,11 +4,7 @@ package awss3deployment
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (b *jsiiProxy_BucketDeployment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (b *jsiiProxy_BucketDeployment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (b *jsiiProxy_BucketDeployment) validateAddSourceParameters(source ISource) error {
 	return nil
 }
 

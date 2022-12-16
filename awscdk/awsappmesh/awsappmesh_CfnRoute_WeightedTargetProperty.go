@@ -23,7 +23,7 @@ type CfnRoute_WeightedTargetProperty struct {
 	VirtualNode *string `field:"required" json:"virtualNode" yaml:"virtualNode"`
 	// The relative weight of the weighted target.
 	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
-	// The targeted port of the weighted object.
+	// `CfnRoute.WeightedTargetProperty.Port`.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

@@ -1,7 +1,7 @@
 package awselasticache
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnReplicationGroup`.
@@ -116,8 +116,6 @@ type CfnReplicationGroupProps struct {
 	// - Nonalphanumeric characters are restricted to (!, &, #, $, ^, <, >, -, ).
 	//
 	// For more information, see [AUTH password](https://docs.aws.amazon.com/http://redis.io/commands/AUTH) at http://redis.io/commands/AUTH.
-	//
-	// > If ADDING the AuthToken, update requires [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	AuthToken *string `field:"optional" json:"authToken" yaml:"authToken"`
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
 	//
@@ -200,7 +198,7 @@ type CfnReplicationGroupProps struct {
 	DataTieringEnabled interface{} `field:"optional" json:"dataTieringEnabled" yaml:"dataTieringEnabled"`
 	// The name of the cache engine to be used for the clusters in this replication group.
 	//
-	// The value must be set to `Redis` .
+	// Must be Redis.
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The version number of the cache engine to be used for the clusters in this replication group.
 	//
@@ -210,9 +208,7 @@ type CfnReplicationGroupProps struct {
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The name of the Global datastore.
 	GlobalReplicationGroupId *string `field:"optional" json:"globalReplicationGroupId" yaml:"globalReplicationGroupId"`
-	// The network type you choose when creating a replication group, either `ipv4` | `ipv6` .
-	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// `AWS::ElastiCache::ReplicationGroup.IpDiscovery`.
 	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
 	// The ID of the KMS key used to encrypt the disk on the cluster.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
@@ -222,9 +218,7 @@ type CfnReplicationGroupProps struct {
 	//
 	// For more information, see [Minimizing Downtime: Multi-AZ](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html) .
 	MultiAzEnabled interface{} `field:"optional" json:"multiAzEnabled" yaml:"multiAzEnabled"`
-	// Must be either `ipv4` | `ipv6` | `dual_stack` .
-	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// `AWS::ElastiCache::ReplicationGroup.NetworkType`.
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
 	//
@@ -346,7 +340,7 @@ type CfnReplicationGroupProps struct {
 	//
 	// > For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true` , an `AuthToken` , and a `CacheSubnetGroup` .
 	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
-	// The ID of user group to associate with the replication group.
+	// The list of user groups to associate with the replication group.
 	UserGroupIds *[]*string `field:"optional" json:"userGroupIds" yaml:"userGroupIds"`
 }
 

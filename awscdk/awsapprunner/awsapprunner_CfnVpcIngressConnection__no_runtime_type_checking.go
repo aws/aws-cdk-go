@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnVpcIngressConnection) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnVpcIngressConnection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVpcIngressConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnVpcIngressConnection) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnVpcIngressConnection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnVpcIngressConnection) validateSetServiceArnParameters(val 
 	return nil
 }
 
-func validateNewCfnVpcIngressConnectionParameters(scope awscdk.Construct, id *string, props *CfnVpcIngressConnectionProps) error {
+func validateNewCfnVpcIngressConnectionParameters(scope constructs.Construct, id *string, props *CfnVpcIngressConnectionProps) error {
 	return nil
 }
 

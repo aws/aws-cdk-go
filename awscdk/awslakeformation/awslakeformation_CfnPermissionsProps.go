@@ -59,7 +59,7 @@ type CfnPermissionsProps struct {
 	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
 	// The permissions granted or revoked.
 	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
-	// Indicates the ability to grant permissions (as a subset of permissions granted).
+	// Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).
 	PermissionsWithGrantOption *[]*string `field:"optional" json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
 }
 

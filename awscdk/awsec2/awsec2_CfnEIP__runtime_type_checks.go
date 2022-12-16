@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnEIP) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnEIP) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnEIP) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnEIP) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnEIP) validateOverrideLogicalIdParameters(newLogicalId *str
 func (c *jsiiProxy_CfnEIP) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnEIP) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -167,7 +151,7 @@ func validateCfnEIP_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnEIPParameters(scope awscdk.Construct, id *string, props *CfnEIPProps) error {
+func validateNewCfnEIPParameters(scope constructs.Construct, id *string, props *CfnEIPProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

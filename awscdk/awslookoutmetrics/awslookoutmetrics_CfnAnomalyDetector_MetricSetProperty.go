@@ -119,7 +119,7 @@ type CfnAnomalyDetector_MetricSetProperty struct {
 	MetricSetFrequency *string `field:"optional" json:"metricSetFrequency" yaml:"metricSetFrequency"`
 	// After an interval ends, the amount of seconds that the detector waits before importing data.
 	//
-	// Offset is only supported for S3, Redshift, Athena and datasources.
+	// Offset is only supported for S3 and Redshift datasources.
 	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
 	// Contains information about the column used for tracking time in your source data.
 	TimestampColumn interface{} `field:"optional" json:"timestampColumn" yaml:"timestampColumn"`

@@ -47,7 +47,7 @@ type CfnRemediationConfigurationProps struct {
 	//
 	// For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
 	MaximumAutomaticAttempts *float64 `field:"optional" json:"maximumAutomaticAttempts" yaml:"maximumAutomaticAttempts"`
-	// An object of the RemediationParameterValue. For more information, see [RemediationParameterValue](https://docs.aws.amazon.com/config/latest/APIReference/API_RemediationParameterValue.html) .
+	// An object of the RemediationParameterValue.
 	//
 	// > The type is a map of strings to RemediationParameterValue.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

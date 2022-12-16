@@ -15,10 +15,8 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type GatewayRouteHostnameMatchConfig struct {
 	// GatewayRoute CFN configuration for host name match.
-	// Experimental.
 	HostnameMatch *CfnGatewayRoute_GatewayRouteHostnameMatchProperty `field:"required" json:"hostnameMatch" yaml:"hostnameMatch"`
 }
 

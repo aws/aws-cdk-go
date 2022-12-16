@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnSchedulingPolicy) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnSchedulingPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSchedulingPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnSchedulingPolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnSchedulingPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnSchedulingPolicy) validateSetFairsharePolicyParameters(val
 	return nil
 }
 
-func validateNewCfnSchedulingPolicyParameters(scope awscdk.Construct, id *string, props *CfnSchedulingPolicyProps) error {
+func validateNewCfnSchedulingPolicyParameters(scope constructs.Construct, id *string, props *CfnSchedulingPolicyProps) error {
 	return nil
 }
 

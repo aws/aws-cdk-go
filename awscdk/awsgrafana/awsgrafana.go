@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_grafana.CfnWorkspace",
+		"aws-cdk-lib.aws_grafana.CfnWorkspace",
 		reflect.TypeOf((*CfnWorkspace)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountAccessType", GoGetter: "AccountAccessType"},
@@ -42,14 +42,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationDestinations", GoGetter: "NotificationDestinations"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "organizationalUnits", GoGetter: "OrganizationalUnits"},
 			_jsii_.MemberProperty{JsiiProperty: "organizationRoleName", GoGetter: "OrganizationRoleName"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionType", GoGetter: "PermissionType"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
@@ -57,10 +53,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stackSetName", GoGetter: "StackSetName"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -71,23 +66,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_grafana.CfnWorkspace.AssertionAttributesProperty",
+		"aws-cdk-lib.aws_grafana.CfnWorkspace.AssertionAttributesProperty",
 		reflect.TypeOf((*CfnWorkspace_AssertionAttributesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_grafana.CfnWorkspace.IdpMetadataProperty",
+		"aws-cdk-lib.aws_grafana.CfnWorkspace.IdpMetadataProperty",
 		reflect.TypeOf((*CfnWorkspace_IdpMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_grafana.CfnWorkspace.RoleValuesProperty",
+		"aws-cdk-lib.aws_grafana.CfnWorkspace.RoleValuesProperty",
 		reflect.TypeOf((*CfnWorkspace_RoleValuesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_grafana.CfnWorkspace.SamlConfigurationProperty",
+		"aws-cdk-lib.aws_grafana.CfnWorkspace.SamlConfigurationProperty",
 		reflect.TypeOf((*CfnWorkspace_SamlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_grafana.CfnWorkspaceProps",
+		"aws-cdk-lib.aws_grafana.CfnWorkspaceProps",
 		reflect.TypeOf((*CfnWorkspaceProps)(nil)).Elem(),
 	)
 }

@@ -84,14 +84,6 @@ func (c *jsiiProxy_CodeBuildStartBuild) validateNextParameters(next awsstepfunct
 	return nil
 }
 
-func (c *jsiiProxy_CodeBuildStartBuild) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CodeBuildStartBuild) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CodeBuildStartBuild) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

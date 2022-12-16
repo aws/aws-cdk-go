@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +88,7 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) validateSetLoadBalancerNamePar
 	return nil
 }
 
-func validateNewCfnLoadBalancerTlsCertificateParameters(scope awscdk.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) error {
+func validateNewCfnLoadBalancerTlsCertificateParameters(scope constructs.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) error {
 	return nil
 }
 

@@ -23,9 +23,9 @@ package awsroute53
 //   }
 //
 type CfnCidrCollectionProps struct {
-	// The name of a CIDR collection.
+	// `AWS::Route53::CidrCollection.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// A complex type that contains information about the list of CIDR locations.
+	// `AWS::Route53::CidrCollection.Locations`.
 	Locations interface{} `field:"optional" json:"locations" yaml:"locations"`
 }
 

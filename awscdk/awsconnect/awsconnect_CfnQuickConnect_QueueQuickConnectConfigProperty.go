@@ -3,7 +3,7 @@ package awsconnect
 
 // Contains information about a queue for a quick connect.
 //
-// The flow must be of type Transfer to Queue.
+// The contact flow must be of type Transfer to Queue.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +16,7 @@ package awsconnect
 //   }
 //
 type CfnQuickConnect_QueueQuickConnectConfigProperty struct {
-	// The Amazon Resource Name (ARN) of the flow.
+	// The Amazon Resource Name (ARN) of the contact flow.
 	ContactFlowArn *string `field:"required" json:"contactFlowArn" yaml:"contactFlowArn"`
 	// The Amazon Resource Name (ARN) of the queue.
 	QueueArn *string `field:"required" json:"queueArn" yaml:"queueArn"`

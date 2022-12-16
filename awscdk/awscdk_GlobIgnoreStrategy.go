@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,22 +11,19 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   globIgnoreStrategy := monocdk.NewGlobIgnoreStrategy(jsii.String("absoluteRootPath"), []*string{
+//   globIgnoreStrategy := cdk.NewGlobIgnoreStrategy(jsii.String("absoluteRootPath"), []*string{
 //   	jsii.String("patterns"),
 //   })
 //
-// Experimental.
 type GlobIgnoreStrategy interface {
 	IgnoreStrategy
 	// Adds another pattern.
-	// Experimental.
 	Add(pattern *string)
 	// Determines whether a given file path should be ignored or not.
 	//
 	// Returns: `true` if the file should be ignored.
-	// Experimental.
 	Ignores(absoluteFilePath *string) *bool
 }
 
@@ -35,7 +32,6 @@ type jsiiProxy_GlobIgnoreStrategy struct {
 	jsiiProxy_IgnoreStrategy
 }
 
-// Experimental.
 func NewGlobIgnoreStrategy(absoluteRootPath *string, patterns *[]*string) GlobIgnoreStrategy {
 	_init_.Initialize()
 
@@ -45,7 +41,7 @@ func NewGlobIgnoreStrategy(absoluteRootPath *string, patterns *[]*string) GlobIg
 	j := jsiiProxy_GlobIgnoreStrategy{}
 
 	_jsii_.Create(
-		"monocdk.GlobIgnoreStrategy",
+		"aws-cdk-lib.GlobIgnoreStrategy",
 		[]interface{}{absoluteRootPath, patterns},
 		&j,
 	)
@@ -53,12 +49,11 @@ func NewGlobIgnoreStrategy(absoluteRootPath *string, patterns *[]*string) GlobIg
 	return &j
 }
 
-// Experimental.
 func NewGlobIgnoreStrategy_Override(g GlobIgnoreStrategy, absoluteRootPath *string, patterns *[]*string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.GlobIgnoreStrategy",
+		"aws-cdk-lib.GlobIgnoreStrategy",
 		[]interface{}{absoluteRootPath, patterns},
 		g,
 	)
@@ -67,7 +62,6 @@ func NewGlobIgnoreStrategy_Override(g GlobIgnoreStrategy, absoluteRootPath *stri
 // Ignores file paths based on the [`.dockerignore specification`](https://docs.docker.com/engine/reference/builder/#dockerignore-file).
 //
 // Returns: `DockerIgnorePattern` associated with the given patterns.
-// Experimental.
 func GlobIgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) DockerIgnoreStrategy {
 	_init_.Initialize()
 
@@ -77,7 +71,7 @@ func GlobIgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) Do
 	var returns DockerIgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.GlobIgnoreStrategy",
+		"aws-cdk-lib.GlobIgnoreStrategy",
 		"docker",
 		[]interface{}{absoluteRootPath, patterns},
 		&returns,
@@ -89,7 +83,6 @@ func GlobIgnoreStrategy_Docker(absoluteRootPath *string, patterns *[]*string) Do
 // Creates an IgnoreStrategy based on the `ignoreMode` and `exclude` in a `CopyOptions`.
 //
 // Returns: `IgnoreStrategy` based on the `CopyOptions`.
-// Experimental.
 func GlobIgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *string) IgnoreStrategy {
 	_init_.Initialize()
 
@@ -99,7 +92,7 @@ func GlobIgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *
 	var returns IgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.GlobIgnoreStrategy",
+		"aws-cdk-lib.GlobIgnoreStrategy",
 		"fromCopyOptions",
 		[]interface{}{options, absoluteRootPath},
 		&returns,
@@ -111,7 +104,6 @@ func GlobIgnoreStrategy_FromCopyOptions(options *CopyOptions, absoluteRootPath *
 // Ignores file paths based on the [`.gitignore specification`](https://git-scm.com/docs/gitignore).
 //
 // Returns: `GitIgnorePattern` associated with the given patterns.
-// Experimental.
 func GlobIgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIgnoreStrategy {
 	_init_.Initialize()
 
@@ -121,7 +113,7 @@ func GlobIgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIg
 	var returns GitIgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.GlobIgnoreStrategy",
+		"aws-cdk-lib.GlobIgnoreStrategy",
 		"git",
 		[]interface{}{absoluteRootPath, patterns},
 		&returns,
@@ -133,7 +125,6 @@ func GlobIgnoreStrategy_Git(absoluteRootPath *string, patterns *[]*string) GitIg
 // Ignores file paths based on simple glob patterns.
 //
 // Returns: `GlobIgnorePattern` associated with the given patterns.
-// Experimental.
 func GlobIgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) GlobIgnoreStrategy {
 	_init_.Initialize()
 
@@ -143,7 +134,7 @@ func GlobIgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) Glob
 	var returns GlobIgnoreStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.GlobIgnoreStrategy",
+		"aws-cdk-lib.GlobIgnoreStrategy",
 		"glob",
 		[]interface{}{absoluteRootPath, patterns},
 		&returns,

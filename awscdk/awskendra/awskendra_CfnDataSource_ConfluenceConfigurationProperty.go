@@ -84,23 +84,24 @@ package awskendra
 //   }
 //
 type CfnDataSource_ConfluenceConfigurationProperty struct {
-	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance.
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key-value pairs required to connect to your Confluence server.
 	//
-	// If you use Confluence Cloud, you use a generated API token as the password.
+	// The secret must contain a JSON structure with the following keys:
 	//
-	// You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
+	// - username—The user name or email address of a user with administrative privileges for the Confluence server.
+	// - password—The password associated with the user logging in to the Confluence server.
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 	// The URL of your Confluence instance.
 	//
 	// Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
 	ServerUrl *string `field:"required" json:"serverUrl" yaml:"serverUrl"`
-	// The version or the type of Confluence installation to connect to.
+	// Specifies the version of the Confluence installation that you are connecting to.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// Configuration information for indexing attachments to Confluence blogs and pages.
 	AttachmentConfiguration interface{} `field:"optional" json:"attachmentConfiguration" yaml:"attachmentConfiguration"`
 	// Configuration information for indexing Confluence blogs.
 	BlogConfiguration interface{} `field:"optional" json:"blogConfiguration" yaml:"blogConfiguration"`
-	// A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence.
+	// >A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence.
 	//
 	// Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
 	ExclusionPatterns *[]*string `field:"optional" json:"exclusionPatterns" yaml:"exclusionPatterns"`

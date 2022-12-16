@@ -1,8 +1,6 @@
 package awsredshiftserverless
 
 
-// The collection of computing resources from which an endpoint is created.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -51,33 +49,31 @@ package awsredshiftserverless
 //   }
 //
 type CfnWorkgroup_WorkgroupProperty struct {
-	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	// `CfnWorkgroup.WorkgroupProperty.BaseCapacity`.
 	BaseCapacity *float64 `field:"optional" json:"baseCapacity" yaml:"baseCapacity"`
-	// An array of parameters to set for finer control over a database.
-	//
-	// The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
+	// `CfnWorkgroup.WorkgroupProperty.ConfigParameters`.
 	ConfigParameters interface{} `field:"optional" json:"configParameters" yaml:"configParameters"`
-	// The creation date of the workgroup.
+	// `CfnWorkgroup.WorkgroupProperty.CreationDate`.
 	CreationDate *string `field:"optional" json:"creationDate" yaml:"creationDate"`
-	// The endpoint that is created from the workgroup.
+	// `CfnWorkgroup.WorkgroupProperty.Endpoint`.
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
-	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+	// `CfnWorkgroup.WorkgroupProperty.EnhancedVpcRouting`.
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
-	// The namespace the workgroup is associated with.
+	// `CfnWorkgroup.WorkgroupProperty.NamespaceName`.
 	NamespaceName *string `field:"optional" json:"namespaceName" yaml:"namespaceName"`
-	// A value that specifies whether the workgroup can be accessible from a public network.
+	// `CfnWorkgroup.WorkgroupProperty.PubliclyAccessible`.
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
-	// An array of security group IDs to associate with the workgroup.
+	// `CfnWorkgroup.WorkgroupProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// The status of the workgroup.
+	// `CfnWorkgroup.WorkgroupProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// An array of subnet IDs the workgroup is associated with.
+	// `CfnWorkgroup.WorkgroupProperty.SubnetIds`.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
-	// The Amazon Resource Name (ARN) that links to the workgroup.
+	// `CfnWorkgroup.WorkgroupProperty.WorkgroupArn`.
 	WorkgroupArn *string `field:"optional" json:"workgroupArn" yaml:"workgroupArn"`
-	// The unique identifier of the workgroup.
+	// `CfnWorkgroup.WorkgroupProperty.WorkgroupId`.
 	WorkgroupId *string `field:"optional" json:"workgroupId" yaml:"workgroupId"`
-	// The name of the workgroup.
+	// `CfnWorkgroup.WorkgroupProperty.WorkgroupName`.
 	WorkgroupName *string `field:"optional" json:"workgroupName" yaml:"workgroupName"`
 }
 

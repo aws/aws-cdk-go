@@ -60,7 +60,7 @@ type CfnTriggerProps struct {
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of this trigger.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
+	// `AWS::Glue::Trigger.EventBatchingCondition`.
 	EventBatchingCondition interface{} `field:"optional" json:"eventBatchingCondition" yaml:"eventBatchingCondition"`
 	// The name of the trigger.
 	Name *string `field:"optional" json:"name" yaml:"name"`

@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnFHIRDatastore) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnFHIRDatastore) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnFHIRDatastore) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateOverrideLogicalIdParameters(newLogi
 func (c *jsiiProxy_CfnFHIRDatastore) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnFHIRDatastore) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -223,7 +207,7 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetSseConfigurationParameters(val i
 	return nil
 }
 
-func validateNewCfnFHIRDatastoreParameters(scope awscdk.Construct, id *string, props *CfnFHIRDatastoreProps) error {
+func validateNewCfnFHIRDatastoreParameters(scope constructs.Construct, id *string, props *CfnFHIRDatastoreProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

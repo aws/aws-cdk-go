@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnWorkteam) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnWorkteam) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnWorkteam) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnWorkteam) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnWorkteam) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnWorkteam) validateSetNotificationConfigurationParameters(v
 	return nil
 }
 
-func validateNewCfnWorkteamParameters(scope awscdk.Construct, id *string, props *CfnWorkteamProps) error {
+func validateNewCfnWorkteamParameters(scope constructs.Construct, id *string, props *CfnWorkteamProps) error {
 	return nil
 }
 

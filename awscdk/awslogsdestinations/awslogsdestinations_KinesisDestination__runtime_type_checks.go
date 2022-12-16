@@ -7,12 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (k *jsiiProxy_KinesisDestination) validateBindParameters(scope awscdk.Construct, _sourceLogGroup awslogs.ILogGroup) error {
+func (k *jsiiProxy_KinesisDestination) validateBindParameters(scope constructs.Construct, _sourceLogGroup awslogs.ILogGroup) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

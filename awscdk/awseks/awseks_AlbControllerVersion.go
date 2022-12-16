@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -17,13 +17,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type AlbControllerVersion interface {
 	// Whether or not its a custom version.
-	// Experimental.
 	Custom() *bool
 	// The version string.
-	// Experimental.
 	Version() *string
 }
 
@@ -57,7 +54,6 @@ func (j *jsiiProxy_AlbControllerVersion) Version() *string {
 //
 // Use this if the version you need is not available in one of the predefined versions.
 // Note that in this case, you will also need to provide an IAM policy in the controller options.
-// Experimental.
 func AlbControllerVersion_Of(version *string) AlbControllerVersion {
 	_init_.Initialize()
 
@@ -67,7 +63,7 @@ func AlbControllerVersion_Of(version *string) AlbControllerVersion {
 	var returns AlbControllerVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -80,7 +76,7 @@ func AlbControllerVersion_V2_0_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_0_0",
 		&returns,
 	)
@@ -91,7 +87,7 @@ func AlbControllerVersion_V2_0_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_0_1",
 		&returns,
 	)
@@ -102,7 +98,7 @@ func AlbControllerVersion_V2_1_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_1_0",
 		&returns,
 	)
@@ -113,7 +109,7 @@ func AlbControllerVersion_V2_1_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_1_1",
 		&returns,
 	)
@@ -124,7 +120,7 @@ func AlbControllerVersion_V2_1_2() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_1_2",
 		&returns,
 	)
@@ -135,7 +131,7 @@ func AlbControllerVersion_V2_1_3() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_1_3",
 		&returns,
 	)
@@ -146,7 +142,7 @@ func AlbControllerVersion_V2_2_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_2_0",
 		&returns,
 	)
@@ -157,7 +153,7 @@ func AlbControllerVersion_V2_2_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_2_1",
 		&returns,
 	)
@@ -168,7 +164,7 @@ func AlbControllerVersion_V2_2_2() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_2_2",
 		&returns,
 	)
@@ -179,7 +175,7 @@ func AlbControllerVersion_V2_2_3() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_2_3",
 		&returns,
 	)
@@ -190,7 +186,7 @@ func AlbControllerVersion_V2_2_4() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_2_4",
 		&returns,
 	)
@@ -201,7 +197,7 @@ func AlbControllerVersion_V2_3_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_3_0",
 		&returns,
 	)
@@ -212,7 +208,7 @@ func AlbControllerVersion_V2_3_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_3_1",
 		&returns,
 	)
@@ -223,7 +219,7 @@ func AlbControllerVersion_V2_4_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.AlbControllerVersion",
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_4_1",
 		&returns,
 	)

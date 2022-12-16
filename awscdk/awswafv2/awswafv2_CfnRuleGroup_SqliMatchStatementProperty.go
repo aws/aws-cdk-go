@@ -89,13 +89,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
-	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
-	//
-	// `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
-	//
-	// `LOW` is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives.
-	//
-	// Default: `LOW`.
+	// `CfnRuleGroup.SqliMatchStatementProperty.SensitivityLevel`.
 	SensitivityLevel *string `field:"optional" json:"sensitivityLevel" yaml:"sensitivityLevel"`
 }
 

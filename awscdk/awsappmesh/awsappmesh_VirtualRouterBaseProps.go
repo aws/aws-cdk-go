@@ -4,6 +4,7 @@ package awsappmesh
 // Interface with base properties all routers willl inherit.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //   router := mesh.addVirtualRouter(jsii.String("router"), &virtualRouterBaseProps{
@@ -12,13 +13,10 @@ package awsappmesh
 //   	},
 //   })
 //
-// Experimental.
 type VirtualRouterBaseProps struct {
 	// Listener specification for the VirtualRouter.
-	// Experimental.
 	Listeners *[]VirtualRouterListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// The name of the VirtualRouter.
-	// Experimental.
 	VirtualRouterName *string `field:"optional" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 

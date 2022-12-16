@@ -20,7 +20,7 @@ package awsrefactorspaces
 //   }
 //
 type CfnRoute_UriPathRouteInputProperty struct {
-	// If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+	// Indicates whether traffic is forwarded to this route’s service after the route is created.
 	ActivationState *string `field:"required" json:"activationState" yaml:"activationState"`
 	// Indicates whether to match all subpaths of the given source path.
 	//

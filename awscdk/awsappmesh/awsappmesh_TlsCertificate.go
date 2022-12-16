@@ -1,16 +1,17 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a TLS certificate.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
@@ -60,11 +61,9 @@ import (
 //   	virtualGatewayName: jsii.String("gateway2"),
 //   })
 //
-// Experimental.
 type TlsCertificate interface {
 	// Returns TLS certificate based provider.
-	// Experimental.
-	Bind(_scope awscdk.Construct) *TlsCertificateConfig
+	Bind(_scope constructs.Construct) *TlsCertificateConfig
 }
 
 // The jsii proxy struct for TlsCertificate
@@ -72,19 +71,17 @@ type jsiiProxy_TlsCertificate struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewTlsCertificate_Override(t TlsCertificate) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.TlsCertificate",
+		"aws-cdk-lib.aws_appmesh.TlsCertificate",
 		nil, // no parameters
 		t,
 	)
 }
 
 // Returns an ACM TLS Certificate.
-// Experimental.
 func TlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCertificate {
 	_init_.Initialize()
 
@@ -94,7 +91,7 @@ func TlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCerti
 	var returns TlsCertificate
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.TlsCertificate",
+		"aws-cdk-lib.aws_appmesh.TlsCertificate",
 		"acm",
 		[]interface{}{certificate},
 		&returns,
@@ -104,7 +101,6 @@ func TlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCerti
 }
 
 // Returns an File TLS Certificate.
-// Experimental.
 func TlsCertificate_File(certificateChainPath *string, privateKeyPath *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -114,7 +110,7 @@ func TlsCertificate_File(certificateChainPath *string, privateKeyPath *string) M
 	var returns MutualTlsCertificate
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.TlsCertificate",
+		"aws-cdk-lib.aws_appmesh.TlsCertificate",
 		"file",
 		[]interface{}{certificateChainPath, privateKeyPath},
 		&returns,
@@ -124,7 +120,6 @@ func TlsCertificate_File(certificateChainPath *string, privateKeyPath *string) M
 }
 
 // Returns an SDS TLS Certificate.
-// Experimental.
 func TlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -134,7 +129,7 @@ func TlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	var returns MutualTlsCertificate
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.TlsCertificate",
+		"aws-cdk-lib.aws_appmesh.TlsCertificate",
 		"sds",
 		[]interface{}{secretName},
 		&returns,
@@ -143,7 +138,7 @@ func TlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	return returns
 }
 
-func (t *jsiiProxy_TlsCertificate) Bind(_scope awscdk.Construct) *TlsCertificateConfig {
+func (t *jsiiProxy_TlsCertificate) Bind(_scope constructs.Construct) *TlsCertificateConfig {
 	if err := t.validateBindParameters(_scope); err != nil {
 		panic(err)
 	}

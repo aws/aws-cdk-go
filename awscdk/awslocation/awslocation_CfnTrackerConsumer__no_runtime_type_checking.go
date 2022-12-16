@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnTrackerConsumer) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrackerConsumer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTrackerConsumer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnTrackerConsumer) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnTrackerConsumer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +76,7 @@ func (j *jsiiProxy_CfnTrackerConsumer) validateSetTrackerNameParameters(val *str
 	return nil
 }
 
-func validateNewCfnTrackerConsumerParameters(scope awscdk.Construct, id *string, props *CfnTrackerConsumerProps) error {
+func validateNewCfnTrackerConsumerParameters(scope constructs.Construct, id *string, props *CfnTrackerConsumerProps) error {
 	return nil
 }
 

@@ -1,8 +1,6 @@
 package awsamplifyuibuilder
 
 
-// Describes the configuration settings for the form's style properties.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FormStyleConfigProperty struct {
-	// A reference to a design token to use to bind the form's style properties to an existing theme.
+	// `CfnForm.FormStyleConfigProperty.TokenReference`.
 	TokenReference *string `field:"optional" json:"tokenReference" yaml:"tokenReference"`
-	// The value of the style setting.
+	// `CfnForm.FormStyleConfigProperty.Value`.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

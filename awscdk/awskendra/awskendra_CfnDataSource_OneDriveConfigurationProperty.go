@@ -45,11 +45,11 @@ type CfnDataSource_OneDriveConfigurationProperty struct {
 	OneDriveUsers interface{} `field:"required" json:"oneDriveUsers" yaml:"oneDriveUsers"`
 	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive.
 	//
-	// The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
+	// The user named should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 	// The Azure Active Directory domain of the organization.
 	TenantDomain *string `field:"required" json:"tenantDomain" yaml:"tenantDomain"`
-	// `TRUE` to disable local groups information.
+	// A Boolean value that specifies whether local groups are disabled ( `True` ) or enabled ( `False` ).
 	DisableLocalGroups interface{} `field:"optional" json:"disableLocalGroups" yaml:"disableLocalGroups"`
 	// A list of regular expression patterns to exclude certain documents in your OneDrive.
 	//

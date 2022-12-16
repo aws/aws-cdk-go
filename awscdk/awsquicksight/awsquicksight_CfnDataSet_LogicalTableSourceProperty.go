@@ -30,7 +30,7 @@ package awsquicksight
 //   }
 //
 type CfnDataSet_LogicalTableSourceProperty struct {
-	// The Amazon Resource Number (ARN) of the parent dataset.
+	// `CfnDataSet.LogicalTableSourceProperty.DataSetArn`.
 	DataSetArn *string `field:"optional" json:"dataSetArn" yaml:"dataSetArn"`
 	// Specifies the result of a join of two logical tables.
 	JoinInstruction interface{} `field:"optional" json:"joinInstruction" yaml:"joinInstruction"`

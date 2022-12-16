@@ -131,9 +131,7 @@ type CfnComponentTypeProps struct {
 	//
 	// For information about the PropertyDefinitionResponse object, see the [PropertyDefinitionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_PropertyDefinitionResponse.html) API reference.
 	PropertyDefinitions interface{} `field:"optional" json:"propertyDefinitions" yaml:"propertyDefinitions"`
-	// An object that maps strings to the property groups in the component type.
-	//
-	// Each string in the mapping must be unique to this object.
+	// `AWS::IoTTwinMaker::ComponentType.PropertyGroups`.
 	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// The ComponentType tags.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

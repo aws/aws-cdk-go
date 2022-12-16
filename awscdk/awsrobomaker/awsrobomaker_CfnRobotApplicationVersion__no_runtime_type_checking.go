@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnRobotApplicationVersion) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnRobotApplicationVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRobotApplicationVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnRobotApplicationVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnRobotApplicationVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnRobotApplicationVersion) validateSetApplicationParameters(
 	return nil
 }
 
-func validateNewCfnRobotApplicationVersionParameters(scope awscdk.Construct, id *string, props *CfnRobotApplicationVersionProps) error {
+func validateNewCfnRobotApplicationVersionParameters(scope constructs.Construct, id *string, props *CfnRobotApplicationVersionProps) error {
 	return nil
 }
 

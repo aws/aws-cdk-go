@@ -1,17 +1,17 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::EC2::TransitGatewayPeeringAttachment`.
 //
-// Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The peer transit gateway can be in your account or a different AWS account .
+// Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The transit gateways must be in different Regions. The peer transit gateway can be in your account or a different AWS account .
 //
 // After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.
 //
@@ -44,23 +44,18 @@ type CfnTransitGatewayPeeringAttachment interface {
 	//
 	// Note that the `initiating` state has been deprecated.
 	AttrState() *string
-	// The status code.
 	AttrStatusCode() *string
-	// The status message.
 	AttrStatusMessage() *string
 	// The ID of the transit gateway peering attachment.
 	AttrTransitGatewayAttachmentId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -71,11 +66,9 @@ type CfnTransitGatewayPeeringAttachment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The ID of the AWS account that owns the transit gateway.
 	PeerAccountId() *string
 	SetPeerAccountId(val *string)
@@ -89,32 +82,35 @@ type CfnTransitGatewayPeeringAttachment interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The tags for the transit gateway peering attachment.
 	Tags() awscdk.TagManager
 	// The ID of the transit gateway peering attachment.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -123,7 +119,6 @@ type CfnTransitGatewayPeeringAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -168,15 +163,12 @@ type CfnTransitGatewayPeeringAttachment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -186,15 +178,18 @@ type CfnTransitGatewayPeeringAttachment interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
-	GetAtt(attributeName *string) awscdk.Reference
+	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -202,74 +197,21 @@ type CfnTransitGatewayPeeringAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -379,8 +321,8 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -469,9 +411,19 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) UpdatedProperites() *map[
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::EC2::TransitGatewayPeeringAttachment`.
-func NewCfnTransitGatewayPeeringAttachment(scope awscdk.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) CfnTransitGatewayPeeringAttachment {
+func NewCfnTransitGatewayPeeringAttachment(scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) CfnTransitGatewayPeeringAttachment {
 	_init_.Initialize()
 
 	if err := validateNewCfnTransitGatewayPeeringAttachmentParameters(scope, id, props); err != nil {
@@ -480,7 +432,7 @@ func NewCfnTransitGatewayPeeringAttachment(scope awscdk.Construct, id *string, p
 	j := jsiiProxy_CfnTransitGatewayPeeringAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -489,11 +441,11 @@ func NewCfnTransitGatewayPeeringAttachment(scope awscdk.Construct, id *string, p
 }
 
 // Create a new `AWS::EC2::TransitGatewayPeeringAttachment`.
-func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAttachment, scope awscdk.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) {
+func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAttachment, scope constructs.Construct, id *string, props *CfnTransitGatewayPeeringAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -549,7 +501,6 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetTransitGatewayId(val *s
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTransitGatewayPeeringAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -559,7 +510,7 @@ func CfnTransitGatewayPeeringAttachment_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -569,7 +520,6 @@ func CfnTransitGatewayPeeringAttachment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTransitGatewayPeeringAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -579,7 +529,7 @@ func CfnTransitGatewayPeeringAttachment_IsCfnResource(construct constructs.ICons
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -588,8 +538,23 @@ func CfnTransitGatewayPeeringAttachment_IsCfnResource(construct constructs.ICons
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnTransitGatewayPeeringAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -599,7 +564,7 @@ func CfnTransitGatewayPeeringAttachment_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -612,7 +577,7 @@ func CfnTransitGatewayPeeringAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -696,7 +661,7 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ApplyRemovalPolicy(policy
 	)
 }
 
-func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) GetAtt(attributeName *string) awscdk.Reference {
+func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -705,7 +670,7 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) GetAtt(attributeName *str
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName},
+		[]interface{}{attributeName, typeHint},
 		&returns,
 	)
 
@@ -739,38 +704,6 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Inspect(inspector awscdk.
 	)
 }
 
-func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := c.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -779,14 +712,6 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) OverrideLogicalId(newLogi
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -819,36 +744,12 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ShouldSynthesize() *bool 
 	return returns
 }
 
-func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	if err := c.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

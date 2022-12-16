@@ -115,7 +115,7 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 	//
 	// For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair interface{} `field:"optional" json:"credentialPair" yaml:"credentialPair"`
-	// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+	// `CfnDataSource.DataSourceCredentialsProperty.SecretArn`.
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
 }
 

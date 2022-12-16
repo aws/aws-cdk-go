@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_databrew.CfnDataset",
+		"aws-cdk-lib.aws_databrew.CfnDataset",
 		reflect.TypeOf((*CfnDataset)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -31,21 +31,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "pathOptions", GoGetter: "PathOptions"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -56,75 +51,75 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.CsvOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.CsvOptionsProperty",
 		reflect.TypeOf((*CfnDataset_CsvOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.DataCatalogInputDefinitionProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.DataCatalogInputDefinitionProperty",
 		reflect.TypeOf((*CfnDataset_DataCatalogInputDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.DatabaseInputDefinitionProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.DatabaseInputDefinitionProperty",
 		reflect.TypeOf((*CfnDataset_DatabaseInputDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.DatasetParameterProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.DatasetParameterProperty",
 		reflect.TypeOf((*CfnDataset_DatasetParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.DatetimeOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.DatetimeOptionsProperty",
 		reflect.TypeOf((*CfnDataset_DatetimeOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.ExcelOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.ExcelOptionsProperty",
 		reflect.TypeOf((*CfnDataset_ExcelOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.FilesLimitProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.FilesLimitProperty",
 		reflect.TypeOf((*CfnDataset_FilesLimitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.FilterExpressionProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.FilterExpressionProperty",
 		reflect.TypeOf((*CfnDataset_FilterExpressionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.FilterValueProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.FilterValueProperty",
 		reflect.TypeOf((*CfnDataset_FilterValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.FormatOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.FormatOptionsProperty",
 		reflect.TypeOf((*CfnDataset_FormatOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.InputProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.InputProperty",
 		reflect.TypeOf((*CfnDataset_InputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.JsonOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.JsonOptionsProperty",
 		reflect.TypeOf((*CfnDataset_JsonOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.MetadataProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.MetadataProperty",
 		reflect.TypeOf((*CfnDataset_MetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.PathOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.PathOptionsProperty",
 		reflect.TypeOf((*CfnDataset_PathOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.PathParameterProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.PathParameterProperty",
 		reflect.TypeOf((*CfnDataset_PathParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDataset.S3LocationProperty",
+		"aws-cdk-lib.aws_databrew.CfnDataset.S3LocationProperty",
 		reflect.TypeOf((*CfnDataset_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnDatasetProps",
+		"aws-cdk-lib.aws_databrew.CfnDatasetProps",
 		reflect.TypeOf((*CfnDatasetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_databrew.CfnJob",
+		"aws-cdk-lib.aws_databrew.CfnJob",
 		reflect.TypeOf((*CfnJob)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -153,13 +148,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "maxRetries", GoGetter: "MaxRetries"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputLocation", GoGetter: "OutputLocation"},
 			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "profileConfiguration", GoGetter: "ProfileConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
 			_jsii_.MemberProperty{JsiiProperty: "recipe", GoGetter: "Recipe"},
@@ -168,13 +159,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "validationConfigurations", GoGetter: "ValidationConfigurations"},
 		},
@@ -186,87 +176,87 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.AllowedStatisticsProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.AllowedStatisticsProperty",
 		reflect.TypeOf((*CfnJob_AllowedStatisticsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.ColumnSelectorProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.ColumnSelectorProperty",
 		reflect.TypeOf((*CfnJob_ColumnSelectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.ColumnStatisticsConfigurationProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.ColumnStatisticsConfigurationProperty",
 		reflect.TypeOf((*CfnJob_ColumnStatisticsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.CsvOutputOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.CsvOutputOptionsProperty",
 		reflect.TypeOf((*CfnJob_CsvOutputOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.DataCatalogOutputProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.DataCatalogOutputProperty",
 		reflect.TypeOf((*CfnJob_DataCatalogOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.DatabaseOutputProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.DatabaseOutputProperty",
 		reflect.TypeOf((*CfnJob_DatabaseOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.DatabaseTableOutputOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.DatabaseTableOutputOptionsProperty",
 		reflect.TypeOf((*CfnJob_DatabaseTableOutputOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.EntityDetectorConfigurationProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.EntityDetectorConfigurationProperty",
 		reflect.TypeOf((*CfnJob_EntityDetectorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.JobSampleProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.JobSampleProperty",
 		reflect.TypeOf((*CfnJob_JobSampleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.OutputFormatOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.OutputFormatOptionsProperty",
 		reflect.TypeOf((*CfnJob_OutputFormatOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.OutputLocationProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.OutputLocationProperty",
 		reflect.TypeOf((*CfnJob_OutputLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.OutputProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.OutputProperty",
 		reflect.TypeOf((*CfnJob_OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.ProfileConfigurationProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.ProfileConfigurationProperty",
 		reflect.TypeOf((*CfnJob_ProfileConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.RecipeProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.RecipeProperty",
 		reflect.TypeOf((*CfnJob_RecipeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.S3LocationProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.S3LocationProperty",
 		reflect.TypeOf((*CfnJob_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.S3TableOutputOptionsProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.S3TableOutputOptionsProperty",
 		reflect.TypeOf((*CfnJob_S3TableOutputOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.StatisticOverrideProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.StatisticOverrideProperty",
 		reflect.TypeOf((*CfnJob_StatisticOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.StatisticsConfigurationProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.StatisticsConfigurationProperty",
 		reflect.TypeOf((*CfnJob_StatisticsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJob.ValidationConfigurationProperty",
+		"aws-cdk-lib.aws_databrew.CfnJob.ValidationConfigurationProperty",
 		reflect.TypeOf((*CfnJob_ValidationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnJobProps",
+		"aws-cdk-lib.aws_databrew.CfnJobProps",
 		reflect.TypeOf((*CfnJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_databrew.CfnProject",
+		"aws-cdk-lib.aws_databrew.CfnProject",
 		reflect.TypeOf((*CfnProject)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -287,11 +277,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "recipeName", GoGetter: "RecipeName"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -299,11 +285,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sample", GoGetter: "Sample"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -314,15 +299,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnProject.SampleProperty",
+		"aws-cdk-lib.aws_databrew.CfnProject.SampleProperty",
 		reflect.TypeOf((*CfnProject_SampleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnProjectProps",
+		"aws-cdk-lib.aws_databrew.CfnProjectProps",
 		reflect.TypeOf((*CfnProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_databrew.CfnRecipe",
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
 		reflect.TypeOf((*CfnRecipe)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -343,21 +328,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "steps", GoGetter: "Steps"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -368,43 +348,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.ActionProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.ActionProperty",
 		reflect.TypeOf((*CfnRecipe_ActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.ConditionExpressionProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.ConditionExpressionProperty",
 		reflect.TypeOf((*CfnRecipe_ConditionExpressionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.DataCatalogInputDefinitionProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.DataCatalogInputDefinitionProperty",
 		reflect.TypeOf((*CfnRecipe_DataCatalogInputDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.InputProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.InputProperty",
 		reflect.TypeOf((*CfnRecipe_InputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.RecipeParametersProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.RecipeParametersProperty",
 		reflect.TypeOf((*CfnRecipe_RecipeParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.RecipeStepProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.RecipeStepProperty",
 		reflect.TypeOf((*CfnRecipe_RecipeStepProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.S3LocationProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.S3LocationProperty",
 		reflect.TypeOf((*CfnRecipe_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipe.SecondaryInputProperty",
+		"aws-cdk-lib.aws_databrew.CfnRecipe.SecondaryInputProperty",
 		reflect.TypeOf((*CfnRecipe_SecondaryInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRecipeProps",
+		"aws-cdk-lib.aws_databrew.CfnRecipeProps",
 		reflect.TypeOf((*CfnRecipeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_databrew.CfnRuleset",
+		"aws-cdk-lib.aws_databrew.CfnRuleset",
 		reflect.TypeOf((*CfnRuleset)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -425,22 +405,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "rules", GoGetter: "Rules"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -451,27 +426,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRuleset.ColumnSelectorProperty",
+		"aws-cdk-lib.aws_databrew.CfnRuleset.ColumnSelectorProperty",
 		reflect.TypeOf((*CfnRuleset_ColumnSelectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRuleset.RuleProperty",
+		"aws-cdk-lib.aws_databrew.CfnRuleset.RuleProperty",
 		reflect.TypeOf((*CfnRuleset_RuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRuleset.SubstitutionValueProperty",
+		"aws-cdk-lib.aws_databrew.CfnRuleset.SubstitutionValueProperty",
 		reflect.TypeOf((*CfnRuleset_SubstitutionValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRuleset.ThresholdProperty",
+		"aws-cdk-lib.aws_databrew.CfnRuleset.ThresholdProperty",
 		reflect.TypeOf((*CfnRuleset_ThresholdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnRulesetProps",
+		"aws-cdk-lib.aws_databrew.CfnRulesetProps",
 		reflect.TypeOf((*CfnRulesetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_databrew.CfnSchedule",
+		"aws-cdk-lib.aws_databrew.CfnSchedule",
 		reflect.TypeOf((*CfnSchedule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -493,20 +468,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -517,7 +487,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_databrew.CfnScheduleProps",
+		"aws-cdk-lib.aws_databrew.CfnScheduleProps",
 		reflect.TypeOf((*CfnScheduleProps)(nil)).Elem(),
 	)
 }

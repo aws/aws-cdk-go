@@ -35,10 +35,8 @@ package awsstepfunctionstasks
 //   	},
 //   })
 //
-// Experimental.
 type DataSource struct {
 	// S3 location of the data source that is associated with a channel.
-	// Experimental.
 	S3DataSource *S3DataSource `field:"required" json:"s3DataSource" yaml:"s3DataSource"`
 }
 

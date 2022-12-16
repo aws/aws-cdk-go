@@ -1,7 +1,7 @@
 package awsconnect
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnContactFlowModule`.
@@ -28,15 +28,15 @@ import (
 //   }
 //
 type CfnContactFlowModuleProps struct {
-	// The content of the flow module.
+	// The content of the contact flow module.
 	Content *string `field:"required" json:"content" yaml:"content"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// The name of the flow module.
+	// The name of the contact flow module.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The description of the flow module.
+	// The description of the contact flow module.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The state of the flow module.
+	// The state of the contact flow module.
 	State *string `field:"optional" json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//

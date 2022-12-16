@@ -33,7 +33,7 @@ type CfnPackagingConfiguration_HlsEncryptionProperty struct {
 	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, used with the key for encrypting blocks.
 	//
-	// If you don't specify a constant initialization vector (IV), AWS Elemental MediaPackage periodically rotates the IV.
+	// If you don't specify a constant initialization vector (IV), MediaPackage periodically rotates the IV.
 	ConstantInitializationVector *string `field:"optional" json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// HLS encryption type.
 	EncryptionMethod *string `field:"optional" json:"encryptionMethod" yaml:"encryptionMethod"`

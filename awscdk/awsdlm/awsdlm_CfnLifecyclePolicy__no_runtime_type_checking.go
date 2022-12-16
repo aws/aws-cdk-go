@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnLifecyclePolicy) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnLifecyclePolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLifecyclePolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnLifecyclePolicy) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnLifecyclePolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +72,7 @@ func (j *jsiiProxy_CfnLifecyclePolicy) validateSetPolicyDetailsParameters(val in
 	return nil
 }
 
-func validateNewCfnLifecyclePolicyParameters(scope awscdk.Construct, id *string, props *CfnLifecyclePolicyProps) error {
+func validateNewCfnLifecyclePolicyParameters(scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) error {
 	return nil
 }
 

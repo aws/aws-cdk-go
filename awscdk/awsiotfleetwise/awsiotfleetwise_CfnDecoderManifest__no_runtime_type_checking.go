@@ -44,19 +44,11 @@ func (c *jsiiProxy_CfnDecoderManifest) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnDecoderManifest) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDecoderManifest) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
 func (c *jsiiProxy_CfnDecoderManifest) validateRenderPropertiesParameters(props *map[string]interface{}) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnDecoderManifest) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +84,7 @@ func (j *jsiiProxy_CfnDecoderManifest) validateSetSignalDecodersParameters(val i
 	return nil
 }
 
-func validateNewCfnDecoderManifestParameters(scope awscdk.Construct, id *string, props *CfnDecoderManifestProps) error {
+func validateNewCfnDecoderManifestParameters(scope constructs.Construct, id *string, props *CfnDecoderManifestProps) error {
 	return nil
 }
 

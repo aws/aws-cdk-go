@@ -1,7 +1,7 @@
 package awssecretsmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnSecret`.
@@ -49,13 +49,11 @@ type CfnSecretProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A structure that specifies how to generate a password to encrypt and store in the secret.
 	//
-	// To include a specific string in the secret, use `SecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret.
+	// Either `GenerateSecretString` or `SecretString` must have a value, but not both. They cannot both be empty.
 	//
 	// We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 	GenerateSecretString interface{} `field:"optional" json:"generateSecretString" yaml:"generateSecretString"`
 	// The ARN, key ID, or alias of the AWS KMS key that Secrets Manager uses to encrypt the secret value in the secret.
-	//
-	// An alias is always prefixed by `alias/` , for example `alias/aws/secretsmanager` . For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html) .
 	//
 	// To use a AWS KMS key in a different account, use the key ARN or the alias ARN.
 	//
@@ -73,7 +71,9 @@ type CfnSecretProps struct {
 	ReplicaRegions interface{} `field:"optional" json:"replicaRegions" yaml:"replicaRegions"`
 	// The text to encrypt and store in the secret.
 	//
-	// We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use `GenerateSecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret.
+	// We recommend you use a JSON structure of key/value pairs for your secret value.
+	//
+	// Either `GenerateSecretString` or `SecretString` must have a value, but not both. They cannot both be empty. We recommend that you use the `GenerateSecretString` property to generate a random password.
 	SecretString *string `field:"optional" json:"secretString" yaml:"secretString"`
 	// A list of tags to attach to the secret.
 	//

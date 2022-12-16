@@ -1,8 +1,6 @@
 package awsbackup
 
 
-// Contains detailed information about a report setting.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,17 +25,15 @@ package awsbackup
 //   }
 //
 type CfnReportPlan_ReportSettingProperty struct {
-	// Identifies the report template for the report. Reports are built using a report template. The report templates are:.
-	//
-	// `RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`.
+	// `CfnReportPlan.ReportSettingProperty.ReportTemplate`.
 	ReportTemplate *string `field:"required" json:"reportTemplate" yaml:"reportTemplate"`
-	// These are the accounts to be included in the report.
+	// `CfnReportPlan.ReportSettingProperty.Accounts`.
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
-	// The Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// `CfnReportPlan.ReportSettingProperty.FrameworkArns`.
 	FrameworkArns *[]*string `field:"optional" json:"frameworkArns" yaml:"frameworkArns"`
-	// These are the Organizational Units to be included in the report.
+	// `CfnReportPlan.ReportSettingProperty.OrganizationUnits`.
 	OrganizationUnits *[]*string `field:"optional" json:"organizationUnits" yaml:"organizationUnits"`
-	// These are the Regions to be included in the report.
+	// `CfnReportPlan.ReportSettingProperty.Regions`.
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 }
 

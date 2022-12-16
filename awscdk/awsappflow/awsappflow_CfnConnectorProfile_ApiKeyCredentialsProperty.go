@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// The API key credentials required for API key authentication.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_ApiKeyCredentialsProperty struct {
-	// The API key required for API key authentication.
+	// `CfnConnectorProfile.ApiKeyCredentialsProperty.ApiKey`.
 	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
-	// The API secret key required for API key authentication.
+	// `CfnConnectorProfile.ApiKeyCredentialsProperty.ApiSecretKey`.
 	ApiSecretKey *string `field:"optional" json:"apiSecretKey" yaml:"apiSecretKey"`
 }
 

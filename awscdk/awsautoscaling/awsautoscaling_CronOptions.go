@@ -28,22 +28,16 @@ package awsautoscaling
 //
 // See: http://crontab.org/
 //
-// Experimental.
 type CronOptions struct {
 	// The day of the month to run this rule at.
-	// Experimental.
 	Day *string `field:"optional" json:"day" yaml:"day"`
 	// The hour to run this rule at.
-	// Experimental.
 	Hour *string `field:"optional" json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
-	// Experimental.
 	Minute *string `field:"optional" json:"minute" yaml:"minute"`
 	// The month to run this rule at.
-	// Experimental.
 	Month *string `field:"optional" json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
-	// Experimental.
 	WeekDay *string `field:"optional" json:"weekDay" yaml:"weekDay"`
 }
 

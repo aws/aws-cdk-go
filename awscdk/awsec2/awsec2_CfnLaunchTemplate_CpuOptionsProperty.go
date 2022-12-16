@@ -22,7 +22,7 @@ type CfnLaunchTemplate_CpuOptionsProperty struct {
 	CoreCount *float64 `field:"optional" json:"coreCount" yaml:"coreCount"`
 	// The number of threads per CPU core.
 	//
-	// To disable multithreading for the instance, specify a value of `1` . Otherwise, specify the default value of `2` .
+	// To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
 	ThreadsPerCore *float64 `field:"optional" json:"threadsPerCore" yaml:"threadsPerCore"`
 }
 

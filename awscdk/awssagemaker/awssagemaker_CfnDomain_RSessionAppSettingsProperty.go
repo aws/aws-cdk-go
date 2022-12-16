@@ -1,8 +1,6 @@
 package awssagemaker
 
 
-// A collection of settings that apply to an `RSessionGateway` app.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,9 +25,9 @@ package awssagemaker
 //   }
 //
 type CfnDomain_RSessionAppSettingsProperty struct {
-	// A list of custom SageMaker images that are configured to run as a RSession app.
+	// `CfnDomain.RSessionAppSettingsProperty.CustomImages`.
 	CustomImages interface{} `field:"optional" json:"customImages" yaml:"customImages"`
-	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// `CfnDomain.RSessionAppSettingsProperty.DefaultResourceSpec`.
 	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 

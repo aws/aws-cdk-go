@@ -1,8 +1,6 @@
 package awsscheduler
 
 
-// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsscheduler
 //   }
 //
 type CfnSchedule_FlexibleTimeWindowProperty struct {
-	// Determines whether the schedule is invoked within a flexible time window.
+	// `CfnSchedule.FlexibleTimeWindowProperty.Mode`.
 	Mode *string `field:"required" json:"mode" yaml:"mode"`
-	// The maximum time window during which a schedule can be invoked.
+	// `CfnSchedule.FlexibleTimeWindowProperty.MaximumWindowInMinutes`.
 	MaximumWindowInMinutes *float64 `field:"optional" json:"maximumWindowInMinutes" yaml:"maximumWindowInMinutes"`
 }
 

@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication",
 		reflect.TypeOf((*CfnApplication)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -32,11 +32,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "runConfiguration", GoGetter: "RunConfiguration"},
@@ -44,11 +40,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceExecutionRole", GoGetter: "ServiceExecutionRole"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -59,155 +54,155 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ApplicationCodeConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ApplicationCodeConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ApplicationCodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ApplicationConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ApplicationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ApplicationMaintenanceConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ApplicationMaintenanceConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ApplicationMaintenanceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ApplicationRestoreConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ApplicationRestoreConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ApplicationRestoreConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ApplicationSnapshotConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ApplicationSnapshotConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ApplicationSnapshotConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.CSVMappingParametersProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.CSVMappingParametersProperty",
 		reflect.TypeOf((*CfnApplication_CSVMappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.CatalogConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.CatalogConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_CatalogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.CheckpointConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.CheckpointConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_CheckpointConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.CodeContentProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.CodeContentProperty",
 		reflect.TypeOf((*CfnApplication_CodeContentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.CustomArtifactConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.CustomArtifactConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_CustomArtifactConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.DeployAsApplicationConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.DeployAsApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_DeployAsApplicationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.EnvironmentPropertiesProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.EnvironmentPropertiesProperty",
 		reflect.TypeOf((*CfnApplication_EnvironmentPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.FlinkApplicationConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.FlinkApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_FlinkApplicationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.FlinkRunConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.FlinkRunConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_FlinkRunConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.GlueDataCatalogConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.GlueDataCatalogConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_GlueDataCatalogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.InputLambdaProcessorProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.InputLambdaProcessorProperty",
 		reflect.TypeOf((*CfnApplication_InputLambdaProcessorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.InputParallelismProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.InputParallelismProperty",
 		reflect.TypeOf((*CfnApplication_InputParallelismProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.InputProcessingConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.InputProcessingConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_InputProcessingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.InputProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.InputProperty",
 		reflect.TypeOf((*CfnApplication_InputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.InputSchemaProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.InputSchemaProperty",
 		reflect.TypeOf((*CfnApplication_InputSchemaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.JSONMappingParametersProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.JSONMappingParametersProperty",
 		reflect.TypeOf((*CfnApplication_JSONMappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.KinesisFirehoseInputProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.KinesisFirehoseInputProperty",
 		reflect.TypeOf((*CfnApplication_KinesisFirehoseInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.KinesisStreamsInputProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.KinesisStreamsInputProperty",
 		reflect.TypeOf((*CfnApplication_KinesisStreamsInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.MappingParametersProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.MappingParametersProperty",
 		reflect.TypeOf((*CfnApplication_MappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.MavenReferenceProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.MavenReferenceProperty",
 		reflect.TypeOf((*CfnApplication_MavenReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.MonitoringConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.MonitoringConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_MonitoringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ParallelismConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ParallelismConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ParallelismConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.PropertyGroupProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.PropertyGroupProperty",
 		reflect.TypeOf((*CfnApplication_PropertyGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.RecordColumnProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.RecordColumnProperty",
 		reflect.TypeOf((*CfnApplication_RecordColumnProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.RecordFormatProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.RecordFormatProperty",
 		reflect.TypeOf((*CfnApplication_RecordFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.RunConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.RunConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_RunConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.S3ContentBaseLocationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.S3ContentBaseLocationProperty",
 		reflect.TypeOf((*CfnApplication_S3ContentBaseLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.S3ContentLocationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.S3ContentLocationProperty",
 		reflect.TypeOf((*CfnApplication_S3ContentLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.SqlApplicationConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.SqlApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_SqlApplicationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.VpcConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.VpcConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_VpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ZeppelinApplicationConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ZeppelinApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ZeppelinApplicationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplication.ZeppelinMonitoringConfigurationProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ZeppelinMonitoringConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ZeppelinMonitoringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption",
 		reflect.TypeOf((*CfnApplicationCloudWatchLoggingOption)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -228,19 +223,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -251,15 +241,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption.CloudWatchLoggingOptionProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOption.CloudWatchLoggingOptionProperty",
 		reflect.TypeOf((*CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOptionProps",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationCloudWatchLoggingOptionProps",
 		reflect.TypeOf((*CfnApplicationCloudWatchLoggingOptionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput",
 		reflect.TypeOf((*CfnApplicationOutput)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -279,20 +269,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "output", GoGetter: "Output"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -303,35 +288,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput.DestinationSchemaProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput.DestinationSchemaProperty",
 		reflect.TypeOf((*CfnApplicationOutput_DestinationSchemaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput.KinesisFirehoseOutputProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput.KinesisFirehoseOutputProperty",
 		reflect.TypeOf((*CfnApplicationOutput_KinesisFirehoseOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput.KinesisStreamsOutputProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput.KinesisStreamsOutputProperty",
 		reflect.TypeOf((*CfnApplicationOutput_KinesisStreamsOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput.LambdaOutputProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput.LambdaOutputProperty",
 		reflect.TypeOf((*CfnApplicationOutput_LambdaOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutput.OutputProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutput.OutputProperty",
 		reflect.TypeOf((*CfnApplicationOutput_OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationOutputProps",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationOutputProps",
 		reflect.TypeOf((*CfnApplicationOutputProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationProps",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationProps",
 		reflect.TypeOf((*CfnApplicationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -351,20 +336,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "referenceDataSource", GoGetter: "ReferenceDataSource"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -375,39 +355,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.CSVMappingParametersProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.CSVMappingParametersProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_CSVMappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.JSONMappingParametersProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.JSONMappingParametersProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_JSONMappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.MappingParametersProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.MappingParametersProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_MappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.RecordColumnProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.RecordColumnProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_RecordColumnProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.RecordFormatProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.RecordFormatProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_RecordFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.ReferenceDataSourceProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.ReferenceDataSourceProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_ReferenceDataSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.ReferenceSchemaProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.ReferenceSchemaProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_ReferenceSchemaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.S3ReferenceDataSourceProperty",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSource.S3ReferenceDataSourceProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSource_S3ReferenceDataSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSourceProps",
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSourceProps",
 		reflect.TypeOf((*CfnApplicationReferenceDataSourceProps)(nil)).Elem(),
 	)
 }

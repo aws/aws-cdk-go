@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnAccelerator) validateAddDeletionOverrideParameters(path *string) error {
@@ -103,14 +103,6 @@ func (c *jsiiProxy_CfnAccelerator) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnAccelerator) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (c *jsiiProxy_CfnAccelerator) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	if newLogicalId == nil {
 		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
@@ -122,14 +114,6 @@ func (c *jsiiProxy_CfnAccelerator) validateOverrideLogicalIdParameters(newLogica
 func (c *jsiiProxy_CfnAccelerator) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnAccelerator) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -192,7 +176,7 @@ func (j *jsiiProxy_CfnAccelerator) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnAcceleratorParameters(scope awscdk.Construct, id *string, props *CfnAcceleratorProps) error {
+func validateNewCfnAcceleratorParameters(scope constructs.Construct, id *string, props *CfnAcceleratorProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -6,18 +6,14 @@ import (
 )
 
 // How to resolve tokens.
-// Experimental.
 type ITokenResolver interface {
 	// Resolve a tokenized list.
-	// Experimental.
 	ResolveList(l *[]*string, context IResolveContext) interface{}
 	// Resolve a string with at least one stringified token in it.
 	//
 	// (May use concatenation).
-	// Experimental.
 	ResolveString(s TokenizedStringFragments, context IResolveContext) interface{}
 	// Resolve a single token.
-	// Experimental.
 	ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{}
 }
 

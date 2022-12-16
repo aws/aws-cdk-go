@@ -60,39 +60,31 @@ package awsgrafana
 //   }
 //
 type CfnWorkspaceProps struct {
-	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
-	//
-	// If this is `ORGANIZATION` , the `workspaceOrganizationalUnits` parameter specifies which organizational units the workspace can access.
+	// `AWS::Grafana::Workspace.AccountAccessType`.
 	AccountAccessType *string `field:"optional" json:"accountAccessType" yaml:"accountAccessType"`
-	// Specifies whether this workspace uses SAML 2.0, AWS IAM Identity Center (successor to AWS Single Sign-On) , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
+	// `AWS::Grafana::Workspace.AuthenticationProviders`.
 	AuthenticationProviders *[]*string `field:"optional" json:"authenticationProviders" yaml:"authenticationProviders"`
-	// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+	// `AWS::Grafana::Workspace.ClientToken`.
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
-	// Specifies the AWS data sources that have been configured to have IAM roles and permissions created to allow Amazon Managed Grafana to read data from these sources.
+	// `AWS::Grafana::Workspace.DataSources`.
 	DataSources *[]*string `field:"optional" json:"dataSources" yaml:"dataSources"`
-	// The user-defined description of the workspace.
+	// `AWS::Grafana::Workspace.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the workspace.
+	// `AWS::Grafana::Workspace.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The AWS notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, to allow Amazon Managed Grafana to use these channels.
+	// `AWS::Grafana::Workspace.NotificationDestinations`.
 	NotificationDestinations *[]*string `field:"optional" json:"notificationDestinations" yaml:"notificationDestinations"`
-	// Specifies the organizational units that this workspace is allowed to use data sources from, if this workspace is in an account that is part of an organization.
+	// `AWS::Grafana::Workspace.OrganizationalUnits`.
 	OrganizationalUnits *[]*string `field:"optional" json:"organizationalUnits" yaml:"organizationalUnits"`
-	// The name of the IAM role that is used to access resources through Organizations .
+	// `AWS::Grafana::Workspace.OrganizationRoleName`.
 	OrganizationRoleName *string `field:"optional" json:"organizationRoleName" yaml:"organizationRoleName"`
-	// If this is `Service Managed` , Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
-	//
-	// If this is `CUSTOMER_MANAGED` , you manage those roles and permissions yourself. If you are creating this workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, you must choose `CUSTOMER_MANAGED` .
-	//
-	// For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+	// `AWS::Grafana::Workspace.PermissionType`.
 	PermissionType *string `field:"optional" json:"permissionType" yaml:"permissionType"`
-	// The IAM role that grants permissions to the AWS resources that the workspace will view data from.
-	//
-	// This role must already exist.
+	// `AWS::Grafana::Workspace.RoleArn`.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
-	// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
+	// `AWS::Grafana::Workspace.SamlConfiguration`.
 	SamlConfiguration interface{} `field:"optional" json:"samlConfiguration" yaml:"samlConfiguration"`
-	// The name of the AWS CloudFormation stack set that is used to generate IAM roles to be used for this workspace.
+	// `AWS::Grafana::Workspace.StackSetName`.
 	StackSetName *string `field:"optional" json:"stackSetName" yaml:"stackSetName"`
 }
 

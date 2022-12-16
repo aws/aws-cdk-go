@@ -1,8 +1,6 @@
 package awsdynamodb
 
 
-// Specifies the properties of data being imported from the S3 bucket source to the table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,15 +29,13 @@ package awsdynamodb
 //   }
 //
 type CfnTable_ImportSourceSpecificationProperty struct {
-	// The format of the source data.
-	//
-	// Valid values for `ImportFormat` are `CSV` , `DYNAMODB_JSON` or `ION` .
+	// `CfnTable.ImportSourceSpecificationProperty.InputFormat`.
 	InputFormat *string `field:"required" json:"inputFormat" yaml:"inputFormat"`
-	// The S3 bucket that provides the source for the import.
+	// `CfnTable.ImportSourceSpecificationProperty.S3BucketSource`.
 	S3BucketSource interface{} `field:"required" json:"s3BucketSource" yaml:"s3BucketSource"`
-	// Type of compression to be used on the input coming from the imported table.
+	// `CfnTable.ImportSourceSpecificationProperty.InputCompressionType`.
 	InputCompressionType *string `field:"optional" json:"inputCompressionType" yaml:"inputCompressionType"`
-	// Additional properties that specify how the input is formatted,.
+	// `CfnTable.ImportSourceSpecificationProperty.InputFormatOptions`.
 	InputFormatOptions interface{} `field:"optional" json:"inputFormatOptions" yaml:"inputFormatOptions"`
 }
 

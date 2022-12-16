@@ -36,7 +36,7 @@ type CfnOriginEndpoint_CmafEncryptionProperty struct {
 	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks.
 	//
-	// If you don't specify a value, then AWS Elemental MediaPackage creates the constant initialization vector (IV).
+	// If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 	ConstantInitializationVector *string `field:"optional" json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// `CfnOriginEndpoint.CmafEncryptionProperty.EncryptionMethod`.
 	EncryptionMethod *string `field:"optional" json:"encryptionMethod" yaml:"encryptionMethod"`

@@ -1,7 +1,7 @@
 package awsconnect
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTaskTemplate`.
@@ -74,31 +74,25 @@ import (
 //   }
 //
 type CfnTaskTemplateProps struct {
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// `AWS::Connect::TaskTemplate.InstanceArn`.
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+	// `AWS::Connect::TaskTemplate.ClientToken`.
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
-	// Constraints that are applicable to the fields listed.
-	//
-	// The values can be represented in either JSON or YAML format. For an example of the JSON configuration, see *Examples* at the bottom of this page.
+	// `AWS::Connect::TaskTemplate.Constraints`.
 	Constraints interface{} `field:"optional" json:"constraints" yaml:"constraints"`
-	// The Amazon Resource Name (ARN) of the flow that runs by default when a task is created by referencing this template.
-	//
-	// `ContactFlowArn` is not required when there is a field with `fieldType` = `QUICK_CONNECT` .
+	// `AWS::Connect::TaskTemplate.ContactFlowArn`.
 	ContactFlowArn *string `field:"optional" json:"contactFlowArn" yaml:"contactFlowArn"`
-	// The default values for fields when a task is created by referencing this template.
+	// `AWS::Connect::TaskTemplate.Defaults`.
 	Defaults interface{} `field:"optional" json:"defaults" yaml:"defaults"`
-	// The description of the task template.
+	// `AWS::Connect::TaskTemplate.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Fields that are part of the template.
-	//
-	// A template requires at least one field that has type `Name` .
+	// `AWS::Connect::TaskTemplate.Fields`.
 	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
-	// The name of the task template.
+	// `AWS::Connect::TaskTemplate.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The status of the task template.
+	// `AWS::Connect::TaskTemplate.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// The tags used to organize, track, or control access for this resource.
+	// `AWS::Connect::TaskTemplate.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
