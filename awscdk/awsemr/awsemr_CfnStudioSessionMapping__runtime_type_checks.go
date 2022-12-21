@@ -19,6 +19,14 @@ func (c *jsiiProxy_CfnStudioSessionMapping) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnStudioSessionMapping) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnStudioSessionMapping) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
@@ -111,9 +119,29 @@ func (c *jsiiProxy_CfnStudioSessionMapping) validateOverrideLogicalIdParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnStudioSessionMapping) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnStudioSessionMapping) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnStudioSessionMapping) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil

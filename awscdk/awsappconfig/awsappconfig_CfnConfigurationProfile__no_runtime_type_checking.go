@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnConfigurationProfile) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnConfigurationProfile) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConfigurationProfile) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnConfigurationProfile) validateOverrideLogicalIdParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnConfigurationProfile) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConfigurationProfile) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnConfigurationProfile) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

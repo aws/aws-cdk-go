@@ -17,6 +17,7 @@ import (
 //
 //   	// the properties below are optional
 //   	addonVersion: jsii.String("addonVersion"),
+//   	configurationValues: jsii.String("configurationValues"),
 //   	resolveConflicts: jsii.String("resolveConflicts"),
 //   	serviceAccountRoleArn: jsii.String("serviceAccountRoleArn"),
 //   	tags: []cfnTag{
@@ -34,6 +35,8 @@ type CfnAddonProps struct {
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The version of the add-on.
 	AddonVersion *string `field:"optional" json:"addonVersion" yaml:"addonVersion"`
+	// `AWS::EKS::Addon.ConfigurationValues`.
+	ConfigurationValues *string `field:"optional" json:"configurationValues" yaml:"configurationValues"`
 	// How to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on.
 	ResolveConflicts *string `field:"optional" json:"resolveConflicts" yaml:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account.

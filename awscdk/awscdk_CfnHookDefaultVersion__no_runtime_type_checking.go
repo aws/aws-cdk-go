@@ -9,6 +9,10 @@ func (c *jsiiProxy_CfnHookDefaultVersion) validateAddDeletionOverrideParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnHookDefaultVersion) validateAddDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnHookDefaultVersion) validateAddDependsOnParameters(target CfnResource) error {
 	return nil
 }
@@ -49,7 +53,15 @@ func (c *jsiiProxy_CfnHookDefaultVersion) validateOverrideLogicalIdParameters(ne
 	return nil
 }
 
+func (c *jsiiProxy_CfnHookDefaultVersion) validateRemoveDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnHookDefaultVersion) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnHookDefaultVersion) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 

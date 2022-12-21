@@ -26,6 +26,7 @@ import (
 //
 //   	// the properties below are optional
 //   	addonVersion: jsii.String("addonVersion"),
+//   	configurationValues: jsii.String("configurationValues"),
 //   	resolveConflicts: jsii.String("resolveConflicts"),
 //   	serviceAccountRoleArn: jsii.String("serviceAccountRoleArn"),
 //   	tags: []cfnTag{
@@ -55,6 +56,9 @@ type CfnAddon interface {
 	// The name of the cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
+	// `AWS::EKS::Addon.ConfigurationValues`.
+	ConfigurationValues() *string
+	SetConfigurationValues(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -113,6 +117,9 @@ type CfnAddon interface {
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependency(target awscdk.CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -202,9 +209,23 @@ type CfnAddon interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Retrieves an array of resources this resource depends on.
+	//
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
@@ -288,6 +309,16 @@ func (j *jsiiProxy_CfnAddon) ClusterName() *string {
 	_jsii_.Get(
 		j,
 		"clusterName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAddon) ConfigurationValues() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"configurationValues",
 		&returns,
 	)
 	return returns
@@ -453,6 +484,14 @@ func (j *jsiiProxy_CfnAddon)SetClusterName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnAddon)SetConfigurationValues(val *string) {
+	_jsii_.Set(
+		j,
+		"configurationValues",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnAddon)SetResolveConflicts(val *string) {
 	_jsii_.Set(
 		j,
@@ -569,6 +608,17 @@ func (c *jsiiProxy_CfnAddon) AddDeletionOverride(path *string) {
 	)
 }
 
+func (c *jsiiProxy_CfnAddon) AddDependency(target awscdk.CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
+	)
+}
+
 func (c *jsiiProxy_CfnAddon) AddDependsOn(target awscdk.CfnResource) {
 	if err := c.validateAddDependsOnParameters(target); err != nil {
 		panic(err)
@@ -678,6 +728,32 @@ func (c *jsiiProxy_CfnAddon) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnAddon) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnAddon) ObtainResourceDependencies() *[]awscdk.CfnResource {
+	var returns *[]awscdk.CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnAddon) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -686,6 +762,17 @@ func (c *jsiiProxy_CfnAddon) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnAddon) RemoveDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -703,6 +790,17 @@ func (c *jsiiProxy_CfnAddon) RenderProperties(props *map[string]interface{}) *ma
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CfnAddon) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
 }
 
 func (c *jsiiProxy_CfnAddon) ShouldSynthesize() *bool {

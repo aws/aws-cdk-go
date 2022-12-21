@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateAddDeletionO
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateOverrideLogi
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

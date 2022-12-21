@@ -19,6 +19,14 @@ func (c *jsiiProxy_CfnWebACL) validateAddDeletionOverrideParameters(path *string
 	return nil
 }
 
+func (c *jsiiProxy_CfnWebACL) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnWebACL) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
@@ -111,9 +119,29 @@ func (c *jsiiProxy_CfnWebACL) validateOverrideLogicalIdParameters(newLogicalId *
 	return nil
 }
 
+func (c *jsiiProxy_CfnWebACL) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnWebACL) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnWebACL) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -169,6 +197,30 @@ func (j *jsiiProxy_CfnWebACL) validateSetCaptchaConfigParameters(val interface{}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWebACL_CaptchaConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnWebACL) validateSetChallengeConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnWebACL_ChallengeConfigProperty:
+		val := val.(*CfnWebACL_ChallengeConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnWebACL_ChallengeConfigProperty:
+		val_ := val.(CfnWebACL_ChallengeConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnWebACL_ChallengeConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 

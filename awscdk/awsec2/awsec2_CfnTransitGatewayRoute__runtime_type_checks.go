@@ -19,6 +19,14 @@ func (c *jsiiProxy_CfnTransitGatewayRoute) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRoute) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRoute) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
@@ -111,9 +119,29 @@ func (c *jsiiProxy_CfnTransitGatewayRoute) validateOverrideLogicalIdParameters(n
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRoute) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRoute) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayRoute) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil

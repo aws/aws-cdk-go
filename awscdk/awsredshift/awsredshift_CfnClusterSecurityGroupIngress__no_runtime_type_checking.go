@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateAddDeletionOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateOverrideLogicalIdPara
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnClusterSecurityGroupIngress) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

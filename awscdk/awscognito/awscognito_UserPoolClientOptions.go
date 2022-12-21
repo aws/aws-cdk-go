@@ -36,6 +36,13 @@ type UserPoolClientOptions struct {
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 	//
 	AuthFlows *AuthFlow `field:"optional" json:"authFlows" yaml:"authFlows"`
+	// Cognito creates a session token for each API request in an authentication flow.
+	//
+	// AuthSessionValidity is the duration, in minutes, of that session token.
+	// see defaults in `AuthSessionValidity`. Valid duration is from 3 to 15 minutes.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-authsessionvalidity
+	//
+	AuthSessionValidity awscdk.Duration `field:"optional" json:"authSessionValidity" yaml:"authSessionValidity"`
 	// Turns off all OAuth interactions for this client.
 	DisableOAuth *bool `field:"optional" json:"disableOAuth" yaml:"disableOAuth"`
 	// Enable token revocation for this client.

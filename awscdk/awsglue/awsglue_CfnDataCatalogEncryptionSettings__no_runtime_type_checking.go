@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddDeletionOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateOverrideLogicalIdPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

@@ -69,6 +69,9 @@ type CfnResource interface {
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependency(target CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -156,9 +159,23 @@ type CfnResource interface {
 	// node metadata ends up in the Cloud Assembly.
 	//
 	GetMetadata(key *string) interface{}
+	// Retrieves an array of resources this resource depends on.
+	//
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target CfnResource, newTarget CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
@@ -395,6 +412,17 @@ func (c *jsiiProxy_CfnResource) AddDeletionOverride(path *string) {
 	)
 }
 
+func (c *jsiiProxy_CfnResource) AddDependency(target CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
+	)
+}
+
 func (c *jsiiProxy_CfnResource) AddDependsOn(target CfnResource) {
 	if err := c.validateAddDependsOnParameters(target); err != nil {
 		panic(err)
@@ -493,6 +521,32 @@ func (c *jsiiProxy_CfnResource) GetMetadata(key *string) interface{} {
 	return returns
 }
 
+func (c *jsiiProxy_CfnResource) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnResource) ObtainResourceDependencies() *[]CfnResource {
+	var returns *[]CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnResource) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -501,6 +555,17 @@ func (c *jsiiProxy_CfnResource) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnResource) RemoveDependency(target CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -518,6 +583,17 @@ func (c *jsiiProxy_CfnResource) RenderProperties(props *map[string]interface{}) 
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CfnResource) ReplaceDependency(target CfnResource, newTarget CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
 }
 
 func (c *jsiiProxy_CfnResource) ShouldSynthesize() *bool {

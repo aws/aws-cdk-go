@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateAddDe
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateOverr
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

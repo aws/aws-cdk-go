@@ -21,6 +21,13 @@ import (
 //   	},
 //   	cluster: jsii.String("cluster"),
 //   	deploymentConfiguration: &deploymentConfigurationProperty{
+//   		alarms: &deploymentAlarmsProperty{
+//   			alarmNames: []*string{
+//   				jsii.String("alarmNames"),
+//   			},
+//   			enable: jsii.Boolean(false),
+//   			rollback: jsii.Boolean(false),
+//   		},
 //   		deploymentCircuitBreaker: &deploymentCircuitBreakerProperty{
 //   			enable: jsii.Boolean(false),
 //   			rollback: jsii.Boolean(false),

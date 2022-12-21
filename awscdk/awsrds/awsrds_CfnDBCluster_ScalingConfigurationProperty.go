@@ -16,6 +16,7 @@ package awsrds
 //   	autoPause: jsii.Boolean(false),
 //   	maxCapacity: jsii.Number(123),
 //   	minCapacity: jsii.Number(123),
+//   	secondsBeforeTimeout: jsii.Number(123),
 //   	secondsUntilAutoPause: jsii.Number(123),
 //   	timeoutAction: jsii.String("timeoutAction"),
 //   }
@@ -43,6 +44,8 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 	//
 	// The minimum capacity must be less than or equal to the maximum capacity.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
+	// `CfnDBCluster.ScalingConfigurationProperty.SecondsBeforeTimeout`.
+	SecondsBeforeTimeout *float64 `field:"optional" json:"secondsBeforeTimeout" yaml:"secondsBeforeTimeout"`
 	// The time, in seconds, before an Aurora DB cluster in `serverless` mode is paused.
 	//
 	// Specify a value between 300 and 86,400 seconds.

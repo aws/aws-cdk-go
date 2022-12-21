@@ -263,6 +263,17 @@ func OriginRequestPolicy_ALL_VIEWER() IOriginRequestPolicy {
 	return returns
 }
 
+func OriginRequestPolicy_ALL_VIEWER_AND_CLOUDFRONT_2022() IOriginRequestPolicy {
+	_init_.Initialize()
+	var returns IOriginRequestPolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.OriginRequestPolicy",
+		"ALL_VIEWER_AND_CLOUDFRONT_2022",
+		&returns,
+	)
+	return returns
+}
+
 func OriginRequestPolicy_CORS_CUSTOM_ORIGIN() IOriginRequestPolicy {
 	_init_.Initialize()
 	var returns IOriginRequestPolicy

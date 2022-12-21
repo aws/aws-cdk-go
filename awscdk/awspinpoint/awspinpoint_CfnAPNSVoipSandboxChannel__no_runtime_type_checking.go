@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateOverrideLogicalIdParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

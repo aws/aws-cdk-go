@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDeletionOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateOverrideLogicalIdParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

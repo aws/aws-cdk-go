@@ -127,6 +127,9 @@ package awswafv2
 //   				},
 //   				managedRuleGroupConfigs: []interface{}{
 //   					&managedRuleGroupConfigProperty{
+//   						awsManagedRulesBotControlRuleSet: &aWSManagedRulesBotControlRuleSetProperty{
+//   							inspectionLevel: jsii.String("inspectionLevel"),
+//   						},
 //   						loginPath: jsii.String("loginPath"),
 //   						passwordField: &fieldIdentifierProperty{
 //   							identifier: jsii.String("identifier"),
@@ -135,6 +138,67 @@ package awswafv2
 //   						usernameField: &fieldIdentifierProperty{
 //   							identifier: jsii.String("identifier"),
 //   						},
+//   					},
+//   				},
+//   				ruleActionOverrides: []interface{}{
+//   					&ruleActionOverrideProperty{
+//   						actionToUse: &ruleActionProperty{
+//   							allow: &allowActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							block: &blockActionProperty{
+//   								customResponse: &customResponseProperty{
+//   									responseCode: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   									responseHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							captcha: &captchaActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							challenge: &challengeActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							count: &countActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//   						name: jsii.String("name"),
 //   					},
 //   				},
 //   				scopeDownStatement: statementProperty_,
@@ -291,6 +355,67 @@ package awswafv2
 //   				// the properties below are optional
 //   				excludedRules: []interface{}{
 //   					&excludedRuleProperty{
+//   						name: jsii.String("name"),
+//   					},
+//   				},
+//   				ruleActionOverrides: []interface{}{
+//   					&ruleActionOverrideProperty{
+//   						actionToUse: &ruleActionProperty{
+//   							allow: &allowActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							block: &blockActionProperty{
+//   								customResponse: &customResponseProperty{
+//   									responseCode: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   									responseHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							captcha: &captchaActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							challenge: &challengeActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							count: &countActionProperty{
+//   								customRequestHandling: &customRequestHandlingProperty{
+//   									insertHeaders: []interface{}{
+//   										&customHTTPHeaderProperty{
+//   											name: jsii.String("name"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
 //   						name: jsii.String("name"),
 //   					},
 //   				},

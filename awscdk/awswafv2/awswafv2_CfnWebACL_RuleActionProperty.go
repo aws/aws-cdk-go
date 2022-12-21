@@ -45,6 +45,16 @@ package awswafv2
 //   			},
 //   		},
 //   	},
+//   	challenge: &challengeActionProperty{
+//   		customRequestHandling: &customRequestHandlingProperty{
+//   			insertHeaders: []interface{}{
+//   				&customHTTPHeaderProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	count: &countActionProperty{
 //   		customRequestHandling: &customRequestHandlingProperty{
 //   			insertHeaders: []interface{}{
@@ -77,6 +87,8 @@ type CfnWebACL_RuleActionProperty struct {
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	Captcha interface{} `field:"optional" json:"captcha" yaml:"captcha"`
+	// `CfnWebACL.RuleActionProperty.Challenge`.
+	Challenge interface{} `field:"optional" json:"challenge" yaml:"challenge"`
 	// Instructs AWS WAF to count the web request and allow it.
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
 }

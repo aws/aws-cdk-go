@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateAddDeletionOver
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateOverrideLogical
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

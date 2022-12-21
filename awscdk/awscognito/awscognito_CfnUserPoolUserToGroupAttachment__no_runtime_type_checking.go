@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateAddDeletionOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateOverrideLogicalIdPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

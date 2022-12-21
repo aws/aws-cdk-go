@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserToGroupAddition) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserToGroupAddition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateOverrideLogicalIdParameters(n
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserToGroupAddition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserToGroupAddition) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserToGroupAddition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

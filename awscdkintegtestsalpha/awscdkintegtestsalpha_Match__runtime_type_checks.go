@@ -23,6 +23,14 @@ func validateMatch_ObjectLikeParameters(pattern *map[string]interface{}) error {
 	return nil
 }
 
+func validateMatch_SerializedJsonParameters(pattern *map[string]interface{}) error {
+	if pattern == nil {
+		return fmt.Errorf("parameter pattern is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateMatch_StringLikeRegexpParameters(pattern *string) error {
 	if pattern == nil {
 		return fmt.Errorf("parameter pattern is required, but nil was provided")

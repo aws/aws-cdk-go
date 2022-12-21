@@ -69,6 +69,11 @@ import (
 //   			immunityTime: jsii.Number(123),
 //   		},
 //   	},
+//   	challengeConfig: &challengeConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
 //   	customResponseBodies: map[string]interface{}{
 //   		"customResponseBodiesKey": &CustomResponseBodyProperty{
 //   			"content": jsii.String("content"),
@@ -189,6 +194,9 @@ import (
 //   					},
 //   					managedRuleGroupConfigs: []interface{}{
 //   						&managedRuleGroupConfigProperty{
+//   							awsManagedRulesBotControlRuleSet: &aWSManagedRulesBotControlRuleSetProperty{
+//   								inspectionLevel: jsii.String("inspectionLevel"),
+//   							},
 //   							loginPath: jsii.String("loginPath"),
 //   							passwordField: &fieldIdentifierProperty{
 //   								identifier: jsii.String("identifier"),
@@ -197,6 +205,67 @@ import (
 //   							usernameField: &fieldIdentifierProperty{
 //   								identifier: jsii.String("identifier"),
 //   							},
+//   						},
+//   					},
+//   					ruleActionOverrides: []interface{}{
+//   						&ruleActionOverrideProperty{
+//   							actionToUse: &ruleActionProperty{
+//   								allow: &allowActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								block: &blockActionProperty{
+//   									customResponse: &customResponseProperty{
+//   										responseCode: jsii.Number(123),
+//
+//   										// the properties below are optional
+//   										customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   										responseHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								captcha: &captchaActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								challenge: &challengeActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								count: &countActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							name: jsii.String("name"),
 //   						},
 //   					},
 //   					scopeDownStatement: statementProperty_,
@@ -353,6 +422,67 @@ import (
 //   					// the properties below are optional
 //   					excludedRules: []interface{}{
 //   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					ruleActionOverrides: []interface{}{
+//   						&ruleActionOverrideProperty{
+//   							actionToUse: &ruleActionProperty{
+//   								allow: &allowActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								block: &blockActionProperty{
+//   									customResponse: &customResponseProperty{
+//   										responseCode: jsii.Number(123),
+//
+//   										// the properties below are optional
+//   										customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   										responseHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								captcha: &captchaActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								challenge: &challengeActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								count: &countActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
 //   							name: jsii.String("name"),
 //   						},
 //   					},
@@ -591,6 +721,16 @@ import (
 //   						},
 //   					},
 //   				},
+//   				challenge: &challengeActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				count: &countActionProperty{
 //   					customRequestHandling: &customRequestHandlingProperty{
 //   						insertHeaders: []interface{}{
@@ -603,6 +743,11 @@ import (
 //   				},
 //   			},
 //   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			challengeConfig: &challengeConfigProperty{
 //   				immunityTimeProperty: &immunityTimePropertyProperty{
 //   					immunityTime: jsii.Number(123),
 //   				},
@@ -623,6 +768,9 @@ import (
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),
 //   		},
+//   	},
+//   	tokenDomains: []*string{
+//   		jsii.String("tokenDomains"),
 //   	},
 //   })
 //
@@ -655,6 +803,9 @@ type CfnWebACL interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// `AWS::WAFv2::WebACL.ChallengeConfig`.
+	ChallengeConfig() interface{}
+	SetChallengeConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -720,6 +871,9 @@ type CfnWebACL interface {
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags() awscdk.TagManager
+	// `AWS::WAFv2::WebACL.TokenDomains`.
+	TokenDomains() *[]*string
+	SetTokenDomains(val *[]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -742,6 +896,9 @@ type CfnWebACL interface {
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependency(target awscdk.CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -831,9 +988,23 @@ type CfnWebACL interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Retrieves an array of resources this resource depends on.
+	//
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
@@ -927,6 +1098,16 @@ func (j *jsiiProxy_CfnWebACL) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWebACL) ChallengeConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"challengeConfig",
 		&returns,
 	)
 	return returns
@@ -1052,6 +1233,16 @@ func (j *jsiiProxy_CfnWebACL) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebACL) TokenDomains() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"tokenDomains",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebACL) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1123,6 +1314,17 @@ func (j *jsiiProxy_CfnWebACL)SetCaptchaConfig(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnWebACL)SetChallengeConfig(val interface{}) {
+	if err := j.validateSetChallengeConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"challengeConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnWebACL)SetCustomResponseBodies(val interface{}) {
 	if err := j.validateSetCustomResponseBodiesParameters(val); err != nil {
 		panic(err)
@@ -1179,6 +1381,14 @@ func (j *jsiiProxy_CfnWebACL)SetScope(val *string) {
 	_jsii_.Set(
 		j,
 		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebACL)SetTokenDomains(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"tokenDomains",
 		val,
 	)
 }
@@ -1294,6 +1504,17 @@ func (c *jsiiProxy_CfnWebACL) AddDeletionOverride(path *string) {
 	)
 }
 
+func (c *jsiiProxy_CfnWebACL) AddDependency(target awscdk.CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
+	)
+}
+
 func (c *jsiiProxy_CfnWebACL) AddDependsOn(target awscdk.CfnResource) {
 	if err := c.validateAddDependsOnParameters(target); err != nil {
 		panic(err)
@@ -1403,6 +1624,32 @@ func (c *jsiiProxy_CfnWebACL) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnWebACL) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnWebACL) ObtainResourceDependencies() *[]awscdk.CfnResource {
+	var returns *[]awscdk.CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnWebACL) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -1411,6 +1658,17 @@ func (c *jsiiProxy_CfnWebACL) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnWebACL) RemoveDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -1428,6 +1686,17 @@ func (c *jsiiProxy_CfnWebACL) RenderProperties(props *map[string]interface{}) *m
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CfnWebACL) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
 }
 
 func (c *jsiiProxy_CfnWebACL) ShouldSynthesize() *bool {

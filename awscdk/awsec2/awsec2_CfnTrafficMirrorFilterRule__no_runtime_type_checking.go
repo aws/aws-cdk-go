@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateAddDeletionOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateOverrideLogicalIdParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

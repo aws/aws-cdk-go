@@ -17,6 +17,7 @@ package awsecs
 //   portMappingProperty := &portMappingProperty{
 //   	appProtocol: jsii.String("appProtocol"),
 //   	containerPort: jsii.Number(123),
+//   	containerPortRange: jsii.String("containerPortRange"),
 //   	hostPort: jsii.Number(123),
 //   	name: jsii.String("name"),
 //   	protocol: jsii.String("protocol"),
@@ -31,6 +32,8 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	//
 	// If you use containers in a task with the `bridge` network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see `hostPort` . Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
+	// `CfnTaskDefinition.PortMappingProperty.ContainerPortRange`.
+	ContainerPortRange *string `field:"optional" json:"containerPortRange" yaml:"containerPortRange"`
 	// The port number on the container instance to reserve for your container.
 	//
 	// If you are using containers in a task with the `awsvpc` or `host` network mode, the `hostPort` can either be left blank or set to the same value as the `containerPort` .

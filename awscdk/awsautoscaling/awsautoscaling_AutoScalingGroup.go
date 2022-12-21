@@ -64,6 +64,8 @@ type AutoScalingGroup interface {
 	Env() *awscdk.ResourceEnvironment
 	// The principal to grant permissions to.
 	GrantPrincipal() awsiam.IPrincipal
+	HasCalledScaleOnRequestCount() *bool
+	SetHasCalledScaleOnRequestCount(val *bool)
 	// The maximum amount of time that an instance can be in service.
 	MaxInstanceLifetime() awscdk.Duration
 	NewInstancesProtectedFromScaleIn() *bool
@@ -238,6 +240,16 @@ func (j *jsiiProxy_AutoScalingGroup) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
+func (j *jsiiProxy_AutoScalingGroup) HasCalledScaleOnRequestCount() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"hasCalledScaleOnRequestCount",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_AutoScalingGroup) MaxInstanceLifetime() awscdk.Duration {
 	var returns awscdk.Duration
 	_jsii_.Get(
@@ -360,6 +372,17 @@ func (j *jsiiProxy_AutoScalingGroup)SetAlbTargetGroup(val awselasticloadbalancin
 	_jsii_.Set(
 		j,
 		"albTargetGroup",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AutoScalingGroup)SetHasCalledScaleOnRequestCount(val *bool) {
+	if err := j.validateSetHasCalledScaleOnRequestCountParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hasCalledScaleOnRequestCount",
 		val,
 	)
 }

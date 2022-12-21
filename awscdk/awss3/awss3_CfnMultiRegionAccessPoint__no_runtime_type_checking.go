@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateOverrideLogicalIdParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMultiRegionAccessPoint) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

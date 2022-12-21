@@ -71,6 +71,26 @@ func Match_ObjectLike(pattern *map[string]interface{}) *map[string]*map[string]i
 	return returns
 }
 
+// Matches any string-encoded JSON and applies the specified pattern after parsing it.
+// Experimental.
+func Match_SerializedJson(pattern *map[string]interface{}) *map[string]*map[string]interface{} {
+	_init_.Initialize()
+
+	if err := validateMatch_SerializedJsonParameters(pattern); err != nil {
+		panic(err)
+	}
+	var returns *map[string]*map[string]interface{}
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/integ-tests-alpha.Match",
+		"serializedJson",
+		[]interface{}{pattern},
+		&returns,
+	)
+
+	return returns
+}
+
 // Matches targets according to a regular expression.
 // Experimental.
 func Match_StringLikeRegexp(pattern *string) *map[string]*string {

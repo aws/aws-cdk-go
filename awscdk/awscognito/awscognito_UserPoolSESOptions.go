@@ -6,7 +6,6 @@ package awscognito
 // Example:
 //   cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 //   	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
-//   		sesRegion: jsii.String("us-east-1"),
 //   		fromEmail: jsii.String("noreply@myawesomeapp.com"),
 //   		fromName: jsii.String("Awesome App"),
 //   		replyTo: jsii.String("support@myawesomeapp.com"),

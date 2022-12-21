@@ -19,6 +19,14 @@ func (c *jsiiProxy_CfnTable) validateAddDeletionOverrideParameters(path *string)
 	return nil
 }
 
+func (c *jsiiProxy_CfnTable) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTable) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
@@ -111,9 +119,29 @@ func (c *jsiiProxy_CfnTable) validateOverrideLogicalIdParameters(newLogicalId *s
 	return nil
 }
 
+func (c *jsiiProxy_CfnTable) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTable) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnTable) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -160,48 +188,16 @@ func (j *jsiiProxy_CfnTable) validateSetDatabaseNameParameters(val *string) erro
 }
 
 func (j *jsiiProxy_CfnTable) validateSetMagneticStoreWritePropertiesParameters(val interface{}) error {
-	switch val.(type) {
-	case *CfnTable_MagneticStoreWritePropertiesProperty:
-		val := val.(*CfnTable_MagneticStoreWritePropertiesProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnTable_MagneticStoreWritePropertiesProperty:
-		val_ := val.(CfnTable_MagneticStoreWritePropertiesProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTable_MagneticStoreWritePropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil
 }
 
 func (j *jsiiProxy_CfnTable) validateSetRetentionPropertiesParameters(val interface{}) error {
-	switch val.(type) {
-	case *CfnTable_RetentionPropertiesProperty:
-		val := val.(*CfnTable_RetentionPropertiesProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnTable_RetentionPropertiesProperty:
-		val_ := val.(CfnTable_RetentionPropertiesProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnTable_RetentionPropertiesProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

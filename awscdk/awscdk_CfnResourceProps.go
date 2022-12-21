@@ -7,7 +7,7 @@ package awscdk
 //   resourceA := awscdk.NewCfnResource(this, jsii.String("ResourceA"), resourceProps)
 //   resourceB := awscdk.NewCfnResource(this, jsii.String("ResourceB"), resourceProps)
 //
-//   resourceB.addDependsOn(resourceA)
+//   resourceB.addDependency(resourceA)
 //
 type CfnResourceProps struct {
 	// CloudFormation resource type (e.g. `AWS::S3::Bucket`).

@@ -21,6 +21,15 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.triggers.InvocationType",
+		reflect.TypeOf((*InvocationType)(nil)).Elem(),
+		map[string]interface{}{
+			"EVENT": InvocationType_EVENT,
+			"REQUEST_RESPONSE": InvocationType_REQUEST_RESPONSE,
+			"DRY_RUN": InvocationType_DRY_RUN,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.triggers.Trigger",
 		reflect.TypeOf((*Trigger)(nil)).Elem(),

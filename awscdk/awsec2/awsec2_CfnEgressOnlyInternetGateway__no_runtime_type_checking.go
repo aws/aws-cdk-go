@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateAddDeletionOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateOverrideLogicalIdParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

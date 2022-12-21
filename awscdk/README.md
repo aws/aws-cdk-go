@@ -498,6 +498,10 @@ A stack dependency has the following implications:
     automatically deploy `stackB`.
   * `stackB`'s deployment will be performed *before* `stackA`'s deployment.
 
+### CfnResource Dependencies
+
+To make declaring dependencies between `CfnResource` objects easier, you can declare dependencies from one `CfnResource` object on another by using the `cfnResource1.addDependency(cfnResource2)` method. This method will work for resources both within the same stack and across stacks as it detects the relative location of the two resources and adds the dependency either to the resource or between the relevant stacks, as appropriate. If more complex logic is in needed, you can similarly remove, replace, or view dependencies between `CfnResource` objects with the `CfnResource` `removeDependency`, `replaceDependency`, and `obtainDependencies` methods, respectively.
+
 ## Custom Resources
 
 Custom Resources are CloudFormation resources that are implemented by arbitrary
@@ -934,14 +938,14 @@ rawBucket.cfnOptions.metadata = map[string]interface{}{
 ```
 
 Resource dependencies (the `DependsOn` attribute) is modified using the
-`cfnResource.addDependsOn` method:
+`cfnResource.addDependency` method:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 resourceA := awscdk.NewCfnResource(this, jsii.String("ResourceA"), resourceProps)
 resourceB := awscdk.NewCfnResource(this, jsii.String("ResourceB"), resourceProps)
 
-resourceB.addDependsOn(resourceA)
+resourceB.addDependency(resourceA)
 ```
 
 ### Intrinsic Functions and Condition Expressions

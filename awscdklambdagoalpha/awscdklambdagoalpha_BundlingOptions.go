@@ -11,12 +11,43 @@ import (
 //   go.NewGoFunction(this, jsii.String("handler"), &goFunctionProps{
 //   	entry: jsii.String("app/cmd/api"),
 //   	bundling: &bundlingOptions{
-//   		dockerImage: awscdk.DockerImage.fromBuild(jsii.String("/path/to/Dockerfile")),
+//   		environment: map[string]*string{
+//   			"HELLO": jsii.String("WORLD"),
+//   		},
 //   	},
 //   })
 //
 // Experimental.
 type BundlingOptions struct {
+	// The command to run in the container.
+	// Experimental.
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// The entrypoint to run in the container.
+	// Experimental.
+	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
+	// The environment variables to pass to the container.
+	// Experimental.
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
+	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
+	// Experimental.
+	Network *string `field:"optional" json:"network" yaml:"network"`
+	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
+	// Experimental.
+	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`
+	// The user to use when running the container.
+	// Experimental.
+	User *string `field:"optional" json:"user" yaml:"user"`
+	// Docker volumes to mount.
+	// Experimental.
+	Volumes *[]*awscdk.DockerVolume `field:"optional" json:"volumes" yaml:"volumes"`
+	// Where to mount the specified volumes from.
+	// See: https://docs.docker.com/engine/reference/commandline/run/#mount-volumes-from-container---volumes-from
+	//
+	// Experimental.
+	VolumesFrom *[]*string `field:"optional" json:"volumesFrom" yaml:"volumesFrom"`
+	// Working directory inside the container.
+	// Experimental.
+	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -61,9 +92,6 @@ type BundlingOptions struct {
 	// A custom bundling Docker image.
 	// Experimental.
 	DockerImage awscdk.DockerImage `field:"optional" json:"dockerImage" yaml:"dockerImage"`
-	// Environment variables defined when go runs.
-	// Experimental.
-	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// Force bundling in a Docker container even if local bundling is possible.
 	// Experimental.
 	ForcedDockerBundling *bool `field:"optional" json:"forcedDockerBundling" yaml:"forcedDockerBundling"`

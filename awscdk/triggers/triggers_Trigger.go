@@ -11,26 +11,24 @@ import (
 // Triggers an AWS Lambda function during deployment.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import triggers "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import constructs "github.com/aws/constructs-go/constructs"
 //
-//   var construct construct
-//   var function_ function
+//   var stack stack
 //
-//   trigger := awscdk.Triggers.NewTrigger(this, jsii.String("MyTrigger"), &triggerProps{
-//   	handler: function_,
 //
-//   	// the properties below are optional
-//   	executeAfter: []*construct{
-//   		construct,
-//   	},
-//   	executeBefore: []*construct{
-//   		construct,
-//   	},
-//   	executeOnHandlerChange: jsii.Boolean(false),
+//   func := lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
+//   	handler: jsii.String("index.handler"),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
+//   	code: lambda.code.fromInline(jsii.String("foo")),
+//   })
+//
+//   triggers.NewTrigger(stack, jsii.String("MyTrigger"), &triggerProps{
+//   	handler: func,
+//   	timeout: awscdk.Duration.minutes(jsii.Number(10)),
+//   	invocationType: triggers.invocationType_EVENT,
 //   })
 //
 type Trigger interface {

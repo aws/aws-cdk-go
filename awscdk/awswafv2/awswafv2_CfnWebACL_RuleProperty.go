@@ -130,6 +130,9 @@ package awswafv2
 //   			},
 //   			managedRuleGroupConfigs: []interface{}{
 //   				&managedRuleGroupConfigProperty{
+//   					awsManagedRulesBotControlRuleSet: &aWSManagedRulesBotControlRuleSetProperty{
+//   						inspectionLevel: jsii.String("inspectionLevel"),
+//   					},
 //   					loginPath: jsii.String("loginPath"),
 //   					passwordField: &fieldIdentifierProperty{
 //   						identifier: jsii.String("identifier"),
@@ -138,6 +141,67 @@ package awswafv2
 //   					usernameField: &fieldIdentifierProperty{
 //   						identifier: jsii.String("identifier"),
 //   					},
+//   				},
+//   			},
+//   			ruleActionOverrides: []interface{}{
+//   				&ruleActionOverrideProperty{
+//   					actionToUse: &ruleActionProperty{
+//   						allow: &allowActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						block: &blockActionProperty{
+//   							customResponse: &customResponseProperty{
+//   								responseCode: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   								responseHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						captcha: &captchaActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						challenge: &challengeActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						count: &countActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   					name: jsii.String("name"),
 //   				},
 //   			},
 //   			scopeDownStatement: statementProperty_,
@@ -294,6 +358,67 @@ package awswafv2
 //   			// the properties below are optional
 //   			excludedRules: []interface{}{
 //   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			ruleActionOverrides: []interface{}{
+//   				&ruleActionOverrideProperty{
+//   					actionToUse: &ruleActionProperty{
+//   						allow: &allowActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						block: &blockActionProperty{
+//   							customResponse: &customResponseProperty{
+//   								responseCode: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   								responseHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						captcha: &captchaActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						challenge: &challengeActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						count: &countActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
 //   					name: jsii.String("name"),
 //   				},
 //   			},
@@ -532,6 +657,16 @@ package awswafv2
 //   				},
 //   			},
 //   		},
+//   		challenge: &challengeActionProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		count: &countActionProperty{
 //   			customRequestHandling: &customRequestHandlingProperty{
 //   				insertHeaders: []interface{}{
@@ -544,6 +679,11 @@ package awswafv2
 //   		},
 //   	},
 //   	captchaConfig: &captchaConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
+//   	challengeConfig: &challengeConfigProperty{
 //   		immunityTimeProperty: &immunityTimePropertyProperty{
 //   			immunityTime: jsii.Number(123),
 //   		},
@@ -587,6 +727,8 @@ type CfnWebACL_RuleProperty struct {
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
+	// `CfnWebACL.RuleProperty.ChallengeConfig`.
+	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// The override action to apply to the rules in a rule group, instead of the individual rule action settings.
 	//
 	// This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .

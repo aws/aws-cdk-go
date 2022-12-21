@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) validateOverrideLogicalIdParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPlaybackConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

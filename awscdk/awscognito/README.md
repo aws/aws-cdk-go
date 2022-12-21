@@ -428,6 +428,17 @@ cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 })
 ```
 
+If `fromName` does not comply RFC 5322 atom or quoted-string, it will be quoted or mime-encoded.
+
+```go
+cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
+		fromEmail: jsii.String("noreply@myawesomeapp.com"),
+		fromName: jsii.String("myname@mycompany.com"),
+	}),
+})
+```
+
 ### Device Tracking
 
 User pools can be configured to track devices that users have logged in to.
@@ -716,6 +727,17 @@ client := pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
 })
 
 client.node.addDependency(provider)
+```
+
+The property `authSessionValidity` is the session token for each API request in the authentication flow.
+Valid duration is from 3 to 15 minutes.
+
+```go
+pool := cognito.NewUserPool(this, jsii.String("Pool"))
+pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
+	// ...
+	authSessionValidity: awscdk.Duration.minutes(jsii.Number(15)),
+})
 ```
 
 In accordance with the OIDC open standard, Cognito user pool clients provide access tokens, ID tokens and refresh tokens.

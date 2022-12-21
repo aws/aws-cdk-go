@@ -17,7 +17,18 @@ import (
 // Example:
 //   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 //   	bundling: &bundlingOptions{
-//   		dockerImage: awscdk.DockerImage.fromBuild(jsii.String("/path/to/Dockerfile")),
+//   		network: jsii.String("host"),
+//   		securityOpt: jsii.String("no-new-privileges"),
+//   		user: jsii.String("user:group"),
+//   		volumesFrom: []*string{
+//   			jsii.String("777f7dc92da7"),
+//   		},
+//   		volumes: []dockerVolume{
+//   			&dockerVolume{
+//   				hostPath: jsii.String("/host-path"),
+//   				containerPath: jsii.String("/container-path"),
+//   			},
+//   		},
 //   	},
 //   })
 //

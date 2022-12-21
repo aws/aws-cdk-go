@@ -31,6 +31,9 @@ package awswafv2
 //   	},
 //   	managedRuleGroupConfigs: []interface{}{
 //   		&managedRuleGroupConfigProperty{
+//   			awsManagedRulesBotControlRuleSet: &aWSManagedRulesBotControlRuleSetProperty{
+//   				inspectionLevel: jsii.String("inspectionLevel"),
+//   			},
 //   			loginPath: jsii.String("loginPath"),
 //   			passwordField: &fieldIdentifierProperty{
 //   				identifier: jsii.String("identifier"),
@@ -39,6 +42,67 @@ package awswafv2
 //   			usernameField: &fieldIdentifierProperty{
 //   				identifier: jsii.String("identifier"),
 //   			},
+//   		},
+//   	},
+//   	ruleActionOverrides: []interface{}{
+//   		&ruleActionOverrideProperty{
+//   			actionToUse: &ruleActionProperty{
+//   				allow: &allowActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				block: &blockActionProperty{
+//   					customResponse: &customResponseProperty{
+//   						responseCode: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   						responseHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				captcha: &captchaActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				challenge: &challengeActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				count: &countActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			name: jsii.String("name"),
 //   		},
 //   	},
 //   	scopeDownStatement: &statementProperty{
@@ -149,6 +213,9 @@ package awswafv2
 //   			},
 //   			managedRuleGroupConfigs: []interface{}{
 //   				&managedRuleGroupConfigProperty{
+//   					awsManagedRulesBotControlRuleSet: &aWSManagedRulesBotControlRuleSetProperty{
+//   						inspectionLevel: jsii.String("inspectionLevel"),
+//   					},
 //   					loginPath: jsii.String("loginPath"),
 //   					passwordField: &fieldIdentifierProperty{
 //   						identifier: jsii.String("identifier"),
@@ -157,6 +224,67 @@ package awswafv2
 //   					usernameField: &fieldIdentifierProperty{
 //   						identifier: jsii.String("identifier"),
 //   					},
+//   				},
+//   			},
+//   			ruleActionOverrides: []interface{}{
+//   				&ruleActionOverrideProperty{
+//   					actionToUse: &ruleActionProperty{
+//   						allow: &allowActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						block: &blockActionProperty{
+//   							customResponse: &customResponseProperty{
+//   								responseCode: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   								responseHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						captcha: &captchaActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						challenge: &challengeActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						count: &countActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   					name: jsii.String("name"),
 //   				},
 //   			},
 //   			scopeDownStatement: statementProperty_,
@@ -313,6 +441,67 @@ package awswafv2
 //   			// the properties below are optional
 //   			excludedRules: []interface{}{
 //   				&excludedRuleProperty{
+//   					name: jsii.String("name"),
+//   				},
+//   			},
+//   			ruleActionOverrides: []interface{}{
+//   				&ruleActionOverrideProperty{
+//   					actionToUse: &ruleActionProperty{
+//   						allow: &allowActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						block: &blockActionProperty{
+//   							customResponse: &customResponseProperty{
+//   								responseCode: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   								responseHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						captcha: &captchaActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						challenge: &challengeActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   						count: &countActionProperty{
+//   							customRequestHandling: &customRequestHandlingProperty{
+//   								insertHeaders: []interface{}{
+//   									&customHTTPHeaderProperty{
+//   										name: jsii.String("name"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
 //   					name: jsii.String("name"),
 //   				},
 //   			},
@@ -531,6 +720,8 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	//
 	// You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
 	ManagedRuleGroupConfigs interface{} `field:"optional" json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
+	// `CfnWebACL.ManagedRuleGroupStatementProperty.RuleActionOverrides`.
+	RuleActionOverrides interface{} `field:"optional" json:"ruleActionOverrides" yaml:"ruleActionOverrides"`
 	// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group.
 	//
 	// Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.

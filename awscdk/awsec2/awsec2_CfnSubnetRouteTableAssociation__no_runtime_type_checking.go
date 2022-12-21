@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateAddDeletionOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateOverrideLogicalIdPara
 	return nil
 }
 
+func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

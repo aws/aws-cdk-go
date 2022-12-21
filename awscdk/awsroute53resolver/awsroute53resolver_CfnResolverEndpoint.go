@@ -37,6 +37,8 @@ import (
 //
 //   	// the properties below are optional
 //   	name: jsii.String("name"),
+//   	outpostArn: jsii.String("outpostArn"),
+//   	preferredInstanceType: jsii.String("preferredInstanceType"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -58,6 +60,8 @@ type CfnResolverEndpoint interface {
 	AttrIpAddressCount() *string
 	// The name that you assigned to the resolver endpoint when you created the endpoint.
 	AttrName() *string
+	AttrOutpostArn() *string
+	AttrPreferredInstanceType() *string
 	// The ID of the resolver endpoint.
 	AttrResolverEndpointId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -95,6 +99,12 @@ type CfnResolverEndpoint interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::Route53Resolver::ResolverEndpoint.OutpostArn`.
+	OutpostArn() *string
+	SetOutpostArn(val *string)
+	// `AWS::Route53Resolver::ResolverEndpoint.PreferredInstanceType`.
+	PreferredInstanceType() *string
+	SetPreferredInstanceType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -130,6 +140,9 @@ type CfnResolverEndpoint interface {
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependency(target awscdk.CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -219,9 +232,23 @@ type CfnResolverEndpoint interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Retrieves an array of resources this resource depends on.
+	//
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
@@ -285,6 +312,26 @@ func (j *jsiiProxy_CfnResolverEndpoint) AttrName() *string {
 	_jsii_.Get(
 		j,
 		"attrName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) AttrOutpostArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOutpostArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) AttrPreferredInstanceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPreferredInstanceType",
 		&returns,
 	)
 	return returns
@@ -385,6 +432,26 @@ func (j *jsiiProxy_CfnResolverEndpoint) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) OutpostArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outpostArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) PreferredInstanceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"preferredInstanceType",
 		&returns,
 	)
 	return returns
@@ -510,6 +577,22 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint)SetOutpostArn(val *string) {
+	_jsii_.Set(
+		j,
+		"outpostArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint)SetPreferredInstanceType(val *string) {
+	_jsii_.Set(
+		j,
+		"preferredInstanceType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint)SetSecurityGroupIds(val *[]*string) {
 	if err := j.validateSetSecurityGroupIdsParameters(val); err != nil {
 		panic(err)
@@ -618,6 +701,17 @@ func (c *jsiiProxy_CfnResolverEndpoint) AddDeletionOverride(path *string) {
 		c,
 		"addDeletionOverride",
 		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnResolverEndpoint) AddDependency(target awscdk.CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -730,6 +824,32 @@ func (c *jsiiProxy_CfnResolverEndpoint) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+func (c *jsiiProxy_CfnResolverEndpoint) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnResolverEndpoint) ObtainResourceDependencies() *[]awscdk.CfnResource {
+	var returns *[]awscdk.CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnResolverEndpoint) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -738,6 +858,17 @@ func (c *jsiiProxy_CfnResolverEndpoint) OverrideLogicalId(newLogicalId *string) 
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnResolverEndpoint) RemoveDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -755,6 +886,17 @@ func (c *jsiiProxy_CfnResolverEndpoint) RenderProperties(props *map[string]inter
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CfnResolverEndpoint) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
 }
 
 func (c *jsiiProxy_CfnResolverEndpoint) ShouldSynthesize() *bool {

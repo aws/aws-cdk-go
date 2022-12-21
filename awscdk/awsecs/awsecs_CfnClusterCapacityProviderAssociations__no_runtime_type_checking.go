@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateAddDeletionOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateOverrideLogic
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

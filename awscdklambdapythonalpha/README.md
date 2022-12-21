@@ -151,6 +151,31 @@ python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
 })
 ```
 
+You can set additional Docker options to configure the build environment:
+
+```go
+entry := "/path/to/function"
+
+python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
+	entry: jsii.String(entry),
+	runtime: awscdk.Runtime_PYTHON_3_8(),
+	bundling: &bundlingOptions{
+		network: jsii.String("host"),
+		securityOpt: jsii.String("no-new-privileges"),
+		user: jsii.String("user:group"),
+		volumesFrom: []*string{
+			jsii.String("777f7dc92da7"),
+		},
+		volumes: []dockerVolume{
+			&dockerVolume{
+				hostPath: jsii.String("/host-path"),
+				containerPath: jsii.String("/container-path"),
+			},
+		},
+	},
+})
+```
+
 ## Custom Bundling with Code Artifact
 
 To use a Code Artifact PyPI repo, the `PIP_INDEX_URL` for bundling the function can be customized (requires AWS CLI in the build environment):

@@ -266,6 +266,14 @@ func validateAutoScalingGroup_IsResourceParameters(construct constructs.IConstru
 	return nil
 }
 
+func (j *jsiiProxy_AutoScalingGroup) validateSetHasCalledScaleOnRequestCountParameters(val *bool) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewAutoScalingGroupParameters(scope constructs.Construct, id *string, props *AutoScalingGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOverrideLogicalIdParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelBiasJobDefinition) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

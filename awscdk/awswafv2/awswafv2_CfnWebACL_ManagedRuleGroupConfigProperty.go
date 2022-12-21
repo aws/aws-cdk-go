@@ -13,6 +13,9 @@ package awswafv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   managedRuleGroupConfigProperty := &managedRuleGroupConfigProperty{
+//   	awsManagedRulesBotControlRuleSet: &aWSManagedRulesBotControlRuleSetProperty{
+//   		inspectionLevel: jsii.String("inspectionLevel"),
+//   	},
 //   	loginPath: jsii.String("loginPath"),
 //   	passwordField: &fieldIdentifierProperty{
 //   		identifier: jsii.String("identifier"),
@@ -24,6 +27,8 @@ package awswafv2
 //   }
 //
 type CfnWebACL_ManagedRuleGroupConfigProperty struct {
+	// `CfnWebACL.ManagedRuleGroupConfigProperty.AWSManagedRulesBotControlRuleSet`.
+	AwsManagedRulesBotControlRuleSet interface{} `field:"optional" json:"awsManagedRulesBotControlRuleSet" yaml:"awsManagedRulesBotControlRuleSet"`
 	// The path of the login endpoint for your application.
 	//
 	// For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` .

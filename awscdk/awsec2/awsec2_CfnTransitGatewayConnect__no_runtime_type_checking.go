@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTransitGatewayConnect) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayConnect) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayConnect) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnTransitGatewayConnect) validateOverrideLogicalIdParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayConnect) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayConnect) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayConnect) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

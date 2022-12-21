@@ -9,6 +9,13 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   deploymentConfigurationProperty := &deploymentConfigurationProperty{
+//   	alarms: &deploymentAlarmsProperty{
+//   		alarmNames: []*string{
+//   			jsii.String("alarmNames"),
+//   		},
+//   		enable: jsii.Boolean(false),
+//   		rollback: jsii.Boolean(false),
+//   	},
 //   	deploymentCircuitBreaker: &deploymentCircuitBreakerProperty{
 //   		enable: jsii.Boolean(false),
 //   		rollback: jsii.Boolean(false),
@@ -18,6 +25,8 @@ package awsecs
 //   }
 //
 type CfnService_DeploymentConfigurationProperty struct {
+	// `CfnService.DeploymentConfigurationProperty.Alarms`.
+	Alarms interface{} `field:"optional" json:"alarms" yaml:"alarms"`
 	// > The deployment circuit breaker can only be used for services using the rolling update ( `ECS` ) deployment type that are not behind a Classic Load Balancer.
 	//
 	// The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If enabled, a service deployment will transition to a failed state and stop launching new tasks. You can also enable Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide* .

@@ -34,6 +34,7 @@ import (
 //   	dbClusterParameterGroupName: jsii.String("dbClusterParameterGroupName"),
 //   	dbInstanceParameterGroupName: jsii.String("dbInstanceParameterGroupName"),
 //   	dbSubnetGroupName: jsii.String("dbSubnetGroupName"),
+//   	dbSystemId: jsii.String("dbSystemId"),
 //   	deletionProtection: jsii.Boolean(false),
 //   	domain: jsii.String("domain"),
 //   	domainIamRoleName: jsii.String("domainIamRoleName"),
@@ -66,6 +67,7 @@ import (
 //   		autoPause: jsii.Boolean(false),
 //   		maxCapacity: jsii.Number(123),
 //   		minCapacity: jsii.Number(123),
+//   		secondsBeforeTimeout: jsii.Number(123),
 //   		secondsUntilAutoPause: jsii.Number(123),
 //   		timeoutAction: jsii.String("timeoutAction"),
 //   	},
@@ -157,6 +159,8 @@ type CfnDBClusterProps struct {
 	//
 	// If you are restoring a DB cluster to a point in time with `RestoreType` set to `copy-on-write` , and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.
 	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	// `AWS::RDS::DBCluster.DBSystemId`.
+	DbSystemId *string `field:"optional" json:"dbSystemId" yaml:"dbSystemId"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.
 	//
 	// The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.

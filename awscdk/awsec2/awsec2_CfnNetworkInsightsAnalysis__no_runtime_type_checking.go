@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateAddDeletionOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateOverrideLogicalIdParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNetworkInsightsAnalysis) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

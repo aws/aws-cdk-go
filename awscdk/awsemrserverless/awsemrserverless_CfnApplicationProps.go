@@ -16,6 +16,7 @@ import (
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	architecture: jsii.String("architecture"),
 //   	autoStartConfiguration: &autoStartConfigurationProperty{
 //   		enabled: jsii.Boolean(false),
 //   	},
@@ -73,6 +74,8 @@ type CfnApplicationProps struct {
 	ReleaseLabel *string `field:"required" json:"releaseLabel" yaml:"releaseLabel"`
 	// The type of application, such as Spark or Hive.
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// `AWS::EMRServerless::Application.Architecture`.
+	Architecture *string `field:"optional" json:"architecture" yaml:"architecture"`
 	// The configuration for an application to automatically start on job submission.
 	AutoStartConfiguration interface{} `field:"optional" json:"autoStartConfiguration" yaml:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.

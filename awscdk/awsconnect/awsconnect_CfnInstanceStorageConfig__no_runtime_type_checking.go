@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnInstanceStorageConfig) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceStorageConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnInstanceStorageConfig) validateOverrideLogicalIdParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceStorageConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

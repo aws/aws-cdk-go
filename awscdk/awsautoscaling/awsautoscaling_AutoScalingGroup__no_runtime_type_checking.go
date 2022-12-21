@@ -92,6 +92,10 @@ func validateAutoScalingGroup_IsResourceParameters(construct constructs.IConstru
 	return nil
 }
 
+func (j *jsiiProxy_AutoScalingGroup) validateSetHasCalledScaleOnRequestCountParameters(val *bool) error {
+	return nil
+}
+
 func validateNewAutoScalingGroupParameters(scope constructs.Construct, id *string, props *AutoScalingGroupProps) error {
 	return nil
 }

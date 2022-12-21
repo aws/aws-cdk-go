@@ -13,6 +13,10 @@ func validateMatch_ObjectLikeParameters(pattern *map[string]interface{}) error {
 	return nil
 }
 
+func validateMatch_SerializedJsonParameters(pattern *map[string]interface{}) error {
+	return nil
+}
+
 func validateMatch_StringLikeRegexpParameters(pattern *string) error {
 	return nil
 }

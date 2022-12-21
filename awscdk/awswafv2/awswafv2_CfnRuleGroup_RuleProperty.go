@@ -495,6 +495,16 @@ package awswafv2
 //   				},
 //   			},
 //   		},
+//   		challenge: &challengeProperty{
+//   			customRequestHandling: &customRequestHandlingProperty{
+//   				insertHeaders: []interface{}{
+//   					&customHTTPHeaderProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		count: &countProperty{
 //   			customRequestHandling: &customRequestHandlingProperty{
 //   				insertHeaders: []interface{}{
@@ -507,6 +517,11 @@ package awswafv2
 //   		},
 //   	},
 //   	captchaConfig: &captchaConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
+//   	challengeConfig: &challengeConfigProperty{
 //   		immunityTimeProperty: &immunityTimePropertyProperty{
 //   			immunityTime: jsii.Number(123),
 //   		},
@@ -539,6 +554,8 @@ type CfnRuleGroup_RuleProperty struct {
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
+	// `CfnRuleGroup.RuleProperty.ChallengeConfig`.
+	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// Labels to apply to web requests that match the rule match statement.
 	//
 	// AWS WAF applies fully qualified labels to matching web requests. A fully qualified label is the concatenation of a label namespace and a rule label. The rule's rule group or web ACL defines the label namespace.

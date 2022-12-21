@@ -39,6 +39,16 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	availableLabels: []interface{}{
+//   		&labelSummaryProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	consumedLabels: []interface{}{
+//   		&labelSummaryProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
 //   	customResponseBodies: map[string]interface{}{
 //   		"customResponseBodiesKey": &CustomResponseBodyProperty{
 //   			"content": jsii.String("content"),
@@ -526,6 +536,16 @@ import (
 //   						},
 //   					},
 //   				},
+//   				challenge: &challengeProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				count: &countProperty{
 //   					customRequestHandling: &customRequestHandlingProperty{
 //   						insertHeaders: []interface{}{
@@ -538,6 +558,11 @@ import (
 //   				},
 //   			},
 //   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			challengeConfig: &challengeConfigProperty{
 //   				immunityTimeProperty: &immunityTimePropertyProperty{
 //   					immunityTime: jsii.Number(123),
 //   				},
@@ -562,14 +587,6 @@ type CfnRuleGroup interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the rule group.
 	AttrArn() *string
-	// Labels that rules in this rule group add to matching requests.
-	//
-	// These labels are defined in the `RuleLabels` for a `Rule` .
-	AttrAvailableLabels() awscdk.IResolvable
-	// Labels that rules in this rule group match against.
-	//
-	// Each of these labels is defined in a `LabelMatchStatement` specification, in the rule statement.
-	AttrConsumedLabels() awscdk.IResolvable
 	// The ID of the rule group.
 	AttrId() *string
 	// The label namespace prefix for this rule group.
@@ -580,6 +597,9 @@ type CfnRuleGroup interface {
 	//
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 	AttrLabelNamespace() *string
+	// `AWS::WAFv2::RuleGroup.AvailableLabels`.
+	AvailableLabels() interface{}
+	SetAvailableLabels(val interface{})
 	// The web ACL capacity units (WCUs) required for this rule group.
 	//
 	// When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
@@ -592,6 +612,9 @@ type CfnRuleGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// `AWS::WAFv2::RuleGroup.ConsumedLabels`.
+	ConsumedLabels() interface{}
+	SetConsumedLabels(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -674,6 +697,9 @@ type CfnRuleGroup interface {
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependency(target awscdk.CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -763,9 +789,23 @@ type CfnRuleGroup interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Retrieves an array of resources this resource depends on.
+	//
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
@@ -794,26 +834,6 @@ func (j *jsiiProxy_CfnRuleGroup) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) AttrAvailableLabels() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrAvailableLabels",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnRuleGroup) AttrConsumedLabels() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrConsumedLabels",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnRuleGroup) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -829,6 +849,16 @@ func (j *jsiiProxy_CfnRuleGroup) AttrLabelNamespace() *string {
 	_jsii_.Get(
 		j,
 		"attrLabelNamespace",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuleGroup) AvailableLabels() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"availableLabels",
 		&returns,
 	)
 	return returns
@@ -869,6 +899,16 @@ func (j *jsiiProxy_CfnRuleGroup) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuleGroup) ConsumedLabels() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"consumedLabels",
 		&returns,
 	)
 	return returns
@@ -1044,6 +1084,17 @@ func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *st
 	)
 }
 
+func (j *jsiiProxy_CfnRuleGroup)SetAvailableLabels(val interface{}) {
+	if err := j.validateSetAvailableLabelsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"availableLabels",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnRuleGroup)SetCapacity(val *float64) {
 	if err := j.validateSetCapacityParameters(val); err != nil {
 		panic(err)
@@ -1051,6 +1102,17 @@ func (j *jsiiProxy_CfnRuleGroup)SetCapacity(val *float64) {
 	_jsii_.Set(
 		j,
 		"capacity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleGroup)SetConsumedLabels(val interface{}) {
+	if err := j.validateSetConsumedLabelsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"consumedLabels",
 		val,
 	)
 }
@@ -1215,6 +1277,17 @@ func (c *jsiiProxy_CfnRuleGroup) AddDeletionOverride(path *string) {
 	)
 }
 
+func (c *jsiiProxy_CfnRuleGroup) AddDependency(target awscdk.CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
+	)
+}
+
 func (c *jsiiProxy_CfnRuleGroup) AddDependsOn(target awscdk.CfnResource) {
 	if err := c.validateAddDependsOnParameters(target); err != nil {
 		panic(err)
@@ -1324,6 +1397,32 @@ func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnRuleGroup) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnRuleGroup) ObtainResourceDependencies() *[]awscdk.CfnResource {
+	var returns *[]awscdk.CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -1332,6 +1431,17 @@ func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnRuleGroup) RemoveDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -1349,6 +1459,17 @@ func (c *jsiiProxy_CfnRuleGroup) RenderProperties(props *map[string]interface{})
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CfnRuleGroup) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
 }
 
 func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {

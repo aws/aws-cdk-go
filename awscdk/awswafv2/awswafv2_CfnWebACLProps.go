@@ -60,6 +60,11 @@ import (
 //   			immunityTime: jsii.Number(123),
 //   		},
 //   	},
+//   	challengeConfig: &challengeConfigProperty{
+//   		immunityTimeProperty: &immunityTimePropertyProperty{
+//   			immunityTime: jsii.Number(123),
+//   		},
+//   	},
 //   	customResponseBodies: map[string]interface{}{
 //   		"customResponseBodiesKey": &CustomResponseBodyProperty{
 //   			"content": jsii.String("content"),
@@ -180,6 +185,9 @@ import (
 //   					},
 //   					managedRuleGroupConfigs: []interface{}{
 //   						&managedRuleGroupConfigProperty{
+//   							awsManagedRulesBotControlRuleSet: &aWSManagedRulesBotControlRuleSetProperty{
+//   								inspectionLevel: jsii.String("inspectionLevel"),
+//   							},
 //   							loginPath: jsii.String("loginPath"),
 //   							passwordField: &fieldIdentifierProperty{
 //   								identifier: jsii.String("identifier"),
@@ -188,6 +196,67 @@ import (
 //   							usernameField: &fieldIdentifierProperty{
 //   								identifier: jsii.String("identifier"),
 //   							},
+//   						},
+//   					},
+//   					ruleActionOverrides: []interface{}{
+//   						&ruleActionOverrideProperty{
+//   							actionToUse: &ruleActionProperty{
+//   								allow: &allowActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								block: &blockActionProperty{
+//   									customResponse: &customResponseProperty{
+//   										responseCode: jsii.Number(123),
+//
+//   										// the properties below are optional
+//   										customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   										responseHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								captcha: &captchaActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								challenge: &challengeActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								count: &countActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							name: jsii.String("name"),
 //   						},
 //   					},
 //   					scopeDownStatement: statementProperty_,
@@ -344,6 +413,67 @@ import (
 //   					// the properties below are optional
 //   					excludedRules: []interface{}{
 //   						&excludedRuleProperty{
+//   							name: jsii.String("name"),
+//   						},
+//   					},
+//   					ruleActionOverrides: []interface{}{
+//   						&ruleActionOverrideProperty{
+//   							actionToUse: &ruleActionProperty{
+//   								allow: &allowActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								block: &blockActionProperty{
+//   									customResponse: &customResponseProperty{
+//   										responseCode: jsii.Number(123),
+//
+//   										// the properties below are optional
+//   										customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   										responseHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								captcha: &captchaActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								challenge: &challengeActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   								count: &countActionProperty{
+//   									customRequestHandling: &customRequestHandlingProperty{
+//   										insertHeaders: []interface{}{
+//   											&customHTTPHeaderProperty{
+//   												name: jsii.String("name"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
 //   							name: jsii.String("name"),
 //   						},
 //   					},
@@ -582,6 +712,16 @@ import (
 //   						},
 //   					},
 //   				},
+//   				challenge: &challengeActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				count: &countActionProperty{
 //   					customRequestHandling: &customRequestHandlingProperty{
 //   						insertHeaders: []interface{}{
@@ -594,6 +734,11 @@ import (
 //   				},
 //   			},
 //   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			challengeConfig: &challengeConfigProperty{
 //   				immunityTimeProperty: &immunityTimePropertyProperty{
 //   					immunityTime: jsii.Number(123),
 //   				},
@@ -615,6 +760,9 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	tokenDomains: []*string{
+//   		jsii.String("tokenDomains"),
+//   	},
 //   }
 //
 type CfnWebACLProps struct {
@@ -634,6 +782,8 @@ type CfnWebACLProps struct {
 	//
 	// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
+	// `AWS::WAFv2::WebACL.ChallengeConfig`.
+	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// A map of custom response keys and content bodies.
 	//
 	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
@@ -658,5 +808,7 @@ type CfnWebACLProps struct {
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// `AWS::WAFv2::WebACL.TokenDomains`.
+	TokenDomains *[]*string `field:"optional" json:"tokenDomains" yaml:"tokenDomains"`
 }
 

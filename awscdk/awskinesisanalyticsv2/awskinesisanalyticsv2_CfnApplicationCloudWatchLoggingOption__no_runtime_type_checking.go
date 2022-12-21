@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateAddDeletionOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateOverrideLogica
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

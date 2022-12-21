@@ -28,6 +28,7 @@ import (
 //   	copyTagsToSnapshot: jsii.Boolean(false),
 //   	customIamInstanceProfile: jsii.String("customIamInstanceProfile"),
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
+//   	dbClusterSnapshotIdentifier: jsii.String("dbClusterSnapshotIdentifier"),
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //   	dbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
 //   	dbName: jsii.String("dbName"),
@@ -79,7 +80,10 @@ import (
 //   	promotionTier: jsii.Number(123),
 //   	publiclyAccessible: jsii.Boolean(false),
 //   	replicaMode: jsii.String("replicaMode"),
+//   	restoreTime: jsii.String("restoreTime"),
+//   	sourceDbInstanceAutomatedBackupsArn: jsii.String("sourceDbInstanceAutomatedBackupsArn"),
 //   	sourceDbInstanceIdentifier: jsii.String("sourceDbInstanceIdentifier"),
+//   	sourceDbiResourceId: jsii.String("sourceDbiResourceId"),
 //   	sourceRegion: jsii.String("sourceRegion"),
 //   	storageEncrypted: jsii.Boolean(false),
 //   	storageThroughput: jsii.Number(123),
@@ -92,6 +96,7 @@ import (
 //   	},
 //   	timezone: jsii.String("timezone"),
 //   	useDefaultProcessorFeatures: jsii.Boolean(false),
+//   	useLatestRestorableTime: jsii.Boolean(false),
 //   	vpcSecurityGroups: []*string{
 //   		jsii.String("vpcSecurityGroups"),
 //   	},
@@ -226,6 +231,8 @@ type CfnDBInstanceProps struct {
 	CustomIamInstanceProfile *string `field:"optional" json:"customIamInstanceProfile" yaml:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	// `AWS::RDS::DBInstance.DBClusterSnapshotIdentifier`.
+	DbClusterSnapshotIdentifier *string `field:"optional" json:"dbClusterSnapshotIdentifier" yaml:"dbClusterSnapshotIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	//
 	// For the full list of DB instance classes, and availability for your engine, see [DB Instance Class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide.* For more information about DB instance class pricing and AWS Region support for DB instance classes, see [Amazon RDS Pricing](https://docs.aws.amazon.com/rds/pricing/) .
@@ -721,6 +728,10 @@ type CfnDBInstanceProps struct {
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// `AWS::RDS::DBInstance.ReplicaMode`.
 	ReplicaMode *string `field:"optional" json:"replicaMode" yaml:"replicaMode"`
+	// `AWS::RDS::DBInstance.RestoreTime`.
+	RestoreTime *string `field:"optional" json:"restoreTime" yaml:"restoreTime"`
+	// `AWS::RDS::DBInstance.SourceDBInstanceAutomatedBackupsArn`.
+	SourceDbInstanceAutomatedBackupsArn *string `field:"optional" json:"sourceDbInstanceAutomatedBackupsArn" yaml:"sourceDbInstanceAutomatedBackupsArn"`
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
 	// Each DB instance can have a limited number of read replicas. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html) in the *Amazon RDS User Guide* .
@@ -736,6 +747,8 @@ type CfnDBInstanceProps struct {
 	// > - If the source DB instance is in a different region than the read replica, specify the source region in `SourceRegion` , and specify an ARN for a valid DB instance in `SourceDBInstanceIdentifier` . For more information, see [Constructing a Amazon RDS Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN) in the *Amazon RDS User Guide* .
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
 	SourceDbInstanceIdentifier *string `field:"optional" json:"sourceDbInstanceIdentifier" yaml:"sourceDbInstanceIdentifier"`
+	// `AWS::RDS::DBInstance.SourceDbiResourceId`.
+	SourceDbiResourceId *string `field:"optional" json:"sourceDbiResourceId" yaml:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion *string `field:"optional" json:"sourceRegion" yaml:"sourceRegion"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -780,6 +793,8 @@ type CfnDBInstanceProps struct {
 	//
 	// This setting doesn't apply to RDS Custom.
 	UseDefaultProcessorFeatures interface{} `field:"optional" json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
+	// `AWS::RDS::DBInstance.UseLatestRestorableTime`.
+	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance.
 	//
 	// The list can include both the physical IDs of existing VPC security groups and references to [AWS::EC2::SecurityGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html) resources created in the template.

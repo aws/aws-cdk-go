@@ -144,6 +144,7 @@ import (
 //   				&portMappingProperty{
 //   					appProtocol: jsii.String("appProtocol"),
 //   					containerPort: jsii.Number(123),
+//   					containerPortRange: jsii.String("containerPortRange"),
 //   					hostPort: jsii.Number(123),
 //   					name: jsii.String("name"),
 //   					protocol: jsii.String("protocol"),

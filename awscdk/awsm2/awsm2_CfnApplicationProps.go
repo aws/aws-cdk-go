@@ -18,6 +18,7 @@ package awsm2
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
+//   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -32,6 +33,8 @@ type CfnApplicationProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::M2::Application.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// `AWS::M2::Application.KmsKeyId`.
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// `AWS::M2::Application.Tags`.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }

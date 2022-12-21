@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateAddDeletionOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateOverrideLogicalIdPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

@@ -186,6 +186,28 @@ go.NewGoFunction(this, jsii.String("GoFunction"), &goFunctionProps{
 })
 ```
 
+You can set additional Docker options to configure the build environment:
+
+```go
+go.NewGoFunction(this, jsii.String("GoFunction"), &goFunctionProps{
+	entry: jsii.String("app/cmd/api"),
+	bundling: &bundlingOptions{
+		network: jsii.String("host"),
+		securityOpt: jsii.String("no-new-privileges"),
+		user: jsii.String("user:group"),
+		volumesFrom: []*string{
+			jsii.String("777f7dc92da7"),
+		},
+		volumes: []dockerVolume{
+			&dockerVolume{
+				hostPath: jsii.String("/host-path"),
+				containerPath: jsii.String("/container-path"),
+			},
+		},
+	},
+})
+```
+
 ## Command hooks
 
 It is  possible to run additional commands by specifying the `commandHooks` prop:

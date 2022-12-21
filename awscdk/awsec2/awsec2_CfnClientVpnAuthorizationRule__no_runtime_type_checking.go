@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateOverrideLogicalIdParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

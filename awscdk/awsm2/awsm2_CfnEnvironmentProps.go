@@ -19,6 +19,7 @@ package awsm2
 //   	highAvailabilityConfig: &highAvailabilityConfigProperty{
 //   		desiredCapacity: jsii.Number(123),
 //   	},
+//   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	preferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	publiclyAccessible: jsii.Boolean(false),
 //   	securityGroupIds: []*string{
@@ -57,6 +58,8 @@ type CfnEnvironmentProps struct {
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// `AWS::M2::Environment.HighAvailabilityConfig`.
 	HighAvailabilityConfig interface{} `field:"optional" json:"highAvailabilityConfig" yaml:"highAvailabilityConfig"`
+	// `AWS::M2::Environment.KmsKeyId`.
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// `AWS::M2::Environment.PreferredMaintenanceWindow`.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// `AWS::M2::Environment.PubliclyAccessible`.

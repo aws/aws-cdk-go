@@ -21,6 +21,67 @@ package awswafv2
 //   			name: jsii.String("name"),
 //   		},
 //   	},
+//   	ruleActionOverrides: []interface{}{
+//   		&ruleActionOverrideProperty{
+//   			actionToUse: &ruleActionProperty{
+//   				allow: &allowActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				block: &blockActionProperty{
+//   					customResponse: &customResponseProperty{
+//   						responseCode: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						customResponseBodyKey: jsii.String("customResponseBodyKey"),
+//   						responseHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				captcha: &captchaActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				challenge: &challengeActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				count: &countActionProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   		},
+//   	},
 //   }
 //
 type CfnWebACL_RuleGroupReferenceStatementProperty struct {
@@ -30,5 +91,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	//
 	// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
 	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
+	// `CfnWebACL.RuleGroupReferenceStatementProperty.RuleActionOverrides`.
+	RuleActionOverrides interface{} `field:"optional" json:"ruleActionOverrides" yaml:"ruleActionOverrides"`
 }
 

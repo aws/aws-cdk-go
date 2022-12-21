@@ -399,7 +399,7 @@ message.assertAtPath(jsii.String("Messages.0.Body"), awscdkintegtestsalpha.Expec
 #### Match
 
 `integ-tests` also provides a `Match` utility similar to the `@aws-cdk/assertions` module. `Match`
-can be used to construct the `ExpectedResult`.
+can be used to construct the `ExpectedResult`. While the utility is similar, only a subset of methods are currently available on the `Match` utility of this module: `arrayWith`, `objectLike`, `stringLikeRegexp` and `serializedJson`.
 
 ```go
 var message awsApiCall
@@ -407,6 +407,11 @@ var message awsApiCall
 
 message.expect(awscdkintegtestsalpha.ExpectedResult.objectLike(map[string]interface{}{
 	"Messages": awscdkintegtestsalpha.Match.arrayWith([]interface{}{
+		map[string]map[string]map[string]interface{}{
+			"Payload": awscdkintegtestsalpha.Match.serializedJson(map[string]interface{}{
+				"key": jsii.String("value"),
+			}),
+		},
 		map[string]map[string]map[string][]interface{}{
 			"Body": map[string]map[string][]interface{}{
 				"Values": awscdkintegtestsalpha.Match.arrayWith([]interface{}{

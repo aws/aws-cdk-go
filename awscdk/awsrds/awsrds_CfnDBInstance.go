@@ -65,6 +65,7 @@ import (
 //   	copyTagsToSnapshot: jsii.Boolean(false),
 //   	customIamInstanceProfile: jsii.String("customIamInstanceProfile"),
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
+//   	dbClusterSnapshotIdentifier: jsii.String("dbClusterSnapshotIdentifier"),
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //   	dbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
 //   	dbName: jsii.String("dbName"),
@@ -116,7 +117,10 @@ import (
 //   	promotionTier: jsii.Number(123),
 //   	publiclyAccessible: jsii.Boolean(false),
 //   	replicaMode: jsii.String("replicaMode"),
+//   	restoreTime: jsii.String("restoreTime"),
+//   	sourceDbInstanceAutomatedBackupsArn: jsii.String("sourceDbInstanceAutomatedBackupsArn"),
 //   	sourceDbInstanceIdentifier: jsii.String("sourceDbInstanceIdentifier"),
+//   	sourceDbiResourceId: jsii.String("sourceDbiResourceId"),
 //   	sourceRegion: jsii.String("sourceRegion"),
 //   	storageEncrypted: jsii.Boolean(false),
 //   	storageThroughput: jsii.Number(123),
@@ -129,6 +133,7 @@ import (
 //   	},
 //   	timezone: jsii.String("timezone"),
 //   	useDefaultProcessorFeatures: jsii.Boolean(false),
+//   	useLatestRestorableTime: jsii.Boolean(false),
 //   	vpcSecurityGroups: []*string{
 //   		jsii.String("vpcSecurityGroups"),
 //   	},
@@ -296,6 +301,9 @@ type CfnDBInstance interface {
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
+	// `AWS::RDS::DBInstance.DBClusterSnapshotIdentifier`.
+	DbClusterSnapshotIdentifier() *string
+	SetDbClusterSnapshotIdentifier(val *string)
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	//
 	// For the full list of DB instance classes, and availability for your engine, see [DB Instance Class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide.* For more information about DB instance class pricing and AWS Region support for DB instance classes, see [Amazon RDS Pricing](https://docs.aws.amazon.com/rds/pricing/) .
@@ -846,6 +854,12 @@ type CfnDBInstance interface {
 	// `AWS::RDS::DBInstance.ReplicaMode`.
 	ReplicaMode() *string
 	SetReplicaMode(val *string)
+	// `AWS::RDS::DBInstance.RestoreTime`.
+	RestoreTime() *string
+	SetRestoreTime(val *string)
+	// `AWS::RDS::DBInstance.SourceDBInstanceAutomatedBackupsArn`.
+	SourceDbInstanceAutomatedBackupsArn() *string
+	SetSourceDbInstanceAutomatedBackupsArn(val *string)
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
 	// Each DB instance can have a limited number of read replicas. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html) in the *Amazon RDS User Guide* .
@@ -862,6 +876,9 @@ type CfnDBInstance interface {
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
 	SourceDbInstanceIdentifier() *string
 	SetSourceDbInstanceIdentifier(val *string)
+	// `AWS::RDS::DBInstance.SourceDbiResourceId`.
+	SourceDbiResourceId() *string
+	SetSourceDbiResourceId(val *string)
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion() *string
 	SetSourceRegion(val *string)
@@ -929,6 +946,9 @@ type CfnDBInstance interface {
 	// This setting doesn't apply to RDS Custom.
 	UseDefaultProcessorFeatures() interface{}
 	SetUseDefaultProcessorFeatures(val interface{})
+	// `AWS::RDS::DBInstance.UseLatestRestorableTime`.
+	UseLatestRestorableTime() interface{}
+	SetUseLatestRestorableTime(val interface{})
 	// A list of the VPC security group IDs to assign to the DB instance.
 	//
 	// The list can include both the physical IDs of existing VPC security groups and references to [AWS::EC2::SecurityGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html) resources created in the template.
@@ -956,6 +976,9 @@ type CfnDBInstance interface {
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependency(target awscdk.CfnResource)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	// Deprecated: use addDependency.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1045,9 +1068,23 @@ type CfnDBInstance interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Retrieves an array of resources this resource depends on.
+	//
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
+	ObtainDependencies() *[]interface{}
+	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
+	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Replaces one dependency with another.
+	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
@@ -1261,6 +1298,16 @@ func (j *jsiiProxy_CfnDBInstance) DbClusterIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"dbClusterIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) DbClusterSnapshotIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dbClusterSnapshotIdentifier",
 		&returns,
 	)
 	return returns
@@ -1676,11 +1723,41 @@ func (j *jsiiProxy_CfnDBInstance) ReplicaMode() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) RestoreTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"restoreTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) SourceDbInstanceAutomatedBackupsArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceDbInstanceAutomatedBackupsArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) SourceDbInstanceIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"sourceDbInstanceIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) SourceDbiResourceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceDbiResourceId",
 		&returns,
 	)
 	return returns
@@ -1781,6 +1858,16 @@ func (j *jsiiProxy_CfnDBInstance) UseDefaultProcessorFeatures() interface{} {
 	_jsii_.Get(
 		j,
 		"useDefaultProcessorFeatures",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) UseLatestRestorableTime() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"useLatestRestorableTime",
 		&returns,
 	)
 	return returns
@@ -1922,6 +2009,14 @@ func (j *jsiiProxy_CfnDBInstance)SetDbClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"dbClusterIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetDbClusterSnapshotIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"dbClusterSnapshotIdentifier",
 		val,
 	)
 }
@@ -2254,10 +2349,34 @@ func (j *jsiiProxy_CfnDBInstance)SetReplicaMode(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBInstance)SetRestoreTime(val *string) {
+	_jsii_.Set(
+		j,
+		"restoreTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetSourceDbInstanceAutomatedBackupsArn(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceDbInstanceAutomatedBackupsArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBInstance)SetSourceDbInstanceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceDbInstanceIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetSourceDbiResourceId(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceDbiResourceId",
 		val,
 	)
 }
@@ -2312,6 +2431,17 @@ func (j *jsiiProxy_CfnDBInstance)SetUseDefaultProcessorFeatures(val interface{})
 	_jsii_.Set(
 		j,
 		"useDefaultProcessorFeatures",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetUseLatestRestorableTime(val interface{}) {
+	if err := j.validateSetUseLatestRestorableTimeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"useLatestRestorableTime",
 		val,
 	)
 }
@@ -2424,6 +2554,17 @@ func (c *jsiiProxy_CfnDBInstance) AddDeletionOverride(path *string) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBInstance) AddDependency(target awscdk.CfnResource) {
+	if err := c.validateAddDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDependency",
+		[]interface{}{target},
+	)
+}
+
 func (c *jsiiProxy_CfnDBInstance) AddDependsOn(target awscdk.CfnResource) {
 	if err := c.validateAddDependsOnParameters(target); err != nil {
 		panic(err)
@@ -2533,6 +2674,32 @@ func (c *jsiiProxy_CfnDBInstance) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnDBInstance) ObtainDependencies() *[]interface{} {
+	var returns *[]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"obtainDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBInstance) ObtainResourceDependencies() *[]awscdk.CfnResource {
+	var returns *[]awscdk.CfnResource
+
+	_jsii_.Invoke(
+		c,
+		"obtainResourceDependencies",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnDBInstance) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -2541,6 +2708,17 @@ func (c *jsiiProxy_CfnDBInstance) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDBInstance) RemoveDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeDependency",
+		[]interface{}{target},
 	)
 }
 
@@ -2558,6 +2736,17 @@ func (c *jsiiProxy_CfnDBInstance) RenderProperties(props *map[string]interface{}
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CfnDBInstance) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
+	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"replaceDependency",
+		[]interface{}{target, newTarget},
+	)
 }
 
 func (c *jsiiProxy_CfnDBInstance) ShouldSynthesize() *bool {

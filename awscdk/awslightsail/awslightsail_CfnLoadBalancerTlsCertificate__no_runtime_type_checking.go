@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateOverrideLogicalIdParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

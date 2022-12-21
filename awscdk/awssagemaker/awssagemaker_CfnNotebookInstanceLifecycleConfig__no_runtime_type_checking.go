@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateAddDeletionOverri
 	return nil
 }
 
+func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateOverrideLogicalId
 	return nil
 }
 
+func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 

@@ -28,6 +28,16 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	availableLabels: []interface{}{
+//   		&labelSummaryProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   	consumedLabels: []interface{}{
+//   		&labelSummaryProperty{
+//   			name: jsii.String("name"),
+//   		},
+//   	},
 //   	customResponseBodies: map[string]interface{}{
 //   		"customResponseBodiesKey": &CustomResponseBodyProperty{
 //   			"content": jsii.String("content"),
@@ -515,6 +525,16 @@ import (
 //   						},
 //   					},
 //   				},
+//   				challenge: &challengeProperty{
+//   					customRequestHandling: &customRequestHandlingProperty{
+//   						insertHeaders: []interface{}{
+//   							&customHTTPHeaderProperty{
+//   								name: jsii.String("name"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				count: &countProperty{
 //   					customRequestHandling: &customRequestHandlingProperty{
 //   						insertHeaders: []interface{}{
@@ -527,6 +547,11 @@ import (
 //   				},
 //   			},
 //   			captchaConfig: &captchaConfigProperty{
+//   				immunityTimeProperty: &immunityTimePropertyProperty{
+//   					immunityTime: jsii.Number(123),
+//   				},
+//   			},
+//   			challengeConfig: &challengeConfigProperty{
 //   				immunityTimeProperty: &immunityTimePropertyProperty{
 //   					immunityTime: jsii.Number(123),
 //   				},
@@ -561,6 +586,10 @@ type CfnRuleGroupProps struct {
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
+	// `AWS::WAFv2::RuleGroup.AvailableLabels`.
+	AvailableLabels interface{} `field:"optional" json:"availableLabels" yaml:"availableLabels"`
+	// `AWS::WAFv2::RuleGroup.ConsumedLabels`.
+	ConsumedLabels interface{} `field:"optional" json:"consumedLabels" yaml:"consumedLabels"`
 	// A map of custom response keys and content bodies.
 	//
 	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.

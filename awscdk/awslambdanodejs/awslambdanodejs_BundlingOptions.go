@@ -9,11 +9,42 @@ import (
 // Example:
 //   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 //   	bundling: &bundlingOptions{
-//   		dockerImage: awscdk.DockerImage.fromBuild(jsii.String("/path/to/Dockerfile")),
+//   		network: jsii.String("host"),
+//   		securityOpt: jsii.String("no-new-privileges"),
+//   		user: jsii.String("user:group"),
+//   		volumesFrom: []*string{
+//   			jsii.String("777f7dc92da7"),
+//   		},
+//   		volumes: []dockerVolume{
+//   			&dockerVolume{
+//   				hostPath: jsii.String("/host-path"),
+//   				containerPath: jsii.String("/container-path"),
+//   			},
+//   		},
 //   	},
 //   })
 //
 type BundlingOptions struct {
+	// The command to run in the container.
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// The entrypoint to run in the container.
+	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
+	// The environment variables to pass to the container.
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
+	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
+	Network *string `field:"optional" json:"network" yaml:"network"`
+	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
+	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`
+	// The user to use when running the container.
+	User *string `field:"optional" json:"user" yaml:"user"`
+	// Docker volumes to mount.
+	Volumes *[]*awscdk.DockerVolume `field:"optional" json:"volumes" yaml:"volumes"`
+	// Where to mount the specified volumes from.
+	// See: https://docs.docker.com/engine/reference/commandline/run/#mount-volumes-from-container---volumes-from
+	//
+	VolumesFrom *[]*string `field:"optional" json:"volumesFrom" yaml:"volumesFrom"`
+	// Working directory inside the container.
+	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 	// Specify a custom hash for this asset.
 	//
 	// For consistency, this custom hash will
@@ -59,8 +90,6 @@ type BundlingOptions struct {
 	// See https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-lambda-nodejs/lib/Dockerfile
 	// for the default image provided by @aws-cdk/aws-lambda-nodejs.
 	DockerImage awscdk.DockerImage `field:"optional" json:"dockerImage" yaml:"dockerImage"`
-	// Environment variables defined when bundling runs.
-	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// Build arguments to pass into esbuild.
 	//
 	// For example, to add the [--log-limit](https://esbuild.github.io/api/#log-limit) flag:
