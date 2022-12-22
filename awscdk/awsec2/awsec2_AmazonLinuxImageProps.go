@@ -36,6 +36,7 @@ package awsec2
 //
 //   fs.connections.allowDefaultPortFrom(inst)
 //
+// Experimental.
 type AmazonLinuxImageProps struct {
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
@@ -52,20 +53,28 @@ type AmazonLinuxImageProps struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// CPU Type.
+	// Experimental.
 	CpuType AmazonLinuxCpuType `field:"optional" json:"cpuType" yaml:"cpuType"`
 	// What edition of Amazon Linux to use.
+	// Experimental.
 	Edition AmazonLinuxEdition `field:"optional" json:"edition" yaml:"edition"`
 	// What generation of Amazon Linux to use.
+	// Experimental.
 	Generation AmazonLinuxGeneration `field:"optional" json:"generation" yaml:"generation"`
 	// What kernel version of Amazon Linux to use.
+	// Experimental.
 	Kernel AmazonLinuxKernel `field:"optional" json:"kernel" yaml:"kernel"`
 	// What storage backed image to use.
+	// Experimental.
 	Storage AmazonLinuxStorage `field:"optional" json:"storage" yaml:"storage"`
 	// Initial user data.
+	// Experimental.
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Virtualization type.
+	// Experimental.
 	Virtualization AmazonLinuxVirt `field:"optional" json:"virtualization" yaml:"virtualization"`
 }
 

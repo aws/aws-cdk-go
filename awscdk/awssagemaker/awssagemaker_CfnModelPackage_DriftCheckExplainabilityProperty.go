@@ -28,7 +28,7 @@ package awssagemaker
 type CfnModelPackage_DriftCheckExplainabilityProperty struct {
 	// The explainability config file for the model.
 	ConfigFile interface{} `field:"optional" json:"configFile" yaml:"configFile"`
-	// `CfnModelPackage.DriftCheckExplainabilityProperty.Constraints`.
+	// The drift check explainability constraints.
 	Constraints interface{} `field:"optional" json:"constraints" yaml:"constraints"`
 }
 

@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnPortal) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnPortal) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnPortal) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
-func (c *jsiiProxy_CfnPortal) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnPortal) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnPortal) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnPortal) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnPortal) validateRenderPropertiesParameters(props *map[stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnPortal) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnPortal) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -227,7 +215,7 @@ func (j *jsiiProxy_CfnPortal) validateSetRoleArnParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnPortalParameters(scope constructs.Construct, id *string, props *CfnPortalProps) error {
+func validateNewCfnPortalParameters(scope awscdk.Construct, id *string, props *CfnPortalProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

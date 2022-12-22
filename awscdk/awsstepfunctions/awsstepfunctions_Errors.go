@@ -1,7 +1,7 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,6 +14,7 @@ import (
 //
 //   errors := awscdk.Aws_stepfunctions.NewErrors()
 //
+// Experimental.
 type Errors interface {
 }
 
@@ -22,13 +23,14 @@ type jsiiProxy_Errors struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewErrors() Errors {
 	_init_.Initialize()
 
 	j := jsiiProxy_Errors{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		nil, // no parameters
 		&j,
 	)
@@ -36,11 +38,12 @@ func NewErrors() Errors {
 	return &j
 }
 
+// Experimental.
 func NewErrors_Override(e Errors) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		nil, // no parameters
 		e,
 	)
@@ -50,7 +53,7 @@ func Errors_ALL() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"ALL",
 		&returns,
 	)
@@ -61,7 +64,7 @@ func Errors_BRANCH_FAILED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"BRANCH_FAILED",
 		&returns,
 	)
@@ -72,7 +75,7 @@ func Errors_HEARTBEAT_TIMEOUT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"HEARTBEAT_TIMEOUT",
 		&returns,
 	)
@@ -83,7 +86,7 @@ func Errors_NO_CHOICE_MATCHED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"NO_CHOICE_MATCHED",
 		&returns,
 	)
@@ -94,7 +97,7 @@ func Errors_PARAMETER_PATH_FAILURE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"PARAMETER_PATH_FAILURE",
 		&returns,
 	)
@@ -105,7 +108,7 @@ func Errors_PERMISSIONS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"PERMISSIONS",
 		&returns,
 	)
@@ -116,7 +119,7 @@ func Errors_RESULT_PATH_MATCH_FAILURE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"RESULT_PATH_MATCH_FAILURE",
 		&returns,
 	)
@@ -127,7 +130,7 @@ func Errors_TASKS_FAILED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"TASKS_FAILED",
 		&returns,
 	)
@@ -138,7 +141,7 @@ func Errors_TIMEOUT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"TIMEOUT",
 		&returns,
 	)

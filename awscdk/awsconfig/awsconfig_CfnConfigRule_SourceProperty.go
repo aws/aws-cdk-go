@@ -1,7 +1,7 @@
 package awsconfig
 
 
-// Provides the CustomPolicyDetails, the rule owner ( AWS or customer), the rule identifier, and the events that cause the evaluation of your AWS resources.
+// Provides the CustomPolicyDetails, the rule owner ( `AWS` for managed rules, `CUSTOM_POLICY` for Custom Policy rules, and `CUSTOM_LAMBDA` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,11 +32,13 @@ package awsconfig
 type CfnConfigRule_SourceProperty struct {
 	// Indicates whether AWS or the customer owns and manages the AWS Config rule.
 	//
-	// AWS Config Managed Rules are predefined rules owned by AWS . For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the AWS Config developer guide.
+	// AWS Config Managed Rules are predefined rules owned by AWS . For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *AWS Config developer guide* .
 	//
-	// AWS Config Custom Rules are rules that you can develop either with Guard ( `CUSTOM_POLICY` ) or AWS Lambda ( `CUSTOM_LAMBDA` ). For more information, see [AWS Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the AWS Config developer guide.
+	// AWS Config Custom Rules are rules that you can develop either with Guard ( `CUSTOM_POLICY` ) or AWS Lambda ( `CUSTOM_LAMBDA` ). For more information, see [AWS Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *AWS Config developer guide* .
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
-	// `CfnConfigRule.SourceProperty.CustomPolicyDetails`.
+	// Provides the runtime system, policy definition, and whether debug logging is enabled.
+	//
+	// Required when owner is set to `CUSTOM_POLICY` .
 	CustomPolicyDetails interface{} `field:"optional" json:"customPolicyDetails" yaml:"customPolicyDetails"`
 	// Provides the source and the message types that cause AWS Config to evaluate your AWS resources against a rule.
 	//

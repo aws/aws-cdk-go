@@ -1,6 +1,6 @@
 //go:build no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -17,15 +17,19 @@ func (r *jsiiProxy_Resource) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
+func (r *jsiiProxy_Resource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_Resource) validateSynthesizeParameters(session ISynthesisSession) error {
+	return nil
+}
+
 func validateResource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateResource_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateResource_IsResourceParameters(construct constructs.IConstruct) error {
+func validateResource_IsResourceParameters(construct IConstruct) error {
 	return nil
 }
 

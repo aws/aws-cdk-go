@@ -1,6 +1,8 @@
 package awspipes
 
 
+// The parameters required to set up a target for your pipe.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -204,29 +206,31 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeTargetParametersProperty struct {
-	// `CfnPipe.PipeTargetParametersProperty.BatchJobParameters`.
+	// The parameters for using an AWS Batch job as a target.
 	BatchJobParameters interface{} `field:"optional" json:"batchJobParameters" yaml:"batchJobParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.CloudWatchLogsParameters`.
+	// The parameters for using an CloudWatch Logs log stream as a target.
 	CloudWatchLogsParameters interface{} `field:"optional" json:"cloudWatchLogsParameters" yaml:"cloudWatchLogsParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.EcsTaskParameters`.
+	// The parameters for using an Amazon ECS task as a target.
 	EcsTaskParameters interface{} `field:"optional" json:"ecsTaskParameters" yaml:"ecsTaskParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.EventBridgeEventBusParameters`.
+	// The parameters for using an EventBridge event bus as a target.
 	EventBridgeEventBusParameters interface{} `field:"optional" json:"eventBridgeEventBusParameters" yaml:"eventBridgeEventBusParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.HttpParameters`.
+	// These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations.
 	HttpParameters interface{} `field:"optional" json:"httpParameters" yaml:"httpParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.InputTemplate`.
+	// Valid JSON text passed to the target.
+	//
+	// In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
 	InputTemplate *string `field:"optional" json:"inputTemplate" yaml:"inputTemplate"`
-	// `CfnPipe.PipeTargetParametersProperty.KinesisStreamParameters`.
+	// The parameters for using a Kinesis stream as a source.
 	KinesisStreamParameters interface{} `field:"optional" json:"kinesisStreamParameters" yaml:"kinesisStreamParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.LambdaFunctionParameters`.
+	// The parameters for using a Lambda function as a target.
 	LambdaFunctionParameters interface{} `field:"optional" json:"lambdaFunctionParameters" yaml:"lambdaFunctionParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.RedshiftDataParameters`.
+	// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement.
 	RedshiftDataParameters interface{} `field:"optional" json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.SageMakerPipelineParameters`.
+	// The parameters for using a SageMaker pipeline as a target.
 	SageMakerPipelineParameters interface{} `field:"optional" json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.SqsQueueParameters`.
+	// The parameters for using a Amazon SQS stream as a source.
 	SqsQueueParameters interface{} `field:"optional" json:"sqsQueueParameters" yaml:"sqsQueueParameters"`
-	// `CfnPipe.PipeTargetParametersProperty.StepFunctionStateMachineParameters`.
+	// The parameters for using a Step Functions state machine as a target.
 	StepFunctionStateMachineParameters interface{} `field:"optional" json:"stepFunctionStateMachineParameters" yaml:"stepFunctionStateMachineParameters"`
 }
 

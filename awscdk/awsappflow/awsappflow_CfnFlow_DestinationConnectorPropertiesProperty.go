@@ -166,7 +166,7 @@ package awsappflow
 //   }
 //
 type CfnFlow_DestinationConnectorPropertiesProperty struct {
-	// `CfnFlow.DestinationConnectorPropertiesProperty.CustomConnector`.
+	// The properties that are required to query the custom Connector.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The properties required to query Amazon EventBridge.
 	EventBridge interface{} `field:"optional" json:"eventBridge" yaml:"eventBridge"`

@@ -1,8 +1,8 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // An entry to be sent to EventBridge.
@@ -28,6 +28,7 @@ import (
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html
 //
+// Experimental.
 type EventBridgePutEventsEntry struct {
 	// The event body.
 	//
@@ -40,20 +41,24 @@ type EventBridgePutEventsEntry struct {
 	//   })
 	//   sfn.taskInput.fromJsonPathAt(jsii.String("$.EventDetail"))
 	//
+	// Experimental.
 	Detail awsstepfunctions.TaskInput `field:"required" json:"detail" yaml:"detail"`
 	// Used along with the source field to help identify the fields and values expected in the detail field.
 	//
 	// For example, events by CloudTrail have detail type "AWS API Call via CloudTrail".
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 	//
+	// Experimental.
 	DetailType *string `field:"required" json:"detailType" yaml:"detailType"`
 	// The service or application that caused this event to be generated.
 	//
 	// Example value: `com.example.service`
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 	//
+	// Experimental.
 	Source *string `field:"required" json:"source" yaml:"source"`
 	// The event bus the entry will be sent to.
+	// Experimental.
 	EventBus awsevents.IEventBus `field:"optional" json:"eventBus" yaml:"eventBus"`
 }
 

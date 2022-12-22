@@ -84,6 +84,14 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) validateNextParameters(next awsstepf
 	return nil
 }
 
+func (g *jsiiProxy_GlueDataBrewStartJobRun) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (g *jsiiProxy_GlueDataBrewStartJobRun) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (g *jsiiProxy_GlueDataBrewStartJobRun) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

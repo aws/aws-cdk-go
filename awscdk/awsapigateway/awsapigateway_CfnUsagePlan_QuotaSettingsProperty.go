@@ -25,7 +25,7 @@ type CfnUsagePlan_QuotaSettingsProperty struct {
 	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
 	// The time period for which the target maximum limit of requests applies, such as `DAY` or `WEEK` .
 	//
-	// For valid values, see the period property for the [UsagePlan](https://docs.aws.amazon.com/apigateway/api-reference/resource/usage-plan) resource in the *Amazon API Gateway REST API Reference* .
+	// For valid values, see the period property for the [UsagePlan](https://docs.aws.amazon.com/apigateway/latest/api/API_UsagePlan.html) resource in the *Amazon API Gateway REST API Reference* .
 	Period *string `field:"optional" json:"period" yaml:"period"`
 }
 

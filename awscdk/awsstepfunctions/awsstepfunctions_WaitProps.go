@@ -30,10 +30,13 @@ package awsstepfunctions
 //   	definition: convertToSeconds.next(createMessage).next(publishMessage).next(wait),
 //   })
 //
+// Experimental.
 type WaitProps struct {
 	// Wait duration.
+	// Experimental.
 	Time WaitTime `field:"required" json:"time" yaml:"time"`
 	// An optional description for this state.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 

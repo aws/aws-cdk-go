@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) validateAddDeletionOverrideParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnStorageVirtualMachine) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnStorageVirtualMachine) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnStorageVirtualMachine) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnStorageVirtualMachine) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnStorageVirtualMachine) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnStorageVirtualMachine) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnStorageVirtualMachine) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnStorageVirtualMachine) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) validateSetNameParameters(val *stri
 	return nil
 }
 
-func validateNewCfnStorageVirtualMachineParameters(scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) error {
+func validateNewCfnStorageVirtualMachineParameters(scope awscdk.Construct, id *string, props *CfnStorageVirtualMachineProps) error {
 	return nil
 }
 

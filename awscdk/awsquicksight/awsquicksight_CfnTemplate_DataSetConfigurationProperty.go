@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// Dataset configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,11 +32,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DataSetConfigurationProperty struct {
-	// `CfnTemplate.DataSetConfigurationProperty.ColumnGroupSchemaList`.
+	// A structure containing the list of column group schemas.
 	ColumnGroupSchemaList interface{} `field:"optional" json:"columnGroupSchemaList" yaml:"columnGroupSchemaList"`
-	// `CfnTemplate.DataSetConfigurationProperty.DataSetSchema`.
+	// Dataset schema.
 	DataSetSchema interface{} `field:"optional" json:"dataSetSchema" yaml:"dataSetSchema"`
-	// `CfnTemplate.DataSetConfigurationProperty.Placeholder`.
+	// Placeholder.
 	Placeholder *string `field:"optional" json:"placeholder" yaml:"placeholder"`
 }
 

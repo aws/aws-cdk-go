@@ -1,6 +1,16 @@
 package awswafv2
 
 
+// Inspect one of the headers in the web request, identified by name, for example, `User-Agent` or `Referer` .
+//
+// The name isn't case sensitive.
+//
+// You can filter and inspect all headers with the `FieldToMatch` setting `Headers` .
+//
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+//
+// Example JSON: `"SingleHeader": { "Name": "haystack" }`.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +21,7 @@ package awswafv2
 //   }
 //
 type CfnWebACL_SingleHeaderProperty struct {
-	// `CfnWebACL.SingleHeaderProperty.Name`.
+	// The name of the query header to inspect.
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

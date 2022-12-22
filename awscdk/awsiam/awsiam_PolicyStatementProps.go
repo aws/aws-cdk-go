@@ -39,22 +39,31 @@ package awsiam
 //   	service: ec2.interfaceVpcEndpointAwsService_ECR_DOCKER(),
 //   })
 //
+// Experimental.
 type PolicyStatementProps struct {
 	// List of actions to add to the statement.
+	// Experimental.
 	Actions *[]*string `field:"optional" json:"actions" yaml:"actions"`
 	// Conditions to add to the statement.
+	// Experimental.
 	Conditions *map[string]interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// Whether to allow or deny the actions in this statement.
+	// Experimental.
 	Effect Effect `field:"optional" json:"effect" yaml:"effect"`
 	// List of not actions to add to the statement.
+	// Experimental.
 	NotActions *[]*string `field:"optional" json:"notActions" yaml:"notActions"`
 	// List of not principals to add to the statement.
+	// Experimental.
 	NotPrincipals *[]IPrincipal `field:"optional" json:"notPrincipals" yaml:"notPrincipals"`
 	// NotResource ARNs to add to the statement.
+	// Experimental.
 	NotResources *[]*string `field:"optional" json:"notResources" yaml:"notResources"`
 	// List of principals to add to the statement.
+	// Experimental.
 	Principals *[]IPrincipal `field:"optional" json:"principals" yaml:"principals"`
 	// Resource ARNs to add to the statement.
+	// Experimental.
 	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// The Sid (statement ID) is an optional identifier that you provide for the policy statement.
 	//
@@ -62,6 +71,7 @@ type PolicyStatementProps struct {
 	// statement array. In services that let you specify an ID element, such as
 	// SQS and SNS, the Sid value is just a sub-ID of the policy document's ID. In
 	// IAM, the Sid value must be unique within a JSON policy.
+	// Experimental.
 	Sid *string `field:"optional" json:"sid" yaml:"sid"`
 }
 

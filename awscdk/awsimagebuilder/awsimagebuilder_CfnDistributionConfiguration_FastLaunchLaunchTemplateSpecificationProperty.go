@@ -1,6 +1,10 @@
 package awsimagebuilder
 
 
+// Identifies the launch template that the associated Windows AMI uses for launching an instance when faster launching is enabled.
+//
+// > You can specify either the `launchTemplateName` or the `launchTemplateId` , but not both.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +17,11 @@ package awsimagebuilder
 //   }
 //
 type CfnDistributionConfiguration_FastLaunchLaunchTemplateSpecificationProperty struct {
-	// `CfnDistributionConfiguration.FastLaunchLaunchTemplateSpecificationProperty.LaunchTemplateId`.
+	// The ID of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
-	// `CfnDistributionConfiguration.FastLaunchLaunchTemplateSpecificationProperty.LaunchTemplateName`.
+	// The name of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
-	// `CfnDistributionConfiguration.FastLaunchLaunchTemplateSpecificationProperty.LaunchTemplateVersion`.
+	// The version of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateVersion *string `field:"optional" json:"launchTemplateVersion" yaml:"launchTemplateVersion"`
 }
 

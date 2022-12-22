@@ -28,7 +28,9 @@ type CfnModelExplainabilityJobDefinition_NetworkConfigProperty struct {
 	EnableInterContainerTrafficEncryption interface{} `field:"optional" json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
-	// `CfnModelExplainabilityJobDefinition.NetworkConfigProperty.VpcConfig`.
+	// Specifies a VPC that your training jobs and hosted models have access to.
+	//
+	// Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 

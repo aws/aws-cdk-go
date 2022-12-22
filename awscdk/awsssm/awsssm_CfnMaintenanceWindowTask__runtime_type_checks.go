@@ -7,21 +7,13 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnMaintenanceWindowTask) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnMaintenanceWindowTask) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnMaintenanceWindowTask) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnMaintenanceWindowTask) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnMaintenanceWindowTask) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnMaintenanceWindowTask) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnMaintenanceWindowTask) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnMaintenanceWindowTask) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -327,7 +315,7 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) validateSetWindowIdParameters(val *
 	return nil
 }
 
-func validateNewCfnMaintenanceWindowTaskParameters(scope constructs.Construct, id *string, props *CfnMaintenanceWindowTaskProps) error {
+func validateNewCfnMaintenanceWindowTaskParameters(scope awscdk.Construct, id *string, props *CfnMaintenanceWindowTaskProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

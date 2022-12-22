@@ -1,7 +1,7 @@
 package awswafv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnWebACL`.
@@ -770,7 +770,7 @@ type CfnWebACLProps struct {
 	DefaultAction interface{} `field:"required" json:"defaultAction" yaml:"defaultAction"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, or an Amazon Cognito user pool. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//
@@ -782,7 +782,9 @@ type CfnWebACLProps struct {
 	//
 	// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
-	// `AWS::WAFv2::WebACL.ChallengeConfig`.
+	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings.
+	//
+	// If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
 	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// A map of custom response keys and content bodies.
 	//
@@ -808,7 +810,9 @@ type CfnWebACLProps struct {
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::WAFv2::WebACL.TokenDomains`.
+	// Specifies the domains that AWS WAF should accept in a web request token.
+	//
+	// This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
 	TokenDomains *[]*string `field:"optional" json:"tokenDomains" yaml:"tokenDomains"`
 }
 

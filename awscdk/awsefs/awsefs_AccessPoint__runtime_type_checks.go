@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (a *jsiiProxy_AccessPoint) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -37,6 +37,22 @@ func (a *jsiiProxy_AccessPoint) validateGetResourceArnAttributeParameters(arnAtt
 func (a *jsiiProxy_AccessPoint) validateGetResourceNameAttributeParameters(nameAttr *string) error {
 	if nameAttr == nil {
 		return fmt.Errorf("parameter nameAttr is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_AccessPoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_AccessPoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -85,15 +101,7 @@ func validateAccessPoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAccessPoint_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateAccessPoint_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAccessPoint_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

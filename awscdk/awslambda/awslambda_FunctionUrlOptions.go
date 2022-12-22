@@ -16,10 +16,13 @@ package awslambda
 //   	value: fnUrl.url,
 //   })
 //
+// Experimental.
 type FunctionUrlOptions struct {
 	// The type of authentication that your function URL uses.
+	// Experimental.
 	AuthType FunctionUrlAuthType `field:"optional" json:"authType" yaml:"authType"`
 	// The cross-origin resource sharing (CORS) settings for your function URL.
+	// Experimental.
 	Cors *FunctionUrlCorsOptions `field:"optional" json:"cors" yaml:"cors"`
 }
 

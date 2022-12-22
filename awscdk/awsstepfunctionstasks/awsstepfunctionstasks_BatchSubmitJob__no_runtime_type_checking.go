@@ -84,6 +84,14 @@ func (b *jsiiProxy_BatchSubmitJob) validateNextParameters(next awsstepfunctions.
 	return nil
 }
 
+func (b *jsiiProxy_BatchSubmitJob) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_BatchSubmitJob) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (b *jsiiProxy_BatchSubmitJob) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

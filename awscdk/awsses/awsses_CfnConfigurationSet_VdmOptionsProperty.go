@@ -1,6 +1,8 @@
 package awsses
 
 
+// The Virtual Deliverability Manager (VDM) options that apply to a configuration set.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,9 @@ package awsses
 //   }
 //
 type CfnConfigurationSet_VdmOptionsProperty struct {
-	// `CfnConfigurationSet.VdmOptionsProperty.DashboardOptions`.
+	// Settings for your VDM configuration as applicable to the Dashboard.
 	DashboardOptions interface{} `field:"optional" json:"dashboardOptions" yaml:"dashboardOptions"`
-	// `CfnConfigurationSet.VdmOptionsProperty.GuardianOptions`.
+	// Settings for your VDM configuration as applicable to the Guardian.
 	GuardianOptions interface{} `field:"optional" json:"guardianOptions" yaml:"guardianOptions"`
 }
 

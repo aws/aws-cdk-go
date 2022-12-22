@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 func (i *jsiiProxy_INetworkLoadBalancer) validateAddListenerParameters(id *string, props *BaseNetworkListenerProps) error {

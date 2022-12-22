@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateAddDeletionOverrideParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSSandboxChannel) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAPNSSandboxChannel) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSSandboxChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAPNSSandboxChannel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSSandboxChannel) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAPNSSandboxChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSSandboxChannel) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAPNSSandboxChannel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnAPNSSandboxChannel) validateSetEnabledParameters(val inter
 	return nil
 }
 
-func validateNewCfnAPNSSandboxChannelParameters(scope constructs.Construct, id *string, props *CfnAPNSSandboxChannelProps) error {
+func validateNewCfnAPNSSandboxChannelParameters(scope awscdk.Construct, id *string, props *CfnAPNSSandboxChannelProps) error {
 	return nil
 }
 

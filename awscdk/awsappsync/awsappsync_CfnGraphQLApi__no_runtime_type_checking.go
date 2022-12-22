@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnGraphQLApi) validateAddDeletionOverrideParameters(path *st
 	return nil
 }
 
-func (c *jsiiProxy_CfnGraphQLApi) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnGraphQLApi) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnGraphQLApi) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnGraphQLApi) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnGraphQLApi) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnGraphQLApi) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnGraphQLApi) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnGraphQLApi) validateRenderPropertiesParameters(props *map[
 	return nil
 }
 
-func (c *jsiiProxy_CfnGraphQLApi) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnGraphQLApi) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -112,7 +108,7 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetXrayEnabledParameters(val interface
 	return nil
 }
 
-func validateNewCfnGraphQLApiParameters(scope constructs.Construct, id *string, props *CfnGraphQLApiProps) error {
+func validateNewCfnGraphQLApiParameters(scope awscdk.Construct, id *string, props *CfnGraphQLApiProps) error {
 	return nil
 }
 

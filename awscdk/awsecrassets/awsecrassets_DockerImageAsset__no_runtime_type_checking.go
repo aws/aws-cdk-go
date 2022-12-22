@@ -8,6 +8,14 @@ func (d *jsiiProxy_DockerImageAsset) validateAddResourceMetadataParameters(resou
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageAsset) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageAsset) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDockerImageAsset_IsConstructParameters(x interface{}) error {
 	return nil
 }

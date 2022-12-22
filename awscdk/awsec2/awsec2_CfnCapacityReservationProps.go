@@ -68,7 +68,7 @@ type CfnCapacityReservationProps struct {
 	// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
 	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
 	EndDateType *string `field:"optional" json:"endDateType" yaml:"endDateType"`
-	// Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
+	// *Deprecated.*.
 	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:.
 	//

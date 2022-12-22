@@ -33,17 +33,17 @@ package awsses
 //   }
 //
 type CfnEmailIdentityProps struct {
-	// `AWS::SES::EmailIdentity.EmailIdentity`.
+	// The email address or domain to verify.
 	EmailIdentity *string `field:"required" json:"emailIdentity" yaml:"emailIdentity"`
-	// `AWS::SES::EmailIdentity.ConfigurationSetAttributes`.
+	// Used to associate a configuration set with an email identity.
 	ConfigurationSetAttributes interface{} `field:"optional" json:"configurationSetAttributes" yaml:"configurationSetAttributes"`
-	// `AWS::SES::EmailIdentity.DkimAttributes`.
+	// An object that contains information about the DKIM attributes for the identity.
 	DkimAttributes interface{} `field:"optional" json:"dkimAttributes" yaml:"dkimAttributes"`
-	// `AWS::SES::EmailIdentity.DkimSigningAttributes`.
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
 	DkimSigningAttributes interface{} `field:"optional" json:"dkimSigningAttributes" yaml:"dkimSigningAttributes"`
-	// `AWS::SES::EmailIdentity.FeedbackAttributes`.
+	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes interface{} `field:"optional" json:"feedbackAttributes" yaml:"feedbackAttributes"`
-	// `AWS::SES::EmailIdentity.MailFromAttributes`.
+	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes interface{} `field:"optional" json:"mailFromAttributes" yaml:"mailFromAttributes"`
 }
 

@@ -6,7 +6,7 @@ package awsstepfunctionstasks
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var size size
@@ -31,10 +31,13 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_EbsConfiguration.html
 //
+// Experimental.
 type EmrCreateCluster_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	// Experimental.
 	EbsBlockDeviceConfigs *[]*EmrCreateCluster_EbsBlockDeviceConfigProperty `field:"optional" json:"ebsBlockDeviceConfigs" yaml:"ebsBlockDeviceConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
+	// Experimental.
 	EbsOptimized *bool `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 }
 

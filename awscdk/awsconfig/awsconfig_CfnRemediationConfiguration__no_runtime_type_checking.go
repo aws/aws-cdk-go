@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateAddDeletionOverrideParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnRemediationConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRemediationConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnRemediationConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRemediationConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRemediationConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRemediationConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnRemediationConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRemediationConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -104,7 +100,7 @@ func (j *jsiiProxy_CfnRemediationConfiguration) validateSetTargetTypeParameters(
 	return nil
 }
 
-func validateNewCfnRemediationConfigurationParameters(scope constructs.Construct, id *string, props *CfnRemediationConfigurationProps) error {
+func validateNewCfnRemediationConfigurationParameters(scope awscdk.Construct, id *string, props *CfnRemediationConfigurationProps) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsredshiftserverless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnWorkgroup`.
@@ -40,23 +40,25 @@ import (
 //   }
 //
 type CfnWorkgroupProps struct {
-	// `AWS::RedshiftServerless::Workgroup.WorkgroupName`.
+	// The name of the workgroup.
 	WorkgroupName *string `field:"required" json:"workgroupName" yaml:"workgroupName"`
-	// `AWS::RedshiftServerless::Workgroup.BaseCapacity`.
+	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity *float64 `field:"optional" json:"baseCapacity" yaml:"baseCapacity"`
-	// `AWS::RedshiftServerless::Workgroup.ConfigParameters`.
+	// A list of parameters to set for finer control over a database.
+	//
+	// Available options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
 	ConfigParameters interface{} `field:"optional" json:"configParameters" yaml:"configParameters"`
-	// `AWS::RedshiftServerless::Workgroup.EnhancedVpcRouting`.
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
-	// `AWS::RedshiftServerless::Workgroup.NamespaceName`.
+	// The namespace the workgroup is associated with.
 	NamespaceName *string `field:"optional" json:"namespaceName" yaml:"namespaceName"`
-	// `AWS::RedshiftServerless::Workgroup.PubliclyAccessible`.
+	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
-	// `AWS::RedshiftServerless::Workgroup.SecurityGroupIds`.
+	// A list of security group IDs to associate with the workgroup.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// `AWS::RedshiftServerless::Workgroup.SubnetIds`.
+	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
-	// `AWS::RedshiftServerless::Workgroup.Tags`.
+	// The map of the key-value pairs used to tag the workgroup.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

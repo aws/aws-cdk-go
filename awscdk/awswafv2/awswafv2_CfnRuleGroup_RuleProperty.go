@@ -554,7 +554,9 @@ type CfnRuleGroup_RuleProperty struct {
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
-	// `CfnRuleGroup.RuleProperty.ChallengeConfig`.
+	// Specifies how AWS WAF should handle `Challenge` evaluations.
+	//
+	// If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
 	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// Labels to apply to web requests that match the rule match statement.
 	//

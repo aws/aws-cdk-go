@@ -35,9 +35,9 @@ package awssagemaker
 type CfnModelPackage_DriftCheckBiasProperty struct {
 	// The bias config file for a model.
 	ConfigFile interface{} `field:"optional" json:"configFile" yaml:"configFile"`
-	// `CfnModelPackage.DriftCheckBiasProperty.PostTrainingConstraints`.
+	// The post-training constraints.
 	PostTrainingConstraints interface{} `field:"optional" json:"postTrainingConstraints" yaml:"postTrainingConstraints"`
-	// `CfnModelPackage.DriftCheckBiasProperty.PreTrainingConstraints`.
+	// The pre-training constraints.
 	PreTrainingConstraints interface{} `field:"optional" json:"preTrainingConstraints" yaml:"preTrainingConstraints"`
 }
 

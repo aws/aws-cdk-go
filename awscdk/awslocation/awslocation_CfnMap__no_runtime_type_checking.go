@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnMap) validateAddDeletionOverrideParameters(path *string) e
 	return nil
 }
 
-func (c *jsiiProxy_CfnMap) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnMap) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnMap) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnMap) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMap) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMap) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMap) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnMap) validateRenderPropertiesParameters(props *map[string]
 	return nil
 }
 
-func (c *jsiiProxy_CfnMap) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMap) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnMap) validateSetMapNameParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnMapParameters(scope constructs.Construct, id *string, props *CfnMapProps) error {
+func validateNewCfnMapParameters(scope awscdk.Construct, id *string, props *CfnMapProps) error {
 	return nil
 }
 

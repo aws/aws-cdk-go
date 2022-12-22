@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // Properties that describe an existing instance.
@@ -27,16 +27,22 @@ import (
 //   	engine: instanceEngine,
 //   }
 //
+// Experimental.
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
+	// Experimental.
 	InstanceEndpointAddress *string `field:"required" json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
 	// The instance identifier.
+	// Experimental.
 	InstanceIdentifier *string `field:"required" json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The database port.
+	// Experimental.
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The security groups of the instance.
+	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// The engine of the existing database Instance.
+	// Experimental.
 	Engine IInstanceEngine `field:"optional" json:"engine" yaml:"engine"`
 }
 

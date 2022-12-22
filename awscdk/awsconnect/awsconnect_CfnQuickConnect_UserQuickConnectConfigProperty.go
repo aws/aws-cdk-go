@@ -16,7 +16,7 @@ package awsconnect
 //   }
 //
 type CfnQuickConnect_UserQuickConnectConfigProperty struct {
-	// The Amazon Resource Name (ARN) of the contact flow.
+	// The Amazon Resource Name (ARN) of the flow.
 	ContactFlowArn *string `field:"required" json:"contactFlowArn" yaml:"contactFlowArn"`
 	// The Amazon Resource Name (ARN) of the user.
 	UserArn *string `field:"required" json:"userArn" yaml:"userArn"`

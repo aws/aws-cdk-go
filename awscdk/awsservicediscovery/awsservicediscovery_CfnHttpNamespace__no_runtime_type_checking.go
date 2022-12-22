@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnHttpNamespace) validateAddDeletionOverrideParameters(path 
 	return nil
 }
 
-func (c *jsiiProxy_CfnHttpNamespace) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnHttpNamespace) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnHttpNamespace) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnHttpNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnHttpNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnHttpNamespace) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnHttpNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnHttpNamespace) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnHttpNamespace) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnHttpNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnHttpNamespace) validateSetNameParameters(val *string) erro
 	return nil
 }
 
-func validateNewCfnHttpNamespaceParameters(scope constructs.Construct, id *string, props *CfnHttpNamespaceProps) error {
+func validateNewCfnHttpNamespaceParameters(scope awscdk.Construct, id *string, props *CfnHttpNamespaceProps) error {
 	return nil
 }
 

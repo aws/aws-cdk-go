@@ -61,6 +61,8 @@ type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
+	//
+	// If this value is included, it must be at least 60 minutes to avoid errors.
 	StartWindowMinutes *float64 `field:"optional" json:"startWindowMinutes" yaml:"startWindowMinutes"`
 }
 

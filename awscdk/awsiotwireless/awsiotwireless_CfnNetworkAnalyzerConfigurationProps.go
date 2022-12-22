@@ -1,7 +1,7 @@
 package awsiotwireless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnNetworkAnalyzerConfiguration`.
@@ -35,17 +35,23 @@ import (
 //   }
 //
 type CfnNetworkAnalyzerConfigurationProps struct {
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.Name`.
+	// Name of the network analyzer configuration.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.Description`.
+	// The description of the resource.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.Tags`.
+	// The tags to attach to the specified resource.
+	//
+	// Tags are metadata that you can use to manage a resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.TraceContent`.
+	// Trace content for your wireless gateway and wireless device resources.
 	TraceContent interface{} `field:"optional" json:"traceContent" yaml:"traceContent"`
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.WirelessDevices`.
+	// Wireless device resources to add to the network analyzer configuration.
+	//
+	// Provide the `WirelessDeviceId` of the resource to add in the input array.
 	WirelessDevices *[]*string `field:"optional" json:"wirelessDevices" yaml:"wirelessDevices"`
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.WirelessGateways`.
+	// Wireless gateway resources to add to the network analyzer configuration.
+	//
+	// Provide the `WirelessGatewayId` of the resource to add in the input array.
 	WirelessGateways *[]*string `field:"optional" json:"wirelessGateways" yaml:"wirelessGateways"`
 }
 

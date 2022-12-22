@@ -1,7 +1,7 @@
 package awsamplify
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnApp`.
@@ -122,7 +122,7 @@ type CfnAppProps struct {
 	//
 	// *Pattern:* (?s).*
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.
+	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion interface{} `field:"optional" json:"enableBranchAutoDeletion" yaml:"enableBranchAutoDeletion"`
 	// The environment variables map for an Amplify app.
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
@@ -146,7 +146,9 @@ type CfnAppProps struct {
 	//
 	// *Pattern:* (?s).*
 	OauthToken *string `field:"optional" json:"oauthToken" yaml:"oauthToken"`
-	// `AWS::Amplify::App.Platform`.
+	// The platform for the Amplify app.
+	//
+	// For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// The repository for an Amplify app.
 	//

@@ -19,7 +19,7 @@ package awsdynamodb
 type CfnTable_SSESpecificationProperty struct {
 	// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key.
 	//
-	// If enabled (true), server-side encryption type is set to `KMS` and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
+	// If enabled (true), server-side encryption type is set to `KMS` and an AWS managed key or customer managed key is used ( AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
 	SseEnabled interface{} `field:"required" json:"sseEnabled" yaml:"sseEnabled"`
 	// The AWS KMS key that should be used for the AWS KMS encryption.
 	//

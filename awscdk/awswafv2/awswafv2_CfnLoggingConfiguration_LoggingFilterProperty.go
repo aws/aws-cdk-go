@@ -1,6 +1,10 @@
 package awswafv2
 
 
+// Filtering that specifies which web requests are kept in the logs and which are dropped, defined for a web ACL's `LoggingConfiguration` .
+//
+// You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,9 +31,9 @@ package awswafv2
 //   }
 //
 type CfnLoggingConfiguration_LoggingFilterProperty struct {
-	// `CfnLoggingConfiguration.LoggingFilterProperty.DefaultBehavior`.
+	// Default handling for logs that don't match any of the specified filtering conditions.
 	DefaultBehavior *string `field:"required" json:"defaultBehavior" yaml:"defaultBehavior"`
-	// `CfnLoggingConfiguration.LoggingFilterProperty.Filters`.
+	// The filters that you want to apply to the logs.
 	Filters interface{} `field:"required" json:"filters" yaml:"filters"`
 }
 

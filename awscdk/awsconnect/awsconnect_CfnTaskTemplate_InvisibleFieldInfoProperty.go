@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// A field that is invisible to an agent.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +15,7 @@ package awsconnect
 //   }
 //
 type CfnTaskTemplate_InvisibleFieldInfoProperty struct {
-	// `CfnTaskTemplate.InvisibleFieldInfoProperty.Id`.
+	// Identifier of the invisible field.
 	Id interface{} `field:"required" json:"id" yaml:"id"`
 }
 

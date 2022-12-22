@@ -1,14 +1,13 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Base class for all CloudFormation Init elements.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //
@@ -26,8 +25,10 @@ import (
 //   	serviceRestartHandle: handle,
 //   }))
 //
+// Experimental.
 type InitElement interface {
 	// Returns the init element type for this element.
+	// Experimental.
 	ElementType() *string
 }
 
@@ -47,11 +48,12 @@ func (j *jsiiProxy_InitElement) ElementType() *string {
 }
 
 
+// Experimental.
 func NewInitElement_Override(i InitElement) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InitElement",
+		"monocdk.aws_ec2.InitElement",
 		nil, // no parameters
 		i,
 	)

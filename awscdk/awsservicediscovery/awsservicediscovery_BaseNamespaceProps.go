@@ -13,10 +13,13 @@ package awsservicediscovery
 //   	description: jsii.String("description"),
 //   }
 //
+// Experimental.
 type BaseNamespaceProps struct {
 	// A name for the Namespace.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

@@ -84,6 +84,14 @@ func (e *jsiiProxy_EksCall) validateNextParameters(next awsstepfunctions.IChaina
 	return nil
 }
 
+func (e *jsiiProxy_EksCall) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EksCall) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EksCall) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

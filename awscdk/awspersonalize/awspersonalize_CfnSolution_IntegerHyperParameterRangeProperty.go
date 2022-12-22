@@ -1,6 +1,8 @@
 package awspersonalize
 
 
+// Provides the name and range of an integer-valued hyperparameter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,11 @@ package awspersonalize
 //   }
 //
 type CfnSolution_IntegerHyperParameterRangeProperty struct {
-	// `CfnSolution.IntegerHyperParameterRangeProperty.MaxValue`.
+	// The maximum allowable value for the hyperparameter.
 	MaxValue *float64 `field:"optional" json:"maxValue" yaml:"maxValue"`
-	// `CfnSolution.IntegerHyperParameterRangeProperty.MinValue`.
+	// The minimum allowable value for the hyperparameter.
 	MinValue *float64 `field:"optional" json:"minValue" yaml:"minValue"`
-	// `CfnSolution.IntegerHyperParameterRangeProperty.Name`.
+	// The name of the hyperparameter.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

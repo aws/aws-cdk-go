@@ -19,7 +19,7 @@ package awssagemaker
 type CfnModelPackage_TransformResourcesProperty struct {
 	// The number of ML compute instances to use in the transform job.
 	//
-	// For distributed transform jobs, specify a value greater than 1. The default value is `1` .
+	// The default value is `1` , and the maximum is `100` . For distributed transform jobs, specify a value greater than `1` .
 	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// The ML compute instance type for the transform job.
 	//

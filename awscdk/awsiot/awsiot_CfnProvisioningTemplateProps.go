@@ -1,7 +1,7 @@
 package awsiot
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnProvisioningTemplate`.
@@ -49,7 +49,7 @@ type CfnProvisioningTemplateProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the fleet provisioning template.
 	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
-	// `AWS::IoT::ProvisioningTemplate.TemplateType`.
+	// The type of the provisioning template.
 	TemplateType *string `field:"optional" json:"templateType" yaml:"templateType"`
 }
 

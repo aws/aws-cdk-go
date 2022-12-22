@@ -47,9 +47,11 @@ package awslakeformation
 //   }
 //
 type CfnTagAssociationProps struct {
-	// `AWS::LakeFormation::TagAssociation.LFTags`.
+	// A structure containing an LF-tag key-value pair.
 	LfTags interface{} `field:"required" json:"lfTags" yaml:"lfTags"`
-	// `AWS::LakeFormation::TagAssociation.Resource`.
+	// UTF-8 string (valid values: `DATABASE | TABLE` ).
+	//
+	// The resource for which the LF-tag policy applies.
 	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
 }
 

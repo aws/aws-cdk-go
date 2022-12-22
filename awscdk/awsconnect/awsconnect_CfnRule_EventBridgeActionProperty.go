@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// The EventBridge action definition.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsconnect
 //   }
 //
 type CfnRule_EventBridgeActionProperty struct {
-	// `CfnRule.EventBridgeActionProperty.Name`.
+	// The name.
 	Name *string `field:"required" json:"name" yaml:"name"`
 }
 

@@ -25,7 +25,7 @@ app := cdk.NewApp()
 stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 
 namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &httpNamespaceProps{
-	name: jsii.String("MyHTTPNamespace"),
+	name: jsii.String("covfefe"),
 })
 
 service1 := namespace.createService(jsii.String("NonIpService"), &baseServiceProps{
@@ -58,10 +58,7 @@ app.synth()
 The following example creates an AWS Cloud Map namespace that
 supports both API calls and DNS queries within a vpc, creates a
 service in that namespace, and registers a loadbalancer as an
-instance.
-
-A secondary service is also configured which only supports API based discovery, a
-non ip based resource is registered to this service:
+instance:
 
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
@@ -93,16 +90,6 @@ loadbalancer := elbv2.NewApplicationLoadBalancer(stack, jsii.String("LB"), &appl
 })
 
 service.registerLoadBalancer(jsii.String("Loadbalancer"), loadbalancer)
-
-arnService := namespace.createService(jsii.String("ArnService"), &dnsServiceProps{
-	discoveryType: servicediscovery.discoveryType_API,
-})
-
-arnService.registerNonIpInstance(jsii.String("NonIpInstance"), &nonIpInstanceBaseProps{
-	customAttributes: map[string]*string{
-		"arn": jsii.String("arn://"),
-	},
-})
 
 app.synth()
 ```

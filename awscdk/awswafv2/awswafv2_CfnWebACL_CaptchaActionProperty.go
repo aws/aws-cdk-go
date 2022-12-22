@@ -33,7 +33,7 @@ package awswafv2
 //   }
 //
 type CfnWebACL_CaptchaActionProperty struct {
-	// Defines custom handling for the web request.
+	// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	CustomRequestHandling interface{} `field:"optional" json:"customRequestHandling" yaml:"customRequestHandling"`

@@ -1,9 +1,9 @@
 package awswafv2
 
 
-// The part of the web request that you want AWS WAF to inspect.
+// The parts of the request that you want to keep out of the logs.
 //
-// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
+// This is used in the logging configuration `RedactedFields` specification.
 //
 // Example JSON for a `QueryString` field to match:
 //
@@ -45,29 +45,23 @@ package awswafv2
 //   }
 //
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
-	// Inspect the request body as JSON.
-	//
-	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-	//
-	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
+	// Redact the request body JSON.
 	JsonBody interface{} `field:"optional" json:"jsonBody" yaml:"jsonBody"`
-	// Inspect the HTTP method.
+	// Redact the indicated HTTP method.
 	//
 	// The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `field:"optional" json:"method" yaml:"method"`
-	// Inspect the query string.
+	// Redact the query string.
 	//
 	// This is the part of a URL that appears after a `?` character, if any.
 	QueryString interface{} `field:"optional" json:"queryString" yaml:"queryString"`
-	// Inspect a single header.
+	// Redact a single header.
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 	//
-	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
-	//
-	// Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+	// Example JSON: `"SingleHeader": { "Name": "haystack" }`.
 	SingleHeader interface{} `field:"optional" json:"singleHeader" yaml:"singleHeader"`
-	// Inspect the request URI path.
+	// Redact the request URI path.
 	//
 	// This is the part of the web request that identifies a resource, for example, `/images/daily-ad.jpg` .
 	UriPath interface{} `field:"optional" json:"uriPath" yaml:"uriPath"`

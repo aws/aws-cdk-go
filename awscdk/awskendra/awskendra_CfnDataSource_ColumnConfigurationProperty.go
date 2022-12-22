@@ -33,7 +33,7 @@ type CfnDataSource_ColumnConfigurationProperty struct {
 	ChangeDetectingColumns *[]*string `field:"required" json:"changeDetectingColumns" yaml:"changeDetectingColumns"`
 	// The column that contains the contents of the document.
 	DocumentDataColumnName *string `field:"required" json:"documentDataColumnName" yaml:"documentDataColumnName"`
-	// The column that provides the document's unique identifier.
+	// The column that provides the document's identifier.
 	DocumentIdColumnName *string `field:"required" json:"documentIdColumnName" yaml:"documentIdColumnName"`
 	// The column that contains the title of the document.
 	DocumentTitleColumnName *string `field:"optional" json:"documentTitleColumnName" yaml:"documentTitleColumnName"`

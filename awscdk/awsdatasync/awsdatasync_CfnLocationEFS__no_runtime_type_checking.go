@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLocationEFS) validateAddDeletionOverrideParameters(path *s
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationEFS) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLocationEFS) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLocationEFS) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationEFS) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLocationEFS) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationEFS) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLocationEFS) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLocationEFS) validateRenderPropertiesParameters(props *map
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationEFS) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLocationEFS) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnLocationEFS) validateSetEfsFilesystemArnParameters(val *st
 	return nil
 }
 
-func validateNewCfnLocationEFSParameters(scope constructs.Construct, id *string, props *CfnLocationEFSProps) error {
+func validateNewCfnLocationEFSParameters(scope awscdk.Construct, id *string, props *CfnLocationEFSProps) error {
 	return nil
 }
 

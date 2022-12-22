@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) validateAddDeletionOverrideP
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimulationApplicationVersion) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSimulationApplicationVersion) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) validateInspectParameters(in
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimulationApplicationVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSimulationApplicationVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimulationApplicationVersion) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSimulationApplicationVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) validateRenderPropertiesPara
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimulationApplicationVersion) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSimulationApplicationVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) validateSetApplicationParame
 	return nil
 }
 
-func validateNewCfnSimulationApplicationVersionParameters(scope constructs.Construct, id *string, props *CfnSimulationApplicationVersionProps) error {
+func validateNewCfnSimulationApplicationVersionParameters(scope awscdk.Construct, id *string, props *CfnSimulationApplicationVersionProps) error {
 	return nil
 }
 

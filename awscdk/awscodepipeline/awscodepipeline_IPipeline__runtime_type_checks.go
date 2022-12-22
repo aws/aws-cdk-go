@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (i *jsiiProxy_IPipeline) validateNotifyOnParameters(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) error {

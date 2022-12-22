@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateAddDeletionOverridePa
 	return nil
 }
 
-func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateInspectParameters(ins
 	return nil
 }
 
-func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateRenderPropertiesParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSlackWorkspaceConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnSlackWorkspaceConfiguration) validateSetTeamIdParameters(v
 	return nil
 }
 
-func validateNewCfnSlackWorkspaceConfigurationParameters(scope constructs.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) error {
+func validateNewCfnSlackWorkspaceConfigurationParameters(scope awscdk.Construct, id *string, props *CfnSlackWorkspaceConfigurationProps) error {
 	return nil
 }
 

@@ -1,6 +1,8 @@
 package awsiotfleetwise
 
 
+// Information about the number of nodes and node types in a vehicle network.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,15 +17,15 @@ package awsiotfleetwise
 //   }
 //
 type CfnSignalCatalog_NodeCountsProperty struct {
-	// `CfnSignalCatalog.NodeCountsProperty.TotalActuators`.
+	// The total number of nodes in a vehicle network that represent actuators.
 	TotalActuators *float64 `field:"optional" json:"totalActuators" yaml:"totalActuators"`
-	// `CfnSignalCatalog.NodeCountsProperty.TotalAttributes`.
+	// The total number of nodes in a vehicle network that represent attributes.
 	TotalAttributes *float64 `field:"optional" json:"totalAttributes" yaml:"totalAttributes"`
-	// `CfnSignalCatalog.NodeCountsProperty.TotalBranches`.
+	// The total number of nodes in a vehicle network that represent branches.
 	TotalBranches *float64 `field:"optional" json:"totalBranches" yaml:"totalBranches"`
-	// `CfnSignalCatalog.NodeCountsProperty.TotalNodes`.
+	// The total number of nodes in a vehicle network.
 	TotalNodes *float64 `field:"optional" json:"totalNodes" yaml:"totalNodes"`
-	// `CfnSignalCatalog.NodeCountsProperty.TotalSensors`.
+	// The total number of nodes in a vehicle network that represent sensors.
 	TotalSensors *float64 `field:"optional" json:"totalSensors" yaml:"totalSensors"`
 }
 
