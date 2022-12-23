@@ -8,6 +8,8 @@ package awss3outposts
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var filter interface{}
+//
 //   lifecycleConfigurationProperty := &lifecycleConfigurationProperty{
 //   	rules: []interface{}{
 //   		&ruleProperty{
@@ -19,24 +21,7 @@ package awss3outposts
 //   			},
 //   			expirationDate: jsii.String("expirationDate"),
 //   			expirationInDays: jsii.Number(123),
-//   			filter: &filterProperty{
-//   				andOperator: &filterAndOperatorProperty{
-//   					tags: []filterTagProperty{
-//   						&filterTagProperty{
-//   							key: jsii.String("key"),
-//   							value: jsii.String("value"),
-//   						},
-//   					},
-//
-//   					// the properties below are optional
-//   					prefix: jsii.String("prefix"),
-//   				},
-//   				prefix: jsii.String("prefix"),
-//   				tag: &filterTagProperty{
-//   					key: jsii.String("key"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
+//   			filter: filter,
 //   			id: jsii.String("id"),
 //   		},
 //   	},

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) validateAddDeletionOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnAttributeGroupAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAttributeGroupAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) validateInspectParameters(inspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnAttributeGroupAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAttributeGroupAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAttributeGroupAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAttributeGroupAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) validateRenderPropertiesParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnAttributeGroupAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAttributeGroupAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnAttributeGroupAssociation) validateSetAttributeGroupParame
 	return nil
 }
 
-func validateNewCfnAttributeGroupAssociationParameters(scope awscdk.Construct, id *string, props *CfnAttributeGroupAssociationProps) error {
+func validateNewCfnAttributeGroupAssociationParameters(scope constructs.Construct, id *string, props *CfnAttributeGroupAssociationProps) error {
 	return nil
 }
 

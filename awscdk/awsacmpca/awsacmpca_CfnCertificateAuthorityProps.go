@@ -1,7 +1,7 @@
 package awsacmpca
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCertificateAuthority`.
@@ -63,11 +63,7 @@ type CfnCertificateAuthorityProps struct {
 	//
 	// You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-	//
-	// Short-lived certificate validity is limited to seven days.
-	//
-	// The default value is GENERAL_PURPOSE.
+	// `AWS::ACMPCA::CertificateAuthority.UsageMode`.
 	UsageMode *string `field:"optional" json:"usageMode" yaml:"usageMode"`
 }
 

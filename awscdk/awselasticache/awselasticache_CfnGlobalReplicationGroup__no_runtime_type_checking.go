@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnGlobalReplicationGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGlobalReplicationGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnGlobalReplicationGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGlobalReplicationGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 	return nil
 }
 
-func validateNewCfnGlobalReplicationGroupParameters(scope awscdk.Construct, id *string, props *CfnGlobalReplicationGroupProps) error {
+func validateNewCfnGlobalReplicationGroupParameters(scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) error {
 	return nil
 }
 

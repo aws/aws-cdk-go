@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -7,30 +7,26 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dockerVolume := &dockerVolume{
 //   	containerPath: jsii.String("containerPath"),
 //   	hostPath: jsii.String("hostPath"),
 //
 //   	// the properties below are optional
-//   	consistency: monocdk.dockerVolumeConsistency_CONSISTENT,
+//   	consistency: cdk.dockerVolumeConsistency_CONSISTENT,
 //   }
 //
-// Experimental.
 type DockerVolume struct {
 	// The path where the file or directory is mounted in the container.
-	// Experimental.
 	ContainerPath *string `field:"required" json:"containerPath" yaml:"containerPath"`
 	// The path to the file or directory on the host machine.
-	// Experimental.
 	HostPath *string `field:"required" json:"hostPath" yaml:"hostPath"`
 	// Mount consistency.
 	//
 	// Only applicable for macOS.
 	// See: https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos
 	//
-	// Experimental.
 	Consistency DockerVolumeConsistency `field:"optional" json:"consistency" yaml:"consistency"`
 }
 

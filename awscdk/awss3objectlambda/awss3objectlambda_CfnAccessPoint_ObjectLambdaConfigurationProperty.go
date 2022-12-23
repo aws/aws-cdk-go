@@ -8,6 +8,8 @@ package awss3objectlambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var contentTransformation interface{}
+//
 //   objectLambdaConfigurationProperty := &objectLambdaConfigurationProperty{
 //   	supportingAccessPoint: jsii.String("supportingAccessPoint"),
 //   	transformationConfigurations: []interface{}{
@@ -15,14 +17,7 @@ package awss3objectlambda
 //   			actions: []*string{
 //   				jsii.String("actions"),
 //   			},
-//   			contentTransformation: &contentTransformationProperty{
-//   				awsLambda: &awsLambdaProperty{
-//   					functionArn: jsii.String("functionArn"),
-//
-//   					// the properties below are optional
-//   					functionPayload: jsii.String("functionPayload"),
-//   				},
-//   			},
+//   			contentTransformation: contentTransformation,
 //   		},
 //   	},
 //
@@ -40,7 +35,7 @@ type CfnAccessPoint_ObjectLambdaConfigurationProperty struct {
 	TransformationConfigurations interface{} `field:"required" json:"transformationConfigurations" yaml:"transformationConfigurations"`
 	// A container for allowed features.
 	//
-	// Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
+	// Valid inputs are `GetObject-Range` and `GetObject-PartNumber` .
 	AllowedFeatures *[]*string `field:"optional" json:"allowedFeatures" yaml:"allowedFeatures"`
 	// A container for whether the CloudWatch metrics configuration is enabled.
 	CloudWatchMetricsEnabled interface{} `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`

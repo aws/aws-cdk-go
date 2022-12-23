@@ -10,6 +10,7 @@ package awsiottwinmaker
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
+//   var relationshipValue interface{}
 //
 //   dataTypeProperty := &dataTypeProperty{
 //   	type: jsii.String("type"),
@@ -28,10 +29,7 @@ package awsiottwinmaker
 //   			mapValue: map[string]interface{}{
 //   				"mapValueKey": dataValueProperty_,
 //   			},
-//   			relationshipValue: &relationshipValueProperty{
-//   				targetComponentName: jsii.String("targetComponentName"),
-//   				targetEntityId: jsii.String("targetEntityId"),
-//   			},
+//   			relationshipValue: relationshipValue,
 //   			stringValue: jsii.String("stringValue"),
 //   		},
 //   	},
@@ -52,10 +50,7 @@ package awsiottwinmaker
 //   				mapValue: map[string]interface{}{
 //   					"mapValueKey": dataValueProperty_,
 //   				},
-//   				relationshipValue: &relationshipValueProperty{
-//   					targetComponentName: jsii.String("targetComponentName"),
-//   					targetEntityId: jsii.String("targetEntityId"),
-//   				},
+//   				relationshipValue: relationshipValue,
 //   				stringValue: jsii.String("stringValue"),
 //   			},
 //   		},

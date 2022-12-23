@@ -8,11 +8,10 @@ package awsiottwinmaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var error interface{}
+//
 //   statusProperty := &statusProperty{
-//   	error: &errorProperty{
-//   		code: jsii.String("code"),
-//   		message: jsii.String("message"),
-//   	},
+//   	error: error,
 //   	state: jsii.String("state"),
 //   }
 //

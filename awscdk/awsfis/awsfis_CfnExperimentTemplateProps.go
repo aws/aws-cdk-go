@@ -8,6 +8,9 @@ package awsfis
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var cloudWatchLogsConfiguration interface{}
+//   var s3Configuration interface{}
+//
 //   cfnExperimentTemplateProps := &cfnExperimentTemplateProps{
 //   	description: jsii.String("description"),
 //   	roleArn: jsii.String("roleArn"),
@@ -70,15 +73,8 @@ package awsfis
 //   		logSchemaVersion: jsii.Number(123),
 //
 //   		// the properties below are optional
-//   		cloudWatchLogsConfiguration: &cloudWatchLogsConfigurationProperty{
-//   			logGroupArn: jsii.String("logGroupArn"),
-//   		},
-//   		s3Configuration: &s3ConfigurationProperty{
-//   			bucketName: jsii.String("bucketName"),
-//
-//   			// the properties below are optional
-//   			prefix: jsii.String("prefix"),
-//   		},
+//   		cloudWatchLogsConfiguration: cloudWatchLogsConfiguration,
+//   		s3Configuration: s3Configuration,
 //   	},
 //   }
 //

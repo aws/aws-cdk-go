@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnProject`.
@@ -11,21 +11,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var serviceCatalogProvisioningDetails interface{}
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	projectName: jsii.String("projectName"),
-//   	serviceCatalogProvisioningDetails: &serviceCatalogProvisioningDetailsProperty{
-//   		productId: jsii.String("productId"),
-//
-//   		// the properties below are optional
-//   		pathId: jsii.String("pathId"),
-//   		provisioningArtifactId: jsii.String("provisioningArtifactId"),
-//   		provisioningParameters: []interface{}{
-//   			&provisioningParameterProperty{
-//   				key: jsii.String("key"),
-//   				value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
+//   	serviceCatalogProvisioningDetails: serviceCatalogProvisioningDetails,
 //
 //   	// the properties below are optional
 //   	projectDescription: jsii.String("projectDescription"),

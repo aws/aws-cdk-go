@@ -1,7 +1,7 @@
 package awslookoutequipment
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnInferenceScheduler`.
@@ -11,33 +11,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dataInputConfiguration interface{}
+//   var dataOutputConfiguration interface{}
+//
 //   cfnInferenceSchedulerProps := &cfnInferenceSchedulerProps{
-//   	dataInputConfiguration: &dataInputConfigurationProperty{
-//   		s3InputConfiguration: &s3InputConfigurationProperty{
-//   			bucket: jsii.String("bucket"),
-//
-//   			// the properties below are optional
-//   			prefix: jsii.String("prefix"),
-//   		},
-//
-//   		// the properties below are optional
-//   		inferenceInputNameConfiguration: &inputNameConfigurationProperty{
-//   			componentTimestampDelimiter: jsii.String("componentTimestampDelimiter"),
-//   			timestampFormat: jsii.String("timestampFormat"),
-//   		},
-//   		inputTimeZoneOffset: jsii.String("inputTimeZoneOffset"),
-//   	},
-//   	dataOutputConfiguration: &dataOutputConfigurationProperty{
-//   		s3OutputConfiguration: &s3OutputConfigurationProperty{
-//   			bucket: jsii.String("bucket"),
-//
-//   			// the properties below are optional
-//   			prefix: jsii.String("prefix"),
-//   		},
-//
-//   		// the properties below are optional
-//   		kmsKeyId: jsii.String("kmsKeyId"),
-//   	},
+//   	dataInputConfiguration: dataInputConfiguration,
+//   	dataOutputConfiguration: dataOutputConfiguration,
 //   	dataUploadFrequency: jsii.String("dataUploadFrequency"),
 //   	modelName: jsii.String("modelName"),
 //   	roleArn: jsii.String("roleArn"),

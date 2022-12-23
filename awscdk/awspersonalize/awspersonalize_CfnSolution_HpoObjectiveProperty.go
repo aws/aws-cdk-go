@@ -1,10 +1,6 @@
 package awspersonalize
 
 
-// The metric to optimize during hyperparameter optimization (HPO).
-//
-// > Amazon Personalize doesn't support configuring the `hpoObjective` at this time.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,13 +13,11 @@ package awspersonalize
 //   }
 //
 type CfnSolution_HpoObjectiveProperty struct {
-	// The name of the metric.
+	// `CfnSolution.HpoObjectiveProperty.MetricName`.
 	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
-	// A regular expression for finding the metric in the training job logs.
+	// `CfnSolution.HpoObjectiveProperty.MetricRegex`.
 	MetricRegex *string `field:"optional" json:"metricRegex" yaml:"metricRegex"`
-	// The type of the metric.
-	//
-	// Valid values are `Maximize` and `Minimize` .
+	// `CfnSolution.HpoObjectiveProperty.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

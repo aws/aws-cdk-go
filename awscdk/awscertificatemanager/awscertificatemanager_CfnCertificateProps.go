@@ -1,7 +1,7 @@
 package awscertificatemanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCertificate`.
@@ -43,7 +43,7 @@ type CfnCertificateProps struct {
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
 	//
-	// If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the [AWS Private Certificate Authority](https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html) user guide. The ARN must have the following form:
+	// If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the [AWS Certificate Manager Private Certificate Authority (PCA)](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html) user guide. The ARN must have the following form:
 	//
 	// `arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`.
 	CertificateAuthorityArn *string `field:"optional" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`

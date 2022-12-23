@@ -5,9 +5,7 @@ package awsrds
 //
 // For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide* .
 //
-// This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, use `ServerlessV2ScalingConfiguration` property.
-//
-// Valid for: Aurora DB clusters only.
+// Currently, AWS CloudFormation only supports Aurora Serverless v1. AWS CloudFormation doesn't support Aurora Serverless v2.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,15 +50,7 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 	//
 	// Specify a value between 300 and 86,400 seconds.
 	SecondsUntilAutoPause *float64 `field:"optional" json:"secondsUntilAutoPause" yaml:"secondsUntilAutoPause"`
-	// The action to take when the timeout is reached, either `ForceApplyCapacityChange` or `RollbackCapacityChange` .
-	//
-	// `ForceApplyCapacityChange` sets the capacity to the specified value as soon as possible.
-	//
-	// `RollbackCapacityChange` , the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-	//
-	// > If you specify `ForceApplyCapacityChange` , connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
-	//
-	// For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide* .
+	// `CfnDBCluster.ScalingConfigurationProperty.TimeoutAction`.
 	TimeoutAction *string `field:"optional" json:"timeoutAction" yaml:"timeoutAction"`
 }
 

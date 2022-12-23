@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDataLakeSettings) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataLakeSettings) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataLakeSettings) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDataLakeSettings) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataLakeSettings) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDataLakeSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataLakeSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDataLakeSettings) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDataLakeSettings) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataLakeSettings) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDataLakeSettings) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnDataLakeSettings) validateSetAdminsParameters(val interfac
 	return nil
 }
 
-func validateNewCfnDataLakeSettingsParameters(scope awscdk.Construct, id *string, props *CfnDataLakeSettingsProps) error {
+func validateNewCfnDataLakeSettingsParameters(scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) error {
 	return nil
 }
 

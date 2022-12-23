@@ -1,8 +1,6 @@
 package awsec2
 
 
-// The status of the transit gateway peering attachment.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsec2
 //   }
 //
 type CfnTransitGatewayPeeringAttachment_PeeringAttachmentStatusProperty struct {
-	// The status code.
+	// `CfnTransitGatewayPeeringAttachment.PeeringAttachmentStatusProperty.Code`.
 	Code *string `field:"optional" json:"code" yaml:"code"`
-	// The status message, if applicable.
+	// `CfnTransitGatewayPeeringAttachment.PeeringAttachmentStatusProperty.Message`.
 	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 

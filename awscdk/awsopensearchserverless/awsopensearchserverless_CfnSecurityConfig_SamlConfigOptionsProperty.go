@@ -1,8 +1,6 @@
 package awsopensearchserverless
 
 
-// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,15 +16,13 @@ package awsopensearchserverless
 //   }
 //
 type CfnSecurityConfig_SamlConfigOptionsProperty struct {
-	// The XML IdP metadata file generated from your identity provider.
+	// `CfnSecurityConfig.SamlConfigOptionsProperty.Metadata`.
 	Metadata *string `field:"required" json:"metadata" yaml:"metadata"`
-	// The group attribute for this SAML integration.
+	// `CfnSecurityConfig.SamlConfigOptionsProperty.GroupAttribute`.
 	GroupAttribute *string `field:"optional" json:"groupAttribute" yaml:"groupAttribute"`
-	// The session timeout, in minutes.
-	//
-	// Minimum is 15 minutes and maximum is 1440 minutes (24 hours or 1 day). Default is 60 minutes.
+	// `CfnSecurityConfig.SamlConfigOptionsProperty.SessionTimeout`.
 	SessionTimeout *float64 `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
-	// A user attribute for this SAML integration.
+	// `CfnSecurityConfig.SamlConfigOptionsProperty.UserAttribute`.
 	UserAttribute *string `field:"optional" json:"userAttribute" yaml:"userAttribute"`
 }
 

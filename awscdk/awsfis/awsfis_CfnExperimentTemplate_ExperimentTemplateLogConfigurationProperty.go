@@ -3,26 +3,20 @@ package awsfis
 
 // Specifies the configuration for experiment logging.
 //
-// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Simulator User Guide* .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var cloudWatchLogsConfiguration interface{}
+//   var s3Configuration interface{}
+//
 //   experimentTemplateLogConfigurationProperty := &experimentTemplateLogConfigurationProperty{
 //   	logSchemaVersion: jsii.Number(123),
 //
 //   	// the properties below are optional
-//   	cloudWatchLogsConfiguration: &cloudWatchLogsConfigurationProperty{
-//   		logGroupArn: jsii.String("logGroupArn"),
-//   	},
-//   	s3Configuration: &s3ConfigurationProperty{
-//   		bucketName: jsii.String("bucketName"),
-//
-//   		// the properties below are optional
-//   		prefix: jsii.String("prefix"),
-//   	},
+//   	cloudWatchLogsConfiguration: cloudWatchLogsConfiguration,
+//   	s3Configuration: s3Configuration,
 //   }
 //
 type CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty struct {

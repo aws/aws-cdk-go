@@ -14,16 +14,12 @@ package awseks
 //   	nodeType: awscdk.*Aws_eks.nodeType_STANDARD,
 //   }
 //
-// Experimental.
 type EksOptimizedImageProps struct {
 	// What cpu architecture to retrieve the image for (arm64 or x86_64).
-	// Experimental.
 	CpuArch CpuArch `field:"optional" json:"cpuArch" yaml:"cpuArch"`
 	// The Kubernetes version to use.
-	// Experimental.
 	KubernetesVersion *string `field:"optional" json:"kubernetesVersion" yaml:"kubernetesVersion"`
 	// What instance type to retrieve the image for (standard or GPU-optimized).
-	// Experimental.
 	NodeType NodeType `field:"optional" json:"nodeType" yaml:"nodeType"`
 }
 

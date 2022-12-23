@@ -1,7 +1,7 @@
 package awsiot
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnJobTemplate`.
@@ -11,50 +11,29 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var abortConfig interface{}
+//   var jobExecutionsRolloutConfig interface{}
+//   var presignedUrlConfig interface{}
+//   var timeoutConfig interface{}
+//
 //   cfnJobTemplateProps := &cfnJobTemplateProps{
 //   	description: jsii.String("description"),
 //   	jobTemplateId: jsii.String("jobTemplateId"),
 //
 //   	// the properties below are optional
-//   	abortConfig: &abortConfigProperty{
-//   		criteriaList: []interface{}{
-//   			&abortCriteriaProperty{
-//   				action: jsii.String("action"),
-//   				failureType: jsii.String("failureType"),
-//   				minNumberOfExecutedThings: jsii.Number(123),
-//   				thresholdPercentage: jsii.Number(123),
-//   			},
-//   		},
-//   	},
+//   	abortConfig: abortConfig,
 //   	document: jsii.String("document"),
 //   	documentSource: jsii.String("documentSource"),
 //   	jobArn: jsii.String("jobArn"),
-//   	jobExecutionsRolloutConfig: &jobExecutionsRolloutConfigProperty{
-//   		exponentialRolloutRate: &exponentialRolloutRateProperty{
-//   			baseRatePerMinute: jsii.Number(123),
-//   			incrementFactor: jsii.Number(123),
-//   			rateIncreaseCriteria: &rateIncreaseCriteriaProperty{
-//   				numberOfNotifiedThings: jsii.Number(123),
-//   				numberOfSucceededThings: jsii.Number(123),
-//   			},
-//   		},
-//   		maximumPerMinute: jsii.Number(123),
-//   	},
-//   	presignedUrlConfig: &presignedUrlConfigProperty{
-//   		roleArn: jsii.String("roleArn"),
-//
-//   		// the properties below are optional
-//   		expiresInSec: jsii.Number(123),
-//   	},
+//   	jobExecutionsRolloutConfig: jobExecutionsRolloutConfig,
+//   	presignedUrlConfig: presignedUrlConfig,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),
 //   		},
 //   	},
-//   	timeoutConfig: &timeoutConfigProperty{
-//   		inProgressTimeoutInMinutes: jsii.Number(123),
-//   	},
+//   	timeoutConfig: timeoutConfig,
 //   }
 //
 type CfnJobTemplateProps struct {

@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// Contains information about the configuration of the connector being registered.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,7 @@ package awsappflow
 //   }
 //
 type CfnConnector_ConnectorProvisioningConfigProperty struct {
-	// Contains information about the configuration of the lambda which is being registered as the connector.
+	// `CfnConnector.ConnectorProvisioningConfigProperty.Lambda`.
 	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 }
 

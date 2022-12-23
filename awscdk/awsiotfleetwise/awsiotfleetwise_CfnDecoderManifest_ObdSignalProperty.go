@@ -1,8 +1,6 @@
 package awsiotfleetwise
 
 
-// Information about signal messages using the on-board diagnostics (OBD) II protocol in a vehicle.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,23 +21,23 @@ package awsiotfleetwise
 //   }
 //
 type CfnDecoderManifest_ObdSignalProperty struct {
-	// The length of a message.
+	// `CfnDecoderManifest.ObdSignalProperty.ByteLength`.
 	ByteLength *string `field:"required" json:"byteLength" yaml:"byteLength"`
-	// Indicates where data appears in the message.
+	// `CfnDecoderManifest.ObdSignalProperty.Offset`.
 	Offset *string `field:"required" json:"offset" yaml:"offset"`
-	// The diagnostic code used to request data from a vehicle for this signal.
+	// `CfnDecoderManifest.ObdSignalProperty.Pid`.
 	Pid *string `field:"required" json:"pid" yaml:"pid"`
-	// The length of the requested data.
+	// `CfnDecoderManifest.ObdSignalProperty.PidResponseLength`.
 	PidResponseLength *string `field:"required" json:"pidResponseLength" yaml:"pidResponseLength"`
-	// A multiplier used to decode the message.
+	// `CfnDecoderManifest.ObdSignalProperty.Scaling`.
 	Scaling *string `field:"required" json:"scaling" yaml:"scaling"`
-	// The mode of operation (diagnostic service) in a message.
+	// `CfnDecoderManifest.ObdSignalProperty.ServiceMode`.
 	ServiceMode *string `field:"required" json:"serviceMode" yaml:"serviceMode"`
-	// Indicates the beginning of the message.
+	// `CfnDecoderManifest.ObdSignalProperty.StartByte`.
 	StartByte *string `field:"required" json:"startByte" yaml:"startByte"`
-	// The number of bits to mask in a message.
+	// `CfnDecoderManifest.ObdSignalProperty.BitMaskLength`.
 	BitMaskLength *string `field:"optional" json:"bitMaskLength" yaml:"bitMaskLength"`
-	// The number of positions to shift bits in the message.
+	// `CfnDecoderManifest.ObdSignalProperty.BitRightShift`.
 	BitRightShift *string `field:"optional" json:"bitRightShift" yaml:"bitRightShift"`
 }
 

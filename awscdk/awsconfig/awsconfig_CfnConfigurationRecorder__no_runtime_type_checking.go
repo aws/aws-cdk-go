@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnConfigurationRecorder) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnConfigurationRecorder) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConfigurationRecorder) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnConfigurationRecorder) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnConfigurationRecorder) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnConfigurationRecorder) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnConfigurationRecorder) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnConfigurationRecorder) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnConfigurationRecorder) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnConfigurationRecorder) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnConfigurationRecorder) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnConfigurationRecorder) validateSetRoleArnParameters(val *s
 	return nil
 }
 
-func validateNewCfnConfigurationRecorderParameters(scope awscdk.Construct, id *string, props *CfnConfigurationRecorderProps) error {
+func validateNewCfnConfigurationRecorderParameters(scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) error {
 	return nil
 }
 

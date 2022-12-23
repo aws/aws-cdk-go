@@ -9,6 +9,7 @@ package awss3
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policy interface{}
+//   var policyStatus interface{}
 //
 //   cfnAccessPointProps := &cfnAccessPointProps{
 //   	bucket: jsii.String("bucket"),
@@ -17,9 +18,7 @@ package awss3
 //   	bucketAccountId: jsii.String("bucketAccountId"),
 //   	name: jsii.String("name"),
 //   	policy: policy,
-//   	policyStatus: &policyStatusProperty{
-//   		isPublic: jsii.String("isPublic"),
-//   	},
+//   	policyStatus: policyStatus,
 //   	publicAccessBlockConfiguration: &publicAccessBlockConfigurationProperty{
 //   		blockPublicAcls: jsii.Boolean(false),
 //   		blockPublicPolicy: jsii.Boolean(false),
@@ -34,7 +33,7 @@ package awss3
 type CfnAccessPointProps struct {
 	// The name of the bucket associated with this access point.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// The AWS account ID associated with the S3 bucket associated with this access point.
+	// `AWS::S3::AccessPoint.BucketAccountId`.
 	BucketAccountId *string `field:"optional" json:"bucketAccountId" yaml:"bucketAccountId"`
 	// The name of this access point.
 	//

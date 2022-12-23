@@ -1,12 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Construct a Linux or Windows machine image from the latest ECS Optimized AMI published in SSM.
@@ -40,12 +40,10 @@ import (
 //   })
 //   cluster.addAsgCapacityProvider(capacityProvider)
 //
-// Experimental.
 type EcsOptimizedImage interface {
 	awsec2.IMachineImage
 	// Return the correct image.
-	// Experimental.
-	GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig
+	GetImage(scope constructs.Construct) *awsec2.MachineImageConfig
 }
 
 // The jsii proxy struct for EcsOptimizedImage
@@ -54,7 +52,6 @@ type jsiiProxy_EcsOptimizedImage struct {
 }
 
 // Construct an Amazon Linux AMI image from the latest ECS Optimized AMI published in SSM.
-// Experimental.
 func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
@@ -64,7 +61,7 @@ func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimiz
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.EcsOptimizedImage",
+		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
 		"amazonLinux",
 		[]interface{}{options},
 		&returns,
@@ -74,7 +71,6 @@ func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimiz
 }
 
 // Construct an Amazon Linux 2 image from the latest ECS Optimized AMI published in SSM.
-// Experimental.
 func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
@@ -84,7 +80,7 @@ func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOp
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.EcsOptimizedImage",
+		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
 		"amazonLinux2",
 		[]interface{}{hardwareType, options},
 		&returns,
@@ -94,7 +90,6 @@ func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOp
 }
 
 // Construct a Windows image from the latest ECS Optimized AMI published in SSM.
-// Experimental.
 func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
@@ -104,7 +99,7 @@ func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *
 	var returns EcsOptimizedImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.EcsOptimizedImage",
+		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
 		"windows",
 		[]interface{}{windowsVersion, options},
 		&returns,
@@ -113,7 +108,7 @@ func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *
 	return returns
 }
 
-func (e *jsiiProxy_EcsOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
+func (e *jsiiProxy_EcsOptimizedImage) GetImage(scope constructs.Construct) *awsec2.MachineImageConfig {
 	if err := e.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}

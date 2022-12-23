@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPortal`.
@@ -11,16 +11,15 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var alarms interface{}
+//
 //   cfnPortalProps := &cfnPortalProps{
 //   	portalContactEmail: jsii.String("portalContactEmail"),
 //   	portalName: jsii.String("portalName"),
 //   	roleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
-//   	alarms: &alarmsProperty{
-//   		alarmRoleArn: jsii.String("alarmRoleArn"),
-//   		notificationLambdaArn: jsii.String("notificationLambdaArn"),
-//   	},
+//   	alarms: alarms,
 //   	notificationSenderEmail: jsii.String("notificationSenderEmail"),
 //   	portalAuthMode: jsii.String("portalAuthMode"),
 //   	portalDescription: jsii.String("portalDescription"),
@@ -49,7 +48,7 @@ type CfnPortalProps struct {
 	NotificationSenderEmail *string `field:"optional" json:"notificationSenderEmail" yaml:"notificationSenderEmail"`
 	// The service to use to authenticate users to the portal. Choose from the following options:.
 	//
-	// - `SSO` – The portal uses AWS IAM Identity Center (successor to AWS Single Sign-On) to authenticate users and manage user permissions. Before you can create a portal that uses IAM Identity Center , you must enable IAM Identity Center . For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* . This option is only available in AWS Regions other than the China Regions.
+	// - `SSO` – The portal uses AWS Single Sign-On to authenticate users and manage user permissions. Before you can create a portal that uses AWS SSO , you must enable AWS SSO . For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* . This option is only available in AWS Regions other than the China Regions.
 	// - `IAM` – The portal uses AWS Identity and Access Management ( IAM ) to authenticate users and manage user permissions.
 	//
 	// You can't change this value after you create a portal.

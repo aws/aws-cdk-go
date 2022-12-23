@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLocationObjectStorage) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationObjectStorage) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationObjectStorage) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLocationObjectStorage) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationObjectStorage) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocationObjectStorage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationObjectStorage) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLocationObjectStorage) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLocationObjectStorage) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationObjectStorage) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLocationObjectStorage) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnLocationObjectStorage) validateSetServerHostnameParameters
 	return nil
 }
 
-func validateNewCfnLocationObjectStorageParameters(scope awscdk.Construct, id *string, props *CfnLocationObjectStorageProps) error {
+func validateNewCfnLocationObjectStorageParameters(scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) error {
 	return nil
 }
 

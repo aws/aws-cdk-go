@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnEIP`.
@@ -34,13 +34,7 @@ type CfnEIPProps struct {
 	//
 	// > Updates to the `InstanceId` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
-	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
-	//
-	// Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
-	//
-	// Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
-	//
-	// You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic, you receive an `InvalidParameterCombination` error.
+	// `AWS::EC2::EIP.NetworkBorderGroup`.
 	NetworkBorderGroup *string `field:"optional" json:"networkBorderGroup" yaml:"networkBorderGroup"`
 	// The ID of an address pool that you own.
 	//
@@ -52,7 +46,7 @@ type CfnEIPProps struct {
 	//
 	// > Updates to the `Tags` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The Elastic IP address you are accepting for transfer.
+	// `AWS::EC2::EIP.TransferAddress`.
 	TransferAddress *string `field:"optional" json:"transferAddress" yaml:"transferAddress"`
 }
 

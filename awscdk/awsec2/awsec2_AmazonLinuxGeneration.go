@@ -24,18 +24,14 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
-// Experimental.
 type AmazonLinuxGeneration string
 
 const (
 	// Amazon Linux.
-	// Experimental.
 	AmazonLinuxGeneration_AMAZON_LINUX AmazonLinuxGeneration = "AMAZON_LINUX"
 	// Amazon Linux 2.
-	// Experimental.
 	AmazonLinuxGeneration_AMAZON_LINUX_2 AmazonLinuxGeneration = "AMAZON_LINUX_2"
 	// Amazon Linux 2022.
-	// Experimental.
 	AmazonLinuxGeneration_AMAZON_LINUX_2022 AmazonLinuxGeneration = "AMAZON_LINUX_2022"
 )
 

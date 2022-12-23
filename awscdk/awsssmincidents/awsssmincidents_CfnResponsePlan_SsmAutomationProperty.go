@@ -40,7 +40,7 @@ type CfnResponsePlan_SsmAutomationProperty struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The automation document's version to use when running.
 	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
-	// The key-value pairs to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+	// `CfnResponsePlan.SsmAutomationProperty.DynamicParameters`.
 	DynamicParameters interface{} `field:"optional" json:"dynamicParameters" yaml:"dynamicParameters"`
 	// The key-value pair parameters to use when running the automation document.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

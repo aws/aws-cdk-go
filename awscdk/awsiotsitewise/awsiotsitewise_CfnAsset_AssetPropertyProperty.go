@@ -28,15 +28,13 @@ type CfnAsset_AssetPropertyProperty struct {
 	//
 	// The property alias must have 1-1000 characters.
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
-	// The MQTT notification state ( `ENABLED` or `DISABLED` ) for this asset property.
+	// The MQTT notification state (enabled or disabled) for this asset property.
 	//
-	// When the notification state is `ENABLED` , AWS IoT SiteWise publishes property value updates to a unique MQTT topic. For more information, see [Interacting with other services](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html) in the *AWS IoT SiteWise User Guide* .
+	// When the notification state is enabled, AWS IoT SiteWise publishes property value updates to a unique MQTT topic. For more information, see [Interacting with other services](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html) in the *AWS IoT SiteWise User Guide* .
 	//
 	// If you omit this parameter, the notification state is set to `DISABLED` .
-	//
-	// > You must use all caps for the NotificationState parameter. If you use lower case letters, you will receive a schema validation error.
 	NotificationState *string `field:"optional" json:"notificationState" yaml:"notificationState"`
-	// The unit (such as `Newtons` or `RPM` ) of the asset property.
+	// `CfnAsset.AssetPropertyProperty.Unit`.
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

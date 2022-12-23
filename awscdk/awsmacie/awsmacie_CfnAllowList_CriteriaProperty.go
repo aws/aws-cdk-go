@@ -1,15 +1,6 @@
 package awsmacie
 
 
-// Specifies the criteria for an allow list, which is a list that defines specific text or a text pattern to ignore when inspecting data sources for sensitive data.
-//
-// The criteria can be:
-//
-// - The location and name of an Amazon Simple Storage Service ( Amazon S3 ) object that lists specific, predefined text to ignore ( `S3WordsList` ), or
-// - A regular expression ( `Regex` ) that defines a text pattern to ignore.
-//
-// The criteria must specify either an S3 object or a regular expression. It can't specify both.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,11 +15,9 @@ package awsmacie
 //   }
 //
 type CfnAllowList_CriteriaProperty struct {
-	// The regular expression ( *regex* ) that defines the text pattern to ignore.
-	//
-	// The expression can contain 1-512 characters.
+	// `CfnAllowList.CriteriaProperty.Regex`.
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
-	// The location and name of an Amazon S3 object that lists specific text to ignore.
+	// `CfnAllowList.CriteriaProperty.S3WordsList`.
 	S3WordsList interface{} `field:"optional" json:"s3WordsList" yaml:"s3WordsList"`
 }
 

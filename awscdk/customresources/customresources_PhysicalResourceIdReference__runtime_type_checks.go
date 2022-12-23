@@ -5,7 +5,7 @@ package customresources
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func (p *jsiiProxy_PhysicalResourceIdReference) validateResolveParameters(_arg awscdk.IResolveContext) error {

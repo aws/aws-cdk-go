@@ -8,14 +8,6 @@ func (s *jsiiProxy_StateMachineFragment) validateNextParameters(next IChainable)
 	return nil
 }
 
-func (s *jsiiProxy_StateMachineFragment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_StateMachineFragment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (s *jsiiProxy_StateMachineFragment) validateToSingleStateParameters(options *SingleStateOptions) error {
 	return nil
 }

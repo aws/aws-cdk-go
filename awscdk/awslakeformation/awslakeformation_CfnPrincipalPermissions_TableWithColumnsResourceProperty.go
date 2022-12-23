@@ -1,10 +1,6 @@
 package awslakeformation
 
 
-// A structure for a table with columns object. This object is only used when granting a SELECT permission.
-//
-// This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,23 +23,15 @@ package awslakeformation
 //   }
 //
 type CfnPrincipalPermissions_TableWithColumnsResourceProperty struct {
-	// The identifier for the Data Catalog where the location is registered with AWS Lake Formation .
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.CatalogId`.
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
-	// The name of the database for the table with columns resource.
-	//
-	// Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.DatabaseName`.
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
-	// The name of the table resource.
-	//
-	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The list of column names for the table.
-	//
-	// At least one of `ColumnNames` or `ColumnWildcard` is required.
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.ColumnNames`.
 	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
-	// A wildcard specified by a `ColumnWildcard` object.
-	//
-	// At least one of `ColumnNames` or `ColumnWildcard` is required.
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.ColumnWildcard`.
 	ColumnWildcard interface{} `field:"optional" json:"columnWildcard" yaml:"columnWildcard"`
 }
 

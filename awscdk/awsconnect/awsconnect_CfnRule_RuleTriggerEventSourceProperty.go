@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The name of the event source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +14,9 @@ package awsconnect
 //   }
 //
 type CfnRule_RuleTriggerEventSourceProperty struct {
-	// The name of the event source.
-	//
-	// *Allowed values* : `OnPostCallAnalysisAvailable` | `OnRealTimeCallAnalysisAvailable` | `OnPostChatAnalysisAvailable` | `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`.
+	// `CfnRule.RuleTriggerEventSourceProperty.EventSourceName`.
 	EventSourceName *string `field:"required" json:"eventSourceName" yaml:"eventSourceName"`
-	// The Amazon Resource Name (ARN) for the integration association.
-	//
-	// `IntegrationAssociationArn` is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`.
+	// `CfnRule.RuleTriggerEventSourceProperty.IntegrationAssociationArn`.
 	IntegrationAssociationArn *string `field:"optional" json:"integrationAssociationArn" yaml:"integrationAssociationArn"`
 }
 

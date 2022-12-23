@@ -32,10 +32,6 @@ func (f *jsiiProxy_Function) validateAddToRolePolicyParameters(statement awsiam.
 	return nil
 }
 
-func (f *jsiiProxy_Function) validateAddVersionParameters(name *string, asyncInvokeConfig *EventInvokeConfigOptions) error {
-	return nil
-}
-
 func (f *jsiiProxy_Function) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
@@ -44,7 +40,7 @@ func (f *jsiiProxy_Function) validateConfigureAsyncInvokeParameters(options *Eve
 	return nil
 }
 
-func (f *jsiiProxy_Function) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
+func (f *jsiiProxy_Function) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
 	return nil
 }
 
@@ -84,15 +80,7 @@ func (f *jsiiProxy_Function) validateMetricThrottlesParameters(props *awscloudwa
 	return nil
 }
 
-func (f *jsiiProxy_Function) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (f *jsiiProxy_Function) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
-func (f *jsiiProxy_Function) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
+func (f *jsiiProxy_Function) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
 	return nil
 }
 
@@ -116,7 +104,11 @@ func validateFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFunction_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateFunction_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

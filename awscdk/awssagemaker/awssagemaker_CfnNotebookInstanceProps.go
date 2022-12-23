@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnNotebookInstance`.
@@ -76,7 +76,7 @@ type CfnNotebookInstanceProps struct {
 	//
 	// For more information, see [Notebook Instances Are Internet-Enabled by Default](https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access) . You can set the value of this parameter to `Disabled` only if you set a value for the `SubnetId` parameter.
 	DirectInternetAccess *string `field:"optional" json:"directInternetAccess" yaml:"directInternetAccess"`
-	// Information on the IMDS configuration of the notebook instance.
+	// `AWS::SageMaker::NotebookInstance.InstanceMetadataServiceConfiguration`.
 	InstanceMetadataServiceConfiguration interface{} `field:"optional" json:"instanceMetadataServiceConfiguration" yaml:"instanceMetadataServiceConfiguration"`
 	// The Amazon Resource Name (ARN) of a AWS Key Management Service key that SageMaker uses to encrypt data on the storage volume attached to your notebook instance.
 	//

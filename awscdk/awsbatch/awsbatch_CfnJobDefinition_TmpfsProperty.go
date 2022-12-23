@@ -1,7 +1,7 @@
 package awsbatch
 
 
-// The container path, mount options, and size of the `tmpfs` mount.
+// The container path, mount options, and size of the tmpfs mount.
 //
 // > This object isn't applicable to jobs that are running on Fargate resources.
 //
@@ -21,11 +21,11 @@ package awsbatch
 //   }
 //
 type CfnJobDefinition_TmpfsProperty struct {
-	// The absolute file path in the container where the `tmpfs` volume is mounted.
+	// The absolute file path in the container where the tmpfs volume is mounted.
 	ContainerPath *string `field:"required" json:"containerPath" yaml:"containerPath"`
-	// The size (in MiB) of the `tmpfs` volume.
+	// The size (in MiB) of the tmpfs volume.
 	Size *float64 `field:"required" json:"size" yaml:"size"`
-	// The list of `tmpfs` volume mount options.
+	// The list of tmpfs volume mount options.
 	//
 	// Valid values: " `defaults` " | " `ro` " | " `rw` " | " `suid` " | " `nosuid` " | " `dev` " | " `nodev` " | " `exec` " | " `noexec` " | " `sync` " | " `async` " | " `dirsync` " | " `remount` " | " `mand` " | " `nomand` " | " `atime` " | " `noatime` " | " `diratime` " | " `nodiratime` " | " `bind` " | " `rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime` " | " `norelatime` " | " `strictatime` " | " `nostrictatime` " | " `mode` " | " `uid` " | " `gid` " | " `nr_inodes` " | " `nr_blocks` " | " `mpol` ".
 	MountOptions *[]*string `field:"optional" json:"mountOptions" yaml:"mountOptions"`

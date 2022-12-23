@@ -1,7 +1,7 @@
 package awstransfer
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCertificate`.
@@ -30,21 +30,21 @@ import (
 //   }
 //
 type CfnCertificateProps struct {
-	// The file name for the certificate.
+	// `AWS::Transfer::Certificate.Certificate`.
 	Certificate *string `field:"required" json:"certificate" yaml:"certificate"`
-	// Specifies whether this certificate is used for signing or encryption.
+	// `AWS::Transfer::Certificate.Usage`.
 	Usage *string `field:"required" json:"usage" yaml:"usage"`
-	// An optional date that specifies when the certificate becomes active.
+	// `AWS::Transfer::Certificate.ActiveDate`.
 	ActiveDate *string `field:"optional" json:"activeDate" yaml:"activeDate"`
-	// The list of certificates that make up the chain for the certificate.
+	// `AWS::Transfer::Certificate.CertificateChain`.
 	CertificateChain *string `field:"optional" json:"certificateChain" yaml:"certificateChain"`
-	// The name or description that's used to identity the certificate.
+	// `AWS::Transfer::Certificate.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// An optional date that specifies when the certificate becomes inactive.
+	// `AWS::Transfer::Certificate.InactiveDate`.
 	InactiveDate *string `field:"optional" json:"inactiveDate" yaml:"inactiveDate"`
-	// The file that contains the private key for the certificate that's being imported.
+	// `AWS::Transfer::Certificate.PrivateKey`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
-	// Key-value pairs that can be used to group and search for certificates.
+	// `AWS::Transfer::Certificate.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

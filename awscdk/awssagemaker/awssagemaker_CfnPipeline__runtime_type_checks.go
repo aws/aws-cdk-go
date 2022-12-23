@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnPipeline) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnPipeline) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnPipeline) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnPipeline) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnPipeline) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnPipeline) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnPipeline) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnPipeline) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnPipeline) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnPipeline) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -168,24 +180,8 @@ func validateCfnPipeline_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnPipeline) validateSetParallelismConfigurationParameters(val interface{}) error {
-	switch val.(type) {
-	case *CfnPipeline_ParallelismConfigurationProperty:
-		val := val.(*CfnPipeline_ParallelismConfigurationProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnPipeline_ParallelismConfigurationProperty:
-		val_ := val.(CfnPipeline_ParallelismConfigurationProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPipeline_ParallelismConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil
@@ -194,25 +190,6 @@ func (j *jsiiProxy_CfnPipeline) validateSetParallelismConfigurationParameters(va
 func (j *jsiiProxy_CfnPipeline) validateSetPipelineDefinitionParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-	switch val.(type) {
-	case *CfnPipeline_PipelineDefinitionProperty:
-		val := val.(*CfnPipeline_PipelineDefinitionProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnPipeline_PipelineDefinitionProperty:
-		val_ := val.(CfnPipeline_PipelineDefinitionProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *CfnPipeline_PipelineDefinitionProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
 	}
 
 	return nil
@@ -234,7 +211,7 @@ func (j *jsiiProxy_CfnPipeline) validateSetRoleArnParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnPipelineParameters(scope awscdk.Construct, id *string, props *CfnPipelineProps) error {
+func validateNewCfnPipelineParameters(scope constructs.Construct, id *string, props *CfnPipelineProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -1,8 +1,6 @@
 package awsrds
 
 
-// Specifies the connection endpoint for the primary instance of the DB cluster.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsrds
 //   }
 //
 type CfnDBCluster_EndpointProperty struct {
-	// Specifies the connection endpoint for the primary instance of the DB cluster.
+	// `CfnDBCluster.EndpointProperty.Address`.
 	Address *string `field:"optional" json:"address" yaml:"address"`
-	// Specifies the port that the database engine is listening on.
+	// `CfnDBCluster.EndpointProperty.Port`.
 	Port *string `field:"optional" json:"port" yaml:"port"`
 }
 

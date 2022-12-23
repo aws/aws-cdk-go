@@ -1,7 +1,7 @@
 package awsmacie
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnAllowList`.
@@ -32,21 +32,13 @@ import (
 //   }
 //
 type CfnAllowListProps struct {
-	// The criteria that specify the text or text pattern to ignore.
-	//
-	// The criteria can be the location and name of an Amazon S3 object that lists specific text to ignore ( `S3WordsList` ), or a regular expression ( `Regex` ) that defines a text pattern to ignore.
+	// `AWS::Macie::AllowList.Criteria`.
 	Criteria interface{} `field:"required" json:"criteria" yaml:"criteria"`
-	// A custom name for the allow list.
-	//
-	// The name can contain 1-128 characters.
+	// `AWS::Macie::AllowList.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// A custom description of the allow list.
-	//
-	// The description can contain 1-512 characters.
+	// `AWS::Macie::AllowList.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// An array of key-value pairs to apply to the allow list.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// `AWS::Macie::AllowList.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

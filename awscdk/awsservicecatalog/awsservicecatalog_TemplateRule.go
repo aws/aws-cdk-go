@@ -1,7 +1,7 @@
 package awsservicecatalog
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Defines the provisioning template constraints.
@@ -29,16 +29,12 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type TemplateRule struct {
 	// A list of assertions that make up the rule.
-	// Experimental.
 	Assertions *[]*TemplateRuleAssertion `field:"required" json:"assertions" yaml:"assertions"`
 	// Name of the rule.
-	// Experimental.
 	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 	// Specify when to apply rule with a rule-specific intrinsic function.
-	// Experimental.
 	Condition awscdk.ICfnRuleConditionExpression `field:"optional" json:"condition" yaml:"condition"`
 }
 

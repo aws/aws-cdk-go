@@ -10,6 +10,8 @@ package awsdatabrew
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var input interface{}
+//
 //   recipeParametersProperty := &recipeParametersProperty{
 //   	aggregateFunction: jsii.String("aggregateFunction"),
 //   	base: jsii.String("base"),
@@ -40,25 +42,7 @@ package awsdatabrew
 //   	hiddenColumns: jsii.String("hiddenColumns"),
 //   	ignoreCase: jsii.String("ignoreCase"),
 //   	includeInSplit: jsii.String("includeInSplit"),
-//   	input: &inputProperty{
-//   		dataCatalogInputDefinition: &dataCatalogInputDefinitionProperty{
-//   			catalogId: jsii.String("catalogId"),
-//   			databaseName: jsii.String("databaseName"),
-//   			tableName: jsii.String("tableName"),
-//   			tempDirectory: &s3LocationProperty{
-//   				bucket: jsii.String("bucket"),
-//
-//   				// the properties below are optional
-//   				key: jsii.String("key"),
-//   			},
-//   		},
-//   		s3InputDefinition: &s3LocationProperty{
-//   			bucket: jsii.String("bucket"),
-//
-//   			// the properties below are optional
-//   			key: jsii.String("key"),
-//   		},
-//   	},
+//   	input: input,
 //   	interval: jsii.String("interval"),
 //   	isText: jsii.String("isText"),
 //   	joinKeys: jsii.String("joinKeys"),

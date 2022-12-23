@@ -32,14 +32,6 @@ func (v *jsiiProxy_Volume) validateGrantDetachVolumeByResourceTagParameters(gran
 	return nil
 }
 
-func (v *jsiiProxy_Volume) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (v *jsiiProxy_Volume) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (v *jsiiProxy_Volume) validateValidatePropsParameters(props *VolumeProps) error {
 	return nil
 }
@@ -52,7 +44,11 @@ func validateVolume_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVolume_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateVolume_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateVolume_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 )
 
 func (a *jsiiProxy_ApiDestination) validateBindParameters(_rule awsevents.IRule) error {

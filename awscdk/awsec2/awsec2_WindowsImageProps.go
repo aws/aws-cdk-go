@@ -14,10 +14,8 @@ package awsec2
 //   	userData: userData,
 //   }
 //
-// Experimental.
 type WindowsImageProps struct {
 	// Initial user data.
-	// Experimental.
 	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 

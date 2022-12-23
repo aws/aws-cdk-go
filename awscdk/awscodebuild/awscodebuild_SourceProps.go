@@ -12,12 +12,10 @@ package awscodebuild
 //   	identifier: jsii.String("identifier"),
 //   }
 //
-// Experimental.
 type SourceProps struct {
 	// The source identifier.
 	//
 	// This property is required on secondary sources.
-	// Experimental.
 	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 }
 

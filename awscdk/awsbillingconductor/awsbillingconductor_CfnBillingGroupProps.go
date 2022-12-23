@@ -1,7 +1,7 @@
 package awsbillingconductor
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnBillingGroup`.
@@ -44,7 +44,7 @@ type CfnBillingGroupProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The account ID that serves as the main account in a billing group.
 	PrimaryAccountId *string `field:"required" json:"primaryAccountId" yaml:"primaryAccountId"`
-	// The description of the billing group.
+	// The billing group description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::BillingGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

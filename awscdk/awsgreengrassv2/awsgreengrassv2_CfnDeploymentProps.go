@@ -8,6 +8,8 @@ package awsgreengrassv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var rateIncreaseCriteria interface{}
+//
 //   cfnDeploymentProps := &cfnDeploymentProps{
 //   	targetArn: jsii.String("targetArn"),
 //
@@ -57,10 +59,7 @@ package awsgreengrassv2
 //   			exponentialRate: &ioTJobExponentialRolloutRateProperty{
 //   				baseRatePerMinute: jsii.Number(123),
 //   				incrementFactor: jsii.Number(123),
-//   				rateIncreaseCriteria: &ioTJobRateIncreaseCriteriaProperty{
-//   					numberOfNotifiedThings: jsii.Number(123),
-//   					numberOfSucceededThings: jsii.Number(123),
-//   				},
+//   				rateIncreaseCriteria: rateIncreaseCriteria,
 //   			},
 //   			maximumPerMinute: jsii.Number(123),
 //   		},
@@ -74,32 +73,17 @@ package awsgreengrassv2
 //   }
 //
 type CfnDeploymentProps struct {
-	// The ARN of the target AWS IoT thing or thing group.
+	// `AWS::GreengrassV2::Deployment.TargetArn`.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
-	// The components to deploy.
-	//
-	// This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+	// `AWS::GreengrassV2::Deployment.Components`.
 	Components interface{} `field:"optional" json:"components" yaml:"components"`
-	// The name of the deployment.
+	// `AWS::GreengrassV2::Deployment.DeploymentName`.
 	DeploymentName *string `field:"optional" json:"deploymentName" yaml:"deploymentName"`
-	// The deployment policies for the deployment.
-	//
-	// These policies define how the deployment updates components and handles failure.
+	// `AWS::GreengrassV2::Deployment.DeploymentPolicies`.
 	DeploymentPolicies interface{} `field:"optional" json:"deploymentPolicies" yaml:"deploymentPolicies"`
-	// The job configuration for the deployment configuration.
-	//
-	// The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
+	// `AWS::GreengrassV2::Deployment.IotJobConfiguration`.
 	IotJobConfiguration interface{} `field:"optional" json:"iotJobConfiguration" yaml:"iotJobConfiguration"`
-	// Application-specific metadata to attach to the deployment.
-	//
-	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
-	//
-	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
-	//
-	// ```json
-	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
-	// }
-	// ```.
+	// `AWS::GreengrassV2::Deployment.Tags`.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

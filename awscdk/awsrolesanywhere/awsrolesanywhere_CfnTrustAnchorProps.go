@@ -1,7 +1,7 @@
 package awsrolesanywhere
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTrustAnchor`.
@@ -30,13 +30,13 @@ import (
 //   }
 //
 type CfnTrustAnchorProps struct {
-	// Indicates whether the trust anchor is enabled.
+	// `AWS::RolesAnywhere::TrustAnchor.Enabled`.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// The name of the trust anchor.
+	// `AWS::RolesAnywhere::TrustAnchor.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The trust anchor type and its related certificate data.
+	// `AWS::RolesAnywhere::TrustAnchor.Source`.
 	Source interface{} `field:"optional" json:"source" yaml:"source"`
-	// A list of tags to attach to the trust anchor.
+	// `AWS::RolesAnywhere::TrustAnchor.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

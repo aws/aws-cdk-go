@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTransitGatewayMulticastDomain`.
@@ -11,15 +11,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var options interface{}
+//
 //   cfnTransitGatewayMulticastDomainProps := &cfnTransitGatewayMulticastDomainProps{
 //   	transitGatewayId: jsii.String("transitGatewayId"),
 //
 //   	// the properties below are optional
-//   	options: &optionsProperty{
-//   		autoAcceptSharedAssociations: jsii.String("autoAcceptSharedAssociations"),
-//   		igmpv2Support: jsii.String("igmpv2Support"),
-//   		staticSourcesSupport: jsii.String("staticSourcesSupport"),
-//   	},
+//   	options: options,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),

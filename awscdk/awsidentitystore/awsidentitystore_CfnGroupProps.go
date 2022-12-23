@@ -21,7 +21,7 @@ type CfnGroupProps struct {
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// `AWS::IdentityStore::Group.IdentityStoreId`.
 	IdentityStoreId *string `field:"required" json:"identityStoreId" yaml:"identityStoreId"`
-	// A string containing the description of the group.
+	// `AWS::IdentityStore::Group.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

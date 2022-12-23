@@ -8,6 +8,8 @@ package awssagemaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var modelInput interface{}
+//
 //   modelPackageContainerDefinitionProperty := &modelPackageContainerDefinitionProperty{
 //   	image: jsii.String("image"),
 //
@@ -20,9 +22,7 @@ package awssagemaker
 //   	frameworkVersion: jsii.String("frameworkVersion"),
 //   	imageDigest: jsii.String("imageDigest"),
 //   	modelDataUrl: jsii.String("modelDataUrl"),
-//   	modelInput: &modelInputProperty{
-//   		dataInputConfig: jsii.String("dataInputConfig"),
-//   	},
+//   	modelInput: modelInput,
 //   	nearestModelName: jsii.String("nearestModelName"),
 //   	productId: jsii.String("productId"),
 //   }

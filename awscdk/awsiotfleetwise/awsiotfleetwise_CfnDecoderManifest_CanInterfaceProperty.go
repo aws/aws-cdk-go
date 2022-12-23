@@ -1,8 +1,6 @@
 package awsiotfleetwise
 
 
-// A single controller area network (CAN) device interface.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,11 +15,11 @@ package awsiotfleetwise
 //   }
 //
 type CfnDecoderManifest_CanInterfaceProperty struct {
-	// The unique name of the interface.
+	// `CfnDecoderManifest.CanInterfaceProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The name of the communication protocol for the interface.
+	// `CfnDecoderManifest.CanInterfaceProperty.ProtocolName`.
 	ProtocolName *string `field:"optional" json:"protocolName" yaml:"protocolName"`
-	// The version of the communication protocol for the interface.
+	// `CfnDecoderManifest.CanInterfaceProperty.ProtocolVersion`.
 	ProtocolVersion *string `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
 }
 

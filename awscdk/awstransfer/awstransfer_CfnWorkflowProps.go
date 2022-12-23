@@ -1,7 +1,7 @@
 package awstransfer
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnWorkflow`.
@@ -11,40 +11,18 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var copyStepDetails interface{}
+//   var customStepDetails interface{}
+//   var deleteStepDetails interface{}
+//   var tagStepDetails interface{}
+//
 //   cfnWorkflowProps := &cfnWorkflowProps{
 //   	steps: []interface{}{
 //   		&workflowStepProperty{
-//   			copyStepDetails: &copyStepDetailsProperty{
-//   				destinationFileLocation: &inputFileLocationProperty{
-//   					s3FileLocation: &s3InputFileLocationProperty{
-//   						bucket: jsii.String("bucket"),
-//   						key: jsii.String("key"),
-//   					},
-//   				},
-//   				name: jsii.String("name"),
-//   				overwriteExisting: jsii.String("overwriteExisting"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   			},
-//   			customStepDetails: &customStepDetailsProperty{
-//   				name: jsii.String("name"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   				target: jsii.String("target"),
-//   				timeoutSeconds: jsii.Number(123),
-//   			},
-//   			deleteStepDetails: &deleteStepDetailsProperty{
-//   				name: jsii.String("name"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   			},
-//   			tagStepDetails: &tagStepDetailsProperty{
-//   				name: jsii.String("name"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   				tags: []s3TagProperty{
-//   					&s3TagProperty{
-//   						key: jsii.String("key"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
+//   			copyStepDetails: copyStepDetails,
+//   			customStepDetails: customStepDetails,
+//   			deleteStepDetails: deleteStepDetails,
+//   			tagStepDetails: tagStepDetails,
 //   			type: jsii.String("type"),
 //   		},
 //   	},
@@ -53,37 +31,10 @@ import (
 //   	description: jsii.String("description"),
 //   	onExceptionSteps: []interface{}{
 //   		&workflowStepProperty{
-//   			copyStepDetails: &copyStepDetailsProperty{
-//   				destinationFileLocation: &inputFileLocationProperty{
-//   					s3FileLocation: &s3InputFileLocationProperty{
-//   						bucket: jsii.String("bucket"),
-//   						key: jsii.String("key"),
-//   					},
-//   				},
-//   				name: jsii.String("name"),
-//   				overwriteExisting: jsii.String("overwriteExisting"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   			},
-//   			customStepDetails: &customStepDetailsProperty{
-//   				name: jsii.String("name"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   				target: jsii.String("target"),
-//   				timeoutSeconds: jsii.Number(123),
-//   			},
-//   			deleteStepDetails: &deleteStepDetailsProperty{
-//   				name: jsii.String("name"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   			},
-//   			tagStepDetails: &tagStepDetailsProperty{
-//   				name: jsii.String("name"),
-//   				sourceFileLocation: jsii.String("sourceFileLocation"),
-//   				tags: []*s3TagProperty{
-//   					&s3TagProperty{
-//   						key: jsii.String("key"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
+//   			copyStepDetails: copyStepDetails,
+//   			customStepDetails: customStepDetails,
+//   			deleteStepDetails: deleteStepDetails,
+//   			tagStepDetails: tagStepDetails,
 //   			type: jsii.String("type"),
 //   		},
 //   	},

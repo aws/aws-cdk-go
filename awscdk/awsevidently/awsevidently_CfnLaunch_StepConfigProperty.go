@@ -39,11 +39,7 @@ type CfnLaunch_StepConfigProperty struct {
 	//
 	// Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
 	StartTime *string `field:"required" json:"startTime" yaml:"startTime"`
-	// An array of structures that you can use to specify different traffic splits for one or more audience *segments* .
-	//
-	// A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
-	//
-	// For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
+	// `CfnLaunch.StepConfigProperty.SegmentOverrides`.
 	SegmentOverrides interface{} `field:"optional" json:"segmentOverrides" yaml:"segmentOverrides"`
 }
 

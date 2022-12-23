@@ -15,15 +15,12 @@ package awscognito
 //   	},
 //   })
 //
-// Experimental.
 type VerificationEmailStyle string
 
 const (
 	// Verify email via code.
-	// Experimental.
 	VerificationEmailStyle_CODE VerificationEmailStyle = "CODE"
 	// Verify email via link.
-	// Experimental.
 	VerificationEmailStyle_LINK VerificationEmailStyle = "LINK"
 )
 

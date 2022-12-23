@@ -1,7 +1,7 @@
 package awssns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTopic`.
@@ -43,17 +43,9 @@ type CfnTopicProps struct {
 	//
 	// (Optional) To override the generated value, you can specify a value for the the `MessageDeduplicationId` parameter for the `Publish` action.
 	ContentBasedDeduplication interface{} `field:"optional" json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
-	// The body of the policy document you want to use for this topic.
-	//
-	// You can only add one policy per topic.
-	//
-	// The policy must be in JSON string format.
-	//
-	// Length Constraints: Maximum length of 30,720.
+	// `AWS::SNS::Topic.DataProtectionPolicy`.
 	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
-	//
-	// The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Set to true to create a FIFO topic.
 	FifoTopic interface{} `field:"optional" json:"fifoTopic" yaml:"fifoTopic"`

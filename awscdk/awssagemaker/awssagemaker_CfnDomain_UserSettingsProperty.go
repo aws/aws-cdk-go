@@ -77,7 +77,7 @@ type CfnDomain_UserSettingsProperty struct {
 	JupyterServerAppSettings interface{} `field:"optional" json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings interface{} `field:"optional" json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
-	// A collection of settings that configure the `RSessionGateway` app.
+	// `CfnDomain.UserSettingsProperty.RSessionAppSettings`.
 	RSessionAppSettings interface{} `field:"optional" json:"rSessionAppSettings" yaml:"rSessionAppSettings"`
 	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
 	RStudioServerProAppSettings interface{} `field:"optional" json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`

@@ -1,10 +1,6 @@
 package awsconnect
 
 
-// Information about the reference when the `referenceType` is `URL` .
-//
-// Otherwise, null. (Supports variable injection in the `Value` field.)
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +12,9 @@ package awsconnect
 //   }
 //
 type CfnRule_ReferenceProperty struct {
-	// The type of the reference. `DATE` must be of type Epoch timestamp.
-	//
-	// *Allowed values* : `URL` | `ATTACHMENT` | `NUMBER` | `STRING` | `DATE` | `EMAIL`.
+	// `CfnRule.ReferenceProperty.Type`.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// A valid value for the reference.
-	//
-	// For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
+	// `CfnRule.ReferenceProperty.Value`.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

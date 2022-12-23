@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnOptionGroup`.
@@ -55,9 +55,9 @@ type CfnOptionGroupProps struct {
 	// - `mariadb`
 	// - `mysql`
 	// - `oracle-ee`
-	// - `oracle-ee-cdb`
 	// - `oracle-se2`
-	// - `oracle-se2-cdb`
+	// - `oracle-se1`
+	// - `oracle-se`
 	// - `postgres`
 	// - `sqlserver-ee`
 	// - `sqlserver-se`
@@ -70,21 +70,9 @@ type CfnOptionGroupProps struct {
 	OptionGroupDescription *string `field:"required" json:"optionGroupDescription" yaml:"optionGroupDescription"`
 	// A list of options and the settings for each option.
 	OptionConfigurations interface{} `field:"optional" json:"optionConfigurations" yaml:"optionConfigurations"`
-	// The name of the option group to be created.
-	//
-	// Constraints:
-	//
-	// - Must be 1 to 255 letters, numbers, or hyphens
-	// - First character must be a letter
-	// - Can't end with a hyphen or contain two consecutive hyphens
-	//
-	// Example: `myoptiongroup`
-	//
-	// If you don't specify a value for `OptionGroupName` property, a name is automatically created for the option group.
-	//
-	// > This value is stored as a lowercase string.
+	// `AWS::RDS::OptionGroup.OptionGroupName`.
 	OptionGroupName *string `field:"optional" json:"optionGroupName" yaml:"optionGroupName"`
-	// An optional array of key-value pairs to apply to this option group.
+	// Tags to assign to the option group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

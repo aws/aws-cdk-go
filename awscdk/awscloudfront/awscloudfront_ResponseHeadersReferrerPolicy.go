@@ -88,13 +88,10 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type ResponseHeadersReferrerPolicy struct {
 	// A Boolean that determines whether CloudFront overrides the Referrer-Policy HTTP response header received from the origin with the one specified in this response headers policy.
-	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 	// The value of the Referrer-Policy HTTP response header.
-	// Experimental.
 	ReferrerPolicy HeadersReferrerPolicy `field:"required" json:"referrerPolicy" yaml:"referrerPolicy"`
 }
 

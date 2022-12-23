@@ -8,10 +8,11 @@ package awslex
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dataPrivacy interface{}
+//   var sentimentAnalysisSettings interface{}
+//
 //   cfnBotProps := &cfnBotProps{
-//   	dataPrivacy: &dataPrivacyProperty{
-//   		childDirected: jsii.Boolean(false),
-//   	},
+//   	dataPrivacy: dataPrivacy,
 //   	idleSessionTtlInSeconds: jsii.Number(123),
 //   	name: jsii.String("name"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1047,9 +1048,7 @@ package awslex
 //   			},
 //   		},
 //   		description: jsii.String("description"),
-//   		sentimentAnalysisSettings: &sentimentAnalysisSettingsProperty{
-//   			detectSentiment: jsii.Boolean(false),
-//   		},
+//   		sentimentAnalysisSettings: sentimentAnalysisSettings,
 //   	},
 //   	testBotAliasTags: []interface{}{
 //   		&cfnTag{

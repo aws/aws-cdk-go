@@ -10,6 +10,8 @@ package awslex
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var sentimentAnalysisSettings interface{}
+//
 //   testBotAliasSettingsProperty := &testBotAliasSettingsProperty{
 //   	botAliasLocaleSettings: []interface{}{
 //   		&botAliasLocaleSettingsItemProperty{
@@ -55,9 +57,7 @@ package awslex
 //   		},
 //   	},
 //   	description: jsii.String("description"),
-//   	sentimentAnalysisSettings: &sentimentAnalysisSettingsProperty{
-//   		detectSentiment: jsii.Boolean(false),
-//   	},
+//   	sentimentAnalysisSettings: sentimentAnalysisSettings,
 //   }
 //
 type CfnBot_TestBotAliasSettingsProperty struct {

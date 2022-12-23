@@ -31,8 +31,10 @@ package awsec2
 //
 type CfnVPCEndpointProps struct {
 	// The service name.
+	//
+	// To list the available services, use [DescribeVpcEndpointServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html) . Otherwise, get the name from the service provider.
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
-	// The ID of the VPC for the endpoint.
+	// The ID of the VPC in which the endpoint will be used.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// A policy that controls access to the service from the VPC.
 	//
@@ -50,17 +52,17 @@ type CfnVPCEndpointProps struct {
 	//
 	// Default: `false`.
 	PrivateDnsEnabled interface{} `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
-	// The IDs of the route tables.
+	// The route table IDs.
 	//
 	// Routing is supported only for gateway endpoints.
 	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
-	// The IDs of the security groups to associate with the endpoint network interfaces.
+	// The IDs of the security groups to associate with the endpoint network interface.
 	//
-	// If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
+	// Security groups are supported only for interface endpoints.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// The IDs of the subnets in which to create endpoint network interfaces.
+	// The ID of the subnets in which to create an endpoint network interface.
 	//
-	// You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
+	// You must specify this property for an interface endpoints or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The type of endpoint.
 	//

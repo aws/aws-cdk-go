@@ -4,7 +4,7 @@ package awscloudwatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (m *jsiiProxy_MathExpression) validateCreateAlarmParameters(scope awscdk.Construct, id *string, props *CreateAlarmOptions) error {
+func (m *jsiiProxy_MathExpression) validateCreateAlarmParameters(scope constructs.Construct, id *string, props *CreateAlarmOptions) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Attributes required to import an existing EBS Volume into the Stack.
@@ -22,16 +22,12 @@ import (
 //   	encryptionKey: key,
 //   }
 //
-// Experimental.
 type VolumeAttributes struct {
 	// The availability zone that the EBS Volume is contained within (ex: us-west-2a).
-	// Experimental.
 	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The EBS Volume's ID.
-	// Experimental.
 	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 	// The customer-managed encryption key that is used to encrypt the Volume.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 

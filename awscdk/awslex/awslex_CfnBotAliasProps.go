@@ -8,6 +8,8 @@ package awslex
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var sentimentAnalysisSettings interface{}
+//
 //   cfnBotAliasProps := &cfnBotAliasProps{
 //   	botAliasName: jsii.String("botAliasName"),
 //   	botId: jsii.String("botId"),
@@ -64,9 +66,7 @@ package awslex
 //   		},
 //   	},
 //   	description: jsii.String("description"),
-//   	sentimentAnalysisSettings: &sentimentAnalysisSettingsProperty{
-//   		detectSentiment: jsii.Boolean(false),
-//   	},
+//   	sentimentAnalysisSettings: sentimentAnalysisSettings,
 //   }
 //
 type CfnBotAliasProps struct {

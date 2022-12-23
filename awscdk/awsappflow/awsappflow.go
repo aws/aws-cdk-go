@@ -8,10 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_appflow.CfnConnector",
+		"aws-cdk-lib.aws_appflow.CfnConnector",
 		reflect.TypeOf((*CfnConnector)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -32,19 +33,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -55,18 +55,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnector.ConnectorProvisioningConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnector.ConnectorProvisioningConfigProperty",
 		reflect.TypeOf((*CfnConnector_ConnectorProvisioningConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnector.LambdaConnectorProvisioningConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnector.LambdaConnectorProvisioningConfigProperty",
 		reflect.TypeOf((*CfnConnector_LambdaConnectorProvisioningConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_appflow.CfnConnectorProfile",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
 		reflect.TypeOf((*CfnConnectorProfile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -90,19 +91,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "kmsArn", GoGetter: "KmsArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -113,182 +113,183 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.AmplitudeConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.AmplitudeConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ApiKeyCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ApiKeyCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ApiKeyCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.BasicAuthCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.BasicAuthCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_BasicAuthCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ConnectorOAuthRequestProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ConnectorOAuthRequestProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ConnectorOAuthRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ConnectorProfileConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ConnectorProfileConfigProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ConnectorProfileConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.CustomAuthCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.CustomAuthCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_CustomAuthCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.CustomConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.CustomConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_CustomConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.CustomConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.CustomConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_CustomConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.DatadogConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.DatadogConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_DatadogConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.DatadogConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.DatadogConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_DatadogConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.DynatraceConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.DynatraceConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_DynatraceConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.DynatraceConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.DynatraceConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_DynatraceConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_GoogleAnalyticsConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.InforNexusConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.InforNexusConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_InforNexusConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.InforNexusConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.InforNexusConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.MarketoConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.MarketoConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_MarketoConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.MarketoConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.MarketoConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.OAuth2CredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.OAuth2CredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_OAuth2CredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.OAuth2PropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.OAuth2PropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_OAuth2PropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.OAuthCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.OAuthCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_OAuthCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.OAuthPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.OAuthPropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_OAuthPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.RedshiftConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.RedshiftConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SalesforceConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SalesforceConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SalesforceConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SalesforceConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ServiceNowConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ServiceNowConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ServiceNowConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ServiceNowConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ServiceNowConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ServiceNowConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SingularConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SingularConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SingularConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SlackConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SlackConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SlackConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SlackConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SlackConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SlackConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SnowflakeConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SnowflakeConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_SnowflakeConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.TrendmicroConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.TrendmicroConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.VeevaConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.VeevaConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_VeevaConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.VeevaConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.VeevaConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ZendeskConnectorProfileCredentialsProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ZendeskConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ZendeskConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfile.ZendeskConnectorProfilePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ZendeskConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProfileProps",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfileProps",
 		reflect.TypeOf((*CfnConnectorProfileProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnConnectorProps",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProps",
 		reflect.TypeOf((*CfnConnectorProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_appflow.CfnFlow",
+		"aws-cdk-lib.aws_appflow.CfnFlow",
 		reflect.TypeOf((*CfnFlow)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -310,23 +311,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "metadataCatalogConfig", GoGetter: "MetadataCatalogConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceFlowConfig", GoGetter: "SourceFlowConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tasks", GoGetter: "Tasks"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "triggerConfig", GoGetter: "TriggerConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -337,191 +337,191 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.AggregationConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.AggregationConfigProperty",
 		reflect.TypeOf((*CfnFlow_AggregationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.AmplitudeSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.AmplitudeSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_AmplitudeSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.ConnectorOperatorProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.ConnectorOperatorProperty",
 		reflect.TypeOf((*CfnFlow_ConnectorOperatorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.CustomConnectorDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.CustomConnectorDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_CustomConnectorDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.CustomConnectorSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.CustomConnectorSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_CustomConnectorSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.DatadogSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.DatadogSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_DatadogSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.DestinationConnectorPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.DestinationConnectorPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_DestinationConnectorPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.DestinationFlowConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.DestinationFlowConfigProperty",
 		reflect.TypeOf((*CfnFlow_DestinationFlowConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.DynatraceSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.DynatraceSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_DynatraceSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.ErrorHandlingConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.ErrorHandlingConfigProperty",
 		reflect.TypeOf((*CfnFlow_ErrorHandlingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.EventBridgeDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.EventBridgeDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_EventBridgeDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.GlueDataCatalogProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.GlueDataCatalogProperty",
 		reflect.TypeOf((*CfnFlow_GlueDataCatalogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.GoogleAnalyticsSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.GoogleAnalyticsSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_GoogleAnalyticsSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.IncrementalPullConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.IncrementalPullConfigProperty",
 		reflect.TypeOf((*CfnFlow_IncrementalPullConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.InforNexusSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.InforNexusSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_InforNexusSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.LookoutMetricsDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.LookoutMetricsDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_LookoutMetricsDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.MarketoDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.MarketoDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_MarketoDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.MarketoSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.MarketoSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_MarketoSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.MetadataCatalogConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.MetadataCatalogConfigProperty",
 		reflect.TypeOf((*CfnFlow_MetadataCatalogConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.PrefixConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.PrefixConfigProperty",
 		reflect.TypeOf((*CfnFlow_PrefixConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.RedshiftDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.RedshiftDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_RedshiftDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.S3DestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.S3DestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_S3DestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.S3InputFormatConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.S3InputFormatConfigProperty",
 		reflect.TypeOf((*CfnFlow_S3InputFormatConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.S3OutputFormatConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.S3OutputFormatConfigProperty",
 		reflect.TypeOf((*CfnFlow_S3OutputFormatConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.S3SourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.S3SourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_S3SourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SAPODataDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SAPODataDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SAPODataDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SAPODataSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SAPODataSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SAPODataSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SalesforceDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SalesforceDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SalesforceDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SalesforceSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SalesforceSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SalesforceSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.ScheduledTriggerPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.ScheduledTriggerPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_ScheduledTriggerPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.ServiceNowSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.ServiceNowSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_ServiceNowSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SingularSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SingularSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SingularSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SlackSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SlackSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SlackSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SnowflakeDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SnowflakeDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SnowflakeDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SourceConnectorPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SourceConnectorPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_SourceConnectorPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SourceFlowConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SourceFlowConfigProperty",
 		reflect.TypeOf((*CfnFlow_SourceFlowConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.SuccessResponseHandlingConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.SuccessResponseHandlingConfigProperty",
 		reflect.TypeOf((*CfnFlow_SuccessResponseHandlingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.TaskPropertiesObjectProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.TaskPropertiesObjectProperty",
 		reflect.TypeOf((*CfnFlow_TaskPropertiesObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.TaskProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.TaskProperty",
 		reflect.TypeOf((*CfnFlow_TaskProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.TrendmicroSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.TrendmicroSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_TrendmicroSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.TriggerConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.TriggerConfigProperty",
 		reflect.TypeOf((*CfnFlow_TriggerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.UpsolverDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.UpsolverDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_UpsolverDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.UpsolverS3OutputFormatConfigProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.UpsolverS3OutputFormatConfigProperty",
 		reflect.TypeOf((*CfnFlow_UpsolverS3OutputFormatConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.VeevaSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.VeevaSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_VeevaSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.ZendeskDestinationPropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.ZendeskDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnFlow_ZendeskDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlow.ZendeskSourcePropertiesProperty",
+		"aws-cdk-lib.aws_appflow.CfnFlow.ZendeskSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_ZendeskSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_appflow.CfnFlowProps",
+		"aws-cdk-lib.aws_appflow.CfnFlowProps",
 		reflect.TypeOf((*CfnFlowProps)(nil)).Elem(),
 	)
 }

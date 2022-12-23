@@ -1,7 +1,7 @@
 package awsmemorydb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnUser`.
@@ -11,14 +11,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var authenticationMode interface{}
+//
 //   cfnUserProps := &cfnUserProps{
 //   	accessString: jsii.String("accessString"),
-//   	authenticationMode: &authenticationModeProperty{
-//   		passwords: []*string{
-//   			jsii.String("passwords"),
-//   		},
-//   		type: jsii.String("type"),
-//   	},
+//   	authenticationMode: authenticationMode,
 //   	userName: jsii.String("userName"),
 //
 //   	// the properties below are optional

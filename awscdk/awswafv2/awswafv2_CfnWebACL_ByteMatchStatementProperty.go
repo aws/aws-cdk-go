@@ -14,6 +14,8 @@ package awswafv2
 //   var allQueryArguments interface{}
 //   var method interface{}
 //   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
 //   var uriPath interface{}
 //
 //   byteMatchStatementProperty := &byteMatchStatementProperty{
@@ -63,12 +65,8 @@ package awswafv2
 //   		},
 //   		method: method,
 //   		queryString: queryString,
-//   		singleHeader: &singleHeaderProperty{
-//   			name: jsii.String("name"),
-//   		},
-//   		singleQueryArgument: &singleQueryArgumentProperty{
-//   			name: jsii.String("name"),
-//   		},
+//   		singleHeader: singleHeader,
+//   		singleQueryArgument: singleQueryArgument,
 //   		uriPath: uriPath,
 //   	},
 //   	positionalConstraint: jsii.String("positionalConstraint"),

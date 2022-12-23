@@ -156,7 +156,7 @@ package awsappflow
 type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	// The connector-specific credentials required when using Amplitude.
 	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
-	// The connector-specific profile credentials that are required when using the custom connector.
+	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.CustomConnector`.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific credentials required when using Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`

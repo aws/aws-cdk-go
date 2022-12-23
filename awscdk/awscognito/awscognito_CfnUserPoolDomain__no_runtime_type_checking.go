@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnUserPoolDomain) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolDomain) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolDomain) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnUserPoolDomain) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPoolDomain) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnUserPoolDomain) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPoolDomain) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnUserPoolDomain) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnUserPoolDomain) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPoolDomain) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnUserPoolDomain) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnUserPoolDomain) validateSetUserPoolIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnUserPoolDomainParameters(scope awscdk.Construct, id *string, props *CfnUserPoolDomainProps) error {
+func validateNewCfnUserPoolDomainParameters(scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) error {
 	return nil
 }
 

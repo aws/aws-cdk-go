@@ -8,69 +8,12 @@ package awsiottwinmaker
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
+//   var definition interface{}
+//   var relationshipValue interface{}
 //
 //   propertyProperty := &propertyProperty{
-//   	definition: &definitionProperty{
-//   		configuration: map[string]*string{
-//   			"configurationKey": jsii.String("configuration"),
-//   		},
-//   		dataType: &dataTypeProperty{
-//   			allowedValues: []interface{}{
-//   				&dataValueProperty{
-//   					booleanValue: jsii.Boolean(false),
-//   					doubleValue: jsii.Number(123),
-//   					expression: jsii.String("expression"),
-//   					integerValue: jsii.Number(123),
-//   					listValue: []interface{}{
-//   						dataValueProperty_,
-//   					},
-//   					longValue: jsii.Number(123),
-//   					mapValue: map[string]interface{}{
-//   						"mapValueKey": dataValueProperty_,
-//   					},
-//   					relationshipValue: &relationshipValueProperty{
-//   						targetComponentName: jsii.String("targetComponentName"),
-//   						targetEntityId: jsii.String("targetEntityId"),
-//   					},
-//   					stringValue: jsii.String("stringValue"),
-//   				},
-//   			},
-//   			nestedType: dataTypeProperty_,
-//   			relationship: &relationshipProperty{
-//   				relationshipType: jsii.String("relationshipType"),
-//   				targetComponentTypeId: jsii.String("targetComponentTypeId"),
-//   			},
-//   			type: jsii.String("type"),
-//   			unitOfMeasure: jsii.String("unitOfMeasure"),
-//   		},
-//   		defaultValue: &dataValueProperty{
-//   			booleanValue: jsii.Boolean(false),
-//   			doubleValue: jsii.Number(123),
-//   			expression: jsii.String("expression"),
-//   			integerValue: jsii.Number(123),
-//   			listValue: []interface{}{
-//   				dataValueProperty_,
-//   			},
-//   			longValue: jsii.Number(123),
-//   			mapValue: map[string]interface{}{
-//   				"mapValueKey": dataValueProperty_,
-//   			},
-//   			relationshipValue: &relationshipValueProperty{
-//   				targetComponentName: jsii.String("targetComponentName"),
-//   				targetEntityId: jsii.String("targetEntityId"),
-//   			},
-//   			stringValue: jsii.String("stringValue"),
-//   		},
-//   		isExternalId: jsii.Boolean(false),
-//   		isFinal: jsii.Boolean(false),
-//   		isImported: jsii.Boolean(false),
-//   		isInherited: jsii.Boolean(false),
-//   		isRequiredInEntity: jsii.Boolean(false),
-//   		isStoredExternally: jsii.Boolean(false),
-//   		isTimeSeries: jsii.Boolean(false),
-//   	},
+//   	definition: definition,
 //   	value: &dataValueProperty{
 //   		booleanValue: jsii.Boolean(false),
 //   		doubleValue: jsii.Number(123),
@@ -83,10 +26,7 @@ package awsiottwinmaker
 //   		mapValue: map[string]interface{}{
 //   			"mapValueKey": dataValueProperty_,
 //   		},
-//   		relationshipValue: &relationshipValueProperty{
-//   			targetComponentName: jsii.String("targetComponentName"),
-//   			targetEntityId: jsii.String("targetEntityId"),
-//   		},
+//   		relationshipValue: relationshipValue,
 //   		stringValue: jsii.String("stringValue"),
 //   	},
 //   }

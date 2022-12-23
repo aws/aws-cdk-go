@@ -33,9 +33,9 @@ package awssagemaker
 //   }
 //
 type CfnModelPackage_BiasProperty struct {
-	// The post-training bias report for a model.
+	// `CfnModelPackage.BiasProperty.PostTrainingReport`.
 	PostTrainingReport interface{} `field:"optional" json:"postTrainingReport" yaml:"postTrainingReport"`
-	// The pre-training bias report for a model.
+	// `CfnModelPackage.BiasProperty.PreTrainingReport`.
 	PreTrainingReport interface{} `field:"optional" json:"preTrainingReport" yaml:"preTrainingReport"`
 	// The bias report for a model.
 	Report interface{} `field:"optional" json:"report" yaml:"report"`

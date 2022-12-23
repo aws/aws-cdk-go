@@ -1,8 +1,6 @@
 package awsiotfleetwise
 
 
-// A group of signals that are defined in a hierarchical structure.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,11 +14,9 @@ package awsiotfleetwise
 //   }
 //
 type CfnSignalCatalog_BranchProperty struct {
-	// The fully qualified name of the branch.
-	//
-	// For example, the fully qualified name of a branch might be `Vehicle.Body.Engine` .
+	// `CfnSignalCatalog.BranchProperty.FullyQualifiedName`.
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// A brief description of the branch.
+	// `CfnSignalCatalog.BranchProperty.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -17,20 +17,15 @@ import (
 //   	width: jsii.Number(123),
 //   })
 //
-// Experimental.
 type Spacer interface {
 	IWidget
 	// The amount of vertical grid units the widget will take up.
-	// Experimental.
 	Height() *float64
 	// The amount of horizontal grid units the widget will take up.
-	// Experimental.
 	Width() *float64
 	// Place the widget at a given position.
-	// Experimental.
 	Position(_x *float64, _y *float64)
 	// Return the widget JSON for use in the dashboard.
-	// Experimental.
 	ToJson() *[]interface{}
 }
 
@@ -60,7 +55,6 @@ func (j *jsiiProxy_Spacer) Width() *float64 {
 }
 
 
-// Experimental.
 func NewSpacer(props *SpacerProps) Spacer {
 	_init_.Initialize()
 
@@ -70,7 +64,7 @@ func NewSpacer(props *SpacerProps) Spacer {
 	j := jsiiProxy_Spacer{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudwatch.Spacer",
+		"aws-cdk-lib.aws_cloudwatch.Spacer",
 		[]interface{}{props},
 		&j,
 	)
@@ -78,12 +72,11 @@ func NewSpacer(props *SpacerProps) Spacer {
 	return &j
 }
 
-// Experimental.
 func NewSpacer_Override(s Spacer, props *SpacerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudwatch.Spacer",
+		"aws-cdk-lib.aws_cloudwatch.Spacer",
 		[]interface{}{props},
 		s,
 	)

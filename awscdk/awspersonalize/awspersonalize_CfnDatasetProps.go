@@ -8,6 +8,8 @@ package awspersonalize
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dataSource interface{}
+//
 //   cfnDatasetProps := &cfnDatasetProps{
 //   	datasetGroupArn: jsii.String("datasetGroupArn"),
 //   	datasetType: jsii.String("datasetType"),
@@ -18,9 +20,7 @@ package awspersonalize
 //   	datasetImportJob: &datasetImportJobProperty{
 //   		datasetArn: jsii.String("datasetArn"),
 //   		datasetImportJobArn: jsii.String("datasetImportJobArn"),
-//   		dataSource: &dataSourceProperty{
-//   			dataLocation: jsii.String("dataLocation"),
-//   		},
+//   		dataSource: dataSource,
 //   		jobName: jsii.String("jobName"),
 //   		roleArn: jsii.String("roleArn"),
 //   	},

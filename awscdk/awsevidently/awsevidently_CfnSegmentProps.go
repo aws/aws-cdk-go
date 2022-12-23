@@ -1,7 +1,7 @@
 package awsevidently
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnSegment`.
@@ -26,23 +26,13 @@ import (
 //   }
 //
 type CfnSegmentProps struct {
-	// A name for the segment.
+	// `AWS::Evidently::Segment.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// An optional description for this segment.
+	// `AWS::Evidently::Segment.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The pattern to use for the segment.
-	//
-	// For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
+	// `AWS::Evidently::Segment.Pattern`.
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
-	// Assigns one or more tags (key-value pairs) to the feature.
-	//
-	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-	//
-	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
-	//
-	// You can associate as many as 50 tags with a feature.
-	//
-	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+	// `AWS::Evidently::Segment.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

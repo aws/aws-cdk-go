@@ -15,7 +15,7 @@ package awsemrcontainers
 //   }
 //
 type CfnVirtualCluster_ContainerInfoProperty struct {
-	// The information about the Amazon EKS cluster.
+	// The information about the EKS cluster.
 	EksInfo interface{} `field:"required" json:"eksInfo" yaml:"eksInfo"`
 }
 

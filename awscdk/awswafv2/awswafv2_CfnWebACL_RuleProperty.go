@@ -16,6 +16,8 @@ package awswafv2
 //   var method interface{}
 //   var none interface{}
 //   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
@@ -75,12 +77,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			positionalConstraint: jsii.String("positionalConstraint"),
@@ -273,12 +271,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			regexString: jsii.String("regexString"),
@@ -337,12 +331,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -471,12 +461,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			size: jsii.Number(123),
@@ -534,12 +520,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -599,12 +581,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -727,9 +705,7 @@ type CfnWebACL_RuleProperty struct {
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
-	// Specifies how AWS WAF should handle `Challenge` evaluations.
-	//
-	// If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
+	// `CfnWebACL.RuleProperty.ChallengeConfig`.
 	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// The override action to apply to the rules in a rule group, instead of the individual rule action settings.
 	//

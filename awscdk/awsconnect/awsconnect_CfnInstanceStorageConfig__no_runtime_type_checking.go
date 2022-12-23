@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnInstanceStorageConfig) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceStorageConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnInstanceStorageConfig) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceStorageConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceStorageConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnInstanceStorageConfig) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceStorageConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -104,7 +108,7 @@ func (j *jsiiProxy_CfnInstanceStorageConfig) validateSetStorageTypeParameters(va
 	return nil
 }
 
-func validateNewCfnInstanceStorageConfigParameters(scope awscdk.Construct, id *string, props *CfnInstanceStorageConfigProps) error {
+func validateNewCfnInstanceStorageConfigParameters(scope constructs.Construct, id *string, props *CfnInstanceStorageConfigProps) error {
 	return nil
 }
 

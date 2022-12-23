@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -25,16 +25,12 @@ import (
 //   	writeAttributes: clientWriteAttributes,
 //   })
 //
-// Experimental.
 type ClientAttributes interface {
 	// The list of attributes represented by this ClientAttributes.
-	// Experimental.
 	Attributes() *[]*string
 	// Creates a custom ClientAttributes with the specified attributes.
-	// Experimental.
 	WithCustomAttributes(attributes ...*string) ClientAttributes
 	// Creates a custom ClientAttributes with the specified attributes.
-	// Experimental.
 	WithStandardAttributes(attributes *StandardAttributesMask) ClientAttributes
 }
 
@@ -44,14 +40,13 @@ type jsiiProxy_ClientAttributes struct {
 }
 
 // Creates a ClientAttributes with the specified attributes.
-// Experimental.
 func NewClientAttributes() ClientAttributes {
 	_init_.Initialize()
 
 	j := jsiiProxy_ClientAttributes{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ClientAttributes",
+		"aws-cdk-lib.aws_cognito.ClientAttributes",
 		nil, // no parameters
 		&j,
 	)
@@ -60,12 +55,11 @@ func NewClientAttributes() ClientAttributes {
 }
 
 // Creates a ClientAttributes with the specified attributes.
-// Experimental.
 func NewClientAttributes_Override(c ClientAttributes) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ClientAttributes",
+		"aws-cdk-lib.aws_cognito.ClientAttributes",
 		nil, // no parameters
 		c,
 	)

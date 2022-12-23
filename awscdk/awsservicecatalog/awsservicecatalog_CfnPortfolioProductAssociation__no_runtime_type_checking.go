@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) validateAddDeletionOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnPortfolioProductAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPortfolioProductAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) validateInspectParameters(ins
 	return nil
 }
 
-func (c *jsiiProxy_CfnPortfolioProductAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPortfolioProductAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPortfolioProductAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPortfolioProductAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) validateRenderPropertiesParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnPortfolioProductAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPortfolioProductAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnPortfolioProductAssociation) validateSetProductIdParameter
 	return nil
 }
 
-func validateNewCfnPortfolioProductAssociationParameters(scope awscdk.Construct, id *string, props *CfnPortfolioProductAssociationProps) error {
+func validateNewCfnPortfolioProductAssociationParameters(scope constructs.Construct, id *string, props *CfnPortfolioProductAssociationProps) error {
 	return nil
 }
 

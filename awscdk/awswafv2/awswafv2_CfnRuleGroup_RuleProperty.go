@@ -11,9 +11,15 @@ package awswafv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
+//   var allow interface{}
 //   var allQueryArguments interface{}
+//   var block interface{}
+//   var captcha interface{}
+//   var count interface{}
 //   var method interface{}
 //   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
@@ -73,12 +79,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			positionalConstraint: jsii.String("positionalConstraint"),
@@ -182,12 +184,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			regexString: jsii.String("regexString"),
@@ -246,12 +244,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -309,12 +303,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			size: jsii.Number(123),
@@ -372,12 +362,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -437,12 +423,8 @@ package awswafv2
 //   				},
 //   				method: method,
 //   				queryString: queryString,
-//   				singleHeader: &singleHeaderProperty{
-//   					name: jsii.String("name"),
-//   				},
-//   				singleQueryArgument: &singleQueryArgumentProperty{
-//   					name: jsii.String("name"),
-//   				},
+//   				singleHeader: singleHeader,
+//   				singleQueryArgument: singleQueryArgument,
 //   				uriPath: uriPath,
 //   			},
 //   			textTransformations: []interface{}{
@@ -461,40 +443,9 @@ package awswafv2
 //
 //   	// the properties below are optional
 //   	action: &ruleActionProperty{
-//   		allow: &allowProperty{
-//   			customRequestHandling: &customRequestHandlingProperty{
-//   				insertHeaders: []interface{}{
-//   					&customHTTPHeaderProperty{
-//   						name: jsii.String("name"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   		block: &blockProperty{
-//   			customResponse: &customResponseProperty{
-//   				responseCode: jsii.Number(123),
-//
-//   				// the properties below are optional
-//   				customResponseBodyKey: jsii.String("customResponseBodyKey"),
-//   				responseHeaders: []interface{}{
-//   					&customHTTPHeaderProperty{
-//   						name: jsii.String("name"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   		captcha: &captchaProperty{
-//   			customRequestHandling: &customRequestHandlingProperty{
-//   				insertHeaders: []interface{}{
-//   					&customHTTPHeaderProperty{
-//   						name: jsii.String("name"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
+//   		allow: allow,
+//   		block: block,
+//   		captcha: captcha,
 //   		challenge: &challengeProperty{
 //   			customRequestHandling: &customRequestHandlingProperty{
 //   				insertHeaders: []interface{}{
@@ -505,16 +456,7 @@ package awswafv2
 //   				},
 //   			},
 //   		},
-//   		count: &countProperty{
-//   			customRequestHandling: &customRequestHandlingProperty{
-//   				insertHeaders: []interface{}{
-//   					&customHTTPHeaderProperty{
-//   						name: jsii.String("name"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   			},
-//   		},
+//   		count: count,
 //   	},
 //   	captchaConfig: &captchaConfigProperty{
 //   		immunityTimeProperty: &immunityTimePropertyProperty{
@@ -554,9 +496,7 @@ type CfnRuleGroup_RuleProperty struct {
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
-	// Specifies how AWS WAF should handle `Challenge` evaluations.
-	//
-	// If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
+	// `CfnRuleGroup.RuleProperty.ChallengeConfig`.
 	ChallengeConfig interface{} `field:"optional" json:"challengeConfig" yaml:"challengeConfig"`
 	// Labels to apply to web requests that match the rule match statement.
 	//

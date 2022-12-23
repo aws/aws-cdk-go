@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// The connector-specific profile credentials that are required when using the custom connector.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,15 +41,15 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_CustomConnectorProfileCredentialsProperty struct {
-	// The authentication type that the custom connector uses for authenticating while creating a connector profile.
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.AuthenticationType`.
 	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
-	// The API keys required for the authentication of the user.
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.ApiKey`.
 	ApiKey interface{} `field:"optional" json:"apiKey" yaml:"apiKey"`
-	// The basic credentials that are required for the authentication of the user.
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.Basic`.
 	Basic interface{} `field:"optional" json:"basic" yaml:"basic"`
-	// If the connector uses the custom authentication mechanism, this holds the required credentials.
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.Custom`.
 	Custom interface{} `field:"optional" json:"custom" yaml:"custom"`
-	// The OAuth 2.0 credentials required for the authentication of the user.
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.Oauth2`.
 	Oauth2 interface{} `field:"optional" json:"oauth2" yaml:"oauth2"`
 }
 

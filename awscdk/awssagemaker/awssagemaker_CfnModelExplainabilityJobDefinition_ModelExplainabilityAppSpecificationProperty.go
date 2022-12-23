@@ -21,7 +21,7 @@ package awssagemaker
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty struct {
 	// JSON formatted S3 file that defines explainability parameters.
 	//
-	// For more information on this JSON configuration file, see [Configure model explainability parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html) .
+	// For more information on this JSON configuration file, see [Configure model explainability parameters](https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html) .
 	ConfigUri *string `field:"required" json:"configUri" yaml:"configUri"`
 	// The container image to be run by the model explainability job.
 	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`

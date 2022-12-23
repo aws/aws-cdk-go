@@ -59,7 +59,7 @@ type CfnGatewayRoute_HttpGatewayRouteMatchProperty struct {
 	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The path to match on.
 	Path interface{} `field:"optional" json:"path" yaml:"path"`
-	// The port number to match on.
+	// `CfnGatewayRoute.HttpGatewayRouteMatchProperty.Port`.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Specifies the path to match requests with.
 	//

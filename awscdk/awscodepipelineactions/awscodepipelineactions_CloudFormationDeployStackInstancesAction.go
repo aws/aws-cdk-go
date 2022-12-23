@@ -1,12 +1,12 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // CodePipeline action to create/update Stack Instances of a StackSet.
@@ -22,6 +22,7 @@ import (
 // deployed to that instance.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //
@@ -63,27 +64,20 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type CloudFormationDeployStackInstancesAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
-	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
-	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	// Experimental.
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	// Experimental.
-	Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
-	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -113,7 +107,6 @@ func (j *jsiiProxy_CloudFormationDeployStackInstancesAction) ProvidedActionPrope
 }
 
 
-// Experimental.
 func NewCloudFormationDeployStackInstancesAction(props *CloudFormationDeployStackInstancesActionProps) CloudFormationDeployStackInstancesAction {
 	_init_.Initialize()
 
@@ -123,7 +116,7 @@ func NewCloudFormationDeployStackInstancesAction(props *CloudFormationDeployStac
 	j := jsiiProxy_CloudFormationDeployStackInstancesAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -131,18 +124,17 @@ func NewCloudFormationDeployStackInstancesAction(props *CloudFormationDeployStac
 	return &j
 }
 
-// Experimental.
 func NewCloudFormationDeployStackInstancesAction_Override(c CloudFormationDeployStackInstancesAction, props *CloudFormationDeployStackInstancesActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := c.validateBindParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
@@ -158,7 +150,7 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope awscdk.C
 	return returns
 }
 
-func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := c.validateBoundParameters(scope, _stage, options); err != nil {
 		panic(err)
 	}

@@ -1,51 +1,45 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Constructs for types of container images.
 //
 // Example:
-//   var vpc vpc
+//   var cluster cluster
 //
-//
-//   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &clusterProps{
-//   	vpc: vpc,
-//   	enableFargateCapacityProviders: jsii.Boolean(true),
-//   })
-//
-//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   })
-//
-//   ecs.NewFargateService(this, jsii.String("FargateService"), &fargateServiceProps{
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//   	capacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			capacityProvider: jsii.String("FARGATE_SPOT"),
-//   			weight: jsii.Number(2),
-//   		},
-//   		&capacityProviderStrategy{
-//   			capacityProvider: jsii.String("FARGATE"),
-//   			weight: jsii.Number(1),
-//   		},
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
 //   })
 //
-// Experimental.
+//   scalableTarget := loadBalancedFargateService.service.autoScaleTaskCount(&enableScalingProps{
+//   	minCapacity: jsii.Number(1),
+//   	maxCapacity: jsii.Number(20),
+//   })
+//
+//   scalableTarget.scaleOnCpuUtilization(jsii.String("CpuScaling"), &cpuUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
+//
+//   scalableTarget.scaleOnMemoryUtilization(jsii.String("MemoryScaling"), &memoryUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
+//
 type ContainerImage interface {
 	// Called when the image is used by a ContainerDefinition.
-	// Experimental.
-	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for ContainerImage
@@ -53,12 +47,11 @@ type jsiiProxy_ContainerImage struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewContainerImage_Override(c ContainerImage) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.ContainerImage",
+		"aws-cdk-lib.aws_ecs.ContainerImage",
 		nil, // no parameters
 		c,
 	)
@@ -68,7 +61,6 @@ func NewContainerImage_Override(c ContainerImage) {
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
-// Experimental.
 func ContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
@@ -78,7 +70,7 @@ func ContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetIm
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.ContainerImage",
+		"aws-cdk-lib.aws_ecs.ContainerImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -88,7 +80,6 @@ func ContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetIm
 }
 
 // Use an existing `DockerImageAsset` for this container image.
-// Experimental.
 func ContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
@@ -98,7 +89,7 @@ func ContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Co
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.ContainerImage",
+		"aws-cdk-lib.aws_ecs.ContainerImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -108,7 +99,6 @@ func ContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) Co
 }
 
 // Reference an image in an ECR repository.
-// Experimental.
 func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
@@ -118,7 +108,7 @@ func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.ContainerImage",
+		"aws-cdk-lib.aws_ecs.ContainerImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -128,7 +118,6 @@ func ContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string
 }
 
 // Reference an image on DockerHub or another online registry.
-// Experimental.
 func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
@@ -138,7 +127,7 @@ func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) Repo
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.ContainerImage",
+		"aws-cdk-lib.aws_ecs.ContainerImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -151,7 +140,6 @@ func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) Repo
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
-// Experimental.
 func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
@@ -161,7 +149,7 @@ func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.ContainerImage",
+		"aws-cdk-lib.aws_ecs.ContainerImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -170,7 +158,7 @@ func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	return returns
 }
 
-func (c *jsiiProxy_ContainerImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (c *jsiiProxy_ContainerImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	if err := c.validateBindParameters(scope, containerDefinition); err != nil {
 		panic(err)
 	}

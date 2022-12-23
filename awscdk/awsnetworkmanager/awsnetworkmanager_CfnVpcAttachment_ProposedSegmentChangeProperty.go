@@ -1,13 +1,9 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-// Describes a proposed segment change.
-//
-// In some cases, the segment change must first be evaluated and accepted.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,11 +21,11 @@ import (
 //   }
 //
 type CfnVpcAttachment_ProposedSegmentChangeProperty struct {
-	// The rule number in the policy document that applies to this change.
+	// `CfnVpcAttachment.ProposedSegmentChangeProperty.AttachmentPolicyRuleNumber`.
 	AttachmentPolicyRuleNumber *float64 `field:"optional" json:"attachmentPolicyRuleNumber" yaml:"attachmentPolicyRuleNumber"`
-	// The name of the segment to change.
+	// `CfnVpcAttachment.ProposedSegmentChangeProperty.SegmentName`.
 	SegmentName *string `field:"optional" json:"segmentName" yaml:"segmentName"`
-	// The list of key-value tags that changed for the segment.
+	// `CfnVpcAttachment.ProposedSegmentChangeProperty.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

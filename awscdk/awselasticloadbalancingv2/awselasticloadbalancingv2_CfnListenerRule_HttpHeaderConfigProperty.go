@@ -22,7 +22,7 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 	//
 	// The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
-	// The strings to compare against the value of the HTTP header.
+	// One or more strings to compare against the value of the HTTP header.
 	//
 	// The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//

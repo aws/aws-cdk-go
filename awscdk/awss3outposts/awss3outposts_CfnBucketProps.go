@@ -1,7 +1,7 @@
 package awss3outposts
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnBucket`.
@@ -10,6 +10,8 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var filter interface{}
 //
 //   cfnBucketProps := &cfnBucketProps{
 //   	bucketName: jsii.String("bucketName"),
@@ -27,24 +29,7 @@ import (
 //   				},
 //   				expirationDate: jsii.String("expirationDate"),
 //   				expirationInDays: jsii.Number(123),
-//   				filter: &filterProperty{
-//   					andOperator: &filterAndOperatorProperty{
-//   						tags: []filterTagProperty{
-//   							&filterTagProperty{
-//   								key: jsii.String("key"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//
-//   						// the properties below are optional
-//   						prefix: jsii.String("prefix"),
-//   					},
-//   					prefix: jsii.String("prefix"),
-//   					tag: &filterTagProperty{
-//   						key: jsii.String("key"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
+//   				filter: filter,
 //   				id: jsii.String("id"),
 //   			},
 //   		},

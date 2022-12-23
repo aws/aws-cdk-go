@@ -9,6 +9,7 @@ package awsiottwinmaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
+//   var relationshipValue interface{}
 //
 //   dataValueProperty := &dataValueProperty{
 //   	booleanValue: jsii.Boolean(false),
@@ -28,10 +29,7 @@ package awsiottwinmaker
 //   			mapValue: map[string]interface{}{
 //   				"mapValueKey": dataValueProperty_,
 //   			},
-//   			relationshipValue: &relationshipValueProperty{
-//   				targetComponentName: jsii.String("targetComponentName"),
-//   				targetEntityId: jsii.String("targetEntityId"),
-//   			},
+//   			relationshipValue: relationshipValue,
 //   			stringValue: jsii.String("stringValue"),
 //   		},
 //   	},
@@ -49,17 +47,11 @@ package awsiottwinmaker
 //   			"mapValue": map[string]interface{}{
 //   				"mapValueKey": dataValueProperty_,
 //   			},
-//   			"relationshipValue": &relationshipValueProperty{
-//   				"targetComponentName": jsii.String("targetComponentName"),
-//   				"targetEntityId": jsii.String("targetEntityId"),
-//   			},
+//   			"relationshipValue": relationshipValue,
 //   			"stringValue": jsii.String("stringValue"),
 //   		},
 //   	},
-//   	relationshipValue: &relationshipValueProperty{
-//   		targetComponentName: jsii.String("targetComponentName"),
-//   		targetEntityId: jsii.String("targetEntityId"),
-//   	},
+//   	relationshipValue: relationshipValue,
 //   	stringValue: jsii.String("stringValue"),
 //   }
 //

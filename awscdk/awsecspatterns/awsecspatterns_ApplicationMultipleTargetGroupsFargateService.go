@@ -1,151 +1,136 @@
 package awsecspatterns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Fargate service running on an ECS cluster fronted by an application load balancer.
 //
 // Example:
-//   // One application load balancer with one listener and two target groups.
-//   var cluster cluster
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("Service"), &applicationMultipleTargetGroupsFargateServiceProps{
-//   	cluster: cluster,
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	cpu: jsii.Number(512),
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	maxAzs: jsii.Number(1),
+//   })
+//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
+//   	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
+//   		vpc: vpc,
+//   	}),
+//   	memoryLimitMiB: jsii.Number(256),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	enableExecuteCommand: jsii.Boolean(true),
+//   	loadBalancers: []applicationLoadBalancerProps{
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
+//   			domainName: jsii.String("api.example.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("example.com"),
+//   			}),
+//   			listeners: []applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb2"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+//   			domainName: jsii.String("frontend.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("frontend.com"),
+//   			}),
+//   			listeners: []*applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener2"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
 //   	},
 //   	targetGroups: []applicationTargetProps{
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(80),
+//   			listener: jsii.String("listener"),
 //   		},
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(90),
 //   			pathPattern: jsii.String("a/b/c"),
 //   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(443),
+//   			listener: jsii.String("listener2"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener2"),
 //   		},
 //   	},
 //   })
 //
-// Experimental.
 type ApplicationMultipleTargetGroupsFargateService interface {
 	ApplicationMultipleTargetGroupsServiceBase
 	// Determines whether the service will be assigned a public IP address.
-	// Experimental.
 	AssignPublicIp() *bool
 	// The cluster that hosts the service.
-	// Experimental.
 	Cluster() awsecs.ICluster
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `internalDesiredCount` instead.
-	DesiredCount() *float64
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The default is 1 for all new services and uses the existing services desired count
 	// when updating an existing service, if one is not provided.
-	// Experimental.
 	InternalDesiredCount() *float64
 	// The default listener for the service (first added listener).
-	// Experimental.
+	// Deprecated: - Use `listeners` instead.
 	Listener() awselasticloadbalancingv2.ApplicationListener
-	// Experimental.
+	// The listeners of the service.
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
-	// Experimental.
-	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	// The default Application Load Balancer for the service (first added load balancer).
-	// Experimental.
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
-	// Experimental.
+	// The load balancers of the service.
+	LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
-	// Experimental.
 	SetLogDriver(val awsecs.LogDriver)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The Fargate service in this construct.
-	// Experimental.
 	Service() awsecs.FargateService
 	// The default target group for the service.
-	// Experimental.
+	// Deprecated: - Use `targetGroups` instead.
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
-	// Experimental.
+	// The target groups of the service.
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
-	// Experimental.
-	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	// The Fargate task definition in this construct.
-	// Experimental.
 	TaskDefinition() awsecs.FargateTaskDefinition
-	// Experimental.
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
-	// Experimental.
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	// Experimental.
 	FindListener(name *string) awselasticloadbalancingv2.ApplicationListener
 	// Returns the default cluster.
-	// Experimental.
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Experimental.
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationMultipleTargetGroupsFargateService
@@ -168,16 +153,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Cluster() awse
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -223,6 +198,16 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) LoadBalancer()
 	return returns
 }
 
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer {
+	var returns *[]awselasticloadbalancingv2.ApplicationLoadBalancer
+	_jsii_.Get(
+		j,
+		"loadBalancers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) LogDriver() awsecs.LogDriver {
 	var returns awsecs.LogDriver
 	_jsii_.Get(
@@ -233,8 +218,8 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) LogDriver() aw
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -285,7 +270,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) TaskDefinition
 
 
 // Constructs a new instance of the ApplicationMultipleTargetGroupsFargateService class.
-// Experimental.
 func NewApplicationMultipleTargetGroupsFargateService(scope constructs.Construct, id *string, props *ApplicationMultipleTargetGroupsFargateServiceProps) ApplicationMultipleTargetGroupsFargateService {
 	_init_.Initialize()
 
@@ -295,7 +279,7 @@ func NewApplicationMultipleTargetGroupsFargateService(scope constructs.Construct
 	j := jsiiProxy_ApplicationMultipleTargetGroupsFargateService{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -304,25 +288,13 @@ func NewApplicationMultipleTargetGroupsFargateService(scope constructs.Construct
 }
 
 // Constructs a new instance of the ApplicationMultipleTargetGroupsFargateService class.
-// Experimental.
 func NewApplicationMultipleTargetGroupsFargateService_Override(a ApplicationMultipleTargetGroupsFargateService, scope constructs.Construct, id *string, props *ApplicationMultipleTargetGroupsFargateServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
 		[]interface{}{scope, id, props},
 		a,
-	)
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService)SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
-	if err := j.validateSetListenersParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"listeners",
-		val,
 	)
 }
 
@@ -334,19 +306,23 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService)SetLogDriver(va
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService)SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
-	if err := j.validateSetTargetGroupsParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"targetGroups",
-		val,
-	)
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func ApplicationMultipleTargetGroupsFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -356,7 +332,7 @@ func ApplicationMultipleTargetGroupsFargateService_IsConstruct(x interface{}) *b
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -421,46 +397,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) GetDefaultClus
 	return returns
 }
 
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := a.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
 	if err := a.validateRegisterECSTargetsParameters(service, container, targets); err != nil {
 		panic(err)
@@ -477,36 +413,12 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) RegisterECSTar
 	return returns
 }
 
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Synthesize(session awscdk.ISynthesisSession) {
-	if err := a.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

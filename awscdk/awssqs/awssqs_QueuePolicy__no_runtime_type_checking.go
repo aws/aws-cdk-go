@@ -16,19 +16,15 @@ func (q *jsiiProxy_QueuePolicy) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
-func (q *jsiiProxy_QueuePolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (q *jsiiProxy_QueuePolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateQueuePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateQueuePolicy_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateQueuePolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateQueuePolicy_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

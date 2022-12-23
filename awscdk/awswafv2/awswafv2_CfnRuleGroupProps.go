@@ -1,7 +1,7 @@
 package awswafv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRuleGroup`.
@@ -12,9 +12,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
+//   var allow interface{}
 //   var allQueryArguments interface{}
+//   var block interface{}
+//   var captcha interface{}
+//   var count interface{}
 //   var method interface{}
 //   var queryString interface{}
+//   var singleHeader interface{}
+//   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
 //
@@ -103,12 +109,8 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: &singleHeaderProperty{
-//   							name: jsii.String("name"),
-//   						},
-//   						singleQueryArgument: &singleQueryArgumentProperty{
-//   							name: jsii.String("name"),
-//   						},
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
 //   						uriPath: uriPath,
 //   					},
 //   					positionalConstraint: jsii.String("positionalConstraint"),
@@ -212,12 +214,8 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: &singleHeaderProperty{
-//   							name: jsii.String("name"),
-//   						},
-//   						singleQueryArgument: &singleQueryArgumentProperty{
-//   							name: jsii.String("name"),
-//   						},
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
 //   						uriPath: uriPath,
 //   					},
 //   					regexString: jsii.String("regexString"),
@@ -276,12 +274,8 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: &singleHeaderProperty{
-//   							name: jsii.String("name"),
-//   						},
-//   						singleQueryArgument: &singleQueryArgumentProperty{
-//   							name: jsii.String("name"),
-//   						},
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
 //   						uriPath: uriPath,
 //   					},
 //   					textTransformations: []interface{}{
@@ -339,12 +333,8 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: &singleHeaderProperty{
-//   							name: jsii.String("name"),
-//   						},
-//   						singleQueryArgument: &singleQueryArgumentProperty{
-//   							name: jsii.String("name"),
-//   						},
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
 //   						uriPath: uriPath,
 //   					},
 //   					size: jsii.Number(123),
@@ -402,12 +392,8 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: &singleHeaderProperty{
-//   							name: jsii.String("name"),
-//   						},
-//   						singleQueryArgument: &singleQueryArgumentProperty{
-//   							name: jsii.String("name"),
-//   						},
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
 //   						uriPath: uriPath,
 //   					},
 //   					textTransformations: []interface{}{
@@ -467,12 +453,8 @@ import (
 //   						},
 //   						method: method,
 //   						queryString: queryString,
-//   						singleHeader: &singleHeaderProperty{
-//   							name: jsii.String("name"),
-//   						},
-//   						singleQueryArgument: &singleQueryArgumentProperty{
-//   							name: jsii.String("name"),
-//   						},
+//   						singleHeader: singleHeader,
+//   						singleQueryArgument: singleQueryArgument,
 //   						uriPath: uriPath,
 //   					},
 //   					textTransformations: []interface{}{
@@ -491,40 +473,9 @@ import (
 //
 //   			// the properties below are optional
 //   			action: &ruleActionProperty{
-//   				allow: &allowProperty{
-//   					customRequestHandling: &customRequestHandlingProperty{
-//   						insertHeaders: []interface{}{
-//   							&customHTTPHeaderProperty{
-//   								name: jsii.String("name"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   				block: &blockProperty{
-//   					customResponse: &customResponseProperty{
-//   						responseCode: jsii.Number(123),
-//
-//   						// the properties below are optional
-//   						customResponseBodyKey: jsii.String("customResponseBodyKey"),
-//   						responseHeaders: []interface{}{
-//   							&customHTTPHeaderProperty{
-//   								name: jsii.String("name"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   				captcha: &captchaProperty{
-//   					customRequestHandling: &customRequestHandlingProperty{
-//   						insertHeaders: []interface{}{
-//   							&customHTTPHeaderProperty{
-//   								name: jsii.String("name"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
+//   				allow: allow,
+//   				block: block,
+//   				captcha: captcha,
 //   				challenge: &challengeProperty{
 //   					customRequestHandling: &customRequestHandlingProperty{
 //   						insertHeaders: []interface{}{
@@ -535,16 +486,7 @@ import (
 //   						},
 //   					},
 //   				},
-//   				count: &countProperty{
-//   					customRequestHandling: &customRequestHandlingProperty{
-//   						insertHeaders: []interface{}{
-//   							&customHTTPHeaderProperty{
-//   								name: jsii.String("name"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
+//   				count: count,
 //   			},
 //   			captchaConfig: &captchaConfigProperty{
 //   				immunityTimeProperty: &immunityTimePropertyProperty{
@@ -580,7 +522,7 @@ type CfnRuleGroupProps struct {
 	Capacity *float64 `field:"required" json:"capacity" yaml:"capacity"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, or an Amazon Cognito user pool. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope *string `field:"required" json:"scope" yaml:"scope"`

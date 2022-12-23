@@ -7,8 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CloudFrontWebDistribution) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -42,17 +43,17 @@ func (c *jsiiProxy_CloudFrontWebDistribution) validateGetResourceNameAttributePa
 	return nil
 }
 
-func (c *jsiiProxy_CloudFrontWebDistribution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CloudFrontWebDistribution) validateGrantParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CloudFrontWebDistribution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CloudFrontWebDistribution) validateGrantCreateInvalidationParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}
 
 	return nil
@@ -85,7 +86,15 @@ func validateCloudFrontWebDistribution_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
-func validateCloudFrontWebDistribution_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCloudFrontWebDistribution_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCloudFrontWebDistribution_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

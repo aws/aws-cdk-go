@@ -52,14 +52,6 @@ func (r *jsiiProxy_Repository) validateOnImageScanCompletedParameters(id *string
 	return nil
 }
 
-func (r *jsiiProxy_Repository) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (r *jsiiProxy_Repository) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateRepository_ArnForLocalRepositoryParameters(repositoryName *string, scope constructs.IConstruct) error {
 	return nil
 }
@@ -80,7 +72,11 @@ func validateRepository_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRepository_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateRepository_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateRepository_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

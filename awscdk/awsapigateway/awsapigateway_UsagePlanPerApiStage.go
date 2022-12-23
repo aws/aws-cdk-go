@@ -22,14 +22,10 @@ package awsapigateway
 //   	},
 //   })
 //
-// Experimental.
 type UsagePlanPerApiStage struct {
-	// Experimental.
 	Api IRestApi `field:"optional" json:"api" yaml:"api"`
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
 	Stage Stage `field:"optional" json:"stage" yaml:"stage"`
-	// Experimental.
 	Throttle *[]*ThrottlingPerMethod `field:"optional" json:"throttle" yaml:"throttle"`
 }
 

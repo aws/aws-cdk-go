@@ -55,12 +55,7 @@ package awsfsx
 type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// Specifies the file system deployment type.
 	//
-	// Single AZ deployment types are configured for redundancy within a single Availability Zone in an AWS Region . Valid values are the following:
-	//
-	// - `SINGLE_AZ_1` - (Default) Creates file systems with throughput capacities of 64 - 4,096 MB/s. `Single_AZ_1` is available in all AWS Regions where Amazon FSx for OpenZFS is available, except US West (Oregon).
-	// - `SINGLE_AZ_2` - Creates file systems with throughput capacities of 160 - 10,240 MB/s using an NVMe L2ARC cache. `Single_AZ_2` is available only in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland) AWS Regions .
-	//
-	// For more information, see: [Deployment type availability](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html) and [File system performance](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html) in the *Amazon FSx for OpenZFS User Guide* .
+	// Amazon FSx for OpenZFS supports `SINGLE_AZ_1` . `SINGLE_AZ_1` deployment type is configured for redundancy within a single Availability Zone.
 	DeploymentType *string `field:"required" json:"deploymentType" yaml:"deploymentType"`
 	// The number of days to retain automatic backups.
 	//
@@ -70,9 +65,9 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	//
 	// This value defaults to `false` . If it's set to `true` , all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is `true` , and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.
 	CopyTagsToBackups interface{} `field:"optional" json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
-	// A Boolean value indicating whether tags for the file system should be copied to volumes.
+	// A Boolean value indicating whether tags for the volume should be copied to snapshots.
 	//
-	// This value defaults to `false` . If it's set to `true` , all tags for the file system are copied to volumes where the user doesn't specify tags. If this value is `true` , and you specify one or more tags, only the specified tags are copied to volumes. If you specify one or more tags when creating the volume, no tags are copied from the file system, regardless of this value.
+	// This value defaults to `false` . If it's set to `true` , all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is `true` , and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.
 	CopyTagsToVolumes interface{} `field:"optional" json:"copyTagsToVolumes" yaml:"copyTagsToVolumes"`
 	// A recurring daily time, in the format `HH:MM` .
 	//
@@ -92,12 +87,7 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	RootVolumeConfiguration interface{} `field:"optional" json:"rootVolumeConfiguration" yaml:"rootVolumeConfiguration"`
 	// Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MB/s).
 	//
-	// Valid values depend on the DeploymentType you choose, as follows:
-	//
-	// - For `SINGLE_AZ_1` , valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.
-	// - For `SINGLE_AZ_2` , valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.
-	//
-	// You pay for additional throughput capacity that you provision.
+	// Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s. You pay for additional throughput capacity that you provision.
 	ThroughputCapacity *float64 `field:"optional" json:"throughputCapacity" yaml:"throughputCapacity"`
 	// A recurring weekly time, in the format `D:HH:MM` .
 	//

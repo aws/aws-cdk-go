@@ -1,7 +1,7 @@
 package awsiotcoredeviceadvisor
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnSuiteDefinition`.
@@ -11,21 +11,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnSuiteDefinitionProps := &cfnSuiteDefinitionProps{
-//   	suiteDefinitionConfiguration: &suiteDefinitionConfigurationProperty{
-//   		devicePermissionRoleArn: jsii.String("devicePermissionRoleArn"),
-//   		rootGroup: jsii.String("rootGroup"),
+//   var suiteDefinitionConfiguration interface{}
 //
-//   		// the properties below are optional
-//   		devices: []interface{}{
-//   			&deviceUnderTestProperty{
-//   				certificateArn: jsii.String("certificateArn"),
-//   				thingArn: jsii.String("thingArn"),
-//   			},
-//   		},
-//   		intendedForQualification: jsii.Boolean(false),
-//   		suiteDefinitionName: jsii.String("suiteDefinitionName"),
-//   	},
+//   cfnSuiteDefinitionProps := &cfnSuiteDefinitionProps{
+//   	suiteDefinitionConfiguration: suiteDefinitionConfiguration,
 //
 //   	// the properties below are optional
 //   	tags: []cfnTag{

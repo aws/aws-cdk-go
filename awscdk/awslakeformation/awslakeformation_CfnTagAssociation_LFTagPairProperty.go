@@ -1,8 +1,6 @@
 package awslakeformation
 
 
-// A structure containing the catalog ID, tag key, and tag values of an LF-tag key-value pair.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,13 +15,11 @@ package awslakeformation
 //   }
 //
 type CfnTagAssociation_LFTagPairProperty struct {
-	// The identifier for the Data Catalog .
-	//
-	// By default, it is the account ID of the caller.
+	// `CfnTagAssociation.LFTagPairProperty.CatalogId`.
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
-	// The key-name for the LF-tag.
+	// `CfnTagAssociation.LFTagPairProperty.TagKey`.
 	TagKey *string `field:"required" json:"tagKey" yaml:"tagKey"`
-	// A list of possible values of the corresponding `TagKey` of an LF-tag key-value pair.
+	// `CfnTagAssociation.LFTagPairProperty.TagValues`.
 	TagValues *[]*string `field:"required" json:"tagValues" yaml:"tagValues"`
 }
 

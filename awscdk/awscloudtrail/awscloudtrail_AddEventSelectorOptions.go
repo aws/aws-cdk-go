@@ -4,6 +4,7 @@ package awscloudtrail
 // Options for adding an event selector.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
@@ -27,16 +28,12 @@ package awscloudtrail
 //   	trigger: codepipeline_actions.s3Trigger_EVENTS,
 //   })
 //
-// Experimental.
 type AddEventSelectorOptions struct {
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
-	// Experimental.
 	ExcludeManagementEventSources *[]ManagementEventSources `field:"optional" json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specifies whether the event selector includes management events for the trail.
-	// Experimental.
 	IncludeManagementEvents *bool `field:"optional" json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specifies whether to log read-only events, write-only events, or all events.
-	// Experimental.
 	ReadWriteType ReadWriteType `field:"optional" json:"readWriteType" yaml:"readWriteType"`
 }
 

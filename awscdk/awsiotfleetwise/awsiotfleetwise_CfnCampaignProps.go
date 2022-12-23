@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCampaign`.
@@ -64,17 +64,17 @@ type CfnCampaignProps struct {
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// `AWS::IoTFleetWise::Campaign.CollectionScheme`.
 	CollectionScheme interface{} `field:"required" json:"collectionScheme" yaml:"collectionScheme"`
-	// The name of a campaign.
+	// `AWS::IoTFleetWise::Campaign.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ARN of the signal catalog associated with the campaign.
+	// `AWS::IoTFleetWise::Campaign.SignalCatalogArn`.
 	SignalCatalogArn *string `field:"required" json:"signalCatalogArn" yaml:"signalCatalogArn"`
-	// The ARN of a vehicle or fleet to which the campaign is deployed.
+	// `AWS::IoTFleetWise::Campaign.TargetArn`.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// `AWS::IoTFleetWise::Campaign.Compression`.
 	Compression *string `field:"optional" json:"compression" yaml:"compression"`
 	// `AWS::IoTFleetWise::Campaign.DataExtraDimensions`.
 	DataExtraDimensions *[]*string `field:"optional" json:"dataExtraDimensions" yaml:"dataExtraDimensions"`
-	// The description of the campaign.
+	// `AWS::IoTFleetWise::Campaign.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTFleetWise::Campaign.DiagnosticsMode`.
 	DiagnosticsMode *string `field:"optional" json:"diagnosticsMode" yaml:"diagnosticsMode"`

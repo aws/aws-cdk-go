@@ -5,13 +5,10 @@ import (
 )
 
 // A connection handler for client VPN endpoints.
-// Experimental.
 type IClientVpnConnectionHandler interface {
 	// The ARN of the function.
-	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
-	// Experimental.
 	FunctionName() *string
 }
 
