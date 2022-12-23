@@ -3,7 +3,7 @@ package awstransfer
 
 // The virtual private cloud (VPC) endpoint settings that are configured for your server.
 //
-// When you host your endpoint within your VPC, you can make it accessible only to resources within your VPC, or you can attach Elastic IP addresses and make it accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
+// When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

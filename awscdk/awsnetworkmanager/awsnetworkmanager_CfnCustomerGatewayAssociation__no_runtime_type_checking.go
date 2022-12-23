@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateAddDeletionOverridePar
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCustomerGatewayAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnCustomerGatewayAssociation) validateSetGlobalNetworkIdPara
 	return nil
 }
 
-func validateNewCfnCustomerGatewayAssociationParameters(scope constructs.Construct, id *string, props *CfnCustomerGatewayAssociationProps) error {
+func validateNewCfnCustomerGatewayAssociationParameters(scope awscdk.Construct, id *string, props *CfnCustomerGatewayAssociationProps) error {
 	return nil
 }
 

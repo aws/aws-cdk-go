@@ -95,14 +95,18 @@ package awsrds
 //   	},
 //   })
 //
+// Experimental.
 type LicenseModel string
 
 const (
 	// License included.
+	// Experimental.
 	LicenseModel_LICENSE_INCLUDED LicenseModel = "LICENSE_INCLUDED"
 	// Bring your own licencse.
+	// Experimental.
 	LicenseModel_BRING_YOUR_OWN_LICENSE LicenseModel = "BRING_YOUR_OWN_LICENSE"
 	// General public license.
+	// Experimental.
 	LicenseModel_GENERAL_PUBLIC_LICENSE LicenseModel = "GENERAL_PUBLIC_LICENSE"
 )
 

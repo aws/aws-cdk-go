@@ -1,7 +1,7 @@
 package awskendra
 
 
-// Provides information for manually tuning the relevance of a field in a search.
+// Provides information for tuning the relevance of a field in a search.
 //
 // When a query includes terms that match the field, the results are given a boost in the response based on these tuning parameters.
 //
@@ -46,9 +46,9 @@ type CfnIndex_RelevanceProperty struct {
 	//
 	// Only applies to `LONG` and `DOUBLE` fields.
 	RankOrder *string `field:"optional" json:"rankOrder" yaml:"rankOrder"`
-	// An array of key-value pairs that contains an array of values that should be given a different boost when they appear in the search result list.
+	// An array of key-value pairs for different boosts when they appear in the search result list.
 	//
-	// For example, if you are boosting query terms that match the department field in the result, query terms that match the department field are boosted in the result. You can add entries from the department field to boost documents with those values higher.
+	// For example, if you want to boost query terms that match the "department" field in the result, query terms that match this field are boosted in the result. You can add entries from the department field to boost documents with those values higher.
 	//
 	// For example, you can add entries to the map with names of departments. If you add "HR", 5 and "Legal",3 those departments are given special attention when they appear in the metadata of a document.
 	ValueImportanceItems interface{} `field:"optional" json:"valueImportanceItems" yaml:"valueImportanceItems"`

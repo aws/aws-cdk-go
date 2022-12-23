@@ -13,8 +13,10 @@ package awskms
 //   })
 //   myKeyLookup.grantEncryptDecrypt(role)
 //
+// Experimental.
 type KeyLookupOptions struct {
 	// The alias name of the Key.
+	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 }
 

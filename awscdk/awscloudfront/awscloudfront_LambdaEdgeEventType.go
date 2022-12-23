@@ -24,16 +24,21 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type LambdaEdgeEventType string
 
 const (
 	// The origin-request specifies the request to the origin location (e.g. S3).
+	// Experimental.
 	LambdaEdgeEventType_ORIGIN_REQUEST LambdaEdgeEventType = "ORIGIN_REQUEST"
 	// The origin-response specifies the response from the origin location (e.g. S3).
+	// Experimental.
 	LambdaEdgeEventType_ORIGIN_RESPONSE LambdaEdgeEventType = "ORIGIN_RESPONSE"
 	// The viewer-request specifies the incoming request.
+	// Experimental.
 	LambdaEdgeEventType_VIEWER_REQUEST LambdaEdgeEventType = "VIEWER_REQUEST"
 	// The viewer-response specifies the outgoing response.
+	// Experimental.
 	LambdaEdgeEventType_VIEWER_RESPONSE LambdaEdgeEventType = "VIEWER_RESPONSE"
 )
 

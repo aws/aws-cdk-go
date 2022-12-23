@@ -15,18 +15,23 @@ package awsecs
 //   	sourcePath: jsii.String("sourcePath"),
 //   }
 //
+// Experimental.
 type ScratchSpace struct {
 	// The path on the container to mount the scratch volume at.
+	// Experimental.
 	ContainerPath *string `field:"required" json:"containerPath" yaml:"containerPath"`
 	// The name of the scratch volume to mount.
 	//
 	// Must be a volume name referenced in the name parameter of task definition volume.
+	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies whether to give the container read-only access to the scratch volume.
 	//
 	// If this value is true, the container has read-only access to the scratch volume.
 	// If this value is false, then the container can write to the scratch volume.
+	// Experimental.
 	ReadOnly *bool `field:"required" json:"readOnly" yaml:"readOnly"`
+	// Experimental.
 	SourcePath *string `field:"required" json:"sourcePath" yaml:"sourcePath"`
 }
 

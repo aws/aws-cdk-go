@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnCustomActionType) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomActionType) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCustomActionType) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnCustomActionType) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomActionType) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCustomActionType) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomActionType) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCustomActionType) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnCustomActionType) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomActionType) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCustomActionType) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -108,7 +104,7 @@ func (j *jsiiProxy_CfnCustomActionType) validateSetVersionParameters(val *string
 	return nil
 }
 
-func validateNewCfnCustomActionTypeParameters(scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) error {
+func validateNewCfnCustomActionTypeParameters(scope awscdk.Construct, id *string, props *CfnCustomActionTypeProps) error {
 	return nil
 }
 

@@ -25,7 +25,9 @@ package awsdevopsguru
 //   }
 //
 type CfnNotificationChannel_NotificationChannelConfigProperty struct {
-	// `CfnNotificationChannel.NotificationChannelConfigProperty.Filters`.
+	// The filter configurations for the Amazon SNS notification topic you use with DevOps Guru.
+	//
+	// If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 	//

@@ -25,16 +25,9 @@ sqs.NewQueue(this, jsii.String("Queue"))
 
 ## Encryption
 
-By default queues are encrypted using SSE-SQS. If you want to change the encryption mode, set the `encryption` property.
-The following encryption modes are supported:
-
-* KMS key that SQS manages for you
-* KMS key that you can managed yourself
-* Server-side encryption managed by SQS (SSE-SQS)
-* Unencrypted
-
-To learn more about SSE-SQS on Amazon SQS, please visit the
-[Amazon SQS documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
+If you want to encrypt the queue contents, set the `encryption` property. You can have
+the messages encrypted with a key that SQS manages for you, or a key that you
+can manage yourself.
 
 ```go
 // Use managed key
@@ -49,30 +42,6 @@ myKey := kms.NewKey(this, jsii.String("Key"))
 sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
 	encryption: sqs.*queueEncryption_KMS,
 	encryptionMasterKey: myKey,
-})
-
-// Use SQS managed server side encryption (SSE-SQS)
-// Use SQS managed server side encryption (SSE-SQS)
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	encryption: sqs.*queueEncryption_SQS_MANAGED,
-})
-
-// Unencrypted queue
-// Unencrypted queue
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	encryption: sqs.*queueEncryption_UNENCRYPTED,
-})
-```
-
-## Encryption in transit
-
-If you want to enforce encryption of data in transit, set the `enforceSSL` property to `true`.
-A resource policy statement that allows only encrypted connections over HTTPS (TLS)
-will be added to the queue.
-
-```go
-sqs.NewQueue(this, jsii.String("Queue"), &queueProps{
-	enforceSSL: jsii.Boolean(true),
 })
 ```
 

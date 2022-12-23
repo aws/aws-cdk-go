@@ -1,6 +1,8 @@
 package awselasticache
 
 
+// Specifies the authentication mode to use.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,11 @@ package awselasticache
 //   }
 //
 type CfnUser_AuthenticationModeProperty struct {
-	// `CfnUser.AuthenticationModeProperty.Type`.
+	// Specifies the authentication type.
+	//
+	// Possible options are IAM authentication, password and no password.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnUser.AuthenticationModeProperty.Passwords`.
+	// Specifies the passwords to use for authentication if `Type` is set to `password` .
 	Passwords *[]*string `field:"optional" json:"passwords" yaml:"passwords"`
 }
 

@@ -1,6 +1,8 @@
 package awscloudfront
 
 
+// Contains the configuration for a continuous deployment policy.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,11 +36,15 @@ package awscloudfront
 //   }
 //
 type CfnContinuousDeploymentPolicy_ContinuousDeploymentPolicyConfigProperty struct {
-	// `CfnContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty.Enabled`.
+	// A Boolean that indicates whether this continuous deployment policy is enabled (in effect).
+	//
+	// When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// `CfnContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty.StagingDistributionDnsNames`.
+	// The CloudFront domain name of the staging distribution.
+	//
+	// For example: `d111111abcdef8.cloudfront.net` .
 	StagingDistributionDnsNames *[]*string `field:"required" json:"stagingDistributionDnsNames" yaml:"stagingDistributionDnsNames"`
-	// `CfnContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfigProperty.TrafficConfig`.
+	// Contains the parameters for routing production traffic from your primary to staging distributions.
 	TrafficConfig interface{} `field:"optional" json:"trafficConfig" yaml:"trafficConfig"`
 }
 

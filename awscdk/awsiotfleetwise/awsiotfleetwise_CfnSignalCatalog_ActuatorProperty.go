@@ -1,6 +1,12 @@
 package awsiotfleetwise
 
 
+// A signal that represents a vehicle device such as the engine, heater, and door locks.
+//
+// Data from an actuator reports the state of a certain vehicle device.
+//
+// > Updating actuator data can change the state of a device. For example, you can turn on or off the heater by updating its actuator data.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,21 +28,23 @@ package awsiotfleetwise
 //   }
 //
 type CfnSignalCatalog_ActuatorProperty struct {
-	// `CfnSignalCatalog.ActuatorProperty.DataType`.
+	// The specified data type of the actuator.
 	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
-	// `CfnSignalCatalog.ActuatorProperty.FullyQualifiedName`.
+	// The fully qualified name of the actuator.
+	//
+	// For example, the fully qualified name of an actuator might be `Vehicle.Front.Left.Door.Lock` .
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// `CfnSignalCatalog.ActuatorProperty.AllowedValues`.
+	// A list of possible values an actuator can take.
 	AllowedValues *[]*string `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// `CfnSignalCatalog.ActuatorProperty.AssignedValue`.
+	// A specified value for the actuator.
 	AssignedValue *string `field:"optional" json:"assignedValue" yaml:"assignedValue"`
-	// `CfnSignalCatalog.ActuatorProperty.Description`.
+	// A brief description of the actuator.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnSignalCatalog.ActuatorProperty.Max`.
+	// The specified possible maximum value of an actuator.
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
-	// `CfnSignalCatalog.ActuatorProperty.Min`.
+	// The specified possible minimum value of an actuator.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
-	// `CfnSignalCatalog.ActuatorProperty.Unit`.
+	// The scientific unit for the actuator.
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

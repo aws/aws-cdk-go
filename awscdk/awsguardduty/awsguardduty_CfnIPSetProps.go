@@ -1,7 +1,7 @@
 package awsguardduty
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnIPSet`.
@@ -40,7 +40,11 @@ type CfnIPSetProps struct {
 	//
 	// Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::GuardDuty::IPSet.Tags`.
+	// The tags to be added to a new IP set resource.
+	//
+	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

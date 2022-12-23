@@ -1,6 +1,10 @@
 package awsconnect
 
 
+// *This is a preview release for Amazon Connect .
+//
+// It is subject to change.*
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

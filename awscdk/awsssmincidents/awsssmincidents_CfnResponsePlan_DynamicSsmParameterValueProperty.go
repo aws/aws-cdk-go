@@ -1,6 +1,8 @@
 package awsssmincidents
 
 
+// The dynamic parameter value.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,9 @@ package awsssmincidents
 //   }
 //
 type CfnResponsePlan_DynamicSsmParameterValueProperty struct {
-	// `CfnResponsePlan.DynamicSsmParameterValueProperty.Variable`.
+	// Variable dynamic parameters.
+	//
+	// A parameter value is determined when an incident is created.
 	Variable *string `field:"optional" json:"variable" yaml:"variable"`
 }
 

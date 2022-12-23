@@ -1,6 +1,8 @@
 package awslakeformation
 
 
+// A structure for the resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -70,21 +72,29 @@ package awslakeformation
 //   }
 //
 type CfnPrincipalPermissions_ResourceProperty struct {
-	// `CfnPrincipalPermissions.ResourceProperty.Catalog`.
+	// The identifier for the Data Catalog.
+	//
+	// By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
 	Catalog interface{} `field:"optional" json:"catalog" yaml:"catalog"`
-	// `CfnPrincipalPermissions.ResourceProperty.Database`.
+	// The database for the resource.
+	//
+	// Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
 	Database interface{} `field:"optional" json:"database" yaml:"database"`
-	// `CfnPrincipalPermissions.ResourceProperty.DataCellsFilter`.
+	// A data cell filter.
 	DataCellsFilter interface{} `field:"optional" json:"dataCellsFilter" yaml:"dataCellsFilter"`
-	// `CfnPrincipalPermissions.ResourceProperty.DataLocation`.
+	// The location of an Amazon S3 path where permissions are granted or revoked.
 	DataLocation interface{} `field:"optional" json:"dataLocation" yaml:"dataLocation"`
-	// `CfnPrincipalPermissions.ResourceProperty.LFTag`.
+	// The LF-tag key and values attached to a resource.
 	LfTag interface{} `field:"optional" json:"lfTag" yaml:"lfTag"`
-	// `CfnPrincipalPermissions.ResourceProperty.LFTagPolicy`.
+	// A list of LF-tag conditions that define a resource's LF-tag policy.
 	LfTagPolicy interface{} `field:"optional" json:"lfTagPolicy" yaml:"lfTagPolicy"`
-	// `CfnPrincipalPermissions.ResourceProperty.Table`.
+	// The table for the resource.
+	//
+	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 	Table interface{} `field:"optional" json:"table" yaml:"table"`
-	// `CfnPrincipalPermissions.ResourceProperty.TableWithColumns`.
+	// The table with columns for the resource.
+	//
+	// A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 	TableWithColumns interface{} `field:"optional" json:"tableWithColumns" yaml:"tableWithColumns"`
 }
 

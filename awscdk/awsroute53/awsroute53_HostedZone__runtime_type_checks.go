@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (h *jsiiProxy_HostedZone) validateAddVpcParameters(vpc awsec2.IVpc) error {
@@ -46,6 +46,22 @@ func (h *jsiiProxy_HostedZone) validateGetResourceArnAttributeParameters(arnAttr
 func (h *jsiiProxy_HostedZone) validateGetResourceNameAttributeParameters(nameAttr *string) error {
 	if nameAttr == nil {
 		return fmt.Errorf("parameter nameAttr is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (h *jsiiProxy_HostedZone) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (h *jsiiProxy_HostedZone) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -113,15 +129,7 @@ func validateHostedZone_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateHostedZone_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateHostedZone_IsResourceParameters(construct constructs.IConstruct) error {
+func validateHostedZone_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

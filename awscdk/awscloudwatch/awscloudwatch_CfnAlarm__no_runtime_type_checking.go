@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnAlarm) validateAddDeletionOverrideParameters(path *string)
 	return nil
 }
 
-func (c *jsiiProxy_CfnAlarm) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAlarm) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnAlarm) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
-func (c *jsiiProxy_CfnAlarm) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAlarm) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAlarm) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAlarm) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnAlarm) validateRenderPropertiesParameters(props *map[strin
 	return nil
 }
 
-func (c *jsiiProxy_CfnAlarm) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAlarm) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnAlarm) validateSetMetricsParameters(val interface{}) error
 	return nil
 }
 
-func validateNewCfnAlarmParameters(scope constructs.Construct, id *string, props *CfnAlarmProps) error {
+func validateNewCfnAlarmParameters(scope awscdk.Construct, id *string, props *CfnAlarmProps) error {
 	return nil
 }
 

@@ -78,7 +78,7 @@ type CfnEventSourceMappingProps struct {
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
-	// `AWS::Lambda::EventSourceMapping.AmazonManagedKafkaEventSourceConfig`.
+	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 	AmazonManagedKafkaEventSourceConfig interface{} `field:"optional" json:"amazonManagedKafkaEventSourceConfig" yaml:"amazonManagedKafkaEventSourceConfig"`
 	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function.
 	//
@@ -88,7 +88,7 @@ type CfnEventSourceMappingProps struct {
 	// - *Amazon DynamoDB Streams* - Default 100. Max 10,000.
 	// - *Amazon Simple Queue Service* - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
 	// - *Amazon Managed Streaming for Apache Kafka* - Default 100. Max 10,000.
-	// - *Self-Managed Apache Kafka* - Default 100. Max 10,000.
+	// - *Self-managed Apache Kafka* - Default 100. Max 10,000.
 	// - *Amazon MQ (ActiveMQ and RabbitMQ)* - Default 100. Max 10,000.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// (Streams only) If the function returns an error, split the batch in two and retry.
@@ -107,8 +107,9 @@ type CfnEventSourceMappingProps struct {
 	// - *Amazon DynamoDB Streams* - The ARN of the stream.
 	// - *Amazon Simple Queue Service* - The ARN of the queue.
 	// - *Amazon Managed Streaming for Apache Kafka* - The ARN of the cluster.
+	// - *Amazon MQ* - The ARN of the broker.
 	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
-	// (Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event.
+	// An object that defines the filter criteria that determine whether Lambda should process an event.
 	//
 	// For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) .
 	FilterCriteria interface{} `field:"optional" json:"filterCriteria" yaml:"filterCriteria"`
@@ -120,7 +121,9 @@ type CfnEventSourceMappingProps struct {
 	//
 	// *Default ( Kinesis , DynamoDB , Amazon SQS event sources)* : 0
 	//
-	// *Default ( Amazon MSK , Kafka, Amazon MQ event sources)* : 500 ms.
+	// *Default ( Amazon MSK , Kafka, Amazon MQ event sources)* : 500 ms
+	//
+	// *Related setting:* When you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
 	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
 	// (Streams only) Discard records older than the specified age.
 	//
@@ -142,7 +145,7 @@ type CfnEventSourceMappingProps struct {
 	ScalingConfig interface{} `field:"optional" json:"scalingConfig" yaml:"scalingConfig"`
 	// The self-managed Apache Kafka cluster for your event source.
 	SelfManagedEventSource interface{} `field:"optional" json:"selfManagedEventSource" yaml:"selfManagedEventSource"`
-	// `AWS::Lambda::EventSourceMapping.SelfManagedKafkaEventSourceConfig`.
+	// Specific configuration settings for a self-managed Apache Kafka event source.
 	SelfManagedKafkaEventSourceConfig interface{} `field:"optional" json:"selfManagedKafkaEventSourceConfig" yaml:"selfManagedKafkaEventSourceConfig"`
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations interface{} `field:"optional" json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
@@ -158,7 +161,7 @@ type CfnEventSourceMappingProps struct {
 	Topics *[]*string `field:"optional" json:"topics" yaml:"topics"`
 	// (Streams only) The duration in seconds of a processing window.
 	//
-	// The range is between 1 second up to 900 seconds.
+	// The range is between 1 second and 900 seconds.
 	TumblingWindowInSeconds *float64 `field:"optional" json:"tumblingWindowInSeconds" yaml:"tumblingWindowInSeconds"`
 }
 

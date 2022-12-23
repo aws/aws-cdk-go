@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDeletionOverrideParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnModelBiasJobDefinition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelBiasJobDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -112,7 +108,7 @@ func (j *jsiiProxy_CfnModelBiasJobDefinition) validateSetStoppingConditionParame
 	return nil
 }
 
-func validateNewCfnModelBiasJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
+func validateNewCfnModelBiasJobDefinitionParameters(scope awscdk.Construct, id *string, props *CfnModelBiasJobDefinitionProps) error {
 	return nil
 }
 

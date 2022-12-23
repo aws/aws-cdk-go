@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnTransitGatewayVpcAttachment`.
@@ -47,11 +47,11 @@ type CfnTransitGatewayVpcAttachmentProps struct {
 	//
 	// You can specify at most one subnet per Availability Zone.
 	AddSubnetIds *[]*string `field:"optional" json:"addSubnetIds" yaml:"addSubnetIds"`
-	// The VPC attachment options in JSON or YAML.
+	// The VPC attachment options, in JSON or YAML.
 	//
-	// - DnsSupport (enable | disable)
-	// - Ipv6Support (enable| disable)
-	// - ApplianceModeSupport (enable | disable).
+	// - `ApplianceModeSupport` - Set to `enable` or `disable` . The default is `disable` .
+	// - `DnsSupport` - Set to `enable` or `disable` . The default is `enable` .
+	// - `Ipv6Support` - Set to `enable` or `disable` . The default is `disable` .
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The IDs of one or more subnets to remove.
 	RemoveSubnetIds *[]*string `field:"optional" json:"removeSubnetIds" yaml:"removeSubnetIds"`

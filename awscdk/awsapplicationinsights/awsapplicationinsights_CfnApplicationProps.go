@@ -1,7 +1,7 @@
 package awsapplicationinsights
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnApplication`.
@@ -253,7 +253,9 @@ type CfnApplicationProps struct {
 	CustomComponents interface{} `field:"optional" json:"customComponents" yaml:"customComponents"`
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
 	CweMonitorEnabled interface{} `field:"optional" json:"cweMonitorEnabled" yaml:"cweMonitorEnabled"`
-	// `AWS::ApplicationInsights::Application.GroupingType`.
+	// Application Insights can create applications based on a resource group or on an account.
+	//
+	// To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED` .
 	GroupingType *string `field:"optional" json:"groupingType" yaml:"groupingType"`
 	// The log pattern sets.
 	LogPatternSets interface{} `field:"optional" json:"logPatternSets" yaml:"logPatternSets"`

@@ -16,6 +16,14 @@ func (s *jsiiProxy_SigningProfile) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func (s *jsiiProxy_SigningProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SigningProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateSigningProfile_FromSigningProfileAttributesParameters(scope constructs.Construct, id *string, attrs *SigningProfileAttributes) error {
 	return nil
 }
@@ -24,11 +32,7 @@ func validateSigningProfile_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSigningProfile_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSigningProfile_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSigningProfile_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

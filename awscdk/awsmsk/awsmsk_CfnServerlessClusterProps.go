@@ -37,13 +37,13 @@ package awsmsk
 //   }
 //
 type CfnServerlessClusterProps struct {
-	// `AWS::MSK::ServerlessCluster.ClientAuthentication`.
+	// Specifies client authentication information for the serverless cluster.
 	ClientAuthentication interface{} `field:"required" json:"clientAuthentication" yaml:"clientAuthentication"`
-	// `AWS::MSK::ServerlessCluster.ClusterName`.
+	// The name of the serverless cluster.
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
-	// `AWS::MSK::ServerlessCluster.VpcConfigs`.
+	// VPC configuration information.
 	VpcConfigs interface{} `field:"required" json:"vpcConfigs" yaml:"vpcConfigs"`
-	// `AWS::MSK::ServerlessCluster.Tags`.
+	// A map of key:value pairs to apply to this serverless cluster.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

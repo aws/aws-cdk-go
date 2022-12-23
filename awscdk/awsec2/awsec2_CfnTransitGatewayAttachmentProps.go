@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnTransitGatewayAttachment`.
@@ -39,7 +39,11 @@ type CfnTransitGatewayAttachmentProps struct {
 	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// `AWS::EC2::TransitGatewayAttachment.Options`.
+	// The VPC attachment options, in JSON or YAML.
+	//
+	// - `ApplianceModeSupport` - Set to `enable` or `disable` . The default is `disable` .
+	// - `DnsSupport` - Set to `enable` or `disable` . The default is `enable` .
+	// - `Ipv6Support` - Set to `enable` or `disable` . The default is `disable` .
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The tags for the attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

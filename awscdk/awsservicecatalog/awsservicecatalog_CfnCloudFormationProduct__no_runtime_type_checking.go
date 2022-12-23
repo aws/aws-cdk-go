@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnCloudFormationProduct) validateAddDeletionOverrideParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFormationProduct) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCloudFormationProduct) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnCloudFormationProduct) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFormationProduct) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCloudFormationProduct) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFormationProduct) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCloudFormationProduct) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnCloudFormationProduct) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnCloudFormationProduct) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCloudFormationProduct) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnCloudFormationProduct) validateSetReplaceProvisioningArtif
 	return nil
 }
 
-func validateNewCfnCloudFormationProductParameters(scope constructs.Construct, id *string, props *CfnCloudFormationProductProps) error {
+func validateNewCfnCloudFormationProductParameters(scope awscdk.Construct, id *string, props *CfnCloudFormationProductProps) error {
 	return nil
 }
 

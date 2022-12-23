@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // The properties used to define an ECS cluster.
@@ -45,20 +45,31 @@ import (
 //   	launchTarget: tasks.NewEcsFargateLaunchTarget(),
 //   })
 //
+// Experimental.
 type ClusterProps struct {
 	// The ec2 capacity to add to the cluster.
+	// Experimental.
 	Capacity *AddCapacityOptions `field:"optional" json:"capacity" yaml:"capacity"`
+	// The capacity providers to add to the cluster.
+	// Deprecated: Use {@link ClusterProps.enableFargateCapacityProviders} instead.
+	CapacityProviders *[]*string `field:"optional" json:"capacityProviders" yaml:"capacityProviders"`
 	// The name for the cluster.
+	// Experimental.
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
 	// If true CloudWatch Container Insights will be enabled for the cluster.
+	// Experimental.
 	ContainerInsights *bool `field:"optional" json:"containerInsights" yaml:"containerInsights"`
 	// The service discovery namespace created in this cluster.
+	// Experimental.
 	DefaultCloudMapNamespace *CloudMapNamespaceOptions `field:"optional" json:"defaultCloudMapNamespace" yaml:"defaultCloudMapNamespace"`
 	// Whether to enable Fargate Capacity Providers.
+	// Experimental.
 	EnableFargateCapacityProviders *bool `field:"optional" json:"enableFargateCapacityProviders" yaml:"enableFargateCapacityProviders"`
 	// The execute command configuration for the cluster.
+	// Experimental.
 	ExecuteCommandConfiguration *ExecuteCommandConfiguration `field:"optional" json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
 	// The VPC where your ECS instances will be running or your ENIs will be deployed.
+	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

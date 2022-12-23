@@ -23,7 +23,7 @@ type CfnFunction_CodeProperty struct {
 	ImageUri *string `field:"optional" json:"imageUri" yaml:"imageUri"`
 	// An Amazon S3 bucket in the same AWS Region as your function.
 	//
-	// The bucket can be in a different AWS account.
+	// The bucket can be in a different AWS account .
 	S3Bucket *string `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
 	S3Key *string `field:"optional" json:"s3Key" yaml:"s3Key"`

@@ -5,15 +5,20 @@ import (
 )
 
 // Interface for classes that provide the peer-specification parts of a security group rule.
+// Experimental.
 type IPeer interface {
 	IConnectable
 	// Produce the egress rule JSON for the given connection.
+	// Experimental.
 	ToEgressRuleConfig() interface{}
 	// Produce the ingress rule JSON for the given connection.
+	// Experimental.
 	ToIngressRuleConfig() interface{}
 	// Whether the rule can be inlined into a SecurityGroup or not.
+	// Experimental.
 	CanInlineRule() *bool
 	// A unique identifier for this connection peer.
+	// Experimental.
 	UniqueId() *string
 }
 

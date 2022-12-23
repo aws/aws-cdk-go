@@ -13,10 +13,13 @@ package awscognito
 //   	min: jsii.Number(123),
 //   }
 //
+// Experimental.
 type NumberAttributeConstraints struct {
 	// Maximum value of this attribute.
+	// Experimental.
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// Minimum value of this attribute.
+	// Experimental.
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 

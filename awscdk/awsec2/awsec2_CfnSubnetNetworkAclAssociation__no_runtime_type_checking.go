@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateAddDeletionOverridePa
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateInspectParameters(ins
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateRenderPropertiesParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnSubnetNetworkAclAssociation) validateSetSubnetIdParameters
 	return nil
 }
 
-func validateNewCfnSubnetNetworkAclAssociationParameters(scope constructs.Construct, id *string, props *CfnSubnetNetworkAclAssociationProps) error {
+func validateNewCfnSubnetNetworkAclAssociationParameters(scope awscdk.Construct, id *string, props *CfnSubnetNetworkAclAssociationProps) error {
 	return nil
 }
 

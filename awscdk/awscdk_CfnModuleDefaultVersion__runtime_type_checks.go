@@ -1,6 +1,6 @@
 //go:build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -8,20 +8,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CfnModuleDefaultVersion) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateAddDependencyParameters(target CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -111,17 +103,17 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateRemoveDependencyParameters(target CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
@@ -135,13 +127,9 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
-	if target == nil {
-		return fmt.Errorf("parameter target is required, but nil was provided")
-	}
-
-	if newTarget == nil {
-		return fmt.Errorf("parameter newTarget is required, but nil was provided")
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateSynthesizeParameters(session ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil
@@ -179,7 +167,7 @@ func validateCfnModuleDefaultVersion_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateNewCfnModuleDefaultVersionParameters(scope constructs.Construct, id *string, props *CfnModuleDefaultVersionProps) error {
+func validateNewCfnModuleDefaultVersionParameters(scope Construct, id *string, props *CfnModuleDefaultVersionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

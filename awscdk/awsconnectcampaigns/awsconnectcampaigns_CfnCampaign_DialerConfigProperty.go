@@ -1,6 +1,8 @@
 package awsconnectcampaigns
 
 
+// Contains dialer configuration for an outbound campaign.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,9 @@ package awsconnectcampaigns
 //   }
 //
 type CfnCampaign_DialerConfigProperty struct {
-	// `CfnCampaign.DialerConfigProperty.PredictiveDialerConfig`.
+	// The configuration of the predictive dialer.
 	PredictiveDialerConfig interface{} `field:"optional" json:"predictiveDialerConfig" yaml:"predictiveDialerConfig"`
-	// `CfnCampaign.DialerConfigProperty.ProgressiveDialerConfig`.
+	// The configuration of the progressive dialer.
 	ProgressiveDialerConfig interface{} `field:"optional" json:"progressiveDialerConfig" yaml:"progressiveDialerConfig"`
 }
 

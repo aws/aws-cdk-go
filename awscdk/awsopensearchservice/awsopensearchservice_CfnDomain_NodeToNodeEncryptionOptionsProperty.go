@@ -14,6 +14,8 @@ package awsopensearchservice
 //
 type CfnDomain_NodeToNodeEncryptionOptionsProperty struct {
 	// Specifies to enable or disable node-to-node encryption on the domain.
+	//
+	// Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

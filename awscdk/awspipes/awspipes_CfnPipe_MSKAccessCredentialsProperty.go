@@ -1,6 +1,8 @@
 package awspipes
 
 
+// The AWS Secrets Manager secret that stores your stream credentials.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awspipes
 //   }
 //
 type CfnPipe_MSKAccessCredentialsProperty struct {
-	// `CfnPipe.MSKAccessCredentialsProperty.ClientCertificateTlsAuth`.
+	// The ARN of the Secrets Manager secret.
 	ClientCertificateTlsAuth *string `field:"optional" json:"clientCertificateTlsAuth" yaml:"clientCertificateTlsAuth"`
-	// `CfnPipe.MSKAccessCredentialsProperty.SaslScram512Auth`.
+	// The ARN of the Secrets Manager secret.
 	SaslScram512Auth *string `field:"optional" json:"saslScram512Auth" yaml:"saslScram512Auth"`
 }
 

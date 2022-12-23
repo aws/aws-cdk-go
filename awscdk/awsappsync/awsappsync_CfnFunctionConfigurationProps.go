@@ -45,9 +45,11 @@ type CfnFunctionConfigurationProps struct {
 	DataSourceName *string `field:"required" json:"dataSourceName" yaml:"dataSourceName"`
 	// The name of the function.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::AppSync::FunctionConfiguration.Code`.
+	// The `resolver` code that contains the request and response functions.
+	//
+	// When code is used, the `runtime` is required. The runtime value must be `APPSYNC_JS` .
 	Code *string `field:"optional" json:"code" yaml:"code"`
-	// `AWS::AppSync::FunctionConfiguration.CodeS3Location`.
+	// The Amazon S3 endpoint.
 	CodeS3Location *string `field:"optional" json:"codeS3Location" yaml:"codeS3Location"`
 	// The `Function` description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -71,7 +73,9 @@ type CfnFunctionConfigurationProps struct {
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	ResponseMappingTemplateS3Location *string `field:"optional" json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
-	// `AWS::AppSync::FunctionConfiguration.Runtime`.
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function.
+	//
+	// Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 	Runtime interface{} `field:"optional" json:"runtime" yaml:"runtime"`
 	// Describes a Sync configuration for a resolver.
 	//

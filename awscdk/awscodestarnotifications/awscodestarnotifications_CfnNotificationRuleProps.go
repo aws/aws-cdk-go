@@ -39,7 +39,7 @@ type CfnNotificationRuleProps struct {
 	DetailType *string `field:"required" json:"detailType" yaml:"detailType"`
 	// A list of event types associated with this notification rule.
 	//
-	// For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+	// For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
 	EventTypeIds *[]*string `field:"required" json:"eventTypeIds" yaml:"eventTypeIds"`
 	// The name for the notification rule.
 	//
@@ -49,7 +49,7 @@ type CfnNotificationRuleProps struct {
 	//
 	// Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
 	Resource *string `field:"required" json:"resource" yaml:"resource"`
-	// A list of Amazon Resource Names (ARNs) of AWS Chatbot topics and AWS Chatbot clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and AWS Chatbot clients to associate with the notification rule.
 	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
 	// `AWS::CodeStarNotifications::NotificationRule.CreatedBy`.
 	CreatedBy *string `field:"optional" json:"createdBy" yaml:"createdBy"`

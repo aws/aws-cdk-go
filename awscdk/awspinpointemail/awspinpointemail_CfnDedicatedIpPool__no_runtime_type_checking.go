@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDedicatedIpPool) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnDedicatedIpPool) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDedicatedIpPool) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDedicatedIpPool) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnDedicatedIpPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDedicatedIpPool) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDedicatedIpPool) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDedicatedIpPool) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDedicatedIpPool) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnDedicatedIpPool) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDedicatedIpPool) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnDedicatedIpPool) validateSetTagsParameters(val *[]*CfnDedi
 	return nil
 }
 
-func validateNewCfnDedicatedIpPoolParameters(scope constructs.Construct, id *string, props *CfnDedicatedIpPoolProps) error {
+func validateNewCfnDedicatedIpPoolParameters(scope awscdk.Construct, id *string, props *CfnDedicatedIpPoolProps) error {
 	return nil
 }
 

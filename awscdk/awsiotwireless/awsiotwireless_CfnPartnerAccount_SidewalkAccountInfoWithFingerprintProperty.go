@@ -1,6 +1,8 @@
 package awsiotwireless
 
 
+// Information about a Sidewalk account.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,11 @@ package awsiotwireless
 //   }
 //
 type CfnPartnerAccount_SidewalkAccountInfoWithFingerprintProperty struct {
-	// `CfnPartnerAccount.SidewalkAccountInfoWithFingerprintProperty.AmazonId`.
+	// The Sidewalk Amazon ID.
 	AmazonId *string `field:"optional" json:"amazonId" yaml:"amazonId"`
-	// `CfnPartnerAccount.SidewalkAccountInfoWithFingerprintProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the resource.
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// `CfnPartnerAccount.SidewalkAccountInfoWithFingerprintProperty.Fingerprint`.
+	// The fingerprint of the Sidewalk application server private key.
 	Fingerprint *string `field:"optional" json:"fingerprint" yaml:"fingerprint"`
 }
 

@@ -3,7 +3,7 @@ package awswafv2
 
 // Custom request handling behavior that inserts custom headers into a web request.
 //
-// You can add custom request handling for the rule actions allow and count.
+// You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //

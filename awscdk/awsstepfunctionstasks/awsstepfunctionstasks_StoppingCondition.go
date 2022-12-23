@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Specifies a limit to how long a model training job can run.
@@ -40,8 +40,10 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type StoppingCondition struct {
 	// The maximum length of time, in seconds, that the training or compilation job can run.
+	// Experimental.
 	MaxRuntime awscdk.Duration `field:"optional" json:"maxRuntime" yaml:"maxRuntime"`
 }
 

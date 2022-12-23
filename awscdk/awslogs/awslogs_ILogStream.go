@@ -3,13 +3,15 @@ package awslogs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs/internal"
 )
 
+// Experimental.
 type ILogStream interface {
 	awscdk.IResource
 	// The name of this log stream.
+	// Experimental.
 	LogStreamName() *string
 }
 

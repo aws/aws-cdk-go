@@ -1,6 +1,8 @@
 package awsm2
 
 
+// Defines the storage configuration for an Amazon EFS file system.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsm2
 //   }
 //
 type CfnEnvironment_EfsStorageConfigurationProperty struct {
-	// `CfnEnvironment.EfsStorageConfigurationProperty.FileSystemId`.
+	// The file system identifier.
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
-	// `CfnEnvironment.EfsStorageConfigurationProperty.MountPoint`.
+	// The mount point for the file system.
 	MountPoint *string `field:"required" json:"mountPoint" yaml:"mountPoint"`
 }
 

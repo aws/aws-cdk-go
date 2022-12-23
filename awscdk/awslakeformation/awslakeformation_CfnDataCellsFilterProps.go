@@ -32,19 +32,31 @@ package awslakeformation
 //   }
 //
 type CfnDataCellsFilterProps struct {
-	// `AWS::LakeFormation::DataCellsFilter.DatabaseName`.
+	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// A database in the Data Catalog .
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
-	// `AWS::LakeFormation::DataCellsFilter.Name`.
+	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// The name given by the user to the data filter cell.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::LakeFormation::DataCellsFilter.TableCatalogId`.
+	// Catalog id string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// The ID of the catalog to which the table belongs.
 	TableCatalogId *string `field:"required" json:"tableCatalogId" yaml:"tableCatalogId"`
-	// `AWS::LakeFormation::DataCellsFilter.TableName`.
+	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// A table in the database.
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
-	// `AWS::LakeFormation::DataCellsFilter.ColumnNames`.
+	// An array of UTF-8 strings.
+	//
+	// A list of column names.
 	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
-	// `AWS::LakeFormation::DataCellsFilter.ColumnWildcard`.
+	// A wildcard with exclusions.
+	//
+	// You must specify either a `ColumnNames` list or the `ColumnWildCard` .
 	ColumnWildcard interface{} `field:"optional" json:"columnWildcard" yaml:"columnWildcard"`
-	// `AWS::LakeFormation::DataCellsFilter.RowFilter`.
+	// A PartiQL predicate.
 	RowFilter interface{} `field:"optional" json:"rowFilter" yaml:"rowFilter"`
 }
 

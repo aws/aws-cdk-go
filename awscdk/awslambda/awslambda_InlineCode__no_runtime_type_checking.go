@@ -4,11 +4,23 @@ package awslambda
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_InlineCode) validateBindParameters(_scope constructs.Construct) error {
+func (i *jsiiProxy_InlineCode) validateBindParameters(_scope awscdk.Construct) error {
 	return nil
 }
 
 func (i *jsiiProxy_InlineCode) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *ResourceBindOptions) error {
+	return nil
+}
+
+func validateInlineCode_AssetParameters(path *string) error {
+	return nil
+}
+
+func validateInlineCode_BucketParameters(bucket awss3.IBucket, key *string) error {
+	return nil
+}
+
+func validateInlineCode_CfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }
 
@@ -37,6 +49,10 @@ func validateInlineCode_FromEcrImageParameters(repository awsecr.IRepository, pr
 }
 
 func validateInlineCode_FromInlineParameters(code *string) error {
+	return nil
+}
+
+func validateInlineCode_InlineParameters(code *string) error {
 	return nil
 }
 

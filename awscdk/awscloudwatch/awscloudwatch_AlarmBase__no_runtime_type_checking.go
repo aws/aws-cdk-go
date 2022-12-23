@@ -16,15 +16,19 @@ func (a *jsiiProxy_AlarmBase) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
+func (a *jsiiProxy_AlarmBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AlarmBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAlarmBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAlarmBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAlarmBase_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAlarmBase_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

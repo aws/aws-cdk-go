@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,12 +16,16 @@ import (
 //
 //   endpoint := awscdk.Aws_rds.NewEndpoint(jsii.String("address"), jsii.Number(123))
 //
+// Experimental.
 type Endpoint interface {
 	// The hostname of the endpoint.
+	// Experimental.
 	Hostname() *string
 	// The port of the endpoint.
+	// Experimental.
 	Port() *float64
 	// The combination of "HOSTNAME:PORT" for this endpoint.
+	// Experimental.
 	SocketAddress() *string
 }
 
@@ -61,6 +65,7 @@ func (j *jsiiProxy_Endpoint) SocketAddress() *string {
 }
 
 
+// Experimental.
 func NewEndpoint(address *string, port *float64) Endpoint {
 	_init_.Initialize()
 
@@ -70,7 +75,7 @@ func NewEndpoint(address *string, port *float64) Endpoint {
 	j := jsiiProxy_Endpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Endpoint",
+		"monocdk.aws_rds.Endpoint",
 		[]interface{}{address, port},
 		&j,
 	)
@@ -78,11 +83,12 @@ func NewEndpoint(address *string, port *float64) Endpoint {
 	return &j
 }
 
+// Experimental.
 func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Endpoint",
+		"monocdk.aws_rds.Endpoint",
 		[]interface{}{address, port},
 		e,
 	)

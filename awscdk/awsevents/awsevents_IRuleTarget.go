@@ -5,10 +5,12 @@ import (
 )
 
 // An abstract target for EventRules.
+// Experimental.
 type IRuleTarget interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
+	// Experimental.
 	Bind(rule IRule, id *string) *RuleTargetConfig
 }
 

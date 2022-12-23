@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnCustomerGateway) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGateway) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnCustomerGateway) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnCustomerGateway) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCustomerGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGateway) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCustomerGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnCustomerGateway) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomerGateway) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnCustomerGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnCustomerGateway) validateSetTypeParameters(val *string) er
 	return nil
 }
 
-func validateNewCfnCustomerGatewayParameters(scope constructs.Construct, id *string, props *CfnCustomerGatewayProps) error {
+func validateNewCfnCustomerGatewayParameters(scope awscdk.Construct, id *string, props *CfnCustomerGatewayProps) error {
 	return nil
 }
 

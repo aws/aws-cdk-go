@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnModelPackageGroup) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelPackageGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnModelPackageGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnModelPackageGroup) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelPackageGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnModelPackageGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelPackageGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnModelPackageGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnModelPackageGroup) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelPackageGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnModelPackageGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnModelPackageGroup) validateSetModelPackageGroupPolicyParam
 	return nil
 }
 
-func validateNewCfnModelPackageGroupParameters(scope constructs.Construct, id *string, props *CfnModelPackageGroupProps) error {
+func validateNewCfnModelPackageGroupParameters(scope awscdk.Construct, id *string, props *CfnModelPackageGroupProps) error {
 	return nil
 }
 

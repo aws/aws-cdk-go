@@ -27,7 +27,6 @@ package awsapigateway
 //   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 //
 //   	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
-//   		cloudWatchRole: jsii.Boolean(true),
 //   		deploy: jsii.Boolean(false),
 //   	})
 //   	restApi.root.addMethod(jsii.String("ANY"))
@@ -163,12 +162,13 @@ package awsapigateway
 //
 //   NewRootStack(awscdk.NewApp())
 //
+// Experimental.
 type RestApiAttributes struct {
 	// The ID of the API Gateway RestApi.
+	// Experimental.
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The resource ID of the root resource.
+	// Experimental.
 	RootResourceId *string `field:"required" json:"rootResourceId" yaml:"rootResourceId"`
-	// The name of the API Gateway RestApi.
-	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 }
 

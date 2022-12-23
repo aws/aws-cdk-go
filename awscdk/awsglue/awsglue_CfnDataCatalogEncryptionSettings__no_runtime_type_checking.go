@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddDeletionOverride
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateInspectParameters(i
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateRenderPropertiesPar
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnDataCatalogEncryptionSettings) validateSetDataCatalogEncry
 	return nil
 }
 
-func validateNewCfnDataCatalogEncryptionSettingsParameters(scope constructs.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) error {
+func validateNewCfnDataCatalogEncryptionSettingsParameters(scope awscdk.Construct, id *string, props *CfnDataCatalogEncryptionSettingsProps) error {
 	return nil
 }
 

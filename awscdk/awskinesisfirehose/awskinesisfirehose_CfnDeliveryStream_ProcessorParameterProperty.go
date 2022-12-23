@@ -16,7 +16,7 @@ package awskinesisfirehose
 type CfnDeliveryStream_ProcessorParameterProperty struct {
 	// The name of the parameter.
 	//
-	// Currently the following default values are supported: 3 for `NumberOfRetries` , 60 for the `BufferIntervalInSeconds` , and 3 for the `BufferSizeInMBs` .
+	// Currently the following default values are supported: 3 for `NumberOfRetries` and 60 for the `BufferIntervalInSeconds` . The `BufferSizeInMBs` ranges between 0.2 MB and up to 3MB. The default buffering hint is 1MB for all destinations, except Splunk. For Splunk, the default buffering hint is 256 KB.
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The parameter value.
 	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`

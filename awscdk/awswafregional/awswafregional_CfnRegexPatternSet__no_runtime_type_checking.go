@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnRegexPatternSet) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegexPatternSet) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRegexPatternSet) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnRegexPatternSet) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegexPatternSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRegexPatternSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegexPatternSet) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRegexPatternSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnRegexPatternSet) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegexPatternSet) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRegexPatternSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnRegexPatternSet) validateSetRegexPatternStringsParameters(
 	return nil
 }
 
-func validateNewCfnRegexPatternSetParameters(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) error {
+func validateNewCfnRegexPatternSetParameters(scope awscdk.Construct, id *string, props *CfnRegexPatternSetProps) error {
 	return nil
 }
 

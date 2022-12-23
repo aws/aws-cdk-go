@@ -48,15 +48,19 @@ func (r *jsiiProxy_RepositoryBase) validateOnImageScanCompletedParameters(id *st
 	return nil
 }
 
+func (r *jsiiProxy_RepositoryBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_RepositoryBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateRepositoryBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRepositoryBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateRepositoryBase_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRepositoryBase_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

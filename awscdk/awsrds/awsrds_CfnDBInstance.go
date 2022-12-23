@@ -1,23 +1,25 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::RDS::DBInstance`.
 //
-// The `AWS::RDS::DBInstance` resource creates an Amazon RDS DB instance.
+// The `AWS::RDS::DBInstance` resource creates an Amazon DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.
+//
+// For more information about creating an RDS DB instance, see [Creating an Amazon RDS DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html) in the *Amazon RDS User Guide* .
+//
+// For more information about creating a DB instance in an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide* .
 //
 // If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
 //
 // > If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html) .
-//
-// This topic covers the resource for Amazon RDS DB instances. For the documentation on the resource for Amazon Aurora DB clusters, see [AWS::RDS::DBCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html) .
 //
 // *Updating DB instances*
 //
@@ -26,7 +28,7 @@ import (
 // > We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
 // >
 // > - Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
-// > - Create a snapshot of the DB instance. For more information about creating DB snapshots, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html) .
+// > - Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html) .
 // > - If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the `DBSnapshotIdentifier` property with the ID of the DB snapshot that you want to use.
 // >
 // > After you restore a DB instance with a `DBSnapshotIdentifier` property, you must specify the same `DBSnapshotIdentifier` property for any future updates to the DB instance. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. However, if you don't specify the `DBSnapshotIdentifier` property, an empty DB instance is created, and the original DB instance is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB instance is restored from the specified `DBSnapshotIdentifier` property, and the original DB instance is deleted.
@@ -142,7 +144,7 @@ import (
 type CfnDBInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The amount of storage (in gigabytes) to be initially allocated for the database instance.
+	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//
 	// > If any value is set in the `Iops` parameter, `AllocatedStorage` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the `Iops` value (in 1,000 IOPS increments), then you must also increase the `AllocatedStorage` value (in 100-GiB increments).
 	//
@@ -214,12 +216,17 @@ type CfnDBInstance interface {
 	// Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles() interface{}
 	SetAssociatedRoles(val interface{})
+	// The Amazon Resource Name (ARN) for the DB instance.
 	AttrDbInstanceArn() *string
-	AttrDbiResourceId() *string
-	// The connection endpoint for the database.
+	// The AWS Region-unique, immutable identifier for the DB instance.
 	//
-	// For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
+	// This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+	AttrDbiResourceId() *string
+	// The connection endpoint for the database. For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`.
+	//
+	// For Aurora Serverless DB clusters, the connection endpoint only applies to the DB cluster.
 	AttrEndpointAddress() *string
+	// The ID that Amazon Route 53 assigns when you create a hosted zone.
 	AttrEndpointHostedZoneId() *string
 	// The port number on which the database accepts connections.
 	//
@@ -271,9 +278,11 @@ type CfnDBInstance interface {
 	CaCertificateIdentifier() *string
 	SetCaCertificateIdentifier(val *string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	//
@@ -294,8 +303,19 @@ type CfnDBInstance interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::RDS::DBInstance.CustomIAMInstanceProfile`.
+	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	//
+	// The instance profile must meet the following requirements:
+	//
+	// - The profile must exist in your account.
+	// - The profile must have an IAM role that Amazon EC2 has permissions to assume.
+	// - The instance profile name and the associated IAM role name must start with the prefix `AWSRDSCustom` .
+	//
+	// For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide* .
+	//
+	// This setting is required for RDS Custom.
 	CustomIamInstanceProfile() *string
 	SetCustomIamInstanceProfile(val *string)
 	// The identifier of the DB cluster that the instance will belong to.
@@ -350,8 +370,8 @@ type CfnDBInstance interface {
 	//
 	// Constraints:
 	//
-	// - Must contain 1 to 63 letters, numbers, or underscores.
-	// - Must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0-9).
+	// - Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).
+	// - Must contain 1 to 63 characters.
 	// - Can't be a word reserved by the specified database engine
 	//
 	// *Oracle*
@@ -377,7 +397,7 @@ type CfnDBInstance interface {
 	//
 	// > If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
 	//
-	// If you don't specify a value for the `DBParameterGroupName` property, the default DB parameter group for the specified engine and engine version is used.
+	// If you don't specify a value for `DBParameterGroupName` property, the default DB parameter group for the specified engine and engine version is used.
 	DbParameterGroupName() *string
 	SetDbParameterGroupName(val *string)
 	// A list of the DB security groups to assign to the DB instance.
@@ -461,6 +481,10 @@ type CfnDBInstance interface {
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted.
 	//
 	// This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the DB cluster are not deleted.
 	DeleteAutomatedBackups() interface{}
 	SetDeleteAutomatedBackups(val interface{})
 	// A value that indicates whether the DB instance has deletion protection enabled.
@@ -482,6 +506,10 @@ type CfnDBInstance interface {
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
 	//
 	// This setting doesn't apply to RDS Custom.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. The domain is managed by the DB cluster.
 	DomainIamRoleName() *string
 	SetDomainIamRoleName(val *string)
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
@@ -517,7 +545,7 @@ type CfnDBInstance interface {
 	//
 	// By default, mapping is disabled.
 	//
-	// For more information, see [IAM Database Authentication for MySQL and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.*
+	// This property is supported for RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL. For more information, see [IAM Database Authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.*
 	//
 	// *Amazon Aurora*
 	//
@@ -531,7 +559,9 @@ type CfnDBInstance interface {
 	// This setting doesn't apply to RDS Custom.
 	EnablePerformanceInsights() interface{}
 	SetEnablePerformanceInsights(val interface{})
-	// `AWS::RDS::DBInstance.Endpoint`.
+	// Specifies the connection endpoint.
+	//
+	// > The endpoint might not be shown for instances whose status is `creating` .
 	Endpoint() interface{}
 	SetEndpoint(val interface{})
 	// The name of the database engine that you want to use for this DB instance.
@@ -546,9 +576,9 @@ type CfnDBInstance interface {
 	// - `mariadb`
 	// - `mysql`
 	// - `oracle-ee`
+	// - `oracle-ee-cdb`
 	// - `oracle-se2`
-	// - `oracle-se1`
-	// - `oracle-se`
+	// - `oracle-se2-cdb`
 	// - `postgres`
 	// - `sqlserver-ee`
 	// - `sqlserver-se`
@@ -637,6 +667,7 @@ type CfnDBInstance interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The master user name for the DB instance.
 	//
@@ -723,6 +754,10 @@ type CfnDBInstance interface {
 	// For more information about this setting, including limitations that apply to it, see [Managing capacity automatically with Amazon RDS storage autoscaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling) in the *Amazon RDS User Guide* .
 	//
 	// This setting doesn't apply to RDS Custom.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. Storage is managed by the DB cluster.
 	MaxAllocatedStorage() *float64
 	SetMaxAllocatedStorage(val *float64)
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
@@ -758,14 +793,26 @@ type CfnDBInstance interface {
 	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
-	// `AWS::RDS::DBInstance.NcharCharacterSetName`.
+	// The name of the NCHAR character set for the Oracle DB instance.
+	//
+	// This parameter doesn't apply to RDS Custom.
 	NcharCharacterSetName() *string
 	SetNcharCharacterSetName(val *string)
-	// `AWS::RDS::DBInstance.NetworkType`.
+	// The network type of the DB instance.
+	//
+	// Valid values:
+	//
+	// - `IPV4`
+	// - `DUAL`
+	//
+	// The network type is determined by the `DBSubnetGroup` specified for the DB instance. A `DBSubnetGroup` can support only the IPv4 protocol or the IPv4 and IPv6 protocols ( `DUAL` ).
+	//
+	// For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon RDS User Guide.*
 	NetworkType() *string
 	SetNetworkType(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Indicates that the DB instance should be associated with the specified option group.
 	//
 	// Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
@@ -822,6 +869,10 @@ type CfnDBInstance interface {
 	// The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 	//
 	// This setting doesn't apply to RDS Custom.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable.
 	ProcessorFeatures() interface{}
 	SetProcessorFeatures(val interface{})
 	// A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
@@ -837,21 +888,26 @@ type CfnDBInstance interface {
 	SetPromotionTier(val *float64)
 	// Indicates whether the DB instance is an internet-facing instance.
 	//
-	// If you specify `true` , AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+	// If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	//
-	// The default behavior value depends on your VPC setup and the database subnet group. For more information, see the `PubliclyAccessible` parameter in [`CreateDBInstance`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference* .
-	//
-	// If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the *DependsOn* attribute to declare a dependency on the VPC-gateway attachment. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	//
-	// > If you specify DBSecurityGroups, AWS CloudFormation ignores this property. To specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
+	// The default behavior value depends on your VPC setup and the database subnet group. For more information, see the `PubliclyAccessible` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference* .
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
-	// `AWS::RDS::DBInstance.ReplicaMode`.
+	// The open mode of an Oracle read replica.
+	//
+	// For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide* .
+	//
+	// This setting is only supported in RDS for Oracle.
+	//
+	// Default: `open-read-only`
+	//
+	// Valid Values: `open-read-only` or `mounted`.
 	ReplicaMode() *string
 	SetReplicaMode(val *string)
 	// `AWS::RDS::DBInstance.RestoreTime`.
@@ -866,7 +922,7 @@ type CfnDBInstance interface {
 	//
 	// For information about constraints that apply to DB instance identifiers, see [Naming constraints in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide* .
 	//
-	// The `SourceDBInstanceIdentifier` property determines whether a DB instance is a read replica. If you remove the `SourceDBInstanceIdentifier` property from your template and then update your stack, AWS CloudFormation deletes the Read Replica and creates a new DB instance (not a read replica).
+	// The `SourceDBInstanceIdentifier` property determines whether a DB instance is a read replica. If you remove the `SourceDBInstanceIdentifier` property from your template and then update your stack, AWS CloudFormation promotes the Read Replica to a standalone DB instance.
 	//
 	// > - If you specify a source DB instance that uses VPC security groups, we recommend that you specify the `VPCSecurityGroups` property. If you don't specify the property, the read replica inherits the value of the `VPCSecurityGroups` property from the source DB when you create the replica. However, if you update the stack, AWS CloudFormation reverts the replica's `VPCSecurityGroups` property to the default value because it's not defined in the stack's template. This change might cause unexpected issues.
 	// > - Read replicas don't support deletion policies. AWS CloudFormation ignores any deletion policy that's associated with a read replica.
@@ -885,6 +941,7 @@ type CfnDBInstance interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//
@@ -901,18 +958,20 @@ type CfnDBInstance interface {
 	// Not applicable. The encryption for DB instances is managed by the DB cluster.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
-	// `AWS::RDS::DBInstance.StorageThroughput`.
+	// Specifies the storage throughput value for the DB instance. This setting applies only to the `gp3` storage type.
+	//
+	// This setting doesn't apply to RDS Custom or Amazon Aurora.
 	StorageThroughput() *float64
 	SetStorageThroughput(val *float64)
 	// Specifies the storage type to be associated with the DB instance.
 	//
-	// Valid values: `standard | gp2 | io1`
+	// Valid values: `gp2 | gp3 | io1 | standard`
 	//
 	// The `standard` value is also known as magnetic.
 	//
-	// If you specify `io1` , you must also include a value for the `Iops` parameter.
+	// If you specify `io1` or `gp3` , you must also include a value for the `Iops` parameter.
 	//
-	// Default: `io1` if the `Iops` parameter is specified, otherwise `standard`
+	// Default: `io1` if the `Iops` parameter is specified, otherwise `gp2`
 	//
 	// For more information, see [Amazon RDS DB Instance Storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html) in the *Amazon RDS User Guide* .
 	//
@@ -921,26 +980,19 @@ type CfnDBInstance interface {
 	// Not applicable. Aurora data is stored in the cluster volume, which is a single, virtual volume that uses solid state drives (SSDs).
 	StorageType() *string
 	SetStorageType(val *string)
-	// Tags to assign to the DB instance.
+	// An optional array of key-value pairs to apply to this DB instance.
 	Tags() awscdk.TagManager
 	// The time zone of the DB instance.
 	//
 	// The time zone parameter is currently supported only by [Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) .
 	Timezone() *string
 	SetTimezone(val *string)
-	// Deprecated.
-	// Deprecated: use `updatedProperties`
-	//
-	// Return properties modified after initiation
-	//
-	// Resources that expose mutable properties should override this function to
-	// collect and return the properties object for this resource.
-	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	UpdatedProperties() *map[string]interface{}
+	// Experimental.
+	UpdatedProperites() *map[string]interface{}
 	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 	//
 	// This setting doesn't apply to RDS Custom.
@@ -971,14 +1023,13 @@ type CfnDBInstance interface {
 	VpcSecurityGroups() *[]*string
 	SetVpcSecurityGroups(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	AddDependency(target awscdk.CfnResource)
-	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-	// Deprecated: use addDependency.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -987,6 +1038,7 @@ type CfnDBInstance interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1031,12 +1083,15 @@ type CfnDBInstance interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1046,18 +1101,15 @@ type CfnDBInstance interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
+	// Experimental.
+	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -1065,35 +1117,74 @@ type CfnDBInstance interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Retrieves an array of resources this resource depends on.
+	// Perform final modifications before synthesis.
 	//
-	// This assembles dependencies on resources across stacks (including nested stacks)
-	// automatically.
-	ObtainDependencies() *[]interface{}
-	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
-	ObtainResourceDependencies() *[]awscdk.CfnResource
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Indicates that this resource no longer depends on another resource.
+	// Perform final modifications before synthesis.
 	//
-	// This can be used for resources across stacks (including nested stacks)
-	// and the dependency will automatically be removed from the relevant scope.
-	RemoveDependency(target awscdk.CfnResource)
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
-	// Replaces one dependency with another.
-	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1603,8 +1694,8 @@ func (j *jsiiProxy_CfnDBInstance) NetworkType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1843,16 +1934,6 @@ func (j *jsiiProxy_CfnDBInstance) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) UpdatedProperties() *map[string]interface{} {
-	var returns *map[string]interface{}
-	_jsii_.Get(
-		j,
-		"updatedProperties",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDBInstance) UseDefaultProcessorFeatures() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1885,7 +1966,7 @@ func (j *jsiiProxy_CfnDBInstance) VpcSecurityGroups() *[]*string {
 
 
 // Create a new `AWS::RDS::DBInstance`.
-func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
+func NewCfnDBInstance(scope awscdk.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
 	_init_.Initialize()
 
 	if err := validateNewCfnDBInstanceParameters(scope, id, props); err != nil {
@@ -1894,7 +1975,7 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 	j := jsiiProxy_CfnDBInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1903,11 +1984,11 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 }
 
 // Create a new `AWS::RDS::DBInstance`.
-func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *string, props *CfnDBInstanceProps) {
+func NewCfnDBInstance_Override(c CfnDBInstance, scope awscdk.Construct, id *string, props *CfnDBInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2460,6 +2541,7 @@ func (j *jsiiProxy_CfnDBInstance)SetVpcSecurityGroups(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2469,7 +2551,7 @@ func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2479,6 +2561,7 @@ func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2488,7 +2571,7 @@ func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2497,23 +2580,8 @@ func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2523,7 +2591,7 @@ func CfnDBInstance_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2536,7 +2604,7 @@ func CfnDBInstance_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2551,17 +2619,6 @@ func (c *jsiiProxy_CfnDBInstance) AddDeletionOverride(path *string) {
 		c,
 		"addDeletionOverride",
 		[]interface{}{path},
-	)
-}
-
-func (c *jsiiProxy_CfnDBInstance) AddDependency(target awscdk.CfnResource) {
-	if err := c.validateAddDependencyParameters(target); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"addDependency",
-		[]interface{}{target},
 	)
 }
 
@@ -2631,7 +2688,7 @@ func (c *jsiiProxy_CfnDBInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-func (c *jsiiProxy_CfnDBInstance) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
+func (c *jsiiProxy_CfnDBInstance) GetAtt(attributeName *string) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -2640,7 +2697,7 @@ func (c *jsiiProxy_CfnDBInstance) GetAtt(attributeName *string, typeHint awscdk.
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName, typeHint},
+		[]interface{}{attributeName},
 		&returns,
 	)
 
@@ -2674,25 +2731,31 @@ func (c *jsiiProxy_CfnDBInstance) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDBInstance) ObtainDependencies() *[]interface{} {
-	var returns *[]interface{}
-
-	_jsii_.Invoke(
+func (c *jsiiProxy_CfnDBInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
 		c,
-		"obtainDependencies",
+		"onPrepare",
 		nil, // no parameters
-		&returns,
 	)
-
-	return returns
 }
 
-func (c *jsiiProxy_CfnDBInstance) ObtainResourceDependencies() *[]awscdk.CfnResource {
-	var returns *[]awscdk.CfnResource
+func (c *jsiiProxy_CfnDBInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnDBInstance) OnValidate() *[]*string {
+	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"obtainResourceDependencies",
+		"onValidate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2711,14 +2774,11 @@ func (c *jsiiProxy_CfnDBInstance) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-func (c *jsiiProxy_CfnDBInstance) RemoveDependency(target awscdk.CfnResource) {
-	if err := c.validateRemoveDependencyParameters(target); err != nil {
-		panic(err)
-	}
+func (c *jsiiProxy_CfnDBInstance) Prepare() {
 	_jsii_.InvokeVoid(
 		c,
-		"removeDependency",
-		[]interface{}{target},
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2738,17 +2798,6 @@ func (c *jsiiProxy_CfnDBInstance) RenderProperties(props *map[string]interface{}
 	return returns
 }
 
-func (c *jsiiProxy_CfnDBInstance) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
-	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"replaceDependency",
-		[]interface{}{target, newTarget},
-	)
-}
-
 func (c *jsiiProxy_CfnDBInstance) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2762,12 +2811,36 @@ func (c *jsiiProxy_CfnDBInstance) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnDBInstance) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnDBInstance) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDBInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

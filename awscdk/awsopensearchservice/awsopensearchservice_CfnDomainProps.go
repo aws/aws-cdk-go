@@ -1,7 +1,7 @@
 package awsopensearchservice
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnDomain`.
@@ -102,11 +102,13 @@ type CfnDomainProps struct {
 	AccessPolicies interface{} `field:"optional" json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the OpenSearch Service domain.
 	//
-	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-advancedoptions) in the OpenSearch Service configuration API reference.
+	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 	AdvancedOptions interface{} `field:"optional" json:"advancedOptions" yaml:"advancedOptions"`
 	// Specifies options for fine-grained access control.
+	//
+	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions interface{} `field:"optional" json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`
-	// `ClusterConfig` is a property of the AWS::OpenSearchService::Domain resource that configures an Amazon OpenSearch Service cluster.
+	// Container for the cluster configuration of a domain.
 	ClusterConfig interface{} `field:"optional" json:"clusterConfig" yaml:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 	CognitoOptions interface{} `field:"optional" json:"cognitoOptions" yaml:"cognitoOptions"`
@@ -144,13 +146,15 @@ type CfnDomainProps struct {
 	NodeToNodeEncryptionOptions interface{} `field:"optional" json:"nodeToNodeEncryptionOptions" yaml:"nodeToNodeEncryptionOptions"`
 	// *DEPRECATED* .
 	//
-	// The automated snapshot configuration for the OpenSearch Service domain indices.
+	// The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions interface{} `field:"optional" json:"snapshotOptions" yaml:"snapshotOptions"`
 	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	//
 	// For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	//
+	// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
 	VpcOptions interface{} `field:"optional" json:"vpcOptions" yaml:"vpcOptions"`
 }
 

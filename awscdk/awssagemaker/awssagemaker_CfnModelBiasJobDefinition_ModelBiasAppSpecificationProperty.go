@@ -21,7 +21,7 @@ package awssagemaker
 type CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty struct {
 	// JSON formatted S3 file that defines bias parameters.
 	//
-	// For more information on this JSON configuration file, see [Configure bias parameters](https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html) .
+	// For more information on this JSON configuration file, see [Configure bias parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html) .
 	ConfigUri *string `field:"required" json:"configUri" yaml:"configUri"`
 	// The container image to be run by the model bias job.
 	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`

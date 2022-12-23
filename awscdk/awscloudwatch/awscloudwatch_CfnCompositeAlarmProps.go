@@ -52,11 +52,21 @@ type CfnCompositeAlarmProps struct {
 	//
 	// The default is TRUE.
 	ActionsEnabled interface{} `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
-	// `AWS::CloudWatch::CompositeAlarm.ActionsSuppressor`.
+	// Actions will be suppressed if the suppressor alarm is in the `ALARM` state.
+	//
+	// `ActionsSuppressor` can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
 	ActionsSuppressor *string `field:"optional" json:"actionsSuppressor" yaml:"actionsSuppressor"`
-	// `AWS::CloudWatch::CompositeAlarm.ActionsSuppressorExtensionPeriod`.
+	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state.
+	//
+	// After this time, the composite alarm performs its actions.
+	//
+	// > `ExtensionPeriod` is required only when `ActionsSuppressor` is specified.
 	ActionsSuppressorExtensionPeriod *float64 `field:"optional" json:"actionsSuppressorExtensionPeriod" yaml:"actionsSuppressorExtensionPeriod"`
-	// `AWS::CloudWatch::CompositeAlarm.ActionsSuppressorWaitPeriod`.
+	// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state.
+	//
+	// After this time, the composite alarm performs its actions.
+	//
+	// > `WaitPeriod` is required only when `ActionsSuppressor` is specified.
 	ActionsSuppressorWaitPeriod *float64 `field:"optional" json:"actionsSuppressorWaitPeriod" yaml:"actionsSuppressorWaitPeriod"`
 	// The actions to execute when this alarm transitions to the ALARM state from any other state.
 	//

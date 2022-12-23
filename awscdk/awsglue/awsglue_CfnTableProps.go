@@ -92,8 +92,6 @@ package awsglue
 //
 type CfnTableProps struct {
 	// The ID of the Data Catalog in which to create the `Table` .
-	//
-	// If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The name of the database where the table metadata resides.
 	//

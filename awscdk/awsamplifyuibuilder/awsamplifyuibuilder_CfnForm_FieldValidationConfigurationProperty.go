@@ -1,6 +1,8 @@
 package awsamplifyuibuilder
 
 
+// Describes the validation configuration for a field.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,13 +22,15 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FieldValidationConfigurationProperty struct {
-	// `CfnForm.FieldValidationConfigurationProperty.Type`.
+	// The validation to perform on an object type.
+	//
+	// ``.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnForm.FieldValidationConfigurationProperty.NumValues`.
+	// The validation to perform on a number value.
 	NumValues interface{} `field:"optional" json:"numValues" yaml:"numValues"`
-	// `CfnForm.FieldValidationConfigurationProperty.StrValues`.
+	// The validation to perform on a string value.
 	StrValues *[]*string `field:"optional" json:"strValues" yaml:"strValues"`
-	// `CfnForm.FieldValidationConfigurationProperty.ValidationMessage`.
+	// The validation message to display.
 	ValidationMessage *string `field:"optional" json:"validationMessage" yaml:"validationMessage"`
 }
 

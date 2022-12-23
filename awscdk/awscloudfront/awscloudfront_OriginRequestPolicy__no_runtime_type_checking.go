@@ -16,6 +16,14 @@ func (o *jsiiProxy_OriginRequestPolicy) validateGetResourceNameAttributeParamete
 	return nil
 }
 
+func (o *jsiiProxy_OriginRequestPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (o *jsiiProxy_OriginRequestPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateOriginRequestPolicy_FromOriginRequestPolicyIdParameters(scope constructs.Construct, id *string, originRequestPolicyId *string) error {
 	return nil
 }
@@ -24,11 +32,7 @@ func validateOriginRequestPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateOriginRequestPolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateOriginRequestPolicy_IsResourceParameters(construct constructs.IConstruct) error {
+func validateOriginRequestPolicy_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

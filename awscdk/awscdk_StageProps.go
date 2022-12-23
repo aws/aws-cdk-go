@@ -1,27 +1,41 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
 // Initialization props for a stage.
 //
 // Example:
-//   var app app
+//   var pipeline codePipeline
+//   type myOutputStage struct {
+//   	stage
+//   	loadBalancerAddress cfnOutput
+//   }
 //
+//   func newMyOutputStage(scope construct, id *string, props stageProps) *myOutputStage {
+//   	this := &myOutputStage{}
+//   	newStage_Override(this, scope, id, props)
+//   	this.loadBalancerAddress = awscdk.NewCfnOutput(this, jsii.String("Output"), &cfnOutputProps{
+//   		value: jsii.String("value"),
+//   	})
+//   	return this
+//   }
 //
-//   awscdk.NewStage(app, jsii.String("DevStage"))
-//
-//   awscdk.NewStage(app, jsii.String("BetaStage"), &stageProps{
-//   	permissionsBoundary: awscdk.PermissionsBoundary.fromName(jsii.String("beta-permissions-boundary")),
+//   lbApp := NewMyOutputStage(this, jsii.String("MyApp"))
+//   pipeline.addStage(lbApp, &addStageOpts{
+//   	post: []step{
+//   		pipelines.NewShellStep(jsii.String("HitEndpoint"), &shellStepProps{
+//   			envFromCfnOutputs: map[string]*cfnOutput{
+//   				// Make the load balancer address available as $URL inside the commands
+//   				"URL": lbApp.loadBalancerAddress,
+//   			},
+//   			commands: []*string{
+//   				jsii.String("curl -Ssf $URL"),
+//   			},
+//   		}),
+//   	},
 //   })
 //
-//   awscdk.NewStage(app, jsii.String("GammaStage"), &stageProps{
-//   	permissionsBoundary: awscdk.PermissionsBoundary.fromName(jsii.String("prod-permissions-boundary")),
-//   })
-//
-//   awscdk.NewStage(app, jsii.String("ProdStage"), &stageProps{
-//   	permissionsBoundary: awscdk.PermissionsBoundary.fromName(jsii.String("prod-permissions-boundary")),
-//   })
-//
+// Experimental.
 type StageProps struct {
 	// Default AWS environment (account/region) for `Stack`s in this `Stage`.
 	//
@@ -39,7 +53,6 @@ type StageProps struct {
 	// AWS partition, and other such enhancements.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // Use a concrete account and region to deploy this Stage to
 	//   // Use a concrete account and region to deploy this Stage to
 	//   awscdk.NewStage(app, jsii.String("Stage1"), &stageProps{
@@ -58,16 +71,14 @@ type StageProps struct {
 	//   	},
 	//   })
 	//
+	// Experimental.
 	Env *Environment `field:"optional" json:"env" yaml:"env"`
 	// The output directory into which to emit synthesized artifacts.
 	//
 	// Can only be specified if this stage is the root stage (the app). If this is
 	// specified and this stage is nested within another stage, an error will be
 	// thrown.
+	// Experimental.
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
-	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
-	PermissionsBoundary PermissionsBoundary `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
-	// Name of this stage.
-	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 

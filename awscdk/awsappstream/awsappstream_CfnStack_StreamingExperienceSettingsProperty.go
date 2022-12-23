@@ -1,6 +1,10 @@
 package awsappstream
 
 
+// The streaming protocol that you want your stack to prefer.
+//
+// This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +15,7 @@ package awsappstream
 //   }
 //
 type CfnStack_StreamingExperienceSettingsProperty struct {
-	// `CfnStack.StreamingExperienceSettingsProperty.PreferredProtocol`.
+	// The preferred protocol that you want to use while streaming your application.
 	PreferredProtocol *string `field:"optional" json:"preferredProtocol" yaml:"preferredProtocol"`
 }
 

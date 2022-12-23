@@ -1,7 +1,7 @@
 package awsauditmanager
 
 
-// The `Scope` property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
+// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLocationFSxWindows) validateAddDeletionOverrideParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxWindows) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLocationFSxWindows) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLocationFSxWindows) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxWindows) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLocationFSxWindows) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxWindows) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLocationFSxWindows) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLocationFSxWindows) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnLocationFSxWindows) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLocationFSxWindows) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnLocationFSxWindows) validateSetUserParameters(val *string)
 	return nil
 }
 
-func validateNewCfnLocationFSxWindowsParameters(scope constructs.Construct, id *string, props *CfnLocationFSxWindowsProps) error {
+func validateNewCfnLocationFSxWindowsParameters(scope awscdk.Construct, id *string, props *CfnLocationFSxWindowsProps) error {
 	return nil
 }
 

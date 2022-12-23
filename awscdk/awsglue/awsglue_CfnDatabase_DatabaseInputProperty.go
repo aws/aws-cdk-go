@@ -33,6 +33,8 @@ package awsglue
 //
 type CfnDatabase_DatabaseInputProperty struct {
 	// Creates a set of default permissions on the table for principals.
+	//
+	// Used by AWS Lake Formation . Not used in the normal course of AWS Glue operations.
 	CreateTableDefaultPermissions interface{} `field:"optional" json:"createTableDefaultPermissions" yaml:"createTableDefaultPermissions"`
 	// A description of the database.
 	Description *string `field:"optional" json:"description" yaml:"description"`

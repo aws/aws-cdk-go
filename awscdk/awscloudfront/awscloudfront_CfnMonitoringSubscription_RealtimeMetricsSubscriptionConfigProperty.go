@@ -1,6 +1,8 @@
 package awscloudfront
 
 
+// A subscription configuration for additional CloudWatch metrics.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awscloudfront
 //   }
 //
 type CfnMonitoringSubscription_RealtimeMetricsSubscriptionConfigProperty struct {
-	// `CfnMonitoringSubscription.RealtimeMetricsSubscriptionConfigProperty.RealtimeMetricsSubscriptionStatus`.
+	// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 	RealtimeMetricsSubscriptionStatus *string `field:"required" json:"realtimeMetricsSubscriptionStatus" yaml:"realtimeMetricsSubscriptionStatus"`
 }
 
