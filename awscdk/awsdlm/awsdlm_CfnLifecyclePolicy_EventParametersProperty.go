@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Event-based policies only]* Specifies an event that activates an event-based policy.
+// Specifies an event that triggers an event-based policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

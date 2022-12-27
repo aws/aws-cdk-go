@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnInternetGateway) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnInternetGateway) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInternetGateway) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnInternetGateway) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnInternetGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInternetGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInternetGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnInternetGateway) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnInternetGateway) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnInternetGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInternetGateway) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnInternetGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnInternetGatewayParameters(scope awscdk.Construct, id *string, props *CfnInternetGatewayProps) error {
+func validateNewCfnInternetGatewayParameters(scope constructs.Construct, id *string, props *CfnInternetGatewayProps) error {
 	return nil
 }
 

@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (l *jsiiProxy_LambdaApplication) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -42,17 +42,17 @@ func (l *jsiiProxy_LambdaApplication) validateGetResourceNameAttributeParameters
 	return nil
 }
 
-func (l *jsiiProxy_LambdaApplication) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func validateLambdaApplication_FromLambdaApplicationArnParameters(scope constructs.Construct, id *string, lambdaApplicationArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	return nil
-}
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
 
-func (l *jsiiProxy_LambdaApplication) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+	if lambdaApplicationArn == nil {
+		return fmt.Errorf("parameter lambdaApplicationArn is required, but nil was provided")
 	}
 
 	return nil
@@ -82,7 +82,15 @@ func validateLambdaApplication_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLambdaApplication_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLambdaApplication_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateLambdaApplication_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -1,8 +1,6 @@
 package awsiot
 
 
-// The registration configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +13,11 @@ package awsiot
 //   }
 //
 type CfnCACertificate_RegistrationConfigProperty struct {
-	// The ARN of the role.
+	// `CfnCACertificate.RegistrationConfigProperty.RoleArn`.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
-	// The template body.
+	// `CfnCACertificate.RegistrationConfigProperty.TemplateBody`.
 	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
-	// The name of the provisioning template.
+	// `CfnCACertificate.RegistrationConfigProperty.TemplateName`.
 	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
 }
 

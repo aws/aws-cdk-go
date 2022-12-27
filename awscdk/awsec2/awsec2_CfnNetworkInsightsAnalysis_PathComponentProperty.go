@@ -345,7 +345,7 @@ package awsec2
 type CfnNetworkInsightsAnalysis_PathComponentProperty struct {
 	// The network ACL rule.
 	AclRule interface{} `field:"optional" json:"aclRule" yaml:"aclRule"`
-	// The additional details.
+	// `CfnNetworkInsightsAnalysis.PathComponentProperty.AdditionalDetails`.
 	AdditionalDetails interface{} `field:"optional" json:"additionalDetails" yaml:"additionalDetails"`
 	// The component.
 	Component interface{} `field:"optional" json:"component" yaml:"component"`
@@ -369,7 +369,7 @@ type CfnNetworkInsightsAnalysis_PathComponentProperty struct {
 	SourceVpc interface{} `field:"optional" json:"sourceVpc" yaml:"sourceVpc"`
 	// The subnet.
 	Subnet interface{} `field:"optional" json:"subnet" yaml:"subnet"`
-	// The transit gateway.
+	// `CfnNetworkInsightsAnalysis.PathComponentProperty.TransitGateway`.
 	TransitGateway interface{} `field:"optional" json:"transitGateway" yaml:"transitGateway"`
 	// The route in a transit gateway route table.
 	TransitGatewayRouteTableRoute interface{} `field:"optional" json:"transitGatewayRouteTableRoute" yaml:"transitGatewayRouteTableRoute"`

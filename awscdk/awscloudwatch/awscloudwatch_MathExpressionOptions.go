@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Configurable options for MathExpressions.
@@ -9,23 +9,19 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
 //
 //   mathExpressionOptions := &mathExpressionOptions{
 //   	color: jsii.String("color"),
 //   	label: jsii.String("label"),
-//   	period: duration,
+//   	period: cdk.duration.minutes(jsii.Number(30)),
 //   	searchAccount: jsii.String("searchAccount"),
 //   	searchRegion: jsii.String("searchRegion"),
 //   }
 //
-// Experimental.
 type MathExpressionOptions struct {
 	// Color for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Label for this expression when added to a Graph in a Dashboard.
 	//
@@ -49,25 +45,21 @@ type MathExpressionOptions struct {
 	// math expression produces more than one time series, the maximum
 	// will be shown for each individual time series produce by this
 	// math expression.
-	// Experimental.
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the expression's statistics are applied.
 	//
 	// This period overrides all periods in the metrics used in this
 	// math expression.
-	// Experimental.
 	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Account to evaluate search expressions within.
 	//
 	// Specifying a searchAccount has no effect to the account used
 	// for metrics within the expression (passed via usingMetrics).
-	// Experimental.
 	SearchAccount *string `field:"optional" json:"searchAccount" yaml:"searchAccount"`
 	// Region to evaluate search expressions within.
 	//
 	// Specifying a searchRegion has no effect to the region used
 	// for metrics within the expression (passed via usingMetrics).
-	// Experimental.
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
 }
 

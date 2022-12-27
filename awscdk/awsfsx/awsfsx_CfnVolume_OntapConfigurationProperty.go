@@ -9,13 +9,16 @@ package awsfsx
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   ontapConfigurationProperty := &ontapConfigurationProperty{
-//   	junctionPath: jsii.String("junctionPath"),
 //   	sizeInMegabytes: jsii.String("sizeInMegabytes"),
-//   	storageEfficiencyEnabled: jsii.String("storageEfficiencyEnabled"),
 //   	storageVirtualMachineId: jsii.String("storageVirtualMachineId"),
 //
 //   	// the properties below are optional
+//   	copyTagsToBackups: jsii.String("copyTagsToBackups"),
+//   	junctionPath: jsii.String("junctionPath"),
+//   	ontapVolumeType: jsii.String("ontapVolumeType"),
 //   	securityStyle: jsii.String("securityStyle"),
+//   	snapshotPolicy: jsii.String("snapshotPolicy"),
+//   	storageEfficiencyEnabled: jsii.String("storageEfficiencyEnabled"),
 //   	tieringPolicy: &tieringPolicyProperty{
 //   		coolingPeriod: jsii.Number(123),
 //   		name: jsii.String("name"),
@@ -23,24 +26,28 @@ package awsfsx
 //   }
 //
 type CfnVolume_OntapConfigurationProperty struct {
+	// Specifies the size of the volume, in megabytes (MB), that you are creating.
+	SizeInMegabytes *string `field:"required" json:"sizeInMegabytes" yaml:"sizeInMegabytes"`
+	// Specifies the ONTAP SVM in which to create the volume.
+	StorageVirtualMachineId *string `field:"required" json:"storageVirtualMachineId" yaml:"storageVirtualMachineId"`
+	// `CfnVolume.OntapConfigurationProperty.CopyTagsToBackups`.
+	CopyTagsToBackups *string `field:"optional" json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
 	// Specifies the location in the SVM's namespace where the volume is mounted.
 	//
 	// The `JunctionPath` must have a leading forward slash, such as `/vol3` .
-	JunctionPath *string `field:"required" json:"junctionPath" yaml:"junctionPath"`
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes *string `field:"required" json:"sizeInMegabytes" yaml:"sizeInMegabytes"`
-	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-	StorageEfficiencyEnabled *string `field:"required" json:"storageEfficiencyEnabled" yaml:"storageEfficiencyEnabled"`
-	// Specifies the ONTAP SVM in which to create the volume.
-	StorageVirtualMachineId *string `field:"required" json:"storageVirtualMachineId" yaml:"storageVirtualMachineId"`
-	// Specifies the security style for the volume.
+	JunctionPath *string `field:"optional" json:"junctionPath" yaml:"junctionPath"`
+	// `CfnVolume.OntapConfigurationProperty.OntapVolumeType`.
+	OntapVolumeType *string `field:"optional" json:"ontapVolumeType" yaml:"ontapVolumeType"`
+	// The security style for the volume. Specify one of the following values:.
 	//
-	// If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. For more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the *Amazon FSx for NetApp ONTAP User Guide* . Specify one of the following values:
-	//
-	// - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
+	// - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account. `UNIX` is the default.
 	// - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
 	// - `MIXED` if the file system is managed by both UNIX and Windows administrators and users consist of both NFS and SMB clients.
 	SecurityStyle *string `field:"optional" json:"securityStyle" yaml:"securityStyle"`
+	// `CfnVolume.OntapConfigurationProperty.SnapshotPolicy`.
+	SnapshotPolicy *string `field:"optional" json:"snapshotPolicy" yaml:"snapshotPolicy"`
+	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+	StorageEfficiencyEnabled *string `field:"optional" json:"storageEfficiencyEnabled" yaml:"storageEfficiencyEnabled"`
 	// Describes the data tiering policy for an ONTAP volume.
 	//
 	// When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.

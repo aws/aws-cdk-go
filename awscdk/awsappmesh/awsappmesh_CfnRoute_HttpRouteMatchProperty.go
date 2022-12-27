@@ -56,7 +56,7 @@ type CfnRoute_HttpRouteMatchProperty struct {
 	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The client request path to match on.
 	Path interface{} `field:"optional" json:"path" yaml:"path"`
-	// The port number to match on.
+	// `CfnRoute.HttpRouteMatchProperty.Port`.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Specifies the path to match requests with.
 	//

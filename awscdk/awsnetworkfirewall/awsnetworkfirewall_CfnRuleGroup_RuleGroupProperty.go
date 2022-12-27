@@ -117,6 +117,13 @@ package awsnetworkfirewall
 //   	},
 //
 //   	// the properties below are optional
+//   	referenceSets: &referenceSetsProperty{
+//   		ipSetReferences: map[string]interface{}{
+//   			"ipSetReferencesKey": map[string]*string{
+//   				"referenceArn": jsii.String("referenceArn"),
+//   			},
+//   		},
+//   	},
 //   	ruleVariables: &ruleVariablesProperty{
 //   		ipSets: map[string]interface{}{
 //   			"ipSetsKey": map[string][]*string{
@@ -141,6 +148,8 @@ package awsnetworkfirewall
 type CfnRuleGroup_RuleGroupProperty struct {
 	// The stateful rules or stateless rules for the rule group.
 	RulesSource interface{} `field:"required" json:"rulesSource" yaml:"rulesSource"`
+	// `CfnRuleGroup.RuleGroupProperty.ReferenceSets`.
+	ReferenceSets interface{} `field:"optional" json:"referenceSets" yaml:"referenceSets"`
 	// Settings that are available for use in the rules in the rule group.
 	//
 	// You can only use these for stateful rule groups.

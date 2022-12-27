@@ -16,15 +16,13 @@ package awsopensearchserverless
 //   }
 //
 type CfnAccessPolicyProps struct {
-	// The description of the policy.
+	// `AWS::OpenSearchServerless::AccessPolicy.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the policy.
+	// `AWS::OpenSearchServerless::AccessPolicy.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The JSON policy document without any whitespaces.
+	// `AWS::OpenSearchServerless::AccessPolicy.Policy`.
 	Policy *string `field:"optional" json:"policy" yaml:"policy"`
-	// The type of access policy.
-	//
-	// Currently the only option is `data` .
+	// `AWS::OpenSearchServerless::AccessPolicy.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

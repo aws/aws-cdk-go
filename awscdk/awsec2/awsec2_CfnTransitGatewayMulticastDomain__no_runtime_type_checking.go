@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateAddDeletionOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateInspectParameters(i
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateRenderPropertiesPar
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) validateSetTransitGatewayId
 	return nil
 }
 
-func validateNewCfnTransitGatewayMulticastDomainParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayMulticastDomainProps) error {
+func validateNewCfnTransitGatewayMulticastDomainParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastDomainProps) error {
 	return nil
 }
 

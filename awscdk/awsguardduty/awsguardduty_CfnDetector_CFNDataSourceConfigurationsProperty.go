@@ -1,7 +1,7 @@
 package awsguardduty
 
 
-// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+// Describes whether S3 data event logs or Kubernetes audit logs will be enabled as a data source when the detector is created.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,7 +27,7 @@ package awsguardduty
 type CfnDetector_CFNDataSourceConfigurationsProperty struct {
 	// Describes which Kuberentes data sources are enabled for a detector.
 	Kubernetes interface{} `field:"optional" json:"kubernetes" yaml:"kubernetes"`
-	// Describes whether Malware Protection will be enabled as a data source.
+	// `CfnDetector.CFNDataSourceConfigurationsProperty.MalwareProtection`.
 	MalwareProtection interface{} `field:"optional" json:"malwareProtection" yaml:"malwareProtection"`
 	// Describes whether S3 data event logs are enabled as a data source.
 	S3Logs interface{} `field:"optional" json:"s3Logs" yaml:"s3Logs"`

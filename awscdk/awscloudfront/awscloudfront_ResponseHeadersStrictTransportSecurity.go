@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Determines whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value.
@@ -91,19 +91,14 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ResponseHeadersStrictTransportSecurity struct {
 	// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-	// Experimental.
 	AccessControlMaxAge awscdk.Duration `field:"required" json:"accessControlMaxAge" yaml:"accessControlMaxAge"`
 	// A Boolean that determines whether CloudFront overrides the Strict-Transport-Security HTTP response header received from the origin with the one specified in this response headers policy.
-	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 	// A Boolean that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
-	// Experimental.
 	IncludeSubdomains *bool `field:"optional" json:"includeSubdomains" yaml:"includeSubdomains"`
 	// A Boolean that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
-	// Experimental.
 	Preload *bool `field:"optional" json:"preload" yaml:"preload"`
 }
 

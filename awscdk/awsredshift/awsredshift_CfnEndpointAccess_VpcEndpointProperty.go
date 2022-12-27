@@ -1,8 +1,6 @@
 package awsredshift
 
 
-// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,13 +20,11 @@ package awsredshift
 //   }
 //
 type CfnEndpointAccess_VpcEndpointProperty struct {
-	// One or more network interfaces of the endpoint.
-	//
-	// Also known as an interface endpoint.
+	// `CfnEndpointAccess.VpcEndpointProperty.NetworkInterfaces`.
 	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
-	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+	// `CfnEndpointAccess.VpcEndpointProperty.VpcEndpointId`.
 	VpcEndpointId *string `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
-	// The VPC identifier that the endpoint is associated.
+	// `CfnEndpointAccess.VpcEndpointProperty.VpcId`.
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

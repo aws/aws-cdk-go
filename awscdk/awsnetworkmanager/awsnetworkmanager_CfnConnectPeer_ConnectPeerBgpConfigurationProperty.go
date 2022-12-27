@@ -1,8 +1,6 @@
 package awsnetworkmanager
 
 
-// Describes a core network BGP configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +14,13 @@ package awsnetworkmanager
 //   }
 //
 type CfnConnectPeer_ConnectPeerBgpConfigurationProperty struct {
-	// The address of a core network.
+	// `CfnConnectPeer.ConnectPeerBgpConfigurationProperty.CoreNetworkAddress`.
 	CoreNetworkAddress *string `field:"optional" json:"coreNetworkAddress" yaml:"coreNetworkAddress"`
-	// The ASN of the Coret Network.
+	// `CfnConnectPeer.ConnectPeerBgpConfigurationProperty.CoreNetworkAsn`.
 	CoreNetworkAsn *float64 `field:"optional" json:"coreNetworkAsn" yaml:"coreNetworkAsn"`
-	// The address of a core network Connect peer.
+	// `CfnConnectPeer.ConnectPeerBgpConfigurationProperty.PeerAddress`.
 	PeerAddress *string `field:"optional" json:"peerAddress" yaml:"peerAddress"`
-	// The ASN of the Connect peer.
+	// `CfnConnectPeer.ConnectPeerBgpConfigurationProperty.PeerAsn`.
 	PeerAsn *float64 `field:"optional" json:"peerAsn" yaml:"peerAsn"`
 }
 

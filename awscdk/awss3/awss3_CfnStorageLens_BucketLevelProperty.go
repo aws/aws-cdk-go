@@ -34,15 +34,15 @@ package awss3
 //   }
 //
 type CfnStorageLens_BucketLevelProperty struct {
-	// A property for bucket-level activity metrics for S3 Storage Lens.
+	// A property for the bucket-level activity metrics for Amazon S3 Storage Lens.
 	ActivityMetrics interface{} `field:"optional" json:"activityMetrics" yaml:"activityMetrics"`
-	// A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
+	// `CfnStorageLens.BucketLevelProperty.AdvancedCostOptimizationMetrics`.
 	AdvancedCostOptimizationMetrics interface{} `field:"optional" json:"advancedCostOptimizationMetrics" yaml:"advancedCostOptimizationMetrics"`
-	// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+	// `CfnStorageLens.BucketLevelProperty.AdvancedDataProtectionMetrics`.
 	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
-	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
+	// `CfnStorageLens.BucketLevelProperty.DetailedStatusCodesMetrics`.
 	DetailedStatusCodesMetrics interface{} `field:"optional" json:"detailedStatusCodesMetrics" yaml:"detailedStatusCodesMetrics"`
-	// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
+	// A property for the bucket-level prefix-level storage metrics for S3 Storage Lens.
 	PrefixLevel interface{} `field:"optional" json:"prefixLevel" yaml:"prefixLevel"`
 }
 

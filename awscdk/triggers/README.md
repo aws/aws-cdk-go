@@ -32,6 +32,35 @@ triggers.NewTriggerFunction(stack, jsii.String("MyTrigger"), &triggerFunctionPro
 In the above example, the AWS Lambda function defined in `myLambdaFunction` will
 be invoked when the stack is deployed.
 
+It is also possible to trigger a predefined Lambda function by using the `Trigger` construct:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+import triggers "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var stack stack
+
+
+func := lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
+	handler: jsii.String("index.handler"),
+	runtime: lambda.runtime_NODEJS_14_X(),
+	code: lambda.code.fromInline(jsii.String("foo")),
+})
+
+triggers.NewTrigger(stack, jsii.String("MyTrigger"), &triggerProps{
+	handler: func,
+	timeout: awscdk.Duration.minutes(jsii.Number(10)),
+	invocationType: triggers.invocationType_EVENT,
+})
+```
+
+Addition properties can be used to fine-tune the behaviour of the trigger.
+The `timeout` property can be used to determine how long the invocation of the function should take.
+The `invocationType` property can be used to change the invocation type of the function.
+This might be useful in scenarios where a fire-and-forget strategy for invoking the function is sufficient.
+
 ## Trigger Failures
 
 If the trigger handler fails (e.g. an exception is raised), the CloudFormation

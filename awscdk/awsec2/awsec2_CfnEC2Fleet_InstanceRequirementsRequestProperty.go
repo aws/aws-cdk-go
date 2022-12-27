@@ -5,14 +5,9 @@ package awsec2
 //
 // When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
 //
-// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+// When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.
 //
-// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-//
-// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
-//
-// > You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
+// > You must specify `VCpuCount` and `MemoryMiB` . All other parameters are optional. Any unspecified optional parameter is set to its default.
 //
 // For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 //
@@ -115,8 +110,6 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
 	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
-	// - For instance types with AWS Inferentia chips, specify `inferentia` .
-	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 	//
 	// Default: Any accelerator.
 	AcceleratorNames *[]*string `field:"optional" json:"acceleratorNames" yaml:"acceleratorNames"`
@@ -132,17 +125,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	//
 	// Default: Any accelerator type.
 	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
-	// The instance types to apply your specified attributes against.
-	//
-	// All other instance types are ignored, even if they match your specified attributes.
-	//
-	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
-	//
-	// For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
-	//
-	// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
-	//
-	// Default: All instance types.
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AllowedInstanceTypes`.
 	AllowedInstanceTypes *[]*string `field:"optional" json:"allowedInstanceTypes" yaml:"allowedInstanceTypes"`
 	// Indicates whether bare metal instance types must be included, excluded, or required.
 	//
@@ -184,8 +167,6 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	//
 	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 	//
-	// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
-	//
 	// Default: No excluded instance types.
 	ExcludedInstanceTypes *[]*string `field:"optional" json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
 	// Indicates whether current or previous generation instance types are included.
@@ -211,9 +192,9 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// The type of local storage that is required.
 	//
 	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
-	// - For instance types with solid state drive (SSD) storage, specify `ssd` .
+	// - For instance types with solid state drive (SDD) storage, specify `sdd` .
 	//
-	// Default: `hdd` and `ssd`.
+	// Default: `hdd` and `sdd`.
 	LocalStorageTypes *[]*string `field:"optional" json:"localStorageTypes" yaml:"localStorageTypes"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
 	//
@@ -221,9 +202,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum amount of memory, in MiB.
 	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
-	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
-	//
-	// Default: No minimum or maximum limits.
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.NetworkBandwidthGbps`.
 	NetworkBandwidthGbps interface{} `field:"optional" json:"networkBandwidthGbps" yaml:"networkBandwidthGbps"`
 	// The minimum and maximum number of network interfaces.
 	//
@@ -231,7 +210,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	NetworkInterfaceCount interface{} `field:"optional" json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	//
-	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
+	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
 	//
 	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 	//
@@ -251,7 +230,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	RequireHibernateSupport interface{} `field:"optional" json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instance.
 	//
-	// This is the maximum you’ll pay for an Spot Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
+	// This is the maximum you’ll pay for an Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
 	//
 	// The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 	//

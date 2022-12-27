@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// An ad hoc (one-time) filtering option.
+// Ad hoc (one-time) filtering option.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -1,7 +1,7 @@
 package awsroute53recoverycontrol
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -12,6 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnClusterProps := &cfnClusterProps{
+//   	clusterEndpoints: []interface{}{
+//   		&clusterEndpointProperty{
+//   			endpoint: jsii.String("endpoint"),
+//   			region: jsii.String("region"),
+//   		},
+//   	},
 //   	name: jsii.String("name"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -22,6 +28,8 @@ import (
 //   }
 //
 type CfnClusterProps struct {
+	// `AWS::Route53RecoveryControl::Cluster.ClusterEndpoints`.
+	ClusterEndpoints interface{} `field:"optional" json:"clusterEndpoints" yaml:"clusterEndpoints"`
 	// Name of the cluster.
 	//
 	// You can use any non-white space character in the name.

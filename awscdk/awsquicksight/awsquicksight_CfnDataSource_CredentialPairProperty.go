@@ -34,6 +34,11 @@ package awsquicksight
 //   				host: jsii.String("host"),
 //   				port: jsii.Number(123),
 //   			},
+//   			databricksParameters: &databricksParametersProperty{
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   				sqlEndpointPath: jsii.String("sqlEndpointPath"),
+//   			},
 //   			mariaDbParameters: &mariaDbParametersProperty{
 //   				database: jsii.String("database"),
 //   				host: jsii.String("host"),

@@ -84,7 +84,7 @@ package awsappflow
 type CfnFlow_SourceConnectorPropertiesProperty struct {
 	// Specifies the information that is required for querying Amplitude.
 	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
-	// The properties that are applied when the custom connector is being used as a source.
+	// `CfnFlow.SourceConnectorPropertiesProperty.CustomConnector`.
 	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// Specifies the information that is required for querying Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`

@@ -20,14 +20,6 @@ func (g *jsiiProxy_GatewayVpcEndpoint) validateGetResourceNameAttributeParameter
 	return nil
 }
 
-func (g *jsiiProxy_GatewayVpcEndpoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (g *jsiiProxy_GatewayVpcEndpoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateGatewayVpcEndpoint_FromGatewayVpcEndpointIdParameters(scope constructs.Construct, id *string, gatewayVpcEndpointId *string) error {
 	return nil
 }
@@ -36,7 +28,11 @@ func validateGatewayVpcEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateGatewayVpcEndpoint_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateGatewayVpcEndpoint_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateGatewayVpcEndpoint_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -102,9 +102,9 @@ type CfnScalableTargetProps struct {
 	ScalableDimension *string `field:"required" json:"scalableDimension" yaml:"scalableDimension"`
 	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
 	ServiceNamespace *string `field:"required" json:"serviceNamespace" yaml:"serviceNamespace"`
-	// The scheduled actions for the scalable target.
+	// The scheduled actions for the scalable target. Duplicates aren't allowed.
 	//
-	// Duplicates aren't allowed.
+	// For more information about using scheduled scaling, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide* .
 	ScheduledActions interface{} `field:"optional" json:"scheduledActions" yaml:"scheduledActions"`
 	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling.
 	//
@@ -115,6 +115,8 @@ type CfnScalableTargetProps struct {
 	// - For `DynamicScalingInSuspended` , while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
 	// - For `DynamicScalingOutSuspended` , while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
 	// - For `ScheduledScalingSuspended` , while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
+	//
+	// For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide* .
 	SuspendedState interface{} `field:"optional" json:"suspendedState" yaml:"suspendedState"`
 }
 

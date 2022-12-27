@@ -43,13 +43,7 @@ type CfnAnomalySubscriptionProps struct {
 	Subscribers interface{} `field:"required" json:"subscribers" yaml:"subscribers"`
 	// The name for the subscription.
 	SubscriptionName *string `field:"required" json:"subscriptionName" yaml:"subscriptionName"`
-	// (deprecated).
-	//
 	// The dollar value that triggers a notification if the threshold is exceeded.
-	//
-	// This field has been deprecated. To specify a threshold, use ThresholdExpression. Continued use of Threshold will be treated as shorthand syntax for a ThresholdExpression.
-	//
-	// One of Threshold or ThresholdExpression is required for this resource.
 	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
 	// `AWS::CE::AnomalySubscription.ResourceTags`.
 	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`

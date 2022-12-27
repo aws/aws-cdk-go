@@ -15,12 +15,10 @@ package awsdynamodb
 //   // You can access the CMK that was added to the stack on your behalf by the Table construct via:
 //   tableEncryptionKey := table.encryptionKey
 //
-// Experimental.
 type TableEncryption string
 
 const (
 	// Server-side KMS encryption with a master key owned by AWS.
-	// Experimental.
 	TableEncryption_DEFAULT TableEncryption = "DEFAULT"
 	// Server-side KMS encryption with a customer master key managed by customer.
 	//
@@ -31,10 +29,8 @@ const (
 	// > CDKv2, these permissions will be sufficient to enable the key for use with DynamoDB tables.
 	// > If you are using CDKv1, make sure the feature flag `@aws-cdk/aws-kms:defaultKeyPolicies`
 	// > is set to `true` in your `cdk.json`.
-	// Experimental.
 	TableEncryption_CUSTOMER_MANAGED TableEncryption = "CUSTOMER_MANAGED"
 	// Server-side KMS encryption with a master key managed by AWS.
-	// Experimental.
 	TableEncryption_AWS_MANAGED TableEncryption = "AWS_MANAGED"
 )
 

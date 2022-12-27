@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnSignalCatalog`.
@@ -84,7 +84,7 @@ import (
 type CfnSignalCatalogProps struct {
 	// `AWS::IoTFleetWise::SignalCatalog.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the signal catalog.
+	// `AWS::IoTFleetWise::SignalCatalog.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::IoTFleetWise::SignalCatalog.NodeCounts`.
 	NodeCounts interface{} `field:"optional" json:"nodeCounts" yaml:"nodeCounts"`

@@ -38,7 +38,7 @@ package awscloudfront
 //   }
 //
 type CfnContinuousDeploymentPolicyProps struct {
-	// Contains the configuration for a continuous deployment policy.
+	// `AWS::CloudFront::ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig`.
 	ContinuousDeploymentPolicyConfig interface{} `field:"required" json:"continuousDeploymentPolicyConfig" yaml:"continuousDeploymentPolicyConfig"`
 }
 

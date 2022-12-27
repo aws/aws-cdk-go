@@ -10,6 +10,7 @@ package awsnetworkfirewall
 //
 //   statefulEngineOptionsProperty := &statefulEngineOptionsProperty{
 //   	ruleOrder: jsii.String("ruleOrder"),
+//   	streamExceptionPolicy: jsii.String("streamExceptionPolicy"),
 //   }
 //
 type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
@@ -17,5 +18,7 @@ type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
 	//
 	// `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 	RuleOrder *string `field:"optional" json:"ruleOrder" yaml:"ruleOrder"`
+	// `CfnFirewallPolicy.StatefulEngineOptionsProperty.StreamExceptionPolicy`.
+	StreamExceptionPolicy *string `field:"optional" json:"streamExceptionPolicy" yaml:"streamExceptionPolicy"`
 }
 

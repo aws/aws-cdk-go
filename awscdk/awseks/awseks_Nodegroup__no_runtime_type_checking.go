@@ -16,14 +16,6 @@ func (n *jsiiProxy_Nodegroup) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
-func (n *jsiiProxy_Nodegroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (n *jsiiProxy_Nodegroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateNodegroup_FromNodegroupNameParameters(scope constructs.Construct, id *string, nodegroupName *string) error {
 	return nil
 }
@@ -32,7 +24,11 @@ func validateNodegroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNodegroup_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateNodegroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateNodegroup_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

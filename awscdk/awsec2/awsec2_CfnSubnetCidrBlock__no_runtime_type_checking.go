@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSubnetCidrBlock) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnSubnetCidrBlock) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSubnetCidrBlock) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSubnetCidrBlock) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetCidrBlock) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSubnetCidrBlock) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetCidrBlock) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSubnetCidrBlock) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSubnetCidrBlock) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetCidrBlock) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSubnetCidrBlock) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) validateSetSubnetIdParameters(val *string
 	return nil
 }
 
-func validateNewCfnSubnetCidrBlockParameters(scope awscdk.Construct, id *string, props *CfnSubnetCidrBlockProps) error {
+func validateNewCfnSubnetCidrBlockParameters(scope constructs.Construct, id *string, props *CfnSubnetCidrBlockProps) error {
 	return nil
 }
 

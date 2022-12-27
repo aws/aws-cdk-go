@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnConformancePack) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnConformancePack) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConformancePack) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnConformancePack) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnConformancePack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnConformancePack) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnConformancePack) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnConformancePack) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnConformancePack) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnConformancePack) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnConformancePack) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnConformancePack) validateSetTemplateSsmDocumentDetailsPara
 	return nil
 }
 
-func validateNewCfnConformancePackParameters(scope awscdk.Construct, id *string, props *CfnConformancePackProps) error {
+func validateNewCfnConformancePackParameters(scope constructs.Construct, id *string, props *CfnConformancePackProps) error {
 	return nil
 }
 

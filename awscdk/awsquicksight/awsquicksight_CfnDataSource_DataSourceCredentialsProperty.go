@@ -38,6 +38,11 @@ package awsquicksight
 //   					host: jsii.String("host"),
 //   					port: jsii.Number(123),
 //   				},
+//   				databricksParameters: &databricksParametersProperty{
+//   					host: jsii.String("host"),
+//   					port: jsii.Number(123),
+//   					sqlEndpointPath: jsii.String("sqlEndpointPath"),
+//   				},
 //   				mariaDbParameters: &mariaDbParametersProperty{
 //   					database: jsii.String("database"),
 //   					host: jsii.String("host"),
@@ -115,7 +120,7 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 	//
 	// For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair interface{} `field:"optional" json:"credentialPair" yaml:"credentialPair"`
-	// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+	// `CfnDataSource.DataSourceCredentialsProperty.SecretArn`.
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
 }
 

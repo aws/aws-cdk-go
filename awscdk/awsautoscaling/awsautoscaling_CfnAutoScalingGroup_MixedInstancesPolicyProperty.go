@@ -1,20 +1,9 @@
 package awsautoscaling
 
 
-// Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.
+// `MixedInstancesPolicy` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) resource. It allows you to configure a group that diversifies across On-Demand Instances and Spot Instances of multiple instance types. For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide* .
 //
-// A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide* .
-//
-// You can create a mixed instances policy for new and existing Auto Scaling groups. You must use a launch template to configure the policy. You cannot use a launch configuration.
-//
-// There are key differences between Spot Instances and On-Demand Instances:
-//
-// - The price for Spot Instances varies based on demand
-// - Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
-//
-// When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group.
-//
-// `MixedInstancesPolicy` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) resource.
+// You can create a mixed instances policy for a new Auto Scaling group, or you can create it for an existing group by updating the group to specify `MixedInstancesPolicy` as the top-level property instead of a launch template or launch configuration. If you specify a `MixedInstancesPolicy` , you must specify a launch template as a property of the policy. You cannot specify a launch configuration for the policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnModelManifest`.
@@ -30,17 +30,15 @@ import (
 //   }
 //
 type CfnModelManifestProps struct {
-	// The name of the vehicle model.
+	// `AWS::IoTFleetWise::ModelManifest.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ARN of the signal catalog associated with the vehicle model.
+	// `AWS::IoTFleetWise::ModelManifest.SignalCatalogArn`.
 	SignalCatalogArn *string `field:"required" json:"signalCatalogArn" yaml:"signalCatalogArn"`
-	// A brief description of the vehicle model.
+	// `AWS::IoTFleetWise::ModelManifest.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTFleetWise::ModelManifest.Nodes`.
 	Nodes *[]*string `field:"optional" json:"nodes" yaml:"nodes"`
-	// The state of the vehicle model.
-	//
-	// If the status is `ACTIVE` , the vehicle model can't be edited. If the status is `DRAFT` , you can edit the vehicle model.
+	// `AWS::IoTFleetWise::ModelManifest.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// `AWS::IoTFleetWise::ModelManifest.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

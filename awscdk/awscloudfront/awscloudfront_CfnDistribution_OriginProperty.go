@@ -84,9 +84,7 @@ type CfnDistribution_OriginProperty struct {
 	//
 	// If the Amazon S3 bucket is configured with static website hosting, use this type. If the Amazon S3 bucket is not configured with static website hosting, use the `S3OriginConfig` type instead.
 	CustomOriginConfig interface{} `field:"optional" json:"customOriginConfig" yaml:"customOriginConfig"`
-	// The unique identifier of an origin access control for this origin.
-	//
-	// For more information, see [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
+	// `CfnDistribution.OriginProperty.OriginAccessControlId`.
 	OriginAccessControlId *string `field:"optional" json:"originAccessControlId" yaml:"originAccessControlId"`
 	// A list of HTTP header names and values that CloudFront adds to the requests that it sends to the origin.
 	//

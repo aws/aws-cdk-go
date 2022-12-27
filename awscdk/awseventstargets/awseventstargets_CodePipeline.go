@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 )
 
 // Allows the pipeline to be used as an EventBridge rule target.
@@ -25,13 +25,11 @@ import (
 //   })
 //   rule.addTarget(targets.NewCodePipeline(pipeline))
 //
-// Experimental.
 type CodePipeline interface {
 	awsevents.IRuleTarget
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -40,7 +38,6 @@ type jsiiProxy_CodePipeline struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) CodePipeline {
 	_init_.Initialize()
 
@@ -50,7 +47,7 @@ func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTa
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.CodePipeline",
+		"aws-cdk-lib.aws_events_targets.CodePipeline",
 		[]interface{}{pipeline, options},
 		&j,
 	)
@@ -58,12 +55,11 @@ func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTa
 	return &j
 }
 
-// Experimental.
 func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.CodePipeline",
+		"aws-cdk-lib.aws_events_targets.CodePipeline",
 		[]interface{}{pipeline, options},
 		c,
 	)

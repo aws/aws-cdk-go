@@ -13,16 +13,13 @@ package awsecs
 //   	sourceContainer: jsii.String("sourceContainer"),
 //   }
 //
-// Experimental.
 type VolumeFrom struct {
 	// Specifies whether the container has read-only access to the volume.
 	//
 	// If this value is true, the container has read-only access to the volume.
 	// If this value is false, then the container can write to the volume.
-	// Experimental.
 	ReadOnly *bool `field:"required" json:"readOnly" yaml:"readOnly"`
 	// The name of another container within the same task definition from which to mount volumes.
-	// Experimental.
 	SourceContainer *string `field:"required" json:"sourceContainer" yaml:"sourceContainer"`
 }
 

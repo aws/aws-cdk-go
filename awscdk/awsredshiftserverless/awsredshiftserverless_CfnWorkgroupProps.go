@@ -1,7 +1,7 @@
 package awsredshiftserverless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnWorkgroup`.
@@ -37,28 +37,69 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	workgroup: &workgroupProperty{
+//   		baseCapacity: jsii.Number(123),
+//   		configParameters: []interface{}{
+//   			&configParameterProperty{
+//   				parameterKey: jsii.String("parameterKey"),
+//   				parameterValue: jsii.String("parameterValue"),
+//   			},
+//   		},
+//   		creationDate: jsii.String("creationDate"),
+//   		endpoint: &endpointProperty{
+//   			address: jsii.String("address"),
+//   			port: jsii.Number(123),
+//   			vpcEndpoints: []interface{}{
+//   				&vpcEndpointProperty{
+//   					networkInterfaces: []interface{}{
+//   						&networkInterfaceProperty{
+//   							availabilityZone: jsii.String("availabilityZone"),
+//   							networkInterfaceId: jsii.String("networkInterfaceId"),
+//   							privateIpAddress: jsii.String("privateIpAddress"),
+//   							subnetId: jsii.String("subnetId"),
+//   						},
+//   					},
+//   					vpcEndpointId: jsii.String("vpcEndpointId"),
+//   					vpcId: jsii.String("vpcId"),
+//   				},
+//   			},
+//   		},
+//   		enhancedVpcRouting: jsii.Boolean(false),
+//   		namespaceName: jsii.String("namespaceName"),
+//   		publiclyAccessible: jsii.Boolean(false),
+//   		securityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		status: jsii.String("status"),
+//   		subnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   		workgroupArn: jsii.String("workgroupArn"),
+//   		workgroupId: jsii.String("workgroupId"),
+//   		workgroupName: jsii.String("workgroupName"),
+//   	},
 //   }
 //
 type CfnWorkgroupProps struct {
-	// The name of the workgroup.
+	// `AWS::RedshiftServerless::Workgroup.WorkgroupName`.
 	WorkgroupName *string `field:"required" json:"workgroupName" yaml:"workgroupName"`
-	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	// `AWS::RedshiftServerless::Workgroup.BaseCapacity`.
 	BaseCapacity *float64 `field:"optional" json:"baseCapacity" yaml:"baseCapacity"`
-	// A list of parameters to set for finer control over a database.
-	//
-	// Available options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
+	// `AWS::RedshiftServerless::Workgroup.ConfigParameters`.
 	ConfigParameters interface{} `field:"optional" json:"configParameters" yaml:"configParameters"`
-	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+	// `AWS::RedshiftServerless::Workgroup.EnhancedVpcRouting`.
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
-	// The namespace the workgroup is associated with.
+	// `AWS::RedshiftServerless::Workgroup.NamespaceName`.
 	NamespaceName *string `field:"optional" json:"namespaceName" yaml:"namespaceName"`
-	// A value that specifies whether the workgroup can be accessible from a public network.
+	// `AWS::RedshiftServerless::Workgroup.PubliclyAccessible`.
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
-	// A list of security group IDs to associate with the workgroup.
+	// `AWS::RedshiftServerless::Workgroup.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// A list of subnet IDs the workgroup is associated with.
+	// `AWS::RedshiftServerless::Workgroup.SubnetIds`.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
-	// The map of the key-value pairs used to tag the workgroup.
+	// `AWS::RedshiftServerless::Workgroup.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// `AWS::RedshiftServerless::Workgroup.Workgroup`.
+	Workgroup interface{} `field:"optional" json:"workgroup" yaml:"workgroup"`
 }
 

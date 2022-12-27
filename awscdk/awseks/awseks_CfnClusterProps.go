@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -94,9 +94,7 @@ type CfnClusterProps struct {
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 	// The unique name to give to your cluster.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost.
-	//
-	// This object isn't available for clusters on the AWS cloud.
+	// `AWS::EKS::Cluster.OutpostConfig`.
 	OutpostConfig interface{} `field:"optional" json:"outpostConfig" yaml:"outpostConfig"`
 	// The metadata that you apply to the cluster to assist with categorization and organization.
 	//
@@ -106,9 +104,7 @@ type CfnClusterProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The desired Kubernetes version for your cluster.
 	//
-	// If you don't specify a value here, the default version available in Amazon EKS is used.
-	//
-	// > The default version might not be the latest version available.
+	// If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

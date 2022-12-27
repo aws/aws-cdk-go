@@ -1,7 +1,7 @@
 package awsconnect
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRule`.
@@ -78,23 +78,19 @@ import (
 //   }
 //
 type CfnRuleProps struct {
-	// A list of actions to be run when the rule is triggered.
+	// `AWS::Connect::Rule.Actions`.
 	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
-	// The conditions of the rule.
+	// `AWS::Connect::Rule.Function`.
 	Function *string `field:"required" json:"function" yaml:"function"`
-	// The Amazon Resource Name (ARN) of the instance.
+	// `AWS::Connect::Rule.InstanceArn`.
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// The name of the rule.
+	// `AWS::Connect::Rule.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The publish status of the rule.
-	//
-	// *Allowed values* : `DRAFT` | `PUBLISHED`.
+	// `AWS::Connect::Rule.PublishStatus`.
 	PublishStatus *string `field:"required" json:"publishStatus" yaml:"publishStatus"`
-	// The event source to trigger the rule.
+	// `AWS::Connect::Rule.TriggerEventSource`.
 	TriggerEventSource interface{} `field:"required" json:"triggerEventSource" yaml:"triggerEventSource"`
-	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// `AWS::Connect::Rule.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

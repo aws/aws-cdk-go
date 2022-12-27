@@ -1,7 +1,7 @@
 package awsredshiftserverless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnNamespace`.
@@ -28,6 +28,23 @@ import (
 //   	logExports: []*string{
 //   		jsii.String("logExports"),
 //   	},
+//   	namespace: &namespaceProperty{
+//   		adminUsername: jsii.String("adminUsername"),
+//   		creationDate: jsii.String("creationDate"),
+//   		dbName: jsii.String("dbName"),
+//   		defaultIamRoleArn: jsii.String("defaultIamRoleArn"),
+//   		iamRoles: []*string{
+//   			jsii.String("iamRoles"),
+//   		},
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		logExports: []*string{
+//   			jsii.String("logExports"),
+//   		},
+//   		namespaceArn: jsii.String("namespaceArn"),
+//   		namespaceId: jsii.String("namespaceId"),
+//   		namespaceName: jsii.String("namespaceName"),
+//   		status: jsii.String("status"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -37,29 +54,29 @@ import (
 //   }
 //
 type CfnNamespaceProps struct {
-	// The name of the namespace.
+	// `AWS::RedshiftServerless::Namespace.NamespaceName`.
 	NamespaceName *string `field:"required" json:"namespaceName" yaml:"namespaceName"`
-	// The username of the administrator for the primary database created in the namespace.
+	// `AWS::RedshiftServerless::Namespace.AdminUsername`.
 	AdminUsername *string `field:"optional" json:"adminUsername" yaml:"adminUsername"`
-	// The password of the administrator for the primary database created in the namespace.
+	// `AWS::RedshiftServerless::Namespace.AdminUserPassword`.
 	AdminUserPassword *string `field:"optional" json:"adminUserPassword" yaml:"adminUserPassword"`
-	// The name of the primary database created in the namespace.
+	// `AWS::RedshiftServerless::Namespace.DbName`.
 	DbName *string `field:"optional" json:"dbName" yaml:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	// `AWS::RedshiftServerless::Namespace.DefaultIamRoleArn`.
 	DefaultIamRoleArn *string `field:"optional" json:"defaultIamRoleArn" yaml:"defaultIamRoleArn"`
-	// The name of the snapshot to be created before the namespace is deleted.
+	// `AWS::RedshiftServerless::Namespace.FinalSnapshotName`.
 	FinalSnapshotName *string `field:"optional" json:"finalSnapshotName" yaml:"finalSnapshotName"`
-	// How long to retain the final snapshot.
+	// `AWS::RedshiftServerless::Namespace.FinalSnapshotRetentionPeriod`.
 	FinalSnapshotRetentionPeriod *float64 `field:"optional" json:"finalSnapshotRetentionPeriod" yaml:"finalSnapshotRetentionPeriod"`
-	// A list of IAM roles to associate with the namespace.
+	// `AWS::RedshiftServerless::Namespace.IamRoles`.
 	IamRoles *[]*string `field:"optional" json:"iamRoles" yaml:"iamRoles"`
-	// The ID of the AWS Key Management Service key used to encrypt your data.
+	// `AWS::RedshiftServerless::Namespace.KmsKeyId`.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// The types of logs the namespace can export.
-	//
-	// Available export types are `userlog` , `connectionlog` , and `useractivitylog` .
+	// `AWS::RedshiftServerless::Namespace.LogExports`.
 	LogExports *[]*string `field:"optional" json:"logExports" yaml:"logExports"`
-	// The map of the key-value pairs used to tag the namespace.
+	// `AWS::RedshiftServerless::Namespace.Namespace`.
+	Namespace interface{} `field:"optional" json:"namespace" yaml:"namespace"`
+	// `AWS::RedshiftServerless::Namespace.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

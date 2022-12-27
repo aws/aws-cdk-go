@@ -1,8 +1,6 @@
 package awssagemaker
 
 
-// Specifies batch transform jobs that SageMaker runs to validate your model package.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -56,9 +54,9 @@ package awssagemaker
 //   }
 //
 type CfnModelPackage_ValidationSpecificationProperty struct {
-	// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
+	// `CfnModelPackage.ValidationSpecificationProperty.ValidationProfiles`.
 	ValidationProfiles interface{} `field:"required" json:"validationProfiles" yaml:"validationProfiles"`
-	// The IAM roles to be used for the validation of the model package.
+	// `CfnModelPackage.ValidationSpecificationProperty.ValidationRole`.
 	ValidationRole *string `field:"required" json:"validationRole" yaml:"validationRole"`
 }
 

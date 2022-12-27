@@ -92,7 +92,7 @@ type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	//
 	// When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
 	//
-	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
@@ -105,10 +105,6 @@ type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
-	//
-	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
-	//
-	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 	SpotPrice *string `field:"optional" json:"spotPrice" yaml:"spotPrice"`
 	// The ID of the subnet in which to launch the instances.
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`

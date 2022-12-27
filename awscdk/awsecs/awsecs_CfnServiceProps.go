@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnService`.
@@ -182,7 +182,7 @@ type CfnServiceProps struct {
 	//
 	// This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of `0` is used.
 	//
-	// If you do not use an Elastic Load Balancing, we recommend that you use the `startPeriod` in the task definition health check parameters. For more information, see [Health check](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html) .
+	// If you do not use an Elastic Load Balancing, we recomend that you use the `startPeriod` in the task definition healtch check parameters. For more information, see [Health check](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html) .
 	//
 	// If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 	HealthCheckGracePeriodSeconds *float64 `field:"optional" json:"healthCheckGracePeriodSeconds" yaml:"healthCheckGracePeriodSeconds"`
@@ -231,9 +231,7 @@ type CfnServiceProps struct {
 	//
 	// > Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy.
 	SchedulingStrategy *string `field:"optional" json:"schedulingStrategy" yaml:"schedulingStrategy"`
-	// The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
-	//
-	// Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// `AWS::ECS::Service.ServiceConnectConfiguration`.
 	ServiceConnectConfiguration interface{} `field:"optional" json:"serviceConnectConfiguration" yaml:"serviceConnectConfiguration"`
 	// The name of your service.
 	//
@@ -262,8 +260,6 @@ type CfnServiceProps struct {
 	// The `revision` is required in order for the resource to stabilize.
 	//
 	// A task definition must be specified if the service is using either the `ECS` or `CODE_DEPLOY` deployment controllers.
-	//
-	// For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) .
 	TaskDefinition *string `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
 }
 

@@ -1,8 +1,8 @@
 package awsecspatterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 )
 
 // Properties to define an application listener.
@@ -23,31 +23,25 @@ import (
 //   	certificate: certificate,
 //   	port: jsii.Number(123),
 //   	protocol: awscdk.Aws_elasticloadbalancingv2.applicationProtocol_HTTP,
-//   	sslPolicy: awscdk.*Aws_elasticloadbalancingv2.sslPolicy_RECOMMENDED,
+//   	sslPolicy: awscdk.*Aws_elasticloadbalancingv2.sslPolicy_RECOMMENDED_TLS,
 //   }
 //
-// Experimental.
 type ApplicationListenerProps struct {
 	// Name of the listener.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
-	// Experimental.
 	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The port on which the listener listens for requests.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
 	// specified if using HTTPS.
-	// Experimental.
 	Protocol awselasticloadbalancingv2.ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported by the ALB Listener.
-	// Experimental.
 	SslPolicy awselasticloadbalancingv2.SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 }
 

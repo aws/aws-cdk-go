@@ -1,7 +1,7 @@
 package awsnetworkfirewall
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFirewallPolicy`.
@@ -26,6 +26,7 @@ import (
 //   		},
 //   		statefulEngineOptions: &statefulEngineOptionsProperty{
 //   			ruleOrder: jsii.String("ruleOrder"),
+//   			streamExceptionPolicy: jsii.String("streamExceptionPolicy"),
 //   		},
 //   		statefulRuleGroupReferences: []interface{}{
 //   			&statefulRuleGroupReferenceProperty{

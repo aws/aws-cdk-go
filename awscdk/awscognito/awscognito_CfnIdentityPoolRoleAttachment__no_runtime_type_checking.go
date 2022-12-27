@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) validateSetRolesParameters(val
 	return nil
 }
 
-func validateNewCfnIdentityPoolRoleAttachmentParameters(scope awscdk.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) error {
+func validateNewCfnIdentityPoolRoleAttachmentParameters(scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) error {
 	return nil
 }
 

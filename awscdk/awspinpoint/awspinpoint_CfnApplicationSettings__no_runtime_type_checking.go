@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnApplicationSettings) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationSettings) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationSettings) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnApplicationSettings) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationSettings) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApplicationSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationSettings) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnApplicationSettings) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnApplicationSettings) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationSettings) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApplicationSettings) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnApplicationSettings) validateSetQuietTimeParameters(val in
 	return nil
 }
 
-func validateNewCfnApplicationSettingsParameters(scope awscdk.Construct, id *string, props *CfnApplicationSettingsProps) error {
+func validateNewCfnApplicationSettingsParameters(scope constructs.Construct, id *string, props *CfnApplicationSettingsProps) error {
 	return nil
 }
 

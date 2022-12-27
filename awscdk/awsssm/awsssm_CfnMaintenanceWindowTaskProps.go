@@ -104,9 +104,9 @@ type CfnMaintenanceWindowTaskProps struct {
 	CutoffBehavior *string `field:"optional" json:"cutoffBehavior" yaml:"cutoffBehavior"`
 	// A description of the task.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Information about an Amazon S3 bucket to write Run Command task-level logs to.
+	// Information about an Amazon S3 bucket to write task-level logs to.
 	//
-	// > `LoggingInfo` has been deprecated. To specify an Amazon S3 bucket to contain logs for Run Command tasks, instead use the `OutputS3BucketName` and `OutputS3KeyPrefix` options in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [AWS ::SSM::MaintenanceWindowTask MaintenanceWindowRunCommandParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html) .
+	// > `LoggingInfo` has been deprecated. To specify an Amazon S3 bucket to contain logs, instead use the `OutputS3BucketName` and `OutputS3KeyPrefix` options in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [AWS Systems Manager MaintenanceWindowTask TaskInvocationParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html) .
 	LoggingInfo interface{} `field:"optional" json:"loggingInfo" yaml:"loggingInfo"`
 	// The maximum number of targets this task can be run for, in parallel.
 	//

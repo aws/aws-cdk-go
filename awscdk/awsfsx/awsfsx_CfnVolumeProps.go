@@ -1,7 +1,7 @@
 package awsfsx
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnVolume`.
@@ -17,13 +17,16 @@ import (
 //   	// the properties below are optional
 //   	backupId: jsii.String("backupId"),
 //   	ontapConfiguration: &ontapConfigurationProperty{
-//   		junctionPath: jsii.String("junctionPath"),
 //   		sizeInMegabytes: jsii.String("sizeInMegabytes"),
-//   		storageEfficiencyEnabled: jsii.String("storageEfficiencyEnabled"),
 //   		storageVirtualMachineId: jsii.String("storageVirtualMachineId"),
 //
 //   		// the properties below are optional
+//   		copyTagsToBackups: jsii.String("copyTagsToBackups"),
+//   		junctionPath: jsii.String("junctionPath"),
+//   		ontapVolumeType: jsii.String("ontapVolumeType"),
 //   		securityStyle: jsii.String("securityStyle"),
+//   		snapshotPolicy: jsii.String("snapshotPolicy"),
+//   		storageEfficiencyEnabled: jsii.String("storageEfficiencyEnabled"),
 //   		tieringPolicy: &tieringPolicyProperty{
 //   			coolingPeriod: jsii.Number(123),
 //   			name: jsii.String("name"),

@@ -1,7 +1,7 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -23,73 +23,56 @@ import (
 //   	webhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
 //   	webhookFilters: []filterGroup{
-//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
+//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
 //   	},
 //   })
 //
-// Experimental.
 type FilterGroup interface {
 	// Create a new FilterGroup with an added condition: the account ID of the actor initiating the event must match the given pattern.
-	// Experimental.
 	AndActorAccountIs(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the account ID of the actor initiating the event must not match the given pattern.
-	// Experimental.
 	AndActorAccountIsNot(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the Pull Request that is the source of the event must target the given base branch.
 	//
 	// Note that you cannot use this method if this Group contains the `PUSH` event action.
-	// Experimental.
 	AndBaseBranchIs(branchName *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the Pull Request that is the source of the event must not target the given base branch.
 	//
 	// Note that you cannot use this method if this Group contains the `PUSH` event action.
-	// Experimental.
 	AndBaseBranchIsNot(branchName *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the Pull Request that is the source of the event must target the given Git reference.
 	//
 	// Note that you cannot use this method if this Group contains the `PUSH` event action.
-	// Experimental.
 	AndBaseRefIs(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the Pull Request that is the source of the event must not target the given Git reference.
 	//
 	// Note that you cannot use this method if this Group contains the `PUSH` event action.
-	// Experimental.
 	AndBaseRefIsNot(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must affect the given branch.
-	// Experimental.
 	AndBranchIs(branchName *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must not affect the given branch.
-	// Experimental.
 	AndBranchIsNot(branchName *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must affect a head commit with the given message.
-	// Experimental.
 	AndCommitMessageIs(commitMessage *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must not affect a head commit with the given message.
-	// Experimental.
 	AndCommitMessageIsNot(commitMessage *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the push that is the source of the event must affect a file that matches the given pattern.
 	//
 	// Note that you can only use this method if this Group contains only the `PUSH` event action,
 	// and only for GitHub, Bitbucket and GitHubEnterprise sources.
-	// Experimental.
 	AndFilePathIs(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the push that is the source of the event must not affect a file that matches the given pattern.
 	//
 	// Note that you can only use this method if this Group contains only the `PUSH` event action,
 	// and only for GitHub, Bitbucket and GitHubEnterprise sources.
-	// Experimental.
 	AndFilePathIsNot(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must affect a Git reference (ie., a branch or a tag) that matches the given pattern.
-	// Experimental.
 	AndHeadRefIs(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must not affect a Git reference (ie., a branch or a tag) that matches the given pattern.
-	// Experimental.
 	AndHeadRefIsNot(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must affect the given tag.
-	// Experimental.
 	AndTagIs(tagName *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must not affect the given tag.
-	// Experimental.
 	AndTagIsNot(tagName *string) FilterGroup
 }
 
@@ -99,7 +82,6 @@ type jsiiProxy_FilterGroup struct {
 }
 
 // Creates a new event FilterGroup that triggers on any of the provided actions.
-// Experimental.
 func FilterGroup_InEventOf(actions ...EventAction) FilterGroup {
 	_init_.Initialize()
 
@@ -111,7 +93,7 @@ func FilterGroup_InEventOf(actions ...EventAction) FilterGroup {
 	var returns FilterGroup
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codebuild.FilterGroup",
+		"aws-cdk-lib.aws_codebuild.FilterGroup",
 		"inEventOf",
 		args,
 		&returns,

@@ -1,7 +1,7 @@
 package awsnetworkfirewall
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRuleGroup`.
@@ -123,6 +123,13 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		referenceSets: &referenceSetsProperty{
+//   			ipSetReferences: map[string]interface{}{
+//   				"ipSetReferencesKey": map[string]*string{
+//   					"referenceArn": jsii.String("referenceArn"),
+//   				},
+//   			},
+//   		},
 //   		ruleVariables: &ruleVariablesProperty{
 //   			ipSets: map[string]interface{}{
 //   				"ipSetsKey": map[string][]*string{

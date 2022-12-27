@@ -27,8 +27,6 @@ type CfnDataSource_DocumentAttributeValueProperty struct {
 	// A long integer value.
 	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
 	// A list of strings.
-	//
-	// The default maximum length or number of strings is 10.
 	StringListValue *[]*string `field:"optional" json:"stringListValue" yaml:"stringListValue"`
 	// A string, such as "department".
 	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`

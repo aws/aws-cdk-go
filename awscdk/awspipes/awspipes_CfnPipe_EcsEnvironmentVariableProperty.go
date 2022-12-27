@@ -1,10 +1,6 @@
 package awspipes
 
 
-// The environment variables to send to the container.
-//
-// You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +12,9 @@ package awspipes
 //   }
 //
 type CfnPipe_EcsEnvironmentVariableProperty struct {
-	// The name of the key-value pair.
-	//
-	// For environment variables, this is the name of the environment variable.
+	// `CfnPipe.EcsEnvironmentVariableProperty.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The value of the key-value pair.
-	//
-	// For environment variables, this is the value of the environment variable.
+	// `CfnPipe.EcsEnvironmentVariableProperty.Value`.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

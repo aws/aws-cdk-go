@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnAutoScalingGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAutoScalingGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAutoScalingGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAutoScalingGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAutoScalingGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -112,7 +116,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 	return nil
 }
 
-func validateNewCfnAutoScalingGroupParameters(scope awscdk.Construct, id *string, props *CfnAutoScalingGroupProps) error {
+func validateNewCfnAutoScalingGroupParameters(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) error {
 	return nil
 }
 

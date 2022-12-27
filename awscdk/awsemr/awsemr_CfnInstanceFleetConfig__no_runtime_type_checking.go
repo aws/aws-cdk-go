@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceFleetConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceFleetConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceFleetConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInstanceFleetConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceFleetConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnInstanceFleetConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceFleetConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInstanceFleetConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetLaunchSpecificationsParame
 	return nil
 }
 
-func validateNewCfnInstanceFleetConfigParameters(scope awscdk.Construct, id *string, props *CfnInstanceFleetConfigProps) error {
+func validateNewCfnInstanceFleetConfigParameters(scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsquicksight
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDataSource`.
@@ -32,6 +32,11 @@ import (
 //   				database: jsii.String("database"),
 //   				host: jsii.String("host"),
 //   				port: jsii.Number(123),
+//   			},
+//   			databricksParameters: &databricksParametersProperty{
+//   				host: jsii.String("host"),
+//   				port: jsii.Number(123),
+//   				sqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   			},
 //   			mariaDbParameters: &mariaDbParametersProperty{
 //   				database: jsii.String("database"),
@@ -126,6 +131,11 @@ import (
 //   						host: jsii.String("host"),
 //   						port: jsii.Number(123),
 //   					},
+//   					databricksParameters: &databricksParametersProperty{
+//   						host: jsii.String("host"),
+//   						port: jsii.Number(123),
+//   						sqlEndpointPath: jsii.String("sqlEndpointPath"),
+//   					},
 //   					mariaDbParameters: &mariaDbParametersProperty{
 //   						database: jsii.String("database"),
 //   						host: jsii.String("host"),
@@ -213,6 +223,11 @@ import (
 //   			database: jsii.String("database"),
 //   			host: jsii.String("host"),
 //   			port: jsii.Number(123),
+//   		},
+//   		databricksParameters: &databricksParametersProperty{
+//   			host: jsii.String("host"),
+//   			port: jsii.Number(123),
+//   			sqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   		},
 //   		mariaDbParameters: &mariaDbParametersProperty{
 //   			database: jsii.String("database"),

@@ -10,7 +10,6 @@ package awsdirectoryservice
 //
 //   cfnSimpleADProps := &cfnSimpleADProps{
 //   	name: jsii.String("name"),
-//   	password: jsii.String("password"),
 //   	size: jsii.String("size"),
 //   	vpcSettings: &vpcSettingsProperty{
 //   		subnetIds: []*string{
@@ -23,18 +22,13 @@ package awsdirectoryservice
 //   	createAlias: jsii.Boolean(false),
 //   	description: jsii.String("description"),
 //   	enableSso: jsii.Boolean(false),
+//   	password: jsii.String("password"),
 //   	shortName: jsii.String("shortName"),
 //   }
 //
 type CfnSimpleADProps struct {
 	// The fully qualified name for the directory, such as `corp.example.com` .
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The password for the directory administrator.
-	//
-	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
-	//
-	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	Password *string `field:"required" json:"password" yaml:"password"`
 	// The size of the directory.
 	//
 	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *AWS Directory Service API Reference* .
@@ -53,6 +47,12 @@ type CfnSimpleADProps struct {
 	//
 	// If you don't specify a value, AWS CloudFormation disables single sign-on by default.
 	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
+	// The password for the directory administrator.
+	//
+	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
+	//
+	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The NetBIOS name of the directory, such as `CORP` .
 	ShortName *string `field:"optional" json:"shortName" yaml:"shortName"`
 }

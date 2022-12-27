@@ -83,7 +83,7 @@ type CfnMethod_IntegrationProperty struct {
 	//
 	// This behavior depends on the request's `Content-Type` header and whether you defined a mapping template for it.
 	//
-	// For more information and valid values, see the [passthroughBehavior](https://docs.aws.amazon.com/apigateway/latest/api/API_PutIntegration.html#passthroughBehavior) field in the *API Gateway API Reference* .
+	// For more information and valid values, see the [passthroughBehavior](https://docs.aws.amazon.com/apigateway/api-reference/link-relation/integration-put/#passthroughBehavior) field in the *API Gateway API Reference* .
 	PassthroughBehavior *string `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
@@ -107,7 +107,7 @@ type CfnMethod_IntegrationProperty struct {
 	TimeoutInMillis *float64 `field:"optional" json:"timeoutInMillis" yaml:"timeoutInMillis"`
 	// The type of backend that your method is running, such as `HTTP` or `MOCK` .
 	//
-	// For all of the valid values, see the [type](https://docs.aws.amazon.com/apigateway/latest/api/API_Integration.html#type) property for the `Integration` resource in the *Amazon API Gateway REST API Reference* .
+	// For all of the valid values, see the [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#type) property for the `Integration` resource in the *Amazon API Gateway REST API Reference* .
 	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	//
@@ -115,7 +115,7 @@ type CfnMethod_IntegrationProperty struct {
 	//
 	// If you specify `MOCK` for the `Type` property, don't specify this property.
 	//
-	// If you specify `AWS` for the `Type` property, specify an AWS service that follows this form: arn:aws:apigateway: *region* : *subdomain* . *service|service* : *path|action* / *service_api* . For example, a Lambda function URI follows this form: arn:aws:apigateway: *region* :lambda:path/ *path* . The path is usually in the form /2015-03-31/functions/ *LambdaFunctionARN* /invocations. For more information, see the `uri` property of the [Integration](https://docs.aws.amazon.com/apigateway/latest/api/API_Integration.html) resource in the Amazon API Gateway REST API Reference.
+	// If you specify `AWS` for the `Type` property, specify an AWS service that follows this form: arn:aws:apigateway: *region* : *subdomain* . *service|service* : *path|action* / *service_api* . For example, a Lambda function URI follows this form: arn:aws:apigateway: *region* :lambda:path/ *path* . The path is usually in the form /2015-03-31/functions/ *LambdaFunctionARN* /invocations. For more information, see the `uri` property of the [Integration](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/) resource in the Amazon API Gateway REST API Reference.
 	//
 	// If you specified `HTTP` or `AWS` for the `Type` property, you must specify this property.
 	Uri *string `field:"optional" json:"uri" yaml:"uri"`

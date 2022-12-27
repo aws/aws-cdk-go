@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateAddDeletionOverr
 	return nil
 }
 
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateInspectParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateRenderProperties
 	return nil
 }
 
-func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnConfigurationSetEventDestination) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) validateSetEventDestinat
 	return nil
 }
 
-func validateNewCfnConfigurationSetEventDestinationParameters(scope awscdk.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) error {
+func validateNewCfnConfigurationSetEventDestinationParameters(scope constructs.Construct, id *string, props *CfnConfigurationSetEventDestinationProps) error {
 	return nil
 }
 

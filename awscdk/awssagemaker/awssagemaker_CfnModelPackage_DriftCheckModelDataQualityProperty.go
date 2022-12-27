@@ -26,9 +26,9 @@ package awssagemaker
 //   }
 //
 type CfnModelPackage_DriftCheckModelDataQualityProperty struct {
-	// The drift check model data quality constraints.
+	// `CfnModelPackage.DriftCheckModelDataQualityProperty.Constraints`.
 	Constraints interface{} `field:"optional" json:"constraints" yaml:"constraints"`
-	// The drift check model data quality statistics.
+	// `CfnModelPackage.DriftCheckModelDataQualityProperty.Statistics`.
 	Statistics interface{} `field:"optional" json:"statistics" yaml:"statistics"`
 }
 

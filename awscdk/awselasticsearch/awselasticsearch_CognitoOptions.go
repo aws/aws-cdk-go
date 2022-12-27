@@ -1,12 +1,13 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Configures Amazon ES to use Amazon Cognito authentication for Kibana.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   es.NewDomain(this, jsii.String("Domain"), &domainProps{
 //   	cognitoKibanaAuth: &cognitoOptions{
 //   		identityPoolId: jsii.String("test-identity-pool-id"),

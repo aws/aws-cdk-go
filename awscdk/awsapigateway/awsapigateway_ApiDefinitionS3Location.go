@@ -16,16 +16,12 @@ package awsapigateway
 //   	version: jsii.String("version"),
 //   }
 //
-// Experimental.
 type ApiDefinitionS3Location struct {
 	// The S3 bucket.
-	// Experimental.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 key.
-	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// An optional version.
-	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

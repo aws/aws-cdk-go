@@ -76,15 +76,11 @@ func (s *jsiiProxy_StateMachine) validateMetricTimedOutParameters(props *awsclou
 	return nil
 }
 
-func (s *jsiiProxy_StateMachine) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_StateMachine) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateStateMachine_FromStateMachineArnParameters(scope constructs.Construct, id *string, stateMachineArn *string) error {
+	return nil
+}
+
+func validateStateMachine_FromStateMachineNameParameters(scope constructs.Construct, id *string, stateMachineName *string) error {
 	return nil
 }
 
@@ -92,7 +88,11 @@ func validateStateMachine_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStateMachine_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateStateMachine_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateStateMachine_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

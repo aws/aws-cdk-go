@@ -1,9 +1,7 @@
 package awsbatch
 
 
-// Specifies an array of up to 5 conditions to be met, and an action to take ( `RETRY` or `EXIT` ) if all conditions are met.
-//
-// If none of the `EvaluateOnExit` conditions in a `RetryStrategy` match, then the job is retried.
+// Specifies a set of conditions to be met, and an action to take ( `RETRY` or `EXIT` ) if all conditions are met.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,17 +24,21 @@ type CfnJobDefinition_EvaluateOnExitProperty struct {
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// Contains a glob pattern to match against the decimal representation of the `ExitCode` returned for a job.
 	//
-	// The pattern can be up to 512 characters long. It can contain only numbers, and can end with an asterisk (*) so that only the start of the string needs to be an exact match.
+	// The pattern can be up to 512 characters in length. It can contain only numbers, and can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.
 	//
-	// The string can contain up to 512 characters.
+	// The string can be between 1 and 512 characters in length.
 	OnExitCode *string `field:"optional" json:"onExitCode" yaml:"onExitCode"`
 	// Contains a glob pattern to match against the `Reason` returned for a job.
 	//
-	// The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces and tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.
+	// The pattern can be up to 512 characters in length. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces and tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.
+	//
+	// The string can be between 1 and 512 characters in length.
 	OnReason *string `field:"optional" json:"onReason" yaml:"onReason"`
 	// Contains a glob pattern to match against the `StatusReason` returned for a job.
 	//
-	// The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.), colons (:), and white spaces (including spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.
+	// The pattern can be up to 512 characters in length. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.
+	//
+	// The string can be between 1 and 512 characters in length.
 	OnStatusReason *string `field:"optional" json:"onStatusReason" yaml:"onStatusReason"`
 }
 

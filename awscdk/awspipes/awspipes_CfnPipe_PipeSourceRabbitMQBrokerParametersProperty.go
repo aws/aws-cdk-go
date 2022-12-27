@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The parameters for using a Rabbit MQ broker as a source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,15 +19,15 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeSourceRabbitMQBrokerParametersProperty struct {
-	// The credentials needed to access the resource.
+	// `CfnPipe.PipeSourceRabbitMQBrokerParametersProperty.Credentials`.
 	Credentials interface{} `field:"required" json:"credentials" yaml:"credentials"`
-	// The name of the destination queue to consume.
+	// `CfnPipe.PipeSourceRabbitMQBrokerParametersProperty.QueueName`.
 	QueueName *string `field:"required" json:"queueName" yaml:"queueName"`
-	// The maximum number of records to include in each batch.
+	// `CfnPipe.PipeSourceRabbitMQBrokerParametersProperty.BatchSize`.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
-	// The maximum length of a time to wait for events.
+	// `CfnPipe.PipeSourceRabbitMQBrokerParametersProperty.MaximumBatchingWindowInSeconds`.
 	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
-	// The name of the virtual host associated with the source broker.
+	// `CfnPipe.PipeSourceRabbitMQBrokerParametersProperty.VirtualHost`.
 	VirtualHost *string `field:"optional" json:"virtualHost" yaml:"virtualHost"`
 }
 

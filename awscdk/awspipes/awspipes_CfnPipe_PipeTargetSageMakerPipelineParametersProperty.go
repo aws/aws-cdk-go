@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The parameters for using a SageMaker pipeline as a target.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,7 +16,7 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeTargetSageMakerPipelineParametersProperty struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// `CfnPipe.PipeTargetSageMakerPipelineParametersProperty.PipelineParameterList`.
 	PipelineParameterList interface{} `field:"optional" json:"pipelineParameterList" yaml:"pipelineParameterList"`
 }
 

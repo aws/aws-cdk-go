@@ -35,7 +35,7 @@ type CfnAccessPoint_ObjectLambdaConfigurationProperty struct {
 	TransformationConfigurations interface{} `field:"required" json:"transformationConfigurations" yaml:"transformationConfigurations"`
 	// A container for allowed features.
 	//
-	// Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
+	// Valid inputs are `GetObject-Range` and `GetObject-PartNumber` .
 	AllowedFeatures *[]*string `field:"optional" json:"allowedFeatures" yaml:"allowedFeatures"`
 	// A container for whether the CloudWatch metrics configuration is enabled.
 	CloudWatchMetricsEnabled interface{} `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`

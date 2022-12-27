@@ -76,19 +76,15 @@ func (q *jsiiProxy_QueueBase) validateMetricSentMessageSizeParameters(props *aws
 	return nil
 }
 
-func (q *jsiiProxy_QueueBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (q *jsiiProxy_QueueBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateQueueBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateQueueBase_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateQueueBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateQueueBase_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

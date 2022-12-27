@@ -1,12 +1,12 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
 // Represents credentials used to access a Docker registry.
@@ -38,14 +38,11 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type DockerCredential interface {
-	// Experimental.
 	Usages() *[]DockerCredentialUsage
 	// Grant read-only access to the registry credentials.
 	//
 	// This grants read access to any secrets, and pull access to any repositories.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, usage DockerCredentialUsage)
 }
 
@@ -65,19 +62,17 @@ func (j *jsiiProxy_DockerCredential) Usages() *[]DockerCredentialUsage {
 }
 
 
-// Experimental.
 func NewDockerCredential_Override(d DockerCredential, usages *[]DockerCredentialUsage) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		[]interface{}{usages},
 		d,
 	)
 }
 
 // Creates a DockerCredential for a registry, based on its domain name (e.g., 'www.example.com').
-// Experimental.
 func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
@@ -87,7 +82,7 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		"customRegistry",
 		[]interface{}{registryDomain, secret, opts},
 		&returns,
@@ -99,7 +94,6 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 // Creates a DockerCredential for DockerHub.
 //
 // Convenience method for `customRegistry('https://index.docker.io/v1/', opts)`.
-// Experimental.
 func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
@@ -109,7 +103,7 @@ func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *External
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		"dockerHub",
 		[]interface{}{secret, opts},
 		&returns,
@@ -125,7 +119,6 @@ func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *External
 // set of credentials (and DockerCredential). Attempting to associate one set of credentials
 // with one ECR repo and another with another ECR repo in the same account and region will
 // result in failures when using these credentials in the pipeline.
-// Experimental.
 func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
@@ -135,7 +128,7 @@ func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCre
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		"ecr",
 		[]interface{}{repositories, opts},
 		&returns,

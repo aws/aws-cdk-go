@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnVpcAttachment`.
@@ -20,6 +20,7 @@ import (
 //
 //   	// the properties below are optional
 //   	options: &vpcOptionsProperty{
+//   		applianceModeSupport: jsii.Boolean(false),
 //   		ipv6Support: jsii.Boolean(false),
 //   	},
 //   	tags: []cfnTag{

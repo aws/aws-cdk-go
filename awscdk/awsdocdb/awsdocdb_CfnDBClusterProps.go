@@ -1,7 +1,7 @@
 package awsdocdb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBCluster`.
@@ -138,27 +138,9 @@ type CfnDBClusterProps struct {
 	//
 	// Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
-	// The date and time to restore the cluster to.
-	//
-	// Valid values: A time in Universal Coordinated Time (UTC) format.
-	//
-	// Constraints:
-	//
-	// - Must be before the latest restorable time for the instance.
-	// - Must be specified if the `UseLatestRestorableTime` parameter is not provided.
-	// - Cannot be specified if the `UseLatestRestorableTime` parameter is `true` .
-	// - Cannot be specified if the `RestoreType` parameter is `copy-on-write` .
-	//
-	// Example: `2015-03-07T23:45:00Z`.
+	// `AWS::DocDB::DBCluster.RestoreToTime`.
 	RestoreToTime *string `field:"optional" json:"restoreToTime" yaml:"restoreToTime"`
-	// The type of restore to be performed. You can specify one of the following values:.
-	//
-	// - `full-copy` - The new DB cluster is restored as a full copy of the source DB cluster.
-	// - `copy-on-write` - The new DB cluster is restored as a clone of the source DB cluster.
-	//
-	// Constraints: You can't specify `copy-on-write` if the engine version of the source DB cluster is earlier than 1.11.
-	//
-	// If you don't specify a `RestoreType` value, then the new DB cluster is restored as a full copy of the source DB cluster.
+	// `AWS::DocDB::DBCluster.RestoreType`.
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// The identifier for the snapshot or cluster snapshot to restore from.
 	//
@@ -168,21 +150,13 @@ type CfnDBClusterProps struct {
 	//
 	// - Must match the identifier of an existing snapshot.
 	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
-	// The identifier of the source cluster from which to restore.
-	//
-	// Constraints:
-	//
-	// - Must match the identifier of an existing `DBCluster` .
+	// `AWS::DocDB::DBCluster.SourceDBClusterIdentifier`.
 	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// Specifies whether the cluster is encrypted.
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The tags to be assigned to the cluster.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// A value that is set to `true` to restore the cluster to the latest restorable backup time, and `false` otherwise.
-	//
-	// Default: `false`
-	//
-	// Constraints: Cannot be specified if the `RestoreToTime` parameter is provided.
+	// `AWS::DocDB::DBCluster.UseLatestRestorableTime`.
 	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of EC2 VPC security groups to associate with this cluster.
 	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`

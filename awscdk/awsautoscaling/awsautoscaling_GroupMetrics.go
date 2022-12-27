@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -41,7 +41,6 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type GroupMetrics interface {
 }
 
@@ -50,7 +49,6 @@ type jsiiProxy_GroupMetrics struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewGroupMetrics(metrics ...GroupMetric) GroupMetrics {
 	_init_.Initialize()
 
@@ -62,7 +60,7 @@ func NewGroupMetrics(metrics ...GroupMetric) GroupMetrics {
 	j := jsiiProxy_GroupMetrics{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.GroupMetrics",
+		"aws-cdk-lib.aws_autoscaling.GroupMetrics",
 		args,
 		&j,
 	)
@@ -70,7 +68,6 @@ func NewGroupMetrics(metrics ...GroupMetric) GroupMetrics {
 	return &j
 }
 
-// Experimental.
 func NewGroupMetrics_Override(g GroupMetrics, metrics ...GroupMetric) {
 	_init_.Initialize()
 
@@ -80,21 +77,20 @@ func NewGroupMetrics_Override(g GroupMetrics, metrics ...GroupMetric) {
 	}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.GroupMetrics",
+		"aws-cdk-lib.aws_autoscaling.GroupMetrics",
 		args,
 		g,
 	)
 }
 
 // Report all group metrics.
-// Experimental.
 func GroupMetrics_All() GroupMetrics {
 	_init_.Initialize()
 
 	var returns GroupMetrics
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.GroupMetrics",
+		"aws-cdk-lib.aws_autoscaling.GroupMetrics",
 		"all",
 		nil, // no parameters
 		&returns,

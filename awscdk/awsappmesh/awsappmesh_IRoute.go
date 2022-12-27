@@ -3,22 +3,18 @@ package awsappmesh
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 )
 
 // Interface for which all Route based classes MUST implement.
-// Experimental.
 type IRoute interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) for the route.
-	// Experimental.
 	RouteArn() *string
 	// The name of the route.
-	// Experimental.
 	RouteName() *string
 	// The VirtualRouter the Route belongs to.
-	// Experimental.
 	VirtualRouter() IVirtualRouter
 }
 

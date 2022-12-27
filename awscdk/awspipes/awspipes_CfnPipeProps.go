@@ -337,27 +337,27 @@ package awspipes
 //   }
 //
 type CfnPipeProps struct {
-	// The ARN of the role that allows the pipe to send data to the target.
+	// `AWS::Pipes::Pipe.RoleArn`.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The ARN of the source resource.
+	// `AWS::Pipes::Pipe.Source`.
 	Source *string `field:"required" json:"source" yaml:"source"`
-	// The ARN of the target resource.
+	// `AWS::Pipes::Pipe.Target`.
 	Target *string `field:"required" json:"target" yaml:"target"`
-	// A description of the pipe.
+	// `AWS::Pipes::Pipe.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The state the pipe should be in.
+	// `AWS::Pipes::Pipe.DesiredState`.
 	DesiredState *string `field:"optional" json:"desiredState" yaml:"desiredState"`
-	// The ARN of the enrichment resource.
+	// `AWS::Pipes::Pipe.Enrichment`.
 	Enrichment *string `field:"optional" json:"enrichment" yaml:"enrichment"`
-	// The parameters required to set up enrichment on your pipe.
+	// `AWS::Pipes::Pipe.EnrichmentParameters`.
 	EnrichmentParameters interface{} `field:"optional" json:"enrichmentParameters" yaml:"enrichmentParameters"`
-	// The name of the pipe.
+	// `AWS::Pipes::Pipe.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The parameters required to set up a source for your pipe.
+	// `AWS::Pipes::Pipe.SourceParameters`.
 	SourceParameters interface{} `field:"optional" json:"sourceParameters" yaml:"sourceParameters"`
-	// The list of key-value pairs to associate with the pipe.
+	// `AWS::Pipes::Pipe.Tags`.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// The parameters required to set up a target for your pipe.
+	// `AWS::Pipes::Pipe.TargetParameters`.
 	TargetParameters interface{} `field:"optional" json:"targetParameters" yaml:"targetParameters"`
 }
 

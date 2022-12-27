@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSimpleAD) validateAddDeletionOverrideParameters(path *stri
 	return nil
 }
 
+func (c *jsiiProxy_CfnSimpleAD) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSimpleAD) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSimpleAD) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimpleAD) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSimpleAD) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimpleAD) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSimpleAD) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSimpleAD) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnSimpleAD) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSimpleAD) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,10 +92,6 @@ func (j *jsiiProxy_CfnSimpleAD) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnSimpleAD) validateSetPasswordParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnSimpleAD) validateSetSizeParameters(val *string) error {
 	return nil
 }
@@ -100,7 +100,7 @@ func (j *jsiiProxy_CfnSimpleAD) validateSetVpcSettingsParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnSimpleADParameters(scope awscdk.Construct, id *string, props *CfnSimpleADProps) error {
+func validateNewCfnSimpleADParameters(scope constructs.Construct, id *string, props *CfnSimpleADProps) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFleet`.
@@ -26,11 +26,11 @@ import (
 //   }
 //
 type CfnFleetProps struct {
-	// The unique ID of the fleet.
+	// `AWS::IoTFleetWise::Fleet.Id`.
 	Id *string `field:"required" json:"id" yaml:"id"`
-	// The ARN of the signal catalog associated with the fleet.
+	// `AWS::IoTFleetWise::Fleet.SignalCatalogArn`.
 	SignalCatalogArn *string `field:"required" json:"signalCatalogArn" yaml:"signalCatalogArn"`
-	// A brief description of the fleet.
+	// `AWS::IoTFleetWise::Fleet.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTFleetWise::Fleet.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -1,7 +1,7 @@
 package awsevidently
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnLaunch`.
@@ -62,11 +62,11 @@ import (
 //   	metricMonitors: []interface{}{
 //   		&metricDefinitionObjectProperty{
 //   			entityIdKey: jsii.String("entityIdKey"),
-//   			eventPattern: jsii.String("eventPattern"),
 //   			metricName: jsii.String("metricName"),
 //   			valueKey: jsii.String("valueKey"),
 //
 //   			// the properties below are optional
+//   			eventPattern: jsii.String("eventPattern"),
 //   			unitLabel: jsii.String("unitLabel"),
 //   		},
 //   	},

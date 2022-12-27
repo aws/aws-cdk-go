@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVPCCidrBlock) validateAddDeletionOverrideParameters(path *
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCCidrBlock) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCCidrBlock) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnVPCCidrBlock) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCCidrBlock) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVPCCidrBlock) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCCidrBlock) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVPCCidrBlock) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnVPCCidrBlock) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCCidrBlock) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVPCCidrBlock) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnVPCCidrBlock) validateSetVpcIdParameters(val *string) erro
 	return nil
 }
 
-func validateNewCfnVPCCidrBlockParameters(scope awscdk.Construct, id *string, props *CfnVPCCidrBlockProps) error {
+func validateNewCfnVPCCidrBlockParameters(scope constructs.Construct, id *string, props *CfnVPCCidrBlockProps) error {
 	return nil
 }
 

@@ -22,6 +22,7 @@ package awsnetworkfirewall
 //   	},
 //   	statefulEngineOptions: &statefulEngineOptionsProperty{
 //   		ruleOrder: jsii.String("ruleOrder"),
+//   		streamExceptionPolicy: jsii.String("streamExceptionPolicy"),
 //   	},
 //   	statefulRuleGroupReferences: []interface{}{
 //   		&statefulRuleGroupReferenceProperty{

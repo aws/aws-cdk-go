@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -23,20 +23,16 @@ import (
 //   	natGateways: jsii.Number(2),
 //   })
 //
-// Experimental.
 type NatProvider interface {
 	// Return list of gateways spawned by the provider.
-	// Experimental.
 	ConfiguredGateways() *[]*GatewayConfig
 	// Called by the VPC to configure NAT.
 	//
 	// Don't call this directly, the VPC will call it automatically.
-	// Experimental.
 	ConfigureNat(options *ConfigureNatOptions)
 	// Configures subnet with the gateway.
 	//
 	// Don't call this directly, the VPC will call it automatically.
-	// Experimental.
 	ConfigureSubnet(subnet PrivateSubnet)
 }
 
@@ -56,12 +52,11 @@ func (j *jsiiProxy_NatProvider) ConfiguredGateways() *[]*GatewayConfig {
 }
 
 
-// Experimental.
 func NewNatProvider_Override(n NatProvider) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.NatProvider",
+		"aws-cdk-lib.aws_ec2.NatProvider",
 		nil, // no parameters
 		n,
 	)
@@ -72,7 +67,6 @@ func NewNatProvider_Override(n NatProvider) {
 // NAT gateways are managed by AWS.
 // See: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 //
-// Experimental.
 func NatProvider_Gateway(props *NatGatewayProps) NatProvider {
 	_init_.Initialize()
 
@@ -82,7 +76,7 @@ func NatProvider_Gateway(props *NatGatewayProps) NatProvider {
 	var returns NatProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.NatProvider",
+		"aws-cdk-lib.aws_ec2.NatProvider",
 		"gateway",
 		[]interface{}{props},
 		&returns,
@@ -100,7 +94,6 @@ func NatProvider_Gateway(props *NatGatewayProps) NatProvider {
 // your own NatProvider based on AutoScaling groups if you need that.
 // See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html
 //
-// Experimental.
 func NatProvider_Instance(props *NatInstanceProps) NatInstanceProvider {
 	_init_.Initialize()
 
@@ -110,7 +103,7 @@ func NatProvider_Instance(props *NatInstanceProps) NatInstanceProvider {
 	var returns NatInstanceProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.NatProvider",
+		"aws-cdk-lib.aws_ec2.NatProvider",
 		"instance",
 		[]interface{}{props},
 		&returns,

@@ -30,6 +30,11 @@ package awsquicksight
 //   		host: jsii.String("host"),
 //   		port: jsii.Number(123),
 //   	},
+//   	databricksParameters: &databricksParametersProperty{
+//   		host: jsii.String("host"),
+//   		port: jsii.Number(123),
+//   		sqlEndpointPath: jsii.String("sqlEndpointPath"),
+//   	},
 //   	mariaDbParameters: &mariaDbParametersProperty{
 //   		database: jsii.String("database"),
 //   		host: jsii.String("host"),
@@ -105,6 +110,8 @@ type CfnDataSource_DataSourceParametersProperty struct {
 	AuroraParameters interface{} `field:"optional" json:"auroraParameters" yaml:"auroraParameters"`
 	// The parameters for Amazon Aurora.
 	AuroraPostgreSqlParameters interface{} `field:"optional" json:"auroraPostgreSqlParameters" yaml:"auroraPostgreSqlParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.DatabricksParameters`.
+	DatabricksParameters interface{} `field:"optional" json:"databricksParameters" yaml:"databricksParameters"`
 	// The parameters for MariaDB.
 	MariaDbParameters interface{} `field:"optional" json:"mariaDbParameters" yaml:"mariaDbParameters"`
 	// The parameters for MySQL.
