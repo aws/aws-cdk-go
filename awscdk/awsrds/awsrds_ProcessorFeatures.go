@@ -13,10 +13,13 @@ package awsrds
 //   	threadsPerCore: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ProcessorFeatures struct {
 	// The number of CPU core.
+	// Experimental.
 	CoreCount *float64 `field:"optional" json:"coreCount" yaml:"coreCount"`
 	// The number of threads per core.
+	// Experimental.
 	ThreadsPerCore *float64 `field:"optional" json:"threadsPerCore" yaml:"threadsPerCore"`
 }
 

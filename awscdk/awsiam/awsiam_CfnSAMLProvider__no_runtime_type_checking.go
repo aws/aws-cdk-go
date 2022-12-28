@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnSAMLProvider) validateAddDeletionOverrideParameters(path *
 	return nil
 }
 
-func (c *jsiiProxy_CfnSAMLProvider) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnSAMLProvider) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnSAMLProvider) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnSAMLProvider) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSAMLProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSAMLProvider) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSAMLProvider) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnSAMLProvider) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnSAMLProvider) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnSAMLProvider) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnSAMLProvider) validateSetSamlMetadataDocumentParameters(va
 	return nil
 }
 
-func validateNewCfnSAMLProviderParameters(scope constructs.Construct, id *string, props *CfnSAMLProviderProps) error {
+func validateNewCfnSAMLProviderParameters(scope awscdk.Construct, id *string, props *CfnSAMLProviderProps) error {
 	return nil
 }
 

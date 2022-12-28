@@ -36,7 +36,7 @@ type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
 	InputParameters *string `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
 	//
-	// You are using an AWS Config managed rule that is triggered at a periodic frequency.
+	// This is for an AWS Config managed rule that is triggered at a periodic frequency.
 	//
 	// > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
 	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`

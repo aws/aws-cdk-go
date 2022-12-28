@@ -1,7 +1,7 @@
 package awssqs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnQueue`.
@@ -69,13 +69,14 @@ type CfnQueueProps struct {
 	//
 	// > A shorter time period provides better security, but results in more calls to AWS KMS , which might incur charges after Free Tier. For more information, see [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work) in the *Amazon SQS Developer Guide* .
 	KmsDataKeyReusePeriodSeconds *float64 `field:"optional" json:"kmsDataKeyReusePeriodSeconds" yaml:"kmsDataKeyReusePeriodSeconds"`
-	// The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom CMK.
+	// The ID of an AWS Key Management Service (KMS) for Amazon SQS , or a custom KMS.
 	//
-	// To use the AWS managed CMK for Amazon SQS , specify the (default) alias `alias/aws/sqs` . For more information, see the following:
+	// To use the AWS managed KMS for Amazon SQS , specify a (default) alias ARN, alias name (e.g. `alias/aws/sqs` ), key ARN, or key ID. For more information, see the following:
 	//
 	// - [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Amazon SQS Developer Guide*
 	// - [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *Amazon SQS API Reference*
-	// - The Customer Master Keys section of the [AWS Key Management Service Best Practices](https://docs.aws.amazon.com/https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
+	// - [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *AWS Key Management Service API Reference*
+	// - The Key Management Service (KMS) section of the [AWS Key Management Service Best Practices](https://docs.aws.amazon.com/https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
 	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
 	//
@@ -127,7 +128,9 @@ type CfnQueueProps struct {
 	//
 	// `maxReceiveCount : *Integer*`.
 	RedrivePolicy interface{} `field:"optional" json:"redrivePolicy" yaml:"redrivePolicy"`
-	// `AWS::SQS::Queue.SqsManagedSseEnabled`.
+	// Enables server-side queue encryption using SQS owned encryption keys.
+	//
+	// Only one server-side encryption option is supported per queue (for example, [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html) or [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html) ).
 	SqsManagedSseEnabled interface{} `field:"optional" json:"sqsManagedSseEnabled" yaml:"sqsManagedSseEnabled"`
 	// The tags that you attach to this queue.
 	//

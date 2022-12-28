@@ -1,7 +1,7 @@
 package awsssmincidents
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnResponsePlan`.
@@ -101,9 +101,9 @@ type CfnResponsePlanProps struct {
 	ChatChannel interface{} `field:"optional" json:"chatChannel" yaml:"chatChannel"`
 	// The human readable name of the response plan.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// The contacts and escalation plans that the response plan engages during an incident.
+	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements *[]*string `field:"optional" json:"engagements" yaml:"engagements"`
-	// `AWS::SSMIncidents::ResponsePlan.Integrations`.
+	// Information about third-party services integrated into the response plan.
 	Integrations interface{} `field:"optional" json:"integrations" yaml:"integrations"`
 	// An array of key-value pairs to apply to this resource.
 	//

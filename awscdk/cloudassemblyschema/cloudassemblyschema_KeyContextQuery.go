@@ -17,14 +17,19 @@ package cloudassemblyschema
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
+// Experimental.
 type KeyContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Alias name used to search the Key.
+	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// Query region.
+	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 

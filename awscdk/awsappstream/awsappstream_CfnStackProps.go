@@ -1,7 +1,7 @@
 package awsappstream
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnStack`.
@@ -95,7 +95,9 @@ type CfnStackProps struct {
 	RedirectUrl *string `field:"optional" json:"redirectUrl" yaml:"redirectUrl"`
 	// The storage connectors to enable.
 	StorageConnectors interface{} `field:"optional" json:"storageConnectors" yaml:"storageConnectors"`
-	// `AWS::AppStream::Stack.StreamingExperienceSettings`.
+	// The streaming protocol that you want your stack to prefer.
+	//
+	// This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
 	StreamingExperienceSettings interface{} `field:"optional" json:"streamingExperienceSettings" yaml:"streamingExperienceSettings"`
 	// An array of key-value pairs.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

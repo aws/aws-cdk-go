@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateAddDeletionOverrideParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchTemplateConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnLaunchTemplateConstraint) validateSetRulesParameters(val *
 	return nil
 }
 
-func validateNewCfnLaunchTemplateConstraintParameters(scope constructs.Construct, id *string, props *CfnLaunchTemplateConstraintProps) error {
+func validateNewCfnLaunchTemplateConstraintParameters(scope awscdk.Construct, id *string, props *CfnLaunchTemplateConstraintProps) error {
 	return nil
 }
 

@@ -1,6 +1,8 @@
 package awsdynamodb
 
 
+// The S3 bucket that is being imported from.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +17,13 @@ package awsdynamodb
 //   }
 //
 type CfnTable_S3BucketSourceProperty struct {
-	// `CfnTable.S3BucketSourceProperty.S3Bucket`.
+	// The S3 bucket that is being imported from.
 	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
-	// `CfnTable.S3BucketSourceProperty.S3BucketOwner`.
+	// The account number of the S3 bucket that is being imported from.
+	//
+	// If the bucket is owned by the requester this is optional.
 	S3BucketOwner *string `field:"optional" json:"s3BucketOwner" yaml:"s3BucketOwner"`
-	// `CfnTable.S3BucketSourceProperty.S3KeyPrefix`.
+	// The key prefix shared by all S3 Objects that are being imported.
 	S3KeyPrefix *string `field:"optional" json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnReceiptFilter) validateAddDeletionOverrideParameters(path 
 	return nil
 }
 
-func (c *jsiiProxy_CfnReceiptFilter) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnReceiptFilter) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnReceiptFilter) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnReceiptFilter) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnReceiptFilter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnReceiptFilter) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnReceiptFilter) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnReceiptFilter) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnReceiptFilter) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnReceiptFilter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnReceiptFilter) validateSetFilterParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnReceiptFilterParameters(scope constructs.Construct, id *string, props *CfnReceiptFilterProps) error {
+func validateNewCfnReceiptFilterParameters(scope awscdk.Construct, id *string, props *CfnReceiptFilterProps) error {
 	return nil
 }
 

@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -6,20 +6,34 @@ import (
 )
 
 // CloudFormation template options for a stack.
+// Experimental.
 type ITemplateOptions interface {
 	// Gets or sets the description of this stack.
 	//
 	// If provided, it will be included in the CloudFormation template's "Description" attribute.
+	// Experimental.
 	Description() *string
+	// Experimental.
 	SetDescription(d *string)
 	// Metadata associated with the CloudFormation template.
+	// Experimental.
 	Metadata() *map[string]interface{}
+	// Experimental.
 	SetMetadata(m *map[string]interface{})
 	// Gets or sets the AWSTemplateFormatVersion field of the CloudFormation template.
+	// Experimental.
 	TemplateFormatVersion() *string
+	// Experimental.
 	SetTemplateFormatVersion(t *string)
+	// Gets or sets the top-level template transform for this stack (e.g. "AWS::Serverless-2016-10-31").
+	// Deprecated: use `transforms` instead.
+	Transform() *string
+	// Deprecated: use `transforms` instead.
+	SetTransform(t *string)
 	// Gets or sets the top-level template transform(s) for this stack (e.g. `["AWS::Serverless-2016-10-31"]`).
+	// Experimental.
 	Transforms() *[]*string
+	// Experimental.
 	SetTransforms(t *[]*string)
 }
 
@@ -78,6 +92,24 @@ func (j *jsiiProxy_ITemplateOptions)SetTemplateFormatVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"templateFormatVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ITemplateOptions) Transform() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"transform",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITemplateOptions)SetTransform(val *string) {
+	_jsii_.Set(
+		j,
+		"transform",
 		val,
 	)
 }

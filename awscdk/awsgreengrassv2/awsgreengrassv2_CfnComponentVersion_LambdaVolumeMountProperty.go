@@ -3,7 +3,7 @@ package awsgreengrassv2
 
 // Contains information about a volume that Linux processes in a container can access.
 //
-// When you define a volume, the  software mounts the source files to the destination inside the container.
+// When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

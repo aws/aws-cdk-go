@@ -1,10 +1,10 @@
 package awsevents
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // An additional HTTP parameter to send along with the OAuth request.
@@ -12,13 +12,14 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
 //
 //   httpParameter := awscdk.Aws_events.httpParameter.fromSecret(secretValue)
 //
+// Experimental.
 type HttpParameter interface {
 }
 
@@ -27,17 +28,19 @@ type jsiiProxy_HttpParameter struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewHttpParameter_Override(h HttpParameter) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events.HttpParameter",
+		"monocdk.aws_events.HttpParameter",
 		nil, // no parameters
 		h,
 	)
 }
 
 // Make an OAuthParameter from a secret.
+// Experimental.
 func HttpParameter_FromSecret(value awscdk.SecretValue) HttpParameter {
 	_init_.Initialize()
 
@@ -47,7 +50,7 @@ func HttpParameter_FromSecret(value awscdk.SecretValue) HttpParameter {
 	var returns HttpParameter
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.HttpParameter",
+		"monocdk.aws_events.HttpParameter",
 		"fromSecret",
 		[]interface{}{value},
 		&returns,
@@ -59,6 +62,7 @@ func HttpParameter_FromSecret(value awscdk.SecretValue) HttpParameter {
 // Make an OAuthParameter from a string value.
 //
 // The value is not treated as a secret.
+// Experimental.
 func HttpParameter_FromString(value *string) HttpParameter {
 	_init_.Initialize()
 
@@ -68,7 +72,7 @@ func HttpParameter_FromString(value *string) HttpParameter {
 	var returns HttpParameter
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_events.HttpParameter",
+		"monocdk.aws_events.HttpParameter",
 		"fromString",
 		[]interface{}{value},
 		&returns,

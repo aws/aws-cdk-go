@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnNamespace) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
-func (c *jsiiProxy_CfnNamespace) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNamespace) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnNamespace) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNamespace) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnNamespace) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnNamespace) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnNamespace) validateSetNamespaceNameParameters(val *string)
 	return nil
 }
 
-func validateNewCfnNamespaceParameters(scope constructs.Construct, id *string, props *CfnNamespaceProps) error {
+func validateNewCfnNamespaceParameters(scope awscdk.Construct, id *string, props *CfnNamespaceProps) error {
 	return nil
 }
 

@@ -1,6 +1,10 @@
 package awsappflow
 
 
+// Specifies the configuration that Amazon AppFlow uses when it catalogs your data.
+//
+// When Amazon AppFlow catalogs your data, it stores metadata in a data catalog.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +19,7 @@ package awsappflow
 //   }
 //
 type CfnFlow_MetadataCatalogConfigProperty struct {
-	// `CfnFlow.MetadataCatalogConfigProperty.GlueDataCatalog`.
+	// Specifies the configuration that Amazon AppFlow uses when it catalogs your data with the AWS Glue Data Catalog .
 	GlueDataCatalog interface{} `field:"optional" json:"glueDataCatalog" yaml:"glueDataCatalog"`
 }
 

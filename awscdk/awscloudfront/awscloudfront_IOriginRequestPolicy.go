@@ -5,8 +5,10 @@ import (
 )
 
 // Represents a Origin Request Policy.
+// Experimental.
 type IOriginRequestPolicy interface {
 	// The ID of the origin request policy.
+	// Experimental.
 	OriginRequestPolicyId() *string
 }
 

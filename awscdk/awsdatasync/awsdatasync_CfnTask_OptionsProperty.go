@@ -57,9 +57,11 @@ type CfnTask_OptionsProperty struct {
 	//
 	// `NONE` : Ignore the UID and GID.
 	Gid *string `field:"optional" json:"gid" yaml:"gid"`
-	// A value that determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
+	// Specifies the type of logs that DataSync publishes to a Amazon CloudWatch Logs log group.
 	//
-	// For more information about providing a log group for DataSync, see [CloudWatchLogGroupArn](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn) . If set to `OFF` , no logs are published. `BASIC` publishes logs on errors for individual files transferred, and `TRANSFER` publishes logs for every file or object that is transferred and integrity checked.
+	// To specify the log group, see [CloudWatchLogGroupArn](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn) .
+	//
+	// If you set `LogLevel` to `OFF` , no logs are published. `BASIC` publishes logs on errors for individual files transferred. `TRANSFER` publishes logs for every file or object that is transferred and integrity checked.
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	//
@@ -75,17 +77,17 @@ type CfnTask_OptionsProperty struct {
 	// >
 	// > If `Mtime` is set to `NONE` , `Atime` must also be set to `NONE` .
 	Mtime *string `field:"optional" json:"mtime" yaml:"mtime"`
-	// Specifies whether object tags are maintained when transferring between object storage systems.
+	// Specifies whether object tags are preserved when transferring between object storage systems.
 	//
 	// If you want your DataSync task to ignore object tags, specify the `NONE` value.
 	//
 	// Default Value: `PRESERVE`.
 	ObjectTags *string `field:"optional" json:"objectTags" yaml:"objectTags"`
-	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
+	// Specifies whether data at the destination location should be overwritten or preserved.
 	//
-	// If set to `NEVER` a destination file will not be replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes.
+	// If set to `NEVER` , a destination file for example will not be replaced by a source file (even if the destination file differs from the source file). If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes.
 	//
-	// Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) in the *AWS DataSync User Guide* .
+	// Some storage classes have specific behaviors that can affect your Amazon S3 storage cost. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
 	OverwriteMode *string `field:"optional" json:"overwriteMode" yaml:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose, such as reading, writing, or execution of the file.
 	//
@@ -144,9 +146,9 @@ type CfnTask_OptionsProperty struct {
 	//
 	// `NONE` : None of the SMB security descriptor components are copied. Destination objects are owned by the user that was provided for accessing the destination location. DACLs and SACLs are set based on the destination server’s configuration.
 	SecurityDescriptorCopyFlags *string `field:"optional" json:"securityDescriptorCopyFlags" yaml:"securityDescriptorCopyFlags"`
-	// A value that determines whether tasks should be queued before executing the tasks.
+	// Specifies whether tasks should be queued before executing the tasks.
 	//
-	// If set to `ENABLED` , the tasks will be queued. The default is `ENABLED` .
+	// The default is `ENABLED` , which means the tasks will be queued.
 	//
 	// If you use the same agent to run multiple tasks, you can enable the tasks to run in series. For more information, see [Queueing task executions](https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution) .
 	TaskQueueing *string `field:"optional" json:"taskQueueing" yaml:"taskQueueing"`

@@ -28,6 +28,18 @@ func (s *jsiiProxy_SecurityGroup) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
+func (s *jsiiProxy_SecurityGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SecurityGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func validateSecurityGroup_FromLookupParameters(scope constructs.Construct, id *string, securityGroupId *string) error {
+	return nil
+}
+
 func validateSecurityGroup_FromLookupByIdParameters(scope constructs.Construct, id *string, securityGroupId *string) error {
 	return nil
 }
@@ -44,11 +56,7 @@ func validateSecurityGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSecurityGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSecurityGroup_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSecurityGroup_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

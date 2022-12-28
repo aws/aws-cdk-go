@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // User-based authentication for a client VPN endpoint.
@@ -22,8 +22,10 @@ import (
 //   	groupId: jsii.String("group-id"),
 //   })
 //
+// Experimental.
 type ClientVpnUserBasedAuthentication interface {
 	// Renders the user based authentication.
+	// Experimental.
 	Render() interface{}
 }
 
@@ -32,17 +34,19 @@ type jsiiProxy_ClientVpnUserBasedAuthentication struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewClientVpnUserBasedAuthentication_Override(c ClientVpnUserBasedAuthentication) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication",
+		"monocdk.aws_ec2.ClientVpnUserBasedAuthentication",
 		nil, // no parameters
 		c,
 	)
 }
 
 // Active Directory authentication.
+// Experimental.
 func ClientVpnUserBasedAuthentication_ActiveDirectory(directoryId *string) ClientVpnUserBasedAuthentication {
 	_init_.Initialize()
 
@@ -52,7 +56,7 @@ func ClientVpnUserBasedAuthentication_ActiveDirectory(directoryId *string) Clien
 	var returns ClientVpnUserBasedAuthentication
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication",
+		"monocdk.aws_ec2.ClientVpnUserBasedAuthentication",
 		"activeDirectory",
 		[]interface{}{directoryId},
 		&returns,
@@ -62,6 +66,7 @@ func ClientVpnUserBasedAuthentication_ActiveDirectory(directoryId *string) Clien
 }
 
 // Federated authentication.
+// Experimental.
 func ClientVpnUserBasedAuthentication_Federated(samlProvider awsiam.ISamlProvider, selfServiceSamlProvider awsiam.ISamlProvider) ClientVpnUserBasedAuthentication {
 	_init_.Initialize()
 
@@ -71,7 +76,7 @@ func ClientVpnUserBasedAuthentication_Federated(samlProvider awsiam.ISamlProvide
 	var returns ClientVpnUserBasedAuthentication
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication",
+		"monocdk.aws_ec2.ClientVpnUserBasedAuthentication",
 		"federated",
 		[]interface{}{samlProvider, selfServiceSamlProvider},
 		&returns,

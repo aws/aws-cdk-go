@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnTrackerConsumer) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrackerConsumer) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTrackerConsumer) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnTrackerConsumer) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrackerConsumer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTrackerConsumer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrackerConsumer) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTrackerConsumer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnTrackerConsumer) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrackerConsumer) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTrackerConsumer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnTrackerConsumer) validateSetTrackerNameParameters(val *str
 	return nil
 }
 
-func validateNewCfnTrackerConsumerParameters(scope constructs.Construct, id *string, props *CfnTrackerConsumerProps) error {
+func validateNewCfnTrackerConsumerParameters(scope awscdk.Construct, id *string, props *CfnTrackerConsumerProps) error {
 	return nil
 }
 

@@ -3,20 +3,25 @@ package awssigner
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awssigner/internal"
 )
 
 // A Signer Profile.
+// Experimental.
 type ISigningProfile interface {
 	awscdk.IResource
 	// The ARN of the signing profile.
+	// Experimental.
 	SigningProfileArn() *string
 	// The name of signing profile.
+	// Experimental.
 	SigningProfileName() *string
 	// The version of signing profile.
+	// Experimental.
 	SigningProfileVersion() *string
 	// The ARN of signing profile version.
+	// Experimental.
 	SigningProfileVersionArn() *string
 }
 

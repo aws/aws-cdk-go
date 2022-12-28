@@ -56,6 +56,14 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) validateOnEventParameters(id *st
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseInstanceReadReplica) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseInstanceReadReplica) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateDatabaseInstanceReadReplica_FromDatabaseInstanceAttributesParameters(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) error {
 	return nil
 }
@@ -64,11 +72,7 @@ func validateDatabaseInstanceReadReplica_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func validateDatabaseInstanceReadReplica_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDatabaseInstanceReadReplica_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDatabaseInstanceReadReplica_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

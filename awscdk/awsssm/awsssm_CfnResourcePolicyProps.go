@@ -16,9 +16,9 @@ package awsssm
 //   }
 //
 type CfnResourcePolicyProps struct {
-	// `AWS::SSM::ResourcePolicy.Policy`.
+	// A policy you want to associate with a resource.
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
-	// `AWS::SSM::ResourcePolicy.ResourceArn`.
+	// Amazon Resource Name (ARN) of the resource to which you want to attach a policy.
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 

@@ -1,7 +1,7 @@
 package awsdocdb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnDBInstance`.
@@ -58,7 +58,9 @@ type CfnDBInstanceProps struct {
 	//
 	// Example: `mydbinstance`.
 	DbInstanceIdentifier *string `field:"optional" json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
-	// `AWS::DocDB::DBInstance.EnablePerformanceInsights`.
+	// A value that indicates whether to enable Performance Insights for the DB Instance.
+	//
+	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) .
 	EnablePerformanceInsights interface{} `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//

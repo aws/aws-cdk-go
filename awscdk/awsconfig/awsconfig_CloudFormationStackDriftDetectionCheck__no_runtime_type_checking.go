@@ -28,6 +28,14 @@ func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) validateOnReEvaluatio
 	return nil
 }
 
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateCloudFormationStackDriftDetectionCheck_FromConfigRuleNameParameters(scope constructs.Construct, id *string, configRuleName *string) error {
 	return nil
 }
@@ -36,11 +44,7 @@ func validateCloudFormationStackDriftDetectionCheck_IsConstructParameters(x inte
 	return nil
 }
 
-func validateCloudFormationStackDriftDetectionCheck_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateCloudFormationStackDriftDetectionCheck_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCloudFormationStackDriftDetectionCheck_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -7,8 +7,10 @@ import (
 // Configuration of the container used to host the model.
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html
 //
+// Experimental.
 type IContainerDefinition interface {
 	// Called when the ContainerDefinition is used by a SageMaker task.
+	// Experimental.
 	Bind(task ISageMakerTask) *ContainerDefinitionConfig
 }
 

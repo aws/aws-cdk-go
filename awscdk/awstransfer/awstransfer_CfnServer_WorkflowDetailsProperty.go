@@ -26,7 +26,11 @@ package awstransfer
 //   }
 //
 type CfnServer_WorkflowDetailsProperty struct {
-	// `CfnServer.WorkflowDetailsProperty.OnPartialUpload`.
+	// A trigger that starts a workflow if a file is only partially uploaded.
+	//
+	// You can attach a workflow to a server that executes whenever there is a partial upload.
+	//
+	// A *partial upload* occurs when a file is open when the session disconnects.
 	OnPartialUpload interface{} `field:"optional" json:"onPartialUpload" yaml:"onPartialUpload"`
 	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
 	//

@@ -4,25 +4,29 @@ package customresources
 // Options for the auto-generation of policies based on the configured SDK calls.
 //
 // Example:
-//   getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &awsCustomResourceProps{
-//   	onUpdate: &awsSdkCall{
-//   		 // will also be called for a CREATE event
-//   		service: jsii.String("SSM"),
-//   		action: jsii.String("getParameter"),
-//   		parameters: map[string]interface{}{
-//   			"Name": jsii.String("my-parameter"),
-//   			"WithDecryption": jsii.Boolean(true),
+//   awsCustom := cr.NewAwsCustomResource(this, jsii.String("aws-custom"), &awsCustomResourceProps{
+//   	onCreate: &awsSdkCall{
+//   		service: jsii.String("..."),
+//   		action: jsii.String("..."),
+//   		parameters: map[string]*string{
+//   			"text": jsii.String("..."),
 //   		},
-//   		physicalResourceId: cr.physicalResourceId.of(date.now().toString()),
+//   		physicalResourceId: cr.physicalResourceId.of(jsii.String("...")),
+//   	},
+//   	onUpdate: &awsSdkCall{
+//   		service: jsii.String("..."),
+//   		action: jsii.String("..."),
+//   		parameters: map[string]interface{}{
+//   			"text": jsii.String("..."),
+//   			"resourceId": cr.NewPhysicalResourceIdReference(),
+//   		},
 //   	},
 //   	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
 //   		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
 //   	}),
 //   })
 //
-//   // Use the value in another construct with
-//   getParameter.getResponseField(jsii.String("Parameter.Value"))
-//
+// Experimental.
 type SdkCallsPolicyOptions struct {
 	// The resources that the calls will have access to.
 	//
@@ -31,6 +35,7 @@ type SdkCallsPolicyOptions struct {
 	// know the physical name of in advance.
 	//
 	// Note that will apply to ALL SDK calls.
+	// Experimental.
 	Resources *[]*string `field:"required" json:"resources" yaml:"resources"`
 }
 

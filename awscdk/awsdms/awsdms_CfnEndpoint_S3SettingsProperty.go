@@ -88,7 +88,7 @@ type CfnEndpoint_S3SettingsProperty struct {
 	//
 	// The default value is 60 seconds.
 	CdcMaxBatchInterval *float64 `field:"optional" json:"cdcMaxBatchInterval" yaml:"cdcMaxBatchInterval"`
-	// Minimum file size, defined in megabytes, to reach for a file output to Amazon S3.
+	// Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.
 	//
 	// When `CdcMinFileSize` and `CdcMaxBatchInterval` are both specified, the file write is triggered by whichever parameter condition is met first within an AWS DMS CloudFormation template.
 	//

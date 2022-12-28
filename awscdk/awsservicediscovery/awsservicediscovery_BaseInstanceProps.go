@@ -15,10 +15,13 @@ package awsservicediscovery
 //   	instanceId: jsii.String("instanceId"),
 //   }
 //
+// Experimental.
 type BaseInstanceProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 }
 

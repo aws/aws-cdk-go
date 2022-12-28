@@ -124,11 +124,19 @@ func (a *jsiiProxy_ApplicationLoadBalancer) validateMetricTargetTLSNegotiationEr
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationLoadBalancer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationLoadBalancer) validateRemoveAttributeParameters(key *string) error {
 	return nil
 }
 
 func (a *jsiiProxy_ApplicationLoadBalancer) validateSetAttributeParameters(key *string) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -144,11 +152,7 @@ func validateApplicationLoadBalancer_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateApplicationLoadBalancer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateApplicationLoadBalancer_IsResourceParameters(construct constructs.IConstruct) error {
+func validateApplicationLoadBalancer_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

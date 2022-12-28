@@ -29,11 +29,11 @@ package awskendra
 //   }
 //
 type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
-	// Specifies whether Amazon Kendra should index archived spaces.
+	// `TRUE` to index archived spaces.
 	CrawlArchivedSpaces interface{} `field:"optional" json:"crawlArchivedSpaces" yaml:"crawlArchivedSpaces"`
-	// Specifies whether Amazon Kendra should index personal spaces.
+	// `TRUE` to index personal spaces.
 	//
-	// Users can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
+	// You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
 	CrawlPersonalSpaces interface{} `field:"optional" json:"crawlPersonalSpaces" yaml:"crawlPersonalSpaces"`
 	// A list of space keys of Confluence spaces.
 	//

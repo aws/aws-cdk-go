@@ -22,7 +22,7 @@ type CfnDataQualityJobDefinition_ClusterConfigProperty struct {
 	//
 	// For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
-	// `CfnDataQualityJobDefinition.ClusterConfigProperty.InstanceType`.
+	// The ML compute instance type for the processing job.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision.
 	//

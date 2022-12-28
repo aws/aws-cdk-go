@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnNetworkAclEntry) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkAclEntry) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNetworkAclEntry) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnNetworkAclEntry) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkAclEntry) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNetworkAclEntry) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkAclEntry) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNetworkAclEntry) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnNetworkAclEntry) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkAclEntry) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNetworkAclEntry) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -108,7 +104,7 @@ func (j *jsiiProxy_CfnNetworkAclEntry) validateSetRuleNumberParameters(val *floa
 	return nil
 }
 
-func validateNewCfnNetworkAclEntryParameters(scope constructs.Construct, id *string, props *CfnNetworkAclEntryProps) error {
+func validateNewCfnNetworkAclEntryParameters(scope awscdk.Construct, id *string, props *CfnNetworkAclEntryProps) error {
 	return nil
 }
 

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnRegistry) validateAddDeletionOverrideParameters(path *stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegistry) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRegistry) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnRegistry) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegistry) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRegistry) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegistry) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRegistry) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnRegistry) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnRegistry) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRegistry) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnRegistry) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnRegistryParameters(scope constructs.Construct, id *string, props *CfnRegistryProps) error {
+func validateNewCfnRegistryParameters(scope awscdk.Construct, id *string, props *CfnRegistryProps) error {
 	return nil
 }
 

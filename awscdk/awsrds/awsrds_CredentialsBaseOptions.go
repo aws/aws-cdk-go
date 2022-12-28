@@ -1,8 +1,8 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Base options for creating Credentials.
@@ -33,16 +33,21 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type CredentialsBaseOptions struct {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
 	// Has no effect if {@link password} has been provided.
+	// Experimental.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
+	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `field:"optional" json:"replicaRegions" yaml:"replicaRegions"`
 	// The name of the secret.
+	// Experimental.
 	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 }
 

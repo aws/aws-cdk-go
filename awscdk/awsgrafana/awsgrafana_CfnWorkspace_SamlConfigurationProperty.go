@@ -1,6 +1,8 @@
 package awsgrafana
 
 
+// A structure containing information about how this workspace works with SAML.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,15 +38,17 @@ package awsgrafana
 //   }
 //
 type CfnWorkspace_SamlConfigurationProperty struct {
-	// `CfnWorkspace.SamlConfigurationProperty.IdpMetadata`.
+	// A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
 	IdpMetadata interface{} `field:"required" json:"idpMetadata" yaml:"idpMetadata"`
-	// `CfnWorkspace.SamlConfigurationProperty.AllowedOrganizations`.
+	// Lists which organizations defined in the SAML assertion are allowed to use the Amazon Managed Grafana workspace.
+	//
+	// If this is empty, all organizations in the assertion attribute have access.
 	AllowedOrganizations *[]*string `field:"optional" json:"allowedOrganizations" yaml:"allowedOrganizations"`
-	// `CfnWorkspace.SamlConfigurationProperty.AssertionAttributes`.
+	// A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
 	AssertionAttributes interface{} `field:"optional" json:"assertionAttributes" yaml:"assertionAttributes"`
-	// `CfnWorkspace.SamlConfigurationProperty.LoginValidityDuration`.
+	// How long a sign-on session by a SAML user is valid, before the user has to sign on again.
 	LoginValidityDuration *float64 `field:"optional" json:"loginValidityDuration" yaml:"loginValidityDuration"`
-	// `CfnWorkspace.SamlConfigurationProperty.RoleValues`.
+	// A structure containing arrays that map group names in the SAML assertion to the Grafana `Admin` and `Editor` roles in the workspace.
 	RoleValues interface{} `field:"optional" json:"roleValues" yaml:"roleValues"`
 }
 

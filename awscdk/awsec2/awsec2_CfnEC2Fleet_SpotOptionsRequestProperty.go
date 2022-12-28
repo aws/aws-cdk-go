@@ -50,6 +50,10 @@ type CfnEC2Fleet_SpotOptionsRequestProperty struct {
 	// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 	MaintenanceStrategies interface{} `field:"optional" json:"maintenanceStrategies" yaml:"maintenanceStrategies"`
 	// The maximum amount per hour for Spot Instances that you're willing to pay.
+	//
+	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxTotalPrice *string `field:"optional" json:"maxTotalPrice" yaml:"maxTotalPrice"`
 	// The minimum target capacity for Spot Instances in the fleet.
 	//

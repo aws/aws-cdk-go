@@ -67,18 +67,18 @@ type CfnComponentVersion_LambdaExecutionParametersProperty struct {
 	InputPayloadEncodingType *string `field:"optional" json:"inputPayloadEncodingType" yaml:"inputPayloadEncodingType"`
 	// The parameters for the Linux process that contains the Lambda function.
 	LinuxProcessParams interface{} `field:"optional" json:"linuxProcessParams" yaml:"linuxProcessParams"`
-	// The maximum amount of time in seconds that a non-pinned Lambda function can idle before the  software stops its process.
+	// The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
 	MaxIdleTimeInSeconds *float64 `field:"optional" json:"maxIdleTimeInSeconds" yaml:"maxIdleTimeInSeconds"`
 	// The maximum number of instances that a non-pinned Lambda function can run at the same time.
 	MaxInstancesCount *float64 `field:"optional" json:"maxInstancesCount" yaml:"maxInstancesCount"`
 	// The maximum size of the message queue for the Lambda function component.
 	//
-	// The Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
+	// The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
 	MaxQueueSize *float64 `field:"optional" json:"maxQueueSize" yaml:"maxQueueSize"`
 	// Whether or not the Lambda function is pinned, or long-lived.
 	//
-	// - A pinned Lambda function starts when the  starts and keeps running in its own container.
-	// - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the  software creates multiple instances of the function.
+	// - A pinned Lambda function starts when the AWS IoT Greengrass Core starts and keeps running in its own container.
+	// - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the AWS IoT Greengrass Core software creates multiple instances of the function.
 	//
 	// Default: `true`.
 	Pinned interface{} `field:"optional" json:"pinned" yaml:"pinned"`

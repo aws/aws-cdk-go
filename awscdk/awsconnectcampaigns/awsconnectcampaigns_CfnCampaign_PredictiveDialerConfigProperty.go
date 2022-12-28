@@ -1,6 +1,8 @@
 package awsconnectcampaigns
 
 
+// Contains predictive dialer configuration for an outbound campaign.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsconnectcampaigns
 //   }
 //
 type CfnCampaign_PredictiveDialerConfigProperty struct {
-	// `CfnCampaign.PredictiveDialerConfigProperty.BandwidthAllocation`.
+	// Bandwidth allocation for the predictive dialer.
 	BandwidthAllocation *float64 `field:"required" json:"bandwidthAllocation" yaml:"bandwidthAllocation"`
 }
 

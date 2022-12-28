@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLayer) validateAddDeletionOverrideParameters(path *string)
 	return nil
 }
 
-func (c *jsiiProxy_CfnLayer) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLayer) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLayer) validateInspectParameters(inspector awscdk.TreeInsp
 	return nil
 }
 
-func (c *jsiiProxy_CfnLayer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLayer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLayer) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLayer) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLayer) validateRenderPropertiesParameters(props *map[strin
 	return nil
 }
 
-func (c *jsiiProxy_CfnLayer) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLayer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -140,7 +136,7 @@ func (j *jsiiProxy_CfnLayer) validateSetVolumeConfigurationsParameters(val inter
 	return nil
 }
 
-func validateNewCfnLayerParameters(scope constructs.Construct, id *string, props *CfnLayerProps) error {
+func validateNewCfnLayerParameters(scope awscdk.Construct, id *string, props *CfnLayerProps) error {
 	return nil
 }
 

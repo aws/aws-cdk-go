@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Attributes used to import an existing External task definition.
@@ -22,12 +22,16 @@ import (
 //   	taskRole: role,
 //   }
 //
+// Experimental.
 type ExternalTaskDefinitionAttributes struct {
 	// The arn of the task definition.
+	// Experimental.
 	TaskDefinitionArn *string `field:"required" json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
+	// Experimental.
 	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `field:"optional" json:"taskRole" yaml:"taskRole"`
 }
 

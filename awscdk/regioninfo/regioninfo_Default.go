@@ -1,11 +1,12 @@
 package regioninfo
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Provides default values for certain regional information points.
+// Experimental.
 type Default interface {
 }
 
@@ -20,6 +21,7 @@ type jsiiProxy_Default struct {
 // you need to compute a service principal name, but you do not have a synthesize-time region literal available (so
 // all you have is `{ "Ref": "AWS::Region" }`). This way you get the same defaulting behavior that is normally used
 // for built-in data.
+// Experimental.
 func Default_ServicePrincipal(serviceFqn *string, region *string, urlSuffix *string) *string {
 	_init_.Initialize()
 
@@ -29,7 +31,7 @@ func Default_ServicePrincipal(serviceFqn *string, region *string, urlSuffix *str
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.Default",
+		"monocdk.region_info.Default",
 		"servicePrincipal",
 		[]interface{}{serviceFqn, region, urlSuffix},
 		&returns,
@@ -42,7 +44,7 @@ func Default_VPC_ENDPOINT_SERVICE_NAME_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.Default",
+		"monocdk.region_info.Default",
 		"VPC_ENDPOINT_SERVICE_NAME_PREFIX",
 		&returns,
 	)

@@ -4,7 +4,7 @@ package awsappmesh
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (m *jsiiProxy_MutualTlsValidationTrust) validateBindParameters(scope constructs.Construct) error {
+func (m *jsiiProxy_MutualTlsValidationTrust) validateBindParameters(scope awscdk.Construct) error {
 	return nil
 }
 

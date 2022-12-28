@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// Input object for the model.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awssagemaker
 //   }
 //
 type CfnModelPackage_ModelInputProperty struct {
-	// `CfnModelPackage.ModelInputProperty.DataInputConfig`.
+	// The input configuration object for the model.
 	DataInputConfig *string `field:"required" json:"dataInputConfig" yaml:"dataInputConfig"`
 }
 

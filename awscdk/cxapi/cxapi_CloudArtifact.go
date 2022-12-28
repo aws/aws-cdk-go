@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
 )
 
 // Represents an artifact within a cloud assembly.
@@ -69,21 +69,29 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type CloudArtifact interface {
+	// Experimental.
 	Assembly() CloudAssembly
 	// Returns all the artifacts that this artifact depends on.
+	// Experimental.
 	Dependencies() *[]CloudArtifact
 	// An identifier that shows where this artifact is located in the tree of nested assemblies, based on their manifests.
 	//
 	// Defaults to the normal
 	// id. Should only be used in user interfaces.
+	// Experimental.
 	HierarchicalId() *string
+	// Experimental.
 	Id() *string
 	// The artifact's manifest.
+	// Experimental.
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
+	// Experimental.
 	Messages() *[]*SynthesisMessage
 	// Returns: all the metadata entries of a specific type in this artifact.
+	// Experimental.
 	FindMetadataByType(type_ *string) *[]*MetadataEntryResult
 }
 
@@ -153,6 +161,7 @@ func (j *jsiiProxy_CloudArtifact) Messages() *[]*SynthesisMessage {
 }
 
 
+// Experimental.
 func NewCloudArtifact(assembly CloudAssembly, id *string, manifest *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
@@ -162,7 +171,7 @@ func NewCloudArtifact(assembly CloudAssembly, id *string, manifest *cloudassembl
 	j := jsiiProxy_CloudArtifact{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.CloudArtifact",
+		"monocdk.cx_api.CloudArtifact",
 		[]interface{}{assembly, id, manifest},
 		&j,
 	)
@@ -170,11 +179,12 @@ func NewCloudArtifact(assembly CloudAssembly, id *string, manifest *cloudassembl
 	return &j
 }
 
+// Experimental.
 func NewCloudArtifact_Override(c CloudArtifact, assembly CloudAssembly, id *string, manifest *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.cx_api.CloudArtifact",
+		"monocdk.cx_api.CloudArtifact",
 		[]interface{}{assembly, id, manifest},
 		c,
 	)
@@ -183,6 +193,7 @@ func NewCloudArtifact_Override(c CloudArtifact, assembly CloudAssembly, id *stri
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
+// Experimental.
 func CloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
@@ -192,7 +203,7 @@ func CloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cl
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cx_api.CloudArtifact",
+		"monocdk.cx_api.CloudArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,

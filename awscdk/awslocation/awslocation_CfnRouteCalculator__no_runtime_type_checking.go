@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnRouteCalculator) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteCalculator) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRouteCalculator) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnRouteCalculator) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteCalculator) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRouteCalculator) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteCalculator) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRouteCalculator) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnRouteCalculator) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteCalculator) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRouteCalculator) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnRouteCalculator) validateSetDataSourceParameters(val *stri
 	return nil
 }
 
-func validateNewCfnRouteCalculatorParameters(scope constructs.Construct, id *string, props *CfnRouteCalculatorProps) error {
+func validateNewCfnRouteCalculatorParameters(scope awscdk.Construct, id *string, props *CfnRouteCalculatorProps) error {
 	return nil
 }
 

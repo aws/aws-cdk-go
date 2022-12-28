@@ -7,9 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (d *jsiiProxy_DynamoGetItem) validateAddBranchParameters(branch awsstepfunctions.StateGraph) error {
@@ -179,6 +180,22 @@ func (d *jsiiProxy_DynamoGetItem) validateMetricTimedOutParameters(props *awsclo
 func (d *jsiiProxy_DynamoGetItem) validateNextParameters(next awsstepfunctions.IChainable) error {
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DynamoGetItem) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DynamoGetItem) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

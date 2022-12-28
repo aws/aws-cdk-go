@@ -64,7 +64,7 @@ type CfnGlobalReplicationGroupProps struct {
 	//
 	// The suffix guarantees uniqueness of the Global Datastore name across multiple regions.
 	GlobalReplicationGroupIdSuffix *string `field:"optional" json:"globalReplicationGroupIdSuffix" yaml:"globalReplicationGroupIdSuffix"`
-	// The Amazon Regions that comprise the Global Datastore.
+	// The Regions that comprise the Global Datastore.
 	RegionalConfigurations interface{} `field:"optional" json:"regionalConfigurations" yaml:"regionalConfigurations"`
 }
 

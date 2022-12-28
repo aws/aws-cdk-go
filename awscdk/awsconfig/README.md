@@ -101,44 +101,8 @@ config.NewCloudFormationStackNotificationCheck(this, jsii.String("NotificationCh
 ### Custom rules
 
 You can develop custom rules and add them to AWS Config. You associate each custom rule with an
-AWS Lambda function and Guard.
-
-#### Custom Lambda Rules
-
-Lambda function which contains the logic that evaluates whether your AWS resources comply with the rule.
-
-```go
-// Lambda function containing logic that evaluates compliance with the rule.
-evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &functionProps{
-	code: lambda.assetCode.fromInline(jsii.String("exports.handler = (event) => console.log(event);")),
-	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
-})
-
-// A custom rule that runs on configuration changes of EC2 instances
-customRule := config.NewCustomRule(this, jsii.String("Custom"), &customRuleProps{
-	configurationChanges: jsii.Boolean(true),
-	lambdaFunction: evalComplianceFn,
-	ruleScope: config.ruleScope.fromResource(config.resourceType_EC2_INSTANCE()),
-})
-```
-
-#### Custom Policy Rules
-
-Guard which contains the logic that evaluates whether your AWS resources comply with the rule.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-samplePolicyText := "\n# This rule checks if point in time recovery (PITR) is enabled on active Amazon DynamoDB tables\nlet status = ['ACTIVE']\n\nrule tableisactive when\n    resourceType == \"AWS::DynamoDB::Table\" {\n    configuration.tableStatus == %status\n}\n\nrule checkcompliance when\n    resourceType == \"AWS::DynamoDB::Table\"\n    tableisactive {\n        let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus\n        %pitr == \"ENABLED\"\n}\n"
-
-config.NewCustomPolicy(stack, jsii.String("Custom"), &customPolicyProps{
-	policyText: samplePolicyText,
-	enableDebugLog: jsii.Boolean(true),
-	ruleScope: config.ruleScope.fromResources([]resourceType{
-		config.*resourceType_DYNAMODB_TABLE(),
-	}),
-})
-```
+AWS Lambda function, which contains the logic that evaluates whether your AWS resources comply
+with the rule.
 
 ### Triggers
 

@@ -1,6 +1,6 @@
 //go:build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -66,6 +66,14 @@ func validateSize_KibibytesParameters(amount *float64) error {
 }
 
 func validateSize_MebibytesParameters(amount *float64) error {
+	if amount == nil {
+		return fmt.Errorf("parameter amount is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateSize_PebibyteParameters(amount *float64) error {
 	if amount == nil {
 		return fmt.Errorf("parameter amount is required, but nil was provided")
 	}

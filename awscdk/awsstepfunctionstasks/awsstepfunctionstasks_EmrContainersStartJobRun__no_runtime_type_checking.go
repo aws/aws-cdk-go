@@ -84,6 +84,14 @@ func (e *jsiiProxy_EmrContainersStartJobRun) validateNextParameters(next awsstep
 	return nil
 }
 
+func (e *jsiiProxy_EmrContainersStartJobRun) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmrContainersStartJobRun) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrContainersStartJobRun) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

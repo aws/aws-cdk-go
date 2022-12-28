@@ -7,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (n *jsiiProxy_NodejsFunction) validateAddAliasParameters(aliasName *string, options *awslambda.AliasOptions) error {
@@ -96,6 +96,18 @@ func (n *jsiiProxy_NodejsFunction) validateAddToRolePolicyParameters(statement a
 	return nil
 }
 
+func (n *jsiiProxy_NodejsFunction) validateAddVersionParameters(name *string, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(asyncInvokeConfig, func() string { return "parameter asyncInvokeConfig" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (n *jsiiProxy_NodejsFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")
@@ -115,7 +127,7 @@ func (n *jsiiProxy_NodejsFunction) validateConfigureAsyncInvokeParameters(option
 	return nil
 }
 
-func (n *jsiiProxy_NodejsFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (n *jsiiProxy_NodejsFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -210,7 +222,23 @@ func (n *jsiiProxy_NodejsFunction) validateMetricThrottlesParameters(props *awsc
 	return nil
 }
 
-func (n *jsiiProxy_NodejsFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (n *jsiiProxy_NodejsFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NodejsFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NodejsFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -289,15 +317,7 @@ func validateNodejsFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNodejsFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateNodejsFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateNodejsFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}
@@ -365,7 +385,7 @@ func validateNodejsFunction_MetricAllUnreservedConcurrentExecutionsParameters(pr
 	return nil
 }
 
-func validateNewNodejsFunctionParameters(scope constructs.Construct, id *string, props *NodejsFunctionProps) error {
+func validateNewNodejsFunctionParameters(scope awscdk.Construct, id *string, props *NodejsFunctionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

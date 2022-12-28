@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnRotationSchedule) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRotationSchedule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnRotationSchedule) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRotationSchedule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRotationSchedule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnRotationSchedule) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRotationSchedule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnRotationSchedule) validateSetSecretIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnRotationScheduleParameters(scope constructs.Construct, id *string, props *CfnRotationScheduleProps) error {
+func validateNewCfnRotationScheduleParameters(scope awscdk.Construct, id *string, props *CfnRotationScheduleProps) error {
 	return nil
 }
 

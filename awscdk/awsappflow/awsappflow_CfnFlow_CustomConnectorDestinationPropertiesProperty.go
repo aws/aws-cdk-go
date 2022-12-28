@@ -1,6 +1,8 @@
 package awsappflow
 
 
+// The properties that are applied when the custom connector is being used as a destination.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,15 +27,15 @@ package awsappflow
 //   }
 //
 type CfnFlow_CustomConnectorDestinationPropertiesProperty struct {
-	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.EntityName`.
+	// The entity specified in the custom connector as a destination in the flow.
 	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
-	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.CustomProperties`.
+	// The custom properties that are specific to the connector when it's used as a destination in the flow.
 	CustomProperties interface{} `field:"optional" json:"customProperties" yaml:"customProperties"`
-	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.ErrorHandlingConfig`.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
 	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
-	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.IdFieldNames`.
+	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
-	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.WriteOperationType`.
+	// Specifies the type of write operation to be performed in the custom connector when it's used as destination.
 	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
 }
 

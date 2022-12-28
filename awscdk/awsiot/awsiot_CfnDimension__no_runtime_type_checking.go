@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDimension) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
-func (c *jsiiProxy_CfnDimension) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDimension) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDimension) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnDimension) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDimension) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDimension) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDimension) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDimension) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnDimension) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDimension) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnDimension) validateSetTypeParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnDimensionParameters(scope constructs.Construct, id *string, props *CfnDimensionProps) error {
+func validateNewCfnDimensionParameters(scope awscdk.Construct, id *string, props *CfnDimensionProps) error {
 	return nil
 }
 

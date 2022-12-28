@@ -5,10 +5,10 @@ package awsec2
 import (
 	"fmt"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (g *jsiiProxy_GenericSSMParameterImage) validateGetImageParameters(scope constructs.Construct) error {
+func (g *jsiiProxy_GenericSSMParameterImage) validateGetImageParameters(scope awscdk.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

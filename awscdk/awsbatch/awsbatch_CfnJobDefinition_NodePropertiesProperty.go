@@ -1,7 +1,9 @@
 package awsbatch
 
 
-// An object representing the node properties of a multi-node parallel job.
+// An object that represents the node properties of a multi-node parallel job.
+//
+// > Node properties can't be specified for Amazon EKS based job definitions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -139,9 +141,9 @@ type CfnJobDefinition_NodePropertiesProperty struct {
 	//
 	// This node index value must be fewer than the number of nodes.
 	MainNode *float64 `field:"required" json:"mainNode" yaml:"mainNode"`
-	// A list of node ranges and their properties associated with a multi-node parallel job.
+	// A list of node ranges and their properties that are associated with a multi-node parallel job.
 	NodeRangeProperties interface{} `field:"required" json:"nodeRangeProperties" yaml:"nodeRangeProperties"`
-	// The number of nodes associated with a multi-node parallel job.
+	// The number of nodes that are associated with a multi-node parallel job.
 	NumNodes *float64 `field:"required" json:"numNodes" yaml:"numNodes"`
 }
 

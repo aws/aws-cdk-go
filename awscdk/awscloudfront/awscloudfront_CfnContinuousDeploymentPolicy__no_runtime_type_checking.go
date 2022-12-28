@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateAddDeletionOverridePar
 	return nil
 }
 
-func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnContinuousDeploymentPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnContinuousDeploymentPolicy) validateSetContinuousDeploymen
 	return nil
 }
 
-func validateNewCfnContinuousDeploymentPolicyParameters(scope constructs.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) error {
+func validateNewCfnContinuousDeploymentPolicyParameters(scope awscdk.Construct, id *string, props *CfnContinuousDeploymentPolicyProps) error {
 	return nil
 }
 

@@ -25,13 +25,17 @@ type CfnCapacityProvider_ManagedScalingProperty struct {
 	//
 	// If this parameter is omitted, the default value of `300` seconds is used.
 	InstanceWarmupPeriod *float64 `field:"optional" json:"instanceWarmupPeriod" yaml:"instanceWarmupPeriod"`
-	// The maximum number of container instances that Amazon ECS scales in or scales out at one time.
+	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
 	//
-	// If this parameter is omitted, the default value of `10000` is used.
+	// The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `1` is used.
 	MaximumScalingStepSize *float64 `field:"optional" json:"maximumScalingStepSize" yaml:"maximumScalingStepSize"`
-	// The minimum number of container instances that Amazon ECS scales in or scales out at one time.
+	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
 	//
-	// If this parameter is omitted, the default value of `1` is used.
+	// The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+	//
+	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
+	//
+	// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
 	MinimumScalingStepSize *float64 `field:"optional" json:"minimumScalingStepSize" yaml:"minimumScalingStepSize"`
 	// Determines whether to use managed scaling for the capacity provider.
 	Status *string `field:"optional" json:"status" yaml:"status"`

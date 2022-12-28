@@ -16,13 +16,17 @@ package awsec2
 //   }
 //
 type CfnNetworkPerformanceMetricSubscriptionProps struct {
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Destination`.
+	// The Region or Availability Zone that's the target for the subscription.
+	//
+	// For example, `eu-west-1` .
 	Destination *string `field:"required" json:"destination" yaml:"destination"`
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Metric`.
+	// The metric used for the subscription.
 	Metric *string `field:"required" json:"metric" yaml:"metric"`
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Source`.
+	// The Region or Availability Zone that's the source for the subscription.
+	//
+	// For example, `us-east-1` .
 	Source *string `field:"required" json:"source" yaml:"source"`
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Statistic`.
+	// The statistic used for the subscription.
 	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 }
 

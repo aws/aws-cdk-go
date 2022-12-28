@@ -1,6 +1,8 @@
 package awsec2
 
 
+// Describes the VPC attachment options.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,11 @@ package awsec2
 //   }
 //
 type CfnTransitGatewayAttachment_OptionsProperty struct {
-	// `CfnTransitGatewayAttachment.OptionsProperty.ApplianceModeSupport`.
+	// Indicates whether appliance mode support is enabled.
 	ApplianceModeSupport *string `field:"optional" json:"applianceModeSupport" yaml:"applianceModeSupport"`
-	// `CfnTransitGatewayAttachment.OptionsProperty.DnsSupport`.
+	// Indicates whether DNS support is enabled.
 	DnsSupport *string `field:"optional" json:"dnsSupport" yaml:"dnsSupport"`
-	// `CfnTransitGatewayAttachment.OptionsProperty.Ipv6Support`.
+	// Indicates whether IPv6 support is disabled.
 	Ipv6Support *string `field:"optional" json:"ipv6Support" yaml:"ipv6Support"`
 }
 

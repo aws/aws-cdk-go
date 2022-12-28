@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// Dashboard error.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DashboardErrorProperty struct {
-	// `CfnDashboard.DashboardErrorProperty.Message`.
+	// Message.
 	Message *string `field:"optional" json:"message" yaml:"message"`
-	// `CfnDashboard.DashboardErrorProperty.Type`.
+	// Type.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

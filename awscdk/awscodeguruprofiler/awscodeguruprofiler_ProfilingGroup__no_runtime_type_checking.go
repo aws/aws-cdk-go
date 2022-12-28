@@ -24,6 +24,14 @@ func (p *jsiiProxy_ProfilingGroup) validateGrantReadParameters(grantee awsiam.IG
 	return nil
 }
 
+func (p *jsiiProxy_ProfilingGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_ProfilingGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateProfilingGroup_FromProfilingGroupArnParameters(scope constructs.Construct, id *string, profilingGroupArn *string) error {
 	return nil
 }
@@ -36,11 +44,7 @@ func validateProfilingGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateProfilingGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateProfilingGroup_IsResourceParameters(construct constructs.IConstruct) error {
+func validateProfilingGroup_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

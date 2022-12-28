@@ -5,7 +5,7 @@ package awsec2
 //
 // You can create a network interface when launching an instance. For an example, see the [AWS::EC2::Instance examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#aws-properties-ec2-instance--examples--Automatically_assign_a_public_IP_address) .
 //
-// Alternatively, you can attach an existing network interface when launching an instance. For an example, see the [AWS::EC2:NetworkInterface examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#aws-resource-ec2-network-interface--examples--Basic_network_interface) .
+// Alternatively, you can attach an existing network interface when launching an instance. For an example, see the [AWS::EC2:NetworkInterface examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#aws-resource-ec2-networkinterface--examples) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -70,7 +70,7 @@ type CfnInstance_NetworkInterfaceProperty struct {
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
-	// One or more IPv6 addresses to assign to the network interface.
+	// The IPv6 addresses to assign to the network interface.
 	//
 	// You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
 	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnHoursOfOperation) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
-func (c *jsiiProxy_CfnHoursOfOperation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnHoursOfOperation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnHoursOfOperation) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnHoursOfOperation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnHoursOfOperation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnHoursOfOperation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnHoursOfOperation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnHoursOfOperation) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnHoursOfOperation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnHoursOfOperation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnHoursOfOperation) validateSetTimeZoneParameters(val *strin
 	return nil
 }
 
-func validateNewCfnHoursOfOperationParameters(scope constructs.Construct, id *string, props *CfnHoursOfOperationProps) error {
+func validateNewCfnHoursOfOperationParameters(scope awscdk.Construct, id *string, props *CfnHoursOfOperationProps) error {
 	return nil
 }
 

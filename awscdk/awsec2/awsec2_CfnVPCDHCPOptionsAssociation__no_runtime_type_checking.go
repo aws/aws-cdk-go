@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateAddDeletionOverridePara
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateInspectParameters(inspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateRenderPropertiesParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnVPCDHCPOptionsAssociation) validateSetVpcIdParameters(val 
 	return nil
 }
 
-func validateNewCfnVPCDHCPOptionsAssociationParameters(scope constructs.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) error {
+func validateNewCfnVPCDHCPOptionsAssociationParameters(scope awscdk.Construct, id *string, props *CfnVPCDHCPOptionsAssociationProps) error {
 	return nil
 }
 
