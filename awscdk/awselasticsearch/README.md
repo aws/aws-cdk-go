@@ -1,4 +1,4 @@
-# Amazon Elasticsearch Service Construct Library
+# Amazon OpenSearch Service (legacy Elasticsearch) Construct Library
 
 > Instead of this module, we recommend using the [@aws-cdk/aws-opensearchservice](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-opensearchservice-readme.html) module. See [Amazon OpenSearch Service FAQs](https://aws.amazon.com/opensearch-service/faqs/#Name_change) for details. See [Migrating to OpenSearch](#migrating-to-opensearch) for migration instructions.
 
@@ -49,7 +49,7 @@ logging the domain logs and slow search logs.
 
 ## A note about SLR
 
-Some cluster configurations (e.g VPC access) require the existence of the [`AWSServiceRoleForAmazonElasticsearchService`](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/slr-es.html) Service-Linked Role.
+Some cluster configurations (e.g VPC access) require the existence of the [`AWSServiceRoleForAmazonElasticsearchService`](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/slr.html) service-linked role.
 
 When performing such operations via the AWS Console, this SLR is created automatically when needed. However, this is not the behavior when using CloudFormation. If an SLR is needed, but doesn't exist, you will encounter a failure message simlar to:
 
@@ -125,7 +125,7 @@ rest.
 
 Elasticsearch domains can be placed inside a VPC, providing a secure communication between Amazon ES and other services within the VPC without the need for an internet gateway, NAT device, or VPN connection.
 
-> Visit [VPC Support for Amazon Elasticsearch Service Domains](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html) for more details.
+> See [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) for more details.
 
 ```go
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
@@ -290,7 +290,7 @@ iam.NewPolicyStatement(&policyStatementProps{
 
 ## Audit logs
 
-Audit logs can be enabled for a domain, but only when fine grained access control is enabled.
+Audit logs can be enabled for a domain, but only when fine-grained access control is enabled.
 
 ```go
 domain := es.NewDomain(this, jsii.String("Domain"), &domainProps{
@@ -346,7 +346,7 @@ Additionally, an automatic CNAME-Record is created if a hosted zone is provided 
 
 ## Advanced options
 
-[Advanced options](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options) can used to configure additional options.
+[Advanced cluster settings](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options) can used to configure additional options.
 
 ```go
 es.NewDomain(this, jsii.String("Domain"), &domainProps{
