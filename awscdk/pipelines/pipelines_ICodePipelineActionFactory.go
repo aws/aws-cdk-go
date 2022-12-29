@@ -3,7 +3,7 @@ package pipelines
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 )
 
 // Factory for explicit CodePipeline Actions.
@@ -15,10 +15,8 @@ import (
 // There needs to be a level of indirection here, because some aspects of the
 // Action creation need to be controlled by the workflow engine (name and
 // runOrder). All the rest of the properties are controlled by the factory.
-// Experimental.
 type ICodePipelineActionFactory interface {
 	// Create the desired Action and add it to the pipeline.
-	// Experimental.
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
 }
 

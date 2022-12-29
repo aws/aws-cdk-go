@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Theme error.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsquicksight
 //   }
 //
 type CfnTheme_ThemeErrorProperty struct {
-	// The error message.
+	// `CfnTheme.ThemeErrorProperty.Message`.
 	Message *string `field:"optional" json:"message" yaml:"message"`
-	// The type of error.
+	// `CfnTheme.ThemeErrorProperty.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

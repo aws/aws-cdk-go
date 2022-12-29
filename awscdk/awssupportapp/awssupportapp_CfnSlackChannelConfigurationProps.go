@@ -22,31 +22,21 @@ package awssupportapp
 //   }
 //
 type CfnSlackChannelConfigurationProps struct {
-	// The channel ID in Slack.
-	//
-	// This ID identifies a channel within a Slack workspace.
+	// `AWS::SupportApp::SlackChannelConfiguration.ChannelId`.
 	ChannelId *string `field:"required" json:"channelId" yaml:"channelId"`
-	// The Amazon Resource Name (ARN) of the IAM role for this Slack channel configuration.
-	//
-	// The AWS Support App uses this role to perform AWS Support and Service Quotas actions on your behalf.
+	// `AWS::SupportApp::SlackChannelConfiguration.ChannelRoleArn`.
 	ChannelRoleArn *string `field:"required" json:"channelRoleArn" yaml:"channelRoleArn"`
-	// The case severity for your support cases that you want to receive notifications.
-	//
-	// You can specify `none` , `all` , or `high` .
+	// `AWS::SupportApp::SlackChannelConfiguration.NotifyOnCaseSeverity`.
 	NotifyOnCaseSeverity *string `field:"required" json:"notifyOnCaseSeverity" yaml:"notifyOnCaseSeverity"`
-	// The team ID in Slack.
-	//
-	// This ID uniquely identifies a Slack workspace.
+	// `AWS::SupportApp::SlackChannelConfiguration.TeamId`.
 	TeamId *string `field:"required" json:"teamId" yaml:"teamId"`
-	// The channel name in Slack.
-	//
-	// This is the channel where you invite the AWS Support App .
+	// `AWS::SupportApp::SlackChannelConfiguration.ChannelName`.
 	ChannelName *string `field:"optional" json:"channelName" yaml:"channelName"`
-	// Whether to get notified when a correspondence is added to your support cases.
+	// `AWS::SupportApp::SlackChannelConfiguration.NotifyOnAddCorrespondenceToCase`.
 	NotifyOnAddCorrespondenceToCase interface{} `field:"optional" json:"notifyOnAddCorrespondenceToCase" yaml:"notifyOnAddCorrespondenceToCase"`
-	// Whether to get notified when your support cases are created or reopened.
+	// `AWS::SupportApp::SlackChannelConfiguration.NotifyOnCreateOrReopenCase`.
 	NotifyOnCreateOrReopenCase interface{} `field:"optional" json:"notifyOnCreateOrReopenCase" yaml:"notifyOnCreateOrReopenCase"`
-	// Whether to get notified when your support cases are resolved.
+	// `AWS::SupportApp::SlackChannelConfiguration.NotifyOnResolveCase`.
 	NotifyOnResolveCase interface{} `field:"optional" json:"notifyOnResolveCase" yaml:"notifyOnResolveCase"`
 }
 

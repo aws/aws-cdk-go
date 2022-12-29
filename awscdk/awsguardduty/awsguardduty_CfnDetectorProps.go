@@ -1,7 +1,7 @@
 package awsguardduty
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDetector`.
@@ -46,11 +46,7 @@ type CfnDetectorProps struct {
 	DataSources interface{} `field:"optional" json:"dataSources" yaml:"dataSources"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
-	// The tags to be added to a new detector resource.
-	//
-	// Each tag consists of a key and an optional value, both of which you define.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// `AWS::GuardDuty::Detector.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

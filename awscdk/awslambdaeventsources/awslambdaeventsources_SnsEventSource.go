@@ -1,12 +1,12 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslambdaeventsources/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdaeventsources/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
 // Use an Amazon SNS topic as an event source for AWS Lambda.
@@ -26,13 +26,10 @@ import (
 //   	deadLetterQueue: deadLetterQueue,
 //   }))
 //
-// Experimental.
 type SnsEventSource interface {
 	awslambda.IEventSource
-	// Experimental.
 	Topic() awssns.ITopic
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target awslambda.IFunction)
 }
 
@@ -52,7 +49,6 @@ func (j *jsiiProxy_SnsEventSource) Topic() awssns.ITopic {
 }
 
 
-// Experimental.
 func NewSnsEventSource(topic awssns.ITopic, props *SnsEventSourceProps) SnsEventSource {
 	_init_.Initialize()
 
@@ -62,7 +58,7 @@ func NewSnsEventSource(topic awssns.ITopic, props *SnsEventSourceProps) SnsEvent
 	j := jsiiProxy_SnsEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SnsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsEventSource",
 		[]interface{}{topic, props},
 		&j,
 	)
@@ -70,12 +66,11 @@ func NewSnsEventSource(topic awssns.ITopic, props *SnsEventSourceProps) SnsEvent
 	return &j
 }
 
-// Experimental.
 func NewSnsEventSource_Override(s SnsEventSource, topic awssns.ITopic, props *SnsEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SnsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsEventSource",
 		[]interface{}{topic, props},
 		s,
 	)

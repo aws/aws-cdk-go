@@ -5,10 +5,8 @@ import (
 )
 
 // A managed policy.
-// Experimental.
 type IManagedPolicy interface {
 	// The ARN of the managed policy.
-	// Experimental.
 	ManagedPolicyArn() *string
 }
 

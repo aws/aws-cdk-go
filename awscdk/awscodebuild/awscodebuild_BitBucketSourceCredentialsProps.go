@@ -1,7 +1,7 @@
 package awscodebuild
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Construction properties of {@link BitBucketSourceCredentials}.
@@ -16,13 +16,10 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type BitBucketSourceCredentialsProps struct {
 	// Your BitBucket application password.
-	// Experimental.
 	Password awscdk.SecretValue `field:"required" json:"password" yaml:"password"`
 	// Your BitBucket username.
-	// Experimental.
 	Username awscdk.SecretValue `field:"required" json:"username" yaml:"username"`
 }
 

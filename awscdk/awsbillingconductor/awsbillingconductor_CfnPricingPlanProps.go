@@ -1,7 +1,7 @@
 package awsbillingconductor
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnPricingPlan`.
@@ -34,7 +34,7 @@ type CfnPricingPlanProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The `PricingRuleArns` that are associated with the Pricing Plan.
 	PricingRuleArns *[]*string `field:"optional" json:"pricingRuleArns" yaml:"pricingRuleArns"`
-	// A map that contains tag keys and tag values that are attached to a pricing plan.
+	// `AWS::BillingConductor::PricingPlan.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

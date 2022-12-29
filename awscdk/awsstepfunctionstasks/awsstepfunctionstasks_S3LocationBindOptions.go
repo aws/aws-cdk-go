@@ -13,13 +13,10 @@ package awsstepfunctionstasks
 //   	forWriting: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type S3LocationBindOptions struct {
 	// Allow reading from the S3 Location.
-	// Experimental.
 	ForReading *bool `field:"optional" json:"forReading" yaml:"forReading"`
 	// Allow writing to the S3 Location.
-	// Experimental.
 	ForWriting *bool `field:"optional" json:"forWriting" yaml:"forWriting"`
 }
 

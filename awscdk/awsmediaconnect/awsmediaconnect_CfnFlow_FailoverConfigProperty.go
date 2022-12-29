@@ -18,17 +18,13 @@ package awsmediaconnect
 //   }
 //
 type CfnFlow_FailoverConfigProperty struct {
-	// The type of failover you choose for this flow.
-	//
-	// MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+	// `CfnFlow.FailoverConfigProperty.FailoverMode`.
 	FailoverMode *string `field:"optional" json:"failoverMode" yaml:"failoverMode"`
 	// The size of the buffer (delay) that the service maintains.
 	//
-	// A larger buffer means a longer delay in transmitting the stream, but more room for error correction. A smaller buffer means a shorter delay, but less room for error correction. You can choose a value from 100-500 ms. If you keep this field blank, the service uses the default value of 200 ms. This setting only applies when Failover Mode is set to MERGE.
+	// A larger buffer means a longer delay in transmitting the stream, but more room for error correction. A smaller buffer means a shorter delay, but less room for error correction.
 	RecoveryWindow *float64 `field:"optional" json:"recoveryWindow" yaml:"recoveryWindow"`
-	// The priority you want to assign to a source.
-	//
-	// You can have a primary stream and a backup stream or two equally prioritized streams. This setting only applies when Failover Mode is set to FAILOVER.
+	// `CfnFlow.FailoverConfigProperty.SourcePriority`.
 	SourcePriority interface{} `field:"optional" json:"sourcePriority" yaml:"sourcePriority"`
 	// The state of source failover on the flow.
 	//

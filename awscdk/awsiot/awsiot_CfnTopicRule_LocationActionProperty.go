@@ -1,8 +1,6 @@
 package awsiot
 
 
-// Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,19 +18,17 @@ package awsiot
 //   }
 //
 type CfnTopicRule_LocationActionProperty struct {
-	// The unique ID of the device providing the location data.
+	// `CfnTopicRule.LocationActionProperty.DeviceId`.
 	DeviceId *string `field:"required" json:"deviceId" yaml:"deviceId"`
-	// A string that evaluates to a double value that represents the latitude of the device's location.
+	// `CfnTopicRule.LocationActionProperty.Latitude`.
 	Latitude *string `field:"required" json:"latitude" yaml:"latitude"`
-	// A string that evaluates to a double value that represents the longitude of the device's location.
+	// `CfnTopicRule.LocationActionProperty.Longitude`.
 	Longitude *string `field:"required" json:"longitude" yaml:"longitude"`
-	// The IAM role that grants permission to write to the Amazon Location resource.
+	// `CfnTopicRule.LocationActionProperty.RoleArn`.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The name of the tracker resource in Amazon Location in which the location is updated.
+	// `CfnTopicRule.LocationActionProperty.TrackerName`.
 	TrackerName *string `field:"required" json:"trackerName" yaml:"trackerName"`
-	// The time that the location data was sampled.
-	//
-	// The default value is the time the MQTT message was processed.
+	// `CfnTopicRule.LocationActionProperty.Timestamp`.
 	Timestamp interface{} `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 

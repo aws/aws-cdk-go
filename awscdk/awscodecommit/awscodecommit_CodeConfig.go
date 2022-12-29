@@ -23,10 +23,8 @@ package awscodecommit
 //   	},
 //   }
 //
-// Experimental.
 type CodeConfig struct {
 	// represents the underlying code structure.
-	// Experimental.
 	Code *CfnRepository_CodeProperty `field:"required" json:"code" yaml:"code"`
 }
 

@@ -4,51 +4,50 @@ package awscloudwatch
 // Statistic to use over the aggregation period.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-//   var deliveryStream deliveryStream
+//   var matchmakingRuleSet matchmakingRuleSet
 //
-//
-//   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
-//   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&mathExpressionProps{
-//   	expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
+//   // Alarm that triggers when the per-second average of not placed matches exceed 10%
+//   ruleEvaluationRatio := cloudwatch.NewMathExpression(&mathExpressionProps{
+//   	expression: jsii.String("1 - (ruleEvaluationsPassed / ruleEvaluationsFailed)"),
 //   	usingMetrics: map[string]iMetric{
-//   		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
+//   		"ruleEvaluationsPassed": matchmakingRuleSet.metricRuleEvaluationsPassed(&MetricOptions{
 //   			"statistic": cloudwatch.Statistic_SUM,
 //   		}),
-//   		"bytePerSecLimit": deliveryStream.metric(jsii.String("BytesPerSecondLimit")),
+//   		"ruleEvaluationsFailed": matchmakingRuleSet.metric(jsii.String("ruleEvaluationsFailed")),
 //   	},
 //   })
-//
 //   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &alarmProps{
-//   	metric: incomingBytesPercentOfLimit,
-//   	threshold: jsii.Number(0.9),
+//   	metric: ruleEvaluationRatio,
+//   	threshold: jsii.Number(0.1),
 //   	evaluationPeriods: jsii.Number(3),
 //   })
 //
-// Experimental.
+// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html
+//
+// Deprecated: Use one of the factory methods on `Stats` to produce statistics strings.
 type Statistic string
 
 const (
 	// The count (number) of data points used for the statistical calculation.
-	// Experimental.
+	// Deprecated: Use one of the factory methods on `Stats` to produce statistics strings.
 	Statistic_SAMPLE_COUNT Statistic = "SAMPLE_COUNT"
 	// The value of Sum / SampleCount during the specified period.
-	// Experimental.
+	// Deprecated: Use one of the factory methods on `Stats` to produce statistics strings.
 	Statistic_AVERAGE Statistic = "AVERAGE"
 	// All values submitted for the matching metric added together.
 	//
 	// This statistic can be useful for determining the total volume of a metric.
-	// Experimental.
+	// Deprecated: Use one of the factory methods on `Stats` to produce statistics strings.
 	Statistic_SUM Statistic = "SUM"
 	// The lowest value observed during the specified period.
 	//
 	// You can use this value to determine low volumes of activity for your application.
-	// Experimental.
+	// Deprecated: Use one of the factory methods on `Stats` to produce statistics strings.
 	Statistic_MINIMUM Statistic = "MINIMUM"
 	// The highest value observed during the specified period.
 	//
 	// You can use this value to determine high volumes of activity for your application.
-	// Experimental.
+	// Deprecated: Use one of the factory methods on `Stats` to produce statistics strings.
 	Statistic_MAXIMUM Statistic = "MAXIMUM"
 )
 

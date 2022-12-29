@@ -82,9 +82,15 @@ type CfnLaunchConfigurationProps struct {
 	//
 	// By default, the block devices specified in the block device mapping for the AMI are used. For more information, see [Block device mappings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
-	// Available for backward compatibility.
+	// *EC2-Classic retires on August 15, 2022. This property is not supported after that date.*.
+	//
+	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see [ClassicLink](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	ClassicLinkVpcId *string `field:"optional" json:"classicLinkVpcId" yaml:"classicLinkVpcId"`
-	// Available for backward compatibility.
+	// *EC2-Classic retires on August 15, 2022. This property is not supported after that date.*.
+	//
+	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC.
+	//
+	// If you specify the `ClassicLinkVPCId` property, you must specify `ClassicLinkVPCSecurityGroups` .
 	ClassicLinkVpcSecurityGroups *[]*string `field:"optional" json:"classicLinkVpcSecurityGroups" yaml:"classicLinkVpcSecurityGroups"`
 	// Specifies whether the launch configuration is optimized for EBS I/O ( `true` ) or not ( `false` ).
 	//

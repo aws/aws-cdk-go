@@ -1,8 +1,6 @@
 package awstimestream
 
 
-// The location to write error reports for records rejected, asynchronously, during magnetic store writes.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,7 +18,7 @@ package awstimestream
 //   }
 //
 type CfnTable_MagneticStoreRejectedDataLocationProperty struct {
-	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes.
+	// `CfnTable.MagneticStoreRejectedDataLocationProperty.S3Configuration`.
 	S3Configuration interface{} `field:"optional" json:"s3Configuration" yaml:"s3Configuration"`
 }
 

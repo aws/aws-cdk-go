@@ -7,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (s *jsiiProxy_SlackChannelConfiguration) validateAddNotificationTopicParameters(notificationTopic awssns.ITopic) error {
@@ -81,22 +81,6 @@ func (s *jsiiProxy_SlackChannelConfiguration) validateMetricParameters(metricNam
 	return nil
 }
 
-func (s *jsiiProxy_SlackChannelConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (s *jsiiProxy_SlackChannelConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateSlackChannelConfiguration_FromSlackChannelConfigurationArnParameters(scope constructs.Construct, id *string, slackChannelConfigurationArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -121,7 +105,15 @@ func validateSlackChannelConfiguration_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
-func validateSlackChannelConfiguration_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateSlackChannelConfiguration_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateSlackChannelConfiguration_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

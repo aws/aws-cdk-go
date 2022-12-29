@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateAddDe
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateInspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateRende
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateSetIn
 	return nil
 }
 
-func validateNewCfnInstanceAccessControlAttributeConfigurationParameters(scope awscdk.Construct, id *string, props *CfnInstanceAccessControlAttributeConfigurationProps) error {
+func validateNewCfnInstanceAccessControlAttributeConfigurationParameters(scope constructs.Construct, id *string, props *CfnInstanceAccessControlAttributeConfigurationProps) error {
 	return nil
 }
 

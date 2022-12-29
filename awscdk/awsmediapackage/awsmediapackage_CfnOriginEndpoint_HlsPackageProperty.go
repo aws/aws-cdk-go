@@ -54,17 +54,17 @@ package awsmediapackage
 type CfnOriginEndpoint_HlsPackageProperty struct {
 	// Controls how ad markers are included in the packaged endpoint.
 	//
-	// Valid values:
+	// Valid values are `none` , `passthrough` , or `scte35_enhanced` .
 	//
-	// - `NONE` - Omits all SCTE-35 ad markers from the output.
-	// - `PASSTHROUGH` - Creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.
-	// - `SCTE35_ENHANCED` - Generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.
+	// - `NONE` - omits all SCTE-35 ad markers from the output.
+	// - `PASSTHROUGH` - creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.
+	// - `SCTE35_ENHANCED` - generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.
 	AdMarkers *string `field:"optional" json:"adMarkers" yaml:"adMarkers"`
-	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest.
+	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
 	//
-	// For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions *string `field:"optional" json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
-	// Specifies the SCTE-35 message types that AWS Elemental MediaPackage treats as ad markers in the output manifest.
+	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
 	//
 	// Valid values:
 	//
@@ -79,7 +79,7 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Parameters for encrypting content.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+	// `CfnOriginEndpoint.HlsPackageProperty.IncludeDvbSubtitles`.
 	IncludeDvbSubtitles interface{} `field:"optional" json:"includeDvbSubtitles" yaml:"includeDvbSubtitles"`
 	// Only applies to stream sets with a single video track.
 	//

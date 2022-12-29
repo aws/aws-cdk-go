@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,10 +16,8 @@ import (
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html
 //
-// Experimental.
 type AcceleratorClass interface {
 	// - Elastic Inference accelerator generation.
-	// Experimental.
 	Version() *string
 }
 
@@ -40,7 +38,6 @@ func (j *jsiiProxy_AcceleratorClass) Version() *string {
 
 
 // Custom AcceleratorType.
-// Experimental.
 func AcceleratorClass_Of(version *string) AcceleratorClass {
 	_init_.Initialize()
 
@@ -50,7 +47,7 @@ func AcceleratorClass_Of(version *string) AcceleratorClass {
 	var returns AcceleratorClass
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -63,7 +60,7 @@ func AcceleratorClass_EIA1() AcceleratorClass {
 	_init_.Initialize()
 	var returns AcceleratorClass
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
 		"EIA1",
 		&returns,
 	)
@@ -74,7 +71,7 @@ func AcceleratorClass_EIA2() AcceleratorClass {
 	_init_.Initialize()
 	var returns AcceleratorClass
 	_jsii_.StaticGet(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
 		"EIA2",
 		&returns,
 	)

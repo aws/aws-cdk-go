@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // A source configuration is a wrapper for CloudFront origins and behaviors.
@@ -15,13 +15,12 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
-//   var duration duration
 //   var function_ function
 //   var keyGroup keyGroup
 //   var originAccessIdentity originAccessIdentity
@@ -33,7 +32,7 @@ import (
 //   			allowedMethods: awscdk.Aws_cloudfront.cloudFrontAllowedMethods_GET_HEAD,
 //   			cachedMethods: awscdk.*Aws_cloudfront.cloudFrontAllowedCachedMethods_GET_HEAD,
 //   			compress: jsii.Boolean(false),
-//   			defaultTtl: duration,
+//   			defaultTtl: cdk.duration.minutes(jsii.Number(30)),
 //   			forwardedValues: &forwardedValuesProperty{
 //   				queryString: jsii.Boolean(false),
 //
@@ -69,8 +68,8 @@ import (
 //   					includeBody: jsii.Boolean(false),
 //   				},
 //   			},
-//   			maxTtl: duration,
-//   			minTtl: duration,
+//   			maxTtl: cdk.*duration.minutes(jsii.Number(30)),
+//   			minTtl: cdk.*duration.minutes(jsii.Number(30)),
 //   			pathPattern: jsii.String("pathPattern"),
 //   			trustedKeyGroups: []iKeyGroup{
 //   				keyGroup,
@@ -84,7 +83,7 @@ import (
 //
 //   	// the properties below are optional
 //   	connectionAttempts: jsii.Number(123),
-//   	connectionTimeout: duration,
+//   	connectionTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	customOriginSource: &customOriginConfig{
 //   		domainName: jsii.String("domainName"),
 //
@@ -97,10 +96,10 @@ import (
 //   		originHeaders: map[string]*string{
 //   			"originHeadersKey": jsii.String("originHeaders"),
 //   		},
-//   		originKeepaliveTimeout: duration,
+//   		originKeepaliveTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   		originPath: jsii.String("originPath"),
 //   		originProtocolPolicy: awscdk.*Aws_cloudfront.originProtocolPolicy_HTTP_ONLY,
-//   		originReadTimeout: duration,
+//   		originReadTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   		originShieldRegion: jsii.String("originShieldRegion"),
 //   	},
 //   	failoverCriteriaStatusCodes: []failoverStatusCode{
@@ -118,10 +117,10 @@ import (
 //   		originHeaders: map[string]*string{
 //   			"originHeadersKey": jsii.String("originHeaders"),
 //   		},
-//   		originKeepaliveTimeout: duration,
+//   		originKeepaliveTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   		originPath: jsii.String("originPath"),
 //   		originProtocolPolicy: awscdk.*Aws_cloudfront.*originProtocolPolicy_HTTP_ONLY,
-//   		originReadTimeout: duration,
+//   		originReadTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   		originShieldRegion: jsii.String("originShieldRegion"),
 //   	},
 //   	failoverS3OriginSource: &s3OriginConfig{
@@ -135,10 +134,6 @@ import (
 //   		originPath: jsii.String("originPath"),
 //   		originShieldRegion: jsii.String("originShieldRegion"),
 //   	},
-//   	originHeaders: map[string]*string{
-//   		"originHeadersKey": jsii.String("originHeaders"),
-//   	},
-//   	originPath: jsii.String("originPath"),
 //   	originShieldRegion: jsii.String("originShieldRegion"),
 //   	s3OriginSource: &s3OriginConfig{
 //   		s3BucketSource: bucket,
@@ -153,48 +148,32 @@ import (
 //   	},
 //   }
 //
-// Experimental.
 type SourceConfiguration struct {
 	// The behaviors associated with this source.
 	//
 	// At least one (default) behavior must be included.
-	// Experimental.
 	Behaviors *[]*Behavior `field:"required" json:"behaviors" yaml:"behaviors"`
 	// The number of times that CloudFront attempts to connect to the origin.
 	//
 	// You can specify 1, 2, or 3 as the number of attempts.
-	// Experimental.
 	ConnectionAttempts *float64 `field:"optional" json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// You can specify a number of seconds between 1 and 10 (inclusive).
-	// Experimental.
 	ConnectionTimeout awscdk.Duration `field:"optional" json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A custom origin source - for all non-s3 sources.
-	// Experimental.
 	CustomOriginSource *CustomOriginConfig `field:"optional" json:"customOriginSource" yaml:"customOriginSource"`
 	// HTTP status code to failover to second origin.
-	// Experimental.
 	FailoverCriteriaStatusCodes *[]FailoverStatusCode `field:"optional" json:"failoverCriteriaStatusCodes" yaml:"failoverCriteriaStatusCodes"`
 	// A custom origin source for failover in case the s3OriginSource returns invalid status code.
-	// Experimental.
 	FailoverCustomOriginSource *CustomOriginConfig `field:"optional" json:"failoverCustomOriginSource" yaml:"failoverCustomOriginSource"`
 	// An s3 origin source for failover in case the s3OriginSource returns invalid status code.
-	// Experimental.
 	FailoverS3OriginSource *S3OriginConfig `field:"optional" json:"failoverS3OriginSource" yaml:"failoverS3OriginSource"`
-	// Any additional headers to pass to the origin.
-	// Deprecated: Use originHeaders on s3OriginSource or customOriginSource.
-	OriginHeaders *map[string]*string `field:"optional" json:"originHeaders" yaml:"originHeaders"`
-	// The relative path to the origin root to use for sources.
-	// Deprecated: Use originPath on s3OriginSource or customOriginSource.
-	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	// Experimental.
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
 	// An s3 origin source - if you're using s3 for your assets.
-	// Experimental.
 	S3OriginSource *S3OriginConfig `field:"optional" json:"s3OriginSource" yaml:"s3OriginSource"`
 }
 

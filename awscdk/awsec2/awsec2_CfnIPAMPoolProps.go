@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnIPAMPool`.
@@ -71,9 +71,7 @@ type CfnIPAMPoolProps struct {
 	//
 	// A locale must be set on the pool for this feature to work.
 	AutoImport interface{} `field:"optional" json:"autoImport" yaml:"autoImport"`
-	// Limits which service in AWS that the pool can be used in.
-	//
-	// "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+	// `AWS::EC2::IPAMPool.AwsService`.
 	AwsService *string `field:"optional" json:"awsService" yaml:"awsService"`
 	// The description of the IPAM pool.
 	Description *string `field:"optional" json:"description" yaml:"description"`

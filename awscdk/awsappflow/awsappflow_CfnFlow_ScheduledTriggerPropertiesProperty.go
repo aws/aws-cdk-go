@@ -28,7 +28,7 @@ type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 	DataPullMode *string `field:"optional" json:"dataPullMode" yaml:"dataPullMode"`
-	// Specifies the date range for the records to import from the connector in the first flow run.
+	// `CfnFlow.ScheduledTriggerPropertiesProperty.FirstExecutionFrom`.
 	FirstExecutionFrom *float64 `field:"optional" json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.FlowErrorDeactivationThreshold`.
 	FlowErrorDeactivationThreshold *float64 `field:"optional" json:"flowErrorDeactivationThreshold" yaml:"flowErrorDeactivationThreshold"`

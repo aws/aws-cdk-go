@@ -3,94 +3,68 @@ package awscodecommit
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodecommit/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Experimental.
 type IRepository interface {
 	awscodestarnotifications.INotificationRuleSource
 	awscdk.IResource
 	// Grant the given principal identity permissions to perform the actions on this repository.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions to pull this repository.
-	// Experimental.
 	GrantPull(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to pull and push this repository.
-	// Experimental.
 	GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to read this repository.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
-	// Deprecated: this method has a typo in its name, use notifyOnPullRequestMerged instead.
-	NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule triggered when the project events specified by you are emitted. Similar to `onEvent` API.
 	//
 	// You can also use the methods to define rules for the specific event emitted.
 	// eg: `notifyOnPullRequstCreated`.
 	//
 	// Returns: CodeStar Notifications rule associated with this repository.
-	// Experimental.
 	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *RepositoryNotifyOnOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when an approval rule is overridden.
-	// Experimental.
 	NotifyOnApprovalRuleOverridden(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when an approval status is changed.
-	// Experimental.
 	NotifyOnApprovalStatusChanged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a new branch or tag is created.
-	// Experimental.
 	NotifyOnBranchOrTagCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a branch or tag is deleted.
-	// Experimental.
 	NotifyOnBranchOrTagDeleted(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a comment is made on a pull request.
-	// Experimental.
 	NotifyOnPullRequestComment(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a pull request is created.
-	// Experimental.
 	NotifyOnPullRequestCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
-	// Experimental.
 	NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CloudWatch event rule which triggers when a comment is made on a commit.
-	// Experimental.
 	OnCommentOnCommit(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a comment is made on a pull request.
-	// Experimental.
 	OnCommentOnPullRequest(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a commit is pushed to a branch.
-	// Experimental.
 	OnCommit(id *string, options *OnCommitOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers for repository events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
-	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a pull request state is changed.
-	// Experimental.
 	OnPullRequestStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a reference is created (i.e. a new branch/tag is created) to the repository.
-	// Experimental.
 	OnReferenceCreated(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a reference is delete (i.e. a branch/tag is deleted) from the repository.
-	// Experimental.
 	OnReferenceDeleted(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a reference is updated (i.e. a commit is pushed to an existing or new branch) from the repository.
-	// Experimental.
 	OnReferenceUpdated(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a "CodeCommit Repository State Change" event occurs.
-	// Experimental.
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// The ARN of this Repository.
-	// Experimental.
 	RepositoryArn() *string
 	// The HTTPS (GRC) clone URL.
 	//
@@ -100,16 +74,12 @@ type IRepository interface {
 	// access, identity providers, and temporary credentials.
 	// See: https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-git-remote-codecommit.html
 	//
-	// Experimental.
 	RepositoryCloneUrlGrc() *string
 	// The HTTP clone URL.
-	// Experimental.
 	RepositoryCloneUrlHttp() *string
 	// The SSH clone URL.
-	// Experimental.
 	RepositoryCloneUrlSsh() *string
 	// The human-visible name of this Repository.
-	// Experimental.
 	RepositoryName() *string
 }
 
@@ -182,22 +152,6 @@ func (i *jsiiProxy_IRepository) GrantRead(grantee awsiam.IGrantable) awsiam.Gran
 		i,
 		"grantRead",
 		[]interface{}{grantee},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IRepository) NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	if err := i.validateNotifiyOnPullRequestMergedParameters(id, target, options); err != nil {
-		panic(err)
-	}
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifiyOnPullRequestMerged",
-		[]interface{}{id, target, options},
 		&returns,
 	)
 
@@ -563,8 +517,8 @@ func (j *jsiiProxy_IRepository) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IRepository) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IRepository) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

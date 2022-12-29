@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRegistration) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRegistration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayRegistration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTransitGatewayRegistration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayRegistration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTransitGatewayRegistration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayRegistration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTransitGatewayRegistration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnTransitGatewayRegistration) validateSetTransitGatewayArnPa
 	return nil
 }
 
-func validateNewCfnTransitGatewayRegistrationParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayRegistrationProps) error {
+func validateNewCfnTransitGatewayRegistrationParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayRegistrationProps) error {
 	return nil
 }
 

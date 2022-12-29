@@ -15,13 +15,10 @@ package awsroute53
 //   	}),
 //   })
 //
-// Experimental.
 type HostedZoneAttributes struct {
 	// Identifier of the hosted zone.
-	// Experimental.
 	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// Name of the hosted zone.
-	// Experimental.
 	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 }
 

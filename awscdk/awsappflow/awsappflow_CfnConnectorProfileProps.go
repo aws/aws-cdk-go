@@ -254,7 +254,7 @@ type CfnConnectorProfileProps struct {
 	ConnectorProfileName *string `field:"required" json:"connectorProfileName" yaml:"connectorProfileName"`
 	// The type of connector, such as Salesforce, Amplitude, and so on.
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
-	// The label for the connector profile being created.
+	// `AWS::AppFlow::ConnectorProfile.ConnectorLabel`.
 	ConnectorLabel *string `field:"optional" json:"connectorLabel" yaml:"connectorLabel"`
 	// Defines the connector-specific configuration and credentials.
 	ConnectorProfileConfig interface{} `field:"optional" json:"connectorProfileConfig" yaml:"connectorProfileConfig"`

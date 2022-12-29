@@ -11,7 +11,7 @@ package awsssmincidents
 //   }
 //
 type CfnResponsePlan_PagerDutyIncidentConfigurationProperty struct {
-	// The ID of the PagerDuty service that the response plan associates with an incident when it launches.
+	// `CfnResponsePlan.PagerDutyIncidentConfigurationProperty.ServiceId`.
 	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 }
 

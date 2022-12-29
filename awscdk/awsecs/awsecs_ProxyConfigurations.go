@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,7 +14,6 @@ import (
 //
 //   proxyConfigurations := awscdk.Aws_ecs.NewProxyConfigurations()
 //
-// Experimental.
 type ProxyConfigurations interface {
 }
 
@@ -23,14 +22,13 @@ type jsiiProxy_ProxyConfigurations struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewProxyConfigurations() ProxyConfigurations {
 	_init_.Initialize()
 
 	j := jsiiProxy_ProxyConfigurations{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.ProxyConfigurations",
+		"aws-cdk-lib.aws_ecs.ProxyConfigurations",
 		nil, // no parameters
 		&j,
 	)
@@ -38,19 +36,17 @@ func NewProxyConfigurations() ProxyConfigurations {
 	return &j
 }
 
-// Experimental.
 func NewProxyConfigurations_Override(p ProxyConfigurations) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.ProxyConfigurations",
+		"aws-cdk-lib.aws_ecs.ProxyConfigurations",
 		nil, // no parameters
 		p,
 	)
 }
 
 // Constructs a new instance of the ProxyConfiguration class.
-// Experimental.
 func ProxyConfigurations_AppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) ProxyConfiguration {
 	_init_.Initialize()
 
@@ -60,7 +56,7 @@ func ProxyConfigurations_AppMeshProxyConfiguration(props *AppMeshProxyConfigurat
 	var returns ProxyConfiguration
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.ProxyConfigurations",
+		"aws-cdk-lib.aws_ecs.ProxyConfigurations",
 		"appMeshProxyConfiguration",
 		[]interface{}{props},
 		&returns,

@@ -1,8 +1,6 @@
 package awslakeformation
 
 
-// A structure that describes certain columns on certain rows.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,13 +14,13 @@ package awslakeformation
 //   }
 //
 type CfnPrincipalPermissions_DataCellsFilterResourceProperty struct {
-	// A database in the Data Catalog .
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.DatabaseName`.
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
-	// The name given by the user to the data filter cell.
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ID of the catalog to which the table belongs.
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.TableCatalogId`.
 	TableCatalogId *string `field:"required" json:"tableCatalogId" yaml:"tableCatalogId"`
-	// The name of the table.
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.TableName`.
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

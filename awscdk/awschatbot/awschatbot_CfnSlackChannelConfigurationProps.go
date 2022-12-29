@@ -30,7 +30,7 @@ type CfnSlackChannelConfigurationProps struct {
 	ConfigurationName *string `field:"required" json:"configurationName" yaml:"configurationName"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot .
 	//
-	// This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role. For more information, see [IAM Policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
+	// This is a user-definworked role that AWS Chatbot will assume. This is not the service-linked role. For more information, see [IAM Policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
 	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The ID of the Slack channel.
 	//

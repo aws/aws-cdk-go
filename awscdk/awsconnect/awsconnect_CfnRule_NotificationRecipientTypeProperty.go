@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The type of notification recipient.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,11 +16,9 @@ package awsconnect
 //   }
 //
 type CfnRule_NotificationRecipientTypeProperty struct {
-	// The Amazon Resource Name (ARN) of the user account.
+	// `CfnRule.NotificationRecipientTypeProperty.UserArns`.
 	UserArns *[]*string `field:"optional" json:"userArns" yaml:"userArns"`
-	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }. Amazon Connect users with the specified tags will be notified.
+	// `CfnRule.NotificationRecipientTypeProperty.UserTags`.
 	UserTags interface{} `field:"optional" json:"userTags" yaml:"userTags"`
 }
 

@@ -42,10 +42,10 @@ type CfnWorkflow_WorkflowStepProperty struct {
 	TagStepDetails interface{} `field:"optional" json:"tagStepDetails" yaml:"tagStepDetails"`
 	// Currently, the following step types are supported.
 	//
-	// - *COPY* : Copy the file to another location.
-	// - *CUSTOM* : Perform a custom step with an AWS Lambda function target.
-	// - *DELETE* : Delete the file.
-	// - *TAG* : Add a tag to the file.
+	// - *COPY* : copy the file to another location
+	// - *CUSTOM* : custom step with a lambda target
+	// - *DELETE* : delete the file
+	// - *TAG* : add a tag to the file.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

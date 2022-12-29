@@ -17,8 +17,6 @@ package awsappsync
 //
 type CfnGraphQLApi_UserPoolConfigProperty struct {
 	// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-	//
-	// If this value isn't set, no filtering is applied.
 	AppIdClientRegex *string `field:"optional" json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// The AWS Region in which the user pool was created.
 	AwsRegion *string `field:"optional" json:"awsRegion" yaml:"awsRegion"`

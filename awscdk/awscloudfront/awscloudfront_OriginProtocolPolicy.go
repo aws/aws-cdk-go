@@ -16,18 +16,14 @@ package awscloudfront
 //   	protocolPolicy: cloudfront.originProtocolPolicy_MATCH_VIEWER,
 //   })
 //
-// Experimental.
 type OriginProtocolPolicy string
 
 const (
 	// Connect on HTTP only.
-	// Experimental.
 	OriginProtocolPolicy_HTTP_ONLY OriginProtocolPolicy = "HTTP_ONLY"
 	// Connect with the same protocol as the viewer.
-	// Experimental.
 	OriginProtocolPolicy_MATCH_VIEWER OriginProtocolPolicy = "MATCH_VIEWER"
 	// Connect on HTTPS only.
-	// Experimental.
 	OriginProtocolPolicy_HTTPS_ONLY OriginProtocolPolicy = "HTTPS_ONLY"
 )
 

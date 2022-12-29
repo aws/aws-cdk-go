@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateAddDeletionOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateInspectParameters(ins
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateRenderPropertiesParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSubnetRouteTableAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnSubnetRouteTableAssociation) validateSetSubnetIdParameters
 	return nil
 }
 
-func validateNewCfnSubnetRouteTableAssociationParameters(scope awscdk.Construct, id *string, props *CfnSubnetRouteTableAssociationProps) error {
+func validateNewCfnSubnetRouteTableAssociationParameters(scope constructs.Construct, id *string, props *CfnSubnetRouteTableAssociationProps) error {
 	return nil
 }
 

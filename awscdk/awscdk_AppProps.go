@@ -1,46 +1,32 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
 // Initialization props for apps.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var context interface{}
-//
-//   appProps := &appProps{
-//   	analyticsReporting: jsii.Boolean(false),
-//   	autoSynth: jsii.Boolean(false),
+//   awscdk.NewApp(&appProps{
 //   	context: map[string]interface{}{
-//   		"contextKey": context,
+//   		awscdk.PERMISSIONS_BOUNDARY_CONTEXT_KEY: map[string]*string{
+//   			"name": jsii.String("cdk-${Qualifier}-PermissionsBoundary"),
+//   		},
 //   	},
-//   	outdir: jsii.String("outdir"),
-//   	runtimeInfo: jsii.Boolean(false),
-//   	stackTraces: jsii.Boolean(false),
-//   	treeMetadata: jsii.Boolean(false),
-//   }
+//   })
 //
-// Experimental.
 type AppProps struct {
 	// Include runtime versioning information in the Stacks of this app.
-	// Experimental.
 	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
 	// Automatically call `synth()` before the program exits.
 	//
 	// If you set this, you don't have to call `synth()` explicitly. Note that
 	// this feature is only available for certain programming languages, and
 	// calling `synth()` is still recommended.
-	// Experimental.
 	AutoSynth *bool `field:"optional" json:"autoSynth" yaml:"autoSynth"`
 	// Additional context values for the application.
 	//
 	// Context set by the CLI or the `context` key in `cdk.json` has precedence.
 	//
 	// Context can be read from any construct using `node.getContext(key)`.
-	// Experimental.
 	Context *map[string]interface{} `field:"optional" json:"context" yaml:"context"`
 	// The output directory into which to emit synthesized artifacts.
 	//
@@ -49,16 +35,38 @@ type AppProps struct {
 	// directory the CLI will fail to pick up the generated Cloud Assembly.
 	//
 	// This property is intended for internal and testing use.
-	// Experimental.
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
-	// Include runtime versioning information in the Stacks of this app.
-	// Deprecated: use `versionReporting` instead.
-	RuntimeInfo *bool `field:"optional" json:"runtimeInfo" yaml:"runtimeInfo"`
+	// Additional context values for the application.
+	//
+	// Context provided here has precedence over context set by:
+	//
+	// - The CLI via --context
+	// - The `context` key in `cdk.json`
+	// - The {@link AppProps.context} property
+	//
+	// This property is recommended over the {@link AppProps.context} property since you
+	// can make final decision over which context value to take in your app.
+	//
+	// Context can be read from any construct using `node.getContext(key)`.
+	//
+	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
+	//   // context from the CLI and from `cdk.json` are stored in the
+	//   // CDK_CONTEXT env variable
+	//   cliContext := jSON.parse(process.env.cDK_CONTEXT)
+	//
+	//   // determine whether to take the context passed in the CLI or not
+	//   determineValue := process.env.PROD ? cliContext.SOMEKEY : 'my-prod-value'
+	//   awscdk.NewApp(&appProps{
+	//   	postCliContext: map[string]interface{}{
+	//   		"SOMEKEY": determineValue,
+	//   	},
+	//   })
+	//
+	PostCliContext *map[string]interface{} `field:"optional" json:"postCliContext" yaml:"postCliContext"`
 	// Include construct creation stack trace in the `aws:cdk:trace` metadata key of all constructs.
-	// Experimental.
 	StackTraces *bool `field:"optional" json:"stackTraces" yaml:"stackTraces"`
 	// Include construct tree metadata as part of the Cloud Assembly.
-	// Experimental.
 	TreeMetadata *bool `field:"optional" json:"treeMetadata" yaml:"treeMetadata"`
 }
 

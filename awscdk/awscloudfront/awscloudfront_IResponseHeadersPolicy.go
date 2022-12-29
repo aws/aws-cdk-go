@@ -5,10 +5,8 @@ import (
 )
 
 // Represents a response headers policy.
-// Experimental.
 type IResponseHeadersPolicy interface {
 	// The ID of the response headers policy.
-	// Experimental.
 	ResponseHeadersPolicyId() *string
 }
 

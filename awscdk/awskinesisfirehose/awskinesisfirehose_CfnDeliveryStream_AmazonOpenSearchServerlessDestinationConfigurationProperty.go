@@ -1,8 +1,6 @@
 package awskinesisfirehose
 
 
-// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -79,29 +77,23 @@ package awskinesisfirehose
 //   }
 //
 type CfnDeliveryStream_AmazonOpenSearchServerlessDestinationConfigurationProperty struct {
-	// The Serverless offering for Amazon OpenSearch Service index name.
+	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.IndexName`.
 	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
-	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.
+	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.RoleARN`.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.S3Configuration`.
 	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
-	// The buffering options.
-	//
-	// If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
+	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.BufferingHints`.
 	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.CloudWatchLoggingOptions`.
 	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
-	// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.CollectionEndpoint`.
 	CollectionEndpoint *string `field:"optional" json:"collectionEndpoint" yaml:"collectionEndpoint"`
 	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.ProcessingConfiguration`.
 	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
-	// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
-	//
-	// The default value is 300 (5 minutes).
+	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.RetryOptions`.
 	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
-	// Defines how documents should be delivered to Amazon S3.
-	//
-	// When it is set to FailedDocumentsOnly, Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
+	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.S3BackupMode`.
 	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
 	// `CfnDeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty.VpcConfiguration`.
 	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`

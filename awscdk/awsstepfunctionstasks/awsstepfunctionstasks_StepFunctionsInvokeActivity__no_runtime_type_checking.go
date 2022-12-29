@@ -84,14 +84,6 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) validateNextParameters(next awss
 	return nil
 }
 
-func (s *jsiiProxy_StepFunctionsInvokeActivity) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_StepFunctionsInvokeActivity) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (s *jsiiProxy_StepFunctionsInvokeActivity) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

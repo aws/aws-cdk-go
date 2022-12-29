@@ -42,7 +42,7 @@ type CfnMetricFilterProps struct {
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The metric transformations.
 	MetricTransformations interface{} `field:"required" json:"metricTransformations" yaml:"metricTransformations"`
-	// The name of the metric filter.
+	// `AWS::Logs::MetricFilter.FilterName`.
 	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 }
 

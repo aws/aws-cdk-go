@@ -1,8 +1,6 @@
 package awscloudfront
 
 
-// Determines which HTTP requests are sent to the staging distribution.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awscloudfront
 //   }
 //
 type CfnContinuousDeploymentPolicy_SingleHeaderConfigProperty struct {
-	// The request header name that you want CloudFront to send to your staging distribution.
+	// `CfnContinuousDeploymentPolicy.SingleHeaderConfigProperty.Header`.
 	Header *string `field:"required" json:"header" yaml:"header"`
-	// The request header value.
+	// `CfnContinuousDeploymentPolicy.SingleHeaderConfigProperty.Value`.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

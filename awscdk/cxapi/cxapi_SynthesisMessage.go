@@ -1,7 +1,7 @@
 package cxapi
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // Example:
@@ -23,13 +23,9 @@ import (
 //   	level: awscdk.Cx_api.synthesisMessageLevel_INFO,
 //   }
 //
-// Experimental.
 type SynthesisMessage struct {
-	// Experimental.
 	Entry *cloudassemblyschema.MetadataEntry `field:"required" json:"entry" yaml:"entry"`
-	// Experimental.
 	Id *string `field:"required" json:"id" yaml:"id"`
-	// Experimental.
 	Level SynthesisMessageLevel `field:"required" json:"level" yaml:"level"`
 }
 

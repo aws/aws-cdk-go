@@ -19,13 +19,7 @@ package awslocation
 //   }
 //
 type CfnGeofenceCollectionProps struct {
-	// A custom name for the geofence collection.
-	//
-	// Requirements:
-	//
-	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
-	// - Must be a unique geofence collection name.
-	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
+	// The name for the geofence collection.
 	CollectionName *string `field:"required" json:"collectionName" yaml:"collectionName"`
 	// An optional description for the geofence collection.
 	Description *string `field:"optional" json:"description" yaml:"description"`

@@ -29,7 +29,7 @@ type CfnCampaign_EventDimensionsProperty struct {
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The name of the event that causes the campaign to be sent or the journey activity to be performed.
 	//
-	// This can be a standard event that Amazon Pinpoint generates, such as `_email.delivered` or `_custom.delivered` . For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see [Streaming Amazon Pinpoint Events](https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html) in the *Amazon Pinpoint Developer Guide* .
+	// This can be a standard event that Amazon Pinpoint generates, such as `_email.delivered` . For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see [Streaming Amazon Pinpoint Events](https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html) in the *Amazon Pinpoint Developer Guide* .
 	EventType interface{} `field:"optional" json:"eventType" yaml:"eventType"`
 	// One or more custom metrics that your application reports to Amazon Pinpoint .
 	//

@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnSubnet`.
@@ -75,12 +75,6 @@ type CfnSubnetProps struct {
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled.
 	//
 	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	//
-	// Available options:
-	//
-	// - EnableResourceNameDnsAAAARecord (true | false)
-	// - EnableResourceNameDnsARecord (true | false)
-	// - HostnameType (ip-name | resource-name).
 	PrivateDnsNameOptionsOnLaunch interface{} `field:"optional" json:"privateDnsNameOptionsOnLaunch" yaml:"privateDnsNameOptionsOnLaunch"`
 	// Any tags assigned to the subnet.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

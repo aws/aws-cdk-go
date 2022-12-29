@@ -1,20 +1,24 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Use a self hosted Kafka installation as a streaming source for AWS Lambda.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
 //   var secret secret
+//
+//   // (Optional) The secret containing the root CA certificate that your Kafka brokers use for TLS encryption
+//   var encryption secret
 //
 //   var myFunction function
 //
@@ -26,24 +30,25 @@ import (
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
+//
+//   // (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
+//   var consumerGroupId string
 //   myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
 //   	bootstrapServers: bootstrapServers,
 //   	topic: topic,
+//   	consumerGroupId: consumerGroupId,
 //   	secret: secret,
 //   	batchSize: jsii.Number(100),
 //   	 // default
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	encryption: encryption,
 //   }))
 //
-// Experimental.
 type SelfManagedKafkaEventSource interface {
 	StreamEventSource
-	// Experimental.
 	Props() *StreamEventSourceProps
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target awslambda.IFunction)
-	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
@@ -63,7 +68,6 @@ func (j *jsiiProxy_SelfManagedKafkaEventSource) Props() *StreamEventSourceProps 
 }
 
 
-// Experimental.
 func NewSelfManagedKafkaEventSource(props *SelfManagedKafkaEventSourceProps) SelfManagedKafkaEventSource {
 	_init_.Initialize()
 
@@ -73,7 +77,7 @@ func NewSelfManagedKafkaEventSource(props *SelfManagedKafkaEventSourceProps) Sel
 	j := jsiiProxy_SelfManagedKafkaEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SelfManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SelfManagedKafkaEventSource",
 		[]interface{}{props},
 		&j,
 	)
@@ -81,12 +85,11 @@ func NewSelfManagedKafkaEventSource(props *SelfManagedKafkaEventSourceProps) Sel
 	return &j
 }
 
-// Experimental.
 func NewSelfManagedKafkaEventSource_Override(s SelfManagedKafkaEventSource, props *SelfManagedKafkaEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SelfManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SelfManagedKafkaEventSource",
 		[]interface{}{props},
 		s,
 	)

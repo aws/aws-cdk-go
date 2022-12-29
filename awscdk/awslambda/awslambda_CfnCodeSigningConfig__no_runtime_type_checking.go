@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCodeSigningConfig) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnCodeSigningConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCodeSigningConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCodeSigningConfig) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnCodeSigningConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCodeSigningConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCodeSigningConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCodeSigningConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCodeSigningConfig) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnCodeSigningConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCodeSigningConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnCodeSigningConfig) validateSetCodeSigningPoliciesParameter
 	return nil
 }
 
-func validateNewCfnCodeSigningConfigParameters(scope awscdk.Construct, id *string, props *CfnCodeSigningConfigProps) error {
+func validateNewCfnCodeSigningConfigParameters(scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) error {
 	return nil
 }
 

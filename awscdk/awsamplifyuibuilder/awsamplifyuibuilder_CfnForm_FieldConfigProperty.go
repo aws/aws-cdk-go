@@ -1,8 +1,6 @@
 package awsamplifyuibuilder
 
 
-// Describes the configuration information for a field in a table.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -64,15 +62,15 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FieldConfigProperty struct {
-	// Specifies whether to hide a field.
+	// `CfnForm.FieldConfigProperty.Excluded`.
 	Excluded interface{} `field:"optional" json:"excluded" yaml:"excluded"`
-	// Describes the configuration for the default input value to display for a field.
+	// `CfnForm.FieldConfigProperty.InputType`.
 	InputType interface{} `field:"optional" json:"inputType" yaml:"inputType"`
-	// The label for the field.
+	// `CfnForm.FieldConfigProperty.Label`.
 	Label *string `field:"optional" json:"label" yaml:"label"`
-	// Specifies the field position.
+	// `CfnForm.FieldConfigProperty.Position`.
 	Position interface{} `field:"optional" json:"position" yaml:"position"`
-	// The validations to perform on the value in the field.
+	// `CfnForm.FieldConfigProperty.Validations`.
 	Validations interface{} `field:"optional" json:"validations" yaml:"validations"`
 }
 

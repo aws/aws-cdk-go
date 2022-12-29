@@ -13,13 +13,10 @@ package awsses
 //   	headerValue: jsii.String("headerValue"),
 //   }
 //
-// Experimental.
 type AddHeaderActionConfig struct {
 	// The name of the header that you want to add to the incoming message.
-	// Experimental.
 	HeaderName *string `field:"required" json:"headerName" yaml:"headerName"`
 	// The content that you want to include in the header.
-	// Experimental.
 	HeaderValue *string `field:"required" json:"headerValue" yaml:"headerValue"`
 }
 

@@ -43,13 +43,10 @@ package awssns
 //   	},
 //   }))
 //
-// Experimental.
 type BetweenCondition struct {
 	// The start value.
-	// Experimental.
 	Start *float64 `field:"required" json:"start" yaml:"start"`
 	// The stop value.
-	// Experimental.
 	Stop *float64 `field:"required" json:"stop" yaml:"stop"`
 }
 

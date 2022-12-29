@@ -30,7 +30,7 @@ package awsappflow
 type CfnFlow_ConnectorOperatorProperty struct {
 	// The operation to be performed on the provided Amplitude source fields.
 	Amplitude *string `field:"optional" json:"amplitude" yaml:"amplitude"`
-	// Operators supported by the custom connector.
+	// `CfnFlow.ConnectorOperatorProperty.CustomConnector`.
 	CustomConnector *string `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The operation to be performed on the provided Datadog source fields.
 	Datadog *string `field:"optional" json:"datadog" yaml:"datadog"`

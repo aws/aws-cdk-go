@@ -14,10 +14,8 @@ package awsec2
 //   	},
 //   }
 //
-// Experimental.
 type NatGatewayProps struct {
 	// EIP allocation IDs for the NAT gateways.
-	// Experimental.
 	EipAllocationIds *[]*string `field:"optional" json:"eipAllocationIds" yaml:"eipAllocationIds"`
 }
 

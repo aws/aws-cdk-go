@@ -46,7 +46,7 @@ type CfnAppProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// An array of ResourceMapping objects.
 	ResourceMappings interface{} `field:"required" json:"resourceMappings" yaml:"resourceMappings"`
-	// Assessment execution schedule with 'Daily' or 'Disabled' values.
+	// `AWS::ResilienceHub::App.AppAssessmentSchedule`.
 	AppAssessmentSchedule *string `field:"optional" json:"appAssessmentSchedule" yaml:"appAssessmentSchedule"`
 	// The optional description for an app.
 	Description *string `field:"optional" json:"description" yaml:"description"`

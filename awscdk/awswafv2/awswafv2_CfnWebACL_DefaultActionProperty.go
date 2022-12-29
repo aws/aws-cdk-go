@@ -3,7 +3,7 @@ package awswafv2
 
 // In a `WebACL` , this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the `WebACL` .
 //
-// The default action must be a terminating action.
+// The default action must be a terminating action, so you can't use count.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

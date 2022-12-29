@@ -31,7 +31,7 @@ type CfnVirtualCluster_ContainerProviderProperty struct {
 	Info interface{} `field:"required" json:"info" yaml:"info"`
 	// The type of the container provider.
 	//
-	// Amazon EKS is the only supported type as of now.
+	// EKS is the only supported type as of now.
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

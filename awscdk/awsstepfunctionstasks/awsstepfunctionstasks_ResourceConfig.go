@@ -1,9 +1,9 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Specifies the resources, ML compute instances, and ML storage volumes to deploy for model training.
@@ -40,10 +40,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ResourceConfig struct {
 	// The number of ML compute instances to use.
-	// Experimental.
 	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// ML compute instance type.
 	//
@@ -55,13 +53,10 @@ type ResourceConfig struct {
 	// ```.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType
 	//
-	// Experimental.
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Size of the ML storage volume that you want to provision.
-	// Experimental.
 	VolumeSize awscdk.Size `field:"required" json:"volumeSize" yaml:"volumeSize"`
 	// KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job.
-	// Experimental.
 	VolumeEncryptionKey awskms.IKey `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 

@@ -13,7 +13,7 @@ package awsrefactorspaces
 //   }
 //
 type CfnService_LambdaEndpointInputProperty struct {
-	// The Amazon Resource Name (ARN) of the Lambda function or alias.
+	// The Amazon Resource Name (ARN) of the Lambda endpoint.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 

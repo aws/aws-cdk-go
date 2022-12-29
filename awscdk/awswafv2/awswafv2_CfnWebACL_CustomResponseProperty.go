@@ -28,7 +28,7 @@ package awswafv2
 type CfnWebACL_CustomResponseProperty struct {
 	// The HTTP status code to return to the client.
 	//
-	// For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+	// For a list of status codes that you can use in your custom reqponses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	ResponseCode *float64 `field:"required" json:"responseCode" yaml:"responseCode"`
 	// References the response body that you want AWS WAF to return to the web request client.
 	//

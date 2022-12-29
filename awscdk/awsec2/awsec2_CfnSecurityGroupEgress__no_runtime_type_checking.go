@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSecurityGroupEgress) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnSecurityGroupEgress) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSecurityGroupEgress) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSecurityGroupEgress) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnSecurityGroupEgress) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSecurityGroupEgress) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSecurityGroupEgress) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSecurityGroupEgress) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSecurityGroupEgress) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnSecurityGroupEgress) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSecurityGroupEgress) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnSecurityGroupEgress) validateSetIpProtocolParameters(val *
 	return nil
 }
 
-func validateNewCfnSecurityGroupEgressParameters(scope awscdk.Construct, id *string, props *CfnSecurityGroupEgressProps) error {
+func validateNewCfnSecurityGroupEgressParameters(scope constructs.Construct, id *string, props *CfnSecurityGroupEgressProps) error {
 	return nil
 }
 

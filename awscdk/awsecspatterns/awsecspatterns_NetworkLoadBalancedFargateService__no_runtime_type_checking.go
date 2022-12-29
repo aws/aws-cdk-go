@@ -12,15 +12,7 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) validateCreateAWSLogDriver
 	return nil
 }
 
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) validateGetDefaultClusterParameters(scope awscdk.Construct) error {
-	return nil
-}
-
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (n *jsiiProxy_NetworkLoadBalancedFargateService) validateGetDefaultClusterParameters(scope constructs.Construct) error {
 	return nil
 }
 

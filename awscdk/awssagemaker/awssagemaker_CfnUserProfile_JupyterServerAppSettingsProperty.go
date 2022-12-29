@@ -18,6 +18,8 @@ package awssagemaker
 //
 type CfnUserProfile_JupyterServerAppSettingsProperty struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+	//
+	// If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 

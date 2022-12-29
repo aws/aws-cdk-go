@@ -1,8 +1,6 @@
 package awsm2
 
 
-// Defines the storage configuration for a runtime environment.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,9 +18,9 @@ package awsm2
 //   }
 //
 type CfnEnvironment_StorageConfigurationProperty struct {
-	// Defines the storage configuration for an Amazon EFS file system.
+	// `CfnEnvironment.StorageConfigurationProperty.Efs`.
 	Efs interface{} `field:"optional" json:"efs" yaml:"efs"`
-	// Defines the storage configuration for an Amazon FSx file system.
+	// `CfnEnvironment.StorageConfigurationProperty.Fsx`.
 	Fsx interface{} `field:"optional" json:"fsx" yaml:"fsx"`
 }
 

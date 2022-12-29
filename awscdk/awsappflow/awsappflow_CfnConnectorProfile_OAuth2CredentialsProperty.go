@@ -1,8 +1,6 @@
 package awsappflow
 
 
-// The OAuth 2.0 credentials required for OAuth 2.0 authentication.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,15 +18,15 @@ package awsappflow
 //   }
 //
 type CfnConnectorProfile_OAuth2CredentialsProperty struct {
-	// The access token used to access the connector on your behalf.
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.AccessToken`.
 	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
-	// The identifier for the desired client.
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.ClientId`.
 	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
-	// The client secret used by the OAuth client to authenticate to the authorization server.
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.ClientSecret`.
 	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
 	// `CfnConnectorProfile.OAuth2CredentialsProperty.OAuthRequest`.
 	OAuthRequest interface{} `field:"optional" json:"oAuthRequest" yaml:"oAuthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.RefreshToken`.
 	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
 }
 

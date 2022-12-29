@@ -6,6 +6,7 @@ package awscodepipelineactions
 // The default is Build.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var project pipelineProject
 //
 //   sourceOutput := codepipeline.NewArtifact()
@@ -16,17 +17,14 @@ package awscodepipelineactions
 //   	type: codepipeline_actions.codeBuildActionType_TEST,
 //   })
 //
-// Experimental.
 type CodeBuildActionType string
 
 const (
 	// The action will have the Build Category.
 	//
 	// This is the default.
-	// Experimental.
 	CodeBuildActionType_BUILD CodeBuildActionType = "BUILD"
 	// The action will have the Test Category.
-	// Experimental.
 	CodeBuildActionType_TEST CodeBuildActionType = "TEST"
 )
 

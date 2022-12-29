@@ -4,7 +4,7 @@ package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (g *jsiiProxy_GelfLogDriver) validateBindParameters(_scope awscdk.Construct, _containerDefinition ContainerDefinition) error {
+func (g *jsiiProxy_GelfLogDriver) validateBindParameters(_scope constructs.Construct, _containerDefinition ContainerDefinition) error {
 	return nil
 }
 

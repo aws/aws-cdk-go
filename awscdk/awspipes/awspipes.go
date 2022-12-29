@@ -8,10 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_pipes.CfnPipe",
+		"aws-cdk-lib.aws_pipes.CfnPipe",
 		reflect.TypeOf((*CfnPipe)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -37,25 +38,24 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceParameters", GoGetter: "SourceParameters"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
 			_jsii_.MemberProperty{JsiiProperty: "targetParameters", GoGetter: "TargetParameters"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -66,199 +66,199 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.AwsVpcConfigurationProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.AwsVpcConfigurationProperty",
 		reflect.TypeOf((*CfnPipe_AwsVpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.BatchArrayPropertiesProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.BatchArrayPropertiesProperty",
 		reflect.TypeOf((*CfnPipe_BatchArrayPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.BatchContainerOverridesProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.BatchContainerOverridesProperty",
 		reflect.TypeOf((*CfnPipe_BatchContainerOverridesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.BatchEnvironmentVariableProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.BatchEnvironmentVariableProperty",
 		reflect.TypeOf((*CfnPipe_BatchEnvironmentVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.BatchJobDependencyProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.BatchJobDependencyProperty",
 		reflect.TypeOf((*CfnPipe_BatchJobDependencyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.BatchResourceRequirementProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.BatchResourceRequirementProperty",
 		reflect.TypeOf((*CfnPipe_BatchResourceRequirementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.BatchRetryStrategyProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.BatchRetryStrategyProperty",
 		reflect.TypeOf((*CfnPipe_BatchRetryStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.CapacityProviderStrategyItemProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.CapacityProviderStrategyItemProperty",
 		reflect.TypeOf((*CfnPipe_CapacityProviderStrategyItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.DeadLetterConfigProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.DeadLetterConfigProperty",
 		reflect.TypeOf((*CfnPipe_DeadLetterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.EcsContainerOverrideProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.EcsContainerOverrideProperty",
 		reflect.TypeOf((*CfnPipe_EcsContainerOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.EcsEnvironmentFileProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.EcsEnvironmentFileProperty",
 		reflect.TypeOf((*CfnPipe_EcsEnvironmentFileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.EcsEnvironmentVariableProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.EcsEnvironmentVariableProperty",
 		reflect.TypeOf((*CfnPipe_EcsEnvironmentVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.EcsEphemeralStorageProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.EcsEphemeralStorageProperty",
 		reflect.TypeOf((*CfnPipe_EcsEphemeralStorageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.EcsInferenceAcceleratorOverrideProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.EcsInferenceAcceleratorOverrideProperty",
 		reflect.TypeOf((*CfnPipe_EcsInferenceAcceleratorOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.EcsResourceRequirementProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.EcsResourceRequirementProperty",
 		reflect.TypeOf((*CfnPipe_EcsResourceRequirementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.EcsTaskOverrideProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.EcsTaskOverrideProperty",
 		reflect.TypeOf((*CfnPipe_EcsTaskOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.FilterCriteriaProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.FilterCriteriaProperty",
 		reflect.TypeOf((*CfnPipe_FilterCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.FilterProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.FilterProperty",
 		reflect.TypeOf((*CfnPipe_FilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.MQBrokerAccessCredentialsProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.MQBrokerAccessCredentialsProperty",
 		reflect.TypeOf((*CfnPipe_MQBrokerAccessCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.MSKAccessCredentialsProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.MSKAccessCredentialsProperty",
 		reflect.TypeOf((*CfnPipe_MSKAccessCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.NetworkConfigurationProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnPipe_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeEnrichmentHttpParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeEnrichmentHttpParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeEnrichmentHttpParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeEnrichmentParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeEnrichmentParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeEnrichmentParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceActiveMQBrokerParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceActiveMQBrokerParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceActiveMQBrokerParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceDynamoDBStreamParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceDynamoDBStreamParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceDynamoDBStreamParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceKinesisStreamParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceKinesisStreamParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceKinesisStreamParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceManagedStreamingKafkaParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceRabbitMQBrokerParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceRabbitMQBrokerParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceRabbitMQBrokerParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceSelfManagedKafkaParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceSelfManagedKafkaParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceSelfManagedKafkaParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeSourceSqsQueueParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceSqsQueueParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeSourceSqsQueueParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetBatchJobParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetBatchJobParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetBatchJobParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetCloudWatchLogsParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetCloudWatchLogsParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetCloudWatchLogsParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetEcsTaskParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetEcsTaskParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetEcsTaskParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetEventBridgeEventBusParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetEventBridgeEventBusParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetEventBridgeEventBusParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetHttpParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetHttpParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetHttpParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetKinesisStreamParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetKinesisStreamParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetKinesisStreamParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetLambdaFunctionParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetLambdaFunctionParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetLambdaFunctionParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetRedshiftDataParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetRedshiftDataParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetRedshiftDataParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetSageMakerPipelineParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetSageMakerPipelineParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetSageMakerPipelineParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetSqsQueueParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetSqsQueueParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetSqsQueueParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PipeTargetStateMachineParametersProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetStateMachineParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeTargetStateMachineParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PlacementConstraintProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PlacementConstraintProperty",
 		reflect.TypeOf((*CfnPipe_PlacementConstraintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.PlacementStrategyProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.PlacementStrategyProperty",
 		reflect.TypeOf((*CfnPipe_PlacementStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.SageMakerPipelineParameterProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.SageMakerPipelineParameterProperty",
 		reflect.TypeOf((*CfnPipe_SageMakerPipelineParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.SelfManagedKafkaAccessConfigurationCredentialsProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.SelfManagedKafkaAccessConfigurationCredentialsProperty",
 		reflect.TypeOf((*CfnPipe_SelfManagedKafkaAccessConfigurationCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipe.SelfManagedKafkaAccessConfigurationVpcProperty",
+		"aws-cdk-lib.aws_pipes.CfnPipe.SelfManagedKafkaAccessConfigurationVpcProperty",
 		reflect.TypeOf((*CfnPipe_SelfManagedKafkaAccessConfigurationVpcProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_pipes.CfnPipeProps",
+		"aws-cdk-lib.aws_pipes.CfnPipeProps",
 		reflect.TypeOf((*CfnPipeProps)(nil)).Elem(),
 	)
 }
