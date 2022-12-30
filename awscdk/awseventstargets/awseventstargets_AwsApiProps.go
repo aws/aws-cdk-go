@@ -1,7 +1,7 @@
 package awseventstargets
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Properties for an AwsApi target.
@@ -26,33 +26,40 @@ import (
 //   	policyStatement: policyStatement,
 //   }
 //
+// Experimental.
 type AwsApiProps struct {
 	// The service action to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
+	// Experimental.
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// The service to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
+	// Experimental.
 	Service *string `field:"required" json:"service" yaml:"service"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
+	// Experimental.
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The regex pattern to use to catch API errors.
 	//
 	// The `code` property of the
 	// `Error` object will be tested against this pattern. If there is a match an
 	// error will not be thrown.
+	// Experimental.
 	CatchErrorPattern *string `field:"optional" json:"catchErrorPattern" yaml:"catchErrorPattern"`
 	// The parameters for the service action.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
+	// Experimental.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The IAM policy statement to allow the API call.
 	//
 	// Use only if
 	// resource restriction is needed.
+	// Experimental.
 	PolicyStatement awsiam.PolicyStatement `field:"optional" json:"policyStatement" yaml:"policyStatement"`
 }
 

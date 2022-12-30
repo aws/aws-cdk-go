@@ -1,6 +1,8 @@
 package awspipes
 
 
+// The parameters for using an CloudWatch Logs log stream as a target.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeTargetCloudWatchLogsParametersProperty struct {
-	// `CfnPipe.PipeTargetCloudWatchLogsParametersProperty.LogStreamName`.
+	// The name of the log stream.
 	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
-	// `CfnPipe.PipeTargetCloudWatchLogsParametersProperty.Timestamp`.
+	// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 	Timestamp *string `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 

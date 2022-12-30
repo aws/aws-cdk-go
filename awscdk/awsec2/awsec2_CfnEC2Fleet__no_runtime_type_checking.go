@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnEC2Fleet) validateAddDeletionOverrideParameters(path *stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnEC2Fleet) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnEC2Fleet) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnEC2Fleet) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnEC2Fleet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnEC2Fleet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnEC2Fleet) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEC2Fleet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnEC2Fleet) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnEC2Fleet) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEC2Fleet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -108,7 +104,7 @@ func (j *jsiiProxy_CfnEC2Fleet) validateSetTerminateInstancesWithExpirationParam
 	return nil
 }
 
-func validateNewCfnEC2FleetParameters(scope constructs.Construct, id *string, props *CfnEC2FleetProps) error {
+func validateNewCfnEC2FleetParameters(scope awscdk.Construct, id *string, props *CfnEC2FleetProps) error {
 	return nil
 }
 

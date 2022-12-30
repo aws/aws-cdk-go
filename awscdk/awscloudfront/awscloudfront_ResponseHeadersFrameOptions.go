@@ -88,10 +88,13 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ResponseHeadersFrameOptions struct {
 	// The value of the X-Frame-Options HTTP response header.
+	// Experimental.
 	FrameOption HeadersFrameOption `field:"required" json:"frameOption" yaml:"frameOption"`
 	// A Boolean that determines whether CloudFront overrides the X-Frame-Options HTTP response header received from the origin with the one specified in this response headers policy.
+	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 }
 

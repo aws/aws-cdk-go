@@ -1,6 +1,10 @@
 package awsmemorydb
 
 
+// Denotes the user's authentication properties, such as whether it requires a password to authenticate.
+//
+// Used in output responses.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +18,11 @@ package awsmemorydb
 //   }
 //
 type CfnUser_AuthenticationModeProperty struct {
-	// `CfnUser.AuthenticationModeProperty.Passwords`.
+	// The password(s) used for authentication.
 	Passwords *[]*string `field:"optional" json:"passwords" yaml:"passwords"`
-	// `CfnUser.AuthenticationModeProperty.Type`.
+	// Indicates whether the user requires a password to authenticate.
+	//
+	// All newly-created users require a password.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

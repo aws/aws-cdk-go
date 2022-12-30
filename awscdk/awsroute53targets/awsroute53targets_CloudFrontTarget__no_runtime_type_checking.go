@@ -8,7 +8,7 @@ func (c *jsiiProxy_CloudFrontTarget) validateBindParameters(_record awsroute53.I
 	return nil
 }
 
-func validateCloudFrontTarget_GetHostedZoneIdParameters(scope constructs.IConstruct) error {
+func validateCloudFrontTarget_GetHostedZoneIdParameters(scope awscdk.IConstruct) error {
 	return nil
 }
 

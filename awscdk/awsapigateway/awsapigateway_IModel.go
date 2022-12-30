@@ -4,8 +4,10 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+// Experimental.
 type IModel interface {
 	// Returns the model name, such as 'myModel'.
+	// Experimental.
 	ModelId() *string
 }
 

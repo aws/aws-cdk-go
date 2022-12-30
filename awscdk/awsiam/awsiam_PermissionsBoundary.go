@@ -1,10 +1,10 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Modify the Permissions Boundaries of Users and Roles in a construct tree.
@@ -19,14 +19,17 @@ import (
 //
 //   iam.permissionsBoundary.of(project).apply(codebuild.NewUntrustedCodeBoundaryPolicy(this, jsii.String("Boundary")))
 //
+// Experimental.
 type PermissionsBoundary interface {
 	// Apply the given policy as Permissions Boundary to all Roles and Users in the scope.
 	//
 	// Will override any Permissions Boundaries configured previously; in case
 	// a Permission Boundary is applied in multiple scopes, the Boundary applied
 	// closest to the Role wins.
+	// Experimental.
 	Apply(boundaryPolicy IManagedPolicy)
 	// Remove previously applied Permissions Boundaries.
+	// Experimental.
 	Clear()
 }
 
@@ -36,6 +39,7 @@ type jsiiProxy_PermissionsBoundary struct {
 }
 
 // Access the Permissions Boundaries of a construct tree.
+// Experimental.
 func PermissionsBoundary_Of(scope constructs.IConstruct) PermissionsBoundary {
 	_init_.Initialize()
 
@@ -45,7 +49,7 @@ func PermissionsBoundary_Of(scope constructs.IConstruct) PermissionsBoundary {
 	var returns PermissionsBoundary
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.PermissionsBoundary",
+		"monocdk.aws_iam.PermissionsBoundary",
 		"of",
 		[]interface{}{scope},
 		&returns,

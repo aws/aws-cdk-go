@@ -11,8 +11,11 @@ package awsecr
 //   	repositoryName: jsii.String("repositoryName"),
 //   }
 //
+// Experimental.
 type RepositoryAttributes struct {
+	// Experimental.
 	RepositoryArn *string `field:"required" json:"repositoryArn" yaml:"repositoryArn"`
+	// Experimental.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 }
 

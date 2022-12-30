@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (v *jsiiProxy_VirtualRouter) validateAddRouteParameters(id *string, props *RouteBaseProps) error {
@@ -57,6 +57,22 @@ func (v *jsiiProxy_VirtualRouter) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
+func (v *jsiiProxy_VirtualRouter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_VirtualRouter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateVirtualRouter_FromVirtualRouterArnParameters(scope constructs.Construct, id *string, virtualRouterArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -100,15 +116,7 @@ func validateVirtualRouter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVirtualRouter_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateVirtualRouter_IsResourceParameters(construct constructs.IConstruct) error {
+func validateVirtualRouter_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

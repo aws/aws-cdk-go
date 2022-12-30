@@ -30,6 +30,8 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 	// If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
 	CustomEndpointEnabled interface{} `field:"optional" json:"customEndpointEnabled" yaml:"customEndpointEnabled"`
 	// True to require that all traffic to the domain arrive over HTTPS.
+	//
+	// Required you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	EnforceHttps interface{} `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
 	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.0 (default) or 1.2:.
 	//

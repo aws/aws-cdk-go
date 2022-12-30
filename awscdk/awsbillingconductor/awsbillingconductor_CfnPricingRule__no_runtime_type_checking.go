@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnPricingRule) validateAddDeletionOverrideParameters(path *s
 	return nil
 }
 
-func (c *jsiiProxy_CfnPricingRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnPricingRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnPricingRule) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnPricingRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPricingRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPricingRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPricingRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnPricingRule) validateRenderPropertiesParameters(props *map
 	return nil
 }
 
-func (c *jsiiProxy_CfnPricingRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPricingRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnPricingRule) validateSetTypeParameters(val *string) error 
 	return nil
 }
 
-func validateNewCfnPricingRuleParameters(scope constructs.Construct, id *string, props *CfnPricingRuleProps) error {
+func validateNewCfnPricingRuleParameters(scope awscdk.Construct, id *string, props *CfnPricingRuleProps) error {
 	return nil
 }
 

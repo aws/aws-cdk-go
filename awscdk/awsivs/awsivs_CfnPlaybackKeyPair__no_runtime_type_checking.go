@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnPlaybackKeyPair) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnPlaybackKeyPair) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnPlaybackKeyPair) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPlaybackKeyPair) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPlaybackKeyPair) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPlaybackKeyPair) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnPlaybackKeyPair) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPlaybackKeyPair) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -80,7 +76,7 @@ func validateCfnPlaybackKeyPair_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnPlaybackKeyPairParameters(scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) error {
+func validateNewCfnPlaybackKeyPairParameters(scope awscdk.Construct, id *string, props *CfnPlaybackKeyPairProps) error {
 	return nil
 }
 

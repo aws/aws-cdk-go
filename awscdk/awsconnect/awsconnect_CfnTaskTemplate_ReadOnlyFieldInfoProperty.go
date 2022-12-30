@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Indicates a field that is read-only to an agent.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +15,7 @@ package awsconnect
 //   }
 //
 type CfnTaskTemplate_ReadOnlyFieldInfoProperty struct {
-	// `CfnTaskTemplate.ReadOnlyFieldInfoProperty.Id`.
+	// Identifier of the read-only field.
 	Id interface{} `field:"required" json:"id" yaml:"id"`
 }
 

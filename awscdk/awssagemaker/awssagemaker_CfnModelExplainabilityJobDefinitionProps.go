@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnModelExplainabilityJobDefinition`.
@@ -135,7 +135,7 @@ type CfnModelExplainabilityJobDefinitionProps struct {
 	ModelExplainabilityBaselineConfig interface{} `field:"optional" json:"modelExplainabilityBaselineConfig" yaml:"modelExplainabilityBaselineConfig"`
 	// Networking options for a model explainability job.
 	NetworkConfig interface{} `field:"optional" json:"networkConfig" yaml:"networkConfig"`
-	// `AWS::SageMaker::ModelExplainabilityJobDefinition.StoppingCondition`.
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition interface{} `field:"optional" json:"stoppingCondition" yaml:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	//

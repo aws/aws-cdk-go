@@ -1,7 +1,7 @@
 package awsbatch
 
 
-// An object representing a job timeout configuration.
+// An object that represents a job timeout configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -13,9 +13,9 @@ package awsbatch
 //   }
 //
 type CfnJobDefinition_TimeoutProperty struct {
-	// The time duration in seconds (measured from the job attempt's `startedAt` timestamp) after which AWS Batch terminates your jobs if they have not finished.
+	// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp.
 	//
-	// The minimum value for the timeout is 60 seconds.
+	// After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
 	AttemptDurationSeconds *float64 `field:"optional" json:"attemptDurationSeconds" yaml:"attemptDurationSeconds"`
 }
 

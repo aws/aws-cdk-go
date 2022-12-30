@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnScheduledAction) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnScheduledAction) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnScheduledAction) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnScheduledAction) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnScheduledAction) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnScheduledAction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnScheduledAction) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnScheduledAction) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnScheduledAction) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnScheduledAction) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnScheduledAction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnScheduledAction) validateSetAutoScalingGroupNameParameters
 	return nil
 }
 
-func validateNewCfnScheduledActionParameters(scope constructs.Construct, id *string, props *CfnScheduledActionProps) error {
+func validateNewCfnScheduledActionParameters(scope awscdk.Construct, id *string, props *CfnScheduledActionProps) error {
 	return nil
 }
 

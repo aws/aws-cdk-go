@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lambda_destinations.EventBridgeDestination",
+		"monocdk.aws_lambda_destinations.EventBridgeDestination",
 		reflect.TypeOf((*EventBridgeDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lambda_destinations.LambdaDestination",
+		"monocdk.aws_lambda_destinations.LambdaDestination",
 		reflect.TypeOf((*LambdaDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -32,11 +32,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lambda_destinations.LambdaDestinationOptions",
+		"monocdk.aws_lambda_destinations.LambdaDestinationOptions",
 		reflect.TypeOf((*LambdaDestinationOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lambda_destinations.SnsDestination",
+		"monocdk.aws_lambda_destinations.SnsDestination",
 		reflect.TypeOf((*SnsDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -48,7 +48,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lambda_destinations.SqsDestination",
+		"monocdk.aws_lambda_destinations.SqsDestination",
 		reflect.TypeOf((*SqsDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},

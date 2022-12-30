@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the send notification action.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,15 +26,23 @@ package awsconnect
 //   }
 //
 type CfnRule_SendNotificationActionProperty struct {
-	// `CfnRule.SendNotificationActionProperty.Content`.
+	// Notification content.
+	//
+	// Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Amazon Connect Administrators Guide* .
 	Content *string `field:"required" json:"content" yaml:"content"`
-	// `CfnRule.SendNotificationActionProperty.ContentType`.
+	// Content type format.
+	//
+	// *Allowed value* : `PLAIN_TEXT`.
 	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
-	// `CfnRule.SendNotificationActionProperty.DeliveryMethod`.
+	// Notification delivery method.
+	//
+	// *Allowed value* : `EMAIL`.
 	DeliveryMethod *string `field:"required" json:"deliveryMethod" yaml:"deliveryMethod"`
-	// `CfnRule.SendNotificationActionProperty.Recipient`.
+	// Notification recipient.
 	Recipient interface{} `field:"required" json:"recipient" yaml:"recipient"`
-	// `CfnRule.SendNotificationActionProperty.Subject`.
+	// The subject of the email if the delivery method is `EMAIL` .
+	//
+	// Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Amazon Connect Administrators Guide* .
 	Subject *string `field:"optional" json:"subject" yaml:"subject"`
 }
 

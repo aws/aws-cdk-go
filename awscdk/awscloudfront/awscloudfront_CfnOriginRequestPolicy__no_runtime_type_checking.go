@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnOriginRequestPolicy) validateAddDeletionOverrideParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginRequestPolicy) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnOriginRequestPolicy) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnOriginRequestPolicy) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginRequestPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnOriginRequestPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginRequestPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnOriginRequestPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnOriginRequestPolicy) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnOriginRequestPolicy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnOriginRequestPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnOriginRequestPolicy) validateSetOriginRequestPolicyConfigP
 	return nil
 }
 
-func validateNewCfnOriginRequestPolicyParameters(scope constructs.Construct, id *string, props *CfnOriginRequestPolicyProps) error {
+func validateNewCfnOriginRequestPolicyParameters(scope awscdk.Construct, id *string, props *CfnOriginRequestPolicyProps) error {
 	return nil
 }
 

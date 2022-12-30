@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) validateAddDeletionOverrideParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverRuleAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnResolverRuleAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverRuleAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnResolverRuleAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverRuleAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnResolverRuleAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) validateRenderPropertiesParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverRuleAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnResolverRuleAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) validateSetVpcIdParameters(val *s
 	return nil
 }
 
-func validateNewCfnResolverRuleAssociationParameters(scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) error {
+func validateNewCfnResolverRuleAssociationParameters(scope awscdk.Construct, id *string, props *CfnResolverRuleAssociationProps) error {
 	return nil
 }
 

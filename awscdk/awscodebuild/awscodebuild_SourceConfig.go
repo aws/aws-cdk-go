@@ -53,12 +53,16 @@ package awscodebuild
 //   	sourceVersion: jsii.String("sourceVersion"),
 //   }
 //
+// Experimental.
 type SourceConfig struct {
+	// Experimental.
 	SourceProperty *CfnProject_SourceProperty `field:"required" json:"sourceProperty" yaml:"sourceProperty"`
+	// Experimental.
 	BuildTriggers *CfnProject_ProjectTriggersProperty `field:"optional" json:"buildTriggers" yaml:"buildTriggers"`
 	// `AWS::CodeBuild::Project.SourceVersion`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
 	//
+	// Experimental.
 	SourceVersion *string `field:"optional" json:"sourceVersion" yaml:"sourceVersion"`
 }
 

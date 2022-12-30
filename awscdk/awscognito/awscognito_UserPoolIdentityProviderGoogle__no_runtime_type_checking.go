@@ -16,15 +16,19 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) validateGetResourceNameAttrib
 	return nil
 }
 
+func (u *jsiiProxy_UserPoolIdentityProviderGoogle) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderGoogle) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateUserPoolIdentityProviderGoogle_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateUserPoolIdentityProviderGoogle_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateUserPoolIdentityProviderGoogle_IsResourceParameters(construct constructs.IConstruct) error {
+func validateUserPoolIdentityProviderGoogle_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

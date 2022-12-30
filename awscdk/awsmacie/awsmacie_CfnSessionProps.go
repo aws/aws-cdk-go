@@ -14,17 +14,17 @@ package awsmacie
 //   }
 //
 type CfnSessionProps struct {
-	// The frequency with which Amazon Macie publishes updates to policy findings for an account.
+	// Specifies how often Amazon Macie publishes updates to policy findings for the account.
 	//
-	// This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events ). Valid values are:
+	// This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events ). Valid values are:
 	//
 	// - FIFTEEN_MINUTES
 	// - ONE_HOUR
 	// - SIX_HOURS.
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
-	// The `MacieStatus` of the `Session` .
+	// The status of Amazon Macie for the account.
 	//
-	// Valid values include `ENABLED` and `PAUSED` .
+	// Valid values are: `ENABLED` , start or resume all Macie activities for the account; and, `PAUSED` , suspend all Macie activities for the account.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

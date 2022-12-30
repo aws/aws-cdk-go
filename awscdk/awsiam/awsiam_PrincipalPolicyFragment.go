@@ -1,7 +1,7 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -34,13 +34,16 @@ import (
 //   	"conditionsKey": conditions,
 //   })
 //
+// Experimental.
 type PrincipalPolicyFragment interface {
 	// The conditions under which the policy is in effect.
 	//
 	// See [the IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html).
 	// conditions that need to be applied to this policy.
+	// Experimental.
 	Conditions() *map[string]interface{}
 	// JSON of the "Principal" section in a policy statement.
+	// Experimental.
 	PrincipalJson() *map[string]*[]*string
 }
 
@@ -70,6 +73,7 @@ func (j *jsiiProxy_PrincipalPolicyFragment) PrincipalJson() *map[string]*[]*stri
 }
 
 
+// Experimental.
 func NewPrincipalPolicyFragment(principalJson *map[string]*[]*string, conditions *map[string]interface{}) PrincipalPolicyFragment {
 	_init_.Initialize()
 
@@ -79,7 +83,7 @@ func NewPrincipalPolicyFragment(principalJson *map[string]*[]*string, conditions
 	j := jsiiProxy_PrincipalPolicyFragment{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PrincipalPolicyFragment",
+		"monocdk.aws_iam.PrincipalPolicyFragment",
 		[]interface{}{principalJson, conditions},
 		&j,
 	)
@@ -87,11 +91,12 @@ func NewPrincipalPolicyFragment(principalJson *map[string]*[]*string, conditions
 	return &j
 }
 
+// Experimental.
 func NewPrincipalPolicyFragment_Override(p PrincipalPolicyFragment, principalJson *map[string]*[]*string, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PrincipalPolicyFragment",
+		"monocdk.aws_iam.PrincipalPolicyFragment",
 		[]interface{}{principalJson, conditions},
 		p,
 	)

@@ -22,9 +22,13 @@ package awsglue
 type CfnCrawler_S3TargetProperty struct {
 	// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
-	// `CfnCrawler.S3TargetProperty.DlqEventQueueArn`.
+	// A valid Amazon dead-letter SQS ARN.
+	//
+	// For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 	DlqEventQueueArn *string `field:"optional" json:"dlqEventQueueArn" yaml:"dlqEventQueueArn"`
-	// `CfnCrawler.S3TargetProperty.EventQueueArn`.
+	// A valid Amazon SQS ARN.
+	//
+	// For example, `arn:aws:sqs:region:account:sqs` .
 	EventQueueArn *string `field:"optional" json:"eventQueueArn" yaml:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	//

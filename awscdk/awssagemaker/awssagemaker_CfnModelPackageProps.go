@@ -1,7 +1,7 @@
 package awssagemaker
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnModelPackage`.
@@ -427,11 +427,15 @@ import (
 //   }
 //
 type CfnModelPackageProps struct {
-	// `AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationDefinition`.
+	// A structure of additional Inference Specification.
+	//
+	// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.
 	AdditionalInferenceSpecificationDefinition interface{} `field:"optional" json:"additionalInferenceSpecificationDefinition" yaml:"additionalInferenceSpecificationDefinition"`
 	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications interface{} `field:"optional" json:"additionalInferenceSpecifications" yaml:"additionalInferenceSpecifications"`
-	// `AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationsToAdd`.
+	// An array of additional Inference Specification objects to be added to the existing array.
+	//
+	// The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
 	AdditionalInferenceSpecificationsToAdd interface{} `field:"optional" json:"additionalInferenceSpecificationsToAdd" yaml:"additionalInferenceSpecificationsToAdd"`
 	// A description provided when the model approval is set.
 	ApprovalDescription *string `field:"optional" json:"approvalDescription" yaml:"approvalDescription"`
@@ -439,9 +443,9 @@ type CfnModelPackageProps struct {
 	//
 	// For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
 	CertifyForMarketplace interface{} `field:"optional" json:"certifyForMarketplace" yaml:"certifyForMarketplace"`
-	// `AWS::SageMaker::ModelPackage.ClientToken`.
+	// A unique token that guarantees that the call to this API is idempotent.
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
-	// `AWS::SageMaker::ModelPackage.CreatedBy`.
+	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
 	CreatedBy interface{} `field:"optional" json:"createdBy" yaml:"createdBy"`
 	// The metadata properties for the model package.
 	CustomerMetadataProperties interface{} `field:"optional" json:"customerMetadataProperties" yaml:"customerMetadataProperties"`
@@ -455,13 +459,13 @@ type CfnModelPackageProps struct {
 	//
 	// Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
 	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
-	// `AWS::SageMaker::ModelPackage.InferenceSpecification`.
+	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification interface{} `field:"optional" json:"inferenceSpecification" yaml:"inferenceSpecification"`
-	// `AWS::SageMaker::ModelPackage.LastModifiedBy`.
+	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
 	LastModifiedBy interface{} `field:"optional" json:"lastModifiedBy" yaml:"lastModifiedBy"`
 	// The last time the model package was modified.
 	LastModifiedTime *string `field:"optional" json:"lastModifiedTime" yaml:"lastModifiedTime"`
-	// `AWS::SageMaker::ModelPackage.MetadataProperties`.
+	// Metadata properties of the tracking entity, trial, or trial component.
 	MetadataProperties interface{} `field:"optional" json:"metadataProperties" yaml:"metadataProperties"`
 	// The approval status of the model. This can be one of the following values.
 	//
@@ -477,9 +481,9 @@ type CfnModelPackageProps struct {
 	ModelPackageGroupName *string `field:"optional" json:"modelPackageGroupName" yaml:"modelPackageGroupName"`
 	// The name of the model.
 	ModelPackageName *string `field:"optional" json:"modelPackageName" yaml:"modelPackageName"`
-	// `AWS::SageMaker::ModelPackage.ModelPackageStatusDetails`.
+	// Specifies the validation and image scan statuses of the model package.
 	ModelPackageStatusDetails interface{} `field:"optional" json:"modelPackageStatusDetails" yaml:"modelPackageStatusDetails"`
-	// `AWS::SageMaker::ModelPackage.ModelPackageStatusItem`.
+	// Represents the overall status of a model package.
 	ModelPackageStatusItem interface{} `field:"optional" json:"modelPackageStatusItem" yaml:"modelPackageStatusItem"`
 	// The version number of a versioned model.
 	ModelPackageVersion *float64 `field:"optional" json:"modelPackageVersion" yaml:"modelPackageVersion"`
@@ -487,7 +491,7 @@ type CfnModelPackageProps struct {
 	//
 	// This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 	SamplePayloadUrl *string `field:"optional" json:"samplePayloadUrl" yaml:"samplePayloadUrl"`
-	// `AWS::SageMaker::ModelPackage.SourceAlgorithmSpecification`.
+	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification interface{} `field:"optional" json:"sourceAlgorithmSpecification" yaml:"sourceAlgorithmSpecification"`
 	// A list of the tags associated with the model package.
 	//
@@ -497,7 +501,7 @@ type CfnModelPackageProps struct {
 	//
 	// Common machine learning tasks include object detection and image classification.
 	Task *string `field:"optional" json:"task" yaml:"task"`
-	// `AWS::SageMaker::ModelPackage.ValidationSpecification`.
+	// Specifies batch transform jobs that SageMaker runs to validate your model package.
 	ValidationSpecification interface{} `field:"optional" json:"validationSpecification" yaml:"validationSpecification"`
 }
 

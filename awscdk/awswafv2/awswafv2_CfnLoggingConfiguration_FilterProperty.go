@@ -1,6 +1,8 @@
 package awswafv2
 
 
+// A single logging filter, used in `LoggingFilter` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,11 +24,13 @@ package awswafv2
 //   }
 //
 type CfnLoggingConfiguration_FilterProperty struct {
-	// `CfnLoggingConfiguration.FilterProperty.Behavior`.
+	// How to handle logs that satisfy the filter's conditions and requirement.
 	Behavior *string `field:"required" json:"behavior" yaml:"behavior"`
-	// `CfnLoggingConfiguration.FilterProperty.Conditions`.
+	// Match conditions for the filter.
 	Conditions interface{} `field:"required" json:"conditions" yaml:"conditions"`
-	// `CfnLoggingConfiguration.FilterProperty.Requirement`.
+	// Logic to apply to the filtering conditions.
+	//
+	// You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
 	Requirement *string `field:"required" json:"requirement" yaml:"requirement"`
 }
 

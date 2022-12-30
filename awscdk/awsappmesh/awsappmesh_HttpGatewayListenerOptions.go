@@ -4,7 +4,6 @@ package awsappmesh
 // Represents the properties needed to define HTTP Listeners for a VirtualGateway.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //   certificateAuthorityArn := "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
@@ -36,14 +35,19 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("virtualGateway"),
 //   })
 //
+// Experimental.
 type HttpGatewayListenerOptions struct {
 	// Connection pool for http listeners.
+	// Experimental.
 	ConnectionPool *HttpConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
+	// Experimental.
 	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Port to listen for connections on.
+	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Represents the configuration for enabling TLS on a listener.
+	// Experimental.
 	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 

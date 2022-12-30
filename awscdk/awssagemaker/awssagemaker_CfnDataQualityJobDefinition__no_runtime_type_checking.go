@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) validateAddDeletionOverrideParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataQualityJobDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDataQualityJobDefinition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataQualityJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDataQualityJobDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataQualityJobDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDataQualityJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataQualityJobDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDataQualityJobDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -112,7 +108,7 @@ func (j *jsiiProxy_CfnDataQualityJobDefinition) validateSetStoppingConditionPara
 	return nil
 }
 
-func validateNewCfnDataQualityJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnDataQualityJobDefinitionProps) error {
+func validateNewCfnDataQualityJobDefinitionParameters(scope awscdk.Construct, id *string, props *CfnDataQualityJobDefinitionProps) error {
 	return nil
 }
 

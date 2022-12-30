@@ -1,13 +1,12 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
-	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An abstract application modeling unit consisting of Stacks that should be deployed together.
@@ -21,62 +20,131 @@ import (
 //
 // Example:
 //   var pipeline codePipeline
+//   type myOutputStage struct {
+//   	stage
+//   	loadBalancerAddress cfnOutput
+//   }
 //
-//   preprod := NewMyApplicationStage(this, jsii.String("PreProd"))
-//   prod := NewMyApplicationStage(this, jsii.String("Prod"))
+//   func newMyOutputStage(scope construct, id *string, props stageProps) *myOutputStage {
+//   	this := &myOutputStage{}
+//   	newStage_Override(this, scope, id, props)
+//   	this.loadBalancerAddress = awscdk.NewCfnOutput(this, jsii.String("Output"), &cfnOutputProps{
+//   		value: jsii.String("value"),
+//   	})
+//   	return this
+//   }
 //
-//   pipeline.addStage(preprod, &addStageOpts{
+//   lbApp := NewMyOutputStage(this, jsii.String("MyApp"))
+//   pipeline.addStage(lbApp, &addStageOpts{
 //   	post: []step{
-//   		pipelines.NewShellStep(jsii.String("Validate Endpoint"), &shellStepProps{
+//   		pipelines.NewShellStep(jsii.String("HitEndpoint"), &shellStepProps{
+//   			envFromCfnOutputs: map[string]*cfnOutput{
+//   				// Make the load balancer address available as $URL inside the commands
+//   				"URL": lbApp.loadBalancerAddress,
+//   			},
 //   			commands: []*string{
-//   				jsii.String("curl -Ssf https://my.webservice.com/"),
+//   				jsii.String("curl -Ssf $URL"),
 //   			},
 //   		}),
 //   	},
 //   })
-//   pipeline.addStage(prod, &addStageOpts{
-//   	pre: []*step{
-//   		pipelines.NewManualApprovalStep(jsii.String("PromoteToProd")),
-//   	},
-//   })
 //
+// Experimental.
 type Stage interface {
-	constructs.Construct
+	Construct
 	// The default account for all resources defined within this stage.
+	// Experimental.
 	Account() *string
 	// Artifact ID of the assembly if it is a nested stage. The root stage (app) will return an empty string.
 	//
 	// Derived from the construct path.
+	// Experimental.
 	ArtifactId() *string
 	// The cloud assembly asset output directory.
+	// Experimental.
 	AssetOutdir() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() ConstructNode
 	// The cloud assembly output directory.
+	// Experimental.
 	Outdir() *string
 	// The parent stage or `undefined` if this is the app.
 	//
 	// *.
+	// Experimental.
 	ParentStage() Stage
 	// The default region for all resources defined within this stage.
+	// Experimental.
 	Region() *string
 	// The name of the stage.
 	//
 	// Based on names of the parent stages separated by
 	// hypens.
+	// Experimental.
 	StageName() *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Synthesize this stage into a cloud assembly.
 	//
 	// Once an assembly has been synthesized, it cannot be modified. Subsequent
 	// calls will return the same assembly.
+	// Experimental.
 	Synth(options *StageSynthesisOptions) cxapi.CloudAssembly
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Stage
 type jsiiProxy_Stage struct {
-	internal.Type__constructsConstruct
+	jsiiProxy_Construct
 }
 
 func (j *jsiiProxy_Stage) Account() *string {
@@ -109,8 +177,8 @@ func (j *jsiiProxy_Stage) AssetOutdir() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Stage) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Stage) Node() ConstructNode {
+	var returns ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -160,6 +228,7 @@ func (j *jsiiProxy_Stage) StageName() *string {
 }
 
 
+// Experimental.
 func NewStage(scope constructs.Construct, id *string, props *StageProps) Stage {
 	_init_.Initialize()
 
@@ -169,7 +238,7 @@ func NewStage(scope constructs.Construct, id *string, props *StageProps) Stage {
 	j := jsiiProxy_Stage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.Stage",
+		"monocdk.Stage",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -177,33 +246,19 @@ func NewStage(scope constructs.Construct, id *string, props *StageProps) Stage {
 	return &j
 }
 
+// Experimental.
 func NewStage_Override(s Stage, scope constructs.Construct, id *string, props *StageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.Stage",
+		"monocdk.Stage",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func Stage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -213,7 +268,7 @@ func Stage_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Stage",
+		"monocdk.Stage",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -223,6 +278,7 @@ func Stage_IsConstruct(x interface{}) *bool {
 }
 
 // Test whether the given construct is a stage.
+// Experimental.
 func Stage_IsStage(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -232,7 +288,7 @@ func Stage_IsStage(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Stage",
+		"monocdk.Stage",
 		"isStage",
 		[]interface{}{x},
 		&returns,
@@ -245,6 +301,7 @@ func Stage_IsStage(x interface{}) *bool {
 //
 // If called
 // on a nested stage, returns its parent.
+// Experimental.
 func Stage_Of(construct constructs.IConstruct) Stage {
 	_init_.Initialize()
 
@@ -254,13 +311,53 @@ func Stage_Of(construct constructs.IConstruct) Stage {
 	var returns Stage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Stage",
+		"monocdk.Stage",
 		"of",
 		[]interface{}{construct},
 		&returns,
 	)
 
 	return returns
+}
+
+func (s *jsiiProxy_Stage) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_Stage) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_Stage) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Stage) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
 }
 
 func (s *jsiiProxy_Stage) Synth(options *StageSynthesisOptions) cxapi.CloudAssembly {
@@ -279,12 +376,36 @@ func (s *jsiiProxy_Stage) Synth(options *StageSynthesisOptions) cxapi.CloudAssem
 	return returns
 }
 
+func (s *jsiiProxy_Stage) Synthesize(session ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_Stage) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Stage) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

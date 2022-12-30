@@ -3,7 +3,7 @@ package awsec2
 
 // Specifies the configuration of a Spot Fleet request.
 //
-// For more information, see [How Spot Fleet Works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide for Linux Instances* .
+// For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
 //
 // You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
 //
@@ -322,13 +322,16 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	//
 	// You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
 	TargetCapacity *float64 `field:"required" json:"targetCapacity" yaml:"targetCapacity"`
-	// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.
+	// The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration.
 	//
-	// If the allocation strategy is `lowestPrice` , Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+	// For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
 	//
-	// If the allocation strategy is `diversified` , Spot Fleet launches instances from all the Spot Instance pools that you specify.
+	// - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
+	// - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+	// - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
+	// - **lowestPrice** - Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
 	//
-	// If the allocation strategy is `capacityOptimized` (recommended), Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+	// Default: `lowestPrice`.
 	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// Reserved.
 	Context *string `field:"optional" json:"context" yaml:"context"`
@@ -380,9 +383,13 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	SpotMaxTotalPrice *string `field:"optional" json:"spotMaxTotalPrice" yaml:"spotMaxTotalPrice"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
-	// The default is the On-Demand price.
+	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 	SpotPrice *string `field:"optional" json:"spotPrice" yaml:"spotPrice"`
-	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TagSpecifications`.
+	// The key-value pair for tagging the Spot Fleet request on creation.
+	//
+	// The value for `ResourceType` must be `spot-fleet-request` , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) (valid only if you use `LaunchTemplateConfigs` ) or in the `[SpotFleetTagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html)` (valid only if you use `LaunchSpecifications` ). For information about tagging after launch, see [Tagging Your Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// The unit for the target capacity.
 	//

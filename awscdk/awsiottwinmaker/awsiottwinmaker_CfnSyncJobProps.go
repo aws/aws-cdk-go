@@ -20,13 +20,17 @@ package awsiottwinmaker
 //   }
 //
 type CfnSyncJobProps struct {
-	// `AWS::IoTTwinMaker::SyncJob.SyncRole`.
+	// The SyncJob IAM role.
+	//
+	// This IAM role is used by the sync job to read from the syncSource, and create, update or delete the corresponding resources.
 	SyncRole *string `field:"required" json:"syncRole" yaml:"syncRole"`
-	// `AWS::IoTTwinMaker::SyncJob.SyncSource`.
+	// The sync source.
+	//
+	// > Currently the only supported syncSoucre is `SITEWISE` .
 	SyncSource *string `field:"required" json:"syncSource" yaml:"syncSource"`
-	// `AWS::IoTTwinMaker::SyncJob.WorkspaceId`.
+	// The ID of the workspace that contains the sync job.
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
-	// `AWS::IoTTwinMaker::SyncJob.Tags`.
+	// Metadata you can use to manage the SyncJob.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

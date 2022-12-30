@@ -8,11 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codecommit.CfnRepository",
+		"monocdk.aws_codecommit.CfnRepository",
 		reflect.TypeOf((*CfnRepository)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -33,22 +32,23 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryDescription", GoGetter: "RepositoryDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "triggers", GoGetter: "Triggers"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -59,23 +59,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.CfnRepository.CodeProperty",
+		"monocdk.aws_codecommit.CfnRepository.CodeProperty",
 		reflect.TypeOf((*CfnRepository_CodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.CfnRepository.RepositoryTriggerProperty",
+		"monocdk.aws_codecommit.CfnRepository.RepositoryTriggerProperty",
 		reflect.TypeOf((*CfnRepository_RepositoryTriggerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.CfnRepository.S3Property",
+		"monocdk.aws_codecommit.CfnRepository.S3Property",
 		reflect.TypeOf((*CfnRepository_S3Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.CfnRepositoryProps",
+		"monocdk.aws_codecommit.CfnRepositoryProps",
 		reflect.TypeOf((*CfnRepositoryProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codecommit.Code",
+		"monocdk.aws_codecommit.Code",
 		reflect.TypeOf((*Code)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -85,11 +85,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.CodeConfig",
+		"monocdk.aws_codecommit.CodeConfig",
 		reflect.TypeOf((*CodeConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codecommit.IRepository",
+		"monocdk.aws_codecommit.IRepository",
 		reflect.TypeOf((*IRepository)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -100,6 +100,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantPullPush", GoMethod: "GrantPullPush"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "notifiyOnPullRequestMerged", GoMethod: "NotifiyOnPullRequestMerged"},
 			_jsii_.MemberMethod{JsiiMethod: "notifyOn", GoMethod: "NotifyOn"},
 			_jsii_.MemberMethod{JsiiMethod: "notifyOnApprovalRuleOverridden", GoMethod: "NotifyOnApprovalRuleOverridden"},
 			_jsii_.MemberMethod{JsiiMethod: "notifyOnApprovalStatusChanged", GoMethod: "NotifyOnApprovalStatusChanged"},
@@ -132,11 +133,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.OnCommitOptions",
+		"monocdk.aws_codecommit.OnCommitOptions",
 		reflect.TypeOf((*OnCommitOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
+		"monocdk.aws_codecommit.ReferenceEvent",
 		reflect.TypeOf((*ReferenceEvent)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -144,7 +145,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codecommit.Repository",
+		"monocdk.aws_codecommit.Repository",
 		reflect.TypeOf((*Repository)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -172,19 +173,25 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onCommentOnPullRequest", GoMethod: "OnCommentOnPullRequest"},
 			_jsii_.MemberMethod{JsiiMethod: "onCommit", GoMethod: "OnCommit"},
 			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
 			_jsii_.MemberMethod{JsiiMethod: "onPullRequestStateChange", GoMethod: "OnPullRequestStateChange"},
 			_jsii_.MemberMethod{JsiiMethod: "onReferenceCreated", GoMethod: "OnReferenceCreated"},
 			_jsii_.MemberMethod{JsiiMethod: "onReferenceDeleted", GoMethod: "OnReferenceDeleted"},
 			_jsii_.MemberMethod{JsiiMethod: "onReferenceUpdated", GoMethod: "OnReferenceUpdated"},
 			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryArn", GoGetter: "RepositoryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryCloneUrlGrc", GoGetter: "RepositoryCloneUrlGrc"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryCloneUrlHttp", GoGetter: "RepositoryCloneUrlHttp"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryCloneUrlSsh", GoGetter: "RepositoryCloneUrlSsh"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Repository{}
@@ -194,7 +201,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codecommit.RepositoryEventTrigger",
+		"monocdk.aws_codecommit.RepositoryEventTrigger",
 		reflect.TypeOf((*RepositoryEventTrigger)(nil)).Elem(),
 		map[string]interface{}{
 			"ALL": RepositoryEventTrigger_ALL,
@@ -204,7 +211,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codecommit.RepositoryNotificationEvents",
+		"monocdk.aws_codecommit.RepositoryNotificationEvents",
 		reflect.TypeOf((*RepositoryNotificationEvents)(nil)).Elem(),
 		map[string]interface{}{
 			"COMMIT_COMMENT": RepositoryNotificationEvents_COMMIT_COMMENT,
@@ -221,15 +228,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.RepositoryNotifyOnOptions",
+		"monocdk.aws_codecommit.RepositoryNotifyOnOptions",
 		reflect.TypeOf((*RepositoryNotifyOnOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.RepositoryProps",
+		"monocdk.aws_codecommit.RepositoryProps",
 		reflect.TypeOf((*RepositoryProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codecommit.RepositoryTriggerOptions",
+		"monocdk.aws_codecommit.RepositoryTriggerOptions",
 		reflect.TypeOf((*RepositoryTriggerOptions)(nil)).Elem(),
 	)
 }

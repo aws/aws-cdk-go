@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDeploymentStrategy) validateAddDeletionOverrideParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeploymentStrategy) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDeploymentStrategy) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDeploymentStrategy) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeploymentStrategy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDeploymentStrategy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeploymentStrategy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDeploymentStrategy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDeploymentStrategy) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeploymentStrategy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDeploymentStrategy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnDeploymentStrategy) validateSetTagsParameters(val *[]*CfnD
 	return nil
 }
 
-func validateNewCfnDeploymentStrategyParameters(scope constructs.Construct, id *string, props *CfnDeploymentStrategyProps) error {
+func validateNewCfnDeploymentStrategyParameters(scope awscdk.Construct, id *string, props *CfnDeploymentStrategyProps) error {
 	return nil
 }
 

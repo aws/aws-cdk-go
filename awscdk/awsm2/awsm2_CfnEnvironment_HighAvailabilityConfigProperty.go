@@ -1,6 +1,8 @@
 package awsm2
 
 
+// Defines the details of a high availability configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsm2
 //   }
 //
 type CfnEnvironment_HighAvailabilityConfigProperty struct {
-	// `CfnEnvironment.HighAvailabilityConfigProperty.DesiredCapacity`.
+	// The number of instances in a high availability configuration.
 	DesiredCapacity *float64 `field:"required" json:"desiredCapacity" yaml:"desiredCapacity"`
 }
 

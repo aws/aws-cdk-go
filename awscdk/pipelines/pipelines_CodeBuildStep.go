@@ -1,13 +1,13 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Run a script as a CodeBuild Project.
@@ -54,80 +54,103 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type CodeBuildStep interface {
 	ShellStep
 	// Custom execution role to be used for the Code Build Action.
+	// Experimental.
 	ActionRole() awsiam.IRole
 	// Build environment.
+	// Experimental.
 	BuildEnvironment() *awscodebuild.BuildEnvironment
-	// Caching strategy to use.
-	Cache() awscodebuild.Cache
 	// Commands to run.
+	// Experimental.
 	Commands() *[]*string
 	// Return the steps this step depends on, based on the FileSets it requires.
+	// Experimental.
 	Dependencies() *[]Step
 	// The list of FileSets consumed by this Step.
+	// Experimental.
 	DependencyFileSets() *[]FileSet
 	// Environment variables to set.
+	// Experimental.
 	Env() *map[string]*string
 	// Set environment variables based on Stack Outputs.
+	// Experimental.
 	EnvFromCfnOutputs() *map[string]StackOutputReference
 	// The CodeBuild Project's principal.
+	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Identifier for this step.
+	// Experimental.
 	Id() *string
 	// Input FileSets.
 	//
 	// A list of `(FileSet, directory)` pairs, which are a copy of the
 	// input properties. This list should not be modified directly.
+	// Experimental.
 	Inputs() *[]*FileSetLocation
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
+	// Experimental.
 	InstallCommands() *[]*string
 	// Whether or not this is a Source step.
 	//
 	// What it means to be a Source step depends on the engine.
+	// Experimental.
 	IsSource() *bool
 	// Output FileSets.
 	//
 	// A list of `(FileSet, directory)` pairs, which are a copy of the
 	// input properties. This list should not be modified directly.
+	// Experimental.
 	Outputs() *[]*FileSetLocation
 	// Additional configuration that can only be configured via BuildSpec.
 	//
 	// Contains exported variables.
+	// Experimental.
 	PartialBuildSpec() awscodebuild.BuildSpec
 	// The primary FileSet produced by this Step.
 	//
 	// Not all steps produce an output FileSet--if they do
 	// you can substitute the `Step` object for the `FileSet` object.
+	// Experimental.
 	PrimaryOutput() FileSet
 	// CodeBuild Project generated for the pipeline.
 	//
 	// Will only be available after the pipeline has been built.
+	// Experimental.
 	Project() awscodebuild.IProject
 	// Name for the generated CodeBuild project.
+	// Experimental.
 	ProjectName() *string
 	// Custom execution role to be used for the CodeBuild project.
+	// Experimental.
 	Role() awsiam.IRole
 	// Policy statements to add to role used during the synth.
+	// Experimental.
 	RolePolicyStatements() *[]awsiam.PolicyStatement
 	// Which security group to associate with the script's project network interfaces.
+	// Experimental.
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// Which subnets to use.
+	// Experimental.
 	SubnetSelection() *awsec2.SubnetSelection
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
+	// Experimental.
 	Timeout() awscdk.Duration
 	// The VPC where to execute the SimpleSynth.
+	// Experimental.
 	Vpc() awsec2.IVpc
 	// Add an additional FileSet to the set of file sets required by this step.
 	//
 	// This will lead to a dependency on the producer of that file set.
+	// Experimental.
 	AddDependencyFileSet(fs FileSet)
 	// Add an additional output FileSet based on a directory.
 	//
@@ -137,10 +160,13 @@ type CodeBuildStep interface {
 	//
 	// Multiple calls with the exact same directory name string (not normalized)
 	// will return the same FileSet.
+	// Experimental.
 	AddOutputDirectory(directory *string) FileSet
 	// Add a dependency on another step.
+	// Experimental.
 	AddStepDependency(step Step)
 	// Configure the given FileSet as the primary output of this step.
+	// Experimental.
 	ConfigurePrimaryOutput(fs FileSet)
 	// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
 	//
@@ -148,6 +174,7 @@ type CodeBuildStep interface {
 	// passes in as construction properties. The format of the structure passed in
 	// here does not have to correspond exactly to what gets rendered into the
 	// engine, it just needs to contain the same data.
+	// Experimental.
 	DiscoverReferencedOutputs(structure interface{})
 	// Reference a CodePipeline variable defined by the CodeBuildStep.
 	//
@@ -174,6 +201,7 @@ type CodeBuildStep interface {
 	//   	},
 	//   })
 	//
+	// Experimental.
 	ExportedVariable(variableName *string) *string
 	// Configure the given output directory as primary output.
 	//
@@ -181,8 +209,10 @@ type CodeBuildStep interface {
 	// will become the primary output of this ShellStep, otherwise this
 	// method will throw if the given directory is different than the
 	// currently configured primary output directory.
+	// Experimental.
 	PrimaryOutputDirectory(directory *string) FileSet
 	// Return a string representation of this Step.
+	// Experimental.
 	ToString() *string
 }
 
@@ -206,16 +236,6 @@ func (j *jsiiProxy_CodeBuildStep) BuildEnvironment() *awscodebuild.BuildEnvironm
 	_jsii_.Get(
 		j,
 		"buildEnvironment",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CodeBuildStep) Cache() awscodebuild.Cache {
-	var returns awscodebuild.Cache
-	_jsii_.Get(
-		j,
-		"cache",
 		&returns,
 	)
 	return returns
@@ -432,6 +452,7 @@ func (j *jsiiProxy_CodeBuildStep) Vpc() awsec2.IVpc {
 }
 
 
+// Experimental.
 func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	_init_.Initialize()
 
@@ -441,7 +462,7 @@ func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	j := jsiiProxy_CodeBuildStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodeBuildStep",
+		"monocdk.pipelines.CodeBuildStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -449,11 +470,12 @@ func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	return &j
 }
 
+// Experimental.
 func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStepProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodeBuildStep",
+		"monocdk.pipelines.CodeBuildStep",
 		[]interface{}{id, props},
 		c,
 	)
@@ -464,6 +486,7 @@ func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStep
 // If you need more fine-grained step ordering, use the `addStepDependency()`
 // API. For example, if you want `secondStep` to occur after `firstStep`, call
 // `secondStep.addStepDependency(firstStep)`.
+// Experimental.
 func CodeBuildStep_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
@@ -473,7 +496,7 @@ func CodeBuildStep_Sequence(steps *[]Step) *[]Step {
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodeBuildStep",
+		"monocdk.pipelines.CodeBuildStep",
 		"sequence",
 		[]interface{}{steps},
 		&returns,

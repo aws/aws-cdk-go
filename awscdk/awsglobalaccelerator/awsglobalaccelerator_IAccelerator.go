@@ -3,16 +3,19 @@ package awsglobalaccelerator
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator/internal"
 )
 
 // The interface of the Accelerator.
+// Experimental.
 type IAccelerator interface {
 	awscdk.IResource
 	// The ARN of the accelerator.
+	// Experimental.
 	AcceleratorArn() *string
 	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+	// Experimental.
 	DnsName() *string
 }
 

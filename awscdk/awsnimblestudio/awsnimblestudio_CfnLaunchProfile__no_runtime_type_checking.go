@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLaunchProfile) validateAddDeletionOverrideParameters(path 
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchProfile) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLaunchProfile) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLaunchProfile) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLaunchProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchProfile) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLaunchProfile) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchProfile) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -104,7 +100,7 @@ func (j *jsiiProxy_CfnLaunchProfile) validateSetStudioIdParameters(val *string) 
 	return nil
 }
 
-func validateNewCfnLaunchProfileParameters(scope constructs.Construct, id *string, props *CfnLaunchProfileProps) error {
+func validateNewCfnLaunchProfileParameters(scope awscdk.Construct, id *string, props *CfnLaunchProfileProps) error {
 	return nil
 }
 

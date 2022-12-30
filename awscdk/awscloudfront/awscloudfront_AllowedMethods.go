@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -19,8 +19,10 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type AllowedMethods interface {
 	// HTTP methods supported.
+	// Experimental.
 	Methods() *[]*string
 }
 
@@ -44,7 +46,7 @@ func AllowedMethods_ALLOW_ALL() AllowedMethods {
 	_init_.Initialize()
 	var returns AllowedMethods
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_cloudfront.AllowedMethods",
+		"monocdk.aws_cloudfront.AllowedMethods",
 		"ALLOW_ALL",
 		&returns,
 	)
@@ -55,7 +57,7 @@ func AllowedMethods_ALLOW_GET_HEAD() AllowedMethods {
 	_init_.Initialize()
 	var returns AllowedMethods
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_cloudfront.AllowedMethods",
+		"monocdk.aws_cloudfront.AllowedMethods",
 		"ALLOW_GET_HEAD",
 		&returns,
 	)
@@ -66,7 +68,7 @@ func AllowedMethods_ALLOW_GET_HEAD_OPTIONS() AllowedMethods {
 	_init_.Initialize()
 	var returns AllowedMethods
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_cloudfront.AllowedMethods",
+		"monocdk.aws_cloudfront.AllowedMethods",
 		"ALLOW_GET_HEAD_OPTIONS",
 		&returns,
 	)

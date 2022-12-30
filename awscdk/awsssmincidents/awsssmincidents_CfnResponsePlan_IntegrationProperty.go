@@ -1,6 +1,8 @@
 package awsssmincidents
 
 
+// Information about third-party services integrated into a response plan.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,7 +19,7 @@ package awsssmincidents
 //   }
 //
 type CfnResponsePlan_IntegrationProperty struct {
-	// `CfnResponsePlan.IntegrationProperty.PagerDutyConfiguration`.
+	// Information about the PagerDuty service where the response plan creates an incident.
 	PagerDutyConfiguration interface{} `field:"required" json:"pagerDutyConfiguration" yaml:"pagerDutyConfiguration"`
 }
 

@@ -1,13 +1,14 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Event fields for the CodeBuild "state change" event.
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-notifications.html#sample-build-notifications-ref
 //
+// Experimental.
 type StateChangeEvent interface {
 }
 
@@ -20,7 +21,7 @@ func StateChangeEvent_BuildId() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.StateChangeEvent",
+		"monocdk.aws_codebuild.StateChangeEvent",
 		"buildId",
 		&returns,
 	)
@@ -31,7 +32,7 @@ func StateChangeEvent_BuildStatus() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.StateChangeEvent",
+		"monocdk.aws_codebuild.StateChangeEvent",
 		"buildStatus",
 		&returns,
 	)
@@ -42,7 +43,7 @@ func StateChangeEvent_CurrentPhase() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.StateChangeEvent",
+		"monocdk.aws_codebuild.StateChangeEvent",
 		"currentPhase",
 		&returns,
 	)
@@ -53,7 +54,7 @@ func StateChangeEvent_ProjectName() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_codebuild.StateChangeEvent",
+		"monocdk.aws_codebuild.StateChangeEvent",
 		"projectName",
 		&returns,
 	)

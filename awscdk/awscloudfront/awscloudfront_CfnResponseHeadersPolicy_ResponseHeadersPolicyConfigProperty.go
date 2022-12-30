@@ -116,7 +116,7 @@ type CfnResponseHeadersPolicy_ResponseHeadersPolicyConfigProperty struct {
 	RemoveHeadersConfig interface{} `field:"optional" json:"removeHeadersConfig" yaml:"removeHeadersConfig"`
 	// A configuration for a set of security-related HTTP response headers.
 	SecurityHeadersConfig interface{} `field:"optional" json:"securityHeadersConfig" yaml:"securityHeadersConfig"`
-	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.ServerTimingHeadersConfig`.
+	// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
 	ServerTimingHeadersConfig interface{} `field:"optional" json:"serverTimingHeadersConfig" yaml:"serverTimingHeadersConfig"`
 }
 

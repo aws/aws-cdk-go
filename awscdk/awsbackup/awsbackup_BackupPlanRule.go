@@ -1,7 +1,7 @@
 package awsbackup
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,8 +13,10 @@ import (
 //   plan.addRule(backup.backupPlanRule.daily())
 //   plan.addRule(backup.backupPlanRule.weekly())
 //
+// Experimental.
 type BackupPlanRule interface {
 	// Properties of BackupPlanRule.
+	// Experimental.
 	Props() *BackupPlanRuleProps
 }
 
@@ -34,6 +36,7 @@ func (j *jsiiProxy_BackupPlanRule) Props() *BackupPlanRuleProps {
 }
 
 
+// Experimental.
 func NewBackupPlanRule(props *BackupPlanRuleProps) BackupPlanRule {
 	_init_.Initialize()
 
@@ -43,7 +46,7 @@ func NewBackupPlanRule(props *BackupPlanRuleProps) BackupPlanRule {
 	j := jsiiProxy_BackupPlanRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		[]interface{}{props},
 		&j,
 	)
@@ -51,24 +54,26 @@ func NewBackupPlanRule(props *BackupPlanRuleProps) BackupPlanRule {
 	return &j
 }
 
+// Experimental.
 func NewBackupPlanRule_Override(b BackupPlanRule, props *BackupPlanRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		[]interface{}{props},
 		b,
 	)
 }
 
 // Daily with 35 days retention.
+// Experimental.
 func BackupPlanRule_Daily(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		"daily",
 		[]interface{}{backupVault},
 		&returns,
@@ -78,13 +83,14 @@ func BackupPlanRule_Daily(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 1 year retention, move to cold storage after 1 month.
+// Experimental.
 func BackupPlanRule_Monthly1Year(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		"monthly1Year",
 		[]interface{}{backupVault},
 		&returns,
@@ -94,13 +100,14 @@ func BackupPlanRule_Monthly1Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 5 year retention, move to cold storage after 3 months.
+// Experimental.
 func BackupPlanRule_Monthly5Year(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		"monthly5Year",
 		[]interface{}{backupVault},
 		&returns,
@@ -110,13 +117,14 @@ func BackupPlanRule_Monthly5Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 7 year retention, move to cold storage after 3 months.
+// Experimental.
 func BackupPlanRule_Monthly7Year(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		"monthly7Year",
 		[]interface{}{backupVault},
 		&returns,
@@ -126,13 +134,14 @@ func BackupPlanRule_Monthly7Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Weekly with 3 months retention.
+// Experimental.
 func BackupPlanRule_Weekly(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_backup.BackupPlanRule",
+		"monocdk.aws_backup.BackupPlanRule",
 		"weekly",
 		[]interface{}{backupVault},
 		&returns,

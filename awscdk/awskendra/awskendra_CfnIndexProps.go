@@ -1,7 +1,7 @@
 package awskendra
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnIndex`.
@@ -80,21 +80,19 @@ import (
 //   }
 //
 type CfnIndexProps struct {
-	// Indicates whether the index is a enterprise edition index or a developer edition index.
+	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index.
 	//
 	// Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
 	Edition *string `field:"required" json:"edition" yaml:"edition"`
-	// The identifier of the index.
+	// The name of the index.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics.
 	//
 	// This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// Specifies capacity units configured for your index.
-	//
-	// You can add and remove capacity units to tune an index to your requirements. You can set capacity units only for Enterprise edition indexes.
+	// `AWS::Kendra::Index.CapacityUnits`.
 	CapacityUnits interface{} `field:"optional" json:"capacityUnits" yaml:"capacityUnits"`
-	// A description of the index.
+	// A description for the index.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies the properties of an index field.
 	//
@@ -112,11 +110,11 @@ type CfnIndexProps struct {
 	//
 	// ATTRIBUTE_FILTER
 	//
-	// - All indexed content is searchable and displayable for all users. If there is an access control list, it is ignored. You can filter on user and group attributes.
+	// - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
 	//
 	// USER_TOKEN
 	//
-	// - Enables SSO and token-based user access control. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+	// - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
 	UserContextPolicy *string `field:"optional" json:"userContextPolicy" yaml:"userContextPolicy"`
 	// Defines the type of user token used for the index.
 	UserTokenConfigurations interface{} `field:"optional" json:"userTokenConfigurations" yaml:"userTokenConfigurations"`

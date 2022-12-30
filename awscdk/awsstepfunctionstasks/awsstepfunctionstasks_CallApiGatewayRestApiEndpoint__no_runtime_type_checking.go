@@ -84,6 +84,14 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateNextParameters(next aw
 	return nil
 }
 
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

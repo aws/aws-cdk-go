@@ -18,11 +18,11 @@ package awsbatch
 type CfnSchedulingPolicy_ShareAttributesProperty struct {
 	// A fair share identifier or fair share identifier prefix.
 	//
-	// If the string ends with an asterisk (*), this entry specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share identifiers in a fair share policy cannot overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+	// If the string ends with an asterisk (*), this entry specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share identifiers in a fair share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
 	//
 	// There can be no more than 500 fair share identifiers active in a job queue.
 	//
-	// The string is limited to 255 alphanumeric characters, optionally followed by an asterisk (*).
+	// The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).
 	ShareIdentifier *string `field:"optional" json:"shareIdentifier" yaml:"shareIdentifier"`
 	// The weight factor for the fair share identifier.
 	//

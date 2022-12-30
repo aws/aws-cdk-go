@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateAddDeletionOverrideParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserToGroupAddition) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnUserToGroupAddition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserToGroupAddition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnUserToGroupAddition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserToGroupAddition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnUserToGroupAddition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserToGroupAddition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnUserToGroupAddition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnUserToGroupAddition) validateSetUsersParameters(val *[]*st
 	return nil
 }
 
-func validateNewCfnUserToGroupAdditionParameters(scope constructs.Construct, id *string, props *CfnUserToGroupAdditionProps) error {
+func validateNewCfnUserToGroupAdditionParameters(scope awscdk.Construct, id *string, props *CfnUserToGroupAdditionProps) error {
 	return nil
 }
 

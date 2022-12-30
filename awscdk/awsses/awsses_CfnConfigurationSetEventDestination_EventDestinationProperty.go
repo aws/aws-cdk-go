@@ -41,14 +41,16 @@ package awsses
 type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 	// The type of email sending events to publish to the event destination.
 	//
-	// - `send` - The call was successful and Amazon SES is attempting to deliver the email.
-	// - `reject` - Amazon SES determined that the email contained a virus and rejected it.
-	// - `bounce` - The recipient's mail server permanently rejected the email. This corresponds to a hard bounce.
-	// - `complaint` - The recipient marked the email as spam.
-	// - `delivery` - Amazon SES successfully delivered the email to the recipient's mail server.
-	// - `open` - The recipient received the email and opened it in their email client.
+	// - `send` - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.)
+	// - `reject` - SES accepted the email, but determined that it contained a virus and didn’t attempt to deliver it to the recipient’s mail server.
+	// - `bounce` - ( *Hard bounce* ) The recipient's mail server permanently rejected the email. ( *Soft bounces* are only included when SES fails to deliver the email after retrying for a period of time.)
+	// - `complaint` - The email was successfully delivered to the recipient’s mail server, but the recipient marked it as spam.
+	// - `delivery` - SES successfully delivered the email to the recipient's mail server.
+	// - `open` - The recipient received the message and opened it in their email client.
 	// - `click` - The recipient clicked one or more links in the email.
-	// - `renderingFailure` - Amazon SES did not send the email because of a template rendering issue.
+	// - `renderingFailure` - The email wasn't sent because of a template rendering issue. This event type can occur when template data is missing, or when there is a mismatch between template parameters and data. (This event type only occurs when you send email using the [`SendTemplatedEmail`](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html) or [`SendBulkTemplatedEmail`](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBulkTemplatedEmail.html) API operations.)
+	// - `deliveryDelay` - The email couldn't be delivered to the recipient’s mail server because a temporary issue occurred. Delivery delays can occur, for example, when the recipient's inbox is full, or when the receiving email server experiences a transient issue.
+	// - `subscription` - The email was successfully delivered, but the recipient updated their subscription preferences by clicking on an *unsubscribe* link as part of your [subscription management](https://docs.aws.amazon.com/ses/latest/dg/sending-email-subscription-management.html) .
 	MatchingEventTypes *[]*string `field:"required" json:"matchingEventTypes" yaml:"matchingEventTypes"`
 	// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 	CloudWatchDestination interface{} `field:"optional" json:"cloudWatchDestination" yaml:"cloudWatchDestination"`
@@ -63,7 +65,7 @@ type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 	// - Contain 64 characters or fewer.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnConfigurationSetEventDestination.EventDestinationProperty.SnsDestination`.
+	// An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
 	SnsDestination interface{} `field:"optional" json:"snsDestination" yaml:"snsDestination"`
 }
 

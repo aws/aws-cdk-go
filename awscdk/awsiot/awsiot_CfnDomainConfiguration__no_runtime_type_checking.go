@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDomainConfiguration) validateAddDeletionOverrideParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDomainConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDomainConfiguration) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDomainConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDomainConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDomainConfiguration) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDomainConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnDomainConfiguration) validateSetAuthorizerConfigParameters
 	return nil
 }
 
-func validateNewCfnDomainConfigurationParameters(scope constructs.Construct, id *string, props *CfnDomainConfigurationProps) error {
+func validateNewCfnDomainConfigurationParameters(scope awscdk.Construct, id *string, props *CfnDomainConfigurationProps) error {
 	return nil
 }
 

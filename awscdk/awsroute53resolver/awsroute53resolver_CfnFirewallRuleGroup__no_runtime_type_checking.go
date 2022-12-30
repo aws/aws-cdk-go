@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnFirewallRuleGroup) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallRuleGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnFirewallRuleGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnFirewallRuleGroup) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallRuleGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnFirewallRuleGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallRuleGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnFirewallRuleGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnFirewallRuleGroup) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallRuleGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnFirewallRuleGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnFirewallRuleGroup) validateSetFirewallRulesParameters(val 
 	return nil
 }
 
-func validateNewCfnFirewallRuleGroupParameters(scope constructs.Construct, id *string, props *CfnFirewallRuleGroupProps) error {
+func validateNewCfnFirewallRuleGroupParameters(scope awscdk.Construct, id *string, props *CfnFirewallRuleGroupProps) error {
 	return nil
 }
 

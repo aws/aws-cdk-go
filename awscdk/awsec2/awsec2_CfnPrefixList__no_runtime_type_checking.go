@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnPrefixList) validateAddDeletionOverrideParameters(path *st
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrefixList) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnPrefixList) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnPrefixList) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrefixList) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPrefixList) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrefixList) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPrefixList) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnPrefixList) validateRenderPropertiesParameters(props *map[
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrefixList) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPrefixList) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnPrefixList) validateSetPrefixListNameParameters(val *strin
 	return nil
 }
 
-func validateNewCfnPrefixListParameters(scope constructs.Construct, id *string, props *CfnPrefixListProps) error {
+func validateNewCfnPrefixListParameters(scope awscdk.Construct, id *string, props *CfnPrefixListProps) error {
 	return nil
 }
 

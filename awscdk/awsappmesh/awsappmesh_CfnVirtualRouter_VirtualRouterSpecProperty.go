@@ -21,8 +21,6 @@ package awsappmesh
 //
 type CfnVirtualRouter_VirtualRouterSpecProperty struct {
 	// The listeners that the virtual router is expected to receive inbound traffic from.
-	//
-	// You can specify one listener.
 	Listeners interface{} `field:"required" json:"listeners" yaml:"listeners"`
 }
 

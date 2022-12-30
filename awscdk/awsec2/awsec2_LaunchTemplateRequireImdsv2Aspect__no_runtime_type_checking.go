@@ -4,11 +4,11 @@ package awsec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateVisitParameters(node constructs.IConstruct) error {
+func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateVisitParameters(node awscdk.IConstruct) error {
 	return nil
 }
 
-func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateWarnParameters(node constructs.IConstruct, message *string) error {
+func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) validateWarnParameters(node awscdk.IConstruct, message *string) error {
 	return nil
 }
 

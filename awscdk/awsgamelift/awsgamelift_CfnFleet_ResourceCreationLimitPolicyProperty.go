@@ -18,7 +18,11 @@ package awsgamelift
 //   }
 //
 type CfnFleet_ResourceCreationLimitPolicyProperty struct {
-	// The maximum number of game sessions that an individual can create during the policy period.
+	// A policy that puts limits on the number of game sessions that a player can create within a specified span of time.
+	//
+	// With this policy, you can control players' ability to consume available resources.
+	//
+	// The policy is evaluated when a player tries to create a new game session. On receiving a `CreateGameSession` request, GameLift checks that the player (identified by `CreatorId` ) has created fewer than game session limit in the specified time period.
 	NewGameSessionsPerCreator *float64 `field:"optional" json:"newGameSessionsPerCreator" yaml:"newGameSessionsPerCreator"`
 	// The time span used in evaluating the resource creation limit policy.
 	PolicyPeriodInMinutes *float64 `field:"optional" json:"policyPeriodInMinutes" yaml:"policyPeriodInMinutes"`

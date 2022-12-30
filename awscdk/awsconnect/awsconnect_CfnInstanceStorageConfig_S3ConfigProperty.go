@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,11 +20,11 @@ package awsconnect
 //   }
 //
 type CfnInstanceStorageConfig_S3ConfigProperty struct {
-	// `CfnInstanceStorageConfig.S3ConfigProperty.BucketName`.
+	// The S3 bucket name.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
-	// `CfnInstanceStorageConfig.S3ConfigProperty.BucketPrefix`.
+	// The S3 bucket prefix.
 	BucketPrefix *string `field:"required" json:"bucketPrefix" yaml:"bucketPrefix"`
-	// `CfnInstanceStorageConfig.S3ConfigProperty.EncryptionConfig`.
+	// The Amazon S3 encryption configuration.
 	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
 }
 

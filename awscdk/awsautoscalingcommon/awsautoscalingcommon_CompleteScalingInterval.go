@@ -14,9 +14,13 @@ package awsautoscalingcommon
 //   	change: jsii.Number(123),
 //   }
 //
+// Experimental.
 type CompleteScalingInterval struct {
+	// Experimental.
 	Lower *float64 `field:"required" json:"lower" yaml:"lower"`
+	// Experimental.
 	Upper *float64 `field:"required" json:"upper" yaml:"upper"`
+	// Experimental.
 	Change *float64 `field:"optional" json:"change" yaml:"change"`
 }
 

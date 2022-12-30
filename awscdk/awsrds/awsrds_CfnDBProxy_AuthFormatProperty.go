@@ -28,7 +28,9 @@ type CfnDBProxy_AuthFormatProperty struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 	//
-	// Valid Values: `DISABLED | REQUIRED`.
+	// The `ENABLED` value is valid only for proxies with RDS for Microsoft SQL Server.
+	//
+	// Valid Values: `ENABLED | DISABLED | REQUIRED`.
 	IamAuth *string `field:"optional" json:"iamAuth" yaml:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
 	//

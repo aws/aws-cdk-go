@@ -1,6 +1,8 @@
 package awsscheduler
 
 
+// The name and value pair of a parameter to use to start execution of a SageMaker Model Building Pipeline.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsscheduler
 //   }
 //
 type CfnSchedule_SageMakerPipelineParameterProperty struct {
-	// `CfnSchedule.SageMakerPipelineParameterProperty.Name`.
+	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnSchedule.SageMakerPipelineParameterProperty.Value`.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

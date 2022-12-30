@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateAddDeletionO
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateInspectParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateRenderProper
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateSetStatistic
 	return nil
 }
 
-func validateNewCfnNetworkPerformanceMetricSubscriptionParameters(scope constructs.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) error {
+func validateNewCfnNetworkPerformanceMetricSubscriptionParameters(scope awscdk.Construct, id *string, props *CfnNetworkPerformanceMetricSubscriptionProps) error {
 	return nil
 }
 

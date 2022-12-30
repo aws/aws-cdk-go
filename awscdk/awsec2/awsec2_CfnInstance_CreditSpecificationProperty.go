@@ -1,9 +1,11 @@
 package awsec2
 
 
-// Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+// Specifies the credit option for CPU usage of a T instance.
 //
 // `CreditSpecification` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
+//
+// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +19,9 @@ package awsec2
 type CfnInstance_CreditSpecificationProperty struct {
 	// The credit option for CPU usage of the instance.
 	//
-	// Valid values are `standard` and `unlimited` . `T3` instances launch as `unlimited` by default. `T2` instances launch as `standard` by default.
+	// Valid values: `standard` | `unlimited`
+	//
+	// T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
 	CpuCredits *string `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`
 }
 

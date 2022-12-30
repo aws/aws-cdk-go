@@ -1,11 +1,9 @@
 package awswafv2
 
 
-// Additional information that's used by a managed rule group. Most managed rule groups don't require this.
+// Additional information that's used by a managed rule group. Many managed rule groups don't require this.
 //
-// Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet` , to provide information about the sign-in page of your application.
-//
-// You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
+// Use the `AWSManagedRulesBotControlRuleSet` configuration object to configure the protection level that you want the Bot Control rule group to use.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,7 +25,9 @@ package awswafv2
 //   }
 //
 type CfnWebACL_ManagedRuleGroupConfigProperty struct {
-	// `CfnWebACL.ManagedRuleGroupConfigProperty.AWSManagedRulesBotControlRuleSet`.
+	// Additional configuration for using the Bot Control managed rule group.
+	//
+	// Use this to specify the inspection level that you want to use. For information about using the Bot Control managed rule group, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) and [AWS WAF Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesBotControlRuleSet interface{} `field:"optional" json:"awsManagedRulesBotControlRuleSet" yaml:"awsManagedRulesBotControlRuleSet"`
 	// The path of the login endpoint for your application.
 	//

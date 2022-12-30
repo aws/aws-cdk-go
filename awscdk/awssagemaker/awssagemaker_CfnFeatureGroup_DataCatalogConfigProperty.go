@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// The meta data of the Glue table which serves as data catalog for the `OfflineStore` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,11 @@ package awssagemaker
 //   }
 //
 type CfnFeatureGroup_DataCatalogConfigProperty struct {
-	// `CfnFeatureGroup.DataCatalogConfigProperty.Catalog`.
+	// The name of the Glue table catalog.
 	Catalog *string `field:"required" json:"catalog" yaml:"catalog"`
-	// `CfnFeatureGroup.DataCatalogConfigProperty.Database`.
+	// The name of the Glue table database.
 	Database *string `field:"required" json:"database" yaml:"database"`
-	// `CfnFeatureGroup.DataCatalogConfigProperty.TableName`.
+	// The name of the Glue table.
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

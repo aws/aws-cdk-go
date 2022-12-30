@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnServiceLinkedRole) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnServiceLinkedRole) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnServiceLinkedRole) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnServiceLinkedRole) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnServiceLinkedRole) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnServiceLinkedRole) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnServiceLinkedRole) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnServiceLinkedRole) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnServiceLinkedRole) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnServiceLinkedRole) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnServiceLinkedRole) validateSetAwsServiceNameParameters(val
 	return nil
 }
 
-func validateNewCfnServiceLinkedRoleParameters(scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) error {
+func validateNewCfnServiceLinkedRoleParameters(scope awscdk.Construct, id *string, props *CfnServiceLinkedRoleProps) error {
 	return nil
 }
 

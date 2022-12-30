@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateAddDeletionOverrideP
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateInspectParameters(in
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateRenderPropertiesPara
 	return nil
 }
 
-func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnLaunchNotificationConstraint) validateSetProductIdParamete
 	return nil
 }
 
-func validateNewCfnLaunchNotificationConstraintParameters(scope constructs.Construct, id *string, props *CfnLaunchNotificationConstraintProps) error {
+func validateNewCfnLaunchNotificationConstraintParameters(scope awscdk.Construct, id *string, props *CfnLaunchNotificationConstraintProps) error {
 	return nil
 }
 

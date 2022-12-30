@@ -4,7 +4,6 @@ package awsappmesh
 // Represents the properties needed to define client policy.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var service service
 //
@@ -39,18 +38,23 @@ package awsappmesh
 //
 //   cdk.tags.of(node).add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type TlsClientPolicy struct {
 	// Represents the object for TLS validation context.
+	// Experimental.
 	Validation *TlsValidation `field:"required" json:"validation" yaml:"validation"`
 	// Whether the policy is enforced.
+	// Experimental.
 	Enforce *bool `field:"optional" json:"enforce" yaml:"enforce"`
 	// Represents a client TLS certificate.
 	//
 	// The certificate will be sent only if the server requests it, enabling mutual TLS.
+	// Experimental.
 	MutualTlsCertificate MutualTlsCertificate `field:"optional" json:"mutualTlsCertificate" yaml:"mutualTlsCertificate"`
 	// TLS is enforced on the ports specified here.
 	//
 	// If no ports are specified, TLS will be enforced on all the ports.
+	// Experimental.
 	Ports *[]*float64 `field:"optional" json:"ports" yaml:"ports"`
 }
 
