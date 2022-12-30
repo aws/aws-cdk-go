@@ -30,6 +30,7 @@ import (
 //   	deliveryPolicy: deliveryPolicy,
 //   	endpoint: jsii.String("endpoint"),
 //   	filterPolicy: filterPolicy,
+//   	filterPolicyScope: jsii.String("filterPolicyScope"),
 //   	rawMessageDelivery: jsii.Boolean(false),
 //   	redrivePolicy: redrivePolicy,
 //   	region: jsii.String("region"),
@@ -63,6 +64,9 @@ type CfnSubscription interface {
 	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon SNS Developer Guide* .
 	FilterPolicy() interface{}
 	SetFilterPolicy(val interface{})
+	// `AWS::SNS::Subscription.FilterPolicyScope`.
+	FilterPolicyScope() *string
+	SetFilterPolicyScope(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -340,6 +344,16 @@ func (j *jsiiProxy_CfnSubscription) FilterPolicy() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubscription) FilterPolicyScope() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"filterPolicyScope",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubscription) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -516,6 +530,14 @@ func (j *jsiiProxy_CfnSubscription)SetFilterPolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"filterPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubscription)SetFilterPolicyScope(val *string) {
+	_jsii_.Set(
+		j,
+		"filterPolicyScope",
 		val,
 	)
 }

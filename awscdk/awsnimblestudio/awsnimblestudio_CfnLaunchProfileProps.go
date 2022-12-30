@@ -26,8 +26,10 @@ package awsnimblestudio
 //   		},
 //
 //   		// the properties below are optional
+//   		automaticTerminationMode: jsii.String("automaticTerminationMode"),
 //   		maxSessionLengthInMinutes: jsii.Number(123),
 //   		maxStoppedSessionLengthInMinutes: jsii.Number(123),
+//   		sessionPersistenceMode: jsii.String("sessionPersistenceMode"),
 //   		sessionStorage: &streamConfigurationSessionStorageProperty{
 //   			mode: []*string{
 //   				jsii.String("mode"),
@@ -38,6 +40,11 @@ package awsnimblestudio
 //   				linux: jsii.String("linux"),
 //   				windows: jsii.String("windows"),
 //   			},
+//   		},
+//   		volumeConfiguration: &volumeConfigurationProperty{
+//   			iops: jsii.Number(123),
+//   			size: jsii.Number(123),
+//   			throughput: jsii.Number(123),
 //   		},
 //   	},
 //   	studioComponentIds: []*string{

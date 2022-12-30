@@ -41,9 +41,6 @@ package awslambda
 //   	queues: []*string{
 //   		jsii.String("queues"),
 //   	},
-//   	scalingConfig: &scalingConfigProperty{
-//   		maximumConcurrency: jsii.Number(123),
-//   	},
 //   	selfManagedEventSource: &selfManagedEventSourceProperty{
 //   		endpoints: &endpointsProperty{
 //   			kafkaBootstrapServers: []*string{
@@ -138,8 +135,6 @@ type CfnEventSourceMappingProps struct {
 	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues *[]*string `field:"optional" json:"queues" yaml:"queues"`
-	// `AWS::Lambda::EventSourceMapping.ScalingConfig`.
-	ScalingConfig interface{} `field:"optional" json:"scalingConfig" yaml:"scalingConfig"`
 	// The self-managed Apache Kafka cluster for your event source.
 	SelfManagedEventSource interface{} `field:"optional" json:"selfManagedEventSource" yaml:"selfManagedEventSource"`
 	// `AWS::Lambda::EventSourceMapping.SelfManagedKafkaEventSourceConfig`.

@@ -929,6 +929,14 @@ func init() {
 		reflect.TypeOf((*CfnResponseHeadersPolicy_ReferrerPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.RemoveHeaderProperty",
+		reflect.TypeOf((*CfnResponseHeadersPolicy_RemoveHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.RemoveHeadersConfigProperty",
+		reflect.TypeOf((*CfnResponseHeadersPolicy_RemoveHeadersConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty",
 		reflect.TypeOf((*CfnResponseHeadersPolicy_ResponseHeadersPolicyConfigProperty)(nil)).Elem(),
 	)

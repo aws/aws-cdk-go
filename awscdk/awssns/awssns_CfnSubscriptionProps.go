@@ -20,6 +20,7 @@ package awssns
 //   	deliveryPolicy: deliveryPolicy,
 //   	endpoint: jsii.String("endpoint"),
 //   	filterPolicy: filterPolicy,
+//   	filterPolicyScope: jsii.String("filterPolicyScope"),
 //   	rawMessageDelivery: jsii.Boolean(false),
 //   	redrivePolicy: redrivePolicy,
 //   	region: jsii.String("region"),
@@ -45,6 +46,8 @@ type CfnSubscriptionProps struct {
 	//
 	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon SNS Developer Guide* .
 	FilterPolicy interface{} `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
+	// `AWS::SNS::Subscription.FilterPolicyScope`.
+	FilterPolicyScope *string `field:"optional" json:"filterPolicyScope" yaml:"filterPolicyScope"`
 	// When set to `true` , enables raw message delivery.
 	//
 	// Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* .

@@ -51,6 +51,13 @@ package awscloudfront
 //   			},
 //   		},
 //   	},
+//   	removeHeadersConfig: &removeHeadersConfigProperty{
+//   		items: []interface{}{
+//   			&removeHeaderProperty{
+//   				header: jsii.String("header"),
+//   			},
+//   		},
+//   	},
 //   	securityHeadersConfig: &securityHeadersConfigProperty{
 //   		contentSecurityPolicy: &contentSecurityPolicyProperty{
 //   			contentSecurityPolicy: jsii.String("contentSecurityPolicy"),
@@ -105,6 +112,8 @@ type CfnResponseHeadersPolicy_ResponseHeadersPolicyConfigProperty struct {
 	CorsConfig interface{} `field:"optional" json:"corsConfig" yaml:"corsConfig"`
 	// A configuration for a set of custom HTTP response headers.
 	CustomHeadersConfig interface{} `field:"optional" json:"customHeadersConfig" yaml:"customHeadersConfig"`
+	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.RemoveHeadersConfig`.
+	RemoveHeadersConfig interface{} `field:"optional" json:"removeHeadersConfig" yaml:"removeHeadersConfig"`
 	// A configuration for a set of security-related HTTP response headers.
 	SecurityHeadersConfig interface{} `field:"optional" json:"securityHeadersConfig" yaml:"securityHeadersConfig"`
 	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.ServerTimingHeadersConfig`.

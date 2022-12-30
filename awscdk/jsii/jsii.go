@@ -15,7 +15,7 @@ import (
 	nodeproxyagentv5 "github.com/cdklabs/awscdk-asset-node-proxy-agent-go/nodeproxyagentv5/v2/jsii"
 )
 
-//go:embed aws-cdk-lib-2.58.0.tgz
+//go:embed aws-cdk-lib-2.58.1.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -28,5 +28,5 @@ func Initialize() {
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("aws-cdk-lib", "2.58.0", tarball)
+	_jsii_.Load("aws-cdk-lib", "2.58.1", tarball)
 }

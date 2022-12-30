@@ -104,10 +104,6 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFunctionNameParameters(val 
 	return nil
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) validateSetScalingConfigParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetSelfManagedEventSourceParameters(val interface{}) error {
 	return nil
 }

@@ -71,6 +71,10 @@ func init() {
 		reflect.TypeOf((*CfnLaunchProfile_StreamingSessionStorageRootProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile.VolumeConfigurationProperty",
+		reflect.TypeOf((*CfnLaunchProfile_VolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfileProps",
 		reflect.TypeOf((*CfnLaunchProfileProps)(nil)).Elem(),
 	)

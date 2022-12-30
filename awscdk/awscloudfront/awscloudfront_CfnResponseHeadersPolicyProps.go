@@ -50,6 +50,13 @@ package awscloudfront
 //   				},
 //   			},
 //   		},
+//   		removeHeadersConfig: &removeHeadersConfigProperty{
+//   			items: []interface{}{
+//   				&removeHeaderProperty{
+//   					header: jsii.String("header"),
+//   				},
+//   			},
+//   		},
 //   		securityHeadersConfig: &securityHeadersConfigProperty{
 //   			contentSecurityPolicy: &contentSecurityPolicyProperty{
 //   				contentSecurityPolicy: jsii.String("contentSecurityPolicy"),
