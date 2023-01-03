@@ -8,10 +8,6 @@ func (i *jsiiProxy_IApplicationListener) validateAddActionParameters(id *string,
 	return nil
 }
 
-func (i *jsiiProxy_IApplicationListener) validateAddCertificateArnsParameters(id *string, arns *[]*string) error {
-	return nil
-}
-
 func (i *jsiiProxy_IApplicationListener) validateAddCertificatesParameters(id *string, certificates *[]IListenerCertificate) error {
 	return nil
 }

@@ -17,19 +17,14 @@ package cxapi
 //   	cidr: jsii.String("cidr"),
 //   }
 //
-// Experimental.
 type VpcSubnet struct {
 	// The code of the availability zone this subnet is in (for example, 'us-west-2a').
-	// Experimental.
 	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The identifier of the route table for this subnet.
-	// Experimental.
 	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
 	// The identifier of the subnet.
-	// Experimental.
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// CIDR range of the subnet.
-	// Experimental.
 	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 }
 

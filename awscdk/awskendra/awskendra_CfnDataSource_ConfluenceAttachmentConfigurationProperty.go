@@ -30,7 +30,7 @@ type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 	//
 	// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
 	AttachmentFieldMappings interface{} `field:"optional" json:"attachmentFieldMappings" yaml:"attachmentFieldMappings"`
-	// `TRUE` to index attachments of pages and blogs in Confluence.
+	// Indicates whether Amazon Kendra indexes attachments to the pages and blogs in the Confluence data source.
 	CrawlAttachments interface{} `field:"optional" json:"crawlAttachments" yaml:"crawlAttachments"`
 }
 

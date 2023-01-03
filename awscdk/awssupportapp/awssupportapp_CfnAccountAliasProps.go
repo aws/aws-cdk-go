@@ -13,7 +13,7 @@ package awssupportapp
 //   }
 //
 type CfnAccountAliasProps struct {
-	// An alias or short name for an AWS account .
+	// `AWS::SupportApp::AccountAlias.AccountAlias`.
 	AccountAlias *string `field:"required" json:"accountAlias" yaml:"accountAlias"`
 }
 

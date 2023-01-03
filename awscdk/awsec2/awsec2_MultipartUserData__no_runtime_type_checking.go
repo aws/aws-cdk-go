@@ -36,6 +36,10 @@ func validateMultipartUserData_ForOperatingSystemParameters(os OperatingSystemTy
 	return nil
 }
 
+func validateMultipartUserData_ForWindowsParameters(options *WindowsUserDataOptions) error {
+	return nil
+}
+
 func validateNewMultipartUserDataParameters(opts *MultipartUserDataOptions) error {
 	return nil
 }

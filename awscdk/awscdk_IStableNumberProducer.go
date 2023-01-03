@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -6,10 +6,8 @@ import (
 )
 
 // Interface for (stable) lazy number producers.
-// Experimental.
 type IStableNumberProducer interface {
 	// Produce the number value.
-	// Experimental.
 	Produce() *float64
 }
 

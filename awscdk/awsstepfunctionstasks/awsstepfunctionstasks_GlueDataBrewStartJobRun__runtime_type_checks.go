@@ -7,10 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (g *jsiiProxy_GlueDataBrewStartJobRun) validateAddBranchParameters(branch awsstepfunctions.StateGraph) error {
@@ -180,22 +179,6 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) validateMetricTimedOutParameters(pro
 func (g *jsiiProxy_GlueDataBrewStartJobRun) validateNextParameters(next awsstepfunctions.IChainable) error {
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (g *jsiiProxy_GlueDataBrewStartJobRun) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (g *jsiiProxy_GlueDataBrewStartJobRun) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

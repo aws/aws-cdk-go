@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnConnectPeer`.
@@ -40,7 +40,7 @@ type CfnConnectPeerProps struct {
 	InsideCidrBlocks *[]*string `field:"optional" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
 	// The IP address of the Connect peer.
 	PeerAddress *string `field:"optional" json:"peerAddress" yaml:"peerAddress"`
-	// The list of key-value tags associated with the Connect peer.
+	// The tags associated with the Connect peer.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -95,18 +95,33 @@ package awsrds
 //   	},
 //   })
 //
-// Experimental.
+// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html
+//
 type StorageType string
 
 const (
 	// Standard.
-	// Experimental.
+	//
+	// Amazon RDS supports magnetic storage for backward compatibility. It is recommended to use
+	// General Purpose SSD or Provisioned IOPS SSD for any new storage needs.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#CHAP_Storage.Magnetic
+	//
 	StorageType_STANDARD StorageType = "STANDARD"
-	// General purpose (SSD).
-	// Experimental.
+	// General purpose SSD (gp2).
+	//
+	// Baseline performance determined by volume size.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
+	//
 	StorageType_GP2 StorageType = "GP2"
+	// General purpose SSD (gp3).
+	//
+	// Performance scales independently from storage.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
+	//
+	StorageType_GP3 StorageType = "GP3"
 	// Provisioned IOPS (SSD).
-	// Experimental.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS
+	//
 	StorageType_IO1 StorageType = "IO1"
 )
 

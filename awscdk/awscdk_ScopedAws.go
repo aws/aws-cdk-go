@@ -1,9 +1,11 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Accessor for scoped pseudo parameters.
@@ -14,25 +16,17 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   scopedAws := monocdk.NewScopedAws(this)
+//   scopedAws := cdk.NewScopedAws(this)
 //
-// Experimental.
 type ScopedAws interface {
-	// Experimental.
 	AccountId() *string
-	// Experimental.
 	NotificationArns() *[]*string
-	// Experimental.
 	Partition() *string
-	// Experimental.
 	Region() *string
-	// Experimental.
 	StackId() *string
-	// Experimental.
 	StackName() *string
-	// Experimental.
 	UrlSuffix() *string
 }
 
@@ -112,8 +106,7 @@ func (j *jsiiProxy_ScopedAws) UrlSuffix() *string {
 }
 
 
-// Experimental.
-func NewScopedAws(scope Construct) ScopedAws {
+func NewScopedAws(scope constructs.Construct) ScopedAws {
 	_init_.Initialize()
 
 	if err := validateNewScopedAwsParameters(scope); err != nil {
@@ -122,7 +115,7 @@ func NewScopedAws(scope Construct) ScopedAws {
 	j := jsiiProxy_ScopedAws{}
 
 	_jsii_.Create(
-		"monocdk.ScopedAws",
+		"aws-cdk-lib.ScopedAws",
 		[]interface{}{scope},
 		&j,
 	)
@@ -130,12 +123,11 @@ func NewScopedAws(scope Construct) ScopedAws {
 	return &j
 }
 
-// Experimental.
-func NewScopedAws_Override(s ScopedAws, scope Construct) {
+func NewScopedAws_Override(s ScopedAws, scope constructs.Construct) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.ScopedAws",
+		"aws-cdk-lib.ScopedAws",
 		[]interface{}{scope},
 		s,
 	)

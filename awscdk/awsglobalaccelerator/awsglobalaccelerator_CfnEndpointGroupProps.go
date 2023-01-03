@@ -61,7 +61,7 @@ type CfnEndpointGroupProps struct {
 	HealthCheckProtocol *string `field:"optional" json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
 	// Allows you to override the destination ports used to route traffic to an endpoint.
 	//
-	// Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+	// Using a port override lets you to map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 	PortOverrides interface{} `field:"optional" json:"portOverrides" yaml:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy.
 	//

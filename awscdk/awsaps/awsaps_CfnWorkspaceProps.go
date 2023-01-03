@@ -1,7 +1,7 @@
 package awsaps
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnWorkspace`.
@@ -36,7 +36,7 @@ type CfnWorkspaceProps struct {
 	//
 	// The alias can be as many as 100 characters and can include any type of characters. Amazon Managed Service for Prometheus automatically strips any blank spaces from the beginning and end of the alias that you specify.
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
-	// The LoggingConfiguration attribute is used to set the logging configuration for the workspace.
+	// `AWS::APS::Workspace.LoggingConfiguration`.
 	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// A list of tag keys and values to associate with the workspace.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

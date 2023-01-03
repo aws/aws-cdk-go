@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
 
 func (i *jsiiProxy_IApplicationListener) validateAddActionParameters(id *string, props *AddApplicationActionProps) error {
@@ -21,18 +21,6 @@ func (i *jsiiProxy_IApplicationListener) validateAddActionParameters(id *string,
 	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (i *jsiiProxy_IApplicationListener) validateAddCertificateArnsParameters(id *string, arns *[]*string) error {
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arns == nil {
-		return fmt.Errorf("parameter arns is required, but nil was provided")
 	}
 
 	return nil

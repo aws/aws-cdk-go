@@ -75,7 +75,7 @@ type CfnEndpoint_OracleSettingsProperty struct {
 	ArchivedLogDestId *float64 `field:"optional" json:"archivedLogDestId" yaml:"archivedLogDestId"`
 	// When this field is set to `Y` , AWS DMS only accesses the archived redo logs.
 	//
-	// If the archived redo logs are stored on Automatic Storage Management (ASM) only, the AWS DMS user account needs to be granted ASM privileges.
+	// If the archived redo logs are stored on Oracle ASM only, the AWS DMS user account needs to be granted ASM privileges.
 	ArchivedLogsOnly interface{} `field:"optional" json:"archivedLogsOnly" yaml:"archivedLogsOnly"`
 	// For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
 	//

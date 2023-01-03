@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateAddDeletionOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateInspectParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateRenderProperti
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnTransitGatewayMulticastGroupSource) validateSetTransitGate
 	return nil
 }
 
-func validateNewCfnTransitGatewayMulticastGroupSourceParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) error {
+func validateNewCfnTransitGatewayMulticastGroupSourceParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayMulticastGroupSourceProps) error {
 	return nil
 }
 

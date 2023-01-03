@@ -16,19 +16,15 @@ func (n *jsiiProxy_NonIpInstance) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
-func (n *jsiiProxy_NonIpInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (n *jsiiProxy_NonIpInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateNonIpInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNonIpInstance_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateNonIpInstance_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateNonIpInstance_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

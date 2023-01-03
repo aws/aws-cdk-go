@@ -688,19 +688,17 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	//
 	// You use this, along with the rule group name, to identify the rule group.
 	VendorName *string `field:"required" json:"vendorName" yaml:"vendorName"`
-	// Rules in the referenced rule group whose actions are set to `Count` .
+	// The rules in the referenced rule group whose actions are set to `Count` .
 	//
-	// > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
+	// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
 	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
-	// Additional information that's used by a managed rule group. Many managed rule groups don't require this.
+	// Additional information that's used by a managed rule group. Most managed rule groups don't require this.
 	//
-	// Use the `AWSManagedRulesBotControlRuleSet` configuration object to configure the protection level that you want the Bot Control rule group to use.
+	// Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet` , to provide information about the sign-in page of your application.
+	//
+	// You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
 	ManagedRuleGroupConfigs interface{} `field:"optional" json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
-	// Action settings to use in the place of the rule actions that are configured inside the rule group.
-	//
-	// You specify one override for each rule whose action you want to change.
-	//
-	// You can use overrides for testing, for example you can override all of rule actions to `Count` and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.
+	// `CfnWebACL.ManagedRuleGroupStatementProperty.RuleActionOverrides`.
 	RuleActionOverrides interface{} `field:"optional" json:"ruleActionOverrides" yaml:"ruleActionOverrides"`
 	// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group.
 	//

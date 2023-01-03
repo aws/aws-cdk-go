@@ -46,35 +46,31 @@ package awsm2
 //   }
 //
 type CfnEnvironmentProps struct {
-	// The target platform for the runtime environment.
+	// `AWS::M2::Environment.EngineType`.
 	EngineType *string `field:"required" json:"engineType" yaml:"engineType"`
-	// The instance type of the runtime environment.
+	// `AWS::M2::Environment.InstanceType`.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
-	// The name of the runtime environment.
+	// `AWS::M2::Environment.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The description of the runtime environment.
+	// `AWS::M2::Environment.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The version of the runtime engine.
+	// `AWS::M2::Environment.EngineVersion`.
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
-	// Defines the details of a high availability configuration.
+	// `AWS::M2::Environment.HighAvailabilityConfig`.
 	HighAvailabilityConfig interface{} `field:"optional" json:"highAvailabilityConfig" yaml:"highAvailabilityConfig"`
 	// `AWS::M2::Environment.KmsKeyId`.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// Configures the maintenance window you want for the runtime environment.
-	//
-	// If you do not provide a value, a random system-generated value will be assigned.
+	// `AWS::M2::Environment.PreferredMaintenanceWindow`.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
-	// Specifies whether the runtime environment is publicly accessible.
+	// `AWS::M2::Environment.PubliclyAccessible`.
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
-	// The list of security groups for the VPC associated with this runtime environment.
+	// `AWS::M2::Environment.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// Defines the storage configuration for a runtime environment.
+	// `AWS::M2::Environment.StorageConfigurations`.
 	StorageConfigurations interface{} `field:"optional" json:"storageConfigurations" yaml:"storageConfigurations"`
-	// The list of subnets associated with the VPC for this runtime environment.
+	// `AWS::M2::Environment.SubnetIds`.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// `AWS::M2::Environment.Tags`.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

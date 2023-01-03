@@ -1,113 +1,61 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Linux-specific options that are applied to the container.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var taskDefinition taskDefinition
 //
-//   linuxParameters := awscdk.Aws_ecs.NewLinuxParameters(this, jsii.String("MyLinuxParameters"), &linuxParametersProps{
-//   	initProcessEnabled: jsii.Boolean(false),
-//   	sharedMemorySize: jsii.Number(123),
+//
+//   taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	linuxParameters: ecs.NewLinuxParameters(this, jsii.String("LinuxParameters"), &linuxParametersProps{
+//   		initProcessEnabled: jsii.Boolean(true),
+//   		sharedMemorySize: jsii.Number(1024),
+//   		maxSwap: awscdk.Size.mebibytes(jsii.Number(5000)),
+//   		swappiness: jsii.Number(90),
+//   	}),
 //   })
 //
-// Experimental.
 type LinuxParameters interface {
-	awscdk.Construct
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	constructs.Construct
+	// The tree node.
+	Node() constructs.Node
 	// Adds one or more Linux capabilities to the Docker configuration of a container.
 	//
 	// Only works with EC2 launch type.
-	// Experimental.
 	AddCapabilities(cap ...Capability)
 	// Adds one or more host devices to a container.
-	// Experimental.
 	AddDevices(device ...*Device)
 	// Specifies the container path, mount options, and size (in MiB) of the tmpfs mount for a container.
 	//
 	// Only works with EC2 launch type.
-	// Experimental.
 	AddTmpfs(tmpfs ...*Tmpfs)
 	// Removes one or more Linux capabilities to the Docker configuration of a container.
 	//
 	// Only works with EC2 launch type.
-	// Experimental.
 	DropCapabilities(cap ...Capability)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Renders the Linux parameters to a CloudFormation object.
-	// Experimental.
 	RenderLinuxParameters() *CfnTaskDefinition_LinuxParametersProperty
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for LinuxParameters
 type jsiiProxy_LinuxParameters struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_LinuxParameters) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_LinuxParameters) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -118,7 +66,6 @@ func (j *jsiiProxy_LinuxParameters) Node() awscdk.ConstructNode {
 
 
 // Constructs a new instance of the LinuxParameters class.
-// Experimental.
 func NewLinuxParameters(scope constructs.Construct, id *string, props *LinuxParametersProps) LinuxParameters {
 	_init_.Initialize()
 
@@ -128,7 +75,7 @@ func NewLinuxParameters(scope constructs.Construct, id *string, props *LinuxPara
 	j := jsiiProxy_LinuxParameters{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.LinuxParameters",
+		"aws-cdk-lib.aws_ecs.LinuxParameters",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -137,19 +84,33 @@ func NewLinuxParameters(scope constructs.Construct, id *string, props *LinuxPara
 }
 
 // Constructs a new instance of the LinuxParameters class.
-// Experimental.
 func NewLinuxParameters_Override(l LinuxParameters, scope constructs.Construct, id *string, props *LinuxParametersProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.LinuxParameters",
+		"aws-cdk-lib.aws_ecs.LinuxParameters",
 		[]interface{}{scope, id, props},
 		l,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func LinuxParameters_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -159,7 +120,7 @@ func LinuxParameters_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.LinuxParameters",
+		"aws-cdk-lib.aws_ecs.LinuxParameters",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -226,46 +187,6 @@ func (l *jsiiProxy_LinuxParameters) DropCapabilities(cap ...Capability) {
 	)
 }
 
-func (l *jsiiProxy_LinuxParameters) OnPrepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LinuxParameters) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := l.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		l,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (l *jsiiProxy_LinuxParameters) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LinuxParameters) Prepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (l *jsiiProxy_LinuxParameters) RenderLinuxParameters() *CfnTaskDefinition_LinuxParametersProperty {
 	var returns *CfnTaskDefinition_LinuxParametersProperty
 
@@ -279,36 +200,12 @@ func (l *jsiiProxy_LinuxParameters) RenderLinuxParameters() *CfnTaskDefinition_L
 	return returns
 }
 
-func (l *jsiiProxy_LinuxParameters) Synthesize(session awscdk.ISynthesisSession) {
-	if err := l.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		l,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (l *jsiiProxy_LinuxParameters) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		l,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LinuxParameters) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

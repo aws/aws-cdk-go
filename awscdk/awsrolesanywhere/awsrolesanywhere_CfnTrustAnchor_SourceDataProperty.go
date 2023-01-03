@@ -1,8 +1,6 @@
 package awsrolesanywhere
 
 
-// A union object representing the data field of the TrustAnchor depending on its type.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,13 +12,9 @@ package awsrolesanywhere
 //   }
 //
 type CfnTrustAnchor_SourceDataProperty struct {
-	// The root certificate of the AWS Private Certificate Authority specified by this ARN is used in trust validation for temporary credential requests.
-	//
-	// Included for trust anchors of type `AWS_ACM_PCA` .
+	// `CfnTrustAnchor.SourceDataProperty.AcmPcaArn`.
 	AcmPcaArn *string `field:"optional" json:"acmPcaArn" yaml:"acmPcaArn"`
-	// The PEM-encoded data for the certificate anchor.
-	//
-	// Included for trust anchors of type `CERTIFICATE_BUNDLE` .
+	// `CfnTrustAnchor.SourceDataProperty.X509CertificateData`.
 	X509CertificateData *string `field:"optional" json:"x509CertificateData" yaml:"x509CertificateData"`
 }
 

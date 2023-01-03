@@ -16,9 +16,9 @@ package awsce
 //   }
 //
 type CfnAnomalyMonitor_ResourceTagProperty struct {
-	// The key that's associated with the tag.
+	// The key that is associated with the tag.
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// The value that's associated with the tag.
+	// The value that is associated with the tag.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

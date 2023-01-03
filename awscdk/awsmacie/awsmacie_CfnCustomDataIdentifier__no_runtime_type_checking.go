@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnCustomDataIdentifier) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCustomDataIdentifier) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomDataIdentifier) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCustomDataIdentifier) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomDataIdentifier) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCustomDataIdentifier) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomDataIdentifier) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCustomDataIdentifier) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) validateSetRegexParameters(val *stri
 	return nil
 }
 
-func validateNewCfnCustomDataIdentifierParameters(scope awscdk.Construct, id *string, props *CfnCustomDataIdentifierProps) error {
+func validateNewCfnCustomDataIdentifierParameters(scope constructs.Construct, id *string, props *CfnCustomDataIdentifierProps) error {
 	return nil
 }
 

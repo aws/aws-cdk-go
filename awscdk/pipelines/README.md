@@ -6,7 +6,7 @@ CDK Pipelines is an *opinionated construct library*. It is purpose-built to
 deploy one or more copies of your CDK applications using CloudFormation with a
 minimal amount of effort on your part. It is *not* intended to support arbitrary
 deployment pipelines, and very specifically it is not built to use CodeDeploy to
-applications to instances, or deploy your custom-built ECR images to an ECS
+deploy applications to instances, or deploy your custom-built ECR images to an ECS
 cluster directly: use CDK file assets with CloudFormation Init for instances, or
 CDK container assets for ECS clusters instead.
 
@@ -25,7 +25,7 @@ down to using the `aws-codepipeline` construct library directly.
 > allows more control of CodeBuild project generation; supports deployment
 > engines other than CodePipeline.
 >
-> The README for the original API, as well as a migration guide, can be found in [our GitHub repository](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
+> The README for the original API, as well as a migration guide, can be found in [our GitHub repository](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
 
 ## At a glance
 
@@ -222,12 +222,12 @@ originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdk
 })
 ```
 
-## Definining the pipeline
+## Defining the pipeline
 
 This section of the documentation describes the AWS CodePipeline engine,
 which comes with this library. If you want to use a different deployment
 engine, read the section
-[Using a different deployment engine](#using-a-different-deployment-engine)below.
+[Using a different deployment engine](#using-a-different-deployment-engine) below.
 
 ### Synth and sources
 
@@ -569,6 +569,37 @@ pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipeli
 })
 ```
 
+#### Deploying without change sets
+
+Deployment is done by default with `CodePipeline` engine using change sets,
+i.e. to first create a change set and then execute it. This allows you to inject
+steps that inspect the change set and approve or reject it, but failed deployments
+are not retryable and creation of the change set costs time.
+
+The creation of change sets can be switched off by setting `useChangeSets: false`:
+
+```go
+var synth shellStep
+
+
+type pipelineStack struct {
+	stack
+}
+
+func newPipelineStack(scope construct, id *string, props stackProps) *pipelineStack {
+	this := &pipelineStack{}
+	newStack_Override(this, scope, id, props)
+
+	pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+		synth: synth,
+
+		// Disable change set creation and make deployments in pipeline as single step
+		useChangeSets: jsii.Boolean(false),
+	})
+	return this
+}
+```
+
 ### Validation
 
 Every `addStage()` and `addWave()` command takes additional options. As part of these options,
@@ -783,11 +814,14 @@ pipelines.NewCodeBuildStep(jsii.String("Synth"), &codeBuildStepProps{
 	// Control Elastic Network Interface creation
 	vpc: vpc,
 	subnetSelection: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 	},
 	securityGroups: []iSecurityGroup{
 		mySecurityGroup,
 	},
+
+	// Control caching
+	cache: codebuild.cache.bucket(s3.NewBucket(this, jsii.String("Cache"))),
 
 	// Additional policy statements for the execution role
 	rolePolicyStatements: []policyStatement{
@@ -833,7 +867,7 @@ pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 		// Control Elastic Network Interface creation
 		vpc: vpc,
 		subnetSelection: &subnetSelection{
-			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 		},
 		securityGroups: []iSecurityGroup{
 			mySecurityGroup,
@@ -907,6 +941,39 @@ func (this *myJenkinsStep) produceAction(stage iStage, options produceActionOpti
 	}
 }
 ```
+
+### Using an existing AWS Codepipeline
+
+If you wish to use an existing `CodePipeline.Pipeline` while using the modern API's
+methods and classes, you can pass in the existing `CodePipeline.Pipeline` to be built upon
+instead of having the `pipelines.CodePipeline` construct create a new `CodePipeline.Pipeline`.
+This also gives you more direct control over the underlying `CodePipeline.Pipeline` construct
+if the way the modern API creates it doesn't allow for desired configurations.
+
+Here's an example of passing in an existing pipeline:
+
+```go
+var codePipeline pipeline
+
+
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
+		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
+			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+		}),
+		commands: []*string{
+			jsii.String("npm ci"),
+			jsii.String("npm run build"),
+			jsii.String("npx cdk synth"),
+		},
+	}),
+	codePipeline: codePipeline,
+})
+```
+
+Note that if you provide an existing pipeline, you cannot provide values for
+`pipelineName`, `crossAccountKeys`, `reuseCrossRegionSupportStacks`, or `role`
+because those values are passed in directly to the underlying `codepipeline.Pipeline`.
 
 ## Using Docker in the pipeline
 
@@ -1042,7 +1109,7 @@ For authenticating to Docker registries that require a username and password com
 (like DockerHub), create a Secrets Manager Secret with fields named `username`
 and `secret`, and import it (the field names change be customized).
 
-Authentication to ECR repostories is done using the execution role of the
+Authentication to ECR repositories is done using the execution role of the
 relevant CodeBuild job. Both types of credentials can be provided with an
 optional role to assume before requesting the credentials.
 
@@ -1153,7 +1220,7 @@ These command lines explained:
   trusted account, only allowing it to look up values such as availability zones, EC2 images and
   VPCs. `--trust-for-lookup` does not give permissions to modify anything in the account.
   Note that `--trust` implies `--trust-for-lookup`, so you don't need to specify
-  the same acocunt twice.
+  the same account twice.
 * `aws://222222222222/us-east-2`: the account and region we're bootstrapping.
 
 > Be aware that anyone who has access to the trusted Accounts **effectively has all
@@ -1477,6 +1544,47 @@ After turning on `privilegedMode: true`, you will need to do a one-time manual c
 pipeline to get it going again (as with a broken 'synth' the pipeline will not be able to self
 update to the right state).
 
+### Not authorized to perform sts:AssumeRole on arn:aws:iam::*:role/*-lookup-role-*
+
+You may get an error like the following in the **Synth** step:
+
+```text
+Could not assume role in target account using current credentials (which are for account 111111111111). User:
+arn:aws:sts::111111111111:assumed-role/PipelineStack-PipelineBuildSynthCdkBuildProje-..../AWSCodeBuild-....
+is not authorized to perform: sts:AssumeRole on resource:
+arn:aws:iam::222222222222:role/cdk-hnb659fds-lookup-role-222222222222-us-east-1.
+Please make sure that this role exists in the account. If it doesn't exist, (re)-bootstrap the environment with
+the right '--trust', using the latest version of the CDK CLI.
+```
+
+This is a sign that the CLI is trying to do Context Lookups during the **Synth** step, which are failing
+because it cannot assume the right role. We recommend you don't rely on Context Lookups in the pipeline at
+all, and commit a file called `cdk.context.json` with the right lookup values in it to source control.
+
+If you do want to do lookups in the pipeline, the cause is one of the following:
+
+* The target environment has not been bootstrapped; OR
+* The target environment has been bootstrapped without the right `--trust` relationship; OR
+* The CodeBuild execution role does not have permissions to call `sts:AssumeRole`.
+
+See the section called **Context Lookups** for more information on using this feature.
+
+### IAM policies: Cannot exceed quota for PoliciesPerRole / Maximum policy size exceeded
+
+This happens as a result of having a lot of targets in the Pipeline: the IAM policies that
+get generated enumerate all required roles and grow too large.
+
+Make sure you are on version `2.26.0` or higher, and that your `cdk.json` contains the
+following:
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-iam:minimizePolicies": true
+  }
+}
+```
+
 ### S3 error: Access Denied
 
 An "S3 Access Denied" error can have two causes:
@@ -1591,6 +1699,97 @@ We recommend you avoid specifying the `cliVersion` parameter at all. By default
 the pipeline will use the latest CLI version, which will support all cloud assembly
 versions.
 
+## Using Drop-in Docker Replacements
+
+By default, the AWS CDK will build and publish Docker image assets using the
+`docker` command. However, by specifying the `CDK_DOCKER` environment variable,
+you can override the command that will be used to build and publish your
+assets.
+
+In CDK Pipelines, the drop-in replacement for the `docker` command must be
+included in the CodeBuild environment and configured for your pipeline.
+
+### Adding to the default CodeBuild image
+
+You can add a drop-in Docker replacement command to the default CodeBuild
+environment by adding install-phase commands that encode how to install
+your tooling and by adding the `CDK_DOCKER` environment variable to your
+build environment.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var source iFileSetProducer // the repository source
+var synthCommands []*string // Commands to synthesize your app
+var installCommands []*string
+// Commands to install your toolchain
+
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+	// Standard CodePipeline properties...
+	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
+		input: source,
+		commands: synthCommands,
+	}),
+
+	// Configure CodeBuild to use a drop-in Docker replacement.
+	codeBuildDefaults: &codeBuildOptions{
+		buildEnvironment: &buildEnvironment{
+			partialBuildSpec: codebuild_BuildSpec_FromObject(map[string]map[string]map[string][]*string{
+				"phases": map[string]map[string][]*string{
+					"install": map[string][]*string{
+						// Add the shell commands to install your drop-in Docker
+						// replacement to the CodeBuild enviromment.
+						"commands": installCommands,
+					},
+				},
+			}),
+			environmentVariables: map[string]buildEnvironmentVariable{
+				// Instruct the AWS CDK to use `drop-in-replacement` instead of
+				// `docker` when building / publishing docker images.
+				// e.g., `drop-in-replacement build . -f path/to/Dockerfile`
+				"CDK_DOCKER": jsii.String("drop-in-replacement"),
+			},
+		},
+	},
+})
+```
+
+### Using a custom build image
+
+If you're using a custom build image in CodeBuild, you can override the
+command the AWS CDK uses to build Docker images by providing `CDK_DOCKER` as
+an `ENV` in your `Dockerfile` or by providing the environment variable in the
+pipeline as shown below.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var source iFileSetProducer // the repository source
+var synthCommands []*string
+// Commands to synthesize your app
+
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+	// Standard CodePipeline properties...
+	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
+		input: source,
+		commands: synthCommands,
+	}),
+
+	// Configure CodeBuild to use a drop-in Docker replacement.
+	codeBuildDefaults: &codeBuildOptions{
+		buildEnvironment: &buildEnvironment{
+			// Provide a custom build image containing your toolchain and the
+			// pre-installed replacement for the `docker` command.
+			buildImage: codebuild.linuxBuildImage.fromDockerRegistry(jsii.String("your-docker-registry")),
+			environmentVariables: map[string]buildEnvironmentVariable{
+				// If you haven't provided an `ENV` in your Dockerfile that overrides
+				// `CDK_DOCKER`, then you must provide the name of the command that
+				// the AWS CDK should run instead of `docker` here.
+				"CDK_DOCKER": jsii.String("drop-in-replacement"),
+			},
+		},
+	},
+})
+```
+
 ## Known Issues
 
 There are some usability issues that are caused by underlying technology, and
@@ -1600,7 +1799,7 @@ cannot be remedied by CDK at this point. They are reproduced here for completene
   console will assume all links are relative to the current account. You will
   not be able to use the pipeline console to click through to a CloudFormation
   stack in a different account.
-* **If a change set failed to apply the pipeline must restarted**: if a change
+* **If a change set failed to apply the pipeline must be restarted**: if a change
   set failed to apply, it cannot be retried. The pipeline must be restarted from
   the top by clicking **Release Change**.
 * **A stack that failed to create must be deleted manually**: if a stack

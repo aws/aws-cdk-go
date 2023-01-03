@@ -1,8 +1,6 @@
 package awsconnectcampaigns
 
 
-// Contains outbound call configuration for an outbound campaign.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,13 +15,11 @@ package awsconnectcampaigns
 //   }
 //
 type CfnCampaign_OutboundCallConfigProperty struct {
-	// The Amazon Resource Name (ARN) of the flow.
+	// `CfnCampaign.OutboundCallConfigProperty.ConnectContactFlowArn`.
 	ConnectContactFlowArn *string `field:"required" json:"connectContactFlowArn" yaml:"connectContactFlowArn"`
-	// The Amazon Resource Name (ARN) of the queue.
+	// `CfnCampaign.OutboundCallConfigProperty.ConnectQueueArn`.
 	ConnectQueueArn *string `field:"required" json:"connectQueueArn" yaml:"connectQueueArn"`
-	// The phone number associated with the outbound call.
-	//
-	// This is the caller ID that is displayed to customers when an agent calls them.
+	// `CfnCampaign.OutboundCallConfigProperty.ConnectSourcePhoneNumber`.
 	ConnectSourcePhoneNumber *string `field:"optional" json:"connectSourcePhoneNumber" yaml:"connectSourcePhoneNumber"`
 }
 

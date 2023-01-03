@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnResolverDNSSECConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResolverDNSSECConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverDNSSECConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnResolverDNSSECConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverDNSSECConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnResolverDNSSECConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverDNSSECConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnResolverDNSSECConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnResolverDNSSECConfig_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateNewCfnResolverDNSSECConfigParameters(scope awscdk.Construct, id *string, props *CfnResolverDNSSECConfigProps) error {
+func validateNewCfnResolverDNSSECConfigParameters(scope constructs.Construct, id *string, props *CfnResolverDNSSECConfigProps) error {
 	return nil
 }
 

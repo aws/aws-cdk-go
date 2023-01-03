@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (r *jsiiProxy_RouteSpec) validateBindParameters(scope awscdk.Construct) error {
+func (r *jsiiProxy_RouteSpec) validateBindParameters(scope constructs.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

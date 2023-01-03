@@ -1,12 +1,12 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Creates `IDockerImage` instances.
@@ -21,10 +21,8 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type DockerImage interface {
 	// Called when the image is used by a SageMaker task.
-	// Experimental.
 	Bind(task ISageMakerTask) *DockerImageConfig
 }
 
@@ -33,19 +31,17 @@ type jsiiProxy_DockerImage struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDockerImage_Override(d DockerImage) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		nil, // no parameters
 		d,
 	)
 }
 
 // Reference a Docker image that is provided as an Asset in the current app.
-// Experimental.
 func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecrassets.DockerImageAssetProps) DockerImage {
 	_init_.Initialize()
 
@@ -55,7 +51,7 @@ func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecr
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromAsset",
 		[]interface{}{scope, id, props},
 		&returns,
@@ -65,7 +61,6 @@ func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecr
 }
 
 // Reference a Docker image stored in an ECR repository.
-// Experimental.
 func DockerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *string) DockerImage {
 	_init_.Initialize()
 
@@ -75,7 +70,7 @@ func DockerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *s
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tagOrDigest},
 		&returns,
@@ -85,7 +80,6 @@ func DockerImage_FromEcrRepository(repository awsecr.IRepository, tagOrDigest *s
 }
 
 // Reference a Docker image which URI is obtained from the task's input.
-// Experimental.
 func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bool) DockerImage {
 	_init_.Initialize()
 
@@ -95,7 +89,7 @@ func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bo
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromJsonExpression",
 		[]interface{}{expression, allowAnyEcrImagePull},
 		&returns,
@@ -107,7 +101,6 @@ func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bo
 // Reference a Docker image by it's URI.
 //
 // When referencing ECR images, prefer using `inEcr`.
-// Experimental.
 func DockerImage_FromRegistry(imageUri *string) DockerImage {
 	_init_.Initialize()
 
@@ -117,7 +110,7 @@ func DockerImage_FromRegistry(imageUri *string) DockerImage {
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		"fromRegistry",
 		[]interface{}{imageUri},
 		&returns,

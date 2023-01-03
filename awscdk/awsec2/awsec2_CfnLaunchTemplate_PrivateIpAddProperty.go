@@ -20,7 +20,7 @@ type CfnLaunchTemplate_PrivateIpAddProperty struct {
 	//
 	// Only one IPv4 address can be designated as primary.
 	Primary interface{} `field:"optional" json:"primary" yaml:"primary"`
-	// The private IPv4 address.
+	// The private IPv4 addresses.
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 }
 

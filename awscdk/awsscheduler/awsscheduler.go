@@ -8,10 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_scheduler.CfnSchedule",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule",
 		reflect.TypeOf((*CfnSchedule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -34,24 +35,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleExpression", GoGetter: "ScheduleExpression"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleExpressionTimezone", GoGetter: "ScheduleExpressionTimezone"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "startDate", GoGetter: "StartDate"},
 			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -62,70 +62,71 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.AwsVpcConfigurationProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.AwsVpcConfigurationProperty",
 		reflect.TypeOf((*CfnSchedule_AwsVpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.CapacityProviderStrategyItemProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.CapacityProviderStrategyItemProperty",
 		reflect.TypeOf((*CfnSchedule_CapacityProviderStrategyItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.DeadLetterConfigProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.DeadLetterConfigProperty",
 		reflect.TypeOf((*CfnSchedule_DeadLetterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.EcsParametersProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.EcsParametersProperty",
 		reflect.TypeOf((*CfnSchedule_EcsParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.EventBridgeParametersProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.EventBridgeParametersProperty",
 		reflect.TypeOf((*CfnSchedule_EventBridgeParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.FlexibleTimeWindowProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.FlexibleTimeWindowProperty",
 		reflect.TypeOf((*CfnSchedule_FlexibleTimeWindowProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.KinesisParametersProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.KinesisParametersProperty",
 		reflect.TypeOf((*CfnSchedule_KinesisParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.NetworkConfigurationProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnSchedule_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.PlacementConstraintProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.PlacementConstraintProperty",
 		reflect.TypeOf((*CfnSchedule_PlacementConstraintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.PlacementStrategyProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.PlacementStrategyProperty",
 		reflect.TypeOf((*CfnSchedule_PlacementStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.RetryPolicyProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.RetryPolicyProperty",
 		reflect.TypeOf((*CfnSchedule_RetryPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.SageMakerPipelineParameterProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.SageMakerPipelineParameterProperty",
 		reflect.TypeOf((*CfnSchedule_SageMakerPipelineParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.SageMakerPipelineParametersProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.SageMakerPipelineParametersProperty",
 		reflect.TypeOf((*CfnSchedule_SageMakerPipelineParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.SqsParametersProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.SqsParametersProperty",
 		reflect.TypeOf((*CfnSchedule_SqsParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnSchedule.TargetProperty",
+		"aws-cdk-lib.aws_scheduler.CfnSchedule.TargetProperty",
 		reflect.TypeOf((*CfnSchedule_TargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_scheduler.CfnScheduleGroup",
+		"aws-cdk-lib.aws_scheduler.CfnScheduleGroup",
 		reflect.TypeOf((*CfnScheduleGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -146,20 +147,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -170,11 +170,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnScheduleGroupProps",
+		"aws-cdk-lib.aws_scheduler.CfnScheduleGroupProps",
 		reflect.TypeOf((*CfnScheduleGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_scheduler.CfnScheduleProps",
+		"aws-cdk-lib.aws_scheduler.CfnScheduleProps",
 		reflect.TypeOf((*CfnScheduleProps)(nil)).Elem(),
 	)
 }

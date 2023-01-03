@@ -1,7 +1,7 @@
 package awssynthetics
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnGroup`.
@@ -27,13 +27,11 @@ import (
 //   }
 //
 type CfnGroupProps struct {
-	// A name for the group. It can include any Unicode characters.
-	//
-	// The names for all groups in your account, across all Regions, must be unique.
+	// `AWS::Synthetics::Group.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ARNs of the canaries that you want to associate with this group.
+	// `AWS::Synthetics::Group.ResourceArns`.
 	ResourceArns *[]*string `field:"optional" json:"resourceArns" yaml:"resourceArns"`
-	// The list of key-value pairs that are associated with the group.
+	// `AWS::Synthetics::Group.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

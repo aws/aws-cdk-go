@@ -42,7 +42,7 @@ type CfnEndpointAccessProps struct {
 	ResourceOwner *string `field:"optional" json:"resourceOwner" yaml:"resourceOwner"`
 	// `AWS::Redshift::EndpointAccess.VpcEndpoint`.
 	VpcEndpoint interface{} `field:"optional" json:"vpcEndpoint" yaml:"vpcEndpoint"`
-	// The security groups associated with the endpoint.
+	// `AWS::Redshift::EndpointAccess.VpcSecurityGroups`.
 	VpcSecurityGroups interface{} `field:"optional" json:"vpcSecurityGroups" yaml:"vpcSecurityGroups"`
 }
 

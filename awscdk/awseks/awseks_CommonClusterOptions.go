@@ -1,8 +1,8 @@
 package awseks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Options for configuring an EKS cluster.
@@ -41,40 +41,31 @@ import (
 //   				subnetFilter,
 //   			},
 //   			subnetGroupName: jsii.String("subnetGroupName"),
-//   			subnetName: jsii.String("subnetName"),
 //   			subnets: []iSubnet{
 //   				subnet,
 //   			},
-//   			subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
+//   			subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
 //   		},
 //   	},
 //   }
 //
-// Experimental.
 type CommonClusterOptions struct {
 	// The Kubernetes version to run in the cluster.
-	// Experimental.
 	Version KubernetesVersion `field:"required" json:"version" yaml:"version"`
 	// Name for the cluster.
-	// Experimental.
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
-	// Experimental.
 	OutputClusterName *bool `field:"optional" json:"outputClusterName" yaml:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
-	// Experimental.
 	OutputConfigCommand *bool `field:"optional" json:"outputConfigCommand" yaml:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Security Group to use for Control Plane ENIs.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The VPC in which to create the Cluster.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
@@ -82,8 +73,7 @@ type CommonClusterOptions struct {
 	//
 	// For example, to only select private subnets, supply the following:
 	//
-	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }]`
-	// Experimental.
+	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS }]`
 	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

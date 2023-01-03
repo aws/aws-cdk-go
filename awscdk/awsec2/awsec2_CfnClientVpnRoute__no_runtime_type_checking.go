@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnClientVpnRoute) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnRoute) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnRoute) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnClientVpnRoute) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnRoute) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnRoute) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnRoute) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnClientVpnRoute) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnClientVpnRoute) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnRoute) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnRoute) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnClientVpnRoute) validateSetTargetVpcSubnetIdParameters(val
 	return nil
 }
 
-func validateNewCfnClientVpnRouteParameters(scope awscdk.Construct, id *string, props *CfnClientVpnRouteProps) error {
+func validateNewCfnClientVpnRouteParameters(scope constructs.Construct, id *string, props *CfnClientVpnRouteProps) error {
 	return nil
 }
 

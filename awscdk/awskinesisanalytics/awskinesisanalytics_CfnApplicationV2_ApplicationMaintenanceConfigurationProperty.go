@@ -1,8 +1,6 @@
 package awskinesisanalytics
 
 
-// Specifies the maintence window parameters for a Kinesis Data Analytics application.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awskinesisanalytics
 //   }
 //
 type CfnApplicationV2_ApplicationMaintenanceConfigurationProperty struct {
-	// Specifies the start time of the maintence window.
+	// `CfnApplicationV2.ApplicationMaintenanceConfigurationProperty.ApplicationMaintenanceWindowStartTime`.
 	ApplicationMaintenanceWindowStartTime *string `field:"required" json:"applicationMaintenanceWindowStartTime" yaml:"applicationMaintenanceWindowStartTime"`
 }
 

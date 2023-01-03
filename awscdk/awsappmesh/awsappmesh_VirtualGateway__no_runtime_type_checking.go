@@ -24,14 +24,6 @@ func (v *jsiiProxy_VirtualGateway) validateGrantStreamAggregatedResourcesParamet
 	return nil
 }
 
-func (v *jsiiProxy_VirtualGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (v *jsiiProxy_VirtualGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateVirtualGateway_FromVirtualGatewayArnParameters(scope constructs.Construct, id *string, virtualGatewayArn *string) error {
 	return nil
 }
@@ -44,7 +36,11 @@ func validateVirtualGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVirtualGateway_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateVirtualGateway_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateVirtualGateway_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -20,19 +20,15 @@ func (v *jsiiProxy_VpcEndpoint) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
-func (v *jsiiProxy_VpcEndpoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (v *jsiiProxy_VpcEndpoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateVpcEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVpcEndpoint_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateVpcEndpoint_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateVpcEndpoint_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

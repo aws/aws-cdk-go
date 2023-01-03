@@ -20,7 +20,7 @@ package awsappmesh
 type CfnGatewayRoute_GatewayRouteTargetProperty struct {
 	// An object that represents a virtual service gateway route target.
 	VirtualService interface{} `field:"required" json:"virtualService" yaml:"virtualService"`
-	// The port number of the gateway route target.
+	// `CfnGatewayRoute.GatewayRouteTargetProperty.Port`.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 

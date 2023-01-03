@@ -1,12 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Environment file from a local directory.
@@ -14,8 +14,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -25,7 +24,7 @@ import (
 //
 //   assetEnvironmentFile := awscdk.Aws_ecs.NewAssetEnvironmentFile(jsii.String("path"), &assetOptions{
 //   	assetHash: jsii.String("assetHash"),
-//   	assetHashType: monocdk.assetHashType_SOURCE,
+//   	assetHashType: cdk.assetHashType_SOURCE,
 //   	bundling: &bundlingOptions{
 //   		image: dockerImage,
 //
@@ -40,7 +39,8 @@ import (
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
-//   		outputType: monocdk.bundlingOutput_ARCHIVED,
+//   		network: jsii.String("network"),
+//   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
 //   		volumes: []dockerVolume{
@@ -49,32 +49,30 @@ import (
 //   				hostPath: jsii.String("hostPath"),
 //
 //   				// the properties below are optional
-//   				consistency: monocdk.dockerVolumeConsistency_CONSISTENT,
+//   				consistency: cdk.dockerVolumeConsistency_CONSISTENT,
 //   			},
+//   		},
+//   		volumesFrom: []*string{
+//   			jsii.String("volumesFrom"),
 //   		},
 //   		workingDirectory: jsii.String("workingDirectory"),
 //   	},
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	follow: awscdk.Assets.followMode_NEVER,
-//   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
-//   	ignoreMode: monocdk.ignoreMode_GLOB,
+//   	followSymlinks: cdk.symlinkFollowMode_NEVER,
+//   	ignoreMode: cdk.ignoreMode_GLOB,
 //   	readers: []*iGrantable{
 //   		grantable,
 //   	},
-//   	sourceHash: jsii.String("sourceHash"),
 //   })
 //
-// Experimental.
 type AssetEnvironmentFile interface {
 	EnvironmentFile
 	// The path to the asset file or directory.
-	// Experimental.
 	Path() *string
 	// Called when the container is initialized to allow this object to bind to the stack.
-	// Experimental.
-	Bind(scope awscdk.Construct) *EnvironmentFileConfig
+	Bind(scope constructs.Construct) *EnvironmentFileConfig
 }
 
 // The jsii proxy struct for AssetEnvironmentFile
@@ -93,7 +91,6 @@ func (j *jsiiProxy_AssetEnvironmentFile) Path() *string {
 }
 
 
-// Experimental.
 func NewAssetEnvironmentFile(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
@@ -103,7 +100,7 @@ func NewAssetEnvironmentFile(path *string, options *awss3assets.AssetOptions) As
 	j := jsiiProxy_AssetEnvironmentFile{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.AssetEnvironmentFile",
+		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
 		[]interface{}{path, options},
 		&j,
 	)
@@ -111,19 +108,17 @@ func NewAssetEnvironmentFile(path *string, options *awss3assets.AssetOptions) As
 	return &j
 }
 
-// Experimental.
 func NewAssetEnvironmentFile_Override(a AssetEnvironmentFile, path *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.AssetEnvironmentFile",
+		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
 		[]interface{}{path, options},
 		a,
 	)
 }
 
 // Loads the environment file from a local disk path.
-// Experimental.
 func AssetEnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
@@ -133,7 +128,7 @@ func AssetEnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOpti
 	var returns AssetEnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.AssetEnvironmentFile",
+		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -145,7 +140,6 @@ func AssetEnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOpti
 // Loads the environment file from an S3 bucket.
 //
 // Returns: `S3EnvironmentFile` associated with the specified S3 object.
-// Experimental.
 func AssetEnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
@@ -155,7 +149,7 @@ func AssetEnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVe
 	var returns S3EnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.AssetEnvironmentFile",
+		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -164,7 +158,7 @@ func AssetEnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVe
 	return returns
 }
 
-func (a *jsiiProxy_AssetEnvironmentFile) Bind(scope awscdk.Construct) *EnvironmentFileConfig {
+func (a *jsiiProxy_AssetEnvironmentFile) Bind(scope constructs.Construct) *EnvironmentFileConfig {
 	if err := a.validateBindParameters(scope); err != nil {
 		panic(err)
 	}

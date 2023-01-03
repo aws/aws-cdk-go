@@ -1,7 +1,7 @@
 package awsgamelift
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnLocation`.
@@ -24,7 +24,7 @@ import (
 //   }
 //
 type CfnLocationProps struct {
-	// The location's name.
+	// `AWS::GameLift::Location.LocationName`.
 	LocationName *string `field:"required" json:"locationName" yaml:"locationName"`
 	// `AWS::GameLift::Location.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPublicTypeVersion) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnPublicTypeVersion) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPublicTypeVersion) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnPublicTypeVersion) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublicTypeVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPublicTypeVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublicTypeVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPublicTypeVersion) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnPublicTypeVersion) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublicTypeVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPublicTypeVersion) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnPublicTypeVersion_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewCfnPublicTypeVersionParameters(scope awscdk.Construct, id *string, props *CfnPublicTypeVersionProps) error {
+func validateNewCfnPublicTypeVersionParameters(scope constructs.Construct, id *string, props *CfnPublicTypeVersionProps) error {
 	return nil
 }
 

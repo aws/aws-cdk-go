@@ -25,7 +25,6 @@ type CfnNodeProps struct {
 	// Ethereum public networks have the following `NetworkId` s:
 	//
 	// - `n-ethereum-mainnet`
-	// - `n-ethereum-goerli`
 	// - `n-ethereum-rinkeby`
 	// - `n-ethereum-ropsten`.
 	NetworkId *string `field:"required" json:"networkId" yaml:"networkId"`

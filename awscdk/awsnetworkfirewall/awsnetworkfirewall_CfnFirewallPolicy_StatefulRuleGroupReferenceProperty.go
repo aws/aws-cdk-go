@@ -21,7 +21,7 @@ package awsnetworkfirewall
 type CfnFirewallPolicy_StatefulRuleGroupReferenceProperty struct {
 	// The Amazon Resource Name (ARN) of the stateful rule group.
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
-	// The action that allows the policy owner to override the behavior of the rule group within a policy.
+	// `CfnFirewallPolicy.StatefulRuleGroupReferenceProperty.Override`.
 	Override interface{} `field:"optional" json:"override" yaml:"override"`
 	// An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` .
 	//

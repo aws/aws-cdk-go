@@ -21,7 +21,7 @@ package awscloudfront
 //   }
 //
 type CfnOriginAccessControlProps struct {
-	// The origin access control.
+	// `AWS::CloudFront::OriginAccessControl.OriginAccessControlConfig`.
 	OriginAccessControlConfig interface{} `field:"required" json:"originAccessControlConfig" yaml:"originAccessControlConfig"`
 }
 

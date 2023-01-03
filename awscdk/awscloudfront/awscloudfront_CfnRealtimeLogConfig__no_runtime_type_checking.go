@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRealtimeLogConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnRealtimeLogConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRealtimeLogConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnRealtimeLogConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnRealtimeLogConfig) validateSetSamplingRateParameters(val *
 	return nil
 }
 
-func validateNewCfnRealtimeLogConfigParameters(scope awscdk.Construct, id *string, props *CfnRealtimeLogConfigProps) error {
+func validateNewCfnRealtimeLogConfigParameters(scope constructs.Construct, id *string, props *CfnRealtimeLogConfigProps) error {
 	return nil
 }
 

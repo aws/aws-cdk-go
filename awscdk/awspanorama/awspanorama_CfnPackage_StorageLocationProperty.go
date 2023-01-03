@@ -1,8 +1,6 @@
 package awspanorama
 
 
-// A storage location.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,15 +15,15 @@ package awspanorama
 //   }
 //
 type CfnPackage_StorageLocationProperty struct {
-	// The location's binary prefix.
+	// `CfnPackage.StorageLocationProperty.BinaryPrefixLocation`.
 	BinaryPrefixLocation *string `field:"optional" json:"binaryPrefixLocation" yaml:"binaryPrefixLocation"`
-	// The location's bucket.
+	// `CfnPackage.StorageLocationProperty.Bucket`.
 	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
-	// The location's generated prefix.
+	// `CfnPackage.StorageLocationProperty.GeneratedPrefixLocation`.
 	GeneratedPrefixLocation *string `field:"optional" json:"generatedPrefixLocation" yaml:"generatedPrefixLocation"`
-	// The location's manifest prefix.
+	// `CfnPackage.StorageLocationProperty.ManifestPrefixLocation`.
 	ManifestPrefixLocation *string `field:"optional" json:"manifestPrefixLocation" yaml:"manifestPrefixLocation"`
-	// The location's repo prefix.
+	// `CfnPackage.StorageLocationProperty.RepoPrefixLocation`.
 	RepoPrefixLocation *string `field:"optional" json:"repoPrefixLocation" yaml:"repoPrefixLocation"`
 }
 

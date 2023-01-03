@@ -4,7 +4,7 @@ package awsappmesh
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (g *jsiiProxy_GatewayRouteSpec) validateBindParameters(scope awscdk.Construct) error {
+func (g *jsiiProxy_GatewayRouteSpec) validateBindParameters(scope constructs.Construct) error {
 	return nil
 }
 

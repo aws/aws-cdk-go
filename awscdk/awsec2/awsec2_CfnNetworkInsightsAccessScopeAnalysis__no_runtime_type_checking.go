@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateAddDeletionOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateInspectParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateRenderProperti
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateSetNetworkInsi
 	return nil
 }
 
-func validateNewCfnNetworkInsightsAccessScopeAnalysisParameters(scope awscdk.Construct, id *string, props *CfnNetworkInsightsAccessScopeAnalysisProps) error {
+func validateNewCfnNetworkInsightsAccessScopeAnalysisParameters(scope constructs.Construct, id *string, props *CfnNetworkInsightsAccessScopeAnalysisProps) error {
 	return nil
 }
 

@@ -4,7 +4,7 @@ package awssns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (t *jsiiProxy_TopicBase) validateAddSubscriptionParameters(subscription ITopicSubscription) error {
+func (t *jsiiProxy_TopicBase) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
 	return nil
 }
 
@@ -72,19 +72,15 @@ func (t *jsiiProxy_TopicBase) validateMetricSMSSuccessRateParameters(props *awsc
 	return nil
 }
 
-func (t *jsiiProxy_TopicBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (t *jsiiProxy_TopicBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateTopicBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateTopicBase_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateTopicBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateTopicBase_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -14,11 +14,9 @@ package awscontroltower
 //   }
 //
 type CfnEnabledControlProps struct {
-	// The ARN of the control.
-	//
-	// Only *Strongly recommended* and *Elective* controls are permitted, with the exception of the *Region deny* guardrail.
+	// `AWS::ControlTower::EnabledControl.ControlIdentifier`.
 	ControlIdentifier *string `field:"required" json:"controlIdentifier" yaml:"controlIdentifier"`
-	// The ARN of the organizational unit.
+	// `AWS::ControlTower::EnabledControl.TargetIdentifier`.
 	TargetIdentifier *string `field:"required" json:"targetIdentifier" yaml:"targetIdentifier"`
 }
 

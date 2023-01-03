@@ -1,10 +1,6 @@
 package awsamplifyuibuilder
 
 
-// Stores the configuration information for a visual helper element for a form.
-//
-// A sectional element can be a header, a text block, or a divider. These elements are static and not associated with any data.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,21 +21,15 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_SectionalElementProperty struct {
-	// The type of sectional element.
-	//
-	// Valid values are `Heading` , `Text` , and `Divider` .
+	// `CfnForm.SectionalElementProperty.Type`.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// Specifies the size of the font for a `Heading` sectional element.
-	//
-	// Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
+	// `CfnForm.SectionalElementProperty.Level`.
 	Level *float64 `field:"optional" json:"level" yaml:"level"`
-	// Specifies the orientation for a `Divider` sectional element.
-	//
-	// Valid values are `horizontal` or `vertical` .
+	// `CfnForm.SectionalElementProperty.Orientation`.
 	Orientation *string `field:"optional" json:"orientation" yaml:"orientation"`
-	// Specifies the position of the text in a field for a `Text` sectional element.
+	// `CfnForm.SectionalElementProperty.Position`.
 	Position interface{} `field:"optional" json:"position" yaml:"position"`
-	// The text for a `Text` sectional element.
+	// `CfnForm.SectionalElementProperty.Text`.
 	Text *string `field:"optional" json:"text" yaml:"text"`
 }
 

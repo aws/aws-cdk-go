@@ -1,8 +1,6 @@
 package awsiotfleetwise
 
 
-// Specifies what data to collect and how often or when to collect it.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,9 +21,9 @@ package awsiotfleetwise
 //   }
 //
 type CfnCampaign_CollectionSchemeProperty struct {
-	// Information about a collection scheme that uses a simple logical expression to recognize what data to collect.
+	// `CfnCampaign.CollectionSchemeProperty.ConditionBasedCollectionScheme`.
 	ConditionBasedCollectionScheme interface{} `field:"optional" json:"conditionBasedCollectionScheme" yaml:"conditionBasedCollectionScheme"`
-	// Information about a collection scheme that uses a time period to decide how often to collect data.
+	// `CfnCampaign.CollectionSchemeProperty.TimeBasedCollectionScheme`.
 	TimeBasedCollectionScheme interface{} `field:"optional" json:"timeBasedCollectionScheme" yaml:"timeBasedCollectionScheme"`
 }
 

@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// Configuration information of a Kinesis Data Firehose delivery stream.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsconnect
 //   }
 //
 type CfnInstanceStorageConfig_KinesisFirehoseConfigProperty struct {
-	// The Amazon Resource Name (ARN) of the delivery stream.
+	// `CfnInstanceStorageConfig.KinesisFirehoseConfigProperty.FirehoseArn`.
 	FirehoseArn *string `field:"required" json:"firehoseArn" yaml:"firehoseArn"`
 }
 

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnListenerCertificate) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnListenerCertificate) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnListenerCertificate) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnListenerCertificate) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnListenerCertificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnListenerCertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnListenerCertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnListenerCertificate) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnListenerCertificate) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnListenerCertificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnListenerCertificate) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnListenerCertificate) validateSetListenerArnParameters(val 
 	return nil
 }
 
-func validateNewCfnListenerCertificateParameters(scope awscdk.Construct, id *string, props *CfnListenerCertificateProps) error {
+func validateNewCfnListenerCertificateParameters(scope constructs.Construct, id *string, props *CfnListenerCertificateProps) error {
 	return nil
 }
 

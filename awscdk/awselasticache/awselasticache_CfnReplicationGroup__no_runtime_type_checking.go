@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnReplicationGroup) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnReplicationGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnReplicationGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnReplicationGroup) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnReplicationGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnReplicationGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnReplicationGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnReplicationGroup) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnReplicationGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnReplicationGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -112,7 +116,7 @@ func (j *jsiiProxy_CfnReplicationGroup) validateSetTransitEncryptionEnabledParam
 	return nil
 }
 
-func validateNewCfnReplicationGroupParameters(scope awscdk.Construct, id *string, props *CfnReplicationGroupProps) error {
+func validateNewCfnReplicationGroupParameters(scope constructs.Construct, id *string, props *CfnReplicationGroupProps) error {
 	return nil
 }
 

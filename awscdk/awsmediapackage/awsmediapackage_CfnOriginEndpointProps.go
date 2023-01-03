@@ -1,7 +1,7 @@
 package awsmediapackage
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnOriginEndpoint`.
@@ -220,8 +220,6 @@ type CfnOriginEndpointProps struct {
 	// Parameters for Microsoft Smooth Streaming packaging.
 	MssPackage interface{} `field:"optional" json:"mssPackage" yaml:"mssPackage"`
 	// Controls video origination from this endpoint.
-	//
-	// Valid values:
 	//
 	// - `ALLOW` - enables this endpoint to serve content to requesting devices.
 	// - `DENY` - prevents this endpoint from serving content. Denying origination is helpful for harvesting live-to-VOD assets. For more information about harvesting and origination, see [Live-to-VOD Requirements](https://docs.aws.amazon.com/mediapackage/latest/ug/ltov-reqmts.html) .

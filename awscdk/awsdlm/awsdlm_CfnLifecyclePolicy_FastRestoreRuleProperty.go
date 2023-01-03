@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot policies only]* Specifies a rule for enabling fast snapshot restore for snapshots created by snapshot policies.
+// Specifies a rule for enabling fast snapshot restore.
 //
 // You can enable fast snapshot restore based on either a count or a time interval.
 //

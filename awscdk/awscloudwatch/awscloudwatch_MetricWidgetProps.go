@@ -15,19 +15,14 @@ package awscloudwatch
 //   	width: jsii.Number(123),
 //   }
 //
-// Experimental.
 type MetricWidgetProps struct {
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// The region the metrics of this graph should be taken from.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Title for the graph.
-	// Experimental.
 	Title *string `field:"optional" json:"title" yaml:"title"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 

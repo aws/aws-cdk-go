@@ -41,7 +41,7 @@ package awssagemaker
 type CfnDataQualityJobDefinition_DataQualityJobInputProperty struct {
 	// `CfnDataQualityJobDefinition.DataQualityJobInputProperty.BatchTransformInput`.
 	BatchTransformInput interface{} `field:"optional" json:"batchTransformInput" yaml:"batchTransformInput"`
-	// Input object for the endpoint.
+	// `CfnDataQualityJobDefinition.DataQualityJobInputProperty.EndpointInput`.
 	EndpointInput interface{} `field:"optional" json:"endpointInput" yaml:"endpointInput"`
 }
 

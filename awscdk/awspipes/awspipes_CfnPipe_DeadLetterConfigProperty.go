@@ -1,8 +1,6 @@
 package awspipes
 
 
-// A `DeadLetterConfig` object that contains information about a dead-letter queue configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awspipes
 //   }
 //
 type CfnPipe_DeadLetterConfigProperty struct {
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// `CfnPipe.DeadLetterConfigProperty.Arn`.
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnServerlessCluster) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnServerlessCluster) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnServerlessCluster) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnServerlessCluster) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnServerlessCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnServerlessCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnServerlessCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnServerlessCluster) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnServerlessCluster) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnServerlessCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnServerlessCluster) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnServerlessCluster) validateSetVpcConfigsParameters(val int
 	return nil
 }
 
-func validateNewCfnServerlessClusterParameters(scope awscdk.Construct, id *string, props *CfnServerlessClusterProps) error {
+func validateNewCfnServerlessClusterParameters(scope constructs.Construct, id *string, props *CfnServerlessClusterProps) error {
 	return nil
 }
 

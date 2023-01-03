@@ -15,11 +15,10 @@ topic := sns.NewTopic(this, jsii.String("Topic"), &topicProps{
 	contentBasedDeduplication: jsii.Boolean(true),
 	displayName: jsii.String("Customer subscription topic"),
 	fifo: jsii.Boolean(true),
-	topicName: jsii.String("customerTopic"),
 })
 ```
 
-Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically added to the topic name if it is not explicitly provided.
+Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically generated and added to the topic name if it is not explicitly provided.
 
 ## Subscriptions
 
@@ -99,8 +98,9 @@ myTopic.addSubscription(subscriptions.NewLambdaSubscription(fn, &lambdaSubscript
 ### Example of Firehose Subscription
 
 ```go
-import "github.com/aws/aws-cdk-go/awscdk"
-var stream deliveryStream
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws-samples/dummy/awscdklibawskinesisfirehose"
+var stream DeliveryStream
 
 
 topic := sns.NewTopic(this, jsii.String("Topic"))

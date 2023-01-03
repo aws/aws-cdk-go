@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnVehicle`.
@@ -30,19 +30,17 @@ import (
 //   }
 //
 type CfnVehicleProps struct {
-	// The Amazon Resource Name (ARN) of a decoder manifest associated with the vehicle to create.
+	// `AWS::IoTFleetWise::Vehicle.DecoderManifestArn`.
 	DecoderManifestArn *string `field:"required" json:"decoderManifestArn" yaml:"decoderManifestArn"`
-	// The ARN of the vehicle model (model manifest) to create the vehicle from.
+	// `AWS::IoTFleetWise::Vehicle.ModelManifestArn`.
 	ModelManifestArn *string `field:"required" json:"modelManifestArn" yaml:"modelManifestArn"`
 	// `AWS::IoTFleetWise::Vehicle.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
+	// `AWS::IoTFleetWise::Vehicle.AssociationBehavior`.
 	AssociationBehavior *string `field:"optional" json:"associationBehavior" yaml:"associationBehavior"`
-	// Static information about a vehicle in a key-value pair.
-	//
-	// For example: `"engine Type"` : `"v6"`.
+	// `AWS::IoTFleetWise::Vehicle.Attributes`.
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
-	// Metadata which can be used to manage the vehicle.
+	// `AWS::IoTFleetWise::Vehicle.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -1,7 +1,7 @@
 package awsemrcontainers
 
 
-// The information about the Amazon EKS cluster.
+// The information about the EKS cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

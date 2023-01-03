@@ -13,9 +13,9 @@ package awsdatasync
 //   }
 //
 type CfnLocationSMB_MountOptionsProperty struct {
-	// Specifies the SMB version that you want DataSync to use when mounting your SMB share.
+	// The specific SMB version that you want DataSync to use to mount your SMB share.
 	//
-	// If you don't specify a version, DataSync defaults to `AUTOMATIC` and chooses a version based on negotiation with the SMB server.
+	// If you don't specify a version, DataSync defaults to `AUTOMATIC` . That is, DataSync automatically selects a version based on negotiation with the SMB server.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
