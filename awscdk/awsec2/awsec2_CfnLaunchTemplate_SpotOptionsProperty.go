@@ -19,23 +19,28 @@ package awsec2
 //   }
 //
 type CfnLaunchTemplate_SpotOptionsProperty struct {
-	// The required duration for the Spot Instances (also known as Spot blocks), in minutes.
-	//
-	// This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+	// Deprecated.
 	BlockDurationMinutes *float64 `field:"optional" json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
 	// The behavior when a Spot Instance is interrupted.
 	//
 	// The default is `terminate` .
 	InstanceInterruptionBehavior *string `field:"optional" json:"instanceInterruptionBehavior" yaml:"instanceInterruptionBehavior"`
 	// The maximum hourly price you're willing to pay for the Spot Instances.
+	//
+	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//
+	// > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice *string `field:"optional" json:"maxPrice" yaml:"maxPrice"`
 	// The Spot Instance request type.
 	//
 	// If you are using Spot Instances with an Auto Scaling group, use `one-time` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
 	SpotInstanceType *string `field:"optional" json:"spotInstanceType" yaml:"spotInstanceType"`
-	// The end date of the request.
+	// The end date of the request, in UTC format ( *YYYY-MM-DD* T *HH:MM:SS* Z). Supported only for persistent requests.
 	//
-	// For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
+	// - For a persistent request, the request remains active until the `ValidUntil` date and time is reached. Otherwise, the request remains active until you cancel it.
+	// - For a one-time request, `ValidUntil` is not supported. The request remains active until all instances launch or you cancel the request.
+	//
+	// Default: 7 days from the current date.
 	ValidUntil *string `field:"optional" json:"validUntil" yaml:"validUntil"`
 }
 

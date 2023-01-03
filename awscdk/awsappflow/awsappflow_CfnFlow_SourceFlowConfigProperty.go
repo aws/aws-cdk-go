@@ -98,7 +98,7 @@ type CfnFlow_SourceFlowConfigProperty struct {
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
 	SourceConnectorProperties interface{} `field:"required" json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
-	// `CfnFlow.SourceFlowConfigProperty.ApiVersion`.
+	// The API version of the connector when it's used as a source in the flow.
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The name of the connector profile.
 	//

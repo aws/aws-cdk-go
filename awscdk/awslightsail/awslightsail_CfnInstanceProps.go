@@ -1,7 +1,7 @@
 package awslightsail
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnInstance`.
@@ -110,11 +110,15 @@ type CfnInstanceProps struct {
 	//
 	// If no key pair name is specified, the Regional Lightsail default key pair is used.
 	KeyPairName *string `field:"optional" json:"keyPairName" yaml:"keyPairName"`
-	// `AWS::Lightsail::Instance.Location`.
+	// The location for the instance, such as the AWS Region and Availability Zone.
+	//
+	// > The `Location` property is read-only and should not be specified in a create instance or update instance request.
 	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// The public ports and the monthly amount of data transfer allocated for the instance.
 	Networking interface{} `field:"optional" json:"networking" yaml:"networking"`
-	// `AWS::Lightsail::Instance.State`.
+	// The status code and the state (for example, `running` ) of the instance.
+	//
+	// > The `State` property is read-only and should not be specified in a create instance or update instance request.
 	State interface{} `field:"optional" json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//

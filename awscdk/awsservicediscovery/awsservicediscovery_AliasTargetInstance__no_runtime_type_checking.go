@@ -16,15 +16,19 @@ func (a *jsiiProxy_AliasTargetInstance) validateGetResourceNameAttributeParamete
 	return nil
 }
 
+func (a *jsiiProxy_AliasTargetInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AliasTargetInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateAliasTargetInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateAliasTargetInstance_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateAliasTargetInstance_IsResourceParameters(construct constructs.IConstruct) error {
+func validateAliasTargetInstance_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

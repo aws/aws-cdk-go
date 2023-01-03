@@ -16,7 +16,7 @@ package awsec2
 //   }
 //
 type CfnSpotFleet_PrivateIpAddressSpecificationProperty struct {
-	// The private IPv4 addresses.
+	// The private IPv4 address.
 	PrivateIpAddress *string `field:"required" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// Indicates whether the private IPv4 address is the primary private IPv4 address.
 	//

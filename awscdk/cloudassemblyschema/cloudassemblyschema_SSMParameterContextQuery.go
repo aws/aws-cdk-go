@@ -17,14 +17,19 @@ package cloudassemblyschema
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
+// Experimental.
 type SSMParameterContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Parameter name to query.
+	// Experimental.
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// Query region.
+	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 

@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnDecoderManifest`.
@@ -87,17 +87,19 @@ import (
 //   }
 //
 type CfnDecoderManifestProps struct {
-	// `AWS::IoTFleetWise::DecoderManifest.ModelManifestArn`.
+	// The ARN of a vehicle model (model manifest) associated with the decoder manifest.
 	ModelManifestArn *string `field:"required" json:"modelManifestArn" yaml:"modelManifestArn"`
-	// `AWS::IoTFleetWise::DecoderManifest.Name`.
+	// The name of the decoder manifest.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::IoTFleetWise::DecoderManifest.Description`.
+	// A brief description of the decoder manifest.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTFleetWise::DecoderManifest.NetworkInterfaces`.
 	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
 	// `AWS::IoTFleetWise::DecoderManifest.SignalDecoders`.
 	SignalDecoders interface{} `field:"optional" json:"signalDecoders" yaml:"signalDecoders"`
-	// `AWS::IoTFleetWise::DecoderManifest.Status`.
+	// The state of the decoder manifest.
+	//
+	// If the status is `ACTIVE` , the decoder manifest can't be edited. If the status is marked `DRAFT` , you can edit the decoder manifest.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// `AWS::IoTFleetWise::DecoderManifest.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

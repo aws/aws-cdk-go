@@ -1,17 +1,16 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
 // Extract an archive into a directory.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //
@@ -29,9 +28,11 @@ import (
 //   	serviceRestartHandle: handle,
 //   }))
 //
+// Experimental.
 type InitSource interface {
 	InitElement
 	// Returns the init element type for this element.
+	// Experimental.
 	ElementType() *string
 }
 
@@ -51,17 +52,19 @@ func (j *jsiiProxy_InitSource) ElementType() *string {
 }
 
 
+// Experimental.
 func NewInitSource_Override(i InitSource, targetDirectory *string, serviceHandles *[]InitServiceRestartHandle) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InitSource",
+		"monocdk.aws_ec2.InitSource",
 		[]interface{}{targetDirectory, serviceHandles},
 		i,
 	)
 }
 
 // Create an InitSource from an asset created from the given path.
+// Experimental.
 func InitSource_FromAsset(targetDirectory *string, path *string, options *InitSourceAssetOptions) InitSource {
 	_init_.Initialize()
 
@@ -71,7 +74,7 @@ func InitSource_FromAsset(targetDirectory *string, path *string, options *InitSo
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.InitSource",
+		"monocdk.aws_ec2.InitSource",
 		"fromAsset",
 		[]interface{}{targetDirectory, path, options},
 		&returns,
@@ -81,6 +84,7 @@ func InitSource_FromAsset(targetDirectory *string, path *string, options *InitSo
 }
 
 // Extract a directory from an existing directory asset.
+// Experimental.
 func InitSource_FromExistingAsset(targetDirectory *string, asset awss3assets.Asset, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
@@ -90,7 +94,7 @@ func InitSource_FromExistingAsset(targetDirectory *string, asset awss3assets.Ass
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.InitSource",
+		"monocdk.aws_ec2.InitSource",
 		"fromExistingAsset",
 		[]interface{}{targetDirectory, asset, options},
 		&returns,
@@ -100,6 +104,7 @@ func InitSource_FromExistingAsset(targetDirectory *string, asset awss3assets.Ass
 }
 
 // Extract a GitHub branch into a given directory.
+// Experimental.
 func InitSource_FromGitHub(targetDirectory *string, owner *string, repo *string, refSpec *string, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
@@ -109,7 +114,7 @@ func InitSource_FromGitHub(targetDirectory *string, owner *string, repo *string,
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.InitSource",
+		"monocdk.aws_ec2.InitSource",
 		"fromGitHub",
 		[]interface{}{targetDirectory, owner, repo, refSpec, options},
 		&returns,
@@ -119,6 +124,7 @@ func InitSource_FromGitHub(targetDirectory *string, owner *string, repo *string,
 }
 
 // Extract an archive stored in an S3 bucket into the given directory.
+// Experimental.
 func InitSource_FromS3Object(targetDirectory *string, bucket awss3.IBucket, key *string, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
@@ -128,7 +134,7 @@ func InitSource_FromS3Object(targetDirectory *string, bucket awss3.IBucket, key 
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.InitSource",
+		"monocdk.aws_ec2.InitSource",
 		"fromS3Object",
 		[]interface{}{targetDirectory, bucket, key, options},
 		&returns,
@@ -138,6 +144,7 @@ func InitSource_FromS3Object(targetDirectory *string, bucket awss3.IBucket, key 
 }
 
 // Retrieve a URL and extract it into the given directory.
+// Experimental.
 func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourceOptions) InitSource {
 	_init_.Initialize()
 
@@ -147,7 +154,7 @@ func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourc
 	var returns InitSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.InitSource",
+		"monocdk.aws_ec2.InitSource",
 		"fromUrl",
 		[]interface{}{targetDirectory, url, options},
 		&returns,

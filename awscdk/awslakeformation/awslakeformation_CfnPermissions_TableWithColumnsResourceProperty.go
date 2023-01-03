@@ -25,7 +25,9 @@ package awslakeformation
 //   }
 //
 type CfnPermissions_TableWithColumnsResourceProperty struct {
-	// `CfnPermissions.TableWithColumnsResourceProperty.CatalogId`.
+	// The identifier for the Data Catalog .
+	//
+	// By default, it is the account ID of the caller.
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The list of column names for the table.
 	//

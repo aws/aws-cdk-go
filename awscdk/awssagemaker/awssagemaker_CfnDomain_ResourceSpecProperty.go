@@ -18,9 +18,11 @@ package awssagemaker
 type CfnDomain_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
-	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
+	// > *JupyterServer apps* only support the `system` value.
+	// >
+	// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
-	// `CfnDomain.ResourceSpecProperty.LifecycleConfigArn`.
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `field:"optional" json:"lifecycleConfigArn" yaml:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `field:"optional" json:"sageMakerImageArn" yaml:"sageMakerImageArn"`

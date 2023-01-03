@@ -21,7 +21,7 @@ type CfnWebACL_VisibilityConfigProperty struct {
 	CloudWatchMetricsEnabled interface{} `field:"required" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 	// A name of the Amazon CloudWatch metric.
 	//
-	// The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names reserved for AWS WAF , for example "All" and "Default_Action."
+	// The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names reserved for AWS WAF , for example `All` and `Default_Action` .
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules.
 	//

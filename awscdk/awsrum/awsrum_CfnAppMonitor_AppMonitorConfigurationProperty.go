@@ -73,7 +73,7 @@ type CfnAppMonitor_AppMonitorConfigurationProperty struct {
 	//
 	// You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.
 	IncludedPages *[]*string `field:"optional" json:"includedPages" yaml:"includedPages"`
-	// `CfnAppMonitor.AppMonitorConfigurationProperty.MetricDestinations`.
+	// An array of structures that each define a destination that this app monitor will send extended metrics to.
 	MetricDestinations interface{} `field:"optional" json:"metricDestinations" yaml:"metricDestinations"`
 	// Specifies the portion of user sessions to use for CloudWatch RUM data collection.
 	//

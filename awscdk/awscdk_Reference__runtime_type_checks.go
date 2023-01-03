@@ -1,12 +1,10 @@
 //go:build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
 	"fmt"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (r *jsiiProxy_Reference) validateNewErrorParameters(message *string) error {
@@ -33,7 +31,7 @@ func validateReference_IsReferenceParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewReferenceParameters(value interface{}, target constructs.IConstruct) error {
+func validateNewReferenceParameters(value interface{}, target IConstruct) error {
 	if value == nil {
 		return fmt.Errorf("parameter value is required, but nil was provided")
 	}

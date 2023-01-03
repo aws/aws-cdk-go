@@ -1,6 +1,8 @@
 package awspipes
 
 
+// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awspipes
 //   }
 //
 type CfnPipe_SageMakerPipelineParameterProperty struct {
-	// `CfnPipe.SageMakerPipelineParameterProperty.Name`.
+	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnPipe.SageMakerPipelineParameterProperty.Value`.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

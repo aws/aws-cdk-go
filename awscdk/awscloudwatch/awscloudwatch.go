@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Alarm",
+		"monocdk.aws_cloudwatch.Alarm",
 		reflect.TypeOf((*Alarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
@@ -26,11 +26,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "metric", GoGetter: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "okActionArns", GoGetter: "OkActionArns"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderAlarmRule", GoMethod: "RenderAlarmRule"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toAnnotation", GoMethod: "ToAnnotation"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Alarm{}
@@ -39,11 +45,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.AlarmActionConfig",
+		"monocdk.aws_cloudwatch.AlarmActionConfig",
 		reflect.TypeOf((*AlarmActionConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.AlarmBase",
+		"monocdk.aws_cloudwatch.AlarmBase",
 		reflect.TypeOf((*AlarmBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
@@ -60,10 +66,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "insufficientDataActionArns", GoGetter: "InsufficientDataActionArns"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "okActionArns", GoGetter: "OkActionArns"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderAlarmRule", GoMethod: "RenderAlarmRule"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AlarmBase{}
@@ -73,11 +85,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.AlarmProps",
+		"monocdk.aws_cloudwatch.AlarmProps",
 		reflect.TypeOf((*AlarmProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"monocdk.aws_cloudwatch.AlarmRule",
 		reflect.TypeOf((*AlarmRule)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -85,7 +97,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.AlarmState",
+		"monocdk.aws_cloudwatch.AlarmState",
 		reflect.TypeOf((*AlarmState)(nil)).Elem(),
 		map[string]interface{}{
 			"ALARM": AlarmState_ALARM,
@@ -94,7 +106,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.AlarmStatusWidget",
+		"monocdk.aws_cloudwatch.AlarmStatusWidget",
 		reflect.TypeOf((*AlarmStatusWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
@@ -113,11 +125,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.AlarmStatusWidgetProps",
+		"monocdk.aws_cloudwatch.AlarmStatusWidgetProps",
 		reflect.TypeOf((*AlarmStatusWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.AlarmStatusWidgetSortBy",
+		"monocdk.aws_cloudwatch.AlarmStatusWidgetSortBy",
 		reflect.TypeOf((*AlarmStatusWidgetSortBy)(nil)).Elem(),
 		map[string]interface{}{
 			"DEFAULT": AlarmStatusWidgetSortBy_DEFAULT,
@@ -126,7 +138,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.AlarmWidget",
+		"monocdk.aws_cloudwatch.AlarmWidget",
 		reflect.TypeOf((*AlarmWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
@@ -145,16 +157,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.AlarmWidgetProps",
+		"monocdk.aws_cloudwatch.AlarmWidgetProps",
 		reflect.TypeOf((*AlarmWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
+		"monocdk.aws_cloudwatch.CfnAlarm",
 		reflect.TypeOf((*CfnAlarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionsEnabled", GoGetter: "ActionsEnabled"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -184,25 +195,26 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
 			_jsii_.MemberProperty{JsiiProperty: "namespace", GoGetter: "Namespace"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "okActions", GoGetter: "OkActions"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "period", GoGetter: "Period"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "statistic", GoGetter: "Statistic"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "threshold", GoGetter: "Threshold"},
 			_jsii_.MemberProperty{JsiiProperty: "thresholdMetricId", GoGetter: "ThresholdMetricId"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "treatMissingData", GoGetter: "TreatMissingData"},
 			_jsii_.MemberProperty{JsiiProperty: "unit", GoGetter: "Unit"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -213,31 +225,30 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.DimensionProperty",
+		"monocdk.aws_cloudwatch.CfnAlarm.DimensionProperty",
 		reflect.TypeOf((*CfnAlarm_DimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.MetricDataQueryProperty",
+		"monocdk.aws_cloudwatch.CfnAlarm.MetricDataQueryProperty",
 		reflect.TypeOf((*CfnAlarm_MetricDataQueryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.MetricProperty",
+		"monocdk.aws_cloudwatch.CfnAlarm.MetricProperty",
 		reflect.TypeOf((*CfnAlarm_MetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.MetricStatProperty",
+		"monocdk.aws_cloudwatch.CfnAlarm.MetricStatProperty",
 		reflect.TypeOf((*CfnAlarm_MetricStatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAlarmProps",
+		"monocdk.aws_cloudwatch.CfnAlarmProps",
 		reflect.TypeOf((*CfnAlarmProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector",
 		reflect.TypeOf((*CfnAnomalyDetector)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -258,20 +269,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "metricName", GoGetter: "MetricName"},
 			_jsii_.MemberProperty{JsiiProperty: "namespace", GoGetter: "Namespace"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "singleMetricAnomalyDetector", GoGetter: "SingleMetricAnomalyDetector"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stat", GoGetter: "Stat"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -282,43 +294,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.ConfigurationProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.ConfigurationProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.DimensionProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.DimensionProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_DimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.MetricDataQueryProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricDataQueryProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_MetricDataQueryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.MetricMathAnomalyDetectorProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricMathAnomalyDetectorProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_MetricMathAnomalyDetectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.MetricProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_MetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.MetricStatProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricStatProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_MetricStatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.RangeProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.RangeProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_RangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.SingleMetricAnomalyDetectorProperty",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.SingleMetricAnomalyDetectorProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetectorProps",
+		"monocdk.aws_cloudwatch.CfnAnomalyDetectorProps",
 		reflect.TypeOf((*CfnAnomalyDetectorProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CfnCompositeAlarm",
+		"monocdk.aws_cloudwatch.CfnCompositeAlarm",
 		reflect.TypeOf((*CfnCompositeAlarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionsEnabled", GoGetter: "ActionsEnabled"},
@@ -326,7 +338,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "actionsSuppressorExtensionPeriod", GoGetter: "ActionsSuppressorExtensionPeriod"},
 			_jsii_.MemberProperty{JsiiProperty: "actionsSuppressorWaitPeriod", GoGetter: "ActionsSuppressorWaitPeriod"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -348,19 +359,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "insufficientDataActions", GoGetter: "InsufficientDataActions"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "okActions", GoGetter: "OkActions"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -371,15 +383,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnCompositeAlarmProps",
+		"monocdk.aws_cloudwatch.CfnCompositeAlarmProps",
 		reflect.TypeOf((*CfnCompositeAlarmProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CfnDashboard",
+		"monocdk.aws_cloudwatch.CfnDashboard",
 		reflect.TypeOf((*CfnDashboard)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -397,18 +408,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -419,15 +431,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnDashboardProps",
+		"monocdk.aws_cloudwatch.CfnDashboardProps",
 		reflect.TypeOf((*CfnDashboardProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CfnInsightRule",
+		"monocdk.aws_cloudwatch.CfnInsightRule",
 		reflect.TypeOf((*CfnInsightRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -445,22 +456,23 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "ruleBody", GoGetter: "RuleBody"},
 			_jsii_.MemberProperty{JsiiProperty: "ruleName", GoGetter: "RuleName"},
 			_jsii_.MemberProperty{JsiiProperty: "ruleState", GoGetter: "RuleState"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -471,15 +483,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnInsightRuleProps",
+		"monocdk.aws_cloudwatch.CfnInsightRuleProps",
 		reflect.TypeOf((*CfnInsightRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream",
+		"monocdk.aws_cloudwatch.CfnMetricStream",
 		reflect.TypeOf((*CfnMetricStream)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -503,22 +514,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputFormat", GoGetter: "OutputFormat"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "statisticsConfigurations", GoGetter: "StatisticsConfigurations"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -529,23 +541,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream.MetricStreamFilterProperty",
+		"monocdk.aws_cloudwatch.CfnMetricStream.MetricStreamFilterProperty",
 		reflect.TypeOf((*CfnMetricStream_MetricStreamFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream.MetricStreamStatisticsConfigurationProperty",
+		"monocdk.aws_cloudwatch.CfnMetricStream.MetricStreamStatisticsConfigurationProperty",
 		reflect.TypeOf((*CfnMetricStream_MetricStreamStatisticsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream.MetricStreamStatisticsMetricProperty",
+		"monocdk.aws_cloudwatch.CfnMetricStream.MetricStreamStatisticsMetricProperty",
 		reflect.TypeOf((*CfnMetricStream_MetricStreamStatisticsMetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CfnMetricStreamProps",
+		"monocdk.aws_cloudwatch.CfnMetricStreamProps",
 		reflect.TypeOf((*CfnMetricStreamProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Color",
+		"monocdk.aws_cloudwatch.Color",
 		reflect.TypeOf((*Color)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -553,10 +565,9 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Column",
+		"monocdk.aws_cloudwatch.Column",
 		reflect.TypeOf((*Column)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addWidget", GoMethod: "AddWidget"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
@@ -570,11 +581,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CommonMetricOptions",
+		"monocdk.aws_cloudwatch.CommonMetricOptions",
 		reflect.TypeOf((*CommonMetricOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.ComparisonOperator",
+		"monocdk.aws_cloudwatch.ComparisonOperator",
 		reflect.TypeOf((*ComparisonOperator)(nil)).Elem(),
 		map[string]interface{}{
 			"GREATER_THAN_OR_EQUAL_TO_THRESHOLD": ComparisonOperator_GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
@@ -587,7 +598,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CompositeAlarm",
+		"monocdk.aws_cloudwatch.CompositeAlarm",
 		reflect.TypeOf((*CompositeAlarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
@@ -604,10 +615,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "insufficientDataActionArns", GoGetter: "InsufficientDataActionArns"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "okActionArns", GoGetter: "OkActionArns"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderAlarmRule", GoMethod: "RenderAlarmRule"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CompositeAlarm{}
@@ -616,11 +633,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CompositeAlarmProps",
+		"monocdk.aws_cloudwatch.CompositeAlarmProps",
 		reflect.TypeOf((*CompositeAlarmProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.ConcreteWidget",
+		"monocdk.aws_cloudwatch.ConcreteWidget",
 		reflect.TypeOf((*ConcreteWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
@@ -639,11 +656,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CreateAlarmOptions",
+		"monocdk.aws_cloudwatch.CreateAlarmOptions",
 		reflect.TypeOf((*CreateAlarmOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.CustomWidget",
+		"monocdk.aws_cloudwatch.CustomWidget",
 		reflect.TypeOf((*CustomWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
@@ -662,11 +679,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.CustomWidgetProps",
+		"monocdk.aws_cloudwatch.CustomWidgetProps",
 		reflect.TypeOf((*CustomWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Dashboard",
+		"monocdk.aws_cloudwatch.Dashboard",
 		reflect.TypeOf((*Dashboard)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addWidgets", GoMethod: "AddWidgets"},
@@ -678,9 +695,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Dashboard{}
@@ -689,39 +712,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.DashboardProps",
+		"monocdk.aws_cloudwatch.DashboardProps",
 		reflect.TypeOf((*DashboardProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.Dimension",
+		"monocdk.aws_cloudwatch.Dimension",
 		reflect.TypeOf((*Dimension)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.GaugeWidget",
-		reflect.TypeOf((*GaugeWidget)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addMetric", GoMethod: "AddMetric"},
-			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
-			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
-			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
-			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
-			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
-			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
-			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
-			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
-		},
-		func() interface{} {
-			j := jsiiProxy_GaugeWidget{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_ConcreteWidget)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.GaugeWidgetProps",
-		reflect.TypeOf((*GaugeWidgetProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.GraphWidget",
+		"monocdk.aws_cloudwatch.GraphWidget",
 		reflect.TypeOf((*GraphWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addLeftMetric", GoMethod: "AddLeftMetric"},
@@ -742,11 +741,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.GraphWidgetProps",
+		"monocdk.aws_cloudwatch.GraphWidgetProps",
 		reflect.TypeOf((*GraphWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.GraphWidgetView",
+		"monocdk.aws_cloudwatch.GraphWidgetView",
 		reflect.TypeOf((*GraphWidgetView)(nil)).Elem(),
 		map[string]interface{}{
 			"TIME_SERIES": GraphWidgetView_TIME_SERIES,
@@ -755,11 +754,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.HorizontalAnnotation",
+		"monocdk.aws_cloudwatch.HorizontalAnnotation",
 		reflect.TypeOf((*HorizontalAnnotation)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudwatch.IAlarm",
+		"monocdk.aws_cloudwatch.IAlarm",
 		reflect.TypeOf((*IAlarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "alarmArn", GoGetter: "AlarmArn"},
@@ -778,7 +777,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudwatch.IAlarmAction",
+		"monocdk.aws_cloudwatch.IAlarmAction",
 		reflect.TypeOf((*IAlarmAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -788,7 +787,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudwatch.IAlarmRule",
+		"monocdk.aws_cloudwatch.IAlarmRule",
 		reflect.TypeOf((*IAlarmRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "renderAlarmRule", GoMethod: "RenderAlarmRule"},
@@ -798,9 +797,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudwatch.IMetric",
+		"monocdk.aws_cloudwatch.IMetric",
 		reflect.TypeOf((*IMetric)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 		},
@@ -809,7 +810,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloudwatch.IWidget",
+		"monocdk.aws_cloudwatch.IWidget",
 		reflect.TypeOf((*IWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
@@ -823,7 +824,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.LegendPosition",
+		"monocdk.aws_cloudwatch.LegendPosition",
 		reflect.TypeOf((*LegendPosition)(nil)).Elem(),
 		map[string]interface{}{
 			"BOTTOM": LegendPosition_BOTTOM,
@@ -832,7 +833,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.LogQueryVisualizationType",
+		"monocdk.aws_cloudwatch.LogQueryVisualizationType",
 		reflect.TypeOf((*LogQueryVisualizationType)(nil)).Elem(),
 		map[string]interface{}{
 			"TABLE": LogQueryVisualizationType_TABLE,
@@ -843,7 +844,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.LogQueryWidget",
+		"monocdk.aws_cloudwatch.LogQueryWidget",
 		reflect.TypeOf((*LogQueryWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
@@ -862,11 +863,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.LogQueryWidgetProps",
+		"monocdk.aws_cloudwatch.LogQueryWidgetProps",
 		reflect.TypeOf((*LogQueryWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.MathExpression",
+		"monocdk.aws_cloudwatch.MathExpression",
 		reflect.TypeOf((*MathExpression)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "color", GoGetter: "Color"},
@@ -876,6 +877,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "period", GoGetter: "Period"},
 			_jsii_.MemberProperty{JsiiProperty: "searchAccount", GoGetter: "SearchAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "searchRegion", GoGetter: "SearchRegion"},
+			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usingMetrics", GoGetter: "UsingMetrics"},
@@ -889,15 +892,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MathExpressionOptions",
+		"monocdk.aws_cloudwatch.MathExpressionOptions",
 		reflect.TypeOf((*MathExpressionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MathExpressionProps",
+		"monocdk.aws_cloudwatch.MathExpressionProps",
 		reflect.TypeOf((*MathExpressionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Metric",
+		"monocdk.aws_cloudwatch.Metric",
 		reflect.TypeOf((*Metric)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "account", GoGetter: "Account"},
@@ -911,6 +914,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "period", GoGetter: "Period"},
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberProperty{JsiiProperty: "statistic", GoGetter: "Statistic"},
+			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "unit", GoGetter: "Unit"},
@@ -924,31 +929,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricConfig",
+		"monocdk.aws_cloudwatch.MetricAlarmConfig",
+		reflect.TypeOf((*MetricAlarmConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.MetricConfig",
 		reflect.TypeOf((*MetricConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricExpressionConfig",
+		"monocdk.aws_cloudwatch.MetricExpressionConfig",
 		reflect.TypeOf((*MetricExpressionConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricOptions",
+		"monocdk.aws_cloudwatch.MetricGraphConfig",
+		reflect.TypeOf((*MetricGraphConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.MetricOptions",
 		reflect.TypeOf((*MetricOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricProps",
+		"monocdk.aws_cloudwatch.MetricProps",
 		reflect.TypeOf((*MetricProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricStatConfig",
+		"monocdk.aws_cloudwatch.MetricRenderingProperties",
+		reflect.TypeOf((*MetricRenderingProperties)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.MetricStatConfig",
 		reflect.TypeOf((*MetricStatConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricWidgetProps",
+		"monocdk.aws_cloudwatch.MetricWidgetProps",
 		reflect.TypeOf((*MetricWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.PeriodOverride",
+		"monocdk.aws_cloudwatch.PeriodOverride",
 		reflect.TypeOf((*PeriodOverride)(nil)).Elem(),
 		map[string]interface{}{
 			"AUTO": PeriodOverride_AUTO,
@@ -956,10 +973,9 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Row",
+		"monocdk.aws_cloudwatch.Row",
 		reflect.TypeOf((*Row)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addWidget", GoMethod: "AddWidget"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
@@ -973,7 +989,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.Shading",
+		"monocdk.aws_cloudwatch.Shading",
 		reflect.TypeOf((*Shading)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": Shading_NONE,
@@ -982,7 +998,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.SingleValueWidget",
+		"monocdk.aws_cloudwatch.SingleValueWidget",
 		reflect.TypeOf((*SingleValueWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
@@ -1001,11 +1017,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.SingleValueWidgetProps",
+		"monocdk.aws_cloudwatch.SingleValueWidgetProps",
 		reflect.TypeOf((*SingleValueWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Spacer",
+		"monocdk.aws_cloudwatch.Spacer",
 		reflect.TypeOf((*Spacer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
@@ -1020,11 +1036,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.SpacerProps",
+		"monocdk.aws_cloudwatch.SpacerProps",
 		reflect.TypeOf((*SpacerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.Statistic",
+		"monocdk.aws_cloudwatch.Statistic",
 		reflect.TypeOf((*Statistic)(nil)).Elem(),
 		map[string]interface{}{
 			"SAMPLE_COUNT": Statistic_SAMPLE_COUNT,
@@ -1035,15 +1051,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.Stats",
-		reflect.TypeOf((*Stats)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_Stats{}
-		},
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch.TextWidget",
+		"monocdk.aws_cloudwatch.TextWidget",
 		reflect.TypeOf((*TextWidget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
@@ -1061,20 +1069,12 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.TextWidgetBackground",
-		reflect.TypeOf((*TextWidgetBackground)(nil)).Elem(),
-		map[string]interface{}{
-			"SOLID": TextWidgetBackground_SOLID,
-			"TRANSPARENT": TextWidgetBackground_TRANSPARENT,
-		},
-	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.TextWidgetProps",
+		"monocdk.aws_cloudwatch.TextWidgetProps",
 		reflect.TypeOf((*TextWidgetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.TreatMissingData",
+		"monocdk.aws_cloudwatch.TreatMissingData",
 		reflect.TypeOf((*TreatMissingData)(nil)).Elem(),
 		map[string]interface{}{
 			"BREACHING": TreatMissingData_BREACHING,
@@ -1084,7 +1084,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch.Unit",
+		"monocdk.aws_cloudwatch.Unit",
 		reflect.TypeOf((*Unit)(nil)).Elem(),
 		map[string]interface{}{
 			"SECONDS": Unit_SECONDS,
@@ -1117,7 +1117,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.YAxisProps",
+		"monocdk.aws_cloudwatch.YAxisProps",
 		reflect.TypeOf((*YAxisProps)(nil)).Elem(),
 	)
 }

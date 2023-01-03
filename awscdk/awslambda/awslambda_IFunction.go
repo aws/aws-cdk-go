@@ -3,14 +3,14 @@ package awslambda
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda/internal"
 )
 
+// Experimental.
 type IFunction interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
@@ -24,50 +24,67 @@ type IFunction interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
+	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
+	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
+	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
+	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
+	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Configures options for asynchronous invocation.
+	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// Grant the given identity permissions to invoke this Lambda.
+	// Experimental.
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the Duration of this Lambda How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
+	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of invocations of this Lambda How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
+	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of throttled invocations of this Lambda How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
+	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The system architectures compatible with this lambda function.
+	// Experimental.
 	Architecture() Architecture
 	// The ARN of the function.
+	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
+	// Experimental.
 	FunctionName() *string
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
+	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -77,15 +94,19 @@ type IFunction interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
+	// Experimental.
 	LatestVersion() IVersion
 	// The construct node where permissions are attached.
-	PermissionsNode() constructs.Node
+	// Experimental.
+	PermissionsNode() awscdk.ConstructNode
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
 	//
 	// This property is for cdk modules to consume only. You should not need to use this property.
 	// Instead, use grantInvoke() directly.
+	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
+	// Experimental.
 	Role() awsiam.IRole
 }
 
@@ -345,8 +366,8 @@ func (j *jsiiProxy_IFunction) LatestVersion() IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_IFunction) PermissionsNode() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IFunction) PermissionsNode() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -405,8 +426,8 @@ func (j *jsiiProxy_IFunction) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IFunction) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IFunction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

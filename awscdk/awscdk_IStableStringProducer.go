@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
@@ -6,8 +6,10 @@ import (
 )
 
 // Interface for (stable) lazy string producers.
+// Experimental.
 type IStableStringProducer interface {
 	// Produce the string value.
+	// Experimental.
 	Produce() *string
 }
 

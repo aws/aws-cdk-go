@@ -16,23 +16,22 @@ package assertions
 //   	path: []*string{
 //   		jsii.String("path"),
 //   	},
-//
-//   	// the properties below are optional
-//   	cost: jsii.Number(123),
 //   }
 //
+// Experimental.
 type MatchFailure struct {
 	// The matcher that had the failure.
+	// Experimental.
 	Matcher Matcher `field:"required" json:"matcher" yaml:"matcher"`
 	// Failure message.
+	// Experimental.
 	Message *string `field:"required" json:"message" yaml:"message"`
 	// The relative path in the target where the failure occurred.
 	//
 	// If the failure occurred at root of the match tree, set the path to an empty list.
 	// If it occurs in the 5th index of an array nested within the 'foo' key of an object,
 	// set the path as `['/foo', '[5]']`.
+	// Experimental.
 	Path *[]*string `field:"required" json:"path" yaml:"path"`
-	// The cost of this particular mismatch.
-	Cost *float64 `field:"optional" json:"cost" yaml:"cost"`
 }
 

@@ -16,6 +16,14 @@ func (s *jsiiProxy_SamlProvider) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
+func (s *jsiiProxy_SamlProvider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SamlProvider) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateSamlProvider_FromSamlProviderArnParameters(scope constructs.Construct, id *string, samlProviderArn *string) error {
 	return nil
 }
@@ -24,11 +32,7 @@ func validateSamlProvider_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSamlProvider_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSamlProvider_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSamlProvider_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Select the latest version of the indicated Windows version.
@@ -39,12 +39,15 @@ import (
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
+// Experimental.
 type WindowsImage interface {
 	GenericSSMParameterImage
 	// Name of the SSM parameter we're looking up.
+	// Experimental.
 	ParameterName() *string
 	// Return the image to use in the given context.
-	GetImage(scope constructs.Construct) *MachineImageConfig
+	// Experimental.
+	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for WindowsImage
@@ -63,6 +66,7 @@ func (j *jsiiProxy_WindowsImage) ParameterName() *string {
 }
 
 
+// Experimental.
 func NewWindowsImage(version WindowsVersion, props *WindowsImageProps) WindowsImage {
 	_init_.Initialize()
 
@@ -72,7 +76,7 @@ func NewWindowsImage(version WindowsVersion, props *WindowsImageProps) WindowsIm
 	j := jsiiProxy_WindowsImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.WindowsImage",
+		"monocdk.aws_ec2.WindowsImage",
 		[]interface{}{version, props},
 		&j,
 	)
@@ -80,17 +84,18 @@ func NewWindowsImage(version WindowsVersion, props *WindowsImageProps) WindowsIm
 	return &j
 }
 
+// Experimental.
 func NewWindowsImage_Override(w WindowsImage, version WindowsVersion, props *WindowsImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.WindowsImage",
+		"monocdk.aws_ec2.WindowsImage",
 		[]interface{}{version, props},
 		w,
 	)
 }
 
-func (w *jsiiProxy_WindowsImage) GetImage(scope constructs.Construct) *MachineImageConfig {
+func (w *jsiiProxy_WindowsImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	if err := w.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}

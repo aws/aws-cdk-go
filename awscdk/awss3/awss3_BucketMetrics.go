@@ -20,14 +20,18 @@ package awss3
 //   	},
 //   }
 //
+// Experimental.
 type BucketMetrics struct {
 	// The ID used to identify the metrics configuration.
+	// Experimental.
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The prefix that an object must have to be included in the metrics results.
+	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// Specifies a list of tag filters to use as a metrics configuration filter.
 	//
 	// The metrics configuration includes only objects that meet the filter's criteria.
+	// Experimental.
 	TagFilters *map[string]interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 }
 

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnNotebookInstance) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotebookInstance) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNotebookInstance) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnNotebookInstance) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotebookInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNotebookInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotebookInstance) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNotebookInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnNotebookInstance) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnNotebookInstance) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNotebookInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnNotebookInstance) validateSetRoleArnParameters(val *string
 	return nil
 }
 
-func validateNewCfnNotebookInstanceParameters(scope constructs.Construct, id *string, props *CfnNotebookInstanceProps) error {
+func validateNewCfnNotebookInstanceParameters(scope awscdk.Construct, id *string, props *CfnNotebookInstanceProps) error {
 	return nil
 }
 

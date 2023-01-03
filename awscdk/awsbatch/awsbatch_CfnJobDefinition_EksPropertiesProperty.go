@@ -1,6 +1,8 @@
 package awsbatch
 
 
+// An object that contains the properties for the Kubernetes resources of a job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -77,7 +79,7 @@ package awsbatch
 //   }
 //
 type CfnJobDefinition_EksPropertiesProperty struct {
-	// `CfnJobDefinition.EksPropertiesProperty.PodProperties`.
+	// The properties for the Kubernetes pod resources of a job.
 	PodProperties interface{} `field:"optional" json:"podProperties" yaml:"podProperties"`
 }
 

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) validateAddDeletionOverrideParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainNameApiAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDomainNameApiAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainNameApiAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDomainNameApiAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainNameApiAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDomainNameApiAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnDomainNameApiAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDomainNameApiAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnDomainNameApiAssociation) validateSetDomainNameParameters(
 	return nil
 }
 
-func validateNewCfnDomainNameApiAssociationParameters(scope constructs.Construct, id *string, props *CfnDomainNameApiAssociationProps) error {
+func validateNewCfnDomainNameApiAssociationParameters(scope awscdk.Construct, id *string, props *CfnDomainNameApiAssociationProps) error {
 	return nil
 }
 

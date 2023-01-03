@@ -23,11 +23,11 @@ package awsec2
 type CfnVPCEndpointServiceProps struct {
 	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 	AcceptanceRequired interface{} `field:"optional" json:"acceptanceRequired" yaml:"acceptanceRequired"`
-	// `AWS::EC2::VPCEndpointService.ContributorInsightsEnabled`.
+	// Indicates whether to enable the built-in Contributor Insights rules.
 	ContributorInsightsEnabled interface{} `field:"optional" json:"contributorInsightsEnabled" yaml:"contributorInsightsEnabled"`
-	// The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 	GatewayLoadBalancerArns *[]*string `field:"optional" json:"gatewayLoadBalancerArns" yaml:"gatewayLoadBalancerArns"`
-	// The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
+	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	NetworkLoadBalancerArns *[]*string `field:"optional" json:"networkLoadBalancerArns" yaml:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs.
 	//

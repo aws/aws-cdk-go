@@ -27,8 +27,10 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type HeaderMatchConfig struct {
 	// Route CFN configuration for the route header match.
+	// Experimental.
 	HeaderMatch *CfnRoute_HttpRouteHeaderProperty `field:"required" json:"headerMatch" yaml:"headerMatch"`
 }
 

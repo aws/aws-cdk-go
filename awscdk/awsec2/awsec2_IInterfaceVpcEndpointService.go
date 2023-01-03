@@ -5,12 +5,16 @@ import (
 )
 
 // A service for an interface VPC endpoint.
+// Experimental.
 type IInterfaceVpcEndpointService interface {
 	// The name of the service.
+	// Experimental.
 	Name() *string
 	// The port of the service.
+	// Experimental.
 	Port() *float64
 	// Whether Private DNS is supported by default.
+	// Experimental.
 	PrivateDnsDefault() *bool
 }
 

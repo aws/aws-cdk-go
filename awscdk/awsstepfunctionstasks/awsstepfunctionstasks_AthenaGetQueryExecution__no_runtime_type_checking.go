@@ -84,6 +84,14 @@ func (a *jsiiProxy_AthenaGetQueryExecution) validateNextParameters(next awsstepf
 	return nil
 }
 
+func (a *jsiiProxy_AthenaGetQueryExecution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_AthenaGetQueryExecution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (a *jsiiProxy_AthenaGetQueryExecution) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

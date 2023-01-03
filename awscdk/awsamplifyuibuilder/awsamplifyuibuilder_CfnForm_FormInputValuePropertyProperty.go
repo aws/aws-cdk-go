@@ -1,6 +1,10 @@
 package awsamplifyuibuilder
 
 
+// Describes the configuration for an input field on a form.
+//
+// Use `FormInputValueProperty` to specify the values to render or bind by default.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +15,7 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FormInputValuePropertyProperty struct {
-	// `CfnForm.FormInputValuePropertyProperty.Value`.
+	// The value to assign to the input field.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

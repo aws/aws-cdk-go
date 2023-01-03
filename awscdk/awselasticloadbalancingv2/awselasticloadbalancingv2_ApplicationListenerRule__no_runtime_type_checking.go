@@ -8,7 +8,31 @@ func (a *jsiiProxy_ApplicationListenerRule) validateAddConditionParameters(condi
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationListenerRule) validateAddFixedResponseParameters(fixedResponse *FixedResponse) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) validateAddRedirectResponseParameters(redirectResponse *RedirectResponse) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) validateAddTargetGroupParameters(targetGroup IApplicationTargetGroup) error {
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationListenerRule) validateConfigureActionParameters(action ListenerAction) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) validateSetConditionParameters(field *string) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListenerRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

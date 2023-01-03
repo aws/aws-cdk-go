@@ -1,15 +1,13 @@
 //go:build !no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
 	"fmt"
-
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func validateNewScopedAwsParameters(scope constructs.Construct) error {
+func validateNewScopedAwsParameters(scope Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

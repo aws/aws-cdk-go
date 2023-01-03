@@ -1,6 +1,10 @@
 package awsgrafana
 
 
+// This structure defines which groups defined in the SAML assertion attribute are to be mapped to the Grafana `Admin` and `Editor` roles in the workspace.
+//
+// SAML authenticated users not part of `Admin` or `Editor` role groups have `Viewer` permission over the workspace.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +20,9 @@ package awsgrafana
 //   }
 //
 type CfnWorkspace_RoleValuesProperty struct {
-	// `CfnWorkspace.RoleValuesProperty.Admin`.
+	// A list of groups from the SAML assertion attribute to grant the Grafana `Admin` role to.
 	Admin *[]*string `field:"optional" json:"admin" yaml:"admin"`
-	// `CfnWorkspace.RoleValuesProperty.Editor`.
+	// A list of groups from the SAML assertion attribute to grant the Grafana `Editor` role to.
 	Editor *[]*string `field:"optional" json:"editor" yaml:"editor"`
 }
 

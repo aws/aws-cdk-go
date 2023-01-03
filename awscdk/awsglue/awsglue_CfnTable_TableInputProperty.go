@@ -94,6 +94,8 @@ type CfnTable_TableInputProperty struct {
 	// For Hive compatibility, this is folded to lowercase when it is stored.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The table owner.
+	//
+	// Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
 	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	// These key-value pairs define properties associated with the table.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
@@ -107,17 +109,24 @@ type CfnTable_TableInputProperty struct {
 	Retention *float64 `field:"optional" json:"retention" yaml:"retention"`
 	// A storage descriptor containing information about the physical storage of this table.
 	StorageDescriptor interface{} `field:"optional" json:"storageDescriptor" yaml:"storageDescriptor"`
-	// The type of this table ( `EXTERNAL_TABLE` , `VIRTUAL_VIEW` , etc.).
+	// The type of this table.
+	//
+	// AWS Glue will create tables with the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables with additional table types.
+	//
+	// AWS Glue related table types:
+	//
+	// - **EXTERNAL_TABLE** - Hive compatible attribute - indicates a non-Hive managed table.
+	// - **GOVERNED** - Used by AWS Lake Formation . The AWS Glue Data Catalog understands `GOVERNED` .
 	TableType *string `field:"optional" json:"tableType" yaml:"tableType"`
 	// A `TableIdentifier` structure that describes a target table for resource linking.
 	TargetTable interface{} `field:"optional" json:"targetTable" yaml:"targetTable"`
-	// If the table is a view, the expanded text of the view;
+	// Included for Apache Hive compatibility.
 	//
-	// otherwise `null` .
+	// Not used in the normal course of AWS Glue operations.
 	ViewExpandedText *string `field:"optional" json:"viewExpandedText" yaml:"viewExpandedText"`
-	// If the table is a view, the original text of the view;
+	// Included for Apache Hive compatibility.
 	//
-	// otherwise `null` .
+	// Not used in the normal course of AWS Glue operations. If the table is a `VIRTUAL_VIEW` , certain Athena configuration encoded in base64.
 	ViewOriginalText *string `field:"optional" json:"viewOriginalText" yaml:"viewOriginalText"`
 }
 

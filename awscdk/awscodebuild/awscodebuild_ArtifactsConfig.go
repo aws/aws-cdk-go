@@ -24,8 +24,10 @@ package awscodebuild
 //   	},
 //   }
 //
+// Experimental.
 type ArtifactsConfig struct {
 	// The low-level CloudFormation artifacts property.
+	// Experimental.
 	ArtifactsProperty *CfnProject_ArtifactsProperty `field:"required" json:"artifactsProperty" yaml:"artifactsProperty"`
 }
 

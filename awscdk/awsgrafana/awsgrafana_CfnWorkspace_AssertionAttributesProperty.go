@@ -1,6 +1,8 @@
 package awsgrafana
 
 
+// A structure that defines which attributes in the IdP assertion are to be used to define information about the users authenticated by the IdP to use the workspace.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,17 +18,17 @@ package awsgrafana
 //   }
 //
 type CfnWorkspace_AssertionAttributesProperty struct {
-	// `CfnWorkspace.AssertionAttributesProperty.Email`.
+	// The name of the attribute within the SAML assertion to use as the email names for SAML users.
 	Email *string `field:"optional" json:"email" yaml:"email"`
-	// `CfnWorkspace.AssertionAttributesProperty.Groups`.
+	// The name of the attribute within the SAML assertion to use as the user full "friendly" names for user groups.
 	Groups *string `field:"optional" json:"groups" yaml:"groups"`
-	// `CfnWorkspace.AssertionAttributesProperty.Login`.
+	// The name of the attribute within the SAML assertion to use as the login names for SAML users.
 	Login *string `field:"optional" json:"login" yaml:"login"`
-	// `CfnWorkspace.AssertionAttributesProperty.Name`.
+	// The name of the attribute within the SAML assertion to use as the user full "friendly" names for SAML users.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnWorkspace.AssertionAttributesProperty.Org`.
+	// The name of the attribute within the SAML assertion to use as the user full "friendly" names for the users' organizations.
 	Org *string `field:"optional" json:"org" yaml:"org"`
-	// `CfnWorkspace.AssertionAttributesProperty.Role`.
+	// The name of the attribute within the SAML assertion to use as the user roles.
 	Role *string `field:"optional" json:"role" yaml:"role"`
 }
 

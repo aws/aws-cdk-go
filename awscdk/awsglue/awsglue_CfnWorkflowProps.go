@@ -24,7 +24,9 @@ type CfnWorkflowProps struct {
 	DefaultRunProperties interface{} `field:"optional" json:"defaultRunProperties" yaml:"defaultRunProperties"`
 	// A description of the workflow.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Glue::Workflow.MaxConcurrentRuns`.
+	// You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs.
+	//
+	// If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns *float64 `field:"optional" json:"maxConcurrentRuns" yaml:"maxConcurrentRuns"`
 	// The name of the workflow representing the flow.
 	Name *string `field:"optional" json:"name" yaml:"name"`

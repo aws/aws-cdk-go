@@ -1,6 +1,8 @@
 package awsroute53
 
 
+// Specifies the list of CIDR blocks for a CIDR location.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,9 @@ package awsroute53
 //   }
 //
 type CfnCidrCollection_LocationProperty struct {
-	// `CfnCidrCollection.LocationProperty.CidrList`.
+	// List of CIDR blocks.
 	CidrList *[]*string `field:"required" json:"cidrList" yaml:"cidrList"`
-	// `CfnCidrCollection.LocationProperty.LocationName`.
+	// The CIDR collection location name.
 	LocationName *string `field:"required" json:"locationName" yaml:"locationName"`
 }
 

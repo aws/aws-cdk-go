@@ -1,6 +1,8 @@
 package awsnetworkmanager
 
 
+// Describes a core network Connect peer configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,15 +26,15 @@ package awsnetworkmanager
 //   }
 //
 type CfnConnectPeer_ConnectPeerConfigurationProperty struct {
-	// `CfnConnectPeer.ConnectPeerConfigurationProperty.BgpConfigurations`.
+	// The Connect peer BGP configurations.
 	BgpConfigurations interface{} `field:"optional" json:"bgpConfigurations" yaml:"bgpConfigurations"`
-	// `CfnConnectPeer.ConnectPeerConfigurationProperty.CoreNetworkAddress`.
+	// The IP address of a core network.
 	CoreNetworkAddress *string `field:"optional" json:"coreNetworkAddress" yaml:"coreNetworkAddress"`
-	// `CfnConnectPeer.ConnectPeerConfigurationProperty.InsideCidrBlocks`.
+	// The inside IP addresses used for a Connect peer configuration.
 	InsideCidrBlocks *[]*string `field:"optional" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
-	// `CfnConnectPeer.ConnectPeerConfigurationProperty.PeerAddress`.
+	// The IP address of the Connect peer.
 	PeerAddress *string `field:"optional" json:"peerAddress" yaml:"peerAddress"`
-	// `CfnConnectPeer.ConnectPeerConfigurationProperty.Protocol`.
+	// The protocol used for a Connect peer configuration.
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

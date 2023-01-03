@@ -87,11 +87,15 @@ package awswafv2
 type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the entity.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
-	// The rules in the referenced rule group whose actions are set to `Count` .
+	// Rules in the referenced rule group whose actions are set to `Count` .
 	//
-	// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
+	// > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
 	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
-	// `CfnWebACL.RuleGroupReferenceStatementProperty.RuleActionOverrides`.
+	// Action settings to use in the place of the rule actions that are configured inside the rule group.
+	//
+	// You specify one override for each rule whose action you want to change.
+	//
+	// You can use overrides for testing, for example you can override all of rule actions to `Count` and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.
 	RuleActionOverrides interface{} `field:"optional" json:"ruleActionOverrides" yaml:"ruleActionOverrides"`
 }
 

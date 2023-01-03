@@ -8,11 +8,11 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateAddToDepl
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBindParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBindParameters(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBoundParameters(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
+func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) validateBoundParameters(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) error {
 	return nil
 }
 

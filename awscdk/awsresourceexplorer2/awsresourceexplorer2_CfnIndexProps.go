@@ -18,9 +18,13 @@ package awsresourceexplorer2
 //   }
 //
 type CfnIndexProps struct {
-	// `AWS::ResourceExplorer2::Index.Type`.
+	// Specifies the type of the index in this Region.
+	//
+	// For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `AWS::ResourceExplorer2::Index.Tags`.
+	// The specified tags are attached to only the index created in this AWS Region .
+	//
+	// The tags don't attach to any of the resources listed in the index.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateAddDeletionOverridePar
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) validateSetLoadBalancerNamePar
 	return nil
 }
 
-func validateNewCfnLoadBalancerTlsCertificateParameters(scope constructs.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) error {
+func validateNewCfnLoadBalancerTlsCertificateParameters(scope awscdk.Construct, id *string, props *CfnLoadBalancerTlsCertificateProps) error {
 	return nil
 }
 

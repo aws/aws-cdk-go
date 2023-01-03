@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnAddon`.
@@ -37,7 +37,15 @@ type CfnAddonProps struct {
 	AddonVersion *string `field:"optional" json:"addonVersion" yaml:"addonVersion"`
 	// `AWS::EKS::Addon.ConfigurationValues`.
 	ConfigurationValues *string `field:"optional" json:"configurationValues" yaml:"configurationValues"`
-	// How to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on.
+	// How to resolve field value conflicts for an Amazon EKS add-on.
+	//
+	// Conflicts are handled based on the value you choose:
+	//
+	// - *None* – If the self-managed version of the add-on is installed on your cluster, Amazon EKS doesn't change the value. Creation of the add-on might fail.
+	// - *Overwrite* – If the self-managed version of the add-on is installed on your cluster and the Amazon EKS default value is different than the existing value, Amazon EKS changes the value to the Amazon EKS default value.
+	// - *Preserve* – Not supported. You can set this value when updating an add-on though. For more information, see [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) .
+	//
+	// If you don't currently have the self-managed version of the add-on installed on your cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values to default values, regardless of the option that you specify.
 	ResolveConflicts *string `field:"optional" json:"resolveConflicts" yaml:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account.
 	//

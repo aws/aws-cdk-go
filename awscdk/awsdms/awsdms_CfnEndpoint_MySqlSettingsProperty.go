@@ -29,9 +29,9 @@ type CfnEndpoint_MySqlSettingsProperty struct {
 	//
 	// For this parameter, provide the code of the script itself, not the name of a file containing the script.
 	AfterConnectScript *string `field:"optional" json:"afterConnectScript" yaml:"afterConnectScript"`
-	// Adjusts the behavior of DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster.
+	// Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
 	//
-	// If you need DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to `false` .
+	// For example, in a situation where running an alter DDL on the table could result in different information about the table cached in the replication instance.
 	CleanSourceMetadataOnMismatch interface{} `field:"optional" json:"cleanSourceMetadataOnMismatch" yaml:"cleanSourceMetadataOnMismatch"`
 	// Specifies how often to check the binary log for new changes/events when the database is idle.
 	//

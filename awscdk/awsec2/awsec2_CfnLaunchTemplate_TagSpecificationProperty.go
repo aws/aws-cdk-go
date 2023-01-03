@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Specifies the tags to apply to a resource when the resource is created for the launch template.
@@ -26,9 +26,9 @@ import (
 type CfnLaunchTemplate_TagSpecificationProperty struct {
 	// The type of resource to tag.
 	//
-	// Currently, the resource types that support tagging on creation are `instance` and `volume` . To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
+	// The `Valid Values` are all the resource types that can be tagged. However, when creating a launch template, you can specify tags for the following resource types only: `instance` | `volume` | `elastic-gpu` | `network-interface` | `spot-instances-request`
 	//
-	// *Conditional* : Required if tags are set.
+	// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The tags to apply to the resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

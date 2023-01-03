@@ -68,7 +68,9 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	//
 	// The default is 604800 seconds (7 days).
 	SessionTimeout *string `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
-	// `CfnListener.AuthenticateOidcConfigProperty.UseExistingClientSecret`.
+	// Indicates whether to use the existing client secret when modifying a rule.
+	//
+	// If you are creating a rule, you can omit this parameter or set it to false.
 	UseExistingClientSecret interface{} `field:"optional" json:"useExistingClientSecret" yaml:"useExistingClientSecret"`
 }
 

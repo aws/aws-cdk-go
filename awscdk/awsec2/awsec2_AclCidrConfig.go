@@ -13,10 +13,13 @@ package awsec2
 //   	ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   }
 //
+// Experimental.
 type AclCidrConfig struct {
 	// Ipv4 CIDR.
+	// Experimental.
 	CidrBlock *string `field:"optional" json:"cidrBlock" yaml:"cidrBlock"`
 	// Ipv6 CIDR.
+	// Experimental.
 	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 }
 

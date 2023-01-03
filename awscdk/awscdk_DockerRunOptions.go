@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
@@ -7,7 +7,7 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dockerRunOptions := &dockerRunOptions{
 //   	command: []*string{
@@ -19,7 +19,6 @@ package awscdk
 //   	environment: map[string]*string{
 //   		"environmentKey": jsii.String("environment"),
 //   	},
-//   	network: jsii.String("network"),
 //   	securityOpt: jsii.String("securityOpt"),
 //   	user: jsii.String("user"),
 //   	volumes: []dockerVolume{
@@ -28,35 +27,34 @@ package awscdk
 //   			hostPath: jsii.String("hostPath"),
 //
 //   			// the properties below are optional
-//   			consistency: cdk.dockerVolumeConsistency_CONSISTENT,
+//   			consistency: monocdk.dockerVolumeConsistency_CONSISTENT,
 //   		},
-//   	},
-//   	volumesFrom: []*string{
-//   		jsii.String("volumesFrom"),
 //   	},
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   }
 //
+// Experimental.
 type DockerRunOptions struct {
 	// The command to run in the container.
+	// Experimental.
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The entrypoint to run in the container.
+	// Experimental.
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// The environment variables to pass to the container.
+	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
-	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
-	Network *string `field:"optional" json:"network" yaml:"network"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
+	// Experimental.
 	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`
 	// The user to use when running the container.
+	// Experimental.
 	User *string `field:"optional" json:"user" yaml:"user"`
 	// Docker volumes to mount.
+	// Experimental.
 	Volumes *[]*DockerVolume `field:"optional" json:"volumes" yaml:"volumes"`
-	// Where to mount the specified volumes from.
-	// See: https://docs.docker.com/engine/reference/commandline/run/#mount-volumes-from-container---volumes-from
-	//
-	VolumesFrom *[]*string `field:"optional" json:"volumesFrom" yaml:"volumesFrom"`
 	// Working directory inside the container.
+	// Experimental.
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 

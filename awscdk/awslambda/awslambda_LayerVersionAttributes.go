@@ -19,10 +19,13 @@ package awslambda
 //   	},
 //   }
 //
+// Experimental.
 type LayerVersionAttributes struct {
 	// The ARN of the LayerVersion.
+	// Experimental.
 	LayerVersionArn *string `field:"required" json:"layerVersionArn" yaml:"layerVersionArn"`
 	// The list of compatible runtimes with this Layer.
+	// Experimental.
 	CompatibleRuntimes *[]Runtime `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 }
 

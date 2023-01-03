@@ -112,6 +112,14 @@ func (s *jsiiProxy_Stream) validateMetricWriteProvisionedThroughputExceededParam
 	return nil
 }
 
+func (s *jsiiProxy_Stream) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_Stream) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateStream_FromStreamArnParameters(scope constructs.Construct, id *string, streamArn *string) error {
 	return nil
 }
@@ -124,11 +132,7 @@ func validateStream_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStream_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateStream_IsResourceParameters(construct constructs.IConstruct) error {
+func validateStream_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -3,46 +3,61 @@ package awsstepfunctions
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions/internal"
 )
 
 // A State Machine.
+// Experimental.
 type IStateMachine interface {
 	awsiam.IGrantable
 	awscdk.IResource
 	// Grant the given identity custom permissions.
+	// Experimental.
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions for all executions of a state machine.
+	// Experimental.
 	GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity read permissions for this state machine.
+	// Experimental.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start an execution of this state machine.
+	// Experimental.
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start a synchronous execution of this state machine.
+	// Experimental.
 	GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity read permissions for this state machine.
+	// Experimental.
 	GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this State Machine's executions.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were aborted.
+	// Experimental.
 	MetricAborted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that failed.
+	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were started.
+	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that succeeded.
+	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were throttled.
+	// Experimental.
 	MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the interval, in milliseconds, between the time the execution starts and the time it closes.
+	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that timed out.
+	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of the state machine.
+	// Experimental.
 	StateMachineArn() *string
 }
 
@@ -327,8 +342,8 @@ func (j *jsiiProxy_IStateMachine) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IStateMachine) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IStateMachine) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

@@ -1,6 +1,8 @@
 package awsiot
 
 
+// The criteria that determine when and how a job abort takes place.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,7 +20,7 @@ package awsiot
 //   }
 //
 type CfnJobTemplate_AbortConfigProperty struct {
-	// `CfnJobTemplate.AbortConfigProperty.CriteriaList`.
+	// The list of criteria that determine when and how to abort the job.
 	CriteriaList interface{} `field:"required" json:"criteriaList" yaml:"criteriaList"`
 }
 

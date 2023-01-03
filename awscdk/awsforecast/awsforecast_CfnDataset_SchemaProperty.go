@@ -1,6 +1,8 @@
 package awsforecast
 
 
+// Defines the fields of a dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,7 +18,7 @@ package awsforecast
 //   }
 //
 type CfnDataset_SchemaProperty struct {
-	// `CfnDataset.SchemaProperty.Attributes`.
+	// An array of attributes specifying the name and type of each field in a dataset.
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 }
 

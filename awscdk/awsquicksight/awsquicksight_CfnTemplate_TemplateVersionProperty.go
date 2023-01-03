@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A version of a template.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -52,23 +54,25 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_TemplateVersionProperty struct {
-	// `CfnTemplate.TemplateVersionProperty.CreatedTime`.
+	// The time that this template version was created.
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
-	// `CfnTemplate.TemplateVersionProperty.DataSetConfigurations`.
+	// Schema of the dataset identified by the placeholder.
+	//
+	// Any dashboard created from this template should be bound to new datasets matching the same schema described through this API operation.
 	DataSetConfigurations interface{} `field:"optional" json:"dataSetConfigurations" yaml:"dataSetConfigurations"`
-	// `CfnTemplate.TemplateVersionProperty.Description`.
+	// The description of the template.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnTemplate.TemplateVersionProperty.Errors`.
+	// Errors associated with this template version.
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
-	// `CfnTemplate.TemplateVersionProperty.Sheets`.
+	// A list of the associated sheets with the unique identifier and name of each sheet.
 	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
-	// `CfnTemplate.TemplateVersionProperty.SourceEntityArn`.
+	// The Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
 	SourceEntityArn *string `field:"optional" json:"sourceEntityArn" yaml:"sourceEntityArn"`
-	// `CfnTemplate.TemplateVersionProperty.Status`.
+	// The HTTP status of the request.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// `CfnTemplate.TemplateVersionProperty.ThemeArn`.
+	// The ARN of the theme associated with this version of the template.
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
-	// `CfnTemplate.TemplateVersionProperty.VersionNumber`.
+	// The version number of the template version.
 	VersionNumber *float64 `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 

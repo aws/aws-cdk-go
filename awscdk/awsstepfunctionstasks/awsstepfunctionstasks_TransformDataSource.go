@@ -29,8 +29,10 @@ package awsstepfunctionstasks
 //   	},
 //   })
 //
+// Experimental.
 type TransformDataSource struct {
 	// S3 location of the input data.
+	// Experimental.
 	S3DataSource *TransformS3DataSource `field:"required" json:"s3DataSource" yaml:"s3DataSource"`
 }
 

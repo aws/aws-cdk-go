@@ -21,9 +21,9 @@ package awscodedeploy
 //   }
 //
 type CfnDeploymentGroup_AlarmConfigurationProperty struct {
-	// A list of alarms configured for the deployment group.
+	// A list of alarms configured for the deployment or deployment group.
 	//
-	// A maximum of 10 alarms can be added to a deployment group.
+	// A maximum of 10 alarms can be added.
 	Alarms interface{} `field:"optional" json:"alarms" yaml:"alarms"`
 	// Indicates whether the alarm configuration is enabled.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

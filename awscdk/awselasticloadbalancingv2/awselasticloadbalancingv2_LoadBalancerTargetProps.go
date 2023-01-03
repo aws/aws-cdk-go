@@ -17,12 +17,15 @@ package awselasticloadbalancingv2
 //   	targetJson: targetJson,
 //   }
 //
+// Experimental.
 type LoadBalancerTargetProps struct {
 	// What kind of target this is.
+	// Experimental.
 	TargetType TargetType `field:"required" json:"targetType" yaml:"targetType"`
 	// JSON representing the target's direct addition to the TargetGroup list.
 	//
 	// May be omitted if the target is going to register itself later.
+	// Experimental.
 	TargetJson interface{} `field:"optional" json:"targetJson" yaml:"targetJson"`
 }
 
