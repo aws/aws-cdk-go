@@ -68,6 +68,8 @@ type CfnDeployment_StageDescriptionProperty struct {
 	// Indicates whether cache clustering is enabled for the stage.
 	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// The size of the stage's cache cluster.
+	//
+	// For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference* .
 	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// Indicates whether the cached responses are encrypted.
 	CacheDataEncrypted interface{} `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`

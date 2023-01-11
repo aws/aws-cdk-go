@@ -57,7 +57,7 @@ type CfnSubscriptionFilter interface {
 	// `AWS::Logs::SubscriptionFilter.Distribution`.
 	Distribution() *string
 	SetDistribution(val *string)
-	// `AWS::Logs::SubscriptionFilter.FilterName`.
+	// The name of the subscription filter.
 	FilterName() *string
 	SetFilterName(val *string)
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource.

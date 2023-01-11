@@ -58,9 +58,9 @@ type CfnSecurityGroup_IngressProperty struct {
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
+	// If the protocol is TCP or UDP, this is the start of the port range.
 	//
-	// A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	// If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// [EC2-VPC only] The ID of a prefix list.
 	SourcePrefixListId *string `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
@@ -80,9 +80,9 @@ type CfnSecurityGroup_IngressProperty struct {
 	//
 	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
 	SourceSecurityGroupOwnerId *string `field:"optional" json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
-	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	// If the protocol is TCP or UDP, this is the end of the port range.
 	//
-	// A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	// If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 

@@ -58,7 +58,7 @@ type CfnEnvironmentProps struct {
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig interface{} `field:"optional" json:"highAvailabilityConfig" yaml:"highAvailabilityConfig"`
-	// `AWS::M2::Environment.KmsKeyId`.
+	// The identifier of a customer managed key.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Configures the maintenance window you want for the runtime environment.
 	//

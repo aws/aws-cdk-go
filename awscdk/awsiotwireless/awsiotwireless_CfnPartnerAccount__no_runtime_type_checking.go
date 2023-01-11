@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkResponseParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPartnerAccount) validateSetSidewalkUpdateParameters(val interface{}) error {
 	return nil
 }

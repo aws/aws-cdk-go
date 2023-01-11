@@ -46,7 +46,11 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 	//
 	// The minimum capacity must be less than or equal to the maximum capacity.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
-	// `CfnDBCluster.ScalingConfigurationProperty.SecondsBeforeTimeout`.
+	// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+	//
+	// The default is 300.
+	//
+	// Specify a value between 60 and 600 seconds.
 	SecondsBeforeTimeout *float64 `field:"optional" json:"secondsBeforeTimeout" yaml:"secondsBeforeTimeout"`
 	// The time, in seconds, before an Aurora DB cluster in `serverless` mode is paused.
 	//

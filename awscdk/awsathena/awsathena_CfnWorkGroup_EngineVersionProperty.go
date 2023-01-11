@@ -20,7 +20,7 @@ type CfnWorkGroup_EngineVersionProperty struct {
 	EffectiveEngineVersion *string `field:"optional" json:"effectiveEngineVersion" yaml:"effectiveEngineVersion"`
 	// The engine version requested by the user.
 	//
-	// Possible values are determined by the output of `ListEngineVersions` , including Auto. The default is Auto.
+	// Possible values are determined by the output of `ListEngineVersions` , including AUTO. The default is AUTO.
 	SelectedEngineVersion *string `field:"optional" json:"selectedEngineVersion" yaml:"selectedEngineVersion"`
 }
 

@@ -40,16 +40,11 @@ import (
 //   }
 //
 type CfnDataRepositoryAssociationProps struct {
-	// The path to the data repository that will be linked to the cache or file system.
+	// The path to the Amazon S3 data repository that will be linked to the file system.
 	//
-	// - For Amazon File Cache, the path can be an NFS data repository that will be linked to the cache. The path can be in one of two formats:
-	//
-	// - If you are not using the `DataRepositorySubdirectories` parameter, the path is to an NFS Export directory (or one of its subdirectories) in the format `nsf://nfs-domain-name/exportpath` . You can therefore link a single NFS Export to a single data repository association.
-	// - If you are using the `DataRepositorySubdirectories` parameter, the path is the domain name of the NFS file system in the format `nfs://filer-domain-name` , which indicates the root of the subdirectories specified with the `DataRepositorySubdirectories` parameter.
-	// - For Amazon File Cache, the path can be an S3 bucket or prefix in the format `s3://myBucket/myPrefix/` .
-	// - For Amazon FSx for Lustre, the path can be an S3 bucket or prefix in the format `s3://myBucket/myPrefix/` .
+	// The path can be an S3 bucket or prefix in the format `s3://myBucket/myPrefix/` . This path specifies where in the S3 data repository files will be imported from or exported to.
 	DataRepositoryPath *string `field:"required" json:"dataRepositoryPath" yaml:"dataRepositoryPath"`
-	// `AWS::FSx::DataRepositoryAssociation.FileSystemId`.
+	// The ID of the file system on which the data repository association is configured.
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// A path on the Amazon FSx for Lustre file system that points to a high-level directory (such as `/ns1/` ) or subdirectory (such as `/ns1/subdir/` ) that will be mapped 1-1 with `DataRepositoryPath` .
 	//
@@ -62,8 +57,6 @@ type CfnDataRepositoryAssociationProps struct {
 	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created.
 	//
 	// The task runs if this flag is set to `true` .
-	//
-	// > `BatchImportMetaDataOnCreate` is not supported for data repositories linked to an Amazon File Cache resource.
 	BatchImportMetaDataOnCreate interface{} `field:"optional" json:"batchImportMetaDataOnCreate" yaml:"batchImportMetaDataOnCreate"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk.
 	//
@@ -71,9 +64,13 @@ type CfnDataRepositoryAssociationProps struct {
 	//
 	// The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	ImportedFileChunkSize *float64 `field:"optional" json:"importedFileChunkSize" yaml:"importedFileChunkSize"`
-	// The configuration for an Amazon S3 data repository linked to an Amazon FSx for Lustre file system with a data repository association.
+	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association.
+	//
+	// The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
-	// `AWS::FSx::DataRepositoryAssociation.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

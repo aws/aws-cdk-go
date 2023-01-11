@@ -62,6 +62,8 @@ import (
 type CfnJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// This parameter is no longer supported. Use `MaxCapacity` instead.
+	//
 	// The number of capacity units that are allocated to this job.
 	AllocatedCapacity() *float64
 	SetAllocatedCapacity(val *float64)

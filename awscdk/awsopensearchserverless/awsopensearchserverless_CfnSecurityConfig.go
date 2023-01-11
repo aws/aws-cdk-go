@@ -35,6 +35,9 @@ import (
 type CfnSecurityConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique identifier of the security configuration.
+	//
+	// For example, `saml/123456789012/myprovider` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.

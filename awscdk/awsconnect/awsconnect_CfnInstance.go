@@ -78,6 +78,8 @@ type CfnInstance interface {
 	IdentityManagementType() *string
 	SetIdentityManagementType(val *string)
 	// The alias of instance.
+	//
+	// *It is required* . The value shown below is incorrect. We're working to fix it.
 	InstanceAlias() *string
 	SetInstanceAlias(val *string)
 	// The logical ID for this CloudFormation stack element.

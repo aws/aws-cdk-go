@@ -30,9 +30,9 @@ import (
 //   }
 //
 type CfnConnectPeerProps struct {
-	// The BGP peer options.
+	// `AWS::NetworkManager::ConnectPeer.BgpOptions`.
 	BgpOptions interface{} `field:"optional" json:"bgpOptions" yaml:"bgpOptions"`
-	// The ID of Connect peer.
+	// The ID of the attachment to connect.
 	ConnectAttachmentId *string `field:"optional" json:"connectAttachmentId" yaml:"connectAttachmentId"`
 	// The IP address of a core network.
 	CoreNetworkAddress *string `field:"optional" json:"coreNetworkAddress" yaml:"coreNetworkAddress"`

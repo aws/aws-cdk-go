@@ -36,7 +36,7 @@ package awsnimblestudio
 //   }
 //
 type CfnStudioComponent_StudioComponentConfigurationProperty struct {
-	// The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.
+	// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
 	ActiveDirectoryConfiguration interface{} `field:"optional" json:"activeDirectoryConfiguration" yaml:"activeDirectoryConfiguration"`
 	// The configuration for a render farm that is associated with a studio resource.
 	ComputeFarmConfiguration interface{} `field:"optional" json:"computeFarmConfiguration" yaml:"computeFarmConfiguration"`

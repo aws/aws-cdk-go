@@ -11,7 +11,11 @@ import (
 
 // A CloudFormation `AWS::EC2::VPC`.
 //
-// Specifies a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see [Overview of VPCs and subnets](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html) in the *Amazon Virtual Private Cloud User Guide* .
+// Specifies a virtual private cloud (VPC).
+//
+// You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+//
+// For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/configure-your-vpc.html) in the *Amazon VPC User Guide* .
 //
 // Example:
 //   var cfnTemplate cfnInclude

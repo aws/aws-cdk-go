@@ -278,7 +278,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	CacheBehaviors interface{} `field:"optional" json:"cacheBehaviors" yaml:"cacheBehaviors"`
 	// `CfnDistribution.DistributionConfigProperty.CNAMEs`.
 	CnamEs *[]*string `field:"optional" json:"cnamEs" yaml:"cnamEs"`
-	// An optional comment to describe the distribution.
+	// A comment to describe the distribution.
 	//
 	// The comment cannot be longer than 128 characters.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
@@ -354,7 +354,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	//
 	// When this value is `true` , this is a staging distribution. When this value is `false` , this is not a staging distribution.
 	Staging interface{} `field:"optional" json:"staging" yaml:"staging"`
-	// A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers.
+	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate interface{} `field:"optional" json:"viewerCertificate" yaml:"viewerCertificate"`
 	// A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.
 	//

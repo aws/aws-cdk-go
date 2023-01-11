@@ -20,7 +20,9 @@ package awsiam
 //   }
 //
 type CfnUser_PolicyProperty struct {
-	// The policy document.
+	// The entire contents of the policy that defines permissions.
+	//
+	// For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json) .
 	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`

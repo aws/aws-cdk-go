@@ -40,8 +40,8 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 	// The actions for a stateful rule are defined as follows:
 	//
 	// - *PASS* - Permits the packets to go to the intended destination.
-	// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall's `LoggingConfiguration` .
-	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall's `LoggingConfiguration` .
+	// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
 	//
 	// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
 	Action *string `field:"required" json:"action" yaml:"action"`

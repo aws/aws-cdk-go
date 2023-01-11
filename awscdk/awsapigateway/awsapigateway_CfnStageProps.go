@@ -68,6 +68,8 @@ type CfnStageProps struct {
 	// Indicates whether cache clustering is enabled for the stage.
 	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// The stage's cache cluster size.
+	//
+	// For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference* .
 	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// Specifies settings for the canary deployment in this stage.
 	CanarySetting interface{} `field:"optional" json:"canarySetting" yaml:"canarySetting"`

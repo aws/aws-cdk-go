@@ -15,8 +15,6 @@ import (
 //
 // Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html) .
 //
-// > `CreateDataRepositoryAssociation` isn't supported on Amazon File Cache resources. To create a DRA on Amazon File Cache, use the `CreateFileCache` operation.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -53,13 +51,17 @@ import (
 type CfnDataRepositoryAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the data repository association's system generated Association ID.
+	//
+	// Example: `dra-abcdef0123456789d`.
 	AttrAssociationId() *string
+	// Returns the data repository association's Amazon Resource Name (ARN).
+	//
+	// Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`.
 	AttrResourceArn() *string
 	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created.
 	//
 	// The task runs if this flag is set to `true` .
-	//
-	// > `BatchImportMetaDataOnCreate` is not supported for data repositories linked to an Amazon File Cache resource.
 	BatchImportMetaDataOnCreate() interface{}
 	SetBatchImportMetaDataOnCreate(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -74,17 +76,12 @@ type CfnDataRepositoryAssociation interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// The path to the data repository that will be linked to the cache or file system.
+	// The path to the Amazon S3 data repository that will be linked to the file system.
 	//
-	// - For Amazon File Cache, the path can be an NFS data repository that will be linked to the cache. The path can be in one of two formats:
-	//
-	// - If you are not using the `DataRepositorySubdirectories` parameter, the path is to an NFS Export directory (or one of its subdirectories) in the format `nsf://nfs-domain-name/exportpath` . You can therefore link a single NFS Export to a single data repository association.
-	// - If you are using the `DataRepositorySubdirectories` parameter, the path is the domain name of the NFS file system in the format `nfs://filer-domain-name` , which indicates the root of the subdirectories specified with the `DataRepositorySubdirectories` parameter.
-	// - For Amazon File Cache, the path can be an S3 bucket or prefix in the format `s3://myBucket/myPrefix/` .
-	// - For Amazon FSx for Lustre, the path can be an S3 bucket or prefix in the format `s3://myBucket/myPrefix/` .
+	// The path can be an S3 bucket or prefix in the format `s3://myBucket/myPrefix/` . This path specifies where in the S3 data repository files will be imported from or exported to.
 	DataRepositoryPath() *string
 	SetDataRepositoryPath(val *string)
-	// `AWS::FSx::DataRepositoryAssociation.FileSystemId`.
+	// The ID of the file system on which the data repository association is configured.
 	FileSystemId() *string
 	SetFileSystemId(val *string)
 	// A path on the Amazon FSx for Lustre file system that points to a high-level directory (such as `/ns1/` ) or subdirectory (such as `/ns1/subdir/` ) that will be mapped 1-1 with `DataRepositoryPath` .
@@ -123,7 +120,9 @@ type CfnDataRepositoryAssociation interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// The configuration for an Amazon S3 data repository linked to an Amazon FSx for Lustre file system with a data repository association.
+	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association.
+	//
+	// The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3() interface{}
 	SetS3(val interface{})
 	// The stack in which this element is defined.
@@ -131,7 +130,9 @@ type CfnDataRepositoryAssociation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::FSx::DataRepositoryAssociation.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//

@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::EC2::VPCEndpointService`.
 //
-// Creates a VPC endpoint service configuration to which service consumers ( AWS accounts, IAM users, and IAM roles) can connect.
+// Creates a VPC endpoint service configuration to which service consumers ( AWS accounts, users, and IAM roles) can connect.
 //
 // To create an endpoint service configuration, you must first create one of the following for your service:
 //

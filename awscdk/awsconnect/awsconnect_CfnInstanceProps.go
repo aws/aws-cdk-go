@@ -35,6 +35,8 @@ type CfnInstanceProps struct {
 	// The identifier for the directory.
 	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`
 	// The alias of instance.
+	//
+	// *It is required* . The value shown below is incorrect. We're working to fix it.
 	InstanceAlias *string `field:"optional" json:"instanceAlias" yaml:"instanceAlias"`
 }
 

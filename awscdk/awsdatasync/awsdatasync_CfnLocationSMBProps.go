@@ -38,11 +38,9 @@ type CfnLocationSMBProps struct {
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password *string `field:"required" json:"password" yaml:"password"`
-	// The name of the SMB server.
+	// Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that your DataSync agent will mount.
 	//
-	// This value is the IP address or Domain Name Service (DNS) name of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB server in a network.
-	//
-	// > This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.
+	// > You can't specify an IP version 6 (IPv6) address.
 	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination.
 	//
@@ -56,13 +54,15 @@ type CfnLocationSMBProps struct {
 	//
 	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#SMBuser) .
 	User *string `field:"required" json:"user" yaml:"user"`
-	// The name of the Windows domain that the SMB server belongs to.
-	Domain *string `field:"optional" json:"domain" yaml:"domain"`
-	// The mount options used by DataSync to access the SMB server.
-	MountOptions interface{} `field:"optional" json:"mountOptions" yaml:"mountOptions"`
-	// The key-value pair that represents the tag that you want to add to the location.
+	// Specifies the Windows domain name that your SMB file server belongs to.
 	//
-	// The value can be an empty string. We recommend using tags to name your resources.
+	// For more information, see [required permissions](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions) for SMB locations.
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
+	// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+	MountOptions interface{} `field:"optional" json:"mountOptions" yaml:"mountOptions"`
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	//
+	// We recommend creating at least a name tag for your location.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

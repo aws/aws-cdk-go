@@ -29,15 +29,15 @@ import (
 //   }
 //
 type CfnConnectAttachmentProps struct {
-	// The core network ID.
+	// The ID of the core network where the Connect attachment is located.
 	CoreNetworkId *string `field:"required" json:"coreNetworkId" yaml:"coreNetworkId"`
 	// The Region where the edge is located.
 	EdgeLocation *string `field:"required" json:"edgeLocation" yaml:"edgeLocation"`
-	// Options for creating a Connect attachment.
+	// Options for connecting an attachment.
 	Options interface{} `field:"required" json:"options" yaml:"options"`
-	// The ID of the attachment between the two connections.
+	// The ID of the transport attachment.
 	TransportAttachmentId *string `field:"required" json:"transportAttachmentId" yaml:"transportAttachmentId"`
-	// The tags associated with the Connect attachment.
+	// `AWS::NetworkManager::ConnectAttachment.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

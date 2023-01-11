@@ -13,11 +13,15 @@ import (
 //
 //   cfnPartnerAccountProps := &cfnPartnerAccountProps{
 //   	accountLinked: jsii.Boolean(false),
-//   	fingerprint: jsii.String("fingerprint"),
 //   	partnerAccountId: jsii.String("partnerAccountId"),
 //   	partnerType: jsii.String("partnerType"),
 //   	sidewalk: &sidewalkAccountInfoProperty{
 //   		appServerPrivateKey: jsii.String("appServerPrivateKey"),
+//   	},
+//   	sidewalkResponse: &sidewalkAccountInfoWithFingerprintProperty{
+//   		amazonId: jsii.String("amazonId"),
+//   		arn: jsii.String("arn"),
+//   		fingerprint: jsii.String("fingerprint"),
 //   	},
 //   	sidewalkUpdate: &sidewalkUpdateAccountProperty{
 //   		appServerPrivateKey: jsii.String("appServerPrivateKey"),
@@ -33,14 +37,14 @@ import (
 type CfnPartnerAccountProps struct {
 	// `AWS::IoTWireless::PartnerAccount.AccountLinked`.
 	AccountLinked interface{} `field:"optional" json:"accountLinked" yaml:"accountLinked"`
-	// `AWS::IoTWireless::PartnerAccount.Fingerprint`.
-	Fingerprint *string `field:"optional" json:"fingerprint" yaml:"fingerprint"`
 	// The ID of the partner account to update.
 	PartnerAccountId *string `field:"optional" json:"partnerAccountId" yaml:"partnerAccountId"`
 	// `AWS::IoTWireless::PartnerAccount.PartnerType`.
 	PartnerType *string `field:"optional" json:"partnerType" yaml:"partnerType"`
 	// The Sidewalk account credentials.
 	Sidewalk interface{} `field:"optional" json:"sidewalk" yaml:"sidewalk"`
+	// `AWS::IoTWireless::PartnerAccount.SidewalkResponse`.
+	SidewalkResponse interface{} `field:"optional" json:"sidewalkResponse" yaml:"sidewalkResponse"`
 	// `AWS::IoTWireless::PartnerAccount.SidewalkUpdate`.
 	SidewalkUpdate interface{} `field:"optional" json:"sidewalkUpdate" yaml:"sidewalkUpdate"`
 	// The tags are an array of key-value pairs to attach to the specified resource.

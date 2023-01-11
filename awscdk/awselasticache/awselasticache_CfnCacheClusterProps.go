@@ -258,8 +258,6 @@ type CfnCacheClusterProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A flag that enables in-transit encryption when set to true.
 	//
-	// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set `TransitEncryptionEnabled` to true when you create a cluster.
-	//
 	// Only available when creating a cache cluster in an Amazon VPC using Memcached version 1.6.12 or later.
 	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 	// One or more VPC security groups associated with the cluster.

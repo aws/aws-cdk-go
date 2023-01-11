@@ -66,7 +66,7 @@ type CfnApplication interface {
 	// The type of the target platform for this application.
 	EngineType() *string
 	SetEngineType(val *string)
-	// `AWS::M2::Application.KmsKeyId`.
+	// The identifier of a customer managed key.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -35,7 +35,7 @@ type CfnApplicationProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the application.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::M2::Application.KmsKeyId`.
+	// The identifier of a customer managed key.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// An array of key-value pairs to apply to this resource.
 	//

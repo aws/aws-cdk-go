@@ -13,6 +13,8 @@ import (
 //
 // Specifies an OpenSearch Serverless collection. For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html) in the *Amazon OpenSearch Service Developer Guide* .
 //
+// > You must create a matching [encryption policy](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html) in order for a collection to be created successfully. You can specify the policy resource within the same CloudFormation template as the collection resource if you use the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute. See [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#aws-resource-opensearchserverless-collection--examples) for a sample template. Otherwise the encryption policy must already exist before you create the collection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -78,6 +80,13 @@ type CfnCollection interface {
 	// Experimental.
 	LogicalId() *string
 	// The name of the collection.
+	//
+	// Collection names must meet the following criteria:
+	//
+	// - Starts with a lowercase letter
+	// - Unique to your account and AWS Region
+	// - Contains between 3 and 28 characters
+	// - Contains only lowercase letters a-z, the numbers 0-9, and the hyphen (-).
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.

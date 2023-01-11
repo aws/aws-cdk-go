@@ -174,7 +174,7 @@ type CfnRule_TargetProperty struct {
 	Input *string `field:"optional" json:"input" yaml:"input"`
 	// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target.
 	//
-	// You may use JSON dot notation or bracke notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+	// You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// Settings to enable you to provide custom input to a target based on certain event data.
 	//

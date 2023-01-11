@@ -13,11 +13,11 @@ import (
 //
 // A response headers policy.
 //
-// A response headers policy contains information about a set of HTTP response headers and their values.
+// A response headers policy contains information about a set of HTTP response headers.
 //
-// After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior, CloudFront adds the headers in the policy to HTTP responses that it sends for requests that match the cache behavior.
+// After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.
 //
-// For more information, see [Adding HTTP headers to CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-response-headers.html) in the *Amazon CloudFront Developer Guide* .
+// For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -118,7 +118,7 @@ import (
 type CfnResponseHeadersPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The unique identifier for the cache policy.
+	// The unique identifier for the response headers policy.
 	//
 	// For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
 	AttrId() *string
@@ -157,8 +157,6 @@ type CfnResponseHeadersPolicy interface {
 	// Experimental.
 	Ref() *string
 	// A response headers policy configuration.
-	//
-	// A response headers policy contains information about a set of HTTP response headers and their values. CloudFront adds the headers in the policy to HTTP responses that it sends for requests that match a cache behavior that’s associated with the policy.
 	ResponseHeadersPolicyConfig() interface{}
 	SetResponseHeadersPolicyConfig(val interface{})
 	// The stack in which this element is defined.

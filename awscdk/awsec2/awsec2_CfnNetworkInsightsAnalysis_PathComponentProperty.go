@@ -351,9 +351,9 @@ type CfnNetworkInsightsAnalysis_PathComponentProperty struct {
 	Component interface{} `field:"optional" json:"component" yaml:"component"`
 	// The destination VPC.
 	DestinationVpc interface{} `field:"optional" json:"destinationVpc" yaml:"destinationVpc"`
-	// `CfnNetworkInsightsAnalysis.PathComponentProperty.ElasticLoadBalancerListener`.
+	// The load balancer listener.
 	ElasticLoadBalancerListener interface{} `field:"optional" json:"elasticLoadBalancerListener" yaml:"elasticLoadBalancerListener"`
-	// `CfnNetworkInsightsAnalysis.PathComponentProperty.Explanations`.
+	// The explanation codes.
 	Explanations interface{} `field:"optional" json:"explanations" yaml:"explanations"`
 	// The inbound header.
 	InboundHeader interface{} `field:"optional" json:"inboundHeader" yaml:"inboundHeader"`

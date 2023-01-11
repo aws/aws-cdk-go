@@ -161,12 +161,15 @@ type CfnFileSystem interface {
 	//
 	// Example: `amznfsxp1honlek.corp.example.com`
 	AttrDnsName() *string
-	// Returns the file system's LustreMountName.
+	// Returns the Lustre file system's `LustreMountName` .
 	//
-	// Example for SCRATCH_1 deployment types: This value is always `fsx` .
+	// Example for `SCRATCH_1` deployment types: This value is always `fsx` .
 	//
-	// Example for SCRATCH_2 and PERSISTENT deployment types: `2p3fhbmv`.
+	// Example for `SCRATCH_2` and `PERSISTENT` deployment types: `2p3fhbmv`.
 	AttrLustreMountName() *string
+	// Returns the Amazon Resource Name (ARN) for the Amazon FSx file system.
+	//
+	// Example: `arn:aws:fsx:us-east-2:111122223333:file-system/fs-0123abcd56789ef0a`.
 	AttrResourceArn() *string
 	// Returns the root volume ID of the FSx for OpenZFS file system.
 	//

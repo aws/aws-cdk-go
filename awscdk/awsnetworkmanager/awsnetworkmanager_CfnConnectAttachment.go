@@ -74,7 +74,7 @@ type CfnConnectAttachment interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// The core network ID.
+	// The ID of the core network where the Connect attachment is located.
 	CoreNetworkId() *string
 	SetCoreNetworkId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -99,7 +99,7 @@ type CfnConnectAttachment interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// Options for creating a Connect attachment.
+	// Options for connecting an attachment.
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -113,9 +113,9 @@ type CfnConnectAttachment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// The tags associated with the Connect attachment.
+	// `AWS::NetworkManager::ConnectAttachment.Tags`.
 	Tags() awscdk.TagManager
-	// The ID of the attachment between the two connections.
+	// The ID of the transport attachment.
 	TransportAttachmentId() *string
 	SetTransportAttachmentId(val *string)
 	// Return properties modified after initiation.

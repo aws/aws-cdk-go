@@ -11,9 +11,7 @@ import (
 
 // A CloudFormation `AWS::Grafana::Workspace`.
 //
-// Creates a *workspace* . In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.
-//
-// Don't use `CreateWorkspace` to modify an existing workspace. Instead, use [UpdateWorkspace](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html) .
+// Specifies a *workspace* . In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -113,7 +111,7 @@ type CfnWorkspace interface {
 	//
 	// Type: String.
 	AttrSamlConfigurationStatus() *string
-	// The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana ..
+	// The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana .
 	//
 	// Type: String.
 	AttrSsoClientId() *string
@@ -208,7 +206,7 @@ type CfnWorkspace interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::Grafana::Workspace.VpcConfiguration`.
+	// The configuration for connecting to data sources in a private VPC ( Amazon Virtual Private Cloud ).
 	VpcConfiguration() interface{}
 	SetVpcConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

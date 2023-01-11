@@ -32,7 +32,7 @@ type CfnSubscriptionFilterProps struct {
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// `AWS::Logs::SubscriptionFilter.Distribution`.
 	Distribution *string `field:"optional" json:"distribution" yaml:"distribution"`
-	// `AWS::Logs::SubscriptionFilter.FilterName`.
+	// The name of the subscription filter.
 	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 	// The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream.
 	//

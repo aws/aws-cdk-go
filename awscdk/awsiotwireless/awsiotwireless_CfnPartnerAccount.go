@@ -20,11 +20,15 @@ import (
 //
 //   cfnPartnerAccount := awscdk.Aws_iotwireless.NewCfnPartnerAccount(this, jsii.String("MyCfnPartnerAccount"), &cfnPartnerAccountProps{
 //   	accountLinked: jsii.Boolean(false),
-//   	fingerprint: jsii.String("fingerprint"),
 //   	partnerAccountId: jsii.String("partnerAccountId"),
 //   	partnerType: jsii.String("partnerType"),
 //   	sidewalk: &sidewalkAccountInfoProperty{
 //   		appServerPrivateKey: jsii.String("appServerPrivateKey"),
+//   	},
+//   	sidewalkResponse: &sidewalkAccountInfoWithFingerprintProperty{
+//   		amazonId: jsii.String("amazonId"),
+//   		arn: jsii.String("arn"),
+//   		fingerprint: jsii.String("fingerprint"),
 //   	},
 //   	sidewalkUpdate: &sidewalkUpdateAccountProperty{
 //   		appServerPrivateKey: jsii.String("appServerPrivateKey"),
@@ -45,9 +49,7 @@ type CfnPartnerAccount interface {
 	SetAccountLinked(val interface{})
 	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
-	AttrSidewalkResponseAmazonId() *string
-	AttrSidewalkResponseArn() *string
-	AttrSidewalkResponseFingerprint() *string
+	AttrFingerprint() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -60,9 +62,6 @@ type CfnPartnerAccount interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::IoTWireless::PartnerAccount.Fingerprint`.
-	Fingerprint() *string
-	SetFingerprint(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -92,6 +91,9 @@ type CfnPartnerAccount interface {
 	// The Sidewalk account credentials.
 	Sidewalk() interface{}
 	SetSidewalk(val interface{})
+	// `AWS::IoTWireless::PartnerAccount.SidewalkResponse`.
+	SidewalkResponse() interface{}
+	SetSidewalkResponse(val interface{})
 	// `AWS::IoTWireless::PartnerAccount.SidewalkUpdate`.
 	SidewalkUpdate() interface{}
 	SetSidewalkUpdate(val interface{})
@@ -302,31 +304,11 @@ func (j *jsiiProxy_CfnPartnerAccount) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnerAccount) AttrSidewalkResponseAmazonId() *string {
+func (j *jsiiProxy_CfnPartnerAccount) AttrFingerprint() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrSidewalkResponseAmazonId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPartnerAccount) AttrSidewalkResponseArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrSidewalkResponseArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPartnerAccount) AttrSidewalkResponseFingerprint() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrSidewalkResponseFingerprint",
+		"attrFingerprint",
 		&returns,
 	)
 	return returns
@@ -367,16 +349,6 @@ func (j *jsiiProxy_CfnPartnerAccount) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPartnerAccount) Fingerprint() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"fingerprint",
 		&returns,
 	)
 	return returns
@@ -437,6 +409,16 @@ func (j *jsiiProxy_CfnPartnerAccount) Sidewalk() interface{} {
 	_jsii_.Get(
 		j,
 		"sidewalk",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPartnerAccount) SidewalkResponse() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sidewalkResponse",
 		&returns,
 	)
 	return returns
@@ -523,14 +505,6 @@ func (j *jsiiProxy_CfnPartnerAccount)SetAccountLinked(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnPartnerAccount)SetFingerprint(val *string) {
-	_jsii_.Set(
-		j,
-		"fingerprint",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnPartnerAccount)SetPartnerAccountId(val *string) {
 	_jsii_.Set(
 		j,
@@ -554,6 +528,17 @@ func (j *jsiiProxy_CfnPartnerAccount)SetSidewalk(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sidewalk",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPartnerAccount)SetSidewalkResponse(val interface{}) {
+	if err := j.validateSetSidewalkResponseParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sidewalkResponse",
 		val,
 	)
 }

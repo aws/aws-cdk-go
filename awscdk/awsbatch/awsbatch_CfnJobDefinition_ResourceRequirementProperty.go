@@ -37,7 +37,7 @@ type CfnJobDefinition_ResourceRequirementProperty struct {
 	// - **value = 3072** - `VCPU` = 0.5, or 1
 	// - **value = 4096** - `VCPU` = 0.5, 1, or 2
 	// - **value = 5120, 6144, or 7168** - `VCPU` = 1 or 2
-	// - **value = 8192** - `VCPU` = 1, 2, 4, or 8
+	// - **value = 8192** - `VCPU` = 1, 2, or 4
 	// - **value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360** - `VCPU` = 2 or 4
 	// - **value = 16384** - `VCPU` = 2, 4, or 8
 	// - **value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720** - `VCPU` = 4

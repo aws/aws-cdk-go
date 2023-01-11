@@ -15,6 +15,8 @@ package awscloudfront
 //
 type CfnContinuousDeploymentPolicy_SingleHeaderConfigProperty struct {
 	// The request header name that you want CloudFront to send to your staging distribution.
+	//
+	// The header must contain the prefix `aws-cf-cd-` .
 	Header *string `field:"required" json:"header" yaml:"header"`
 	// The request header value.
 	Value *string `field:"required" json:"value" yaml:"value"`

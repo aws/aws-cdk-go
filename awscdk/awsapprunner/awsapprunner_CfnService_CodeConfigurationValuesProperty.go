@@ -36,9 +36,9 @@ type CfnService_CodeConfigurationValuesProperty struct {
 	//
 	// Default: `8080`.
 	Port *string `field:"optional" json:"port" yaml:"port"`
-	// The environment variables that are available to your running App Runner service.
+	// The environment variables that are available to your running AWS App Runner service.
 	//
-	// An array of key-value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+	// An array of key-value pairs.
 	RuntimeEnvironmentVariables interface{} `field:"optional" json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
 	// The command App Runner runs to start your application.
 	StartCommand *string `field:"optional" json:"startCommand" yaml:"startCommand"`

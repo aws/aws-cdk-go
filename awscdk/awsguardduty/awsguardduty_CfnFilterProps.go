@@ -71,9 +71,9 @@ type CfnFilterProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the position of the filter in the list of current filters.
 	//
-	// Also specifies the order in which this filter is applied to the findings.
+	// Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
 	//
-	// > By default, filters may not be created in the same order as they are ranked. To ensure filters are created in the correct order, you can use the optional `DependsOn` attribute with the following syntax: `"DependsOn":[ "ObjectName" ]` . You can find more information on using this attribute [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
 	Rank *float64 `field:"required" json:"rank" yaml:"rank"`
 	// The tags to be added to a new filter resource.
 	//

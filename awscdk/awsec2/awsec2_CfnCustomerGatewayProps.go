@@ -30,7 +30,9 @@ type CfnCustomerGatewayProps struct {
 	//
 	// Default: 65000.
 	BgpAsn *float64 `field:"required" json:"bgpAsn" yaml:"bgpAsn"`
-	// *This member has been deprecated.* The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
+	// IPv4 address for the customer gateway device's outside interface.
+	//
+	// The address must be static.
 	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`
 	// The type of VPN connection that this customer gateway supports ( `ipsec.1` ).
 	Type *string `field:"required" json:"type" yaml:"type"`

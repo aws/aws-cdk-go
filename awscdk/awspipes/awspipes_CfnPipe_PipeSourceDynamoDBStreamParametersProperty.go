@@ -25,6 +25,8 @@ package awspipes
 //
 type CfnPipe_PipeSourceDynamoDBStreamParametersProperty struct {
 	// (Streams only) The position in a stream from which to start reading.
+	//
+	// *Valid values* : `TRIM_HORIZON | LATEST`.
 	StartingPosition *string `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The maximum number of records to include in each batch.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`

@@ -45,7 +45,7 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - *`eventSource`* - For filtering management events only. This can be set only to `NotEquals` `kms.amazonaws.com` .
 	// - *`eventName`* - Can use any operator. You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail, such as `PutBucket` or `GetSnapshotBlock` . You can have multiple values for this ﬁeld, separated by commas.
 	// - *`eventCategory`* - This is required and must be set to `Equals` . For CloudTrail event records, the value must be `Management` or `Data` . For AWS Config configuration item records, the value must be `ConfigurationItem` .
-	// - *`resources.type`* - This ﬁeld is required for CloudTrail event records. `resources.type` can only use the `Equals` operator, and the value can be one of the following:
+	// - *`resources.type`* - This ﬁeld is required for CloudTrail data events. `resources.type` can only use the `Equals` operator, and the value can be one of the following:
 	//
 	// - `AWS::S3::Object`
 	// - `AWS::Lambda::Function`
@@ -58,6 +58,8 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::DynamoDB::Stream`
 	// - `AWS::Glue::Table`
 	// - `AWS::FinSpace::Environment`
+	// - `AWS::SageMaker::ExperimentTrialComponent`
+	// - `AWS::SageMaker::FeatureGroup`
 	//
 	// You can have only one `resources.type` ﬁeld per selector. To log data events on more than one resource type, add another selector.
 	// - *`resources.ARN`* - You can use any operator with `resources.ARN` , but if you use `Equals` or `NotEquals` , the value must exactly match the ARN of a valid resource of the type you've speciﬁed in the template as the value of resources.type. For example, if resources.type equals `AWS::S3::Object` , the ARN must be in one of the following formats. To log all data events for all objects in a specific S3 bucket, use the `StartsWith` operator, and include only the bucket ARN as the matching value.
@@ -106,7 +108,15 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// When `resources.type` equals `AWS::FinSpace::Environment` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
-	// - `arn:<partition>:finspace:<region>:<account_ID>:environment/<environment_ID>`.
+	// - `arn:<partition>:finspace:<region>:<account_ID>:environment/<environment_ID>`
+	//
+	// When `resources.type` equals `AWS::SageMaker::ExperimentTrialComponent` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:sagemaker:<region>:<account_ID>:experiment-trial-component/<experiment_trial_component_name>`
+	//
+	// When `resources.type` equals `AWS::SageMaker::FeatureGroup` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name>`.
 	Field *string `field:"required" json:"field" yaml:"field"`
 	// An operator that includes events that match the last few characters of the event record field specified as the value of `Field` .
 	EndsWith *[]*string `field:"optional" json:"endsWith" yaml:"endsWith"`

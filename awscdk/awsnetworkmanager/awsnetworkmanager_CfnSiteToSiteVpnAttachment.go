@@ -68,7 +68,7 @@ type CfnSiteToSiteVpnAttachment interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// The core network ID.
+	// `AWS::NetworkManager::SiteToSiteVpnAttachment.CoreNetworkId`.
 	CoreNetworkId() *string
 	SetCoreNetworkId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -101,7 +101,7 @@ type CfnSiteToSiteVpnAttachment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// The tags associated with the site-to-site VPN attachment.
+	// `AWS::NetworkManager::SiteToSiteVpnAttachment.Tags`.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//

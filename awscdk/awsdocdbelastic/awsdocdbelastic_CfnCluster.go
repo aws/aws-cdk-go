@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::DocDBElastic::Cluster`.
 //
+// Creates a new Elastic DocumentDB cluster and returns its Cluster structure.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -44,14 +46,26 @@ import (
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::DocDBElastic::Cluster.AdminUserName`.
+	// The name of the Elastic DocumentDB cluster administrator.
+	//
+	// *Constraints* :
+	//
+	// - Must be from 1 to 63 letters or numbers.
+	// - The first character must be a letter.
+	// - Cannot be a reserved word.
 	AdminUserName() *string
 	SetAdminUserName(val *string)
-	// `AWS::DocDBElastic::Cluster.AdminUserPassword`.
+	// The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
+	//
+	// *Constraints* :
+	//
+	// - Must contain from 8 to 100 characters.
+	// - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
+	// - A valid `AdminUserName` entry is also required.
 	AdminUserPassword() *string
 	SetAdminUserPassword(val *string)
 	AttrClusterArn() *string
-	// `AWS::DocDBElastic::Cluster.AuthType`.
+	// The authentication type for the Elastic DocumentDB cluster.
 	AuthType() *string
 	SetAuthType(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -61,7 +75,15 @@ type CfnCluster interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// `AWS::DocDBElastic::Cluster.ClusterName`.
+	// The name of the new Elastic DocumentDB cluster. This parameter is stored as a lowercase string.
+	//
+	// *Constraints* :
+	//
+	// - Must contain from 1 to 63 letters, numbers, or hyphens.
+	// - The first character must be a letter.
+	// - Cannot end with a hyphen or contain two consecutive hyphens.
+	//
+	// *Example* : `my-cluster`.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -69,7 +91,11 @@ type CfnCluster interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::DocDBElastic::Cluster.KmsKeyId`.
+	// The KMS key identifier to use to encrypt the new Elastic DocumentDB cluster.
+	//
+	// The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
+	//
+	// If an encryption key is not specified, Elastic DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,7 +112,15 @@ type CfnCluster interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::DocDBElastic::Cluster.PreferredMaintenanceWindow`.
+	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+	//
+	// *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+	//
+	// *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+	//
+	// *Constraints* : Minimum 30-minute window.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -95,10 +129,10 @@ type CfnCluster interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::DocDBElastic::Cluster.ShardCapacity`.
+	// The capacity of each shard in the new Elastic DocumentDB cluster.
 	ShardCapacity() *float64
 	SetShardCapacity(val *float64)
-	// `AWS::DocDBElastic::Cluster.ShardCount`.
+	// The number of shards to create in the new Elastic DocumentDB cluster.
 	ShardCount() *float64
 	SetShardCount(val *float64)
 	// The stack in which this element is defined.
@@ -106,10 +140,10 @@ type CfnCluster interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::DocDBElastic::Cluster.SubnetIds`.
+	// The Amazon EC2 subnet IDs for the new Elastic DocumentDB cluster.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// `AWS::DocDBElastic::Cluster.Tags`.
+	// The tags to be assigned to the new Elastic DocumentDB cluster.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -117,7 +151,7 @@ type CfnCluster interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::DocDBElastic::Cluster.VpcSecurityGroupIds`.
+	// A list of EC2 VPC security groups to associate with the new Elastic DocumentDB cluster.
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -54,7 +54,9 @@ type CfnCustomerGateway interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// *This member has been deprecated.* The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
+	// IPv4 address for the customer gateway device's outside interface.
+	//
+	// The address must be static.
 	IpAddress() *string
 	SetIpAddress(val *string)
 	// The logical ID for this CloudFormation stack element.

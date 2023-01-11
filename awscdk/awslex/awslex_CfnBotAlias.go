@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Lex::BotAlias`.
 //
-// > Amazon Lex is the only supported version in AWS CloudFormation .
+// > Amazon Lex V2 is the only supported version in AWS CloudFormation .
 //
 // Specifies an alias for the specified version of a bot. Use an alias to enable you to change the version of a bot without updating applications that use the bot.
 //

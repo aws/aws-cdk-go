@@ -54,6 +54,8 @@ type CfnJobProps struct {
 	Command interface{} `field:"required" json:"command" yaml:"command"`
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
 	Role *string `field:"required" json:"role" yaml:"role"`
+	// This parameter is no longer supported. Use `MaxCapacity` instead.
+	//
 	// The number of capacity units that are allocated to this job.
 	AllocatedCapacity *float64 `field:"optional" json:"allocatedCapacity" yaml:"allocatedCapacity"`
 	// The connections used for this job.

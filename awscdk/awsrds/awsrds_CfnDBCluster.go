@@ -278,7 +278,7 @@ type CfnDBCluster interface {
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
-	// `AWS::RDS::DBCluster.DBSystemId`.
+	// Reserved for future use.
 	DbSystemId() *string
 	SetDbSystemId(val *string)
 	// A value that indicates whether the DB cluster has deletion protection enabled.

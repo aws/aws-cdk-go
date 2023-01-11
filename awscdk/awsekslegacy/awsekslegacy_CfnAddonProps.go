@@ -35,7 +35,7 @@ type CfnAddonProps struct {
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The version of the add-on.
 	AddonVersion *string `field:"optional" json:"addonVersion" yaml:"addonVersion"`
-	// `AWS::EKS::Addon.ConfigurationValues`.
+	// The configuration values that you provided.
 	ConfigurationValues *string `field:"optional" json:"configurationValues" yaml:"configurationValues"`
 	// How to resolve field value conflicts for an Amazon EKS add-on.
 	//

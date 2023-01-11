@@ -20,7 +20,7 @@ type CfnCertificateAuthority_OcspConfigurationProperty struct {
 	//
 	// A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
 	//
-	// Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+	// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	OcspCustomCname *string `field:"optional" json:"ocspCustomCname" yaml:"ocspCustomCname"`
 }
 

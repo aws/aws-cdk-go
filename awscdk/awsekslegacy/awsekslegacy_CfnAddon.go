@@ -58,7 +58,7 @@ type CfnAddon interface {
 	// The name of the cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
-	// `AWS::EKS::Addon.ConfigurationValues`.
+	// The configuration values that you provided.
 	ConfigurationValues() *string
 	SetConfigurationValues(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

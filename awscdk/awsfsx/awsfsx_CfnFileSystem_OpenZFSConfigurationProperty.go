@@ -60,7 +60,7 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// - `SINGLE_AZ_1` - (Default) Creates file systems with throughput capacities of 64 - 4,096 MB/s. `Single_AZ_1` is available in all AWS Regions where Amazon FSx for OpenZFS is available, except US West (Oregon).
 	// - `SINGLE_AZ_2` - Creates file systems with throughput capacities of 160 - 10,240 MB/s using an NVMe L2ARC cache. `Single_AZ_2` is available only in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland) AWS Regions .
 	//
-	// For more information, see: [Deployment type availability](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html) and [File system performance](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html) in the *Amazon FSx for OpenZFS User Guide* .
+	// For more information, see: [Deployment type availability](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions) and [File system performance](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance) in the *Amazon FSx for OpenZFS User Guide* .
 	DeploymentType *string `field:"required" json:"deploymentType" yaml:"deploymentType"`
 	// The number of days to retain automatic backups.
 	//

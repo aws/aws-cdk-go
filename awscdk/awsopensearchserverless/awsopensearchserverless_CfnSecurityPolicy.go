@@ -11,7 +11,11 @@ import (
 
 // A CloudFormation `AWS::OpenSearchServerless::SecurityPolicy`.
 //
-// Creates a security policy to be used by one or more OpenSearch Serverless collections. Security policies provide access to a collection and its OpenSearch Dashboards endpoint from public networks or specific VPC endpoints. They also allow you to secure a collection with a KMS encryption key. For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html) and [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html) .
+// Creates an encryption or network policy to be used by one or more OpenSearch Serverless collections.
+//
+// Network policies specify access to a collection and its OpenSearch Dashboards endpoint from public networks or specific VPC endpoints. For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html) .
+//
+// Encryption policies specify a KMS encryption key to assign to particular collections. For more information, see [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -77,6 +81,8 @@ type CfnSecurityPolicy interface {
 	// Experimental.
 	Stack() awscdk.Stack
 	// The type of security policy.
+	//
+	// Can be either `encryption` or `network` .
 	Type() *string
 	SetType(val *string)
 	// Return properties modified after initiation.

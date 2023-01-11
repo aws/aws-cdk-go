@@ -85,9 +85,11 @@ type CfnSolution interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration ( `recipeArn` must not be specified).
+	// > We don't recommend enabling automated machine learning.
 	//
-	// When false (the default), Amazon Personalize uses `recipeArn` for training.
+	// Instead, match your use case to the available Amazon Personalize recipes. For more information, see [Determining your use case.](https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html)
+	//
+	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration ( `recipeArn` must not be specified). When false (the default), Amazon Personalize uses `recipeArn` for training.
 	PerformAutoMl() interface{}
 	SetPerformAutoMl(val interface{})
 	// Whether to perform hyperparameter optimization (HPO) on the chosen recipe.

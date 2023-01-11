@@ -59,7 +59,7 @@ type CfnDBParameterGroup interface {
 	// Provides the customer-specified description for this DB parameter group.
 	Description() *string
 	SetDescription(val *string)
-	// Must be `neptune1` .
+	// Must be `neptune1` for engine versions prior to [1.2.0.0](https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.2.0.0.html) , or `neptune1.2` for engine version `1.2.0.0` and higher.
 	Family() *string
 	SetFamily(val *string)
 	// The logical ID for this CloudFormation stack element.

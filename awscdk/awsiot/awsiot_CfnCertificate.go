@@ -31,7 +31,7 @@ import (
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Returns the Amazon Resource Name (ARN) for the instance profile. For example:.
+	// Returns the Amazon Resource Name (ARN) for the certificate. For example:.
 	//
 	// `{ "Fn::GetAtt": ["MyCertificate", "Arn"] }`
 	//

@@ -49,6 +49,7 @@ import (
 type CfnVPNConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the VPN connection.
 	AttrVpnConnectionId() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.

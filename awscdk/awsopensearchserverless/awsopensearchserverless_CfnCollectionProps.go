@@ -27,6 +27,13 @@ import (
 //
 type CfnCollectionProps struct {
 	// The name of the collection.
+	//
+	// Collection names must meet the following criteria:
+	//
+	// - Starts with a lowercase letter
+	// - Unique to your account and AWS Region
+	// - Contains between 3 and 28 characters
+	// - Contains only lowercase letters a-z, the numbers 0-9, and the hyphen (-).
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the collection.
 	Description *string `field:"optional" json:"description" yaml:"description"`

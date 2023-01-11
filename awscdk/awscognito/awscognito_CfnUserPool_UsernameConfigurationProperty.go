@@ -15,7 +15,7 @@ package awscognito
 type CfnUserPool_UsernameConfigurationProperty struct {
 	// Specifies whether user name case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs.
 	//
-	// For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito marks otherwise-identical attribute values with a capitalization difference as duplicates and in conflict.
+	// For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, users can sign in as the same user when they enter a different capitalization of their user name.
 	//
 	// Valid values include:
 	//

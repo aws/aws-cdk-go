@@ -77,6 +77,8 @@ type CfnStage interface {
 	CacheClusterEnabled() interface{}
 	SetCacheClusterEnabled(val interface{})
 	// The stage's cache cluster size.
+	//
+	// For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference* .
 	CacheClusterSize() *string
 	SetCacheClusterSize(val *string)
 	// Specifies settings for the canary deployment in this stage.

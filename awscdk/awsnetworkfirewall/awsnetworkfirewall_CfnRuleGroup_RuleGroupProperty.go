@@ -148,7 +148,7 @@ package awsnetworkfirewall
 type CfnRuleGroup_RuleGroupProperty struct {
 	// The stateful rules or stateless rules for the rule group.
 	RulesSource interface{} `field:"required" json:"rulesSource" yaml:"rulesSource"`
-	// `CfnRuleGroup.RuleGroupProperty.ReferenceSets`.
+	// The reference sets for the stateful rule group.
 	ReferenceSets interface{} `field:"optional" json:"referenceSets" yaml:"referenceSets"`
 	// Settings that are available for use in the rules in the rule group.
 	//

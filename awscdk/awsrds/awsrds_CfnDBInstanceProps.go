@@ -241,7 +241,18 @@ type CfnDBInstanceProps struct {
 	CustomIamInstanceProfile *string `field:"optional" json:"customIamInstanceProfile" yaml:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
-	// `AWS::RDS::DBInstance.DBClusterSnapshotIdentifier`.
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
+	//
+	// For more information on Multi-AZ DB clusters, see [Multi-AZ deployments with two readable standby DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide* .
+	//
+	// Constraints:
+	//
+	// - Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+	// - Can't be specified when `DBSnapshotIdentifier` is specified.
+	// - Must be specified when `DBSnapshotIdentifier` isn't specified.
+	// - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the `DBClusterSnapshotIdentifier` must be the ARN of the shared snapshot.
+	// - Can't be the identifier of an Aurora DB cluster snapshot.
+	// - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
 	DbClusterSnapshotIdentifier *string `field:"optional" json:"dbClusterSnapshotIdentifier" yaml:"dbClusterSnapshotIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	//
@@ -771,9 +782,20 @@ type CfnDBInstanceProps struct {
 	//
 	// Valid Values: `open-read-only` or `mounted`.
 	ReplicaMode *string `field:"optional" json:"replicaMode" yaml:"replicaMode"`
-	// `AWS::RDS::DBInstance.RestoreTime`.
+	// The date and time to restore from.
+	//
+	// Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+	//
+	// Constraints:
+	//
+	// - Must be before the latest restorable time for the DB instance
+	// - Can't be specified if the `UseLatestRestorableTime` parameter is enabled
+	//
+	// Example: `2009-09-07T23:45:00Z`.
 	RestoreTime *string `field:"optional" json:"restoreTime" yaml:"restoreTime"`
-	// `AWS::RDS::DBInstance.SourceDBInstanceAutomatedBackupsArn`.
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
+	//
+	// This setting doesn't apply to RDS Custom.
 	SourceDbInstanceAutomatedBackupsArn *string `field:"optional" json:"sourceDbInstanceAutomatedBackupsArn" yaml:"sourceDbInstanceAutomatedBackupsArn"`
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
@@ -790,7 +812,7 @@ type CfnDBInstanceProps struct {
 	// > - If the source DB instance is in a different region than the read replica, specify the source region in `SourceRegion` , and specify an ARN for a valid DB instance in `SourceDBInstanceIdentifier` . For more information, see [Constructing a Amazon RDS Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN) in the *Amazon RDS User Guide* .
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
 	SourceDbInstanceIdentifier *string `field:"optional" json:"sourceDbInstanceIdentifier" yaml:"sourceDbInstanceIdentifier"`
-	// `AWS::RDS::DBInstance.SourceDbiResourceId`.
+	// The resource ID of the source DB instance from which to restore.
 	SourceDbiResourceId *string `field:"optional" json:"sourceDbiResourceId" yaml:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion *string `field:"optional" json:"sourceRegion" yaml:"sourceRegion"`
@@ -838,7 +860,11 @@ type CfnDBInstanceProps struct {
 	//
 	// This setting doesn't apply to RDS Custom.
 	UseDefaultProcessorFeatures interface{} `field:"optional" json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
-	// `AWS::RDS::DBInstance.UseLatestRestorableTime`.
+	// A value that indicates whether the DB instance is restored from the latest backup time.
+	//
+	// By default, the DB instance isn't restored from the latest backup time.
+	//
+	// Constraints: Can't be specified if the `RestoreTime` parameter is provided.
 	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance.
 	//

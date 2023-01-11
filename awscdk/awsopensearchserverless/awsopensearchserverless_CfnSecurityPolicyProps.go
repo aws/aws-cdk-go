@@ -25,6 +25,8 @@ type CfnSecurityPolicyProps struct {
 	// The name of the policy.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The type of security policy.
+	//
+	// Can be either `encryption` or `network` .
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

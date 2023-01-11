@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Lex::BotVersion`.
 //
-// > Amazon Lex is the only supported version in AWS CloudFormation .
+// > Amazon Lex V2 is the only supported version in AWS CloudFormation .
 //
 // Specifies a new version of the bot based on the `DRAFT` version. If the `DRAFT` version of this resource hasn't changed since you created the last version, Amazon Lex doesn't create a new version, it returns the last created version.
 //

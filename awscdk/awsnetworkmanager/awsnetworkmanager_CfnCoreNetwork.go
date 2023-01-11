@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::NetworkManager::CoreNetwork`.
 //
-// Describes a core network within a global network.
+// Describes a core network.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

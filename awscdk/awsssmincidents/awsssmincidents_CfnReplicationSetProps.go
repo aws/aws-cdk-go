@@ -38,7 +38,7 @@ type CfnReplicationSetProps struct {
 	//
 	// If deletion protection is enabled, you can't delete the last Region in the replication set.
 	DeletionProtected interface{} `field:"optional" json:"deletionProtected" yaml:"deletionProtected"`
-	// `AWS::SSMIncidents::ReplicationSet.Tags`.
+	// A list of tags to add to the replication set.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

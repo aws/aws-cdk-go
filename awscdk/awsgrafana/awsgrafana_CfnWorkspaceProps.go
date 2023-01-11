@@ -102,7 +102,7 @@ type CfnWorkspaceProps struct {
 	SamlConfiguration interface{} `field:"optional" json:"samlConfiguration" yaml:"samlConfiguration"`
 	// The name of the AWS CloudFormation stack set that is used to generate IAM roles to be used for this workspace.
 	StackSetName *string `field:"optional" json:"stackSetName" yaml:"stackSetName"`
-	// `AWS::Grafana::Workspace.VpcConfiguration`.
+	// The configuration for connecting to data sources in a private VPC ( Amazon Virtual Private Cloud ).
 	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 

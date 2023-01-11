@@ -222,6 +222,11 @@ type CfnDBInstance interface {
 	//
 	// This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	AttrDbiResourceId() *string
+	// The Oracle system ID (Oracle SID) for a container database (CDB).
+	//
+	// The Oracle SID is also the name of the CDB.
+	//
+	// This setting is valid for RDS Custom only.
 	AttrDbSystemId() *string
 	// The connection endpoint for the database. For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`.
 	//
@@ -322,7 +327,18 @@ type CfnDBInstance interface {
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
-	// `AWS::RDS::DBInstance.DBClusterSnapshotIdentifier`.
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
+	//
+	// For more information on Multi-AZ DB clusters, see [Multi-AZ deployments with two readable standby DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide* .
+	//
+	// Constraints:
+	//
+	// - Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+	// - Can't be specified when `DBSnapshotIdentifier` is specified.
+	// - Must be specified when `DBSnapshotIdentifier` isn't specified.
+	// - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the `DBClusterSnapshotIdentifier` must be the ARN of the shared snapshot.
+	// - Can't be the identifier of an Aurora DB cluster snapshot.
+	// - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
 	DbClusterSnapshotIdentifier() *string
 	SetDbClusterSnapshotIdentifier(val *string)
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -911,10 +927,21 @@ type CfnDBInstance interface {
 	// Valid Values: `open-read-only` or `mounted`.
 	ReplicaMode() *string
 	SetReplicaMode(val *string)
-	// `AWS::RDS::DBInstance.RestoreTime`.
+	// The date and time to restore from.
+	//
+	// Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+	//
+	// Constraints:
+	//
+	// - Must be before the latest restorable time for the DB instance
+	// - Can't be specified if the `UseLatestRestorableTime` parameter is enabled
+	//
+	// Example: `2009-09-07T23:45:00Z`.
 	RestoreTime() *string
 	SetRestoreTime(val *string)
-	// `AWS::RDS::DBInstance.SourceDBInstanceAutomatedBackupsArn`.
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
+	//
+	// This setting doesn't apply to RDS Custom.
 	SourceDbInstanceAutomatedBackupsArn() *string
 	SetSourceDbInstanceAutomatedBackupsArn(val *string)
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
@@ -933,7 +960,7 @@ type CfnDBInstance interface {
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
 	SourceDbInstanceIdentifier() *string
 	SetSourceDbInstanceIdentifier(val *string)
-	// `AWS::RDS::DBInstance.SourceDbiResourceId`.
+	// The resource ID of the source DB instance from which to restore.
 	SourceDbiResourceId() *string
 	SetSourceDbiResourceId(val *string)
 	// The ID of the region that contains the source DB instance for the read replica.
@@ -999,7 +1026,11 @@ type CfnDBInstance interface {
 	// This setting doesn't apply to RDS Custom.
 	UseDefaultProcessorFeatures() interface{}
 	SetUseDefaultProcessorFeatures(val interface{})
-	// `AWS::RDS::DBInstance.UseLatestRestorableTime`.
+	// A value that indicates whether the DB instance is restored from the latest backup time.
+	//
+	// By default, the DB instance isn't restored from the latest backup time.
+	//
+	// Constraints: Can't be specified if the `RestoreTime` parameter is provided.
 	UseLatestRestorableTime() interface{}
 	SetUseLatestRestorableTime(val interface{})
 	// A list of the VPC security group IDs to assign to the DB instance.

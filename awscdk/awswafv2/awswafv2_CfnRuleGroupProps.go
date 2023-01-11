@@ -528,9 +528,13 @@ type CfnRuleGroupProps struct {
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
-	// `AWS::WAFv2::RuleGroup.AvailableLabels`.
+	// The labels that one or more rules in this rule group add to matching web requests.
+	//
+	// These labels are defined in the `RuleLabels` for a `Rule` .
 	AvailableLabels interface{} `field:"optional" json:"availableLabels" yaml:"availableLabels"`
-	// `AWS::WAFv2::RuleGroup.ConsumedLabels`.
+	// The labels that one or more rules in this rule group match against in label match statements.
+	//
+	// These labels are defined in a `LabelMatchStatement` specification, in the `Statement` definition of a rule.
 	ConsumedLabels interface{} `field:"optional" json:"consumedLabels" yaml:"consumedLabels"`
 	// A map of custom response keys and content bodies.
 	//

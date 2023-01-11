@@ -92,9 +92,9 @@ type CfnSecurityGroupEgress interface {
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	DestinationSecurityGroupId() *string
 	SetDestinationSecurityGroupId(val *string)
-	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
+	// If the protocol is TCP or UDP, this is the start of the port range.
 	//
-	// A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	// If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
 	FromPort() *float64
 	SetFromPort(val *float64)
 	// The ID of the security group.
@@ -132,9 +132,9 @@ type CfnSecurityGroupEgress interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	// If the protocol is TCP or UDP, this is the end of the port range.
 	//
-	// A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	// If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
 	ToPort() *float64
 	SetToPort(val *float64)
 	// Return properties modified after initiation.

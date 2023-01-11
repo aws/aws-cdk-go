@@ -60,6 +60,7 @@ import (
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the volume.
 	AttrVolumeId() *string
 	// Indicates whether the volume is auto-enabled for I/O operations.
 	//

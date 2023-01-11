@@ -199,7 +199,7 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
-	// `AWS::RDS::DBCluster.DBSystemId`.
+	// Reserved for future use.
 	DbSystemId *string `field:"optional" json:"dbSystemId" yaml:"dbSystemId"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.
 	//

@@ -44,7 +44,7 @@ type CfnDistribution interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// The distribution’s configuration.
+	// The distribution's configuration.
 	DistributionConfig() interface{}
 	SetDistributionConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.

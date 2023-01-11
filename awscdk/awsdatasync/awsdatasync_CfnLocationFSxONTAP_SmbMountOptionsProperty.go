@@ -1,7 +1,7 @@
 package awsdatasync
 
 
-// Specifies how DataSync can access a location using the SMB protocol.
+// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -13,9 +13,17 @@ package awsdatasync
 //   }
 //
 type CfnLocationFSxONTAP_SmbMountOptionsProperty struct {
-	// Specifies the SMB version that you want DataSync to use when mounting your SMB share.
+	// By default, DataSync automatically chooses an SMB protocol version based on negotiation with your SMB file server.
 	//
-	// If you don't specify a version, DataSync defaults to `AUTOMATIC` and chooses a version based on negotiation with the SMB server.
+	// You also can configure DataSync to use a specific SMB version, but we recommend doing this only if DataSync has trouble negotiating with the SMB file server automatically.
+	//
+	// These are the following options for configuring the SMB version:
+	//
+	// - `AUTOMATIC` (default): DataSync and the SMB file server negotiate a protocol version that they mutually support. (DataSync supports SMB versions 2.1.0 and later.)
+	//
+	// This is the recommended option. If you instead choose a specific version that your file server doesn't support, you may get an `Operation Not Supported` error.
+	// - `SMB3` : Restricts the protocol negotiation to only SMB version 3.0.2.
+	// - `SMB2` : Restricts the protocol negotiation to only SMB version 2.1.0.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

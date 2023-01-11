@@ -89,7 +89,7 @@ type CfnEnvironment interface {
 	// The instance type of the runtime environment.
 	InstanceType() *string
 	SetInstanceType(val *string)
-	// `AWS::M2::Environment.KmsKeyId`.
+	// The identifier of a customer managed key.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
