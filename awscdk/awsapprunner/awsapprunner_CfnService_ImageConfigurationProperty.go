@@ -26,7 +26,7 @@ type CfnService_ImageConfigurationProperty struct {
 	Port *string `field:"optional" json:"port" yaml:"port"`
 	// Environment variables that are available to your running App Runner service.
 	//
-	// An array of key-value pairs.
+	// An array of key-value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables interface{} `field:"optional" json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
 	// An optional command that App Runner runs to start the application in the source image.
 	//

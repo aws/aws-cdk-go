@@ -7,12 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (e *jsiiProxy_EcrImage) validateBindParameters(_scope awscdk.Construct, containerDefinition ContainerDefinition) error {
+func (e *jsiiProxy_EcrImage) validateBindParameters(_scope constructs.Construct, containerDefinition ContainerDefinition) error {
 	if _scope == nil {
 		return fmt.Errorf("parameter _scope is required, but nil was provided")
 	}

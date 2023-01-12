@@ -53,19 +53,19 @@ type CfnResponseHeadersPolicy_SecurityHeadersConfigProperty struct {
 	//
 	// For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
 	ContentTypeOptions interface{} `field:"optional" json:"contentTypeOptions" yaml:"contentTypeOptions"`
-	// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
+	// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value.
 	//
 	// For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 	FrameOptions interface{} `field:"optional" json:"frameOptions" yaml:"frameOptions"`
-	// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header's value.
+	// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value.
 	//
 	// For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
 	ReferrerPolicy interface{} `field:"optional" json:"referrerPolicy" yaml:"referrerPolicy"`
-	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
+	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value.
 	//
 	// For more information about the `Strict-Transport-Security` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
 	StrictTransportSecurity interface{} `field:"optional" json:"strictTransportSecurity" yaml:"strictTransportSecurity"`
-	// Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
+	// Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value.
 	//
 	// For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 	XssProtection interface{} `field:"optional" json:"xssProtection" yaml:"xssProtection"`

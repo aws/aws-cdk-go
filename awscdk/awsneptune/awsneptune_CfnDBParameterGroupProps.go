@@ -1,7 +1,7 @@
 package awsneptune
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDBParameterGroup`.
@@ -31,7 +31,7 @@ import (
 type CfnDBParameterGroupProps struct {
 	// Provides the customer-specified description for this DB parameter group.
 	Description *string `field:"required" json:"description" yaml:"description"`
-	// Must be `neptune1` for engine versions prior to [1.2.0.0](https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.2.0.0.html) , or `neptune1.2` for engine version `1.2.0.0` and higher.
+	// Must be `neptune1` .
 	Family *string `field:"required" json:"family" yaml:"family"`
 	// The parameters to set for this DB parameter group.
 	//

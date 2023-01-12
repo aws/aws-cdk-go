@@ -104,17 +104,13 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
-	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
 	//
-	// > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
+	// > If you specify `InstanceTypes` , you can't specify `InstanceRequirements` .
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
-	//
-	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
-	//
-	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice *string `field:"optional" json:"maxPrice" yaml:"maxPrice"`
 	// The location where the instance launched, if applicable.
 	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`

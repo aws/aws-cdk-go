@@ -25,21 +25,17 @@ package awsm2
 //   }
 //
 type CfnApplicationProps struct {
-	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
-	//
-	// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
+	// `AWS::M2::Application.Definition`.
 	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
-	// The type of the target platform for this application.
+	// `AWS::M2::Application.EngineType`.
 	EngineType *string `field:"required" json:"engineType" yaml:"engineType"`
-	// The name of the application.
+	// `AWS::M2::Application.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The description of the application.
+	// `AWS::M2::Application.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The identifier of a customer managed key.
+	// `AWS::M2::Application.KmsKeyId`.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// `AWS::M2::Application.Tags`.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

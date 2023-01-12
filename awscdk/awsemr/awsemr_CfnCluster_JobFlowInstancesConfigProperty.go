@@ -507,17 +507,9 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
 	// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 	ServiceAccessSecurityGroup *string `field:"optional" json:"serviceAccessSecurityGroup" yaml:"serviceAccessSecurityGroup"`
-	// Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration.
-	//
-	// These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
-	//
-	// > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+	// `CfnCluster.JobFlowInstancesConfigProperty.TaskInstanceFleets`.
 	TaskInstanceFleets interface{} `field:"optional" json:"taskInstanceFleets" yaml:"taskInstanceFleets"`
-	// Describes the EC2 instances and instance configurations for task instance groups when using clusters with the uniform instance group configuration.
-	//
-	// These task instance groups are added to the cluster as part of the cluster launch. Each task instance group must have a unique name specified so that CloudFormation can differentiate between the task instance groups.
-	//
-	// > After creating the cluster, you can only modify the mutable properties of `InstanceGroupConfig` , which are `AutoScalingPolicy` and `InstanceCount` . Modifying any other property results in cluster replacement.
+	// `CfnCluster.JobFlowInstancesConfigProperty.TaskInstanceGroups`.
 	TaskInstanceGroups interface{} `field:"optional" json:"taskInstanceGroups" yaml:"taskInstanceGroups"`
 	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
 	TerminationProtected interface{} `field:"optional" json:"terminationProtected" yaml:"terminationProtected"`

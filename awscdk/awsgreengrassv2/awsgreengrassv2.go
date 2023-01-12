@@ -8,10 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_greengrassv2.CfnComponentVersion",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
 		reflect.TypeOf((*CfnComponentVersion)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -32,20 +33,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "lambdaFunction", GoGetter: "LambdaFunction"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -56,50 +56,51 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.ComponentDependencyRequirementProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.ComponentDependencyRequirementProperty",
 		reflect.TypeOf((*CfnComponentVersion_ComponentDependencyRequirementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.ComponentPlatformProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.ComponentPlatformProperty",
 		reflect.TypeOf((*CfnComponentVersion_ComponentPlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.LambdaContainerParamsProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.LambdaContainerParamsProperty",
 		reflect.TypeOf((*CfnComponentVersion_LambdaContainerParamsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.LambdaDeviceMountProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.LambdaDeviceMountProperty",
 		reflect.TypeOf((*CfnComponentVersion_LambdaDeviceMountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.LambdaEventSourceProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.LambdaEventSourceProperty",
 		reflect.TypeOf((*CfnComponentVersion_LambdaEventSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.LambdaExecutionParametersProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.LambdaExecutionParametersProperty",
 		reflect.TypeOf((*CfnComponentVersion_LambdaExecutionParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.LambdaFunctionRecipeSourceProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.LambdaFunctionRecipeSourceProperty",
 		reflect.TypeOf((*CfnComponentVersion_LambdaFunctionRecipeSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.LambdaLinuxProcessParamsProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.LambdaLinuxProcessParamsProperty",
 		reflect.TypeOf((*CfnComponentVersion_LambdaLinuxProcessParamsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersion.LambdaVolumeMountProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion.LambdaVolumeMountProperty",
 		reflect.TypeOf((*CfnComponentVersion_LambdaVolumeMountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnComponentVersionProps",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersionProps",
 		reflect.TypeOf((*CfnComponentVersionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_greengrassv2.CfnDeployment",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment",
 		reflect.TypeOf((*CfnDeployment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -120,21 +121,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "iotJobConfiguration", GoGetter: "IotJobConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -145,59 +145,59 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.ComponentConfigurationUpdateProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.ComponentConfigurationUpdateProperty",
 		reflect.TypeOf((*CfnDeployment_ComponentConfigurationUpdateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.ComponentDeploymentSpecificationProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.ComponentDeploymentSpecificationProperty",
 		reflect.TypeOf((*CfnDeployment_ComponentDeploymentSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.ComponentRunWithProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.ComponentRunWithProperty",
 		reflect.TypeOf((*CfnDeployment_ComponentRunWithProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.DeploymentComponentUpdatePolicyProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.DeploymentComponentUpdatePolicyProperty",
 		reflect.TypeOf((*CfnDeployment_DeploymentComponentUpdatePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.DeploymentConfigurationValidationPolicyProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.DeploymentConfigurationValidationPolicyProperty",
 		reflect.TypeOf((*CfnDeployment_DeploymentConfigurationValidationPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.DeploymentIoTJobConfigurationProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.DeploymentIoTJobConfigurationProperty",
 		reflect.TypeOf((*CfnDeployment_DeploymentIoTJobConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.DeploymentPoliciesProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.DeploymentPoliciesProperty",
 		reflect.TypeOf((*CfnDeployment_DeploymentPoliciesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.IoTJobAbortConfigProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.IoTJobAbortConfigProperty",
 		reflect.TypeOf((*CfnDeployment_IoTJobAbortConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.IoTJobAbortCriteriaProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.IoTJobAbortCriteriaProperty",
 		reflect.TypeOf((*CfnDeployment_IoTJobAbortCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.IoTJobExecutionsRolloutConfigProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.IoTJobExecutionsRolloutConfigProperty",
 		reflect.TypeOf((*CfnDeployment_IoTJobExecutionsRolloutConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.IoTJobExponentialRolloutRateProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.IoTJobExponentialRolloutRateProperty",
 		reflect.TypeOf((*CfnDeployment_IoTJobExponentialRolloutRateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.IoTJobTimeoutConfigProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.IoTJobTimeoutConfigProperty",
 		reflect.TypeOf((*CfnDeployment_IoTJobTimeoutConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeployment.SystemResourceLimitsProperty",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeployment.SystemResourceLimitsProperty",
 		reflect.TypeOf((*CfnDeployment_SystemResourceLimitsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_greengrassv2.CfnDeploymentProps",
+		"aws-cdk-lib.aws_greengrassv2.CfnDeploymentProps",
 		reflect.TypeOf((*CfnDeploymentProps)(nil)).Elem(),
 	)
 }

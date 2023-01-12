@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateAddDeletionOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateInspectParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateRenderPropert
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateSetUserPoolId
 	return nil
 }
 
-func validateNewCfnUserPoolRiskConfigurationAttachmentParameters(scope awscdk.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) error {
+func validateNewCfnUserPoolRiskConfigurationAttachmentParameters(scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) error {
 	return nil
 }
 

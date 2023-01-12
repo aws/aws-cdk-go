@@ -3,24 +3,21 @@ package awscodedeploy
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
 )
 
 // Represents a reference to a CodeDeploy Application deploying to EC2/on-premise instances.
 //
 // If you're managing the Application alongside the rest of your CDK resources,
-// use the {@link ServerApplication} class.
+// use the `ServerApplication` class.
 //
 // If you want to reference an already existing Application,
 // or one defined in a different CDK Stack,
-// use the {@link #fromServerApplicationName} method.
-// Experimental.
+// use the `#fromServerApplicationName` method.
 type IServerApplication interface {
 	awscdk.IResource
-	// Experimental.
 	ApplicationArn() *string
-	// Experimental.
 	ApplicationName() *string
 }
 

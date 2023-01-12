@@ -18,7 +18,7 @@ package awscloudfront
 type CfnDistribution_OriginShieldProperty struct {
 	// A flag that specifies whether Origin Shield is enabled.
 	//
-	// When it's enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it's disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
+	// When it’s enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it’s disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The AWS Region for Origin Shield.
 	//

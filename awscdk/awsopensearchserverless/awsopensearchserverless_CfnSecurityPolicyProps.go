@@ -18,15 +18,13 @@ package awsopensearchserverless
 //   }
 //
 type CfnSecurityPolicyProps struct {
-	// The JSON policy document without any whitespaces.
+	// `AWS::OpenSearchServerless::SecurityPolicy.Policy`.
 	Policy *string `field:"required" json:"policy" yaml:"policy"`
-	// The description of the security policy.
+	// `AWS::OpenSearchServerless::SecurityPolicy.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the policy.
+	// `AWS::OpenSearchServerless::SecurityPolicy.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The type of security policy.
-	//
-	// Can be either `encryption` or `network` .
+	// `AWS::OpenSearchServerless::SecurityPolicy.Type`.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

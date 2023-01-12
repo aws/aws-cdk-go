@@ -3,25 +3,40 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 )
 
 // Represents an APIGateway Stage.
-// Experimental.
 type IStage interface {
 	awscdk.IResource
+	// Add an ApiKey to this Stage.
+	AddApiKey(id *string, options *ApiKeyOptions) IApiKey
 	// RestApi to which this stage is associated.
-	// Experimental.
 	RestApi() IRestApi
 	// Name of this stage.
-	// Experimental.
 	StageName() *string
 }
 
 // The jsii proxy for IStage
 type jsiiProxy_IStage struct {
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IStage) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
+	if err := i.validateAddApiKeyParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns IApiKey
+
+	_jsii_.Invoke(
+		i,
+		"addApiKey",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (j *jsiiProxy_IStage) RestApi() IRestApi {

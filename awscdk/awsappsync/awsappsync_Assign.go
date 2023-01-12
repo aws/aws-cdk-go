@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,13 +14,10 @@ import (
 //
 //   assign := awscdk.Aws_appsync.NewAssign(jsii.String("attr"), jsii.String("arg"))
 //
-// Experimental.
 type Assign interface {
 	// Renders the assignment as a map element.
-	// Experimental.
 	PutInMap(map_ *string) *string
 	// Renders the assignment as a VTL string.
-	// Experimental.
 	RenderAsAssignment() *string
 }
 
@@ -29,7 +26,6 @@ type jsiiProxy_Assign struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAssign(attr *string, arg *string) Assign {
 	_init_.Initialize()
 
@@ -39,7 +35,7 @@ func NewAssign(attr *string, arg *string) Assign {
 	j := jsiiProxy_Assign{}
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.Assign",
+		"aws-cdk-lib.aws_appsync.Assign",
 		[]interface{}{attr, arg},
 		&j,
 	)
@@ -47,12 +43,11 @@ func NewAssign(attr *string, arg *string) Assign {
 	return &j
 }
 
-// Experimental.
 func NewAssign_Override(a Assign, attr *string, arg *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.Assign",
+		"aws-cdk-lib.aws_appsync.Assign",
 		[]interface{}{attr, arg},
 		a,
 	)

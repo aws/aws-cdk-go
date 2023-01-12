@@ -14,16 +14,9 @@ package awsses
 //   }
 //
 type CfnDedicatedIpPoolProps struct {
-	// The name of the dedicated IP pool that the IP address is associated with.
+	// `AWS::SES::DedicatedIpPool.PoolName`.
 	PoolName *string `field:"optional" json:"poolName" yaml:"poolName"`
-	// The type of scaling mode.
-	//
-	// The following options are available:
-	//
-	// - `STANDARD` - The customer controls which IPs are part of the dedicated IP pool.
-	// - `MANAGED` - The reputation and number of IPs is automatically managed by Amazon SES .
-	//
-	// The `STANDARD` option is selected by default if no value is specified.
+	// `AWS::SES::DedicatedIpPool.ScalingMode`.
 	ScalingMode *string `field:"optional" json:"scalingMode" yaml:"scalingMode"`
 }
 

@@ -1,7 +1,7 @@
 package awselasticache
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCacheCluster`.
@@ -119,7 +119,7 @@ type CfnCacheClusterProps struct {
 	//
 	// *R3 node types:* `cache.r3.large` , `cache.r3.xlarge` , `cache.r3.2xlarge` , `cache.r3.4xlarge` , `cache.r3.8xlarge`
 	//
-	// For region availability, see [Supported Node Types by Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)
+	// For region availability, see [Supported Node Types by Amazon Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)
 	//
 	// *Additional node type info*
 	//
@@ -170,15 +170,11 @@ type CfnCacheClusterProps struct {
 	//
 	// *Important:* You can upgrade to a newer engine version (see [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement) ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
-	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
-	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// `AWS::ElastiCache::CacheCluster.IpDiscovery`.
 	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
 	// Specifies the destination, format and type of the logs.
 	LogDeliveryConfigurations interface{} `field:"optional" json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
-	// Must be either `ipv4` | `ipv6` | `dual_stack` .
-	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// `AWS::ElastiCache::CacheCluster.NetworkType`.
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
 	//
@@ -256,9 +252,7 @@ type CfnCacheClusterProps struct {
 	SnapshotWindow *string `field:"optional" json:"snapshotWindow" yaml:"snapshotWindow"`
 	// A list of tags to be added to this resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// A flag that enables in-transit encryption when set to true.
-	//
-	// Only available when creating a cache cluster in an Amazon VPC using Memcached version 1.6.12 or later.
+	// `AWS::ElastiCache::CacheCluster.TransitEncryptionEnabled`.
 	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 	// One or more VPC security groups associated with the cluster.
 	//

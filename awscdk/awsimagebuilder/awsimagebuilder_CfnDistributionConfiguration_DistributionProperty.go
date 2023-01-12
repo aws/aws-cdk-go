@@ -62,7 +62,7 @@ type CfnDistributionConfiguration_DistributionProperty struct {
 	//
 	// For details, see example schema below.
 	ContainerDistributionConfiguration interface{} `field:"optional" json:"containerDistributionConfiguration" yaml:"containerDistributionConfiguration"`
-	// The Windows faster-launching configurations to use for AMI distribution.
+	// `CfnDistributionConfiguration.DistributionProperty.FastLaunchConfigurations`.
 	FastLaunchConfigurations interface{} `field:"optional" json:"fastLaunchConfigurations" yaml:"fastLaunchConfigurations"`
 	// A group of launchTemplateConfiguration settings that apply to image distribution for specified accounts.
 	LaunchTemplateConfigurations interface{} `field:"optional" json:"launchTemplateConfigurations" yaml:"launchTemplateConfigurations"`

@@ -1,11 +1,15 @@
 //go:build no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
 func (c *jsiiProxy_CfnStackSet) validateAddDeletionOverrideParameters(path *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStackSet) validateAddDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -45,11 +49,11 @@ func (c *jsiiProxy_CfnStackSet) validateInspectParameters(inspector TreeInspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnStackSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnStackSet) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -57,7 +61,7 @@ func (c *jsiiProxy_CfnStackSet) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackSet) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnStackSet) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -105,7 +109,7 @@ func (j *jsiiProxy_CfnStackSet) validateSetStackSetNameParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnStackSetParameters(scope Construct, id *string, props *CfnStackSetProps) error {
+func validateNewCfnStackSetParameters(scope constructs.Construct, id *string, props *CfnStackSetProps) error {
 	return nil
 }
 

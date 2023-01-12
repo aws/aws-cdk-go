@@ -80,6 +80,10 @@ package awscloudfront
 //   			override: jsii.Boolean(true),
 //   		},
 //   	},
+//   	removeHeaders: []*string{
+//   		jsii.String("Server"),
+//   	},
+//   	serverTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
@@ -88,24 +92,19 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type ResponseHeadersXSSProtection struct {
 	// A Boolean that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 	// A Boolean that determines the value of the X-XSS-Protection HTTP response header.
 	//
 	// When this setting is true, the value of the X-XSS-Protection header is 1.
 	// When this setting is false, the value of the X-XSS-Protection header is 0.
-	// Experimental.
 	Protection *bool `field:"required" json:"protection" yaml:"protection"`
 	// A Boolean that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
-	// Experimental.
 	ModeBlock *bool `field:"optional" json:"modeBlock" yaml:"modeBlock"`
 	// A reporting URI, which CloudFront uses as the value of the report directive in the X-XSS-Protection header.
 	//
 	// You cannot specify a ReportUri when ModeBlock is true.
-	// Experimental.
 	ReportUri *string `field:"optional" json:"reportUri" yaml:"reportUri"`
 }
 

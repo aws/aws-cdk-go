@@ -1,7 +1,7 @@
 package awsssm
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDocument`.
@@ -49,8 +49,6 @@ import (
 type CfnDocumentProps struct {
 	// The content for the new SSM document in JSON or YAML.
 	//
-	// For more information about the schemas for SSM document content, see [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) in the *AWS Systems Manager User Guide* .
-	//
 	// > This parameter also supports `String` data types.
 	Content interface{} `field:"required" json:"content" yaml:"content"`
 	// A list of key-value pairs that describe attachments to a version of a document.
@@ -67,7 +65,7 @@ type CfnDocumentProps struct {
 	//
 	// > You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
 	// >
-	// > - `aws`
+	// > - `aws-`
 	// > - `amazon`
 	// > - `amzn`.
 	Name *string `field:"optional" json:"name" yaml:"name"`

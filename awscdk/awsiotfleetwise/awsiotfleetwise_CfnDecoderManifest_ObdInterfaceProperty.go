@@ -1,8 +1,6 @@
 package awsiotfleetwise
 
 
-// A network interface that specifies the On-board diagnostic (OBD) II network protocol.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,19 +19,19 @@ package awsiotfleetwise
 //   }
 //
 type CfnDecoderManifest_ObdInterfaceProperty struct {
-	// The name of the interface.
+	// `CfnDecoderManifest.ObdInterfaceProperty.Name`.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ID of the message requesting vehicle data.
+	// `CfnDecoderManifest.ObdInterfaceProperty.RequestMessageId`.
 	RequestMessageId *string `field:"required" json:"requestMessageId" yaml:"requestMessageId"`
-	// The maximum number message requests per diagnostic trouble code per second.
+	// `CfnDecoderManifest.ObdInterfaceProperty.DtcRequestIntervalSeconds`.
 	DtcRequestIntervalSeconds *string `field:"optional" json:"dtcRequestIntervalSeconds" yaml:"dtcRequestIntervalSeconds"`
-	// Whether the vehicle has a transmission control module (TCM).
+	// `CfnDecoderManifest.ObdInterfaceProperty.HasTransmissionEcu`.
 	HasTransmissionEcu *string `field:"optional" json:"hasTransmissionEcu" yaml:"hasTransmissionEcu"`
-	// The standard OBD II PID.
+	// `CfnDecoderManifest.ObdInterfaceProperty.ObdStandard`.
 	ObdStandard *string `field:"optional" json:"obdStandard" yaml:"obdStandard"`
-	// The maximum number message requests per second.
+	// `CfnDecoderManifest.ObdInterfaceProperty.PidRequestIntervalSeconds`.
 	PidRequestIntervalSeconds *string `field:"optional" json:"pidRequestIntervalSeconds" yaml:"pidRequestIntervalSeconds"`
-	// Whether to use extended IDs in the message.
+	// `CfnDecoderManifest.ObdInterfaceProperty.UseExtendedIds`.
 	UseExtendedIds *string `field:"optional" json:"useExtendedIds" yaml:"useExtendedIds"`
 }
 

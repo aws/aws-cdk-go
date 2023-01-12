@@ -352,21 +352,15 @@ type CfnJobDefinitionProps struct {
 	//
 	// > If the job is run on Fargate resources, then `multinode` isn't supported.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// An object with various properties specific to Amazon ECS based jobs.
-	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
+	// An object with various properties specific to container-based jobs.
 	ContainerProperties interface{} `field:"optional" json:"containerProperties" yaml:"containerProperties"`
-	// An object with various properties that are specific to Amazon EKS based jobs.
-	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
+	// `AWS::Batch::JobDefinition.EksProperties`.
 	EksProperties interface{} `field:"optional" json:"eksProperties" yaml:"eksProperties"`
 	// The name of the job definition.
 	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
-	// An object with various properties that are specific to multi-node parallel jobs.
+	// An object with various properties specific to multi-node parallel jobs.
 	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
-	//
-	// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+	// > If the job runs on Fargate resources, then you must not specify `nodeProperties` ; use `containerProperties` instead.
 	NodeProperties interface{} `field:"optional" json:"nodeProperties" yaml:"nodeProperties"`
 	// Default parameters or parameter substitution placeholders that are set in the job definition.
 	//
@@ -378,7 +372,7 @@ type CfnJobDefinitionProps struct {
 	PlatformCapabilities *[]*string `field:"optional" json:"platformCapabilities" yaml:"platformCapabilities"`
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task.
 	//
-	// If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+	// If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks during task creation. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
 	PropagateTags interface{} `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy interface{} `field:"optional" json:"retryStrategy" yaml:"retryStrategy"`
@@ -386,11 +380,11 @@ type CfnJobDefinitionProps struct {
 	//
 	// This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority *float64 `field:"optional" json:"schedulingPriority" yaml:"schedulingPriority"`
-	// The tags that are applied to the job definition.
+	// The tags applied to the job definition.
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
-	// The timeout time for jobs that are submitted with this job definition.
+	// The timeout configuration for jobs that are submitted with this job definition.
 	//
-	// After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
+	// You can specify a timeout duration after which AWS Batch terminates your jobs if they haven't finished.
 	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

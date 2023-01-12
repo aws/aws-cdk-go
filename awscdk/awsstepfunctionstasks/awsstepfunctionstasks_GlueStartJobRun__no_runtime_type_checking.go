@@ -84,14 +84,6 @@ func (g *jsiiProxy_GlueStartJobRun) validateNextParameters(next awsstepfunctions
 	return nil
 }
 
-func (g *jsiiProxy_GlueStartJobRun) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (g *jsiiProxy_GlueStartJobRun) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (g *jsiiProxy_GlueStartJobRun) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

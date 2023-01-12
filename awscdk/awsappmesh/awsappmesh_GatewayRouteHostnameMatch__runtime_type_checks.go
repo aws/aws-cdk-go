@@ -5,10 +5,10 @@ package awsappmesh
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (g *jsiiProxy_GatewayRouteHostnameMatch) validateBindParameters(scope awscdk.Construct) error {
+func (g *jsiiProxy_GatewayRouteHostnameMatch) validateBindParameters(scope constructs.Construct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnSiteToSiteVpnAttachment`.
@@ -23,9 +23,9 @@ import (
 //   }
 //
 type CfnSiteToSiteVpnAttachmentProps struct {
-	// `AWS::NetworkManager::SiteToSiteVpnAttachment.CoreNetworkId`.
+	// The core network ID.
 	CoreNetworkId *string `field:"optional" json:"coreNetworkId" yaml:"coreNetworkId"`
-	// `AWS::NetworkManager::SiteToSiteVpnAttachment.Tags`.
+	// The tags associated with the site-to-site VPN attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the site-to-site VPN attachment.
 	VpnConnectionArn *string `field:"optional" json:"vpnConnectionArn" yaml:"vpnConnectionArn"`

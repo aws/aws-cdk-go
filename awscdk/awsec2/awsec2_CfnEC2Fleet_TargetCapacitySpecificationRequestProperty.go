@@ -31,7 +31,7 @@ type CfnEC2Fleet_TargetCapacitySpecificationRequestProperty struct {
 	OnDemandTargetCapacity *float64 `field:"optional" json:"onDemandTargetCapacity" yaml:"onDemandTargetCapacity"`
 	// The number of Spot units to request.
 	SpotTargetCapacity *float64 `field:"optional" json:"spotTargetCapacity" yaml:"spotTargetCapacity"`
-	// The unit for the target capacity. `TargetCapacityUnitType` can only be specified when `InstanceRequirements` is specified.
+	// The unit for the target capacity.
 	//
 	// Default: `units` (translates to number of instances).
 	TargetCapacityUnitType *string `field:"optional" json:"targetCapacityUnitType" yaml:"targetCapacityUnitType"`

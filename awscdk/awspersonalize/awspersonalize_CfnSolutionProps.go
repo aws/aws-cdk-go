@@ -42,11 +42,9 @@ type CfnSolutionProps struct {
 	//
 	// If no `eventType` is provided, Amazon Personalize uses all interactions for training with equal weight regardless of type.
 	EventType *string `field:"optional" json:"eventType" yaml:"eventType"`
-	// > We don't recommend enabling automated machine learning.
+	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration ( `recipeArn` must not be specified).
 	//
-	// Instead, match your use case to the available Amazon Personalize recipes. For more information, see [Determining your use case.](https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html)
-	//
-	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration ( `recipeArn` must not be specified). When false (the default), Amazon Personalize uses `recipeArn` for training.
+	// When false (the default), Amazon Personalize uses `recipeArn` for training.
 	PerformAutoMl interface{} `field:"optional" json:"performAutoMl" yaml:"performAutoMl"`
 	// Whether to perform hyperparameter optimization (HPO) on the chosen recipe.
 	//

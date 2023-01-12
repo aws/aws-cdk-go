@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The parameters for using a Amazon SQS stream as a source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeSourceSqsQueueParametersProperty struct {
-	// The maximum number of records to include in each batch.
+	// `CfnPipe.PipeSourceSqsQueueParametersProperty.BatchSize`.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
-	// The maximum length of a time to wait for events.
+	// `CfnPipe.PipeSourceSqsQueueParametersProperty.MaximumBatchingWindowInSeconds`.
 	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
 }
 

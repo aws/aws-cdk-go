@@ -3,7 +3,7 @@ package awscloudfront
 
 // An HTTP response header name and its value.
 //
-// CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+// CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that’s associated with this response headers policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

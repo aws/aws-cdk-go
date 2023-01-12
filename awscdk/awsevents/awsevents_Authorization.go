@@ -1,10 +1,10 @@
 package awsevents
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Authorization type for an API Destination Connection.
@@ -28,7 +28,6 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type Authorization interface {
 }
 
@@ -37,12 +36,11 @@ type jsiiProxy_Authorization struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAuthorization_Override(a Authorization) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events.Authorization",
+		"aws-cdk-lib.aws_events.Authorization",
 		nil, // no parameters
 		a,
 	)
@@ -52,7 +50,6 @@ func NewAuthorization_Override(a Authorization) {
 //
 // API key authorization has two components: an API key name and an API key value.
 // What these are depends on the target of your connection.
-// Experimental.
 func Authorization_ApiKey(apiKeyName *string, apiKeyValue awscdk.SecretValue) Authorization {
 	_init_.Initialize()
 
@@ -62,7 +59,7 @@ func Authorization_ApiKey(apiKeyName *string, apiKeyValue awscdk.SecretValue) Au
 	var returns Authorization
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_events.Authorization",
+		"aws-cdk-lib.aws_events.Authorization",
 		"apiKey",
 		[]interface{}{apiKeyName, apiKeyValue},
 		&returns,
@@ -72,7 +69,6 @@ func Authorization_ApiKey(apiKeyName *string, apiKeyValue awscdk.SecretValue) Au
 }
 
 // Use username and password authorization.
-// Experimental.
 func Authorization_Basic(username *string, password awscdk.SecretValue) Authorization {
 	_init_.Initialize()
 
@@ -82,7 +78,7 @@ func Authorization_Basic(username *string, password awscdk.SecretValue) Authoriz
 	var returns Authorization
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_events.Authorization",
+		"aws-cdk-lib.aws_events.Authorization",
 		"basic",
 		[]interface{}{username, password},
 		&returns,
@@ -92,7 +88,6 @@ func Authorization_Basic(username *string, password awscdk.SecretValue) Authoriz
 }
 
 // Use OAuth authorization.
-// Experimental.
 func Authorization_Oauth(props *OAuthAuthorizationProps) Authorization {
 	_init_.Initialize()
 
@@ -102,7 +97,7 @@ func Authorization_Oauth(props *OAuthAuthorizationProps) Authorization {
 	var returns Authorization
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_events.Authorization",
+		"aws-cdk-lib.aws_events.Authorization",
 		"oauth",
 		[]interface{}{props},
 		&returns,

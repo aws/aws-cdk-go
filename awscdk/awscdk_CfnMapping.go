@@ -1,30 +1,35 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a CloudFormation mapping.
 //
 // Example:
-//   var cfnTemplate cfnInclude
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &cfnMappingProps{
+//   	mapping: map[string]map[string]interface{}{
+//   		"us-east-1": map[string]interface{}{
+//   			"regionName": jsii.String("US East (N. Virginia)"),
+//   		},
+//   		"us-east-2": map[string]interface{}{
+//   			"regionName": jsii.String("US East (Ohio)"),
+//   		},
+//   	},
+//   })
 //
-//   mapping := cfnTemplate.getMapping(jsii.String("MyMapping"))
+//   regionTable.findInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
 //
-//   // mutating the mapping
-//   mapping.setValue(jsii.String("my-region"), jsii.String("AMI"), jsii.String("ami-04681a1dbd79675a5"))
-//
-// Experimental.
 type CfnMapping interface {
 	CfnRefElement
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -35,82 +40,26 @@ type CfnMapping interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() Stack
 	// Returns: A reference to a value in the map based on the two keys.
-	// Experimental.
 	FindInMap(key1 *string, key2 *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Sets a value in the map based on the two keys.
-	// Experimental.
 	SetValue(key1 *string, key2 *string, value interface{})
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CfnMapping
@@ -138,8 +87,8 @@ func (j *jsiiProxy_CfnMapping) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMapping) Node() ConstructNode {
-	var returns ConstructNode
+func (j *jsiiProxy_CfnMapping) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -169,7 +118,6 @@ func (j *jsiiProxy_CfnMapping) Stack() Stack {
 }
 
 
-// Experimental.
 func NewCfnMapping(scope constructs.Construct, id *string, props *CfnMappingProps) CfnMapping {
 	_init_.Initialize()
 
@@ -179,7 +127,7 @@ func NewCfnMapping(scope constructs.Construct, id *string, props *CfnMappingProp
 	j := jsiiProxy_CfnMapping{}
 
 	_jsii_.Create(
-		"monocdk.CfnMapping",
+		"aws-cdk-lib.CfnMapping",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -187,12 +135,11 @@ func NewCfnMapping(scope constructs.Construct, id *string, props *CfnMappingProp
 	return &j
 }
 
-// Experimental.
 func NewCfnMapping_Override(c CfnMapping, scope constructs.Construct, id *string, props *CfnMappingProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.CfnMapping",
+		"aws-cdk-lib.CfnMapping",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -204,7 +151,6 @@ func NewCfnMapping_Override(c CfnMapping, scope constructs.Construct, id *string
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -214,7 +160,7 @@ func CfnMapping_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.CfnMapping",
+		"aws-cdk-lib.CfnMapping",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -223,8 +169,23 @@ func CfnMapping_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -234,7 +195,7 @@ func CfnMapping_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.CfnMapping",
+		"aws-cdk-lib.CfnMapping",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -259,38 +220,6 @@ func (c *jsiiProxy_CfnMapping) FindInMap(key1 *string, key2 *string) *string {
 	return returns
 }
 
-func (c *jsiiProxy_CfnMapping) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnMapping) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := c.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnMapping) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnMapping) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -299,14 +228,6 @@ func (c *jsiiProxy_CfnMapping) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnMapping) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -321,36 +242,12 @@ func (c *jsiiProxy_CfnMapping) SetValue(key1 *string, key2 *string, value interf
 	)
 }
 
-func (c *jsiiProxy_CfnMapping) Synthesize(session ISynthesisSession) {
-	if err := c.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnMapping) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnMapping) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

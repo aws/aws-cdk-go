@@ -21,7 +21,7 @@ package awsmanagedblockchain
 type CfnMember_ApprovalThresholdPolicyProperty struct {
 	// The duration from the time that a proposal is created until it expires.
 	//
-	// If members cast neither the required number of `YES` votes to approve the proposal nor the number of `NO` votes required to reject it before the duration expires, the proposal is `EXPIRED` and `ProposalActions` aren't carried out.
+	// If members cast neither the required number of `YES` votes to approve the proposal nor the number of `NO` votes required to reject it before the duration expires, the proposal is `EXPIRED` and `ProposalActions` are not carried out.
 	ProposalDurationInHours *float64 `field:"optional" json:"proposalDurationInHours" yaml:"proposalDurationInHours"`
 	// Determines whether the vote percentage must be greater than the `ThresholdPercentage` or must be greater than or equal to the `ThreholdPercentage` to be approved.
 	ThresholdComparator *string `field:"optional" json:"thresholdComparator" yaml:"thresholdComparator"`

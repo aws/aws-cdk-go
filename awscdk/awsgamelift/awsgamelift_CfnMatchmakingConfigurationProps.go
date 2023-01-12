@@ -1,7 +1,7 @@
 package awsgamelift
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnMatchmakingConfiguration`.
@@ -72,7 +72,7 @@ type CfnMatchmakingConfigurationProps struct {
 	BackfillMode *string `field:"optional" json:"backfillMode" yaml:"backfillMode"`
 	// Information to add to all events related to the matchmaking configuration.
 	CustomEventData *string `field:"optional" json:"customEventData" yaml:"customEventData"`
-	// A description for the matchmaking configuration.
+	// A descriptive label that is associated with matchmaking configuration.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
 	//

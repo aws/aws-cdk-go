@@ -1,8 +1,6 @@
 package awsconnectcampaigns
 
 
-// Contains progressive dialer configuration for an outbound campaign.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsconnectcampaigns
 //   }
 //
 type CfnCampaign_ProgressiveDialerConfigProperty struct {
-	// Bandwidth allocation for the progressive dialer.
+	// `CfnCampaign.ProgressiveDialerConfigProperty.BandwidthAllocation`.
 	BandwidthAllocation *float64 `field:"required" json:"bandwidthAllocation" yaml:"bandwidthAllocation"`
 }
 

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLoggerDefinition) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnLoggerDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLoggerDefinition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLoggerDefinition) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoggerDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLoggerDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoggerDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLoggerDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnLoggerDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLoggerDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnLoggerDefinition) validateSetNameParameters(val *string) e
 	return nil
 }
 
-func validateNewCfnLoggerDefinitionParameters(scope awscdk.Construct, id *string, props *CfnLoggerDefinitionProps) error {
+func validateNewCfnLoggerDefinitionParameters(scope constructs.Construct, id *string, props *CfnLoggerDefinitionProps) error {
 	return nil
 }
 

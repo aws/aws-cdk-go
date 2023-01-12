@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The parameters for using a self-managed Apache Kafka stream as a source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,23 +35,23 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeSourceSelfManagedKafkaParametersProperty struct {
-	// The name of the topic that the pipe will read from.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.TopicName`.
 	TopicName *string `field:"required" json:"topicName" yaml:"topicName"`
-	// An array of server URLs.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.AdditionalBootstrapServers`.
 	AdditionalBootstrapServers *[]*string `field:"optional" json:"additionalBootstrapServers" yaml:"additionalBootstrapServers"`
-	// The maximum number of records to include in each batch.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.BatchSize`.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
-	// The name of the destination queue to consume.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.ConsumerGroupID`.
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
-	// The credentials needed to access the resource.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.Credentials`.
 	Credentials interface{} `field:"optional" json:"credentials" yaml:"credentials"`
-	// The maximum length of a time to wait for events.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.MaximumBatchingWindowInSeconds`.
 	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
-	// The ARN of the Secrets Manager secret used for certification.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.ServerRootCaCertificate`.
 	ServerRootCaCertificate *string `field:"optional" json:"serverRootCaCertificate" yaml:"serverRootCaCertificate"`
-	// (Streams only) The position in a stream from which to start reading.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.StartingPosition`.
 	StartingPosition *string `field:"optional" json:"startingPosition" yaml:"startingPosition"`
-	// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used.
+	// `CfnPipe.PipeSourceSelfManagedKafkaParametersProperty.Vpc`.
 	Vpc interface{} `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

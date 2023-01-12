@@ -1,10 +1,6 @@
 package awsamplifyuibuilder
 
 
-// Associates a complex object with a display value.
-//
-// Use `ValueMapping` to store how to represent complex objects when they are displayed.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,9 +18,9 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_ValueMappingProperty struct {
-	// The complex object.
+	// `CfnForm.ValueMappingProperty.Value`.
 	Value interface{} `field:"required" json:"value" yaml:"value"`
-	// The value to display for the complex object.
+	// `CfnForm.ValueMappingProperty.DisplayValue`.
 	DisplayValue interface{} `field:"optional" json:"displayValue" yaml:"displayValue"`
 }
 

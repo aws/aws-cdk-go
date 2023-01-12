@@ -1,7 +1,9 @@
 package awsdatasync
 
 
-// The subnet and security groups that AWS DataSync uses to access your Amazon EFS file system.
+// The subnet and the security group that DataSync uses to access the target EFS file system.
+//
+// The subnet must have at least one mount target for that file system. The security group that you provide must be able to communicate with the security group on the mount target in the subnet specified.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,16 +18,11 @@ package awsdatasync
 //   }
 //
 type CfnLocationEFS_Ec2ConfigProperty struct {
-	// Specifies the Amazon Resource Names (ARNs) of the security groups associated with an Amazon EFS file system's mount target.
+	// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
+	//
+	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
 	SecurityGroupArns *[]*string `field:"required" json:"securityGroupArns" yaml:"securityGroupArns"`
-	// Specifies the ARN of a subnet where DataSync creates the [network interfaces](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces) for managing traffic during your transfer.
-	//
-	// The subnet must be located:
-	//
-	// - In the same virtual private cloud (VPC) as the Amazon EFS file system.
-	// - In the same Availability Zone as at least one mount target for the Amazon EFS file system.
-	//
-	// > You don't need to specify a subnet that includes a file system mount target.
+	// The Amazon Resource Name (ARN) of the subnet that DataSync uses to access the target EFS file system.
 	SubnetArn *string `field:"required" json:"subnetArn" yaml:"subnetArn"`
 }
 

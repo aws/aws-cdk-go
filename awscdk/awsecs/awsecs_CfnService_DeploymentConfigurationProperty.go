@@ -25,7 +25,7 @@ package awsecs
 //   }
 //
 type CfnService_DeploymentConfigurationProperty struct {
-	// Information about the CloudWatch alarms.
+	// `CfnService.DeploymentConfigurationProperty.Alarms`.
 	Alarms interface{} `field:"optional" json:"alarms" yaml:"alarms"`
 	// > The deployment circuit breaker can only be used for services using the rolling update ( `ECS` ) deployment type that are not behind a Classic Load Balancer.
 	//

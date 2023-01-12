@@ -5,7 +5,7 @@ package awsstepfunctionstasks
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
 
 func validateVirtualClusterInput_FromTaskInputParameters(taskInput awsstepfunctions.TaskInput) error {

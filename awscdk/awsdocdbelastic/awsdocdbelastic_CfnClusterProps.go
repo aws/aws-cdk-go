@@ -1,7 +1,7 @@
 package awsdocdbelastic
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -37,59 +37,27 @@ import (
 //   }
 //
 type CfnClusterProps struct {
-	// The name of the Elastic DocumentDB cluster administrator.
-	//
-	// *Constraints* :
-	//
-	// - Must be from 1 to 63 letters or numbers.
-	// - The first character must be a letter.
-	// - Cannot be a reserved word.
+	// `AWS::DocDBElastic::Cluster.AdminUserName`.
 	AdminUserName *string `field:"required" json:"adminUserName" yaml:"adminUserName"`
-	// The authentication type for the Elastic DocumentDB cluster.
+	// `AWS::DocDBElastic::Cluster.AuthType`.
 	AuthType *string `field:"required" json:"authType" yaml:"authType"`
-	// The name of the new Elastic DocumentDB cluster. This parameter is stored as a lowercase string.
-	//
-	// *Constraints* :
-	//
-	// - Must contain from 1 to 63 letters, numbers, or hyphens.
-	// - The first character must be a letter.
-	// - Cannot end with a hyphen or contain two consecutive hyphens.
-	//
-	// *Example* : `my-cluster`.
+	// `AWS::DocDBElastic::Cluster.ClusterName`.
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
-	// The capacity of each shard in the new Elastic DocumentDB cluster.
+	// `AWS::DocDBElastic::Cluster.ShardCapacity`.
 	ShardCapacity *float64 `field:"required" json:"shardCapacity" yaml:"shardCapacity"`
-	// The number of shards to create in the new Elastic DocumentDB cluster.
+	// `AWS::DocDBElastic::Cluster.ShardCount`.
 	ShardCount *float64 `field:"required" json:"shardCount" yaml:"shardCount"`
-	// The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
-	//
-	// *Constraints* :
-	//
-	// - Must contain from 8 to 100 characters.
-	// - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
-	// - A valid `AdminUserName` entry is also required.
+	// `AWS::DocDBElastic::Cluster.AdminUserPassword`.
 	AdminUserPassword *string `field:"optional" json:"adminUserPassword" yaml:"adminUserPassword"`
-	// The KMS key identifier to use to encrypt the new Elastic DocumentDB cluster.
-	//
-	// The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
-	//
-	// If an encryption key is not specified, Elastic DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+	// `AWS::DocDBElastic::Cluster.KmsKeyId`.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// *Format* : `ddd:hh24:mi-ddd:hh24:mi`
-	//
-	// *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
-	//
-	// *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
-	//
-	// *Constraints* : Minimum 30-minute window.
+	// `AWS::DocDBElastic::Cluster.PreferredMaintenanceWindow`.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
-	// The Amazon EC2 subnet IDs for the new Elastic DocumentDB cluster.
+	// `AWS::DocDBElastic::Cluster.SubnetIds`.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
-	// The tags to be assigned to the new Elastic DocumentDB cluster.
+	// `AWS::DocDBElastic::Cluster.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// A list of EC2 VPC security groups to associate with the new Elastic DocumentDB cluster.
+	// `AWS::DocDBElastic::Cluster.VpcSecurityGroupIds`.
 	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

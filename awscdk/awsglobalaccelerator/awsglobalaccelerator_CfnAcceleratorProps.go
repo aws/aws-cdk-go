@@ -1,7 +1,7 @@
 package awsglobalaccelerator
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnAccelerator`.
@@ -47,9 +47,7 @@ type CfnAcceleratorProps struct {
 	//
 	// For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the *AWS Global Accelerator Developer Guide* .
 	IpAddresses *[]*string `field:"optional" json:"ipAddresses" yaml:"ipAddresses"`
-	// The IP address type that an accelerator supports.
-	//
-	// For a standard accelerator, the value can be IPV4 or DUAL_STACK.
+	// The value for the address type must be IPv4.
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Create tags for an accelerator.
 	//

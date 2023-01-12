@@ -1,15 +1,14 @@
 package awsappmesh
 
 
-// Represent the TCP Node Listener prorperty.
+// Represent the TCP Node Listener property.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var healthCheck healthCheck
 //   var mutualTlsValidationTrust mutualTlsValidationTrust
 //   var subjectAlternativeNames subjectAlternativeNames
@@ -21,14 +20,14 @@ package awsappmesh
 //   	},
 //   	healthCheck: healthCheck,
 //   	outlierDetection: &outlierDetection{
-//   		baseEjectionDuration: duration,
-//   		interval: duration,
+//   		baseEjectionDuration: cdk.duration.minutes(jsii.Number(30)),
+//   		interval: cdk.*duration.minutes(jsii.Number(30)),
 //   		maxEjectionPercent: jsii.Number(123),
 //   		maxServerErrors: jsii.Number(123),
 //   	},
 //   	port: jsii.Number(123),
 //   	timeout: &tcpTimeout{
-//   		idle: duration,
+//   		idle: cdk.*duration.minutes(jsii.Number(30)),
 //   	},
 //   	tls: &listenerTlsOptions{
 //   		certificate: tlsCertificate,
@@ -44,25 +43,18 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type TcpVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *TcpConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
-	// Experimental.
 	OutlierDetection *OutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Timeout for TCP protocol.
-	// Experimental.
 	Timeout *TcpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 

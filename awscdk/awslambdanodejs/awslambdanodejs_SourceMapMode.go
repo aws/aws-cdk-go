@@ -4,13 +4,13 @@ package awslambdanodejs
 // SourceMap mode for esbuild.
 //
 // Example:
-//   lambda.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
+//   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 //   	bundling: &bundlingOptions{
 //   		minify: jsii.Boolean(true),
 //   		 // minify code, defaults to false
 //   		sourceMap: jsii.Boolean(true),
 //   		 // include source map, defaults to false
-//   		sourceMapMode: lambda.sourceMapMode_INLINE,
+//   		sourceMapMode: nodejs.sourceMapMode_INLINE,
 //   		 // defaults to SourceMapMode.DEFAULT
 //   		sourcesContent: jsii.Boolean(false),
 //   		 // do not include original source into source map, defaults to true
@@ -26,7 +26,7 @@ package awslambdanodejs
 //   			"process.env.PRODUCTION": JSON.stringify(jsii.Boolean(true)),
 //   			"process.env.NUMBER": JSON.stringify(jsii.Number(123)),
 //   		},
-//   		logLevel: lambda.logLevel_SILENT,
+//   		logLevel: nodejs.logLevel_SILENT,
 //   		 // defaults to LogLevel.WARNING
 //   		keepNames: jsii.Boolean(true),
 //   		 // defaults to false
@@ -38,9 +38,9 @@ package awslambdanodejs
 //   		 // requires esbuild >= 0.9.0, defaults to none
 //   		footer: jsii.String("/* comments */"),
 //   		 // requires esbuild >= 0.9.0, defaults to none
-//   		charset: lambda.charset_UTF8,
+//   		charset: nodejs.charset_UTF8,
 //   		 // do not escape non-ASCII characters, defaults to Charset.ASCII
-//   		format: lambda.outputFormat_ESM,
+//   		format: nodejs.outputFormat_ESM,
 //   		 // ECMAScript module output format, defaults to OutputFormat.CJS (OutputFormat.ESM requires Node.js 14.x)
 //   		mainFields: []*string{
 //   			jsii.String("module"),
@@ -62,21 +62,16 @@ package awslambdanodejs
 //
 // See: https://esbuild.github.io/api/#sourcemap
 //
-// Experimental.
 type SourceMapMode string
 
 const (
 	// Default sourceMap mode - will generate a .js.map file alongside any generated .js file and add a special //# sourceMappingURL= comment to the bottom of the .js file pointing to the .js.map file.
-	// Experimental.
 	SourceMapMode_DEFAULT SourceMapMode = "DEFAULT"
 	// External sourceMap mode - If you want to omit the special //# sourceMappingURL= comment from the generated .js file but you still want to generate the .js.map files.
-	// Experimental.
 	SourceMapMode_EXTERNAL SourceMapMode = "EXTERNAL"
 	// Inline sourceMap mode - If you want to insert the entire source map into the .js file instead of generating a separate .js.map file.
-	// Experimental.
 	SourceMapMode_INLINE SourceMapMode = "INLINE"
 	// Both sourceMap mode - If you want to have the effect of both inline and external simultaneously.
-	// Experimental.
 	SourceMapMode_BOTH SourceMapMode = "BOTH"
 )
 

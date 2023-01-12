@@ -80,6 +80,10 @@ package awscloudfront
 //   			override: jsii.Boolean(true),
 //   		},
 //   	},
+//   	removeHeaders: []*string{
+//   		jsii.String("Server"),
+//   	},
+//   	serverTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
@@ -88,33 +92,24 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type HeadersReferrerPolicy string
 
 const (
 	// The referrer policy is not set.
-	// Experimental.
 	HeadersReferrerPolicy_NO_REFERRER HeadersReferrerPolicy = "NO_REFERRER"
 	// The referrer policy is no-referrer-when-downgrade.
-	// Experimental.
 	HeadersReferrerPolicy_NO_REFERRER_WHEN_DOWNGRADE HeadersReferrerPolicy = "NO_REFERRER_WHEN_DOWNGRADE"
 	// The referrer policy is origin.
-	// Experimental.
 	HeadersReferrerPolicy_ORIGIN HeadersReferrerPolicy = "ORIGIN"
 	// The referrer policy is origin-when-cross-origin.
-	// Experimental.
 	HeadersReferrerPolicy_ORIGIN_WHEN_CROSS_ORIGIN HeadersReferrerPolicy = "ORIGIN_WHEN_CROSS_ORIGIN"
 	// The referrer policy is same-origin.
-	// Experimental.
 	HeadersReferrerPolicy_SAME_ORIGIN HeadersReferrerPolicy = "SAME_ORIGIN"
 	// The referrer policy is strict-origin.
-	// Experimental.
 	HeadersReferrerPolicy_STRICT_ORIGIN HeadersReferrerPolicy = "STRICT_ORIGIN"
 	// The referrer policy is strict-origin-when-cross-origin.
-	// Experimental.
 	HeadersReferrerPolicy_STRICT_ORIGIN_WHEN_CROSS_ORIGIN HeadersReferrerPolicy = "STRICT_ORIGIN_WHEN_CROSS_ORIGIN"
 	// The referrer policy is unsafe-url.
-	// Experimental.
 	HeadersReferrerPolicy_UNSAFE_URL HeadersReferrerPolicy = "UNSAFE_URL"
 )
 

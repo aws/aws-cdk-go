@@ -268,7 +268,7 @@ type CfnTopicRule_ActionProperty struct {
 	Kinesis interface{} `field:"optional" json:"kinesis" yaml:"kinesis"`
 	// Invoke a Lambda function.
 	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
-	// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
+	// `CfnTopicRule.ActionProperty.Location`.
 	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// Write data to an Amazon OpenSearch Service domain.
 	OpenSearch interface{} `field:"optional" json:"openSearch" yaml:"openSearch"`

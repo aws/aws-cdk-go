@@ -80,6 +80,10 @@ package awscloudfront
 //   			override: jsii.Boolean(true),
 //   		},
 //   	},
+//   	removeHeaders: []*string{
+//   		jsii.String("Server"),
+//   	},
+//   	serverTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
@@ -88,13 +92,10 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type ResponseHeadersContentSecurityPolicy struct {
 	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-	// Experimental.
 	ContentSecurityPolicy *string `field:"required" json:"contentSecurityPolicy" yaml:"contentSecurityPolicy"`
 	// A Boolean that determines whether CloudFront overrides the Content-Security-Policy HTTP response header received from the origin with the one specified in this response headers policy.
-	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 }
 

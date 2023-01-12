@@ -1,7 +1,7 @@
 package awsnimblestudio
 
 
-// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
+// The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,7 +22,7 @@ package awsnimblestudio
 type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 	// A collection of custom attributes for an Active Directory computer.
 	ComputerAttributes interface{} `field:"optional" json:"computerAttributes" yaml:"computerAttributes"`
-	// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
+	// The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.
 	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`
 	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
 	OrganizationalUnitDistinguishedName *string `field:"optional" json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`

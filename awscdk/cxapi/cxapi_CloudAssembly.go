@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // Represents a deployable cloud application.
@@ -19,62 +19,44 @@ import (
 //   	skipVersionCheck: jsii.Boolean(false),
 //   })
 //
-// Experimental.
 type CloudAssembly interface {
 	// All artifacts included in this assembly.
-	// Experimental.
 	Artifacts() *[]CloudArtifact
 	// The root directory of the cloud assembly.
-	// Experimental.
 	Directory() *string
 	// The raw assembly manifest.
-	// Experimental.
 	Manifest() *cloudassemblyschema.AssemblyManifest
 	// The nested assembly artifacts in this assembly.
-	// Experimental.
 	NestedAssemblies() *[]NestedCloudAssemblyArtifact
 	// Runtime information such as module versions used to synthesize this assembly.
-	// Experimental.
 	Runtime() *cloudassemblyschema.RuntimeInfo
 	// Returns: all the CloudFormation stack artifacts that are included in this assembly.
-	// Experimental.
 	Stacks() *[]CloudFormationStackArtifact
 	// Returns all the stacks, including the ones in nested assemblies.
-	// Experimental.
 	StacksRecursively() *[]CloudFormationStackArtifact
 	// The schema version of the assembly manifest.
-	// Experimental.
 	Version() *string
 	// Returns a nested assembly.
-	// Experimental.
 	GetNestedAssembly(artifactId *string) CloudAssembly
 	// Returns a nested assembly artifact.
-	// Experimental.
 	GetNestedAssemblyArtifact(artifactId *string) NestedCloudAssemblyArtifact
-	// Returns a CloudFormation stack artifact by name from this assembly.
-	// Deprecated: renamed to `getStackByName` (or `getStackArtifact(id)`).
-	GetStack(stackName *string) CloudFormationStackArtifact
 	// Returns a CloudFormation stack artifact from this assembly.
 	//
 	// Returns: a `CloudFormationStackArtifact` object.
-	// Experimental.
 	GetStackArtifact(artifactId *string) CloudFormationStackArtifact
 	// Returns a CloudFormation stack artifact from this assembly.
 	//
 	// Will only search the current assembly.
 	//
 	// Returns: a `CloudFormationStackArtifact` object.
-	// Experimental.
 	GetStackByName(stackName *string) CloudFormationStackArtifact
 	// Returns the tree metadata artifact from this assembly.
 	//
 	// Returns: a `TreeCloudArtifact` object if there is one defined in the manifest, `undefined` otherwise.
-	// Experimental.
 	Tree() TreeCloudArtifact
 	// Attempts to find an artifact with a specific identity.
 	//
 	// Returns: A `CloudArtifact` object or `undefined` if the artifact does not exist in this assembly.
-	// Experimental.
 	TryGetArtifact(id *string) CloudArtifact
 }
 
@@ -165,7 +147,6 @@ func (j *jsiiProxy_CloudAssembly) Version() *string {
 
 
 // Reads a cloud assembly from the specified directory.
-// Experimental.
 func NewCloudAssembly(directory *string, loadOptions *cloudassemblyschema.LoadManifestOptions) CloudAssembly {
 	_init_.Initialize()
 
@@ -175,7 +156,7 @@ func NewCloudAssembly(directory *string, loadOptions *cloudassemblyschema.LoadMa
 	j := jsiiProxy_CloudAssembly{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssembly",
+		"aws-cdk-lib.cx_api.CloudAssembly",
 		[]interface{}{directory, loadOptions},
 		&j,
 	)
@@ -184,12 +165,11 @@ func NewCloudAssembly(directory *string, loadOptions *cloudassemblyschema.LoadMa
 }
 
 // Reads a cloud assembly from the specified directory.
-// Experimental.
 func NewCloudAssembly_Override(c CloudAssembly, directory *string, loadOptions *cloudassemblyschema.LoadManifestOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssembly",
+		"aws-cdk-lib.cx_api.CloudAssembly",
 		[]interface{}{directory, loadOptions},
 		c,
 	)
@@ -221,22 +201,6 @@ func (c *jsiiProxy_CloudAssembly) GetNestedAssemblyArtifact(artifactId *string) 
 		c,
 		"getNestedAssemblyArtifact",
 		[]interface{}{artifactId},
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CloudAssembly) GetStack(stackName *string) CloudFormationStackArtifact {
-	if err := c.validateGetStackParameters(stackName); err != nil {
-		panic(err)
-	}
-	var returns CloudFormationStackArtifact
-
-	_jsii_.Invoke(
-		c,
-		"getStack",
-		[]interface{}{stackName},
 		&returns,
 	)
 

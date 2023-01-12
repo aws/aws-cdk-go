@@ -28,14 +28,6 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) validateOnReEvaluationS
 	return nil
 }
 
-func (c *jsiiProxy_CloudFormationStackNotificationCheck) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_CloudFormationStackNotificationCheck) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCloudFormationStackNotificationCheck_FromConfigRuleNameParameters(scope constructs.Construct, id *string, configRuleName *string) error {
 	return nil
 }
@@ -44,7 +36,11 @@ func validateCloudFormationStackNotificationCheck_IsConstructParameters(x interf
 	return nil
 }
 
-func validateCloudFormationStackNotificationCheck_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCloudFormationStackNotificationCheck_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCloudFormationStackNotificationCheck_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

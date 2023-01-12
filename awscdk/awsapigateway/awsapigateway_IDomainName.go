@@ -3,21 +3,17 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 )
 
-// Experimental.
 type IDomainName interface {
 	awscdk.IResource
 	// The domain name (e.g. `example.com`).
-	// Experimental.
 	DomainName() *string
 	// The Route53 alias target to use in order to connect a record set to this domain through an alias.
-	// Experimental.
 	DomainNameAliasDomainName() *string
 	// The Route53 hosted zone ID to use in order to connect a record set to this domain through an alias.
-	// Experimental.
 	DomainNameAliasHostedZoneId() *string
 }
 

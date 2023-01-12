@@ -20,10 +20,6 @@ func (s *jsiiProxy_ScalableTarget) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (s *jsiiProxy_ScalableTarget) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (s *jsiiProxy_ScalableTarget) validateScaleOnMetricParameters(id *string, props *BasicStepScalingPolicyProps) error {
 	return nil
 }
@@ -36,10 +32,6 @@ func (s *jsiiProxy_ScalableTarget) validateScaleToTrackMetricParameters(id *stri
 	return nil
 }
 
-func (s *jsiiProxy_ScalableTarget) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateScalableTarget_FromScalableTargetIdParameters(scope constructs.Construct, id *string, scalableTargetId *string) error {
 	return nil
 }
@@ -48,7 +40,11 @@ func validateScalableTarget_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateScalableTarget_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateScalableTarget_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateScalableTarget_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

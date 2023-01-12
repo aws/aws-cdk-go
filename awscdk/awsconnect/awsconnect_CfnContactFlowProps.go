@@ -1,7 +1,7 @@
 package awsconnect
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnContactFlow`.
@@ -29,21 +29,19 @@ import (
 //   }
 //
 type CfnContactFlowProps struct {
-	// The content of the flow.
-	//
-	// For more information, see [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html) in the *Amazon Connect Administrator Guide* .
+	// The content of the contact flow.
 	Content *string `field:"required" json:"content" yaml:"content"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// The name of the flow.
+	// The name of the contact flow.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The type of the flow.
+	// The type of the contact flow.
 	//
-	// For descriptions of the available types, see [Choose a flow type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
+	// For descriptions of the available types, see [Choose a Contact Flow Type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The description of the flow.
+	// The description of the contact flow.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The state of the flow.
+	// The state of the contact flow.
 	State *string `field:"optional" json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//

@@ -5,7 +5,7 @@ package assertions
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func (a *jsiiProxy_Annotations) validateFindErrorParameters(constructPath *string, message interface{}) error {

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnResolverQueryLoggingConfig_IsConstructParameters(x interface{}) 
 	return nil
 }
 
-func validateNewCfnResolverQueryLoggingConfigParameters(scope awscdk.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) error {
+func validateNewCfnResolverQueryLoggingConfigParameters(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) error {
 	return nil
 }
 

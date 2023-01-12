@@ -1,8 +1,6 @@
 package awsgreengrassv2
 
 
-// Contains information about an AWS IoT job configuration.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,17 +33,11 @@ package awsgreengrassv2
 //   }
 //
 type CfnDeployment_DeploymentIoTJobConfigurationProperty struct {
-	// The stop configuration for the job.
-	//
-	// This configuration defines when and how to stop a job rollout.
+	// `CfnDeployment.DeploymentIoTJobConfigurationProperty.AbortConfig`.
 	AbortConfig interface{} `field:"optional" json:"abortConfig" yaml:"abortConfig"`
-	// The rollout configuration for the job.
-	//
-	// This configuration defines the rate at which the job rolls out to the fleet of target devices.
+	// `CfnDeployment.DeploymentIoTJobConfigurationProperty.JobExecutionsRolloutConfig`.
 	JobExecutionsRolloutConfig interface{} `field:"optional" json:"jobExecutionsRolloutConfig" yaml:"jobExecutionsRolloutConfig"`
-	// The timeout configuration for the job.
-	//
-	// This configuration defines the amount of time each device has to complete the job.
+	// `CfnDeployment.DeploymentIoTJobConfigurationProperty.TimeoutConfig`.
 	TimeoutConfig interface{} `field:"optional" json:"timeoutConfig" yaml:"timeoutConfig"`
 }
 

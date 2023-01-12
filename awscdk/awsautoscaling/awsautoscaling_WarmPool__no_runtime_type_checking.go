@@ -16,19 +16,15 @@ func (w *jsiiProxy_WarmPool) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
-func (w *jsiiProxy_WarmPool) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (w *jsiiProxy_WarmPool) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateWarmPool_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateWarmPool_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateWarmPool_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateWarmPool_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

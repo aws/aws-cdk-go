@@ -68,28 +68,21 @@ package awsappsync
 //   	},
 //   }
 //
-// Experimental.
 type ExtendedDataSourceProps struct {
 	// the type of the AppSync datasource.
-	// Experimental.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// configuration for DynamoDB Datasource.
-	// Experimental.
 	DynamoDbConfig interface{} `field:"optional" json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
 	// configuration for Elasticsearch data source.
 	// Deprecated: - use `openSearchConfig`.
 	ElasticsearchConfig interface{} `field:"optional" json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
 	// configuration for HTTP Datasource.
-	// Experimental.
 	HttpConfig interface{} `field:"optional" json:"httpConfig" yaml:"httpConfig"`
 	// configuration for Lambda Datasource.
-	// Experimental.
 	LambdaConfig interface{} `field:"optional" json:"lambdaConfig" yaml:"lambdaConfig"`
 	// configuration for OpenSearch data source.
-	// Experimental.
 	OpenSearchServiceConfig interface{} `field:"optional" json:"openSearchServiceConfig" yaml:"openSearchServiceConfig"`
 	// configuration for RDS Datasource.
-	// Experimental.
 	RelationalDatabaseConfig interface{} `field:"optional" json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
 }
 

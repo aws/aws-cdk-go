@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnWirelessGateway) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnWirelessGateway) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWirelessGateway) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnWirelessGateway) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnWirelessGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnWirelessGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnWirelessGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnWirelessGateway) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnWirelessGateway) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnWirelessGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnWirelessGateway) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnWirelessGateway) validateSetLoRaWanParameters(val interfac
 	return nil
 }
 
-func validateNewCfnWirelessGatewayParameters(scope awscdk.Construct, id *string, props *CfnWirelessGatewayProps) error {
+func validateNewCfnWirelessGatewayParameters(scope constructs.Construct, id *string, props *CfnWirelessGatewayProps) error {
 	return nil
 }
 

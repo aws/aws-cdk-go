@@ -28,6 +28,10 @@ func (f *jsiiProxy_FirelensLogRouter) validateAddScratchParameters(scratch *Scra
 	return nil
 }
 
+func (f *jsiiProxy_FirelensLogRouter) validateAddSecretParameters(name *string, secret Secret) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirelensLogRouter) validateAddToExecutionPolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }
@@ -44,11 +48,7 @@ func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingParameters(containe
 	return nil
 }
 
-func (f *jsiiProxy_FirelensLogRouter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (f *jsiiProxy_FirelensLogRouter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (f *jsiiProxy_FirelensLogRouter) validateFindPortMappingByNameParameters(name *string) error {
 	return nil
 }
 

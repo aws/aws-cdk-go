@@ -1,8 +1,6 @@
 package awssagemaker
 
 
-// Details about the metrics source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,11 +15,11 @@ package awssagemaker
 //   }
 //
 type CfnModelPackage_MetricsSourceProperty struct {
-	// The metric source content type.
+	// `CfnModelPackage.MetricsSourceProperty.ContentType`.
 	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
-	// The S3 URI for the metrics source.
+	// `CfnModelPackage.MetricsSourceProperty.S3Uri`.
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
-	// The hash key used for the metrics source.
+	// `CfnModelPackage.MetricsSourceProperty.ContentDigest`.
 	ContentDigest *string `field:"optional" json:"contentDigest" yaml:"contentDigest"`
 }
 

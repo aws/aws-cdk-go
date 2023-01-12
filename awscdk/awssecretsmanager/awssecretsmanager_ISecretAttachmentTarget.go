@@ -5,10 +5,8 @@ import (
 )
 
 // A secret attachment target.
-// Experimental.
 type ISecretAttachmentTarget interface {
 	// Renders the target specifications.
-	// Experimental.
 	AsSecretAttachmentTarget() *SecretAttachmentTargetProps
 }
 

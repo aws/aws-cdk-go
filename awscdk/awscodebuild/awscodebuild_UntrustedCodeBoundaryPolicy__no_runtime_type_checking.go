@@ -28,14 +28,6 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateGetResourceNameAttribute
 	return nil
 }
 
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateUntrustedCodeBoundaryPolicy_FromAwsManagedPolicyNameParameters(managedPolicyName *string) error {
 	return nil
 }
@@ -52,7 +44,11 @@ func validateUntrustedCodeBoundaryPolicy_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func validateUntrustedCodeBoundaryPolicy_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateUntrustedCodeBoundaryPolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateUntrustedCodeBoundaryPolicy_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

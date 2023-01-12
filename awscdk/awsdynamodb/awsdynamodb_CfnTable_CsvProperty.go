@@ -1,10 +1,6 @@
 package awsdynamodb
 
 
-// The options for imported source files in CSV format.
-//
-// The values are Delimiter and HeaderList.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,11 +14,9 @@ package awsdynamodb
 //   }
 //
 type CfnTable_CsvProperty struct {
-	// The delimiter used for separating items in the CSV file being imported.
+	// `CfnTable.CsvProperty.Delimiter`.
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
-	// List of the headers used to specify a common header for all source CSV files being imported.
-	//
-	// If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
+	// `CfnTable.CsvProperty.HeaderList`.
 	HeaderList *[]*string `field:"optional" json:"headerList" yaml:"headerList"`
 }
 

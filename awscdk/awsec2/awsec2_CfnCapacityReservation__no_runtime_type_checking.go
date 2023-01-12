@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCapacityReservation) validateAddDeletionOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnCapacityReservation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCapacityReservation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCapacityReservation) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnCapacityReservation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCapacityReservation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCapacityReservation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCapacityReservation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCapacityReservation) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnCapacityReservation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCapacityReservation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -104,7 +108,7 @@ func (j *jsiiProxy_CfnCapacityReservation) validateSetTagSpecificationsParameter
 	return nil
 }
 
-func validateNewCfnCapacityReservationParameters(scope awscdk.Construct, id *string, props *CfnCapacityReservationProps) error {
+func validateNewCfnCapacityReservationParameters(scope constructs.Construct, id *string, props *CfnCapacityReservationProps) error {
 	return nil
 }
 

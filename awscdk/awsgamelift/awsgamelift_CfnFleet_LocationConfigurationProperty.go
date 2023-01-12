@@ -3,6 +3,10 @@ package awsgamelift
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 //
+// *Related actions*
+//
+// [CreateFleet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html)
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

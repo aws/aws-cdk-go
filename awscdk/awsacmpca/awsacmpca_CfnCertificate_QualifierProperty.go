@@ -3,7 +3,7 @@ package awsacmpca
 
 // Defines a `PolicyInformation` qualifier.
 //
-// AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+// ACM Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -1,15 +1,16 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Multiple stages that are deployed in parallel.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline codePipeline
 //
 //   europeWave := pipeline.addWave(jsii.String("Europe"))
@@ -24,31 +25,23 @@ import (
 //   	},
 //   }))
 //
-// Experimental.
 type Wave interface {
 	// Identifier for this Wave.
-	// Experimental.
 	Id() *string
 	// Additional steps that are run after all of the stages in the wave.
-	// Experimental.
 	Post() *[]Step
 	// Additional steps that are run before any of the stages in the wave.
-	// Experimental.
 	Pre() *[]Step
 	// The stages that are deployed in this wave.
-	// Experimental.
 	Stages() *[]StageDeployment
 	// Add an additional step to run after all of the stages in this wave.
-	// Experimental.
 	AddPost(steps ...Step)
 	// Add an additional step to run before any of the stages in this wave.
-	// Experimental.
 	AddPre(steps ...Step)
 	// Add a Stage to this wave.
 	//
 	// It will be deployed in parallel with all other stages in this
 	// wave.
-	// Experimental.
 	AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment
 }
 
@@ -98,7 +91,6 @@ func (j *jsiiProxy_Wave) Stages() *[]StageDeployment {
 }
 
 
-// Experimental.
 func NewWave(id *string, props *WaveProps) Wave {
 	_init_.Initialize()
 
@@ -108,7 +100,7 @@ func NewWave(id *string, props *WaveProps) Wave {
 	j := jsiiProxy_Wave{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.Wave",
+		"aws-cdk-lib.pipelines.Wave",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -116,12 +108,11 @@ func NewWave(id *string, props *WaveProps) Wave {
 	return &j
 }
 
-// Experimental.
 func NewWave_Override(w Wave, id *string, props *WaveProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.Wave",
+		"aws-cdk-lib.pipelines.Wave",
 		[]interface{}{id, props},
 		w,
 	)

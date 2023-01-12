@@ -110,7 +110,7 @@ type CfnDataSource_DataSourceParametersProperty struct {
 	AuroraParameters interface{} `field:"optional" json:"auroraParameters" yaml:"auroraParameters"`
 	// The parameters for Amazon Aurora.
 	AuroraPostgreSqlParameters interface{} `field:"optional" json:"auroraPostgreSqlParameters" yaml:"auroraPostgreSqlParameters"`
-	// The required parameters that are needed to connect to a Databricks data source.
+	// `CfnDataSource.DataSourceParametersProperty.DatabricksParameters`.
 	DatabricksParameters interface{} `field:"optional" json:"databricksParameters" yaml:"databricksParameters"`
 	// The parameters for MariaDB.
 	MariaDbParameters interface{} `field:"optional" json:"mariaDbParameters" yaml:"mariaDbParameters"`

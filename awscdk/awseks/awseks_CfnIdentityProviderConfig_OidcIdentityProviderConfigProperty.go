@@ -1,7 +1,7 @@
 package awseks
 
 
-// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+// An object that represents the configuration for an OpenID Connect (OIDC) identity provider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

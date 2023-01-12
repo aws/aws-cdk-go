@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Event-based policies only]* Specifies the encryption settings for cross-Region snapshot copies created by event-based policies.
+// Specifies the encryption settings for shared snapshots that are copied across Regions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

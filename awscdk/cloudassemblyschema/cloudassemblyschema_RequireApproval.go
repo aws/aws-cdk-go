@@ -10,7 +10,7 @@ package cloudassemblyschema
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+//   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
 //   	testCases: []stack{
 //   		stackUnderTest,
 //   	},
@@ -31,18 +31,14 @@ package cloudassemblyschema
 //   	},
 //   })
 //
-// Experimental.
 type RequireApproval string
 
 const (
 	// Never ask for approval.
-	// Experimental.
 	RequireApproval_NEVER RequireApproval = "NEVER"
 	// Prompt for approval for any type  of change to the stack.
-	// Experimental.
 	RequireApproval_ANYCHANGE RequireApproval = "ANYCHANGE"
 	// Only prompt for approval if there are security related changes.
-	// Experimental.
 	RequireApproval_BROADENING RequireApproval = "BROADENING"
 )
 

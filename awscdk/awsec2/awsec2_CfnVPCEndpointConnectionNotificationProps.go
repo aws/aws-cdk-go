@@ -20,7 +20,7 @@ package awsec2
 //   }
 //
 type CfnVPCEndpointConnectionNotificationProps struct {
-	// The endpoint events for which to receive notifications.
+	// One or more endpoint events for which to receive notifications.
 	//
 	// Valid values are `Accept` , `Connect` , `Delete` , and `Reject` .
 	ConnectionEvents *[]*string `field:"required" json:"connectionEvents" yaml:"connectionEvents"`

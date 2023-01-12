@@ -5,10 +5,10 @@ package awslambda
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (f *jsiiProxy_FunctionVersionUpgrade) validateVisitParameters(node awscdk.IConstruct) error {
+func (f *jsiiProxy_FunctionVersionUpgrade) validateVisitParameters(node constructs.IConstruct) error {
 	if node == nil {
 		return fmt.Errorf("parameter node is required, but nil was provided")
 	}

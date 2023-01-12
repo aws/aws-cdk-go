@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 )
 
 // Properties to define an ECS service.
@@ -16,14 +16,12 @@ import (
 //   	platformVersion: awscdk.Aws_ecs.fargatePlatformVersion_LATEST,
 //   }
 //
-// Experimental.
 type EcsFargateLaunchTargetOptions struct {
 	// Refers to a specific runtime environment for Fargate task infrastructure.
 	//
 	// Fargate platform version is a combination of the kernel and container runtime versions.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html
 	//
-	// Experimental.
 	PlatformVersion awsecs.FargatePlatformVersion `field:"required" json:"platformVersion" yaml:"platformVersion"`
 }
 

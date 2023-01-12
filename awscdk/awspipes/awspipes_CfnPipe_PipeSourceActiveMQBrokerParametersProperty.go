@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The parameters for using an Active MQ broker as a source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,13 +18,13 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeSourceActiveMQBrokerParametersProperty struct {
-	// The credentials needed to access the resource.
+	// `CfnPipe.PipeSourceActiveMQBrokerParametersProperty.Credentials`.
 	Credentials interface{} `field:"required" json:"credentials" yaml:"credentials"`
-	// The name of the destination queue to consume.
+	// `CfnPipe.PipeSourceActiveMQBrokerParametersProperty.QueueName`.
 	QueueName *string `field:"required" json:"queueName" yaml:"queueName"`
-	// The maximum number of records to include in each batch.
+	// `CfnPipe.PipeSourceActiveMQBrokerParametersProperty.BatchSize`.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
-	// The maximum length of a time to wait for events.
+	// `CfnPipe.PipeSourceActiveMQBrokerParametersProperty.MaximumBatchingWindowInSeconds`.
 	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
 }
 

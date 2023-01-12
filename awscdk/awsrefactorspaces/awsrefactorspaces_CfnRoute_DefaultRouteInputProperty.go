@@ -1,8 +1,6 @@
 package awsrefactorspaces
 
 
-// The configuration for the default route type.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +11,7 @@ package awsrefactorspaces
 //   }
 //
 type CfnRoute_DefaultRouteInputProperty struct {
-	// If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+	// `CfnRoute.DefaultRouteInputProperty.ActivationState`.
 	ActivationState *string `field:"required" json:"activationState" yaml:"activationState"`
 }
 

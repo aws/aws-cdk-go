@@ -68,13 +68,13 @@ type CfnSecurityGroup_EgressProperty struct {
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	DestinationSecurityGroupId *string `field:"optional" json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
-	// If the protocol is TCP or UDP, this is the start of the port range.
+	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	//
-	// If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
+	// A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
-	// If the protocol is TCP or UDP, this is the end of the port range.
+	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	//
-	// If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
+	// A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 

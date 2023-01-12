@@ -74,7 +74,7 @@ package awsgreengrassv2
 type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 	// The component versions on which this Lambda function component depends.
 	ComponentDependencies interface{} `field:"optional" json:"componentDependencies" yaml:"componentDependencies"`
-	// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
+	// The system and runtime parameters for the Lambda function as it runs on the Greengrass core device.
 	ComponentLambdaParameters interface{} `field:"optional" json:"componentLambdaParameters" yaml:"componentLambdaParameters"`
 	// The name of the component.
 	//

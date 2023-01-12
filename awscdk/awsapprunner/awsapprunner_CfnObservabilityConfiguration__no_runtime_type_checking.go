@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnObservabilityConfiguration) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnObservabilityConfiguration) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnObservabilityConfiguration) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnObservabilityConfiguration) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnObservabilityConfiguration) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnObservabilityConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnObservabilityConfiguration) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnObservabilityConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnObservabilityConfiguration) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnObservabilityConfiguration) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnObservabilityConfiguration) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnObservabilityConfiguration) validateSetTraceConfigurationP
 	return nil
 }
 
-func validateNewCfnObservabilityConfigurationParameters(scope awscdk.Construct, id *string, props *CfnObservabilityConfigurationProps) error {
+func validateNewCfnObservabilityConfigurationParameters(scope constructs.Construct, id *string, props *CfnObservabilityConfigurationProps) error {
 	return nil
 }
 
