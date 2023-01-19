@@ -533,8 +533,8 @@ taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOption
 	memoryLimitMiB: jsii.Number(1024),
 	systemControls: []systemControl{
 		&systemControl{
-			namespace: jsii.String("net"),
-			value: jsii.String("ipv4.tcp_tw_recycle"),
+			namespace: jsii.String("net.ipv6.conf.all.default.disable_ipv6"),
+			value: jsii.String("1"),
 		},
 	},
 })
@@ -1183,11 +1183,25 @@ it in the constructor. Then add the Capacity Provider to the cluster. Finally,
 you can refer to the Provider by its name in your service's or task's Capacity
 Provider strategy.
 
-By default, an Auto Scaling Group Capacity Provider will manage the Auto Scaling
-Group's size for you. It will also enable managed termination protection, in
-order to prevent EC2 Auto Scaling from terminating EC2 instances that have tasks
-running on them. If you want to disable this behavior, set both
-`enableManagedScaling` to and `enableManagedTerminationProtection` to `false`.
+By default, Auto Scaling Group Capacity Providers will manage the scale-in and
+scale-out behavior of the auto scaling group based on the load your tasks put on
+the cluster, this is called [Managed Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling). If you'd
+rather manage scaling behavior yourself set `enableManagedScaling` to `false`.
+
+Additionally [Managed Termination Protection](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-auto-scaling.html#managed-termination-protection) is enabled by default to
+prevent scale-in behavior from terminating instances that have non-daemon tasks
+running on them. This is ideal for tasks that should be ran to completion. If your
+tasks are safe to interrupt then this protection can be disabled by setting
+`enableManagedTerminationProtection` to `false`. Managed Scaling must be enabled for
+Managed Termination Protection to work.
+
+> Currently there is a known [CloudFormation issue](https://github.com/aws/containers-roadmap/issues/631)
+> that prevents CloudFormation from automatically deleting Auto Scaling Groups that
+> have Managed Termination Protection enabled. To work around this issue you could set
+> `enableManagedTerminationProtection` to `false` on the Auto Scaling Group Capacity
+> Provider. If you'd rather not disable Managed Termination Protection, you can [manually
+> delete the Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html).
+> For other workarounds, see [this GitHub issue](https://github.com/aws/aws-cdk/issues/18179).
 
 ```go
 var vpc vpc

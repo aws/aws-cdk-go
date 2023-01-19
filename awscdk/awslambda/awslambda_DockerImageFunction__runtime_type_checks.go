@@ -165,6 +165,14 @@ func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(grantee
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageFunction) validateInvalidateVersionBasedOnParameters(x *string) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_DockerImageFunction) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")

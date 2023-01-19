@@ -57,8 +57,13 @@ import (
 //   	iops: jsii.Number(123),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	licenseModel: jsii.String("licenseModel"),
+//   	manageMasterUserPassword: jsii.Boolean(false),
 //   	masterUsername: jsii.String("masterUsername"),
 //   	masterUserPassword: jsii.String("masterUserPassword"),
+//   	masterUserSecret: &masterUserSecretProperty{
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		secretArn: jsii.String("secretArn"),
+//   	},
 //   	maxAllocatedStorage: jsii.Number(123),
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
@@ -537,6 +542,8 @@ type CfnDBInstanceProps struct {
 	//
 	// > If you've specified `DBSecurityGroups` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
 	LicenseModel *string `field:"optional" json:"licenseModel" yaml:"licenseModel"`
+	// `AWS::RDS::DBInstance.ManageMasterUserPassword`.
+	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The master user name for the DB instance.
 	//
 	// > If you specify the `SourceDBInstanceIdentifier` or `DBSnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
@@ -615,6 +622,8 @@ type CfnDBInstanceProps struct {
 	//
 	// Constraints: Must contain from 8 to 128 characters.
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
+	// `AWS::RDS::DBInstance.MasterUserSecret`.
+	MasterUserSecret interface{} `field:"optional" json:"masterUserSecret" yaml:"masterUserSecret"`
 	// The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.
 	//
 	// For more information about this setting, including limitations that apply to it, see [Managing capacity automatically with Amazon RDS storage autoscaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling) in the *Amazon RDS User Guide* .

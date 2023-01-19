@@ -61,6 +61,10 @@ func (p *jsiiProxy_PythonFunction) validateGrantInvokeUrlParameters(grantee awsi
 	return nil
 }
 
+func (p *jsiiProxy_PythonFunction) validateInvalidateVersionBasedOnParameters(x *string) error {
+	return nil
+}
+
 func (p *jsiiProxy_PythonFunction) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

@@ -94,8 +94,13 @@ import (
 //   	iops: jsii.Number(123),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	licenseModel: jsii.String("licenseModel"),
+//   	manageMasterUserPassword: jsii.Boolean(false),
 //   	masterUsername: jsii.String("masterUsername"),
 //   	masterUserPassword: jsii.String("masterUserPassword"),
+//   	masterUserSecret: &masterUserSecretProperty{
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		secretArn: jsii.String("secretArn"),
+//   	},
 //   	maxAllocatedStorage: jsii.Number(123),
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
@@ -226,6 +231,7 @@ type CfnDBInstance interface {
 	//
 	// For example: `3306`.
 	AttrEndpointPort() *string
+	AttrMasterUserSecretSecretArn() *string
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	//
 	// By default, minor engine upgrades are applied automatically.
@@ -639,6 +645,9 @@ type CfnDBInstance interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// `AWS::RDS::DBInstance.ManageMasterUserPassword`.
+	ManageMasterUserPassword() interface{}
+	SetManageMasterUserPassword(val interface{})
 	// The master user name for the DB instance.
 	//
 	// > If you specify the `SourceDBInstanceIdentifier` or `DBSnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
@@ -719,6 +728,9 @@ type CfnDBInstance interface {
 	// Constraints: Must contain from 8 to 128 characters.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
+	// `AWS::RDS::DBInstance.MasterUserSecret`.
+	MasterUserSecret() interface{}
+	SetMasterUserSecret(val interface{})
 	// The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.
 	//
 	// For more information about this setting, including limitations that apply to it, see [Managing capacity automatically with Amazon RDS storage autoscaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling) in the *Amazon RDS User Guide* .
@@ -1194,6 +1206,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrEndpointPort() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) AttrMasterUserSecretSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrMasterUserSecretSecretArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) AutoMinorVersionUpgrade() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1534,6 +1556,16 @@ func (j *jsiiProxy_CfnDBInstance) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) ManageMasterUserPassword() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"manageMasterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) MasterUsername() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1549,6 +1581,16 @@ func (j *jsiiProxy_CfnDBInstance) MasterUserPassword() *string {
 	_jsii_.Get(
 		j,
 		"masterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) MasterUserSecret() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"masterUserSecret",
 		&returns,
 	)
 	return returns
@@ -2207,6 +2249,17 @@ func (j *jsiiProxy_CfnDBInstance)SetLicenseModel(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBInstance)SetManageMasterUserPassword(val interface{}) {
+	if err := j.validateSetManageMasterUserPasswordParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"manageMasterUserPassword",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBInstance)SetMasterUsername(val *string) {
 	_jsii_.Set(
 		j,
@@ -2219,6 +2272,17 @@ func (j *jsiiProxy_CfnDBInstance)SetMasterUserPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"masterUserPassword",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetMasterUserSecret(val interface{}) {
+	if err := j.validateSetMasterUserSecretParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"masterUserSecret",
 		val,
 	)
 }

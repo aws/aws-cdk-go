@@ -16,6 +16,12 @@ package awsapprunner
 //   	// the properties below are optional
 //   	buildCommand: jsii.String("buildCommand"),
 //   	port: jsii.String("port"),
+//   	runtimeEnvironmentSecrets: []interface{}{
+//   		&keyValuePairProperty{
+//   			name: jsii.String("name"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   	runtimeEnvironmentVariables: []interface{}{
 //   		&keyValuePairProperty{
 //   			name: jsii.String("name"),
@@ -36,6 +42,8 @@ type CfnService_CodeConfigurationValuesProperty struct {
 	//
 	// Default: `8080`.
 	Port *string `field:"optional" json:"port" yaml:"port"`
+	// `CfnService.CodeConfigurationValuesProperty.RuntimeEnvironmentSecrets`.
+	RuntimeEnvironmentSecrets interface{} `field:"optional" json:"runtimeEnvironmentSecrets" yaml:"runtimeEnvironmentSecrets"`
 	// The environment variables that are available to your running App Runner service.
 	//
 	// An array of key-value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.

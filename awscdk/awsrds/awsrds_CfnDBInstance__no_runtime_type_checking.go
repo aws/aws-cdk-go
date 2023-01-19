@@ -116,6 +116,14 @@ func (j *jsiiProxy_CfnDBInstance) validateSetEndpointParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetManageMasterUserPasswordParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDBInstance) validateSetMasterUserSecretParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetMultiAzParameters(val interface{}) error {
 	return nil
 }

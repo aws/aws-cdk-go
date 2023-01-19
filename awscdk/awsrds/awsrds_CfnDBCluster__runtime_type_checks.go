@@ -324,6 +324,47 @@ func (j *jsiiProxy_CfnDBCluster) validateSetEnableIamDatabaseAuthenticationParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetManageMasterUserPasswordParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDBCluster) validateSetMasterUserSecretParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnDBCluster_MasterUserSecretProperty:
+		val := val.(*CfnDBCluster_MasterUserSecretProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDBCluster_MasterUserSecretProperty:
+		val_ := val.(CfnDBCluster_MasterUserSecretProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDBCluster_MasterUserSecretProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBCluster) validateSetPerformanceInsightsEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

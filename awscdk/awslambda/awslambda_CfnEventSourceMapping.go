@@ -60,6 +60,9 @@ import (
 //   	queues: []*string{
 //   		jsii.String("queues"),
 //   	},
+//   	scalingConfig: &scalingConfigProperty{
+//   		maximumConcurrency: jsii.Number(123),
+//   	},
 //   	selfManagedEventSource: &selfManagedEventSourceProperty{
 //   		endpoints: &endpointsProperty{
 //   			kafkaBootstrapServers: []*string{
@@ -198,6 +201,9 @@ type CfnEventSourceMapping interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::Lambda::EventSourceMapping.ScalingConfig`.
+	ScalingConfig() interface{}
+	SetScalingConfig(val interface{})
 	// The self-managed Apache Kafka cluster for your event source.
 	SelfManagedEventSource() interface{}
 	SetSelfManagedEventSource(val interface{})
@@ -595,6 +601,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) ScalingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"scalingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping) SelfManagedEventSource() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -851,6 +867,17 @@ func (j *jsiiProxy_CfnEventSourceMapping)SetQueues(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"queues",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping)SetScalingConfig(val interface{}) {
+	if err := j.validateSetScalingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"scalingConfig",
 		val,
 	)
 }

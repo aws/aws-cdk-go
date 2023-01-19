@@ -88,14 +88,6 @@ func (j *jsiiProxy_CfnLocationNFS) validateSetOnPremConfigParameters(val interfa
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationNFS) validateSetServerHostnameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationNFS) validateSetSubdirectoryParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnLocationNFSParameters(scope constructs.Construct, id *string, props *CfnLocationNFSProps) error {
 	return nil
 }

@@ -183,6 +183,23 @@ type DockerImageFunction interface {
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Mix additional information into the hash of the Version object.
+	//
+	// The Lambda Function construct does its best to automatically create a new
+	// Version when anything about the Function changes (its code, its layers,
+	// any of the other properties).
+	//
+	// However, you can sometimes source information from places that the CDK cannot
+	// look into, like the deploy-time values of SSM parameters. In those cases,
+	// the CDK would not force the creation of a new Version object when it actually
+	// should.
+	//
+	// This method can be used to invalidate the current Version object. Pass in
+	// any string into this method, and make sure the string changes when you know
+	// a new Version needs to be created.
+	//
+	// This method may be called more than once.
+	InvalidateVersionBasedOn(x *string)
 	// Return the given named metric for this Function.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
@@ -946,6 +963,17 @@ func (d *jsiiProxy_DockerImageFunction) GrantInvokeUrl(grantee awsiam.IGrantable
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_DockerImageFunction) InvalidateVersionBasedOn(x *string) {
+	if err := d.validateInvalidateVersionBasedOnParameters(x); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"invalidateVersionBasedOn",
+		[]interface{}{x},
+	)
 }
 
 func (d *jsiiProxy_DockerImageFunction) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {

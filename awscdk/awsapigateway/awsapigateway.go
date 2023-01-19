@@ -981,6 +981,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "apiKeySourceType", GoGetter: "ApiKeySourceType"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRestApiId", GoGetter: "AttrRestApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRootResourceId", GoGetter: "AttrRootResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "binaryMediaTypes", GoGetter: "BinaryMediaTypes"},
 			_jsii_.MemberProperty{JsiiProperty: "body", GoGetter: "Body"},

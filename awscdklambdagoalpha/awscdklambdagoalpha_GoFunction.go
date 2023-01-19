@@ -229,6 +229,24 @@ type GoFunction interface {
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Mix additional information into the hash of the Version object.
+	//
+	// The Lambda Function construct does its best to automatically create a new
+	// Version when anything about the Function changes (its code, its layers,
+	// any of the other properties).
+	//
+	// However, you can sometimes source information from places that the CDK cannot
+	// look into, like the deploy-time values of SSM parameters. In those cases,
+	// the CDK would not force the creation of a new Version object when it actually
+	// should.
+	//
+	// This method can be used to invalidate the current Version object. Pass in
+	// any string into this method, and make sure the string changes when you know
+	// a new Version needs to be created.
+	//
+	// This method may be called more than once.
+	// Experimental.
+	InvalidateVersionBasedOn(x *string)
 	// Return the given named metric for this Function.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -1026,6 +1044,17 @@ func (g *jsiiProxy_GoFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.
 	)
 
 	return returns
+}
+
+func (g *jsiiProxy_GoFunction) InvalidateVersionBasedOn(x *string) {
+	if err := g.validateInvalidateVersionBasedOnParameters(x); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		g,
+		"invalidateVersionBasedOn",
+		[]interface{}{x},
+	)
 }
 
 func (g *jsiiProxy_GoFunction) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {

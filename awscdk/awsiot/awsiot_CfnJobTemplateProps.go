@@ -25,6 +25,14 @@ import (
 //   	document: jsii.String("document"),
 //   	documentSource: jsii.String("documentSource"),
 //   	jobArn: jsii.String("jobArn"),
+//   	jobExecutionsRetryConfig: &jobExecutionsRetryConfigProperty{
+//   		retryCriteriaList: []interface{}{
+//   			&retryCriteriaProperty{
+//   				failureType: jsii.String("failureType"),
+//   				numberOfRetries: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	jobExecutionsRolloutConfig: jobExecutionsRolloutConfig,
 //   	presignedUrlConfig: presignedUrlConfig,
 //   	tags: []cfnTag{
@@ -63,6 +71,8 @@ type CfnJobTemplateProps struct {
 	DocumentSource *string `field:"optional" json:"documentSource" yaml:"documentSource"`
 	// The ARN of the job to use as the basis for the job template.
 	JobArn *string `field:"optional" json:"jobArn" yaml:"jobArn"`
+	// Allows you to create the criteria to retry a job.
+	JobExecutionsRetryConfig interface{} `field:"optional" json:"jobExecutionsRetryConfig" yaml:"jobExecutionsRetryConfig"`
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig interface{} `field:"optional" json:"jobExecutionsRolloutConfig" yaml:"jobExecutionsRolloutConfig"`
 	// Configuration for pre-signed S3 URLs.

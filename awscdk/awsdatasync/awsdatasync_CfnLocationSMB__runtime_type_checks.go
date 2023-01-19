@@ -211,30 +211,6 @@ func (j *jsiiProxy_CfnLocationSMB) validateSetMountOptionsParameters(val interfa
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationSMB) validateSetPasswordParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationSMB) validateSetServerHostnameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationSMB) validateSetSubdirectoryParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnLocationSMB) validateSetUserParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

@@ -1,11 +1,15 @@
 package awslogs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+)
 
 // Properties for a MetricFilter created from a LogGroup.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filterPattern iFilterPattern
@@ -21,6 +25,7 @@ package awslogs
 //   		"dimensionsKey": jsii.String("dimensions"),
 //   	},
 //   	metricValue: jsii.String("metricValue"),
+//   	unit: awscdk.Aws_cloudwatch.unit_SECONDS,
 //   }
 //
 type MetricFilterOptions struct {
@@ -50,5 +55,9 @@ type MetricFilterOptions struct {
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
 	MetricValue *string `field:"optional" json:"metricValue" yaml:"metricValue"`
+	// The unit to assign to the metric.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-logs-metricfilter-metrictransformation-unit
+	//
+	Unit awscloudwatch.Unit `field:"optional" json:"unit" yaml:"unit"`
 }
 

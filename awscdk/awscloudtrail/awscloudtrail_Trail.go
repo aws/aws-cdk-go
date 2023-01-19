@@ -114,7 +114,7 @@ type Trail interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Log all Lamda data events for all lambda functions the account.
+	// Log all Lambda data events for all lambda functions the account.
 	// See: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html
 	//
 	LogAllLambdaDataEvents(options *AddEventSelectorOptions)

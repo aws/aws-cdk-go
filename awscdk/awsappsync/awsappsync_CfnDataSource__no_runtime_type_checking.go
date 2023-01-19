@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnDataSource) validateSetElasticsearchConfigParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSource) validateSetEventBridgeConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSource) validateSetHttpConfigParameters(val interface{}) error {
 	return nil
 }

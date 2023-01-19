@@ -37,6 +37,10 @@ func (b *jsiiProxy_BootstraplessSynthesizer) validateEmitStackArtifactParameters
 	return nil
 }
 
+func (b *jsiiProxy_BootstraplessSynthesizer) validateReusableBindParameters(stack Stack) error {
+	return nil
+}
+
 func (b *jsiiProxy_BootstraplessSynthesizer) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }

@@ -28,6 +28,21 @@ import (
 //   		id: jsii.String("id"),
 //   		name: jsii.String("name"),
 //   	},
+//   	delegations: []interface{}{
+//   		&delegationProperty{
+//   			assessmentId: jsii.String("assessmentId"),
+//   			assessmentName: jsii.String("assessmentName"),
+//   			comment: jsii.String("comment"),
+//   			controlSetId: jsii.String("controlSetId"),
+//   			createdBy: jsii.String("createdBy"),
+//   			creationTime: jsii.Number(123),
+//   			id: jsii.String("id"),
+//   			lastUpdated: jsii.Number(123),
+//   			roleArn: jsii.String("roleArn"),
+//   			roleType: jsii.String("roleType"),
+//   			status: jsii.String("status"),
+//   		},
+//   	},
 //   	description: jsii.String("description"),
 //   	frameworkId: jsii.String("frameworkId"),
 //   	name: jsii.String("name"),
@@ -78,8 +93,6 @@ type CfnAssessment interface {
 	//
 	// For example, `1607582033.373` .
 	AttrCreationTime() awscdk.IResolvable
-	// The delegations associated with the assessment.
-	AttrDelegations() awscdk.IResolvable
 	// The AWS account that's associated with the assessment.
 	AwsAccount() interface{}
 	SetAwsAccount(val interface{})
@@ -92,6 +105,9 @@ type CfnAssessment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::AuditManager::Assessment.Delegations`.
+	Delegations() interface{}
+	SetDelegations(val interface{})
 	// The description of the assessment.
 	Description() *string
 	SetDescription(val *string)
@@ -319,16 +335,6 @@ func (j *jsiiProxy_CfnAssessment) AttrCreationTime() awscdk.IResolvable {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessment) AttrDelegations() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrDelegations",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnAssessment) AwsAccount() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -374,6 +380,16 @@ func (j *jsiiProxy_CfnAssessment) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssessment) Delegations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"delegations",
 		&returns,
 	)
 	return returns
@@ -557,6 +573,17 @@ func (j *jsiiProxy_CfnAssessment)SetAwsAccount(val interface{}) {
 	_jsii_.Set(
 		j,
 		"awsAccount",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssessment)SetDelegations(val interface{}) {
+	if err := j.validateSetDelegationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"delegations",
 		val,
 	)
 }

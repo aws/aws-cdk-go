@@ -19,6 +19,16 @@ import (
 //   	egressAccessLogs: &logConfigurationProperty{
 //   		logGroupName: jsii.String("logGroupName"),
 //   	},
+//   	hlsIngest: &hlsIngestProperty{
+//   		ingestEndpoints: []interface{}{
+//   			&ingestEndpointProperty{
+//   				id: jsii.String("id"),
+//   				password: jsii.String("password"),
+//   				url: jsii.String("url"),
+//   				username: jsii.String("username"),
+//   			},
+//   		},
+//   	},
 //   	ingressAccessLogs: &logConfigurationProperty{
 //   		logGroupName: jsii.String("logGroupName"),
 //   	},
@@ -37,6 +47,8 @@ type CfnChannelProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configures egress access logs.
 	EgressAccessLogs interface{} `field:"optional" json:"egressAccessLogs" yaml:"egressAccessLogs"`
+	// `AWS::MediaPackage::Channel.HlsIngest`.
+	HlsIngest interface{} `field:"optional" json:"hlsIngest" yaml:"hlsIngest"`
 	// Configures ingress access logs.
 	IngressAccessLogs interface{} `field:"optional" json:"ingressAccessLogs" yaml:"ingressAccessLogs"`
 	// The tags to assign to the channel.

@@ -42,6 +42,9 @@ import (
 //   		awsRegion: jsii.String("awsRegion"),
 //   		endpoint: jsii.String("endpoint"),
 //   	},
+//   	eventBridgeConfig: &eventBridgeConfigProperty{
+//   		eventBusArn: jsii.String("eventBusArn"),
+//   	},
 //   	httpConfig: &httpConfigProperty{
 //   		endpoint: jsii.String("endpoint"),
 //
@@ -110,6 +113,9 @@ type CfnDataSource interface {
 	// As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service . This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
 	ElasticsearchConfig() interface{}
 	SetElasticsearchConfig(val interface{})
+	// `AWS::AppSync::DataSource.EventBridgeConfig`.
+	EventBridgeConfig() interface{}
+	SetEventBridgeConfig(val interface{})
 	// Endpoints for an HTTP data source.
 	HttpConfig() interface{}
 	SetHttpConfig(val interface{})
@@ -412,6 +418,16 @@ func (j *jsiiProxy_CfnDataSource) ElasticsearchConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) EventBridgeConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"eventBridgeConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) HttpConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -609,6 +625,17 @@ func (j *jsiiProxy_CfnDataSource)SetElasticsearchConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"elasticsearchConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetEventBridgeConfig(val interface{}) {
+	if err := j.validateSetEventBridgeConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"eventBridgeConfig",
 		val,
 	)
 }

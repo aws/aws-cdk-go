@@ -21,6 +21,21 @@ import (
 //   		id: jsii.String("id"),
 //   		name: jsii.String("name"),
 //   	},
+//   	delegations: []interface{}{
+//   		&delegationProperty{
+//   			assessmentId: jsii.String("assessmentId"),
+//   			assessmentName: jsii.String("assessmentName"),
+//   			comment: jsii.String("comment"),
+//   			controlSetId: jsii.String("controlSetId"),
+//   			createdBy: jsii.String("createdBy"),
+//   			creationTime: jsii.Number(123),
+//   			id: jsii.String("id"),
+//   			lastUpdated: jsii.Number(123),
+//   			roleArn: jsii.String("roleArn"),
+//   			roleType: jsii.String("roleType"),
+//   			status: jsii.String("status"),
+//   		},
+//   	},
 //   	description: jsii.String("description"),
 //   	frameworkId: jsii.String("frameworkId"),
 //   	name: jsii.String("name"),
@@ -58,6 +73,8 @@ type CfnAssessmentProps struct {
 	AssessmentReportsDestination interface{} `field:"optional" json:"assessmentReportsDestination" yaml:"assessmentReportsDestination"`
 	// The AWS account that's associated with the assessment.
 	AwsAccount interface{} `field:"optional" json:"awsAccount" yaml:"awsAccount"`
+	// `AWS::AuditManager::Assessment.Delegations`.
+	Delegations interface{} `field:"optional" json:"delegations" yaml:"delegations"`
 	// The description of the assessment.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The unique identifier for the framework.

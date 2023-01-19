@@ -19,12 +19,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnLocationFSxLustre := awscdk.Aws_datasync.NewCfnLocationFSxLustre(this, jsii.String("MyCfnLocationFSxLustre"), &cfnLocationFSxLustreProps{
-//   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	securityGroupArns: []*string{
 //   		jsii.String("securityGroupArns"),
 //   	},
 //
 //   	// the properties below are optional
+//   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	subdirectory: jsii.String("subdirectory"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -427,9 +427,6 @@ func NewCfnLocationFSxLustre_Override(c CfnLocationFSxLustre, scope constructs.C
 }
 
 func (j *jsiiProxy_CfnLocationFSxLustre)SetFsxFilesystemArn(val *string) {
-	if err := j.validateSetFsxFilesystemArnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"fsxFilesystemArn",

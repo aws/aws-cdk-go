@@ -32,6 +32,9 @@ package awsappsync
 //   		awsRegion: jsii.String("awsRegion"),
 //   		endpoint: jsii.String("endpoint"),
 //   	},
+//   	eventBridgeConfig: &eventBridgeConfigProperty{
+//   		eventBusArn: jsii.String("eventBusArn"),
+//   	},
 //   	httpConfig: &httpConfigProperty{
 //   		endpoint: jsii.String("endpoint"),
 //
@@ -93,6 +96,8 @@ type CfnDataSourceProps struct {
 	//
 	// As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service . This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
 	ElasticsearchConfig interface{} `field:"optional" json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
+	// `AWS::AppSync::DataSource.EventBridgeConfig`.
+	EventBridgeConfig interface{} `field:"optional" json:"eventBridgeConfig" yaml:"eventBridgeConfig"`
 	// Endpoints for an HTTP data source.
 	HttpConfig interface{} `field:"optional" json:"httpConfig" yaml:"httpConfig"`
 	// An ARN of a Lambda function in valid ARN format.

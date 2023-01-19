@@ -1,5 +1,8 @@
 package awslogs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+)
 
 // Properties for a MetricFilter.
 //
@@ -39,6 +42,10 @@ type MetricFilterProps struct {
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
 	MetricValue *string `field:"optional" json:"metricValue" yaml:"metricValue"`
+	// The unit to assign to the metric.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-logs-metricfilter-metrictransformation-unit
+	//
+	Unit awscloudwatch.Unit `field:"optional" json:"unit" yaml:"unit"`
 	// The log group to create the filter on.
 	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
 }

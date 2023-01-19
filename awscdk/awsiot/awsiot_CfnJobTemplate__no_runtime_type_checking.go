@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnJobTemplate) validateSetDescriptionParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnJobTemplate) validateSetJobExecutionsRetryConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnJobTemplate) validateSetJobExecutionsRolloutConfigParameters(val interface{}) error {
 	return nil
 }

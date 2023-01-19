@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnChannel) validateSetEgressAccessLogsParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetHlsIngestParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnChannel_HlsIngestProperty:
+		val := val.(*CfnChannel_HlsIngestProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnChannel_HlsIngestProperty:
+		val_ := val.(CfnChannel_HlsIngestProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnChannel_HlsIngestProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

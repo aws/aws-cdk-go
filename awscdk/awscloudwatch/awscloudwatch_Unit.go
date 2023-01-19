@@ -2,6 +2,34 @@ package awscloudwatch
 
 
 // Unit for metric.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var logGroup logGroup
+//
+//   mf := logs.NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps{
+//   	logGroup: logGroup,
+//   	metricNamespace: jsii.String("MyApp"),
+//   	metricName: jsii.String("Latency"),
+//   	filterPattern: logs.filterPattern.exists(jsii.String("$.latency")),
+//   	metricValue: jsii.String("$.latency"),
+//   	dimensions: map[string]*string{
+//   		"ErrorCode": jsii.String("$.errorCode"),
+//   	},
+//   	unit: unit_MILLISECONDS,
+//   })
+//
+//   //expose a metric from the metric filter
+//   metric := mf.metric()
+//
+//   //you can use the metric to create a new alarm
+//   //you can use the metric to create a new alarm
+//   cloudwatch.NewAlarm(this, jsii.String("alarm from metric filter"), &alarmProps{
+//   	metric: metric,
+//   	threshold: jsii.Number(100),
+//   	evaluationPeriods: jsii.Number(2),
+//   })
+//
 type Unit string
 
 const (

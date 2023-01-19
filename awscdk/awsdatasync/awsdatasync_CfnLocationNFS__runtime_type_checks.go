@@ -230,22 +230,6 @@ func (j *jsiiProxy_CfnLocationNFS) validateSetOnPremConfigParameters(val interfa
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationNFS) validateSetServerHostnameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationNFS) validateSetSubdirectoryParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnLocationNFSParameters(scope constructs.Construct, id *string, props *CfnLocationNFSProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

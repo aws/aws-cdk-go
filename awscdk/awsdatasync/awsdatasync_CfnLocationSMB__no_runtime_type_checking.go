@@ -88,18 +88,6 @@ func (j *jsiiProxy_CfnLocationSMB) validateSetMountOptionsParameters(val interfa
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationSMB) validateSetPasswordParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationSMB) validateSetServerHostnameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationSMB) validateSetSubdirectoryParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnLocationSMB) validateSetUserParameters(val *string) error {
 	return nil
 }

@@ -5,13 +5,16 @@ package awscdk
 // Initialization props for apps.
 //
 // Example:
-//   awscdk.NewApp(&appProps{
-//   	context: map[string]interface{}{
-//   		awscdk.PERMISSIONS_BOUNDARY_CONTEXT_KEY: map[string]*string{
-//   			"name": jsii.String("cdk-${Qualifier}-PermissionsBoundary"),
-//   		},
-//   	},
-//   })
+//   type myProducer struct {
+//   }
+//
+//   func (this *myProducer) produce(context map[string]interface{}) promise {
+//   	app := cdk.NewApp(&appProps{
+//   		context: context,
+//   	})
+//   	// create stacks here
+//   	return app.synth().directory
+//   }
 //
 type AppProps struct {
 	// Include runtime versioning information in the Stacks of this app.
@@ -28,6 +31,12 @@ type AppProps struct {
 	//
 	// Context can be read from any construct using `node.getContext(key)`.
 	Context *map[string]interface{} `field:"optional" json:"context" yaml:"context"`
+	// The stack synthesizer to use by default for all Stacks in the App.
+	//
+	// The Stack Synthesizer controls aspects of synthesis and deployment,
+	// like how assets are referenced and what IAM roles to use. For more
+	// information, see the README of the main CDK package.
+	DefaultStackSynthesizer IReusableStackSynthesizer `field:"optional" json:"defaultStackSynthesizer" yaml:"defaultStackSynthesizer"`
 	// The output directory into which to emit synthesized artifacts.
 	//
 	// You should never need to set this value. By default, the value you pass to

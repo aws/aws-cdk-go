@@ -80,14 +80,6 @@ func validateCfnLocationFSxWindows_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationFSxWindows) validateSetFsxFilesystemArnParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationFSxWindows) validateSetPasswordParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnLocationFSxWindows) validateSetSecurityGroupArnsParameters(val *[]*string) error {
 	return nil
 }

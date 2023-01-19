@@ -299,6 +299,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "dynamoDbConfig", GoGetter: "DynamoDbConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "elasticsearchConfig", GoGetter: "ElasticsearchConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "eventBridgeConfig", GoGetter: "EventBridgeConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "httpConfig", GoGetter: "HttpConfig"},
@@ -351,6 +352,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.CfnDataSource.ElasticsearchConfigProperty",
 		reflect.TypeOf((*CfnDataSource_ElasticsearchConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.CfnDataSource.EventBridgeConfigProperty",
+		reflect.TypeOf((*CfnDataSource_EventBridgeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.CfnDataSource.HttpConfigProperty",

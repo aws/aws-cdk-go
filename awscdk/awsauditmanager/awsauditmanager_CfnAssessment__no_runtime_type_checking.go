@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAssessment) validateSetAwsAccountParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssessment) validateSetDelegationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAssessment) validateSetRolesParameters(val interface{}) error {
 	return nil
 }

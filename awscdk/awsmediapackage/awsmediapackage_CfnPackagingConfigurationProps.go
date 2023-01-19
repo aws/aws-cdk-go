@@ -84,6 +84,7 @@ import (
 //   			},
 //   		},
 //   		includeEncoderConfigurationInSegments: jsii.Boolean(false),
+//   		includeIframeOnlyStream: jsii.Boolean(false),
 //   		periodTriggers: []*string{
 //   			jsii.String("periodTriggers"),
 //   		},

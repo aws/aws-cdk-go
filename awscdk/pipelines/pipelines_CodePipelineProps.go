@@ -105,6 +105,11 @@ type CodePipelineProps struct {
 	// set the value to `true` first, commit and allow the pipeline to
 	// self-update, and only then use the bundled asset.
 	DockerEnabledForSynth *bool `field:"optional" json:"dockerEnabledForSynth" yaml:"dockerEnabledForSynth"`
+	// Enable KMS key rotation for the generated KMS keys.
+	//
+	// By default KMS key rotation is disabled, but will add
+	// additional costs when enabled.
+	EnableKeyRotation *bool `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// The name of the CodePipeline pipeline.
 	PipelineName *string `field:"optional" json:"pipelineName" yaml:"pipelineName"`
 	// Publish assets in multiple CodeBuild projects.

@@ -71,6 +71,7 @@ type CfnRestApi interface {
 	// - `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a Lambda authorizer.
 	ApiKeySourceType() *string
 	SetApiKeySourceType(val *string)
+	AttrRestApiId() *string
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	AttrRootResourceId() *string
 	// The list of binary media types that are supported by the `RestApi` resource.
@@ -317,6 +318,16 @@ func (j *jsiiProxy_CfnRestApi) ApiKeySourceType() *string {
 	_jsii_.Get(
 		j,
 		"apiKeySourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRestApi) AttrRestApiId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRestApiId",
 		&returns,
 	)
 	return returns

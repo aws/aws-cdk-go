@@ -64,9 +64,20 @@ type AsgCapacityProviderProps struct {
 	// it cannot start with `aws`, `ecs`, or `fargate`. If no name is specified,
 	// a default name in the CFNStackName-CFNResourceName-RandomString format is used.
 	CapacityProviderName *string `field:"optional" json:"capacityProviderName" yaml:"capacityProviderName"`
-	// Whether to enable managed scaling.
+	// When enabled the scale-in and scale-out actions of the cluster's Auto Scaling Group will be managed for you.
+	//
+	// This means your cluster will automatically scale instances based on the load your tasks put on the cluster.
+	// For more information, see [Using Managed Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling) in the ECS Developer Guide.
 	EnableManagedScaling *bool `field:"optional" json:"enableManagedScaling" yaml:"enableManagedScaling"`
-	// Whether to enable managed termination protection.
+	// When enabled the Auto Scaling Group will only terminate EC2 instances that no longer have running non-daemon tasks.
+	//
+	// Scale-in protection will be automatically enabled on instances. When all non-daemon tasks are
+	// stopped on an instance, ECS initiates the scale-in process and turns off scale-in protection for the
+	// instance. The Auto Scaling Group can then terminate the instance. For more information see [Managed termination
+	//   protection](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-auto-scaling.html#managed-termination-protection)
+	// in the ECS Developer Guide.
+	//
+	// Managed scaling must also be enabled.
 	EnableManagedTerminationProtection *bool `field:"optional" json:"enableManagedTerminationProtection" yaml:"enableManagedTerminationProtection"`
 	// Maximum scaling step size.
 	//

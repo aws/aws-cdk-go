@@ -161,6 +161,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deployRoleArn", GoGetter: "DeployRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "emitArtifact", GoMethod: "EmitArtifact"},
 			_jsii_.MemberMethod{JsiiMethod: "emitStackArtifact", GoMethod: "EmitStackArtifact"},
+			_jsii_.MemberMethod{JsiiMethod: "reusableBind", GoMethod: "ReusableBind"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesizeStackTemplate", GoMethod: "SynthesizeStackTemplate"},
@@ -1498,6 +1499,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "cloudFormationLocationFromFileAsset", GoMethod: "CloudFormationLocationFromFileAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "emitArtifact", GoMethod: "EmitArtifact"},
 			_jsii_.MemberMethod{JsiiMethod: "emitStackArtifact", GoMethod: "EmitStackArtifact"},
+			_jsii_.MemberMethod{JsiiMethod: "reusableBind", GoMethod: "ReusableBind"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesizeStackTemplate", GoMethod: "SynthesizeStackTemplate"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesizeTemplate", GoMethod: "SynthesizeTemplate"},
@@ -1505,6 +1507,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_CliCredentialsStackSynthesizer{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_StackSynthesizer)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBoundStackSynthesizer)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReusableStackSynthesizer)
 			return &j
 		},
 	)
@@ -1597,6 +1601,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deployRoleArn", GoGetter: "DeployRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "emitArtifact", GoMethod: "EmitArtifact"},
 			_jsii_.MemberMethod{JsiiMethod: "emitStackArtifact", GoMethod: "EmitStackArtifact"},
+			_jsii_.MemberMethod{JsiiMethod: "reusableBind", GoMethod: "ReusableBind"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesizeStackTemplate", GoMethod: "SynthesizeStackTemplate"},
@@ -1605,6 +1610,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_DefaultStackSynthesizer{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_StackSynthesizer)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBoundStackSynthesizer)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReusableStackSynthesizer)
 			return &j
 		},
 	)
@@ -1855,6 +1862,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.IBoundStackSynthesizer",
+		reflect.TypeOf((*IBoundStackSynthesizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDockerImageAsset", GoMethod: "AddDockerImageAsset"},
+			_jsii_.MemberMethod{JsiiMethod: "addFileAsset", GoMethod: "AddFileAsset"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "bootstrapQualifier", GoGetter: "BootstrapQualifier"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IBoundStackSynthesizer{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStackSynthesizer)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.ICfnConditionExpression",
 		reflect.TypeOf((*ICfnConditionExpression)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2001,6 +2024,23 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IResource{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.IReusableStackSynthesizer",
+		reflect.TypeOf((*IReusableStackSynthesizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDockerImageAsset", GoMethod: "AddDockerImageAsset"},
+			_jsii_.MemberMethod{JsiiMethod: "addFileAsset", GoMethod: "AddFileAsset"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "bootstrapQualifier", GoGetter: "BootstrapQualifier"},
+			_jsii_.MemberMethod{JsiiMethod: "reusableBind", GoMethod: "ReusableBind"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IReusableStackSynthesizer{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStackSynthesizer)
 			return &j
 		},
 	)
@@ -2201,6 +2241,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "cloudFormationLocationFromFileAsset", GoMethod: "CloudFormationLocationFromFileAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "emitArtifact", GoMethod: "EmitArtifact"},
 			_jsii_.MemberMethod{JsiiMethod: "emitStackArtifact", GoMethod: "EmitStackArtifact"},
+			_jsii_.MemberMethod{JsiiMethod: "reusableBind", GoMethod: "ReusableBind"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesizeStackTemplate", GoMethod: "SynthesizeStackTemplate"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesizeTemplate", GoMethod: "SynthesizeTemplate"},
@@ -2208,6 +2249,8 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_LegacyStackSynthesizer{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_StackSynthesizer)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBoundStackSynthesizer)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IReusableStackSynthesizer)
 			return &j
 		},
 	)

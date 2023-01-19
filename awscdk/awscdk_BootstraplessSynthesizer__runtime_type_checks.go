@@ -103,6 +103,14 @@ func (b *jsiiProxy_BootstraplessSynthesizer) validateEmitStackArtifactParameters
 	return nil
 }
 
+func (b *jsiiProxy_BootstraplessSynthesizer) validateReusableBindParameters(stack Stack) error {
+	if stack == nil {
+		return fmt.Errorf("parameter stack is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (b *jsiiProxy_BootstraplessSynthesizer) validateSynthesizeParameters(session ISynthesisSession) error {
 	if session == nil {
 		return fmt.Errorf("parameter session is required, but nil was provided")

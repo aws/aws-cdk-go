@@ -18,6 +18,9 @@ import (
 // However, it will not assume asset buckets or repositories have been created,
 // and therefore does not support assets.
 //
+// The name is poorly chosen -- it does still require bootstrapping, it just
+// does not support assets.
+//
 // Used by the CodePipeline construct for the support stacks needed for
 // cross-region replication S3 buckets. App builders do not need to use this
 // synthesizer directly.
@@ -95,6 +98,10 @@ type BootstraplessSynthesizer interface {
 	// the given synthesis session.
 	// Deprecated: Use `emitArtifact` instead.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
+	// Produce a bound Stack Synthesizer for the given stack.
+	//
+	// This method may be called more than once on the same object.
+	ReusableBind(stack Stack) IBoundStackSynthesizer
 	// Synthesize the associated stack to the session.
 	Synthesize(session ISynthesisSession)
 	// Synthesize the stack template to the given session, passing the configured lookup role ARN.
@@ -438,6 +445,22 @@ func (b *jsiiProxy_BootstraplessSynthesizer) EmitStackArtifact(stack Stack, sess
 		"emitStackArtifact",
 		[]interface{}{stack, session, options},
 	)
+}
+
+func (b *jsiiProxy_BootstraplessSynthesizer) ReusableBind(stack Stack) IBoundStackSynthesizer {
+	if err := b.validateReusableBindParameters(stack); err != nil {
+		panic(err)
+	}
+	var returns IBoundStackSynthesizer
+
+	_jsii_.Invoke(
+		b,
+		"reusableBind",
+		[]interface{}{stack},
+		&returns,
+	)
+
+	return returns
 }
 
 func (b *jsiiProxy_BootstraplessSynthesizer) Synthesize(session ISynthesisSession) {

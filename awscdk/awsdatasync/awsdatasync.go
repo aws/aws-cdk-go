@@ -683,8 +683,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDestinationNetworkInterfaceArns", GoGetter: "AttrDestinationNetworkInterfaceArns"},
-			_jsii_.MemberProperty{JsiiProperty: "attrErrorCode", GoGetter: "AttrErrorCode"},
-			_jsii_.MemberProperty{JsiiProperty: "attrErrorDetail", GoGetter: "AttrErrorDetail"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceNetworkInterfaceArns", GoGetter: "AttrSourceNetworkInterfaceArns"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTaskArn", GoGetter: "AttrTaskArn"},

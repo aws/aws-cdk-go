@@ -293,6 +293,30 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFunctionNameParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetScalingConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnEventSourceMapping_ScalingConfigProperty:
+		val := val.(*CfnEventSourceMapping_ScalingConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEventSourceMapping_ScalingConfigProperty:
+		val_ := val.(CfnEventSourceMapping_ScalingConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnEventSourceMapping_ScalingConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetSelfManagedEventSourceParameters(val interface{}) error {
 	switch val.(type) {
 	case *CfnEventSourceMapping_SelfManagedEventSourceProperty:

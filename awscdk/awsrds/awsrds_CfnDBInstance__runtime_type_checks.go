@@ -382,6 +382,47 @@ func (j *jsiiProxy_CfnDBInstance) validateSetEndpointParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetManageMasterUserPasswordParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDBInstance) validateSetMasterUserSecretParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnDBInstance_MasterUserSecretProperty:
+		val := val.(*CfnDBInstance_MasterUserSecretProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDBInstance_MasterUserSecretProperty:
+		val_ := val.(CfnDBInstance_MasterUserSecretProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDBInstance_MasterUserSecretProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetMultiAzParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

@@ -49,8 +49,13 @@ import (
 //   	globalClusterIdentifier: jsii.String("globalClusterIdentifier"),
 //   	iops: jsii.Number(123),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	manageMasterUserPassword: jsii.Boolean(false),
 //   	masterUsername: jsii.String("masterUsername"),
 //   	masterUserPassword: jsii.String("masterUserPassword"),
+//   	masterUserSecret: &masterUserSecretProperty{
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		secretArn: jsii.String("secretArn"),
+//   	},
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
 //   	networkType: jsii.String("networkType"),
@@ -250,6 +255,8 @@ type CfnDBClusterProps struct {
 	//
 	// If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// `AWS::RDS::DBCluster.ManageMasterUserPassword`.
+	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The name of the master user for the DB cluster.
 	//
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
@@ -258,6 +265,8 @@ type CfnDBClusterProps struct {
 	//
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
+	// `AWS::RDS::DBCluster.MasterUserSecret`.
+	MasterUserSecret interface{} `field:"optional" json:"masterUserSecret" yaml:"masterUserSecret"`
 	// `AWS::RDS::DBCluster.MonitoringInterval`.
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// `AWS::RDS::DBCluster.MonitoringRoleArn`.

@@ -166,6 +166,14 @@ func (t *jsiiProxy_TriggerFunction) validateGrantInvokeUrlParameters(grantee aws
 	return nil
 }
 
+func (t *jsiiProxy_TriggerFunction) validateInvalidateVersionBasedOnParameters(x *string) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TriggerFunction) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")

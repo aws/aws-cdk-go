@@ -80,10 +80,6 @@ func validateCfnLocationFSxLustre_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationFSxLustre) validateSetFsxFilesystemArnParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnLocationFSxLustre) validateSetSecurityGroupArnsParameters(val *[]*string) error {
 	return nil
 }

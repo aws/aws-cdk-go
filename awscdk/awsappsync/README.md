@@ -215,7 +215,7 @@ var api graphqlApi
 
 user := iam.NewUser(this, jsii.String("User"))
 domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-	version: opensearch.engineVersion_OPENSEARCH_1_3(),
+	version: opensearch.engineVersion_OPENSEARCH_2_3(),
 	removalPolicy: awscdk.RemovalPolicy_DESTROY,
 	fineGrainedAccessControl: &advancedSecurityOptions{
 		masterUserArn: user.userArn,

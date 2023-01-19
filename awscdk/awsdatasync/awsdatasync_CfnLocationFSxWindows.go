@@ -19,8 +19,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnLocationFSxWindows := awscdk.Aws_datasync.NewCfnLocationFSxWindows(this, jsii.String("MyCfnLocationFSxWindows"), &cfnLocationFSxWindowsProps{
-//   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
-//   	password: jsii.String("password"),
 //   	securityGroupArns: []*string{
 //   		jsii.String("securityGroupArns"),
 //   	},
@@ -28,6 +26,8 @@ import (
 //
 //   	// the properties below are optional
 //   	domain: jsii.String("domain"),
+//   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
+//   	password: jsii.String("password"),
 //   	subdirectory: jsii.String("subdirectory"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -479,9 +479,6 @@ func (j *jsiiProxy_CfnLocationFSxWindows)SetDomain(val *string) {
 }
 
 func (j *jsiiProxy_CfnLocationFSxWindows)SetFsxFilesystemArn(val *string) {
-	if err := j.validateSetFsxFilesystemArnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"fsxFilesystemArn",
@@ -490,9 +487,6 @@ func (j *jsiiProxy_CfnLocationFSxWindows)SetFsxFilesystemArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnLocationFSxWindows)SetPassword(val *string) {
-	if err := j.validateSetPasswordParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"password",

@@ -104,6 +104,14 @@ func (j *jsiiProxy_CfnDBCluster) validateSetEnableIamDatabaseAuthenticationParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetManageMasterUserPasswordParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDBCluster) validateSetMasterUserSecretParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBCluster) validateSetPerformanceInsightsEnabledParameters(val interface{}) error {
 	return nil
 }

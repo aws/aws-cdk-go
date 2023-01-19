@@ -42,6 +42,8 @@ import (
 //
 type CliCredentialsStackSynthesizer interface {
 	StackSynthesizer
+	IBoundStackSynthesizer
+	IReusableStackSynthesizer
 	// The qualifier used to bootstrap this stack.
 	BootstrapQualifier() *string
 	// Retrieve the bound stack.
@@ -96,6 +98,10 @@ type CliCredentialsStackSynthesizer interface {
 	// the given synthesis session.
 	// Deprecated: Use `emitArtifact` instead.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
+	// Produce a bound Stack Synthesizer for the given stack.
+	//
+	// This method may be called more than once on the same object.
+	ReusableBind(stack Stack) IBoundStackSynthesizer
 	// Synthesize the associated stack to the session.
 	Synthesize(session ISynthesisSession)
 	// Have the stack write out its template.
@@ -122,6 +128,8 @@ type CliCredentialsStackSynthesizer interface {
 // The jsii proxy struct for CliCredentialsStackSynthesizer
 type jsiiProxy_CliCredentialsStackSynthesizer struct {
 	jsiiProxy_StackSynthesizer
+	jsiiProxy_IBoundStackSynthesizer
+	jsiiProxy_IReusableStackSynthesizer
 }
 
 func (j *jsiiProxy_CliCredentialsStackSynthesizer) BootstrapQualifier() *string {
@@ -278,6 +286,22 @@ func (c *jsiiProxy_CliCredentialsStackSynthesizer) EmitStackArtifact(stack Stack
 		"emitStackArtifact",
 		[]interface{}{stack, session, options},
 	)
+}
+
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) ReusableBind(stack Stack) IBoundStackSynthesizer {
+	if err := c.validateReusableBindParameters(stack); err != nil {
+		panic(err)
+	}
+	var returns IBoundStackSynthesizer
+
+	_jsii_.Invoke(
+		c,
+		"reusableBind",
+		[]interface{}{stack},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CliCredentialsStackSynthesizer) Synthesize(session ISynthesisSession) {

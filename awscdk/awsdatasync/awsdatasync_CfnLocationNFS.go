@@ -24,13 +24,13 @@ import (
 //   			jsii.String("agentArns"),
 //   		},
 //   	},
-//   	serverHostname: jsii.String("serverHostname"),
-//   	subdirectory: jsii.String("subdirectory"),
 //
 //   	// the properties below are optional
 //   	mountOptions: &mountOptionsProperty{
 //   		version: jsii.String("version"),
 //   	},
+//   	serverHostname: jsii.String("serverHostname"),
+//   	subdirectory: jsii.String("subdirectory"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -479,9 +479,6 @@ func (j *jsiiProxy_CfnLocationNFS)SetOnPremConfig(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnLocationNFS)SetServerHostname(val *string) {
-	if err := j.validateSetServerHostnameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"serverHostname",
@@ -490,9 +487,6 @@ func (j *jsiiProxy_CfnLocationNFS)SetServerHostname(val *string) {
 }
 
 func (j *jsiiProxy_CfnLocationNFS)SetSubdirectory(val *string) {
-	if err := j.validateSetSubdirectoryParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"subdirectory",

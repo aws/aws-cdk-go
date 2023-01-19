@@ -70,14 +70,6 @@ type CfnTask interface {
 	awscdk.IInspectable
 	// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
 	AttrDestinationNetworkInterfaceArns() *[]*string
-	// Errors encountered during task execution.
-	//
-	// Troubleshoot issues with this error code.
-	AttrErrorCode() *string
-	// Detailed description of an error that was encountered during the task execution.
-	//
-	// You can use this information to help troubleshoot issues.
-	AttrErrorDetail() *string
 	// The ARNs of the source ENIs that were created for your subnet.
 	AttrSourceNetworkInterfaceArns() *[]*string
 	// The status of the task that was described.
@@ -309,26 +301,6 @@ func (j *jsiiProxy_CfnTask) AttrDestinationNetworkInterfaceArns() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrDestinationNetworkInterfaceArns",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnTask) AttrErrorCode() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrErrorCode",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnTask) AttrErrorDetail() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrErrorDetail",
 		&returns,
 	)
 	return returns

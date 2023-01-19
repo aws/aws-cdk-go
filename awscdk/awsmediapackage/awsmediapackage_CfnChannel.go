@@ -28,6 +28,16 @@ import (
 //   	egressAccessLogs: &logConfigurationProperty{
 //   		logGroupName: jsii.String("logGroupName"),
 //   	},
+//   	hlsIngest: &hlsIngestProperty{
+//   		ingestEndpoints: []interface{}{
+//   			&ingestEndpointProperty{
+//   				id: jsii.String("id"),
+//   				password: jsii.String("password"),
+//   				url: jsii.String("url"),
+//   				username: jsii.String("username"),
+//   			},
+//   		},
+//   	},
 //   	ingressAccessLogs: &logConfigurationProperty{
 //   		logGroupName: jsii.String("logGroupName"),
 //   	},
@@ -44,7 +54,6 @@ type CfnChannel interface {
 	awscdk.IInspectable
 	// The channel's unique system-generated resource name, based on the AWS record.
 	AttrArn() *string
-	AttrHlsIngestingestEndpoints() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -60,6 +69,9 @@ type CfnChannel interface {
 	// Configures egress access logs.
 	EgressAccessLogs() interface{}
 	SetEgressAccessLogs(val interface{})
+	// `AWS::MediaPackage::Channel.HlsIngest`.
+	HlsIngest() interface{}
+	SetHlsIngest(val interface{})
 	// Unique identifier that you assign to the channel.
 	Id() *string
 	SetId(val *string)
@@ -245,16 +257,6 @@ func (j *jsiiProxy_CfnChannel) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) AttrHlsIngestingestEndpoints() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrHlsIngestingestEndpoints",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnChannel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -310,6 +312,16 @@ func (j *jsiiProxy_CfnChannel) EgressAccessLogs() interface{} {
 	_jsii_.Get(
 		j,
 		"egressAccessLogs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) HlsIngest() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"hlsIngest",
 		&returns,
 	)
 	return returns
@@ -450,6 +462,17 @@ func (j *jsiiProxy_CfnChannel)SetEgressAccessLogs(val interface{}) {
 	_jsii_.Set(
 		j,
 		"egressAccessLogs",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetHlsIngest(val interface{}) {
+	if err := j.validateSetHlsIngestParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hlsIngest",
 		val,
 	)
 }

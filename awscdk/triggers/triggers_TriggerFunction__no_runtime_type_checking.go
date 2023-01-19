@@ -60,6 +60,10 @@ func (t *jsiiProxy_TriggerFunction) validateGrantInvokeUrlParameters(grantee aws
 	return nil
 }
 
+func (t *jsiiProxy_TriggerFunction) validateInvalidateVersionBasedOnParameters(x *string) error {
+	return nil
+}
+
 func (t *jsiiProxy_TriggerFunction) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

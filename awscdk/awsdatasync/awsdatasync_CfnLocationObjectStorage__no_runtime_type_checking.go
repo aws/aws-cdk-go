@@ -84,14 +84,6 @@ func (j *jsiiProxy_CfnLocationObjectStorage) validateSetAgentArnsParameters(val 
 	return nil
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) validateSetBucketNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnLocationObjectStorage) validateSetServerHostnameParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnLocationObjectStorageParameters(scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) error {
 	return nil
 }

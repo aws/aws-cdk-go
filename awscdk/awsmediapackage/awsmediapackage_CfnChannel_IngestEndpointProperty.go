@@ -15,12 +15,12 @@ package awsmediapackage
 //
 type CfnChannel_IngestEndpointProperty struct {
 	// `CfnChannel.IngestEndpointProperty.Id`.
-	Id *string `field:"optional" json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// `CfnChannel.IngestEndpointProperty.Password`.
-	Password *string `field:"optional" json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// `CfnChannel.IngestEndpointProperty.Url`.
-	Url *string `field:"optional" json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// `CfnChannel.IngestEndpointProperty.Username`.
-	Username *string `field:"optional" json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 

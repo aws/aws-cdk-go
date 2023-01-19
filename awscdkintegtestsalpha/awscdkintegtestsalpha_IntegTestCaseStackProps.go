@@ -137,6 +137,16 @@ type IntegTestCaseStackProps struct {
 	// Experimental.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Synthesis method to use while deploying this stack.
+	//
+	// The Stack Synthesizer controls aspects of synthesis and deployment,
+	// like how assets are referenced and what IAM roles to use. For more
+	// information, see the README of the main CDK package.
+	//
+	// If not specified, the `defaultStackSynthesizer` from `App` will be used.
+	// If that is not specified, `DefaultStackSynthesizer` is used if
+	// `@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
+	// version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
+	// other synthesizer is specified.
 	// Experimental.
 	Synthesizer awscdk.IStackSynthesizer `field:"optional" json:"synthesizer" yaml:"synthesizer"`
 	// Stack tags that will be applied to all the taggable resources and the stack itself.

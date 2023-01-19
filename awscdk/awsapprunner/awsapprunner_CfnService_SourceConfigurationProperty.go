@@ -34,6 +34,12 @@ package awsapprunner
 //   				// the properties below are optional
 //   				buildCommand: jsii.String("buildCommand"),
 //   				port: jsii.String("port"),
+//   				runtimeEnvironmentSecrets: []interface{}{
+//   					&keyValuePairProperty{
+//   						name: jsii.String("name"),
+//   						value: jsii.String("value"),
+//   					},
+//   				},
 //   				runtimeEnvironmentVariables: []interface{}{
 //   					&keyValuePairProperty{
 //   						name: jsii.String("name"),
@@ -51,6 +57,12 @@ package awsapprunner
 //   		// the properties below are optional
 //   		imageConfiguration: &imageConfigurationProperty{
 //   			port: jsii.String("port"),
+//   			runtimeEnvironmentSecrets: []interface{}{
+//   				&keyValuePairProperty{
+//   					name: jsii.String("name"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
 //   			runtimeEnvironmentVariables: []interface{}{
 //   				&keyValuePairProperty{
 //   					name: jsii.String("name"),

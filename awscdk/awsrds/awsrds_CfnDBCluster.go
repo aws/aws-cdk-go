@@ -81,8 +81,13 @@ import (
 //   	globalClusterIdentifier: jsii.String("globalClusterIdentifier"),
 //   	iops: jsii.Number(123),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
+//   	manageMasterUserPassword: jsii.Boolean(false),
 //   	masterUsername: jsii.String("masterUsername"),
 //   	masterUserPassword: jsii.String("masterUserPassword"),
+//   	masterUserSecret: &masterUserSecretProperty{
+//   		kmsKeyId: jsii.String("kmsKeyId"),
+//   		secretArn: jsii.String("secretArn"),
+//   	},
 //   	monitoringInterval: jsii.Number(123),
 //   	monitoringRoleArn: jsii.String("monitoringRoleArn"),
 //   	networkType: jsii.String("networkType"),
@@ -145,6 +150,7 @@ type CfnDBCluster interface {
 	//
 	// For example: `3306`.
 	AttrEndpointPort() *string
+	AttrMasterUserSecretSecretArn() *string
 	// The reader endpoint for the DB cluster.
 	//
 	// For example: `mystack-mydbcluster-ro-123456789012.us-east-2.rds.amazonaws.com`
@@ -343,6 +349,9 @@ type CfnDBCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// `AWS::RDS::DBCluster.ManageMasterUserPassword`.
+	ManageMasterUserPassword() interface{}
+	SetManageMasterUserPassword(val interface{})
 	// The name of the master user for the DB cluster.
 	//
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
@@ -353,6 +362,9 @@ type CfnDBCluster interface {
 	// > If you specify the `SourceDBClusterIdentifier` , `SnapshotIdentifier` , or `GlobalClusterIdentifier` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
+	// `AWS::RDS::DBCluster.MasterUserSecret`.
+	MasterUserSecret() interface{}
+	SetMasterUserSecret(val interface{})
 	// `AWS::RDS::DBCluster.MonitoringInterval`.
 	MonitoringInterval() *float64
 	SetMonitoringInterval(val *float64)
@@ -709,6 +721,16 @@ func (j *jsiiProxy_CfnDBCluster) AttrEndpointPort() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) AttrMasterUserSecretSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrMasterUserSecretSecretArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) AttrReadEndpointAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1009,6 +1031,16 @@ func (j *jsiiProxy_CfnDBCluster) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) ManageMasterUserPassword() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"manageMasterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) MasterUsername() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1024,6 +1056,16 @@ func (j *jsiiProxy_CfnDBCluster) MasterUserPassword() *string {
 	_jsii_.Get(
 		j,
 		"masterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) MasterUserSecret() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"masterUserSecret",
 		&returns,
 	)
 	return returns
@@ -1555,6 +1597,17 @@ func (j *jsiiProxy_CfnDBCluster)SetKmsKeyId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster)SetManageMasterUserPassword(val interface{}) {
+	if err := j.validateSetManageMasterUserPasswordParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"manageMasterUserPassword",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster)SetMasterUsername(val *string) {
 	_jsii_.Set(
 		j,
@@ -1567,6 +1620,17 @@ func (j *jsiiProxy_CfnDBCluster)SetMasterUserPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"masterUserPassword",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetMasterUserSecret(val interface{}) {
+	if err := j.validateSetMasterUserSecretParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"masterUserSecret",
 		val,
 	)
 }

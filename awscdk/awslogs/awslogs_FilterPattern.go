@@ -8,18 +8,10 @@ import (
 // A collection of static methods to generate appropriate ILogPatterns.
 //
 // Example:
-//   // Search for lines that contain both "ERROR" and "MainThread"
-//   pattern1 := logs.filterPattern.allTerms(jsii.String("ERROR"), jsii.String("MainThread"))
-//
-//   // Search for lines that either contain both "ERROR" and "MainThread", or
-//   // both "WARN" and "Deadlock".
-//   pattern2 := logs.filterPattern.anyTermGroup([]*string{
-//   	jsii.String("ERROR"),
-//   	jsii.String("MainThread"),
-//   }, []*string{
-//   	jsii.String("WARN"),
-//   	jsii.String("Deadlock"),
-//   })
+//   // Search for all events where the component field is equal to
+//   // "HttpServer" and either error is true or the latency is higher
+//   // than 1000.
+//   pattern := logs.filterPattern.all(logs.filterPattern.stringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.filterPattern.any(logs.filterPattern.booleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.filterPattern.numberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
 //
 type FilterPattern interface {
 }

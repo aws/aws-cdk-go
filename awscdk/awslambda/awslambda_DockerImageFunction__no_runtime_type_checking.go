@@ -60,6 +60,10 @@ func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(grantee
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageFunction) validateInvalidateVersionBasedOnParameters(x *string) error {
+	return nil
+}
+
 func (d *jsiiProxy_DockerImageFunction) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

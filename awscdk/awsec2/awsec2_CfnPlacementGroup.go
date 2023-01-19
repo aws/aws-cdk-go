@@ -23,8 +23,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPlacementGroup := awscdk.Aws_ec2.NewCfnPlacementGroup(this, jsii.String("MyCfnPlacementGroup"), &cfnPlacementGroupProps{
+//   	partitionCount: jsii.Number(123),
 //   	spreadLevel: jsii.String("spreadLevel"),
 //   	strategy: jsii.String("strategy"),
+//   	tags: []cfnTag{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 type CfnPlacementGroup interface {
@@ -52,6 +59,9 @@ type CfnPlacementGroup interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::EC2::PlacementGroup.PartitionCount`.
+	PartitionCount() *float64
+	SetPartitionCount(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -67,6 +77,8 @@ type CfnPlacementGroup interface {
 	// The placement strategy.
 	Strategy() *string
 	SetStrategy(val *string)
+	// `AWS::EC2::PlacementGroup.Tags`.
+	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -283,6 +295,16 @@ func (j *jsiiProxy_CfnPlacementGroup) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlacementGroup) PartitionCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"partitionCount",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlacementGroup) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -318,6 +340,16 @@ func (j *jsiiProxy_CfnPlacementGroup) Strategy() *string {
 	_jsii_.Get(
 		j,
 		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlacementGroup) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -370,6 +402,14 @@ func NewCfnPlacementGroup_Override(c CfnPlacementGroup, scope constructs.Constru
 		"aws-cdk-lib.aws_ec2.CfnPlacementGroup",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnPlacementGroup)SetPartitionCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"partitionCount",
+		val,
 	)
 }
 

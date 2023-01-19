@@ -22,12 +22,12 @@ import (
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
 //   	},
-//   	bucketName: jsii.String("bucketName"),
-//   	serverHostname: jsii.String("serverHostname"),
 //
 //   	// the properties below are optional
 //   	accessKey: jsii.String("accessKey"),
+//   	bucketName: jsii.String("bucketName"),
 //   	secretKey: jsii.String("secretKey"),
+//   	serverHostname: jsii.String("serverHostname"),
 //   	serverPort: jsii.Number(123),
 //   	serverProtocol: jsii.String("serverProtocol"),
 //   	subdirectory: jsii.String("subdirectory"),
@@ -514,9 +514,6 @@ func (j *jsiiProxy_CfnLocationObjectStorage)SetAgentArns(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnLocationObjectStorage)SetBucketName(val *string) {
-	if err := j.validateSetBucketNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"bucketName",
@@ -533,9 +530,6 @@ func (j *jsiiProxy_CfnLocationObjectStorage)SetSecretKey(val *string) {
 }
 
 func (j *jsiiProxy_CfnLocationObjectStorage)SetServerHostname(val *string) {
-	if err := j.validateSetServerHostnameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"serverHostname",

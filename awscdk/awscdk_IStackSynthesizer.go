@@ -17,7 +17,7 @@ type IStackSynthesizer interface {
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
-	// Must be called before any of the other methods are called.
+	// Must be called before any of the other methods are called, and can only be called once.
 	Bind(stack Stack)
 	// Synthesize the associated stack to the session.
 	Synthesize(session ISynthesisSession)

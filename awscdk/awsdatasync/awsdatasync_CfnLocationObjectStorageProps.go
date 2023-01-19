@@ -15,12 +15,12 @@ import (
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
 //   	},
-//   	bucketName: jsii.String("bucketName"),
-//   	serverHostname: jsii.String("serverHostname"),
 //
 //   	// the properties below are optional
 //   	accessKey: jsii.String("accessKey"),
+//   	bucketName: jsii.String("bucketName"),
 //   	secretKey: jsii.String("secretKey"),
+//   	serverHostname: jsii.String("serverHostname"),
 //   	serverPort: jsii.Number(123),
 //   	serverProtocol: jsii.String("serverProtocol"),
 //   	subdirectory: jsii.String("subdirectory"),
@@ -35,16 +35,16 @@ import (
 type CfnLocationObjectStorageProps struct {
 	// Specifies the Amazon Resource Names (ARNs) of the agents associated with the location.
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
+	// Specifies the access key (or user name) if credentials are required to access the object storage server.
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// Specifies the name of the bucket that DataSync reads from or writes to.
-	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	// Specifies the secret key (or password) if credentials are required to access the object storage server.
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 	// Specifies the domain name or IP address of the object storage server.
 	//
 	// A DataSync agent uses this hostname to mount the object storage server.
-	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
-	// Specifies the access key (or user name) if credentials are required to access the object storage server.
-	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
-	// Specifies the secret key (or password) if credentials are required to access the object storage server.
-	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
+	ServerHostname *string `field:"optional" json:"serverHostname" yaml:"serverHostname"`
 	// Specifies the port that your object storage server accepts inbound network traffic on.
 	//
 	// Set to port 80 (HTTP), 443 (HTTPS), or a custom port if needed.

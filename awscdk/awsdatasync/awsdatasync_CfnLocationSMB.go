@@ -22,9 +22,6 @@ import (
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
 //   	},
-//   	password: jsii.String("password"),
-//   	serverHostname: jsii.String("serverHostname"),
-//   	subdirectory: jsii.String("subdirectory"),
 //   	user: jsii.String("user"),
 //
 //   	// the properties below are optional
@@ -32,6 +29,9 @@ import (
 //   	mountOptions: &mountOptionsProperty{
 //   		version: jsii.String("version"),
 //   	},
+//   	password: jsii.String("password"),
+//   	serverHostname: jsii.String("serverHostname"),
+//   	subdirectory: jsii.String("subdirectory"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -521,9 +521,6 @@ func (j *jsiiProxy_CfnLocationSMB)SetMountOptions(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnLocationSMB)SetPassword(val *string) {
-	if err := j.validateSetPasswordParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"password",
@@ -532,9 +529,6 @@ func (j *jsiiProxy_CfnLocationSMB)SetPassword(val *string) {
 }
 
 func (j *jsiiProxy_CfnLocationSMB)SetServerHostname(val *string) {
-	if err := j.validateSetServerHostnameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"serverHostname",
@@ -543,9 +537,6 @@ func (j *jsiiProxy_CfnLocationSMB)SetServerHostname(val *string) {
 }
 
 func (j *jsiiProxy_CfnLocationSMB)SetSubdirectory(val *string) {
-	if err := j.validateSetSubdirectoryParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"subdirectory",

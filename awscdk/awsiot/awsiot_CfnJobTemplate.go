@@ -32,6 +32,14 @@ import (
 //   	document: jsii.String("document"),
 //   	documentSource: jsii.String("documentSource"),
 //   	jobArn: jsii.String("jobArn"),
+//   	jobExecutionsRetryConfig: &jobExecutionsRetryConfigProperty{
+//   		retryCriteriaList: []interface{}{
+//   			&retryCriteriaProperty{
+//   				failureType: jsii.String("failureType"),
+//   				numberOfRetries: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	jobExecutionsRolloutConfig: jobExecutionsRolloutConfig,
 //   	presignedUrlConfig: presignedUrlConfig,
 //   	tags: []cfnTag{
@@ -84,6 +92,9 @@ type CfnJobTemplate interface {
 	// The ARN of the job to use as the basis for the job template.
 	JobArn() *string
 	SetJobArn(val *string)
+	// Allows you to create the criteria to retry a job.
+	JobExecutionsRetryConfig() interface{}
+	SetJobExecutionsRetryConfig(val interface{})
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig() interface{}
 	SetJobExecutionsRolloutConfig(val interface{})
@@ -369,6 +380,16 @@ func (j *jsiiProxy_CfnJobTemplate) JobArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobTemplate) JobExecutionsRetryConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"jobExecutionsRetryConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobTemplate) JobExecutionsRolloutConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -551,6 +572,17 @@ func (j *jsiiProxy_CfnJobTemplate)SetJobArn(val *string) {
 	_jsii_.Set(
 		j,
 		"jobArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobTemplate)SetJobExecutionsRetryConfig(val interface{}) {
+	if err := j.validateSetJobExecutionsRetryConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"jobExecutionsRetryConfig",
 		val,
 	)
 }

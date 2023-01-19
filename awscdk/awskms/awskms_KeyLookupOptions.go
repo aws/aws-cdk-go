@@ -15,6 +15,8 @@ package awskms
 //
 type KeyLookupOptions struct {
 	// The alias name of the Key.
+	//
+	// Must be in the format `alias/<AliasName>`.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 }
 

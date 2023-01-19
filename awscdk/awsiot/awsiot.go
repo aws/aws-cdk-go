@@ -497,6 +497,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobExecutionsRetryConfig", GoGetter: "JobExecutionsRetryConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "jobExecutionsRolloutConfig", GoGetter: "JobExecutionsRolloutConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "jobTemplateId", GoGetter: "JobTemplateId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -538,6 +539,10 @@ func init() {
 		reflect.TypeOf((*CfnJobTemplate_ExponentialRolloutRateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnJobTemplate.JobExecutionsRetryConfigProperty",
+		reflect.TypeOf((*CfnJobTemplate_JobExecutionsRetryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnJobTemplate.JobExecutionsRolloutConfigProperty",
 		reflect.TypeOf((*CfnJobTemplate_JobExecutionsRolloutConfigProperty)(nil)).Elem(),
 	)
@@ -548,6 +553,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnJobTemplate.RateIncreaseCriteriaProperty",
 		reflect.TypeOf((*CfnJobTemplate_RateIncreaseCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnJobTemplate.RetryCriteriaProperty",
+		reflect.TypeOf((*CfnJobTemplate_RetryCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnJobTemplate.TimeoutConfigProperty",

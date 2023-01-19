@@ -41,6 +41,7 @@ package awsmediapackage
 //   		},
 //   	},
 //   	includeEncoderConfigurationInSegments: jsii.Boolean(false),
+//   	includeIframeOnlyStream: jsii.Boolean(false),
 //   	periodTriggers: []*string{
 //   		jsii.String("periodTriggers"),
 //   	},
@@ -57,6 +58,8 @@ type CfnPackagingConfiguration_DashPackageProperty struct {
 	//
 	// This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments interface{} `field:"optional" json:"includeEncoderConfigurationInSegments" yaml:"includeEncoderConfigurationInSegments"`
+	// `CfnPackagingConfiguration.DashPackageProperty.IncludeIframeOnlyStream`.
+	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
 	// Controls whether MediaPackage produces single-period or multi-period DASH manifests.
 	//
 	// For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html) .

@@ -32,6 +32,8 @@ import (
 //
 type DefaultStackSynthesizer interface {
 	StackSynthesizer
+	IBoundStackSynthesizer
+	IReusableStackSynthesizer
 	// The qualifier used to bootstrap this stack.
 	BootstrapQualifier() *string
 	// Retrieve the bound stack.
@@ -93,6 +95,10 @@ type DefaultStackSynthesizer interface {
 	// the given synthesis session.
 	// Deprecated: Use `emitArtifact` instead.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
+	// Produce a bound Stack Synthesizer for the given stack.
+	//
+	// This method may be called more than once on the same object.
+	ReusableBind(stack Stack) IBoundStackSynthesizer
 	// Synthesize the associated stack to the session.
 	Synthesize(session ISynthesisSession)
 	// Synthesize the stack template to the given session, passing the configured lookup role ARN.
@@ -118,6 +124,8 @@ type DefaultStackSynthesizer interface {
 // The jsii proxy struct for DefaultStackSynthesizer
 type jsiiProxy_DefaultStackSynthesizer struct {
 	jsiiProxy_StackSynthesizer
+	jsiiProxy_IBoundStackSynthesizer
+	jsiiProxy_IReusableStackSynthesizer
 }
 
 func (j *jsiiProxy_DefaultStackSynthesizer) BootstrapQualifier() *string {
@@ -436,6 +444,22 @@ func (d *jsiiProxy_DefaultStackSynthesizer) EmitStackArtifact(stack Stack, sessi
 		"emitStackArtifact",
 		[]interface{}{stack, session, options},
 	)
+}
+
+func (d *jsiiProxy_DefaultStackSynthesizer) ReusableBind(stack Stack) IBoundStackSynthesizer {
+	if err := d.validateReusableBindParameters(stack); err != nil {
+		panic(err)
+	}
+	var returns IBoundStackSynthesizer
+
+	_jsii_.Invoke(
+		d,
+		"reusableBind",
+		[]interface{}{stack},
+		&returns,
+	)
+
+	return returns
 }
 
 func (d *jsiiProxy_DefaultStackSynthesizer) Synthesize(session ISynthesisSession) {

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnChannel) validateSetEgressAccessLogsParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetHlsIngestParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetIdParameters(val *string) error {
 	return nil
 }
