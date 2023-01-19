@@ -15,10 +15,13 @@ package cxapi
 //   	parentBuilder: cloudAssemblyBuilder,
 //   }
 //
+// Experimental.
 type CloudAssemblyBuilderProps struct {
 	// Use the given asset output directory.
+	// Experimental.
 	AssetOutdir *string `field:"optional" json:"assetOutdir" yaml:"assetOutdir"`
 	// If this builder is for a nested assembly, the parent assembly builder.
+	// Experimental.
 	ParentBuilder CloudAssemblyBuilder `field:"optional" json:"parentBuilder" yaml:"parentBuilder"`
 }
 

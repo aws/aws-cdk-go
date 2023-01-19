@@ -19,15 +19,15 @@ package awsapigateway
 //   }
 //
 type CfnBasePathMappingProps struct {
-	// The `DomainName` of an [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	// The domain name of the BasePathMapping resource to be described.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// `AWS::ApiGateway::BasePathMapping.Id`.
 	Id *string `field:"optional" json:"id" yaml:"id"`
-	// The ID of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
-	// The name of the API's stage.
+	// The name of the associated stage.
 	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 

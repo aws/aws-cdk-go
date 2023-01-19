@@ -1,7 +1,7 @@
 package awsemr
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnStudio`.
@@ -37,7 +37,7 @@ import (
 //   }
 //
 type CfnStudioProps struct {
-	// Specifies whether the Studio authenticates users using AWS SSO or IAM.
+	// Specifies whether the Studio authenticates users using IAM Identity Center or IAM.
 	AuthMode *string `field:"required" json:"authMode" yaml:"authMode"`
 	// The Amazon S3 location to back up EMR Studio Workspaces and notebook files.
 	DefaultS3Location *string `field:"required" json:"defaultS3Location" yaml:"defaultS3Location"`

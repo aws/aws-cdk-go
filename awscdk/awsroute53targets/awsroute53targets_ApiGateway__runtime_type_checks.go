@@ -5,8 +5,8 @@ package awsroute53targets
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 func (a *jsiiProxy_ApiGateway) validateBindParameters(_record awsroute53.IRecordSet) error {

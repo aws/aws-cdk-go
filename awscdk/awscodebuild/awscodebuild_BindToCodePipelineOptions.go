@@ -1,10 +1,10 @@
 package awscodebuild
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
-// The extra options passed to the `IProject.bindToCodePipeline` method.
+// The extra options passed to the {@link IProject.bindToCodePipeline} method.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,8 +18,10 @@ import (
 //   	artifactBucket: bucket,
 //   }
 //
+// Experimental.
 type BindToCodePipelineOptions struct {
 	// The artifact bucket that will be used by the action that invokes this project.
+	// Experimental.
 	ArtifactBucket awss3.IBucket `field:"required" json:"artifactBucket" yaml:"artifactBucket"`
 }
 

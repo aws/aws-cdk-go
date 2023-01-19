@@ -55,7 +55,7 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	//
 	// Amazon creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data.
 	//
-	// Specify exactly two subnets if you are using the US West (N. California) Region. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+	// If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
 	//
 	// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
 	ClientSubnets *[]*string `field:"required" json:"clientSubnets" yaml:"clientSubnets"`
@@ -71,7 +71,7 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	//
 	// If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
-	// Contains information about storage volumes attached to MSK broker nodes.
+	// Contains information about storage volumes attached to Amazon MSK broker nodes.
 	StorageInfo interface{} `field:"optional" json:"storageInfo" yaml:"storageInfo"`
 }
 

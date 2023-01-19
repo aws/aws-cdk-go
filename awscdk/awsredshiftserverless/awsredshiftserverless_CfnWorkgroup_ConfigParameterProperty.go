@@ -1,6 +1,8 @@
 package awsredshiftserverless
 
 
+// A array of parameters to set for more control over a serverless database.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,11 @@ package awsredshiftserverless
 //   }
 //
 type CfnWorkgroup_ConfigParameterProperty struct {
-	// `CfnWorkgroup.ConfigParameterProperty.ParameterKey`.
+	// The key of the parameter.
+	//
+	// The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
 	ParameterKey *string `field:"optional" json:"parameterKey" yaml:"parameterKey"`
-	// `CfnWorkgroup.ConfigParameterProperty.ParameterValue`.
+	// The value of the parameter to set.
 	ParameterValue *string `field:"optional" json:"parameterValue" yaml:"parameterValue"`
 }
 

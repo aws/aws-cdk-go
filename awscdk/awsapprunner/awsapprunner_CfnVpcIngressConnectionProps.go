@@ -1,7 +1,7 @@
 package awsapprunner
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnVpcIngressConnection`.
@@ -29,13 +29,15 @@ import (
 //   }
 //
 type CfnVpcIngressConnectionProps struct {
-	// `AWS::AppRunner::VpcIngressConnection.IngressVpcConfiguration`.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
 	IngressVpcConfiguration interface{} `field:"required" json:"ingressVpcConfiguration" yaml:"ingressVpcConfiguration"`
-	// `AWS::AppRunner::VpcIngressConnection.ServiceArn`.
+	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn *string `field:"required" json:"serviceArn" yaml:"serviceArn"`
-	// `AWS::AppRunner::VpcIngressConnection.Tags`.
+	// An optional list of metadata items that you can associate with the VPC Ingress Connection resource.
+	//
+	// A tag is a key-value pair.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::AppRunner::VpcIngressConnection.VpcIngressConnectionName`.
+	// The customer-provided VPC Ingress Connection name.
 	VpcIngressConnectionName *string `field:"optional" json:"vpcIngressConnectionName" yaml:"vpcIngressConnectionName"`
 }
 

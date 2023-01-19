@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnClusterParameterGroup) validateAddDeletionOverrideParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnClusterParameterGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnClusterParameterGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnClusterParameterGroup) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnClusterParameterGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnClusterParameterGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnClusterParameterGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnClusterParameterGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnClusterParameterGroup) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnClusterParameterGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnClusterParameterGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnClusterParameterGroup) validateSetParametersParameters(val
 	return nil
 }
 
-func validateNewCfnClusterParameterGroupParameters(scope constructs.Construct, id *string, props *CfnClusterParameterGroupProps) error {
+func validateNewCfnClusterParameterGroupParameters(scope awscdk.Construct, id *string, props *CfnClusterParameterGroupProps) error {
 	return nil
 }
 

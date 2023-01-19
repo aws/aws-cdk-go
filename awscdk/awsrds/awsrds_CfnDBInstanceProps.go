@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnDBInstance`.
@@ -108,7 +108,7 @@ import (
 //   }
 //
 type CfnDBInstanceProps struct {
-	// The amount of storage (in gigabytes) to be initially allocated for the database instance.
+	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//
 	// > If any value is set in the `Iops` parameter, `AllocatedStorage` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the `Iops` value (in 1,000 IOPS increments), then you must also increase the `AllocatedStorage` value (in 100-GiB increments).
 	//
@@ -232,11 +232,32 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
-	// `AWS::RDS::DBInstance.CustomIAMInstanceProfile`.
+	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	//
+	// The instance profile must meet the following requirements:
+	//
+	// - The profile must exist in your account.
+	// - The profile must have an IAM role that Amazon EC2 has permissions to assume.
+	// - The instance profile name and the associated IAM role name must start with the prefix `AWSRDSCustom` .
+	//
+	// For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide* .
+	//
+	// This setting is required for RDS Custom.
 	CustomIamInstanceProfile *string `field:"optional" json:"customIamInstanceProfile" yaml:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
-	// `AWS::RDS::DBInstance.DBClusterSnapshotIdentifier`.
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
+	//
+	// For more information on Multi-AZ DB clusters, see [Multi-AZ deployments with two readable standby DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide* .
+	//
+	// Constraints:
+	//
+	// - Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+	// - Can't be specified when `DBSnapshotIdentifier` is specified.
+	// - Must be specified when `DBSnapshotIdentifier` isn't specified.
+	// - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the `DBClusterSnapshotIdentifier` must be the ARN of the shared snapshot.
+	// - Can't be the identifier of an Aurora DB cluster snapshot.
+	// - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
 	DbClusterSnapshotIdentifier *string `field:"optional" json:"dbClusterSnapshotIdentifier" yaml:"dbClusterSnapshotIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	//
@@ -282,8 +303,8 @@ type CfnDBInstanceProps struct {
 	//
 	// Constraints:
 	//
-	// - Must contain 1 to 63 letters, numbers, or underscores.
-	// - Must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0-9).
+	// - Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).
+	// - Must contain 1 to 63 characters.
 	// - Can't be a word reserved by the specified database engine
 	//
 	// *Oracle*
@@ -308,7 +329,7 @@ type CfnDBInstanceProps struct {
 	//
 	// > If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
 	//
-	// If you don't specify a value for the `DBParameterGroupName` property, the default DB parameter group for the specified engine and engine version is used.
+	// If you don't specify a value for `DBParameterGroupName` property, the default DB parameter group for the specified engine and engine version is used.
 	DbParameterGroupName *string `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance.
 	//
@@ -388,6 +409,10 @@ type CfnDBInstanceProps struct {
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted.
 	//
 	// This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the DB cluster are not deleted.
 	DeleteAutomatedBackups interface{} `field:"optional" json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled.
 	//
@@ -406,6 +431,10 @@ type CfnDBInstanceProps struct {
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
 	//
 	// This setting doesn't apply to RDS Custom.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. The domain is managed by the DB cluster.
 	DomainIamRoleName *string `field:"optional" json:"domainIamRoleName" yaml:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
@@ -439,7 +468,7 @@ type CfnDBInstanceProps struct {
 	//
 	// By default, mapping is disabled.
 	//
-	// For more information, see [IAM Database Authentication for MySQL and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.*
+	// This property is supported for RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL. For more information, see [IAM Database Authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.*
 	//
 	// *Amazon Aurora*
 	//
@@ -451,7 +480,9 @@ type CfnDBInstanceProps struct {
 	//
 	// This setting doesn't apply to RDS Custom.
 	EnablePerformanceInsights interface{} `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
-	// `AWS::RDS::DBInstance.Endpoint`.
+	// Specifies the connection endpoint.
+	//
+	// > The endpoint might not be shown for instances whose status is `creating` .
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The name of the database engine that you want to use for this DB instance.
 	//
@@ -465,9 +496,9 @@ type CfnDBInstanceProps struct {
 	// - `mariadb`
 	// - `mysql`
 	// - `oracle-ee`
+	// - `oracle-ee-cdb`
 	// - `oracle-se2`
-	// - `oracle-se1`
-	// - `oracle-se`
+	// - `oracle-se2-cdb`
 	// - `postgres`
 	// - `sqlserver-ee`
 	// - `sqlserver-se`
@@ -542,7 +573,13 @@ type CfnDBInstanceProps struct {
 	//
 	// > If you've specified `DBSecurityGroups` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
 	LicenseModel *string `field:"optional" json:"licenseModel" yaml:"licenseModel"`
-	// `AWS::RDS::DBInstance.ManageMasterUserPassword`.
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	//
+	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
+	//
+	// Constraints:
+	//
+	// - Can't manage the master user password with AWS Secrets Manager if `MasterUserPassword` is specified.
 	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The master user name for the DB instance.
 	//
@@ -622,13 +659,19 @@ type CfnDBInstanceProps struct {
 	//
 	// Constraints: Must contain from 8 to 128 characters.
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
-	// `AWS::RDS::DBInstance.MasterUserSecret`.
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	//
+	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
 	MasterUserSecret interface{} `field:"optional" json:"masterUserSecret" yaml:"masterUserSecret"`
 	// The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.
 	//
 	// For more information about this setting, including limitations that apply to it, see [Managing capacity automatically with Amazon RDS storage autoscaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling) in the *Amazon RDS User Guide* .
 	//
 	// This setting doesn't apply to RDS Custom.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. Storage is managed by the DB cluster.
 	MaxAllocatedStorage *float64 `field:"optional" json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	//
@@ -660,9 +703,20 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
-	// `AWS::RDS::DBInstance.NcharCharacterSetName`.
+	// The name of the NCHAR character set for the Oracle DB instance.
+	//
+	// This parameter doesn't apply to RDS Custom.
 	NcharCharacterSetName *string `field:"optional" json:"ncharCharacterSetName" yaml:"ncharCharacterSetName"`
-	// `AWS::RDS::DBInstance.NetworkType`.
+	// The network type of the DB instance.
+	//
+	// Valid values:
+	//
+	// - `IPV4`
+	// - `DUAL`
+	//
+	// The network type is determined by the `DBSubnetGroup` specified for the DB instance. A `DBSubnetGroup` can support only the IPv4 protocol or the IPv4 and IPv6 protocols ( `DUAL` ).
+	//
+	// For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon RDS User Guide.*
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	//
@@ -714,6 +768,10 @@ type CfnDBInstanceProps struct {
 	// The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 	//
 	// This setting doesn't apply to RDS Custom.
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable.
 	ProcessorFeatures interface{} `field:"optional" json:"processorFeatures" yaml:"processorFeatures"`
 	// A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 	//
@@ -727,19 +785,34 @@ type CfnDBInstanceProps struct {
 	PromotionTier *float64 `field:"optional" json:"promotionTier" yaml:"promotionTier"`
 	// Indicates whether the DB instance is an internet-facing instance.
 	//
-	// If you specify `true` , AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+	// If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	//
-	// The default behavior value depends on your VPC setup and the database subnet group. For more information, see the `PubliclyAccessible` parameter in [`CreateDBInstance`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference* .
-	//
-	// If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the *DependsOn* attribute to declare a dependency on the VPC-gateway attachment. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	//
-	// > If you specify DBSecurityGroups, AWS CloudFormation ignores this property. To specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
+	// The default behavior value depends on your VPC setup and the database subnet group. For more information, see the `PubliclyAccessible` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference* .
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
-	// `AWS::RDS::DBInstance.ReplicaMode`.
+	// The open mode of an Oracle read replica.
+	//
+	// For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide* .
+	//
+	// This setting is only supported in RDS for Oracle.
+	//
+	// Default: `open-read-only`
+	//
+	// Valid Values: `open-read-only` or `mounted`.
 	ReplicaMode *string `field:"optional" json:"replicaMode" yaml:"replicaMode"`
-	// `AWS::RDS::DBInstance.RestoreTime`.
+	// The date and time to restore from.
+	//
+	// Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+	//
+	// Constraints:
+	//
+	// - Must be before the latest restorable time for the DB instance
+	// - Can't be specified if the `UseLatestRestorableTime` parameter is enabled
+	//
+	// Example: `2009-09-07T23:45:00Z`.
 	RestoreTime *string `field:"optional" json:"restoreTime" yaml:"restoreTime"`
-	// `AWS::RDS::DBInstance.SourceDBInstanceAutomatedBackupsArn`.
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, `arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE` .
+	//
+	// This setting doesn't apply to RDS Custom.
 	SourceDbInstanceAutomatedBackupsArn *string `field:"optional" json:"sourceDbInstanceAutomatedBackupsArn" yaml:"sourceDbInstanceAutomatedBackupsArn"`
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
@@ -747,7 +820,7 @@ type CfnDBInstanceProps struct {
 	//
 	// For information about constraints that apply to DB instance identifiers, see [Naming constraints in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide* .
 	//
-	// The `SourceDBInstanceIdentifier` property determines whether a DB instance is a read replica. If you remove the `SourceDBInstanceIdentifier` property from your template and then update your stack, AWS CloudFormation deletes the Read Replica and creates a new DB instance (not a read replica).
+	// The `SourceDBInstanceIdentifier` property determines whether a DB instance is a read replica. If you remove the `SourceDBInstanceIdentifier` property from your template and then update your stack, AWS CloudFormation promotes the Read Replica to a standalone DB instance.
 	//
 	// > - If you specify a source DB instance that uses VPC security groups, we recommend that you specify the `VPCSecurityGroups` property. If you don't specify the property, the read replica inherits the value of the `VPCSecurityGroups` property from the source DB when you create the replica. However, if you update the stack, AWS CloudFormation reverts the replica's `VPCSecurityGroups` property to the default value because it's not defined in the stack's template. This change might cause unexpected issues.
 	// > - Read replicas don't support deletion policies. AWS CloudFormation ignores any deletion policy that's associated with a read replica.
@@ -756,7 +829,7 @@ type CfnDBInstanceProps struct {
 	// > - If the source DB instance is in a different region than the read replica, specify the source region in `SourceRegion` , and specify an ARN for a valid DB instance in `SourceDBInstanceIdentifier` . For more information, see [Constructing a Amazon RDS Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN) in the *Amazon RDS User Guide* .
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
 	SourceDbInstanceIdentifier *string `field:"optional" json:"sourceDbInstanceIdentifier" yaml:"sourceDbInstanceIdentifier"`
-	// `AWS::RDS::DBInstance.SourceDbiResourceId`.
+	// The resource ID of the source DB instance from which to restore.
 	SourceDbiResourceId *string `field:"optional" json:"sourceDbiResourceId" yaml:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion *string `field:"optional" json:"sourceRegion" yaml:"sourceRegion"`
@@ -774,17 +847,19 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. The encryption for DB instances is managed by the DB cluster.
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
-	// `AWS::RDS::DBInstance.StorageThroughput`.
+	// Specifies the storage throughput value for the DB instance. This setting applies only to the `gp3` storage type.
+	//
+	// This setting doesn't apply to RDS Custom or Amazon Aurora.
 	StorageThroughput *float64 `field:"optional" json:"storageThroughput" yaml:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
 	//
-	// Valid values: `standard | gp2 | io1`
+	// Valid values: `gp2 | gp3 | io1 | standard`
 	//
 	// The `standard` value is also known as magnetic.
 	//
-	// If you specify `io1` , you must also include a value for the `Iops` parameter.
+	// If you specify `io1` or `gp3` , you must also include a value for the `Iops` parameter.
 	//
-	// Default: `io1` if the `Iops` parameter is specified, otherwise `standard`
+	// Default: `io1` if the `Iops` parameter is specified, otherwise `gp2`
 	//
 	// For more information, see [Amazon RDS DB Instance Storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html) in the *Amazon RDS User Guide* .
 	//
@@ -792,7 +867,7 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. Aurora data is stored in the cluster volume, which is a single, virtual volume that uses solid state drives (SSDs).
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
-	// Tags to assign to the DB instance.
+	// An optional array of key-value pairs to apply to this DB instance.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The time zone of the DB instance.
 	//
@@ -802,7 +877,11 @@ type CfnDBInstanceProps struct {
 	//
 	// This setting doesn't apply to RDS Custom.
 	UseDefaultProcessorFeatures interface{} `field:"optional" json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
-	// `AWS::RDS::DBInstance.UseLatestRestorableTime`.
+	// A value that indicates whether the DB instance is restored from the latest backup time.
+	//
+	// By default, the DB instance isn't restored from the latest backup time.
+	//
+	// Constraints: Can't be specified if the `RestoreTime` parameter is provided.
 	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance.
 	//

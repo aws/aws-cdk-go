@@ -16,7 +16,7 @@ package awscloudfront
 type CfnFunction_FunctionConfigProperty struct {
 	// A comment to describe the function.
 	Comment *string `field:"required" json:"comment" yaml:"comment"`
-	// The function’s runtime environment.
+	// The function's runtime environment.
 	//
 	// The only valid value is `cloudfront-js-1.0` .
 	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`

@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnConnectPeer`.
@@ -30,9 +30,9 @@ import (
 //   }
 //
 type CfnConnectPeerProps struct {
-	// The BGP peer options.
+	// `AWS::NetworkManager::ConnectPeer.BgpOptions`.
 	BgpOptions interface{} `field:"optional" json:"bgpOptions" yaml:"bgpOptions"`
-	// The ID of Connect peer.
+	// The ID of the attachment to connect.
 	ConnectAttachmentId *string `field:"optional" json:"connectAttachmentId" yaml:"connectAttachmentId"`
 	// The IP address of a core network.
 	CoreNetworkAddress *string `field:"optional" json:"coreNetworkAddress" yaml:"coreNetworkAddress"`
@@ -40,7 +40,7 @@ type CfnConnectPeerProps struct {
 	InsideCidrBlocks *[]*string `field:"optional" json:"insideCidrBlocks" yaml:"insideCidrBlocks"`
 	// The IP address of the Connect peer.
 	PeerAddress *string `field:"optional" json:"peerAddress" yaml:"peerAddress"`
-	// The tags associated with the Connect peer.
+	// The list of key-value tags associated with the Connect peer.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

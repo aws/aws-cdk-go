@@ -74,17 +74,15 @@ package awsapigateway
 //   }
 //
 type CfnDeploymentProps struct {
-	// The ID of the `RestApi` resource to deploy.
+	// The string identifier of the associated RestApi.
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
-	// Specifies settings for the canary deployment.
+	// The input configuration for a canary deployment.
 	DeploymentCanarySettings interface{} `field:"optional" json:"deploymentCanarySettings" yaml:"deploymentCanarySettings"`
-	// A description of the purpose of the API Gateway deployment.
+	// The description for the Deployment resource to create.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Configures the stage that API Gateway creates with this deployment.
+	// The description of the Stage resource for the Deployment resource to create.
 	StageDescription interface{} `field:"optional" json:"stageDescription" yaml:"stageDescription"`
-	// A name for the stage that API Gateway creates with this deployment.
-	//
-	// Use only alphanumeric characters.
+	// The name of the Stage resource for the Deployment resource to create.
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 

@@ -21,12 +21,15 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type FunctionEventType string
 
 const (
 	// The viewer-request specifies the incoming request.
+	// Experimental.
 	FunctionEventType_VIEWER_REQUEST FunctionEventType = "VIEWER_REQUEST"
 	// The viewer-response specifies the outgoing response.
+	// Experimental.
 	FunctionEventType_VIEWER_RESPONSE FunctionEventType = "VIEWER_RESPONSE"
 )
 

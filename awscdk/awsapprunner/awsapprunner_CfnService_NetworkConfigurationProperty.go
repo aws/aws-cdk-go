@@ -25,7 +25,7 @@ package awsapprunner
 type CfnService_NetworkConfigurationProperty struct {
 	// Network configuration settings for outbound message traffic.
 	EgressConfiguration interface{} `field:"optional" json:"egressConfiguration" yaml:"egressConfiguration"`
-	// `CfnService.NetworkConfigurationProperty.IngressConfiguration`.
+	// Network configuration settings for inbound message traffic.
 	IngressConfiguration interface{} `field:"optional" json:"ingressConfiguration" yaml:"ingressConfiguration"`
 }
 

@@ -1,6 +1,8 @@
 package awsamplifyuibuilder
 
 
+// Describes the configuration for the default input values to display for a field.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,33 +41,33 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FieldInputConfigProperty struct {
-	// `CfnForm.FieldInputConfigProperty.Type`.
+	// The input type for the field.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnForm.FieldInputConfigProperty.DefaultChecked`.
+	// Specifies whether a field has a default value.
 	DefaultChecked interface{} `field:"optional" json:"defaultChecked" yaml:"defaultChecked"`
-	// `CfnForm.FieldInputConfigProperty.DefaultCountryCode`.
+	// The default country code for a phone number.
 	DefaultCountryCode *string `field:"optional" json:"defaultCountryCode" yaml:"defaultCountryCode"`
-	// `CfnForm.FieldInputConfigProperty.DefaultValue`.
+	// The default value for the field.
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// `CfnForm.FieldInputConfigProperty.DescriptiveText`.
+	// The text to display to describe the field.
 	DescriptiveText *string `field:"optional" json:"descriptiveText" yaml:"descriptiveText"`
-	// `CfnForm.FieldInputConfigProperty.MaxValue`.
+	// The maximum value to display for the field.
 	MaxValue *float64 `field:"optional" json:"maxValue" yaml:"maxValue"`
-	// `CfnForm.FieldInputConfigProperty.MinValue`.
+	// The minimum value to display for the field.
 	MinValue *float64 `field:"optional" json:"minValue" yaml:"minValue"`
-	// `CfnForm.FieldInputConfigProperty.Name`.
+	// The name of the field.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnForm.FieldInputConfigProperty.Placeholder`.
+	// The text to display as a placeholder for the field.
 	Placeholder *string `field:"optional" json:"placeholder" yaml:"placeholder"`
-	// `CfnForm.FieldInputConfigProperty.ReadOnly`.
+	// Specifies a read only field.
 	ReadOnly interface{} `field:"optional" json:"readOnly" yaml:"readOnly"`
-	// `CfnForm.FieldInputConfigProperty.Required`.
+	// Specifies a field that requires input.
 	Required interface{} `field:"optional" json:"required" yaml:"required"`
-	// `CfnForm.FieldInputConfigProperty.Step`.
+	// The stepping increment for a numeric value in a field.
 	Step *float64 `field:"optional" json:"step" yaml:"step"`
-	// `CfnForm.FieldInputConfigProperty.Value`.
+	// The value for the field.
 	Value *string `field:"optional" json:"value" yaml:"value"`
-	// `CfnForm.FieldInputConfigProperty.ValueMappings`.
+	// The information to use to customize the input fields with data at runtime.
 	ValueMappings interface{} `field:"optional" json:"valueMappings" yaml:"valueMappings"`
 }
 

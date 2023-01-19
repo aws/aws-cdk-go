@@ -24,7 +24,11 @@ package awsmediapackage
 type CfnPackagingConfiguration_HlsManifestProperty struct {
 	// This setting controls ad markers in the packaged content.
 	//
-	// `NONE` omits SCTE-35 ad markers from the output. `PASSTHROUGH` copies SCTE-35 ad markers from the source content to the output. `SCTE35_ENHANCED` generates ad markers and blackout tags in the output, based on SCTE-35 messages in the source content.
+	// Valid values:
+	//
+	// - `NONE` - Omits all SCTE-35 ad markers from the output.
+	// - `PASSTHROUGH` - Creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.
+	// - `SCTE35_ENHANCED` - Generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.
 	AdMarkers *string `field:"optional" json:"adMarkers" yaml:"adMarkers"`
 	// Applies to stream sets with a single video track only.
 	//

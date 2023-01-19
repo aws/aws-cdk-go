@@ -1,19 +1,21 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::EKS::Nodegroup`.
 //
 // Creates a managed node group for an Amazon EKS cluster. You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster. All node groups are created with the latest AMI release version for the respective minor Kubernetes version of the cluster, unless you deploy a custom AMI using a launch template. For more information about using launch templates, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) .
 //
-// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the Amazon EKS optimized Amazon Linux 2 AMI. For more information, see [Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) in the *Amazon EKS User Guide* .
+// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that are managed by AWS for an Amazon EKS cluster. For more information, see [Managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) in the *Amazon EKS User Guide* .
+//
+// > Windows AMI types are only supported for commercial Regions that support Windows Amazon EKS.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -80,7 +82,7 @@ type CfnNodegroup interface {
 	awscdk.IInspectable
 	// The AMI type for your node group.
 	//
-	// GPU instance types should use the `AL2_x86_64_GPU` AMI type. Non-GPU instances should use the `AL2_x86_64` AMI type. Arm instances should use the `AL2_ARM_64` AMI type. All types use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `amiType` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
+	// If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `amiType` , or the node group deployment will fail. If your launch template uses a Windows custom AMI, then add `eks:kube-proxy-windows` to your Windows nodes `rolearn` in the `aws-auth` `ConfigMap` . For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	AmiType() *string
 	SetAmiType(val *string)
 	// The Amazon Resource Name (ARN) associated with the managed node group.
@@ -94,9 +96,11 @@ type CfnNodegroup interface {
 	CapacityType() *string
 	SetCapacityType(val *string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// The name of the cluster to create the node group in.
 	ClusterName() *string
@@ -104,10 +108,11 @@ type CfnNodegroup interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The root device disk size (in GiB) for your node group instances.
 	//
-	// The default disk size is 20 GiB. If you specify `launchTemplate` , then don't specify `diskSize` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
+	// The default disk size is 20 GiB for Linux and Bottlerocket. The default disk size is 50 GiB for Windows. If you specify `launchTemplate` , then don't specify `diskSize` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	DiskSize() *float64
 	SetDiskSize(val *float64)
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
@@ -117,10 +122,12 @@ type CfnNodegroup interface {
 	SetForceUpdateEnabled(val interface{})
 	// Specify the instance types for a node group.
 	//
-	// If you specify a GPU instance type, be sure to specify `AL2_x86_64_GPU` with the `amiType` parameter. If you specify `launchTemplate` , then you can specify zero or one instance type in your launch template *or* you can specify 0-20 instance types for `instanceTypes` . If however, you specify an instance type in your launch template *and* specify any `instanceTypes` , the node group deployment will fail. If you don't specify an instance type in a launch template or for `instanceTypes` , then `t3.medium` is used, by default. If you specify `Spot` for `capacityType` , then we recommend specifying multiple values for `instanceTypes` . For more information, see [Managed node group capacity types](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) and [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
+	// If you specify a GPU instance type, make sure to also specify an applicable GPU AMI type with the `amiType` parameter. If you specify `launchTemplate` , then you can specify zero or one instance type in your launch template *or* you can specify 0-20 instance types for `instanceTypes` . If however, you specify an instance type in your launch template *and* specify any `instanceTypes` , the node group deployment will fail. If you don't specify an instance type in a launch template or for `instanceTypes` , then `t3.medium` is used, by default. If you specify `Spot` for `capacityType` , then we recommend specifying multiple values for `instanceTypes` . For more information, see [Managed node group capacity types](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) and [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	InstanceTypes() *[]*string
 	SetInstanceTypes(val *[]*string)
-	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+	// The Kubernetes labels applied to the nodes in the node group.
+	//
+	// > Only labels that are applied with the Amazon EKS API are shown here. There may be other Kubernetes labels applied to the nodes in this group.
 	Labels() interface{}
 	SetLabels(val interface{})
 	// An object representing a node group's launch template specification.
@@ -137,9 +144,11 @@ type CfnNodegroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The unique name to give your node group.
 	NodegroupName() *string
 	SetNodegroupName(val *string)
@@ -152,15 +161,16 @@ type CfnNodegroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The AMI version of the Amazon EKS optimized AMI to use with your node group (for example, `1.14.7- *YYYYMMDD*` ). By default, the latest available AMI version for the node group's current Kubernetes version is used. For more information, see [Amazon EKS optimized Linux AMI Versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html) in the *Amazon EKS User Guide* .
 	//
-	// > Changing this value triggers an update of the node group if one is available. However, only the latest available AMI release version is valid as an input. You cannot roll back to a previous AMI release version.
+	// > Changing this value triggers an update of the node group if one is available. You can't update other properties at the same time as updating `Release Version` .
 	ReleaseVersion() *string
 	SetReleaseVersion(val *string)
-	// The remote access (SSH) configuration to use with your node group.
+	// The remote access configuration to use with your node group.
 	//
-	// If you specify `launchTemplate` , then don't specify `remoteAccess` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
+	// For Linux, the protocol is SSH. For Windows, the protocol is RDP. If you specify `launchTemplate` , then don't specify `remoteAccess` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	RemoteAccess() interface{}
 	SetRemoteAccess(val interface{})
 	// The scaling configuration details for the Auto Scaling group that is created for your node group.
@@ -169,13 +179,14 @@ type CfnNodegroup interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
 	// If you specify `launchTemplate` , then don't specify [`SubnetId`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
-	// The metadata to apply to the node group to assist with categorization and organization.
+	// The metadata applied to the node group to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value. You define both. Node group tags do not propagate to any other resources associated with the node group, such as the Amazon EC2 instances or subnets.
 	Tags() awscdk.TagManager
@@ -187,33 +198,27 @@ type CfnNodegroup interface {
 	// The node group update configuration.
 	UpdateConfig() interface{}
 	SetUpdateConfig(val interface{})
-	// Deprecated.
-	// Deprecated: use `updatedProperties`
-	//
-	// Return properties modified after initiation
-	//
-	// Resources that expose mutable properties should override this function to
-	// collect and return the properties object for this resource.
-	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	UpdatedProperties() *map[string]interface{}
+	// Experimental.
+	UpdatedProperites() *map[string]interface{}
 	// The Kubernetes version to use for your managed nodes.
 	//
 	// By default, the Kubernetes version of the cluster is used, and this is the only accepted specified value. If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `version` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
+	//
+	// > You can't update other properties at the same time as updating `Version` .
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	AddDependency(target awscdk.CfnResource)
-	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-	// Deprecated: use addDependency.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -222,6 +227,7 @@ type CfnNodegroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -266,12 +272,15 @@ type CfnNodegroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -281,18 +290,15 @@ type CfnNodegroup interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
+	// Experimental.
+	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -300,35 +306,74 @@ type CfnNodegroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Retrieves an array of resources this resource depends on.
+	// Perform final modifications before synthesis.
 	//
-	// This assembles dependencies on resources across stacks (including nested stacks)
-	// automatically.
-	ObtainDependencies() *[]interface{}
-	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
-	ObtainResourceDependencies() *[]awscdk.CfnResource
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Indicates that this resource no longer depends on another resource.
+	// Perform final modifications before synthesis.
 	//
-	// This can be used for resources across stacks (including nested stacks)
-	// and the dependency will automatically be removed from the relevant scope.
-	RemoveDependency(target awscdk.CfnResource)
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
-	// Replaces one dependency with another.
-	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -508,8 +553,8 @@ func (j *jsiiProxy_CfnNodegroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNodegroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnNodegroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -638,16 +683,6 @@ func (j *jsiiProxy_CfnNodegroup) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNodegroup) UpdatedProperties() *map[string]interface{} {
-	var returns *map[string]interface{}
-	_jsii_.Get(
-		j,
-		"updatedProperties",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnNodegroup) Version() *string {
 	var returns *string
 	_jsii_.Get(
@@ -660,7 +695,7 @@ func (j *jsiiProxy_CfnNodegroup) Version() *string {
 
 
 // Create a new `AWS::EKS::Nodegroup`.
-func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
+func NewCfnNodegroup(scope awscdk.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
 	_init_.Initialize()
 
 	if err := validateNewCfnNodegroupParameters(scope, id, props); err != nil {
@@ -669,7 +704,7 @@ func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroup
 	j := jsiiProxy_CfnNodegroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -678,11 +713,11 @@ func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroup
 }
 
 // Create a new `AWS::EKS::Nodegroup`.
-func NewCfnNodegroup_Override(c CfnNodegroup, scope constructs.Construct, id *string, props *CfnNodegroupProps) {
+func NewCfnNodegroup_Override(c CfnNodegroup, scope awscdk.Construct, id *string, props *CfnNodegroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -860,6 +895,7 @@ func (j *jsiiProxy_CfnNodegroup)SetVersion(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnNodegroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -869,7 +905,7 @@ func CfnNodegroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -879,6 +915,7 @@ func CfnNodegroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnNodegroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -888,7 +925,7 @@ func CfnNodegroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -897,23 +934,8 @@ func CfnNodegroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnNodegroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -923,7 +945,7 @@ func CfnNodegroup_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -936,7 +958,7 @@ func CfnNodegroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -951,17 +973,6 @@ func (c *jsiiProxy_CfnNodegroup) AddDeletionOverride(path *string) {
 		c,
 		"addDeletionOverride",
 		[]interface{}{path},
-	)
-}
-
-func (c *jsiiProxy_CfnNodegroup) AddDependency(target awscdk.CfnResource) {
-	if err := c.validateAddDependencyParameters(target); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"addDependency",
-		[]interface{}{target},
 	)
 }
 
@@ -1031,7 +1042,7 @@ func (c *jsiiProxy_CfnNodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 	)
 }
 
-func (c *jsiiProxy_CfnNodegroup) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
+func (c *jsiiProxy_CfnNodegroup) GetAtt(attributeName *string) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -1040,7 +1051,7 @@ func (c *jsiiProxy_CfnNodegroup) GetAtt(attributeName *string, typeHint awscdk.R
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName, typeHint},
+		[]interface{}{attributeName},
 		&returns,
 	)
 
@@ -1074,25 +1085,31 @@ func (c *jsiiProxy_CfnNodegroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnNodegroup) ObtainDependencies() *[]interface{} {
-	var returns *[]interface{}
-
-	_jsii_.Invoke(
+func (c *jsiiProxy_CfnNodegroup) OnPrepare() {
+	_jsii_.InvokeVoid(
 		c,
-		"obtainDependencies",
+		"onPrepare",
 		nil, // no parameters
-		&returns,
 	)
-
-	return returns
 }
 
-func (c *jsiiProxy_CfnNodegroup) ObtainResourceDependencies() *[]awscdk.CfnResource {
-	var returns *[]awscdk.CfnResource
+func (c *jsiiProxy_CfnNodegroup) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnNodegroup) OnValidate() *[]*string {
+	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"obtainResourceDependencies",
+		"onValidate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1111,14 +1128,11 @@ func (c *jsiiProxy_CfnNodegroup) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-func (c *jsiiProxy_CfnNodegroup) RemoveDependency(target awscdk.CfnResource) {
-	if err := c.validateRemoveDependencyParameters(target); err != nil {
-		panic(err)
-	}
+func (c *jsiiProxy_CfnNodegroup) Prepare() {
 	_jsii_.InvokeVoid(
 		c,
-		"removeDependency",
-		[]interface{}{target},
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1138,17 +1152,6 @@ func (c *jsiiProxy_CfnNodegroup) RenderProperties(props *map[string]interface{})
 	return returns
 }
 
-func (c *jsiiProxy_CfnNodegroup) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
-	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"replaceDependency",
-		[]interface{}{target, newTarget},
-	)
-}
-
 func (c *jsiiProxy_CfnNodegroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1162,12 +1165,36 @@ func (c *jsiiProxy_CfnNodegroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnNodegroup) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnNodegroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnNodegroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

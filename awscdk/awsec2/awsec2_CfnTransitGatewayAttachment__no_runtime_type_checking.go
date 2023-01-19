@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) validateAddDeletionOverrideParam
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTransitGatewayAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTransitGatewayAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTransitGatewayAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnTransitGatewayAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTransitGatewayAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetVpcIdParameters(val *
 	return nil
 }
 
-func validateNewCfnTransitGatewayAttachmentParameters(scope constructs.Construct, id *string, props *CfnTransitGatewayAttachmentProps) error {
+func validateNewCfnTransitGatewayAttachmentParameters(scope awscdk.Construct, id *string, props *CfnTransitGatewayAttachmentProps) error {
 	return nil
 }
 

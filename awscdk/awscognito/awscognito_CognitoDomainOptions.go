@@ -24,8 +24,10 @@ package awscognito
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html
 //
+// Experimental.
 type CognitoDomainOptions struct {
 	// The prefix to the Cognito hosted domain name that will be associated with the user pool.
+	// Experimental.
 	DomainPrefix *string `field:"required" json:"domainPrefix" yaml:"domainPrefix"`
 }
 

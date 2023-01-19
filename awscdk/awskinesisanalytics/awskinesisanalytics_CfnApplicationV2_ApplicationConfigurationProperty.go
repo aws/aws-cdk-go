@@ -172,7 +172,7 @@ type CfnApplicationV2_ApplicationConfigurationProperty struct {
 	FlinkApplicationConfiguration interface{} `field:"optional" json:"flinkApplicationConfiguration" yaml:"flinkApplicationConfiguration"`
 	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
 	SqlApplicationConfiguration interface{} `field:"optional" json:"sqlApplicationConfiguration" yaml:"sqlApplicationConfiguration"`
-	// `CfnApplicationV2.ApplicationConfigurationProperty.VpcConfigurations`.
+	// The array of descriptions of VPC configurations available to the application.
 	VpcConfigurations interface{} `field:"optional" json:"vpcConfigurations" yaml:"vpcConfigurations"`
 	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 	ZeppelinApplicationConfiguration interface{} `field:"optional" json:"zeppelinApplicationConfiguration" yaml:"zeppelinApplicationConfiguration"`

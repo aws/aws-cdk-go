@@ -32,12 +32,15 @@ package awsecs
 //   	},
 //   })
 //
+// Experimental.
 type Protocol string
 
 const (
 	// TCP.
+	// Experimental.
 	Protocol_TCP Protocol = "TCP"
 	// UDP.
+	// Experimental.
 	Protocol_UDP Protocol = "UDP"
 )
 

@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -10,25 +10,31 @@ import (
 // Widgets will be laid out next to each other.
 //
 // Example:
-//   var widgetA iWidget
-//   var widgetB iWidget
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var widget iWidget
 //
-//   cloudwatch.NewColumn(widgetA, widgetB)
+//   column := awscdk.Aws_cloudwatch.NewColumn(widget)
 //
+// Experimental.
 type Column interface {
 	IWidget
 	// The amount of vertical grid units the widget will take up.
+	// Experimental.
 	Height() *float64
 	// List of contained widgets.
+	// Experimental.
 	Widgets() *[]IWidget
 	// The amount of horizontal grid units the widget will take up.
+	// Experimental.
 	Width() *float64
-	// Add the widget to this container.
-	AddWidget(w IWidget)
 	// Place the widget at a given position.
+	// Experimental.
 	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
+	// Experimental.
 	ToJson() *[]interface{}
 }
 
@@ -68,6 +74,7 @@ func (j *jsiiProxy_Column) Width() *float64 {
 }
 
 
+// Experimental.
 func NewColumn(widgets ...IWidget) Column {
 	_init_.Initialize()
 
@@ -79,7 +86,7 @@ func NewColumn(widgets ...IWidget) Column {
 	j := jsiiProxy_Column{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.Column",
+		"monocdk.aws_cloudwatch.Column",
 		args,
 		&j,
 	)
@@ -87,6 +94,7 @@ func NewColumn(widgets ...IWidget) Column {
 	return &j
 }
 
+// Experimental.
 func NewColumn_Override(c Column, widgets ...IWidget) {
 	_init_.Initialize()
 
@@ -96,20 +104,9 @@ func NewColumn_Override(c Column, widgets ...IWidget) {
 	}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.Column",
+		"monocdk.aws_cloudwatch.Column",
 		args,
 		c,
-	)
-}
-
-func (c *jsiiProxy_Column) AddWidget(w IWidget) {
-	if err := c.validateAddWidgetParameters(w); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"addWidget",
-		[]interface{}{w},
 	)
 }
 

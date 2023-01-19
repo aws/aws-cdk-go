@@ -20,7 +20,7 @@ type CfnService_DeploymentCircuitBreakerProperty struct {
 	Enable interface{} `field:"required" json:"enable" yaml:"enable"`
 	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails.
 	//
-	// If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	// If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 	Rollback interface{} `field:"required" json:"rollback" yaml:"rollback"`
 }
 

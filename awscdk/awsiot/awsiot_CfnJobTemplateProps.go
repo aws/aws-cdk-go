@@ -1,7 +1,7 @@
 package awsiot
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnJobTemplate`.
@@ -71,7 +71,7 @@ type CfnJobTemplateProps struct {
 	DocumentSource *string `field:"optional" json:"documentSource" yaml:"documentSource"`
 	// The ARN of the job to use as the basis for the job template.
 	JobArn *string `field:"optional" json:"jobArn" yaml:"jobArn"`
-	// Allows you to create the criteria to retry a job.
+	// `AWS::IoT::JobTemplate.JobExecutionsRetryConfig`.
 	JobExecutionsRetryConfig interface{} `field:"optional" json:"jobExecutionsRetryConfig" yaml:"jobExecutionsRetryConfig"`
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig interface{} `field:"optional" json:"jobExecutionsRolloutConfig" yaml:"jobExecutionsRolloutConfig"`

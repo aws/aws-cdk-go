@@ -84,6 +84,14 @@ func (e *jsiiProxy_EventBridgePutEvents) validateNextParameters(next awsstepfunc
 	return nil
 }
 
+func (e *jsiiProxy_EventBridgePutEvents) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (e *jsiiProxy_EventBridgePutEvents) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func (e *jsiiProxy_EventBridgePutEvents) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

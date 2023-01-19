@@ -36,11 +36,11 @@ func (s *jsiiProxy_SingletonFunction) validateConfigureAsyncInvokeParameters(opt
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (s *jsiiProxy_SingletonFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateDependOnParameters(down constructs.IConstruct) error {
+func (s *jsiiProxy_SingletonFunction) validateDependOnParameters(down awscdk.IConstruct) error {
 	return nil
 }
 
@@ -80,7 +80,15 @@ func (s *jsiiProxy_SingletonFunction) validateMetricThrottlesParameters(props *a
 	return nil
 }
 
-func (s *jsiiProxy_SingletonFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (s *jsiiProxy_SingletonFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SingletonFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SingletonFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	return nil
 }
 
@@ -88,11 +96,7 @@ func validateSingletonFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateSingletonFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSingletonFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSingletonFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

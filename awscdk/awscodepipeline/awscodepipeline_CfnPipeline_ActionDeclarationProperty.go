@@ -54,6 +54,8 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact.
 	//
+	// While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
+	//
 	// > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
 	InputArtifacts interface{} `field:"optional" json:"inputArtifacts" yaml:"inputArtifacts"`
 	// The variable namespace associated with the action.
@@ -61,6 +63,8 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	// All variables produced as output by this action fall under this namespace.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The name or ID of the result of the action declaration, such as a test or build artifact.
+	//
+	// While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
 	OutputArtifacts interface{} `field:"optional" json:"outputArtifacts" yaml:"outputArtifacts"`
 	// The action declaration's AWS Region, such as us-east-1.
 	Region *string `field:"optional" json:"region" yaml:"region"`

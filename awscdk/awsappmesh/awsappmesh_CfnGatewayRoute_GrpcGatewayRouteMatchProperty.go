@@ -40,7 +40,7 @@ type CfnGatewayRoute_GrpcGatewayRouteMatchProperty struct {
 	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 	// The gateway route metadata to be matched on.
 	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
-	// `CfnGatewayRoute.GrpcGatewayRouteMatchProperty.Port`.
+	// The gateway route port to be matched on.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The fully qualified domain name for the service to match from the request.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`

@@ -1,15 +1,11 @@
 //go:build no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
 func (c *jsiiProxy_CfnCustomResource) validateAddDeletionOverrideParameters(path *string) error {
-	return nil
-}
-
-func (c *jsiiProxy_CfnCustomResource) validateAddDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -49,11 +45,11 @@ func (c *jsiiProxy_CfnCustomResource) validateInspectParameters(inspector TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCustomResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateRemoveDependencyParameters(target CfnResource) error {
+func (c *jsiiProxy_CfnCustomResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -61,7 +57,7 @@ func (c *jsiiProxy_CfnCustomResource) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnCustomResource) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
+func (c *jsiiProxy_CfnCustomResource) validateSynthesizeParameters(session ISynthesisSession) error {
 	return nil
 }
 
@@ -85,7 +81,7 @@ func (j *jsiiProxy_CfnCustomResource) validateSetServiceTokenParameters(val *str
 	return nil
 }
 
-func validateNewCfnCustomResourceParameters(scope constructs.Construct, id *string, props *CfnCustomResourceProps) error {
+func validateNewCfnCustomResourceParameters(scope Construct, id *string, props *CfnCustomResourceProps) error {
 	return nil
 }
 

@@ -1,7 +1,9 @@
 package awsdlm
 
 
-// Specifies a rule for copying shared snapshots across Regions.
+// *[Event-based policies only]* Specifies a cross-Region copy action for event-based policies.
+//
+// > To specify a cross-Region copy rule for snapshot and AMI policies, use `CrossRegionCopyRule` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,7 +31,9 @@ type CfnLifecyclePolicy_CrossRegionCopyActionProperty struct {
 	EncryptionConfiguration interface{} `field:"required" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The target Region.
 	Target *string `field:"required" json:"target" yaml:"target"`
-	// Specifies the retention rule for cross-Region snapshot copies.
+	// Specifies a retention rule for cross-Region snapshot copies created by snapshot or event-based policies, or cross-Region AMI copies created by AMI policies.
+	//
+	// After the retention period expires, the cross-Region copy is deleted.
 	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`
 }
 

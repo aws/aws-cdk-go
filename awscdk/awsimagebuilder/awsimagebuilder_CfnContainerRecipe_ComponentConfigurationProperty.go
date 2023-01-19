@@ -23,7 +23,7 @@ package awsimagebuilder
 type CfnContainerRecipe_ComponentConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn *string `field:"optional" json:"componentArn" yaml:"componentArn"`
-	// `CfnContainerRecipe.ComponentConfigurationProperty.Parameters`.
+	// A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

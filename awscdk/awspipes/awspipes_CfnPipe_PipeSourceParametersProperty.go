@@ -1,6 +1,8 @@
 package awspipes
 
 
+// The parameters required to set up a source for your pipe.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -111,21 +113,23 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeSourceParametersProperty struct {
-	// `CfnPipe.PipeSourceParametersProperty.ActiveMQBrokerParameters`.
+	// The parameters for using an Active MQ broker as a source.
 	ActiveMqBrokerParameters interface{} `field:"optional" json:"activeMqBrokerParameters" yaml:"activeMqBrokerParameters"`
-	// `CfnPipe.PipeSourceParametersProperty.DynamoDBStreamParameters`.
+	// The parameters for using a DynamoDB stream as a source.
 	DynamoDbStreamParameters interface{} `field:"optional" json:"dynamoDbStreamParameters" yaml:"dynamoDbStreamParameters"`
-	// `CfnPipe.PipeSourceParametersProperty.FilterCriteria`.
+	// The collection of event patterns used to filter events.
+	//
+	// For more information, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the *Amazon EventBridge User Guide* .
 	FilterCriteria interface{} `field:"optional" json:"filterCriteria" yaml:"filterCriteria"`
-	// `CfnPipe.PipeSourceParametersProperty.KinesisStreamParameters`.
+	// The parameters for using a Kinesis stream as a source.
 	KinesisStreamParameters interface{} `field:"optional" json:"kinesisStreamParameters" yaml:"kinesisStreamParameters"`
-	// `CfnPipe.PipeSourceParametersProperty.ManagedStreamingKafkaParameters`.
+	// The parameters for using an MSK stream as a source.
 	ManagedStreamingKafkaParameters interface{} `field:"optional" json:"managedStreamingKafkaParameters" yaml:"managedStreamingKafkaParameters"`
-	// `CfnPipe.PipeSourceParametersProperty.RabbitMQBrokerParameters`.
+	// The parameters for using a Rabbit MQ broker as a source.
 	RabbitMqBrokerParameters interface{} `field:"optional" json:"rabbitMqBrokerParameters" yaml:"rabbitMqBrokerParameters"`
-	// `CfnPipe.PipeSourceParametersProperty.SelfManagedKafkaParameters`.
+	// The parameters for using a self-managed Apache Kafka stream as a source.
 	SelfManagedKafkaParameters interface{} `field:"optional" json:"selfManagedKafkaParameters" yaml:"selfManagedKafkaParameters"`
-	// `CfnPipe.PipeSourceParametersProperty.SqsQueueParameters`.
+	// The parameters for using a Amazon SQS stream as a source.
 	SqsQueueParameters interface{} `field:"optional" json:"sqsQueueParameters" yaml:"sqsQueueParameters"`
 }
 

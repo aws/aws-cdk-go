@@ -1,7 +1,7 @@
 package awswafv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnRuleGroup`.
@@ -522,15 +522,19 @@ type CfnRuleGroupProps struct {
 	Capacity *float64 `field:"required" json:"capacity" yaml:"capacity"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, or an Amazon Cognito user pool. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
-	// `AWS::WAFv2::RuleGroup.AvailableLabels`.
+	// The labels that one or more rules in this rule group add to matching web requests.
+	//
+	// These labels are defined in the `RuleLabels` for a `Rule` .
 	AvailableLabels interface{} `field:"optional" json:"availableLabels" yaml:"availableLabels"`
-	// `AWS::WAFv2::RuleGroup.ConsumedLabels`.
+	// The labels that one or more rules in this rule group match against in label match statements.
+	//
+	// These labels are defined in a `LabelMatchStatement` specification, in the `Statement` definition of a rule.
 	ConsumedLabels interface{} `field:"optional" json:"consumedLabels" yaml:"consumedLabels"`
 	// A map of custom response keys and content bodies.
 	//

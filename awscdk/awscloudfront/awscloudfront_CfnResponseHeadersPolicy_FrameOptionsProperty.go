@@ -1,7 +1,7 @@
 package awscloudfront
 
 
-// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value.
+// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
 //
 // For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 //

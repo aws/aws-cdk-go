@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A single Suricata rules specification, for use in a stateful rule group.
 //
-// Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#) .
+// Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/rules/intro.html#) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,8 +40,8 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 	// The actions for a stateful rule are defined as follows:
 	//
 	// - *PASS* - Permits the packets to go to the intended destination.
-	// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall's `LoggingConfiguration` .
-	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall's `LoggingConfiguration` .
+	// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
 	//
 	// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
 	Action *string `field:"required" json:"action" yaml:"action"`

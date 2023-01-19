@@ -3,44 +3,55 @@ package awsappsync
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticsearch"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awsopensearchservice"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Interface for GraphQL.
+// Experimental.
 type IGraphqlApi interface {
 	awscdk.IResource
 	// add a new DynamoDB data source to this API.
+	// Experimental.
 	AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource
 	// add a new elasticsearch data source to this API.
 	// Deprecated: - use `addOpenSearchDataSource`.
 	AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource
 	// add a new http data source to this API.
+	// Experimental.
 	AddHttpDataSource(id *string, endpoint *string, options *HttpDataSourceOptions) HttpDataSource
 	// add a new Lambda data source to this API.
+	// Experimental.
 	AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *DataSourceOptions) LambdaDataSource
 	// add a new dummy data source to this API.
 	//
 	// Useful for pipeline resolvers
 	// and for backend changes that don't require a data source.
+	// Experimental.
 	AddNoneDataSource(id *string, options *DataSourceOptions) NoneDataSource
 	// Add a new OpenSearch data source to this API.
+	// Experimental.
 	AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource
 	// add a new Rds data source to this API.
+	// Experimental.
 	AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource
 	// Add schema dependency if not imported.
+	// Experimental.
 	AddSchemaDependency(construct awscdk.CfnResource) *bool
 	// creates a new resolver for this datasource and API using the given properties.
-	CreateResolver(id *string, props *ExtendedResolverProps) Resolver
+	// Experimental.
+	CreateResolver(props *ExtendedResolverProps) Resolver
 	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
+	// Experimental.
 	ApiId() *string
 	// the ARN of the API.
+	// Experimental.
 	Arn() *string
 }
 
@@ -177,8 +188,8 @@ func (i *jsiiProxy_IGraphqlApi) AddSchemaDependency(construct awscdk.CfnResource
 	return returns
 }
 
-func (i *jsiiProxy_IGraphqlApi) CreateResolver(id *string, props *ExtendedResolverProps) Resolver {
-	if err := i.validateCreateResolverParameters(id, props); err != nil {
+func (i *jsiiProxy_IGraphqlApi) CreateResolver(props *ExtendedResolverProps) Resolver {
+	if err := i.validateCreateResolverParameters(props); err != nil {
 		panic(err)
 	}
 	var returns Resolver
@@ -186,7 +197,7 @@ func (i *jsiiProxy_IGraphqlApi) CreateResolver(id *string, props *ExtendedResolv
 	_jsii_.Invoke(
 		i,
 		"createResolver",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 

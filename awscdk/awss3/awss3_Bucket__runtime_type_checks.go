@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (b *jsiiProxy_Bucket) validateAddCorsRuleParameters(rule *CorsRule) error {
@@ -233,6 +233,22 @@ func (b *jsiiProxy_Bucket) validateOnCloudTrailWriteObjectParameters(id *string,
 	return nil
 }
 
+func (b *jsiiProxy_Bucket) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (b *jsiiProxy_Bucket) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (b *jsiiProxy_Bucket) validateTransferAccelerationUrlForObjectParameters(options *TransferAccelerationUrlOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -300,14 +316,6 @@ func validateBucket_FromBucketNameParameters(scope constructs.Construct, id *str
 	return nil
 }
 
-func validateBucket_FromCfnBucketParameters(cfnBucket CfnBucket) error {
-	if cfnBucket == nil {
-		return fmt.Errorf("parameter cfnBucket is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateBucket_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -316,15 +324,7 @@ func validateBucket_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBucket_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateBucket_IsResourceParameters(construct constructs.IConstruct) error {
+func validateBucket_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

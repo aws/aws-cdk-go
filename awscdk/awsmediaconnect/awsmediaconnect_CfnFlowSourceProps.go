@@ -50,7 +50,9 @@ type CfnFlowSourceProps struct {
 	//
 	// The entitlement is set by the content originator, and the ARN is generated as part of the originator's flow.
 	EntitlementArn *string `field:"optional" json:"entitlementArn" yaml:"entitlementArn"`
-	// The Amazon Resource Name (ARN) of the flow.
+	// The Amazon Resource Name (ARN) of the flow this source is connected to.
+	//
+	// The flow must have Failover enabled to add an additional source.
 	FlowArn *string `field:"optional" json:"flowArn" yaml:"flowArn"`
 	// The port that the flow listens on for incoming content.
 	//
@@ -63,10 +65,12 @@ type CfnFlowSourceProps struct {
 	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
 	// The protocol that the source uses to deliver the content to MediaConnect.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
-	// The stream ID that you want to use for the transport.
 	//
-	// This parameter applies only to Zixi-based streams.
+	// Adding additional sources to an existing flow requires Failover to be enabled. When you enable Failover, the additional source must use the same protocol as the existing source. Only the following protocols support failover: Zixi-push, RTP-FEC, RTP, and RIST.
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	// The stream ID that you want to use for this transport.
+	//
+	// This parameter applies only to Zixi and SRT caller-based streams.
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
 	// The name of the VPC interface that you want to send your output to.
 	VpcInterfaceName *string `field:"optional" json:"vpcInterfaceName" yaml:"vpcInterfaceName"`

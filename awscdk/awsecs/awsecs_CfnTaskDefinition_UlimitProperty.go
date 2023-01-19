@@ -15,11 +15,11 @@ package awsecs
 //   }
 //
 type CfnTaskDefinition_UlimitProperty struct {
-	// The hard limit for the ulimit type.
+	// The hard limit for the `ulimit` type.
 	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
 	// The `type` of the `ulimit` .
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The soft limit for the ulimit type.
+	// The soft limit for the `ulimit` type.
 	SoftLimit *float64 `field:"required" json:"softLimit" yaml:"softLimit"`
 }
 

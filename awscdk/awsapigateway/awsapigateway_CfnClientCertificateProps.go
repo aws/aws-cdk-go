@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnClientCertificate`.
@@ -22,9 +22,11 @@ import (
 //   }
 //
 type CfnClientCertificateProps struct {
-	// A description of the client certificate.
+	// The description of the client certificate.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+	// The collection of tags.
+	//
+	// Each tag element is associated with a given resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

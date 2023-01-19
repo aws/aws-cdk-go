@@ -16,8 +16,10 @@ package awssqs
 //   	},
 //   }
 //
+// Experimental.
 type QueuePolicyProps struct {
 	// The set of queues this policy applies to.
+	// Experimental.
 	Queues *[]IQueue `field:"required" json:"queues" yaml:"queues"`
 }
 

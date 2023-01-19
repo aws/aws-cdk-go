@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) validateAddDeletionOverrideParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserHierarchyGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnUserHierarchyGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserHierarchyGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnUserHierarchyGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserHierarchyGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnUserHierarchyGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnUserHierarchyGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnUserHierarchyGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnUserHierarchyGroup) validateSetNameParameters(val *string)
 	return nil
 }
 
-func validateNewCfnUserHierarchyGroupParameters(scope constructs.Construct, id *string, props *CfnUserHierarchyGroupProps) error {
+func validateNewCfnUserHierarchyGroupParameters(scope awscdk.Construct, id *string, props *CfnUserHierarchyGroupProps) error {
 	return nil
 }
 

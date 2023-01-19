@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnTagOptionAssociation) validateAddDeletionOverrideParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnTagOptionAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTagOptionAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnTagOptionAssociation) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnTagOptionAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTagOptionAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTagOptionAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTagOptionAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnTagOptionAssociation) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnTagOptionAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTagOptionAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnTagOptionAssociation) validateSetTagOptionIdParameters(val
 	return nil
 }
 
-func validateNewCfnTagOptionAssociationParameters(scope constructs.Construct, id *string, props *CfnTagOptionAssociationProps) error {
+func validateNewCfnTagOptionAssociationParameters(scope awscdk.Construct, id *string, props *CfnTagOptionAssociationProps) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsopensearchserverless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnCollection`.
@@ -26,13 +26,24 @@ import (
 //   }
 //
 type CfnCollectionProps struct {
-	// `AWS::OpenSearchServerless::Collection.Name`.
+	// The name of the collection.
+	//
+	// Collection names must meet the following criteria:
+	//
+	// - Starts with a lowercase letter
+	// - Unique to your account and AWS Region
+	// - Contains between 3 and 28 characters
+	// - Contains only lowercase letters a-z, the numbers 0-9, and the hyphen (-).
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::OpenSearchServerless::Collection.Description`.
+	// A description of the collection.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::OpenSearchServerless::Collection.Tags`.
+	// An arbitrary set of tags (key–value pairs) to associate with the collection.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::OpenSearchServerless::Collection.Type`.
+	// The type of collection.
+	//
+	// Possible values are `SEARCH` and `TIMESERIES` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

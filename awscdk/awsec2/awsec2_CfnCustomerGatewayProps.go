@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnCustomerGateway`.
@@ -30,7 +30,7 @@ type CfnCustomerGatewayProps struct {
 	//
 	// Default: 65000.
 	BgpAsn *float64 `field:"required" json:"bgpAsn" yaml:"bgpAsn"`
-	// The Internet-routable IP address for the customer gateway's outside interface.
+	// IPv4 address for the customer gateway device's outside interface.
 	//
 	// The address must be static.
 	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`

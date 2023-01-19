@@ -1,7 +1,7 @@
 package awscodebuild
 
 
-// The return type from `IBuildImage.binder` - currently empty.
+// The return type from {@link IBuildImage.binder} - currently empty.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -11,6 +11,7 @@ package awscodebuild
 //   buildImageConfig := &buildImageConfig{
 //   }
 //
+// Experimental.
 type BuildImageConfig struct {
 }
 

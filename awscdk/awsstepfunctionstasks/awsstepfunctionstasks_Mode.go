@@ -13,14 +13,17 @@ package awsstepfunctionstasks
 //   	}),
 //   })
 //
+// Experimental.
 type Mode string
 
 const (
 	// Container hosts a single model.
+	// Experimental.
 	Mode_SINGLE_MODEL Mode = "SINGLE_MODEL"
 	// Container hosts multiple models.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/dg/multi-model-endpoints.html
 	//
+	// Experimental.
 	Mode_MULTI_MODEL Mode = "MULTI_MODEL"
 )
 

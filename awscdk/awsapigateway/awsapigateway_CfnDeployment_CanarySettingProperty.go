@@ -25,7 +25,7 @@ type CfnDeployment_CanarySettingProperty struct {
 	//
 	// These stage variables are represented as a string-to-string map between stage variable names and their values.
 	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
-	// Whether the canary deployment uses the stage cache or not.
+	// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
 	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 

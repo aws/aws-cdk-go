@@ -15,7 +15,7 @@ package awssso
 //   }
 //
 type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeValueProperty struct {
-	// The identity source to use when mapping a specified attribute to AWS SSO .
+	// The identity source to use when mapping a specified attribute to IAM Identity Center .
 	Source *[]*string `field:"required" json:"source" yaml:"source"`
 }
 

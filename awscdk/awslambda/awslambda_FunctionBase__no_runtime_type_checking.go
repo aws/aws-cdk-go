@@ -32,7 +32,7 @@ func (f *jsiiProxy_FunctionBase) validateConfigureAsyncInvokeParameters(options 
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (f *jsiiProxy_FunctionBase) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	return nil
 }
 
@@ -72,7 +72,15 @@ func (f *jsiiProxy_FunctionBase) validateMetricThrottlesParameters(props *awsclo
 	return nil
 }
 
-func (f *jsiiProxy_FunctionBase) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (f *jsiiProxy_FunctionBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (f *jsiiProxy_FunctionBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func (f *jsiiProxy_FunctionBase) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	return nil
 }
 
@@ -80,11 +88,7 @@ func validateFunctionBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFunctionBase_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateFunctionBase_IsResourceParameters(construct constructs.IConstruct) error {
+func validateFunctionBase_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -14,9 +14,9 @@ package awsmacie
 //   }
 //
 type CfnFindingsFilter_FindingsFilterListItemProperty struct {
-	// The unique identifier for the filter.
+	// The unique identifier for the findings filter.
 	Id *string `field:"optional" json:"id" yaml:"id"`
-	// The custom name of the filter.
+	// The custom name of the findings filter.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

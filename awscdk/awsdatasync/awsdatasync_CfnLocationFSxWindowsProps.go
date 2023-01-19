@@ -1,7 +1,7 @@
 package awsdatasync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnLocationFSxWindows`.
@@ -41,19 +41,19 @@ type CfnLocationFSxWindowsProps struct {
 	//
 	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#FSxWuser) .
 	User *string `field:"required" json:"user" yaml:"user"`
-	// The name of the Windows domain that the FSx for Windows File Server belongs to.
+	// Specifies the name of the Windows domain that the FSx for Windows File Server belongs to.
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
-	// The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
+	// Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
 	FsxFilesystemArn *string `field:"optional" json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
-	// The password of the user who has the permissions to access files and folders in the FSx for Windows File Server file system.
+	// Specifies the password of the user who has the permissions to access files and folders in the file system.
 	Password *string `field:"optional" json:"password" yaml:"password"`
-	// A subdirectory in the location's path.
+	// Specifies a mount path for your file system using forward slashes.
 	//
-	// This subdirectory in the Amazon FSx for Windows File Server file system is used to read data from the Amazon FSx for Windows File Server source location or write data to the FSx for Windows File Server destination.
+	// This is where DataSync reads or writes data (depending on if this is a source or destination location).
 	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
-	// The key-value pair that represents a tag that you want to add to the resource.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	//
-	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
+	// We recommend creating at least a name tag for your location.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

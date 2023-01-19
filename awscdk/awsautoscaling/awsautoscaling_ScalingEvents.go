@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,6 +14,7 @@ import (
 //
 //   scalingEvents := awscdk.Aws_autoscaling.scalingEvents_ALL()
 //
+// Experimental.
 type ScalingEvents interface {
 }
 
@@ -22,6 +23,7 @@ type jsiiProxy_ScalingEvents struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewScalingEvents(types ...ScalingEvent) ScalingEvents {
 	_init_.Initialize()
 
@@ -33,7 +35,7 @@ func NewScalingEvents(types ...ScalingEvent) ScalingEvents {
 	j := jsiiProxy_ScalingEvents{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
+		"monocdk.aws_autoscaling.ScalingEvents",
 		args,
 		&j,
 	)
@@ -41,6 +43,7 @@ func NewScalingEvents(types ...ScalingEvent) ScalingEvents {
 	return &j
 }
 
+// Experimental.
 func NewScalingEvents_Override(s ScalingEvents, types ...ScalingEvent) {
 	_init_.Initialize()
 
@@ -50,7 +53,7 @@ func NewScalingEvents_Override(s ScalingEvents, types ...ScalingEvent) {
 	}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
+		"monocdk.aws_autoscaling.ScalingEvents",
 		args,
 		s,
 	)
@@ -60,7 +63,7 @@ func ScalingEvents_ALL() ScalingEvents {
 	_init_.Initialize()
 	var returns ScalingEvents
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
+		"monocdk.aws_autoscaling.ScalingEvents",
 		"ALL",
 		&returns,
 	)
@@ -71,7 +74,7 @@ func ScalingEvents_ERRORS() ScalingEvents {
 	_init_.Initialize()
 	var returns ScalingEvents
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
+		"monocdk.aws_autoscaling.ScalingEvents",
 		"ERRORS",
 		&returns,
 	)
@@ -82,7 +85,7 @@ func ScalingEvents_LAUNCH_EVENTS() ScalingEvents {
 	_init_.Initialize()
 	var returns ScalingEvents
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
+		"monocdk.aws_autoscaling.ScalingEvents",
 		"LAUNCH_EVENTS",
 		&returns,
 	)
@@ -93,7 +96,7 @@ func ScalingEvents_TERMINATION_EVENTS() ScalingEvents {
 	_init_.Initialize()
 	var returns ScalingEvents
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
+		"monocdk.aws_autoscaling.ScalingEvents",
 		"TERMINATION_EVENTS",
 		&returns,
 	)

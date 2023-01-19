@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -79,6 +79,22 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) validateOnReEvaluationS
 	return nil
 }
 
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCloudFormationStackNotificationCheck_FromConfigRuleNameParameters(scope constructs.Construct, id *string, configRuleName *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -103,15 +119,7 @@ func validateCloudFormationStackNotificationCheck_IsConstructParameters(x interf
 	return nil
 }
 
-func validateCloudFormationStackNotificationCheck_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCloudFormationStackNotificationCheck_IsResourceParameters(construct constructs.IConstruct) error {
+func validateCloudFormationStackNotificationCheck_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

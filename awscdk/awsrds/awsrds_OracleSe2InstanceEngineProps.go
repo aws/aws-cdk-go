@@ -3,7 +3,7 @@ package awsrds
 
 // Properties for Oracle Standard Edition 2 instance engines.
 //
-// Used in `DatabaseInstanceEngine.oracleSe2`.
+// Used in {@link DatabaseInstanceEngine.oracleSe2}.
 //
 // Example:
 //   var vpc vpc
@@ -18,12 +18,14 @@ package awsrds
 //   	 // Optional - will default to 'admin' username and generated password
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   	},
 //   })
 //
+// Experimental.
 type OracleSe2InstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version OracleEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

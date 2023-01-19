@@ -1,7 +1,7 @@
 package awsguardduty
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnFilter`.
@@ -58,6 +58,8 @@ type CfnFilterProps struct {
 	// Specifies the action that is to be applied to the findings that match the filter.
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// The description of the filter.
+	//
+	// Valid special characters include period (.), underscore (_), dash (-), and whitespace. The new line character is considered to be an invalid input for description.
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
@@ -65,11 +67,19 @@ type CfnFilterProps struct {
 	FindingCriteria interface{} `field:"required" json:"findingCriteria" yaml:"findingCriteria"`
 	// The name of the filter.
 	//
-	// Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.
+	// Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::GuardDuty::Filter.Rank`.
+	// Specifies the position of the filter in the list of current filters.
+	//
+	// Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+	//
+	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
 	Rank *float64 `field:"required" json:"rank" yaml:"rank"`
-	// `AWS::GuardDuty::Filter.Tags`.
+	// The tags to be added to a new filter resource.
+	//
+	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnEventSubscription) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventSubscription) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnEventSubscription) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnEventSubscription) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventSubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnEventSubscription) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventSubscription) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEventSubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnEventSubscription) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventSubscription) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEventSubscription) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnEventSubscription) validateSetSnsTopicArnParameters(val *s
 	return nil
 }
 
-func validateNewCfnEventSubscriptionParameters(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) error {
+func validateNewCfnEventSubscriptionParameters(scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) error {
 	return nil
 }
 

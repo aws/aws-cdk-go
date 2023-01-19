@@ -1,7 +1,7 @@
 package awsemrserverless
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnApplication`.
@@ -74,7 +74,9 @@ type CfnApplicationProps struct {
 	ReleaseLabel *string `field:"required" json:"releaseLabel" yaml:"releaseLabel"`
 	// The type of application, such as Spark or Hive.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `AWS::EMRServerless::Application.Architecture`.
+	// The CPU architecture type of the application.
+	//
+	// Allowed values: `X86_64` or `ARM64`.
 	Architecture *string `field:"optional" json:"architecture" yaml:"architecture"`
 	// The configuration for an application to automatically start on job submission.
 	AutoStartConfiguration interface{} `field:"optional" json:"autoStartConfiguration" yaml:"autoStartConfiguration"`

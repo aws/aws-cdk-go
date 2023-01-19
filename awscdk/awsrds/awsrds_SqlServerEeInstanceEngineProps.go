@@ -3,7 +3,7 @@ package awsrds
 
 // Properties for SQL Server Enterprise Edition instance engines.
 //
-// Used in `DatabaseInstanceEngine.sqlServerEe`.
+// Used in {@link DatabaseInstanceEngine.sqlServerEe}.
 //
 // Example:
 //   var vpc vpc
@@ -24,8 +24,10 @@ package awsrds
 //   	parameterGroup: parameterGroup,
 //   })
 //
+// Experimental.
 type SqlServerEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

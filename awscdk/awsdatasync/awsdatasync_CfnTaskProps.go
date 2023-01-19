@@ -1,7 +1,7 @@
 package awsdatasync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnTask`.
@@ -69,31 +69,29 @@ type CfnTaskProps struct {
 	//
 	// For more information about these groups, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide* .
 	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
-	// A list of filter rules that determines which files to exclude from a task.
+	// Specifies a list of filter rules that exclude specific data during your transfer.
 	//
-	// The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
+	// For more information and examples, see [Filtering data transferred by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Excludes interface{} `field:"optional" json:"excludes" yaml:"excludes"`
-	// A list of filter rules that determines which files to include when running a task.
+	// Specifies a list of filter rules that include specific data during your transfer.
 	//
-	// The pattern contains a single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
+	// For more information and examples, see [Filtering data transferred by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Includes interface{} `field:"optional" json:"includes" yaml:"includes"`
 	// The name of a task.
 	//
 	// This value is a text reference that is used to identify the task in the console.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The set of configuration options that control the behavior of a single execution of the task that occurs when you call `StartTaskExecution` .
+	// Specifies the configuration options for a task. Some options include preserving file or object metadata and verifying data integrity.
 	//
-	// You can configure these options to preserve metadata such as user ID (UID) and group ID (GID), file permissions, data integrity verification, and so on.
-	//
-	// For each individual task execution, you can override these options by specifying the `OverrideOptions` before starting the task execution. For more information, see the [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation.
+	// You can also override these options before starting an individual run of a task (also known as a *task execution* ). For more information, see [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	//
 	// The schedule should be specified in UTC time. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
 	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
-	// The key-value pair that represents the tag that you want to add to the resource.
+	// Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task.
 	//
-	// The value can be an empty string.
+	// *Tags* are key-value pairs that help you manage, filter, and search for your DataSync resources.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

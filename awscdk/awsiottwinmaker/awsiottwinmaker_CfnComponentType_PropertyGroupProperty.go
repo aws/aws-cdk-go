@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// The property group.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,9 @@ package awsiottwinmaker
 //   }
 //
 type CfnComponentType_PropertyGroupProperty struct {
-	// `CfnComponentType.PropertyGroupProperty.GroupType`.
+	// The group type.
 	GroupType *string `field:"optional" json:"groupType" yaml:"groupType"`
-	// `CfnComponentType.PropertyGroupProperty.PropertyNames`.
+	// The property names.
 	PropertyNames *[]*string `field:"optional" json:"propertyNames" yaml:"propertyNames"`
 }
 

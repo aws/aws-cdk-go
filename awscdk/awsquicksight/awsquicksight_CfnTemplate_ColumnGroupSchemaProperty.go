@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The column group schema.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,9 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ColumnGroupSchemaProperty struct {
-	// `CfnTemplate.ColumnGroupSchemaProperty.ColumnGroupColumnSchemaList`.
+	// A structure containing the list of schemas for column group columns.
 	ColumnGroupColumnSchemaList interface{} `field:"optional" json:"columnGroupColumnSchemaList" yaml:"columnGroupColumnSchemaList"`
-	// `CfnTemplate.ColumnGroupSchemaProperty.Name`.
+	// The name of the column group schema.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

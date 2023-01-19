@@ -101,8 +101,6 @@ package awscloudfront
 //
 type CfnResponseHeadersPolicyProps struct {
 	// A response headers policy configuration.
-	//
-	// A response headers policy contains information about a set of HTTP response headers and their values. CloudFront adds the headers in the policy to HTTP responses that it sends for requests that match a cache behavior that’s associated with the policy.
 	ResponseHeadersPolicyConfig interface{} `field:"required" json:"responseHeadersPolicyConfig" yaml:"responseHeadersPolicyConfig"`
 }
 

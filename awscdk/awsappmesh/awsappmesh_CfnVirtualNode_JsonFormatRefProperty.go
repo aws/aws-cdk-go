@@ -1,6 +1,8 @@
 package awsappmesh
 
 
+// An object that represents the key value pairs for the JSON.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsappmesh
 //   }
 //
 type CfnVirtualNode_JsonFormatRefProperty struct {
-	// `CfnVirtualNode.JsonFormatRefProperty.Key`.
+	// The specified key for the JSON.
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// `CfnVirtualNode.JsonFormatRefProperty.Value`.
+	// The specified value for the JSON.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

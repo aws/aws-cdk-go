@@ -24,12 +24,16 @@ package awscognito
 //   	redirectUri: jsii.String("https://myapp.com/home"),
 //   })
 //
+// Experimental.
 type SignInUrlOptions struct {
 	// Whether to return the FIPS-compliant endpoint.
+	// Experimental.
 	Fips *bool `field:"optional" json:"fips" yaml:"fips"`
 	// Where to redirect to after sign in.
+	// Experimental.
 	RedirectUri *string `field:"required" json:"redirectUri" yaml:"redirectUri"`
 	// The path in the URI where the sign-in page is located.
+	// Experimental.
 	SignInPath *string `field:"optional" json:"signInPath" yaml:"signInPath"`
 }
 

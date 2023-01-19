@@ -1,15 +1,17 @@
 package awsgrafana
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsgrafana/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsgrafana/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Grafana::Workspace`.
+//
+// Specifies a *workspace* . In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -78,36 +80,69 @@ import (
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Grafana::Workspace.AccountAccessType`.
+	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
+	//
+	// If this is `ORGANIZATION` , the `workspaceOrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType() *string
 	SetAccountAccessType(val *string)
+	// The date that the workspace was created.
+	//
+	// Type: Timestamp.
 	AttrCreationTimestamp() *string
+	// The URL that users can use to access the Grafana console in the workspace.
+	//
+	// Type: String.
 	AttrEndpoint() *string
+	// The version of Grafana supported in this workspace.
+	//
+	// Type: String.
 	AttrGrafanaVersion() *string
+	// The unique ID of this workspace.
+	//
+	// Type: String.
 	AttrId() *string
+	// The most recent date that the workspace was modified.
+	//
+	// Type: Timestamp.
 	AttrModificationTimestamp() *string
+	// Specifies whether the workspace's SAML configuration is complete.
+	//
+	// Valid values: `CONFIGURED | NOT_CONFIGURED`
+	//
+	// Type: String.
 	AttrSamlConfigurationStatus() *string
+	// The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana .
+	//
+	// Type: String.
 	AttrSsoClientId() *string
+	// The current status of the workspace.
+	//
+	// Valid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`
+	//
+	// Type: String.
 	AttrStatus() *string
-	// `AWS::Grafana::Workspace.AuthenticationProviders`.
+	// Specifies whether this workspace uses SAML 2.0, AWS IAM Identity Center (successor to AWS Single Sign-On) , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
 	AuthenticationProviders() *[]*string
 	SetAuthenticationProviders(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
-	// `AWS::Grafana::Workspace.ClientToken`.
+	// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
 	ClientToken() *string
 	SetClientToken(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Grafana::Workspace.DataSources`.
+	// Specifies the AWS data sources that have been configured to have IAM roles and permissions created to allow Amazon Managed Grafana to read data from these sources.
 	DataSources() *[]*string
 	SetDataSources(val *[]*string)
-	// `AWS::Grafana::Workspace.Description`.
+	// The user-defined description of the workspace.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -119,67 +154,69 @@ type CfnWorkspace interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
-	// `AWS::Grafana::Workspace.Name`.
+	// The name of the workspace.
 	Name() *string
 	SetName(val *string)
-	// The tree node.
-	Node() constructs.Node
-	// `AWS::Grafana::Workspace.NotificationDestinations`.
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// The AWS notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, to allow Amazon Managed Grafana to use these channels.
 	NotificationDestinations() *[]*string
 	SetNotificationDestinations(val *[]*string)
-	// `AWS::Grafana::Workspace.OrganizationalUnits`.
+	// Specifies the organizational units that this workspace is allowed to use data sources from, if this workspace is in an account that is part of an organization.
 	OrganizationalUnits() *[]*string
 	SetOrganizationalUnits(val *[]*string)
-	// `AWS::Grafana::Workspace.OrganizationRoleName`.
+	// The name of the IAM role that is used to access resources through Organizations .
 	OrganizationRoleName() *string
 	SetOrganizationRoleName(val *string)
-	// `AWS::Grafana::Workspace.PermissionType`.
+	// If this is `Service Managed` , Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+	//
+	// If this is `CUSTOMER_MANAGED` , you manage those roles and permissions yourself. If you are creating this workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, you must choose `CUSTOMER_MANAGED` .
+	//
+	// For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
 	PermissionType() *string
 	SetPermissionType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
-	// `AWS::Grafana::Workspace.RoleArn`.
+	// The IAM role that grants permissions to the AWS resources that the workspace will view data from.
+	//
+	// This role must already exist.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// `AWS::Grafana::Workspace.SamlConfiguration`.
+	// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
 	SamlConfiguration() interface{}
 	SetSamlConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::Grafana::Workspace.StackSetName`.
+	// The name of the AWS CloudFormation stack set that is used to generate IAM roles to be used for this workspace.
 	StackSetName() *string
 	SetStackSetName(val *string)
-	// Deprecated.
-	// Deprecated: use `updatedProperties`
-	//
-	// Return properties modified after initiation
-	//
-	// Resources that expose mutable properties should override this function to
-	// collect and return the properties object for this resource.
-	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	UpdatedProperties() *map[string]interface{}
-	// `AWS::Grafana::Workspace.VpcConfiguration`.
+	// Experimental.
+	UpdatedProperites() *map[string]interface{}
+	// The configuration for connecting to data sources in a private VPC ( Amazon Virtual Private Cloud ).
 	VpcConfiguration() interface{}
 	SetVpcConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	AddDependency(target awscdk.CfnResource)
-	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-	// Deprecated: use addDependency.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -188,6 +225,7 @@ type CfnWorkspace interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -232,12 +270,15 @@ type CfnWorkspace interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -247,18 +288,15 @@ type CfnWorkspace interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference
+	// Experimental.
+	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
@@ -266,35 +304,74 @@ type CfnWorkspace interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Retrieves an array of resources this resource depends on.
+	// Perform final modifications before synthesis.
 	//
-	// This assembles dependencies on resources across stacks (including nested stacks)
-	// automatically.
-	ObtainDependencies() *[]interface{}
-	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
-	ObtainResourceDependencies() *[]awscdk.CfnResource
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Indicates that this resource no longer depends on another resource.
+	// Perform final modifications before synthesis.
 	//
-	// This can be used for resources across stacks (including nested stacks)
-	// and the dependency will automatically be removed from the relevant scope.
-	RemoveDependency(target awscdk.CfnResource)
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
-	// Replaces one dependency with another.
-	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -494,8 +571,8 @@ func (j *jsiiProxy_CfnWorkspace) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWorkspace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -604,16 +681,6 @@ func (j *jsiiProxy_CfnWorkspace) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) UpdatedProperties() *map[string]interface{} {
-	var returns *map[string]interface{}
-	_jsii_.Get(
-		j,
-		"updatedProperties",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnWorkspace) VpcConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -626,7 +693,7 @@ func (j *jsiiProxy_CfnWorkspace) VpcConfiguration() interface{} {
 
 
 // Create a new `AWS::Grafana::Workspace`.
-func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
+func NewCfnWorkspace(scope awscdk.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
 	if err := validateNewCfnWorkspaceParameters(scope, id, props); err != nil {
@@ -635,7 +702,7 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 	j := jsiiProxy_CfnWorkspace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace",
+		"monocdk.aws_grafana.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -644,11 +711,11 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 }
 
 // Create a new `AWS::Grafana::Workspace`.
-func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
+func NewCfnWorkspace_Override(c CfnWorkspace, scope awscdk.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace",
+		"monocdk.aws_grafana.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -778,6 +845,7 @@ func (j *jsiiProxy_CfnWorkspace)SetVpcConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -787,7 +855,7 @@ func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace",
+		"monocdk.aws_grafana.CfnWorkspace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -797,6 +865,7 @@ func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -806,7 +875,7 @@ func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace",
+		"monocdk.aws_grafana.CfnWorkspace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -815,23 +884,8 @@ func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWorkspace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -841,7 +895,7 @@ func CfnWorkspace_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace",
+		"monocdk.aws_grafana.CfnWorkspace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -854,7 +908,7 @@ func CfnWorkspace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace",
+		"monocdk.aws_grafana.CfnWorkspace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -869,17 +923,6 @@ func (c *jsiiProxy_CfnWorkspace) AddDeletionOverride(path *string) {
 		c,
 		"addDeletionOverride",
 		[]interface{}{path},
-	)
-}
-
-func (c *jsiiProxy_CfnWorkspace) AddDependency(target awscdk.CfnResource) {
-	if err := c.validateAddDependencyParameters(target); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"addDependency",
-		[]interface{}{target},
 	)
 }
 
@@ -949,7 +992,7 @@ func (c *jsiiProxy_CfnWorkspace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 	)
 }
 
-func (c *jsiiProxy_CfnWorkspace) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {
+func (c *jsiiProxy_CfnWorkspace) GetAtt(attributeName *string) awscdk.Reference {
 	if err := c.validateGetAttParameters(attributeName); err != nil {
 		panic(err)
 	}
@@ -958,7 +1001,7 @@ func (c *jsiiProxy_CfnWorkspace) GetAtt(attributeName *string, typeHint awscdk.R
 	_jsii_.Invoke(
 		c,
 		"getAtt",
-		[]interface{}{attributeName, typeHint},
+		[]interface{}{attributeName},
 		&returns,
 	)
 
@@ -992,25 +1035,31 @@ func (c *jsiiProxy_CfnWorkspace) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnWorkspace) ObtainDependencies() *[]interface{} {
-	var returns *[]interface{}
-
-	_jsii_.Invoke(
+func (c *jsiiProxy_CfnWorkspace) OnPrepare() {
+	_jsii_.InvokeVoid(
 		c,
-		"obtainDependencies",
+		"onPrepare",
 		nil, // no parameters
-		&returns,
 	)
-
-	return returns
 }
 
-func (c *jsiiProxy_CfnWorkspace) ObtainResourceDependencies() *[]awscdk.CfnResource {
-	var returns *[]awscdk.CfnResource
+func (c *jsiiProxy_CfnWorkspace) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := c.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnWorkspace) OnValidate() *[]*string {
+	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"obtainResourceDependencies",
+		"onValidate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1029,14 +1078,11 @@ func (c *jsiiProxy_CfnWorkspace) OverrideLogicalId(newLogicalId *string) {
 	)
 }
 
-func (c *jsiiProxy_CfnWorkspace) RemoveDependency(target awscdk.CfnResource) {
-	if err := c.validateRemoveDependencyParameters(target); err != nil {
-		panic(err)
-	}
+func (c *jsiiProxy_CfnWorkspace) Prepare() {
 	_jsii_.InvokeVoid(
 		c,
-		"removeDependency",
-		[]interface{}{target},
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1056,17 +1102,6 @@ func (c *jsiiProxy_CfnWorkspace) RenderProperties(props *map[string]interface{})
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkspace) ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource) {
-	if err := c.validateReplaceDependencyParameters(target, newTarget); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		c,
-		"replaceDependency",
-		[]interface{}{target, newTarget},
-	)
-}
-
 func (c *jsiiProxy_CfnWorkspace) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1080,12 +1115,36 @@ func (c *jsiiProxy_CfnWorkspace) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnWorkspace) Synthesize(session awscdk.ISynthesisSession) {
+	if err := c.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnWorkspace) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnWorkspace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

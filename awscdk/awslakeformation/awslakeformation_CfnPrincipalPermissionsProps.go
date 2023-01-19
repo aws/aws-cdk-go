@@ -86,15 +86,17 @@ package awslakeformation
 //   }
 //
 type CfnPrincipalPermissionsProps struct {
-	// `AWS::LakeFormation::PrincipalPermissions.Permissions`.
+	// The permissions granted or revoked.
 	Permissions *[]*string `field:"required" json:"permissions" yaml:"permissions"`
-	// `AWS::LakeFormation::PrincipalPermissions.PermissionsWithGrantOption`.
+	// Indicates the ability to grant permissions (as a subset of permissions granted).
 	PermissionsWithGrantOption *[]*string `field:"required" json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
-	// `AWS::LakeFormation::PrincipalPermissions.Principal`.
+	// The principal to be granted a permission.
 	Principal interface{} `field:"required" json:"principal" yaml:"principal"`
-	// `AWS::LakeFormation::PrincipalPermissions.Resource`.
+	// The resource to be granted or revoked permissions.
 	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
-	// `AWS::LakeFormation::PrincipalPermissions.Catalog`.
+	// The identifier for the Data Catalog .
+	//
+	// By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	Catalog *string `field:"optional" json:"catalog" yaml:"catalog"`
 }
 

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The column schema.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,11 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_ColumnSchemaProperty struct {
-	// `CfnTemplate.ColumnSchemaProperty.DataType`.
+	// The data type of the column schema.
 	DataType *string `field:"optional" json:"dataType" yaml:"dataType"`
-	// `CfnTemplate.ColumnSchemaProperty.GeographicRole`.
+	// The geographic role of the column schema.
 	GeographicRole *string `field:"optional" json:"geographicRole" yaml:"geographicRole"`
-	// `CfnTemplate.ColumnSchemaProperty.Name`.
+	// The name of the column schema.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

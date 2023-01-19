@@ -8,6 +8,14 @@ func (s *jsiiProxy_StepScalingAction) validateAddAdjustmentParameters(adjustment
 	return nil
 }
 
+func (s *jsiiProxy_StepScalingAction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_StepScalingAction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateStepScalingAction_IsConstructParameters(x interface{}) error {
 	return nil
 }

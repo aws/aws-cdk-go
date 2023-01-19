@@ -18,15 +18,15 @@ package awssso
 //   }
 //
 type CfnAssignmentProps struct {
-	// The ARN of the SSO instance under which the operation will be executed.
+	// The ARN of the IAM Identity Center instance under which the operation will be executed.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The ARN of the permission set.
 	PermissionSetArn *string `field:"required" json:"permissionSetArn" yaml:"permissionSetArn"`
-	// An identifier for an object in AWS SSO , such as a user or group.
+	// An identifier for an object in IAM Identity Center, such as a user or group.
 	//
-	// PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO , see the [AWS SSO Identity Store API Reference](https://docs.aws.amazon.com//singlesignon/latest/IdentityStoreAPIReference/welcome.html) .
+	// PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the [IAM Identity Center Identity Store API Reference](https://docs.aws.amazon.com//singlesignon/latest/IdentityStoreAPIReference/welcome.html) .
 	PrincipalId *string `field:"required" json:"principalId" yaml:"principalId"`
 	// The entity type for which the assignment will be created.
 	PrincipalType *string `field:"required" json:"principalType" yaml:"principalType"`

@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (r *jsiiProxy_RateLimitedApiKey) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -67,6 +67,22 @@ func (r *jsiiProxy_RateLimitedApiKey) validateGrantWriteParameters(grantee awsia
 	return nil
 }
 
+func (r *jsiiProxy_RateLimitedApiKey) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (r *jsiiProxy_RateLimitedApiKey) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateRateLimitedApiKey_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -75,15 +91,7 @@ func validateRateLimitedApiKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateRateLimitedApiKey_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateRateLimitedApiKey_IsResourceParameters(construct constructs.IConstruct) error {
+func validateRateLimitedApiKey_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

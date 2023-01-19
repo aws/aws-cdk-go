@@ -1,7 +1,7 @@
 package awsbatch
 
 
-// The retry strategy associated with a job.
+// The retry strategy that's associated with a job.
 //
 // For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
 //
@@ -29,9 +29,9 @@ type CfnJobDefinition_RetryStrategyProperty struct {
 	//
 	// You can specify between 1 and 10 attempts. If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
 	Attempts *float64 `field:"optional" json:"attempts" yaml:"attempts"`
-	// Array of up to 5 objects that specify conditions under which the job should be retried or failed.
+	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
 	//
-	// If this parameter is specified, then the `attempts` parameter must also be specified.
+	// If this parameter is specified, then the `attempts` parameter must also be specified. If none of the listed conditions match, then the job is retried.
 	EvaluateOnExit interface{} `field:"optional" json:"evaluateOnExit" yaml:"evaluateOnExit"`
 }
 

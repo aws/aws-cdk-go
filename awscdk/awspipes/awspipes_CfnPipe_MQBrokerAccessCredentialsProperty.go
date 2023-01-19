@@ -1,6 +1,8 @@
 package awspipes
 
 
+// The AWS Secrets Manager secret that stores your broker credentials.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awspipes
 //   }
 //
 type CfnPipe_MQBrokerAccessCredentialsProperty struct {
-	// `CfnPipe.MQBrokerAccessCredentialsProperty.BasicAuth`.
+	// The ARN of the Secrets Manager secret.
 	BasicAuth *string `field:"required" json:"basicAuth" yaml:"basicAuth"`
 }
 

@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Properties for defining a `CfnPlacementGroup`.
@@ -24,13 +24,18 @@ import (
 //   }
 //
 type CfnPlacementGroupProps struct {
-	// `AWS::EC2::PlacementGroup.PartitionCount`.
+	// The number of partitions.
+	//
+	// Valid only when *Strategy* is set to `partition` .
 	PartitionCount *float64 `field:"optional" json:"partitionCount" yaml:"partitionCount"`
-	// `AWS::EC2::PlacementGroup.SpreadLevel`.
+	// Determines how placement groups spread instances.
+	//
+	// - Host – You can use `host` only with Outpost placement groups.
+	// - Rack – No usage restrictions.
 	SpreadLevel *string `field:"optional" json:"spreadLevel" yaml:"spreadLevel"`
 	// The placement strategy.
 	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`
-	// `AWS::EC2::PlacementGroup.Tags`.
+	// The tags to apply to the new placement group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

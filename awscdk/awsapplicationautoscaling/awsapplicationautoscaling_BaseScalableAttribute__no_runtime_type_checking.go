@@ -16,6 +16,14 @@ func (b *jsiiProxy_BaseScalableAttribute) validateDoScaleToTrackMetricParameters
 	return nil
 }
 
+func (b *jsiiProxy_BaseScalableAttribute) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (b *jsiiProxy_BaseScalableAttribute) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateBaseScalableAttribute_IsConstructParameters(x interface{}) error {
 	return nil
 }

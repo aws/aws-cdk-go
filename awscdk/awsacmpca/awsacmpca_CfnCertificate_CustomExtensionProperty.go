@@ -3,7 +3,7 @@ package awsacmpca
 
 // Specifies the X.509 extension information for a certificate.
 //
-// Extensions present in `CustomExtensions` follow the `ApiPassthrough` [template rules](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations) .
+// Extensions present in `CustomExtensions` follow the `ApiPassthrough` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
