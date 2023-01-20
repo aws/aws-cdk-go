@@ -20,7 +20,7 @@ type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 	//
 	// The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersion *string `field:"optional" json:"launchProfileProtocolVersion" yaml:"launchProfileProtocolVersion"`
-	// The platform of the initialization script, either Windows or Linux.
+	// The platform of the initialization script, either WINDOWS or LINUX.
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// The method to use when running the initialization script.
 	RunContext *string `field:"optional" json:"runContext" yaml:"runContext"`

@@ -24,33 +24,37 @@ package awsapigateway
 //   }
 //
 type CfnDeployment_MethodSettingProperty struct {
-	// Specifies whether the cached responses are encrypted.
+	// Indicates whether the cached responses are encrypted.
 	CacheDataEncrypted interface{} `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
-	// Specifies the time to live (TTL), in seconds, for cached responses.
-	//
-	// The higher the TTL, the longer the response will be cached.
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
 	CacheTtlInSeconds *float64 `field:"optional" json:"cacheTtlInSeconds" yaml:"cacheTtlInSeconds"`
-	// Specifies whether responses should be cached and returned for requests.
+	// Indicates whether responses are cached and returned for requests.
 	//
-	// A cache cluster must be enabled on the stage for responses to be cached.
+	// You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide* .
 	CachingEnabled interface{} `field:"optional" json:"cachingEnabled" yaml:"cachingEnabled"`
-	// Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs.
+	// Indicates whether data trace logging is enabled for methods in the stage.
+	//
+	// API Gateway pushes these logs to Amazon CloudWatch Logs.
 	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// The HTTP method.
 	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
-	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs.
+	// The logging level for this method.
 	//
-	// Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
+	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the *Amazon API Gateway API Reference* .
 	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
-	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
+	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
 	MetricsEnabled interface{} `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`
 	// The resource path for this method.
 	//
 	// Forward slashes ( `/` ) are encoded as `~1` and the initial slash must include a forward slash. For example, the path value `/resource/subresource` must be encoded as `/~1resource~1subresource` . To specify the root path, use only a slash ( `/` ).
 	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
-	// Specifies the throttling burst limit.
+	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account .
+	//
+	// For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
 	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
-	// Specifies the throttling rate limit.
+	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account .
+	//
+	// For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
 	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 

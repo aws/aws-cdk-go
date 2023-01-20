@@ -32,7 +32,9 @@ type CfnImageProps struct {
 	ContainerRecipeArn *string `field:"optional" json:"containerRecipeArn" yaml:"containerRecipeArn"`
 	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn *string `field:"optional" json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
-	// Indicates whether Image Builder collects additional information about the image, such as the operating system (OS) version and package list.
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
+	//
+	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`

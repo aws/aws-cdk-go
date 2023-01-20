@@ -1,8 +1,6 @@
 package awsredshiftserverless
 
 
-// The VPC endpoint object.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -28,11 +26,11 @@ package awsredshiftserverless
 //   }
 //
 type CfnWorkgroup_EndpointProperty struct {
-	// The DNS address of the VPC endpoint.
+	// `CfnWorkgroup.EndpointProperty.Address`.
 	Address *string `field:"optional" json:"address" yaml:"address"`
-	// The port that Amazon Redshift Serverless listens on.
+	// `CfnWorkgroup.EndpointProperty.Port`.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
-	// An array of `VpcEndpoint` objects.
+	// `CfnWorkgroup.EndpointProperty.VpcEndpoints`.
 	VpcEndpoints interface{} `field:"optional" json:"vpcEndpoints" yaml:"vpcEndpoints"`
 }
 

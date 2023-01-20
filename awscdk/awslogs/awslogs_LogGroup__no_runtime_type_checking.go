@@ -44,14 +44,6 @@ func (l *jsiiProxy_LogGroup) validateGrantWriteParameters(grantee awsiam.IGranta
 	return nil
 }
 
-func (l *jsiiProxy_LogGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (l *jsiiProxy_LogGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateLogGroup_FromLogGroupArnParameters(scope constructs.Construct, id *string, logGroupArn *string) error {
 	return nil
 }
@@ -64,7 +56,11 @@ func validateLogGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateLogGroup_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateLogGroup_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateLogGroup_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

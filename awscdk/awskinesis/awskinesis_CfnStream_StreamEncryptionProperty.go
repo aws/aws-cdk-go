@@ -9,8 +9,6 @@ package awskinesis
 //
 // Note: It can take up to 5 seconds after the stream is in an `ACTIVE` status before all records written to the stream are encrypted. After you enable encryption, you can verify that encryption is applied by inspecting the API response from `PutRecord` or `PutRecords` .
 //
-// > When invoking this API, it is recommended you use the `StreamARN` input parameter rather than the `StreamName` input parameter.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

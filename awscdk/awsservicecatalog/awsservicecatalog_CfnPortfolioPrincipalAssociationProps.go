@@ -21,14 +21,10 @@ type CfnPortfolioPrincipalAssociationProps struct {
 	// The portfolio identifier.
 	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The ARN of the principal (IAM user, role, or group).
-	//
-	// This field allows an ARN with no `accountID` if `PrincipalType` is `IAM_PATTERN` .
-	//
-	// You can associate multiple `IAM` patterns even if the account has no principal with that name. This is useful in Principal Name Sharing if you want to share a principal without creating it in the account that owns the portfolio.
 	PrincipalArn *string `field:"required" json:"principalArn" yaml:"principalArn"`
 	// The principal type.
 	//
-	// The supported value is `IAM` if you use a fully defined ARN, or `IAM_PATTERN` if you use an ARN with no `accountID` .
+	// The supported value is `IAM` .
 	PrincipalType *string `field:"required" json:"principalType" yaml:"principalType"`
 	// The language code.
 	//

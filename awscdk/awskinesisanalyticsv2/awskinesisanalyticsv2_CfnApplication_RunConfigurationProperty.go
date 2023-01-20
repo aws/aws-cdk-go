@@ -1,8 +1,6 @@
 package awskinesisanalyticsv2
 
 
-// Describes the starting parameters for an Kinesis Data Analytics application.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,9 +19,9 @@ package awskinesisanalyticsv2
 //   }
 //
 type CfnApplication_RunConfigurationProperty struct {
-	// Describes the restore behavior of a restarting application.
+	// `CfnApplication.RunConfigurationProperty.ApplicationRestoreConfiguration`.
 	ApplicationRestoreConfiguration interface{} `field:"optional" json:"applicationRestoreConfiguration" yaml:"applicationRestoreConfiguration"`
-	// Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+	// `CfnApplication.RunConfigurationProperty.FlinkRunConfiguration`.
 	FlinkRunConfiguration interface{} `field:"optional" json:"flinkRunConfiguration" yaml:"flinkRunConfiguration"`
 }
 

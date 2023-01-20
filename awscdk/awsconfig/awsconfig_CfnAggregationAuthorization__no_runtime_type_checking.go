@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnAggregationAuthorization) validateAddDeletionOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnAggregationAuthorization) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAggregationAuthorization) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnAggregationAuthorization) validateInspectParameters(inspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnAggregationAuthorization) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAggregationAuthorization) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAggregationAuthorization) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAggregationAuthorization) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnAggregationAuthorization) validateRenderPropertiesParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnAggregationAuthorization) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAggregationAuthorization) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnAggregationAuthorization) validateSetAuthorizedAwsRegionPa
 	return nil
 }
 
-func validateNewCfnAggregationAuthorizationParameters(scope awscdk.Construct, id *string, props *CfnAggregationAuthorizationProps) error {
+func validateNewCfnAggregationAuthorizationParameters(scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) error {
 	return nil
 }
 

@@ -17,11 +17,11 @@ package awsapigateway
 //   }
 //
 type CfnDocumentationVersionProps struct {
-	// The version identifier of the to-be-updated documentation version.
+	// The version identifier of the API documentation snapshot.
 	DocumentationVersion *string `field:"required" json:"documentationVersion" yaml:"documentationVersion"`
-	// The string identifier of the associated RestApi.
+	// The identifier of the API.
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
-	// A description about the new documentation snapshot.
+	// The description of the API documentation snapshot.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

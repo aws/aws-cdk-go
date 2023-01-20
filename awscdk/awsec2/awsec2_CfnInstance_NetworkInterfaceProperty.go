@@ -5,7 +5,7 @@ package awsec2
 //
 // You can create a network interface when launching an instance. For an example, see the [AWS::EC2::Instance examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#aws-properties-ec2-instance--examples--Automatically_assign_a_public_IP_address) .
 //
-// Alternatively, you can attach an existing network interface when launching an instance. For an example, see the [AWS::EC2:NetworkInterface examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#aws-resource-ec2-networkinterface--examples) .
+// Alternatively, you can attach an existing network interface when launching an instance. For an example, see the [AWS::EC2:NetworkInterface examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#aws-resource-ec2-network-interface--examples--Basic_network_interface) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,9 +48,7 @@ type CfnInstance_NetworkInterfaceProperty struct {
 	//
 	// If you create a network interface when launching an instance, you must specify the device index.
 	DeviceIndex *string `field:"required" json:"deviceIndex" yaml:"deviceIndex"`
-	// Indicates whether to assign a carrier IP address to the network interface.
-	//
-	// You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see [Carrier IP address](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *AWS Wavelength Developer Guide* .
+	// `CfnInstance.NetworkInterfaceProperty.AssociateCarrierIpAddress`.
 	AssociateCarrierIpAddress interface{} `field:"optional" json:"associateCarrierIpAddress" yaml:"associateCarrierIpAddress"`
 	// Indicates whether to assign a public IPv4 address to an instance.
 	//
@@ -72,7 +70,7 @@ type CfnInstance_NetworkInterfaceProperty struct {
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
-	// The IPv6 addresses to assign to the network interface.
+	// One or more IPv6 addresses to assign to the network interface.
 	//
 	// You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
 	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`

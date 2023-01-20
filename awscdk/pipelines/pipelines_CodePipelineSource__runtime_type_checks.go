@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodecommit"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 func (c *jsiiProxy_CodePipelineSource) validateAddDependencyFileSetParameters(fs FileSet) error {

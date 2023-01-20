@@ -1,7 +1,7 @@
 package awstimestream
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnTable`.
@@ -11,29 +11,15 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var magneticStoreWriteProperties interface{}
+//   var retentionProperties interface{}
+//
 //   cfnTableProps := &cfnTableProps{
 //   	databaseName: jsii.String("databaseName"),
 //
 //   	// the properties below are optional
-//   	magneticStoreWriteProperties: &magneticStoreWritePropertiesProperty{
-//   		enableMagneticStoreWrites: jsii.Boolean(false),
-//
-//   		// the properties below are optional
-//   		magneticStoreRejectedDataLocation: &magneticStoreRejectedDataLocationProperty{
-//   			s3Configuration: &s3ConfigurationProperty{
-//   				bucketName: jsii.String("bucketName"),
-//   				encryptionOption: jsii.String("encryptionOption"),
-//
-//   				// the properties below are optional
-//   				kmsKeyId: jsii.String("kmsKeyId"),
-//   				objectKeyPrefix: jsii.String("objectKeyPrefix"),
-//   			},
-//   		},
-//   	},
-//   	retentionProperties: &retentionPropertiesProperty{
-//   		magneticStoreRetentionPeriodInDays: jsii.String("magneticStoreRetentionPeriodInDays"),
-//   		memoryStoreRetentionPeriodInHours: jsii.String("memoryStoreRetentionPeriodInHours"),
-//   	},
+//   	magneticStoreWriteProperties: magneticStoreWriteProperties,
+//   	retentionProperties: retentionProperties,
 //   	tableName: jsii.String("tableName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -78,7 +64,7 @@ type CfnTableProps struct {
 	// ```
 	// Type: AWS::Timestream::Table
 	// DependsOn: TestDatabase
-	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" MagneticStoreWriteProperties: EnableMagneticStoreWrites: true MagneticStoreRejectedDataLocation: S3Configuration: BucketName: "testbucket" EncryptionOption: "SSE_KMS" KmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab" ObjectKeyPrefix: "prefix"
+	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" MagneticStoreWriteProperties: EnableMagneticStoreWrites: true MagneticStoreRejectedDataLocation: S3Configuration: BucketName: "testbucket" EncryptionOption: "SSE_KMS" BucketName: "1234abcd-12ab-34cd-56ef-1234567890ab" EncryptionOption: "prefix"
 	// ```.
 	MagneticStoreWriteProperties interface{} `field:"optional" json:"magneticStoreWriteProperties" yaml:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. This object has the following attributes:.

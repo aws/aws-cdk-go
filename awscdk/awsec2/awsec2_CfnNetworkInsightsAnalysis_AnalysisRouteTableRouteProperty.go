@@ -43,10 +43,7 @@ type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 	// - CreateRoute - The route was manually added to the route table.
 	// - EnableVgwRoutePropagation - The route was propagated by route propagation.
 	Origin *string `field:"optional" json:"origin" yaml:"origin"`
-	// The state. The following are the possible values:.
-	//
-	// - active
-	// - blackhole.
+	// `CfnNetworkInsightsAnalysis.AnalysisRouteTableRouteProperty.State`.
 	State *string `field:"optional" json:"state" yaml:"state"`
 	// The ID of a transit gateway.
 	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`

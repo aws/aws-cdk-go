@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSmsTemplate) validateAddDeletionOverrideParameters(path *s
 	return nil
 }
 
+func (c *jsiiProxy_CfnSmsTemplate) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSmsTemplate) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSmsTemplate) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnSmsTemplate) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSmsTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSmsTemplate) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSmsTemplate) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSmsTemplate) validateRenderPropertiesParameters(props *map
 	return nil
 }
 
-func (c *jsiiProxy_CfnSmsTemplate) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSmsTemplate) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnSmsTemplate) validateSetTemplateNameParameters(val *string
 	return nil
 }
 
-func validateNewCfnSmsTemplateParameters(scope awscdk.Construct, id *string, props *CfnSmsTemplateProps) error {
+func validateNewCfnSmsTemplateParameters(scope constructs.Construct, id *string, props *CfnSmsTemplateProps) error {
 	return nil
 }
 

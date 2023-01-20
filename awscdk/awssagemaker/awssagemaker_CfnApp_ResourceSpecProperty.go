@@ -17,9 +17,7 @@ package awssagemaker
 type CfnApp_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
-	// > *JupyterServer apps* only support the `system` value.
-	// >
-	// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `field:"optional" json:"sageMakerImageArn" yaml:"sageMakerImageArn"`

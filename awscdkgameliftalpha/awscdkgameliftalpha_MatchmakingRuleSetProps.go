@@ -1,0 +1,26 @@
+// The CDK Construct Library for AWS::GameLift
+package awscdkgameliftalpha
+
+
+// Properties for a new matchmaking ruleSet.
+//
+// Example:
+//   gamelift.NewMatchmakingRuleSet(this, jsii.String("RuleSet"), &matchmakingRuleSetProps{
+//   	matchmakingRuleSetName: jsii.String("my-test-ruleset"),
+//   	content: gamelift.ruleSetContent.fromJsonFile(path.join(__dirname, jsii.String("my-ruleset/ruleset.json"))),
+//   })
+//
+// Experimental.
+type MatchmakingRuleSetProps struct {
+	// A collection of matchmaking rules.
+	// Experimental.
+	Content RuleSetContent `field:"required" json:"content" yaml:"content"`
+	// A unique identifier for the matchmaking rule set.
+	//
+	// A matchmaking configuration identifies the rule set it uses by this name value.
+	//
+	// Note: the rule set name is different from the optional name field in the rule set body.
+	// Experimental.
+	MatchmakingRuleSetName *string `field:"required" json:"matchmakingRuleSetName" yaml:"matchmakingRuleSetName"`
+}
+

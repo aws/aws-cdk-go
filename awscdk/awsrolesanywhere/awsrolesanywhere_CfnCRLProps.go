@@ -1,7 +1,7 @@
 package awsrolesanywhere
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCRL`.
@@ -25,15 +25,15 @@ import (
 //   }
 //
 type CfnCRLProps struct {
-	// x509 v3 Certificate Revocation List to revoke auth for corresponding certificates presented in CreateSession operations.
+	// `AWS::RolesAnywhere::CRL.CrlData`.
 	CrlData *string `field:"optional" json:"crlData" yaml:"crlData"`
-	// The enabled status of the resource.
+	// `AWS::RolesAnywhere::CRL.Enabled`.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// The customer specified name of the resource.
+	// `AWS::RolesAnywhere::CRL.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// A list of Tags.
+	// `AWS::RolesAnywhere::CRL.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+	// `AWS::RolesAnywhere::CRL.TrustAnchorArn`.
 	TrustAnchorArn *string `field:"optional" json:"trustAnchorArn" yaml:"trustAnchorArn"`
 }
 

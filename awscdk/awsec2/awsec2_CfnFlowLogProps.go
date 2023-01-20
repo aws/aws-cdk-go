@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnFlowLog`.
@@ -35,15 +35,15 @@ import (
 //   }
 //
 type CfnFlowLogProps struct {
-	// The ID of the resource to monitor.
-	//
-	// For example, if the resource type is `VPC` , specify the ID of the VPC.
+	// The ID of the subnet, network interface, or VPC for which you want to create a flow log.
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
-	// The type of resource to monitor.
-	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
-	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
+	// The type of resource for which to create the flow log.
 	//
-	// This parameter is required if the destination type is `cloud-watch-logs` and unsupported otherwise.
+	// For example, if you specified a VPC ID for the `ResourceId` property, specify `VPC` for this property.
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
+	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
+	//
+	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
 	DeliverLogsPermissionArn *string `field:"optional" json:"deliverLogsPermissionArn" yaml:"deliverLogsPermissionArn"`
 	// The destination options. The following options are supported:.
 	//
@@ -51,39 +51,35 @@ type CfnFlowLogProps struct {
 	// - `HiveCompatiblePartitions` - Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3 ( `true` | `false` ). The default is `false` .
 	// - `PerHourPartition` - Indicates whether to partition the flow log per hour ( `true` | `false` ). The default is `false` .
 	DestinationOptions interface{} `field:"optional" json:"destinationOptions" yaml:"destinationOptions"`
-	// The destination for the flow log data. The meaning of this parameter depends on the destination type.
+	// The destination to which the flow log data is to be published.
 	//
-	// - If the destination type is `cloud-watch-logs` , specify the ARN of a CloudWatch Logs log group. For example:
+	// Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for `LogDestinationType` .
 	//
-	// arn:aws:logs: *region* : *account_id* :log-group: *my_group*
+	// If `LogDestinationType` is not specified or `cloud-watch-logs` , specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example, to publish to a log group called `my-logs` , specify `arn:aws:logs:us-east-1:123456789012:log-group:my-logs` . Alternatively, use `LogGroupName` instead.
 	//
-	// Alternatively, use the `LogGroupName` parameter.
-	// - If the destination type is `s3` , specify the ARN of an S3 bucket. For example:
-	//
-	// arn:aws:s3::: *my_bucket* / *my_subfolder* /
-	//
-	// The subfolder is optional. Note that you can't use `AWSLogs` as a subfolder name.
-	// - If the destination type is `kinesis-data-firehose` , specify the ARN of a Kinesis Data Firehose delivery stream. For example:
-	//
-	// arn:aws:firehose: *region* : *account_id* :deliverystream: *my_stream*.
+	// If LogDestinationType is `s3` , specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: `bucket_ARN/subfolder_name/` . For example, to specify a subfolder named `my-logs` in a bucket named `my-bucket` , use the following ARN: `arn:aws:s3:::my-bucket/my-logs/` . You cannot use `AWSLogs` as a subfolder name. This is a reserved term.
 	LogDestination *string `field:"optional" json:"logDestination" yaml:"logDestination"`
-	// The type of destination for the flow log data.
+	// The type of destination to which the flow log data is to be published.
+	//
+	// Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify `cloud-watch-logs` . To publish flow log data to Amazon S3, specify `s3` .
+	//
+	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
 	//
 	// Default: `cloud-watch-logs`.
 	LogDestinationType *string `field:"optional" json:"logDestinationType" yaml:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	//
-	// If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) in the *Amazon VPC User Guide* or [Transit Gateway Flow Log records](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records) in the *AWS Transit Gateway Guide* .
+	// For a list of available fields, see [Flow Log Records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) . If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.
 	//
 	// Specify the fields using the `${field-id}` format, separated by spaces.
 	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.
 	//
-	// This parameter is valid only if the destination type is `cloud-watch-logs` .
+	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
 	//
-	// The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes). This parameter must be 60 seconds for transit gateway resource types.
+	// You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
 	//
 	// When a network interface is attached to a [Nitro-based instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) , the aggregation interval is always 60 seconds or less, regardless of the value that you specify.
 	//
@@ -91,9 +87,9 @@ type CfnFlowLogProps struct {
 	MaxAggregationInterval *float64 `field:"optional" json:"maxAggregationInterval" yaml:"maxAggregationInterval"`
 	// The tags to apply to the flow logs.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).
+	// The type of traffic to log.
 	//
-	// This parameter is not supported for transit gateway resource types. It is required for the other resource types.
+	// You can log traffic that the resource accepts or rejects, or all traffic.
 	TrafficType *string `field:"optional" json:"trafficType" yaml:"trafficType"`
 }
 

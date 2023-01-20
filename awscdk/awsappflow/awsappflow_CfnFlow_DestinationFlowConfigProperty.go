@@ -179,7 +179,7 @@ type CfnFlow_DestinationFlowConfigProperty struct {
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// This stores the information that is required to query a particular connector.
 	DestinationConnectorProperties interface{} `field:"required" json:"destinationConnectorProperties" yaml:"destinationConnectorProperties"`
-	// The API version that the destination connector uses.
+	// `CfnFlow.DestinationFlowConfigProperty.ApiVersion`.
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The name of the connector profile.
 	//

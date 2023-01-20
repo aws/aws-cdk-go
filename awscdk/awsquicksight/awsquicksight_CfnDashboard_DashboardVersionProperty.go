@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Dashboard version.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,25 +32,25 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DashboardVersionProperty struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// `CfnDashboard.DashboardVersionProperty.Arn`.
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// The time that this dashboard version was created.
+	// `CfnDashboard.DashboardVersionProperty.CreatedTime`.
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
-	// The Amazon Resource Numbers (ARNs) for the datasets that are associated with this version of the dashboard.
+	// `CfnDashboard.DashboardVersionProperty.DataSetArns`.
 	DataSetArns *[]*string `field:"optional" json:"dataSetArns" yaml:"dataSetArns"`
-	// Description.
+	// `CfnDashboard.DashboardVersionProperty.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Errors associated with this dashboard version.
+	// `CfnDashboard.DashboardVersionProperty.Errors`.
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
-	// A list of the associated sheets with the unique identifier and name of each sheet.
+	// `CfnDashboard.DashboardVersionProperty.Sheets`.
 	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
-	// Source entity ARN.
+	// `CfnDashboard.DashboardVersionProperty.SourceEntityArn`.
 	SourceEntityArn *string `field:"optional" json:"sourceEntityArn" yaml:"sourceEntityArn"`
-	// The HTTP status of the request.
+	// `CfnDashboard.DashboardVersionProperty.Status`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// The ARN of the theme associated with a version of the dashboard.
+	// `CfnDashboard.DashboardVersionProperty.ThemeArn`.
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
-	// Version number for this version of the dashboard.
+	// `CfnDashboard.DashboardVersionProperty.VersionNumber`.
 	VersionNumber *float64 `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 

@@ -1,11 +1,15 @@
 //go:build no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
 func (c *jsiiProxy_CfnModuleDefaultVersion) validateAddDeletionOverrideParameters(path *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateAddDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -45,11 +49,11 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -57,7 +61,7 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnModuleDefaultVersion) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnModuleDefaultVersion) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
@@ -77,7 +81,7 @@ func validateCfnModuleDefaultVersion_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
-func validateNewCfnModuleDefaultVersionParameters(scope Construct, id *string, props *CfnModuleDefaultVersionProps) error {
+func validateNewCfnModuleDefaultVersionParameters(scope constructs.Construct, id *string, props *CfnModuleDefaultVersionProps) error {
 	return nil
 }
 

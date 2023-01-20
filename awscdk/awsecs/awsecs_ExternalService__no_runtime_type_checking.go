@@ -28,15 +28,15 @@ func (e *jsiiProxy_ExternalService) validateAutoScaleTaskCountParameters(_props 
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateConfigureAwsVpcNetworkingParameters(vpc awsec2.IVpc, vpcSubnets *awsec2.SubnetSelection) error {
-	return nil
-}
-
 func (e *jsiiProxy_ExternalService) validateConfigureAwsVpcNetworkingWithSecurityGroupsParameters(_vpc awsec2.IVpc, _vpcSubnets *awsec2.SubnetSelection) error {
 	return nil
 }
 
 func (e *jsiiProxy_ExternalService) validateEnableCloudMapParameters(_options *CloudMapOptions) error {
+	return nil
+}
+
+func (e *jsiiProxy_ExternalService) validateEnableServiceConnectParameters(config *ServiceConnectProps) error {
 	return nil
 }
 
@@ -64,15 +64,7 @@ func (e *jsiiProxy_ExternalService) validateMetricMemoryUtilizationParameters(pr
 	return nil
 }
 
-func (e *jsiiProxy_ExternalService) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
 func (e *jsiiProxy_ExternalService) validateRegisterLoadBalancerTargetsParameters(_targets *[]*EcsTarget) error {
-	return nil
-}
-
-func (e *jsiiProxy_ExternalService) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +84,11 @@ func validateExternalService_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateExternalService_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateExternalService_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateExternalService_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

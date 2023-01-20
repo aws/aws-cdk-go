@@ -20,9 +20,7 @@ type CfnDeployment_AccessLogSettingProperty struct {
 	//
 	// If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
 	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
-	// A single line format of the access logs of data, as specified by selected $context variables.
-	//
-	// The format must include at least `$context.requestId` .
+	// A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference) . The format must include at least `$context.requestId` .
 	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 

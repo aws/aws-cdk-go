@@ -36,7 +36,7 @@ type CfnFunctionProps struct {
 	//
 	// To automatically publish to the `LIVE` stage, set this property to `true` .
 	AutoPublish interface{} `field:"optional" json:"autoPublish" yaml:"autoPublish"`
-	// Contains metadata about a CloudFront function.
+	// `AWS::CloudFront::Function.FunctionMetadata`.
 	FunctionMetadata interface{} `field:"optional" json:"functionMetadata" yaml:"functionMetadata"`
 }
 

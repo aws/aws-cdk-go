@@ -1,8 +1,6 @@
 package awspipes
 
 
-// The parameters for using an MSK stream as a source.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,17 +21,17 @@ package awspipes
 //   }
 //
 type CfnPipe_PipeSourceManagedStreamingKafkaParametersProperty struct {
-	// The name of the topic that the pipe will read from.
+	// `CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty.TopicName`.
 	TopicName *string `field:"required" json:"topicName" yaml:"topicName"`
-	// The maximum number of records to include in each batch.
+	// `CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty.BatchSize`.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
-	// The name of the destination queue to consume.
+	// `CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty.ConsumerGroupID`.
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
-	// The credentials needed to access the resource.
+	// `CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty.Credentials`.
 	Credentials interface{} `field:"optional" json:"credentials" yaml:"credentials"`
-	// The maximum length of a time to wait for events.
+	// `CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty.MaximumBatchingWindowInSeconds`.
 	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
-	// (Streams only) The position in a stream from which to start reading.
+	// `CfnPipe.PipeSourceManagedStreamingKafkaParametersProperty.StartingPosition`.
 	StartingPosition *string `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 }
 

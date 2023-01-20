@@ -48,7 +48,9 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	DiskIopsConfiguration interface{} `field:"optional" json:"diskIopsConfiguration" yaml:"diskIopsConfiguration"`
 	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
 	//
-	// By default in the Amazon FSx API, Amazon FSx selects an unused IP address range for you from the 198.19.* range. By default in the Amazon FSx console, Amazon FSx chooses the last 64 IP addresses from the VPC’s primary CIDR range to use as the endpoint IP address range for the file system. You can have overlapping endpoint IP addresses for file systems deployed in the same VPC/route tables.
+	// By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
+	//
+	// > The Endpoint IP address range you select for your file system must exist outside the VPC's CIDR range and must be at least /30 or larger.
 	EndpointIpAddressRange *string `field:"optional" json:"endpointIpAddressRange" yaml:"endpointIpAddressRange"`
 	// The ONTAP administrative password for the `fsxadmin` user with which you administer your file system using the NetApp ONTAP CLI and REST API.
 	FsxAdminPassword *string `field:"optional" json:"fsxAdminPassword" yaml:"fsxAdminPassword"`
@@ -62,7 +64,7 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
 	// Sets the throughput capacity for the file system that you're creating.
 	//
-	// Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps.
+	// Valid values are 128, 256, 512, 1024, and 2048 MBps.
 	ThroughputCapacity *float64 `field:"optional" json:"throughputCapacity" yaml:"throughputCapacity"`
 	// A recurring weekly time, in the format `D:HH:MM` .
 	//

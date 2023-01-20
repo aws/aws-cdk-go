@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnMicrosoftAD) validateAddDeletionOverrideParameters(path *s
 	return nil
 }
 
+func (c *jsiiProxy_CfnMicrosoftAD) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMicrosoftAD) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnMicrosoftAD) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftAD) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnMicrosoftAD) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftAD) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMicrosoftAD) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnMicrosoftAD) validateRenderPropertiesParameters(props *map
 	return nil
 }
 
-func (c *jsiiProxy_CfnMicrosoftAD) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnMicrosoftAD) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnMicrosoftAD) validateSetVpcSettingsParameters(val interfac
 	return nil
 }
 
-func validateNewCfnMicrosoftADParameters(scope awscdk.Construct, id *string, props *CfnMicrosoftADProps) error {
+func validateNewCfnMicrosoftADParameters(scope constructs.Construct, id *string, props *CfnMicrosoftADProps) error {
 	return nil
 }
 

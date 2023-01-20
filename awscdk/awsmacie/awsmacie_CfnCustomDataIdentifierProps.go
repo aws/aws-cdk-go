@@ -24,33 +24,29 @@ package awsmacie
 //   }
 //
 type CfnCustomDataIdentifierProps struct {
-	// A custom name for the custom data identifier. The name can contain 1-128 characters.
+	// A custom name for the custom data identifier. The name can contain as many as 128 characters.
 	//
-	// Avoid including sensitive data in the name of a custom data identifier. Users of the account might be able to see the name, depending on the actions that they're allowed to perform in Amazon Macie .
+	// We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie .
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The regular expression ( *regex* ) that defines the text pattern to match.
+	// The regular expression ( *regex* ) that defines the pattern to match.
 	//
-	// The expression can contain 1-512 characters.
+	// The expression can contain as many as 512 characters.
 	Regex *string `field:"required" json:"regex" yaml:"regex"`
-	// A custom description of the custom data identifier. The description can contain 1-512 characters.
+	// The description of the custom data identifier.
 	//
-	// Avoid including sensitive data in the description. Users of the account might be able to see the description, depending on the actions that they're allowed to perform in Amazon Macie .
+	// The description can contain as many as 512 characters.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// An array of character sequences ( *ignore words* ) to exclude from the results.
+	// An array that lists specific character sequences (ignore words) to exclude from the results.
 	//
-	// If text matches the regular expression ( `Regex` ) but it contains a string in this array, Amazon Macie ignores the text and doesn't include it in the results.
-	//
-	// The array can contain 1-10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.
+	// If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.
 	IgnoreWords *[]*string `field:"optional" json:"ignoreWords" yaml:"ignoreWords"`
-	// An array of character sequences ( *keywords* ), one of which must precede and be in proximity ( `MaximumMatchDistance` ) of the regular expression ( `Regex` ) to match.
+	// An array that lists specific character sequences (keywords), one of which must be within proximity ( `MaximumMatchDistance` ) of the regular expression to match.
 	//
-	// The array can contain 1-50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.
+	// The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.
 	Keywords *[]*string `field:"optional" json:"keywords" yaml:"keywords"`
-	// The maximum number of characters that can exist between the end of at least one complete character sequence specified by the `Keywords` array and the end of text that matches the regular expression ( `Regex` ).
+	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the `Keywords` array.
 	//
-	// If a complete keyword precedes all the text that matches the regular expression and the keyword is within the specified distance, Amazon Macie includes the result.
-	//
-	// The distance can be 1-300 characters. The default value is 50.
+	// Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.
 	MaximumMatchDistance *float64 `field:"optional" json:"maximumMatchDistance" yaml:"maximumMatchDistance"`
 }
 

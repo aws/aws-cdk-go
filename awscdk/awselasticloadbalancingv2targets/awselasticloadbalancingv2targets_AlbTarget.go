@@ -1,10 +1,10 @@
 package awselasticloadbalancingv2targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 )
 
 // A single Application Load Balancer as the target for load balancing.
@@ -57,14 +57,12 @@ import (
 //   	value: fmt.Sprintf("http://%v", nlb.loadBalancerDnsName),
 //   })
 //
-// Experimental.
 type AlbTarget interface {
 	AlbArnTarget
 	// Register this alb target with a load balancer.
 	//
 	// Don't call this, it is called automatically when you add the target to a
 	// load balancer.
-	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 }
 
@@ -73,7 +71,6 @@ type jsiiProxy_AlbTarget struct {
 	jsiiProxy_AlbArnTarget
 }
 
-// Experimental.
 func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) AlbTarget {
 	_init_.Initialize()
 
@@ -83,7 +80,7 @@ func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *f
 	j := jsiiProxy_AlbTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.AlbTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.AlbTarget",
 		[]interface{}{alb, port},
 		&j,
 	)
@@ -91,12 +88,11 @@ func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *f
 	return &j
 }
 
-// Experimental.
 func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.AlbTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.AlbTarget",
 		[]interface{}{alb, port},
 		a,
 	)

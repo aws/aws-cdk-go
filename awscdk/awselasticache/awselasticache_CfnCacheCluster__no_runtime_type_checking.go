@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCacheCluster) validateAddDeletionOverrideParameters(path *
 	return nil
 }
 
+func (c *jsiiProxy_CfnCacheCluster) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCacheCluster) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCacheCluster) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnCacheCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCacheCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCacheCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCacheCluster) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCacheCluster) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnCacheCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCacheCluster) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -100,7 +104,7 @@ func (j *jsiiProxy_CfnCacheCluster) validateSetTransitEncryptionEnabledParameter
 	return nil
 }
 
-func validateNewCfnCacheClusterParameters(scope awscdk.Construct, id *string, props *CfnCacheClusterProps) error {
+func validateNewCfnCacheClusterParameters(scope constructs.Construct, id *string, props *CfnCacheClusterProps) error {
 	return nil
 }
 

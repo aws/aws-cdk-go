@@ -15,11 +15,13 @@ package awsapigateway
 //   }
 //
 type CfnResourceProps struct {
-	// The parent resource's identifier.
+	// If you want to create a child resource, the ID of the parent resource.
+	//
+	// For resources without a parent, specify the `RestApi` root resource ID, such as `{ "Fn::GetAtt": ["MyRestApi", "RootResourceId"] }` .
 	ParentId *string `field:"required" json:"parentId" yaml:"parentId"`
-	// The last path segment for this resource.
+	// A path name for the resource.
 	PathPart *string `field:"required" json:"pathPart" yaml:"pathPart"`
-	// The string identifier of the associated RestApi.
+	// The ID of the [RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource in which you want to create this resource.
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 }
 

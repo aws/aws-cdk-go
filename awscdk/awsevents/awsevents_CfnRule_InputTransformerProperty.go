@@ -20,7 +20,7 @@ package awsevents
 type CfnRule_InputTransformerProperty struct {
 	// Input template where you specify placeholders that will be filled with the values of the keys from `InputPathsMap` to customize the data sent to the target.
 	//
-	// Enclose each `InputPathsMaps` value in brackets: < *value* >
+	// Enclose each `InputPathsMaps` value in brackets: < *value* > The InputTemplate must be valid JSON.
 	//
 	// If `InputTemplate` is a JSON object (surrounded by curly braces), the following restrictions apply:
 	//

@@ -1,8 +1,6 @@
 package awsgreengrassv2
 
 
-// Contains a list of criteria that define when and how to cancel a configuration deployment.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,7 +18,7 @@ package awsgreengrassv2
 //   }
 //
 type CfnDeployment_IoTJobAbortConfigProperty struct {
-	// The list of criteria that define when and how to cancel the configuration deployment.
+	// `CfnDeployment.IoTJobAbortConfigProperty.CriteriaList`.
 	CriteriaList interface{} `field:"required" json:"criteriaList" yaml:"criteriaList"`
 }
 

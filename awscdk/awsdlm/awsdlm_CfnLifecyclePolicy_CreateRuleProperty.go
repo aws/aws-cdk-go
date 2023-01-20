@@ -1,10 +1,9 @@
 package awsdlm
 
 
-// *[Snapshot and AMI policies only]* Specifies when the policy should create snapshots or AMIs.
+// Specifies when to create snapshots of EBS volumes.
 //
-// > - You must specify either *CronExpression* , or *Interval* , *IntervalUnit* , and *Times* .
-// > - If you need to specify an `ArchiveRule` for the schedule, then you must specify a creation frequency of at least 28 days.
+// You must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,15 +31,17 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// The interval unit.
 	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
-	// *[Snapshot policies only]* Specifies the destination for snapshots created by the policy.
+	// Specifies the destination for snapshots created by the policy.
 	//
 	// To create snapshots in the same Region as the source resource, specify `CLOUD` . To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL` . If you omit this parameter, `CLOUD` is used by default.
 	//
-	// If the policy targets resources in an AWS Region , then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.
+	// If the policy targets resources in an AWS Region , then you must create snapshots in the same Region as the source resource.
+	//
+	// If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.
 	Location *string `field:"optional" json:"location" yaml:"location"`
 	// The time, in UTC, to start the operation. The supported format is hh:mm.
 	//
-	// The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.
+	// The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.
 	Times *[]*string `field:"optional" json:"times" yaml:"times"`
 }
 

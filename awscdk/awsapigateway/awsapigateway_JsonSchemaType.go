@@ -43,23 +43,15 @@ package awsapigateway
 //   	},
 //   })
 //
-// Experimental.
 type JsonSchemaType string
 
 const (
-	// Experimental.
 	JsonSchemaType_NULL JsonSchemaType = "NULL"
-	// Experimental.
 	JsonSchemaType_BOOLEAN JsonSchemaType = "BOOLEAN"
-	// Experimental.
 	JsonSchemaType_OBJECT JsonSchemaType = "OBJECT"
-	// Experimental.
 	JsonSchemaType_ARRAY JsonSchemaType = "ARRAY"
-	// Experimental.
 	JsonSchemaType_NUMBER JsonSchemaType = "NUMBER"
-	// Experimental.
 	JsonSchemaType_INTEGER JsonSchemaType = "INTEGER"
-	// Experimental.
 	JsonSchemaType_STRING JsonSchemaType = "STRING"
 )
 

@@ -1,10 +1,10 @@
 package awscodebuild
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-// The type returned from {@link IProject#enableBatchBuilds}.
+// The type returned from `IProject#enableBatchBuilds`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,10 +18,8 @@ import (
 //   	role: role,
 //   }
 //
-// Experimental.
 type BatchBuildConfig struct {
 	// The IAM batch service Role of this Project.
-	// Experimental.
 	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 }
 

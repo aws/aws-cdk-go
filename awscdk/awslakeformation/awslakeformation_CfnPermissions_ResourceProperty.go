@@ -48,9 +48,7 @@ type CfnPermissions_ResourceProperty struct {
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 	TableResource interface{} `field:"optional" json:"tableResource" yaml:"tableResource"`
-	// A structure for a table with columns object.
-	//
-	// This object is only used when granting a SELECT permission.
+	// Currently not supported by AWS CloudFormation .
 	TableWithColumnsResource interface{} `field:"optional" json:"tableWithColumnsResource" yaml:"tableWithColumnsResource"`
 }
 

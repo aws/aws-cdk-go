@@ -132,6 +132,45 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
 })
 ```
 
+#### Cross Region Certificates
+
+> **This feature is currently experimental**
+
+You can enable the Stack property `crossRegionReferences`
+in order to access resources in a different stack *and* region. With this feature flag
+enabled it is possible to do something like creating a CloudFront distribution in `us-east-2` and
+an ACM certificate in `us-east-1`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-1"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), map[string]interface{}{
+	"domainName": jsii.String("*.example.com"),
+	"validation": acm.CertificateValidation_fromDns(route53.PublicHostedZone_fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+})
+
+stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-2"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &distributionProps{
+	defaultBehavior: &behaviorOptions{
+		origin: origins.NewHttpOrigin(jsii.String("example.com")),
+	},
+	domainNames: []*string{
+		jsii.String("dev.example.com"),
+	},
+	certificate: cert,
+})
+```
+
 ### Multiple Behaviors & Origins
 
 Each distribution has a default behavior which applies to all requests to that distribution; additional behaviors may be specified for a
@@ -358,6 +397,10 @@ myResponseHeadersPolicy := cloudfront.NewResponseHeadersPolicy(this, jsii.String
 			override: jsii.Boolean(true),
 		},
 	},
+	removeHeaders: []*string{
+		jsii.String("Server"),
+	},
+	serverTimingSamplingRate: jsii.Number(50),
 })
 cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 	defaultBehavior: &behaviorOptions{
@@ -594,6 +637,24 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
 })
 ```
 
+### HTTP Versions
+
+You can configure CloudFront to use a particular version of the HTTP protocol. By default,
+newly created distributions use HTTP/2 but can be configured to use both HTTP/2 and HTTP/3 or
+just HTTP/3. For all supported HTTP versions, see the `HttpVerson` enum.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+// Configure a distribution to use HTTP/2 and HTTP/3
+// Configure a distribution to use HTTP/2 and HTTP/3
+cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
+	defaultBehavior: &behaviorOptions{
+		origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+	},
+	httpVersion: cloudfront.httpVersion_HTTP2_AND_3,
+})
+```
+
 ### Importing Distributions
 
 Existing distributions can be imported as well; note that like most imported constructs, an imported distribution cannot be modified.
@@ -605,6 +666,19 @@ distribution := cloudfront.distribution.fromDistributionAttributes(this, jsii.St
 	domainName: jsii.String("d111111abcdef8.cloudfront.net"),
 	distributionId: jsii.String("012345ABCDEF"),
 })
+```
+
+### Permissions
+
+Use the `grant()` method to allow actions on the distribution.
+`grantCreateInvalidation()` is a shorthand to allow `CreateInvalidation`.
+
+```go
+var distribution distribution
+var lambdaFn function
+
+distribution.grant(lambdaFn, jsii.String("cloudfront:ListInvalidations"), jsii.String("cloudfront:GetInvalidation"))
+distribution.grantCreateInvalidation(lambdaFn)
 ```
 
 ## Migrating from the original CloudFrontWebDistribution to the newer Distribution construct

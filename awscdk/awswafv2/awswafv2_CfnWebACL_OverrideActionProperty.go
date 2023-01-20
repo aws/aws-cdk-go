@@ -7,7 +7,7 @@ package awswafv2
 //
 // You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
 //
-// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
+// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead exclude those rules in your rule group reference statement settings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +25,7 @@ package awswafv2
 type CfnWebACL_OverrideActionProperty struct {
 	// Override the rule group evaluation result to count only.
 	//
-	// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
+	// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead exclude those rules in your rule group reference statement settings.
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
 	// Don't override the rule group evaluation result.
 	//

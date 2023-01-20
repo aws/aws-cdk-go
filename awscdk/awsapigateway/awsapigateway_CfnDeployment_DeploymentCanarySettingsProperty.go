@@ -17,13 +17,15 @@ package awsapigateway
 //   }
 //
 type CfnDeployment_DeploymentCanarySettingsProperty struct {
-	// The percentage (0.0-100.0) of traffic routed to the canary deployment.
+	// The percentage (0-100) of traffic diverted to a canary deployment.
 	PercentTraffic *float64 `field:"optional" json:"percentTraffic" yaml:"percentTraffic"`
-	// A stage variable overrides used for the canary release deployment.
+	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary.
 	//
-	// They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+	// These stage variables are represented as a string-to-string map between stage variable names and their values.
+	//
+	// Duplicates are not allowed.
 	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
-	// A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
+	// Whether the canary deployment uses the stage cache.
 	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 

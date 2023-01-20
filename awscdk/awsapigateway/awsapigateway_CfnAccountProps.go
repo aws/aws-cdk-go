@@ -13,7 +13,7 @@ package awsapigateway
 //   }
 //
 type CfnAccountProps struct {
-	// The ARN of an Amazon CloudWatch role for the current Account.
+	// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
 	CloudWatchRoleArn *string `field:"optional" json:"cloudWatchRoleArn" yaml:"cloudWatchRoleArn"`
 }
 

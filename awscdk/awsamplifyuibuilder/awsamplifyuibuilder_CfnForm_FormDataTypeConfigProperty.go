@@ -1,8 +1,6 @@
 package awsamplifyuibuilder
 
 
-// Describes the data type configuration for the data source associated with a form.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +12,9 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_FormDataTypeConfigProperty struct {
-	// The data source type, either an Amplify DataStore model or a custom data type.
+	// `CfnForm.FormDataTypeConfigProperty.DataSourceType`.
 	DataSourceType *string `field:"required" json:"dataSourceType" yaml:"dataSourceType"`
-	// The unique name of the data type you are using as the data source for the form.
+	// `CfnForm.FormDataTypeConfigProperty.DataTypeName`.
 	DataTypeName *string `field:"required" json:"dataTypeName" yaml:"dataTypeName"`
 }
 

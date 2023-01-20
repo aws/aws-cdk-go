@@ -5,7 +5,7 @@ package awscertificatemanager
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
 )
 
 func validateCertificateValidation_FromDnsMultiZoneParameters(hostedZones *map[string]awsroute53.IHostedZone) error {

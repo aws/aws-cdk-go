@@ -1,8 +1,6 @@
 package awslakeformation
 
 
-// A PartiQL predicate.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awslakeformation
 //   }
 //
 type CfnDataCellsFilter_RowFilterProperty struct {
-	// A wildcard for all rows.
+	// `CfnDataCellsFilter.RowFilterProperty.AllRowsWildcard`.
 	AllRowsWildcard interface{} `field:"optional" json:"allRowsWildcard" yaml:"allRowsWildcard"`
-	// A filter expression.
+	// `CfnDataCellsFilter.RowFilterProperty.FilterExpression`.
 	FilterExpression *string `field:"optional" json:"filterExpression" yaml:"filterExpression"`
 }
 

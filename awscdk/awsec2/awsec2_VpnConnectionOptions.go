@@ -2,6 +2,7 @@ package awsec2
 
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &vpcProps{
 //   	vpnConnections: map[string]vpnConnectionOptions{
 //   		"dynamic": &vpnConnectionOptions{
@@ -19,22 +20,17 @@ package awsec2
 //   	},
 //   })
 //
-// Experimental.
 type VpnConnectionOptions struct {
 	// The ip address of the customer gateway.
-	// Experimental.
 	Ip *string `field:"required" json:"ip" yaml:"ip"`
 	// The ASN of the customer gateway.
-	// Experimental.
 	Asn *float64 `field:"optional" json:"asn" yaml:"asn"`
 	// The static routes to be routed from the VPN gateway to the customer gateway.
-	// Experimental.
 	StaticRoutes *[]*string `field:"optional" json:"staticRoutes" yaml:"staticRoutes"`
 	// The tunnel options for the VPN connection.
 	//
 	// At most two elements (one per tunnel).
 	// Duplicates not allowed.
-	// Experimental.
 	TunnelOptions *[]*VpnTunnelOption `field:"optional" json:"tunnelOptions" yaml:"tunnelOptions"`
 }
 

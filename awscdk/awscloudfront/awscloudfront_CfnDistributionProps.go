@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnDistribution`.
@@ -279,7 +279,9 @@ import (
 //   }
 //
 type CfnDistributionProps struct {
-	// The distribution's configuration.
+	// The current configuration information for the distribution.
+	//
+	// Send a `GET` request to the `/ *CloudFront API version* /distribution ID/config` resource.
 	DistributionConfig interface{} `field:"required" json:"distributionConfig" yaml:"distributionConfig"`
 	// A complex type that contains zero or more `Tag` elements.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

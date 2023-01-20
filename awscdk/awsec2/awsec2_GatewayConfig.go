@@ -13,13 +13,10 @@ package awsec2
 //   	gatewayId: jsii.String("gatewayId"),
 //   }
 //
-// Experimental.
 type GatewayConfig struct {
 	// Availability Zone.
-	// Experimental.
 	Az *string `field:"required" json:"az" yaml:"az"`
 	// Identity of gateway spawned by the provider.
-	// Experimental.
 	GatewayId *string `field:"required" json:"gatewayId" yaml:"gatewayId"`
 }
 

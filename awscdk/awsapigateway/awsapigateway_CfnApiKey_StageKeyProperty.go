@@ -14,9 +14,11 @@ package awsapigateway
 //   }
 //
 type CfnApiKey_StageKeyProperty struct {
-	// The string identifier of the associated RestApi.
+	// The ID of a `RestApi` resource that includes the stage with which you want to associate the API key.
 	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
-	// The stage name associated with the stage key.
+	// The name of the stage with which to associate the API key.
+	//
+	// The stage must be included in the `RestApi` resource that you specified in the `RestApiId` property.
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 

@@ -14,9 +14,7 @@ package awslocation
 //   }
 //
 type CfnTrackerConsumerProps struct {
-	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource.
-	//
-	// Used when you need to specify a resource across all AWS .
+	// The Amazon Resource Name (ARN) for the geofence collection that consumes the tracker resource updates.
 	//
 	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`.
 	ConsumerArn *string `field:"required" json:"consumerArn" yaml:"consumerArn"`

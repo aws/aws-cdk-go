@@ -1,12 +1,11 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a value of a specific object deployed in the cluster.
@@ -34,75 +33,23 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type KubernetesObjectValue interface {
-	awscdk.Construct
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	constructs.Construct
+	// The tree node.
+	Node() constructs.Node
 	// The value as a string token.
-	// Experimental.
 	Value() *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for KubernetesObjectValue
 type jsiiProxy_KubernetesObjectValue struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_KubernetesObjectValue) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_KubernetesObjectValue) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -122,7 +69,6 @@ func (j *jsiiProxy_KubernetesObjectValue) Value() *string {
 }
 
 
-// Experimental.
 func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *KubernetesObjectValueProps) KubernetesObjectValue {
 	_init_.Initialize()
 
@@ -132,7 +78,7 @@ func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *Kub
 	j := jsiiProxy_KubernetesObjectValue{}
 
 	_jsii_.Create(
-		"monocdk.aws_eks.KubernetesObjectValue",
+		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -140,19 +86,33 @@ func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *Kub
 	return &j
 }
 
-// Experimental.
 func NewKubernetesObjectValue_Override(k KubernetesObjectValue, scope constructs.Construct, id *string, props *KubernetesObjectValueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_eks.KubernetesObjectValue",
+		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
 		[]interface{}{scope, id, props},
 		k,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func KubernetesObjectValue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -162,7 +122,7 @@ func KubernetesObjectValue_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.KubernetesObjectValue",
+		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -175,62 +135,11 @@ func KubernetesObjectValue_RESOURCE_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_eks.KubernetesObjectValue",
+		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
 		"RESOURCE_TYPE",
 		&returns,
 	)
 	return returns
-}
-
-func (k *jsiiProxy_KubernetesObjectValue) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubernetesObjectValue) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := k.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubernetesObjectValue) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (k *jsiiProxy_KubernetesObjectValue) Prepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubernetesObjectValue) Synthesize(session awscdk.ISynthesisSession) {
-	if err := k.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		k,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 func (k *jsiiProxy_KubernetesObjectValue) ToString() *string {
@@ -239,19 +148,6 @@ func (k *jsiiProxy_KubernetesObjectValue) ToString() *string {
 	_jsii_.Invoke(
 		k,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (k *jsiiProxy_KubernetesObjectValue) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

@@ -15,9 +15,9 @@ package awsec2
 //   }
 //
 type CfnLaunchTemplate_CreditSpecificationProperty struct {
-	// The credit option for CPU usage of a T instance.
+	// The credit option for CPU usage of a T2, T3, or T3a instance.
 	//
-	// Valid values: `standard` | `unlimited`.
+	// Valid values are `standard` and `unlimited` .
 	CpuCredits *string `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`
 }
 

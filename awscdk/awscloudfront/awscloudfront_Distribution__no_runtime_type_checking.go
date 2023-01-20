@@ -20,11 +20,11 @@ func (d *jsiiProxy_Distribution) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
-func (d *jsiiProxy_Distribution) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (d *jsiiProxy_Distribution) validateGrantParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
-func (d *jsiiProxy_Distribution) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (d *jsiiProxy_Distribution) validateGrantCreateInvalidationParameters(identity awsiam.IGrantable) error {
 	return nil
 }
 
@@ -36,7 +36,11 @@ func validateDistribution_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDistribution_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateDistribution_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateDistribution_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

@@ -21,8 +21,6 @@ type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 	// For example, `true` or `false` .
 	ImageTestsEnabled interface{} `field:"optional" json:"imageTestsEnabled" yaml:"imageTestsEnabled"`
 	// The maximum time in minutes that tests are permitted to run.
-	//
-	// > The timeoutMinutes attribute is not currently active. This value is ignored.
 	TimeoutMinutes *float64 `field:"optional" json:"timeoutMinutes" yaml:"timeoutMinutes"`
 }
 

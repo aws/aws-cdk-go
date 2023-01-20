@@ -1,7 +1,7 @@
 package awsnetworkmanager
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnConnectAttachment`.
@@ -29,15 +29,15 @@ import (
 //   }
 //
 type CfnConnectAttachmentProps struct {
-	// The ID of the core network where the Connect attachment is located.
+	// The core network ID.
 	CoreNetworkId *string `field:"required" json:"coreNetworkId" yaml:"coreNetworkId"`
 	// The Region where the edge is located.
 	EdgeLocation *string `field:"required" json:"edgeLocation" yaml:"edgeLocation"`
-	// Options for connecting an attachment.
+	// Options for creating a Connect attachment.
 	Options interface{} `field:"required" json:"options" yaml:"options"`
-	// The ID of the transport attachment.
+	// The ID of the attachment between the two connections.
 	TransportAttachmentId *string `field:"required" json:"transportAttachmentId" yaml:"transportAttachmentId"`
-	// `AWS::NetworkManager::ConnectAttachment.Tags`.
+	// The tags associated with the Connect attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

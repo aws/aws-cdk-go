@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnTopicRule) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
+func (c *jsiiProxy_CfnTopicRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTopicRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnTopicRule) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnTopicRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTopicRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTopicRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTopicRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnTopicRule) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnTopicRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnTopicRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnTopicRule) validateSetTopicRulePayloadParameters(val inter
 	return nil
 }
 
-func validateNewCfnTopicRuleParameters(scope awscdk.Construct, id *string, props *CfnTopicRuleProps) error {
+func validateNewCfnTopicRuleParameters(scope constructs.Construct, id *string, props *CfnTopicRuleProps) error {
 	return nil
 }
 

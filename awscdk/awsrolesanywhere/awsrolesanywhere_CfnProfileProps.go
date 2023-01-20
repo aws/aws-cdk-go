@@ -1,7 +1,7 @@
 package awsrolesanywhere
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnProfile`.
@@ -32,23 +32,21 @@ import (
 //   }
 //
 type CfnProfileProps struct {
-	// The number of seconds vended session credentials will be valid for.
+	// `AWS::RolesAnywhere::Profile.DurationSeconds`.
 	DurationSeconds *float64 `field:"optional" json:"durationSeconds" yaml:"durationSeconds"`
-	// The enabled status of the resource.
+	// `AWS::RolesAnywhere::Profile.Enabled`.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// A list of managed policy ARNs.
-	//
-	// Managed policies identified by this list will be applied to the vended session credentials.
+	// `AWS::RolesAnywhere::Profile.ManagedPolicyArns`.
 	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
-	// The customer specified name of the resource.
+	// `AWS::RolesAnywhere::Profile.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Specifies whether instance properties are required in CreateSession requests with this profile.
+	// `AWS::RolesAnywhere::Profile.RequireInstanceProperties`.
 	RequireInstanceProperties interface{} `field:"optional" json:"requireInstanceProperties" yaml:"requireInstanceProperties"`
-	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+	// `AWS::RolesAnywhere::Profile.RoleArns`.
 	RoleArns *[]*string `field:"optional" json:"roleArns" yaml:"roleArns"`
-	// A session policy that will applied to the trust boundary of the vended session credentials.
+	// `AWS::RolesAnywhere::Profile.SessionPolicy`.
 	SessionPolicy *string `field:"optional" json:"sessionPolicy" yaml:"sessionPolicy"`
-	// A list of Tags.
+	// `AWS::RolesAnywhere::Profile.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

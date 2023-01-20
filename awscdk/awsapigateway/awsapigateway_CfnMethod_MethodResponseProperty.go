@@ -1,9 +1,7 @@
 package awsapigateway
 
 
-// Represents a method response of a given HTTP status code returned to the client.
-//
-// The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
+// `MethodResponse` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that defines the responses that can be sent to the client that calls a method.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,15 +21,15 @@ package awsapigateway
 //   }
 //
 type CfnMethod_MethodResponseProperty struct {
-	// The method response's status code.
+	// The method response's status code, which you map to an [IntegrationResponse](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html) .
 	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
-	// Specifies the Model resources used for the response's content-type.
+	// The resources used for the response's content type.
 	//
-	// Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
+	// Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a [Model](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html) resource name as the value.
 	ResponseModels interface{} `field:"optional" json:"responseModels" yaml:"responseModels"`
-	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller.
+	// Response parameters that API Gateway sends to the client that called a method.
 	//
-	// A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+	// Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value. Specify the destination using the following pattern: `method.response.header. *name*` , where *name* is a valid, unique header name. The Boolean specifies whether a parameter is required.
 	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 

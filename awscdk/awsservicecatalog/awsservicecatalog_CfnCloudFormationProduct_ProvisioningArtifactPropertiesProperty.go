@@ -24,7 +24,7 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 	//
 	// Keys accepted: [ `LoadTemplateFromURL` , `ImportFromPhysicalId` ]
 	//
-	// The URL of the AWS CloudFormation template in Amazon S3 or GitHub in JSON format. Specify the URL in JSON format as follows:
+	// The URL of the AWS CloudFormation template in Amazon S3, AWS CodeCommit, or GitHub in JSON format. Specify the URL in JSON format as follows:
 	//
 	// `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
 	//

@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// Input object for the endpoint.
+// The constraints resource for a monitoring job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

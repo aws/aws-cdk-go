@@ -22,13 +22,13 @@ package awsappflow
 //   }
 //
 type CfnConnectorProps struct {
-	// The configuration required for registering the connector.
+	// `AWS::AppFlow::Connector.ConnectorProvisioningConfig`.
 	ConnectorProvisioningConfig interface{} `field:"required" json:"connectorProvisioningConfig" yaml:"connectorProvisioningConfig"`
-	// The provisioning type used to register the connector.
+	// `AWS::AppFlow::Connector.ConnectorProvisioningType`.
 	ConnectorProvisioningType *string `field:"required" json:"connectorProvisioningType" yaml:"connectorProvisioningType"`
-	// The label used for registering the connector.
+	// `AWS::AppFlow::Connector.ConnectorLabel`.
 	ConnectorLabel *string `field:"optional" json:"connectorLabel" yaml:"connectorLabel"`
-	// A description of the connector entity field.
+	// `AWS::AppFlow::Connector.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

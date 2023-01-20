@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnAutoScalingGroup) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnAutoScalingGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnAutoScalingGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnAutoScalingGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnAutoScalingGroup) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnAutoScalingGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -445,7 +457,7 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 	return nil
 }
 
-func validateNewCfnAutoScalingGroupParameters(scope awscdk.Construct, id *string, props *CfnAutoScalingGroupProps) error {
+func validateNewCfnAutoScalingGroupParameters(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

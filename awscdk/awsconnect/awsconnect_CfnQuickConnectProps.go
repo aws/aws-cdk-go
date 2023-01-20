@@ -1,7 +1,7 @@
 package awsconnect
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnQuickConnect`.
@@ -51,8 +51,6 @@ type CfnQuickConnectProps struct {
 	// The description of the quick connect.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

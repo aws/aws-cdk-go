@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnQuickConnect) validateAddDeletionOverrideParameters(path *
 	return nil
 }
 
+func (c *jsiiProxy_CfnQuickConnect) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnQuickConnect) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnQuickConnect) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnQuickConnect) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnQuickConnect) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnQuickConnect) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnQuickConnect) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnQuickConnect) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnQuickConnect) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnQuickConnect) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnQuickConnect) validateSetQuickConnectConfigParameters(val 
 	return nil
 }
 
-func validateNewCfnQuickConnectParameters(scope awscdk.Construct, id *string, props *CfnQuickConnectProps) error {
+func validateNewCfnQuickConnectParameters(scope constructs.Construct, id *string, props *CfnQuickConnectProps) error {
 	return nil
 }
 

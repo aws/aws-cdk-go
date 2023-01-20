@@ -37,7 +37,7 @@ type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
 	ClassBTimeout *float64 `field:"optional" json:"classBTimeout" yaml:"classBTimeout"`
 	// The ClassCTimeout value.
 	ClassCTimeout *float64 `field:"optional" json:"classCTimeout" yaml:"classCTimeout"`
-	// The list of values that make up the FactoryPresetFreqs value.
+	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.FactoryPresetFreqsList`.
 	FactoryPresetFreqsList interface{} `field:"optional" json:"factoryPresetFreqsList" yaml:"factoryPresetFreqsList"`
 	// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
 	MacVersion *string `field:"optional" json:"macVersion" yaml:"macVersion"`
@@ -55,13 +55,13 @@ type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
 	RegParamsRevision *string `field:"optional" json:"regParamsRevision" yaml:"regParamsRevision"`
 	// The frequency band (RFRegion) value.
 	RfRegion *string `field:"optional" json:"rfRegion" yaml:"rfRegion"`
-	// The RXDataRate2 value.
+	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.RxDataRate2`.
 	RxDataRate2 *float64 `field:"optional" json:"rxDataRate2" yaml:"rxDataRate2"`
-	// The RXDelay1 value.
+	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.RxDelay1`.
 	RxDelay1 *float64 `field:"optional" json:"rxDelay1" yaml:"rxDelay1"`
-	// The RXDROffset1 value.
+	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.RxDrOffset1`.
 	RxDrOffset1 *float64 `field:"optional" json:"rxDrOffset1" yaml:"rxDrOffset1"`
-	// The RXFreq2 value.
+	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.RxFreq2`.
 	RxFreq2 *float64 `field:"optional" json:"rxFreq2" yaml:"rxFreq2"`
 	// The Supports32BitFCnt value.
 	Supports32BitFCnt interface{} `field:"optional" json:"supports32BitFCnt" yaml:"supports32BitFCnt"`

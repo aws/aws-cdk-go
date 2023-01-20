@@ -59,8 +59,6 @@ package awsappmesh
 //
 type CfnVirtualNode_VirtualServiceBackendProperty struct {
 	// The name of the virtual service that is acting as a virtual node backend.
-	//
-	// > App Mesh doesn't validate the existence of those virtual services specified in backends. This is to prevent a cyclic dependency between virtual nodes and virtual services creation. Make sure the virtual service name is correct. The virtual service can be created afterwards if it doesn't already exist.
 	VirtualServiceName *string `field:"required" json:"virtualServiceName" yaml:"virtualServiceName"`
 	// A reference to an object that represents the client policy for a backend.
 	ClientPolicy interface{} `field:"optional" json:"clientPolicy" yaml:"clientPolicy"`

@@ -4,7 +4,7 @@ package awsec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (p *jsiiProxy_PublicSubnet) validateAddDefaultInternetRouteParameters(gatewayId *string, gatewayAttachment awscdk.IDependable) error {
+func (p *jsiiProxy_PublicSubnet) validateAddDefaultInternetRouteParameters(gatewayId *string, gatewayAttachment constructs.IDependable) error {
 	return nil
 }
 
@@ -32,14 +32,6 @@ func (p *jsiiProxy_PublicSubnet) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
-func (p *jsiiProxy_PublicSubnet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (p *jsiiProxy_PublicSubnet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validatePublicSubnet_FromPublicSubnetAttributesParameters(scope constructs.Construct, id *string, attrs *PublicSubnetAttributes) error {
 	return nil
 }
@@ -56,7 +48,11 @@ func validatePublicSubnet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePublicSubnet_IsResourceParameters(construct awscdk.IConstruct) error {
+func validatePublicSubnet_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validatePublicSubnet_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

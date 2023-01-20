@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPreparedStatement) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnPreparedStatement) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPreparedStatement) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnPreparedStatement) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnPreparedStatement) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPreparedStatement) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPreparedStatement) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPreparedStatement) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnPreparedStatement) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnPreparedStatement) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPreparedStatement) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnPreparedStatement) validateSetWorkGroupParameters(val *str
 	return nil
 }
 
-func validateNewCfnPreparedStatementParameters(scope awscdk.Construct, id *string, props *CfnPreparedStatementProps) error {
+func validateNewCfnPreparedStatementParameters(scope constructs.Construct, id *string, props *CfnPreparedStatementProps) error {
 	return nil
 }
 

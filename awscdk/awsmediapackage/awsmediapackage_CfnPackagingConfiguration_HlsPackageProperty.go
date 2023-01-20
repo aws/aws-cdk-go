@@ -54,7 +54,7 @@ type CfnPackagingConfiguration_HlsPackageProperty struct {
 	HlsManifests interface{} `field:"required" json:"hlsManifests" yaml:"hlsManifests"`
 	// Parameters for encrypting content.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+	// `CfnPackagingConfiguration.HlsPackageProperty.IncludeDvbSubtitles`.
 	IncludeDvbSubtitles interface{} `field:"optional" json:"includeDvbSubtitles" yaml:"includeDvbSubtitles"`
 	// Duration (in seconds) of each fragment.
 	//

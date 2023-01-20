@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (f *jsiiProxy_FargateTaskDefinition) validateAddContainerParameters(id *string, props *ContainerDefinitionOptions) error {
@@ -112,6 +112,14 @@ func (f *jsiiProxy_FargateTaskDefinition) validateFindContainerParameters(contai
 	return nil
 }
 
+func (f *jsiiProxy_FargateTaskDefinition) validateFindPortMappingByNameParameters(name *string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FargateTaskDefinition) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")
@@ -135,17 +143,9 @@ func (f *jsiiProxy_FargateTaskDefinition) validateGetResourceNameAttributeParame
 	return nil
 }
 
-func (f *jsiiProxy_FargateTaskDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (f *jsiiProxy_FargateTaskDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (f *jsiiProxy_FargateTaskDefinition) validateGrantRunParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil
@@ -229,7 +229,15 @@ func validateFargateTaskDefinition_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateFargateTaskDefinition_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateFargateTaskDefinition_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateFargateTaskDefinition_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

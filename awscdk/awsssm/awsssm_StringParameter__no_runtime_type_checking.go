@@ -24,14 +24,6 @@ func (s *jsiiProxy_StringParameter) validateGrantWriteParameters(grantee awsiam.
 	return nil
 }
 
-func (s *jsiiProxy_StringParameter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_StringParameter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateStringParameter_FromSecureStringParameterAttributesParameters(scope constructs.Construct, id *string, attrs *SecureStringParameterAttributes) error {
 	return nil
 }
@@ -48,7 +40,11 @@ func validateStringParameter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStringParameter_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateStringParameter_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateStringParameter_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
@@ -64,7 +60,11 @@ func validateStringParameter_ValueForTypedStringParameterParameters(scope constr
 	return nil
 }
 
-func validateStringParameter_ValueFromLookupParameters(scope awscdk.Construct, parameterName *string) error {
+func validateStringParameter_ValueForTypedStringParameterV2Parameters(scope constructs.Construct, parameterName *string) error {
+	return nil
+}
+
+func validateStringParameter_ValueFromLookupParameters(scope constructs.Construct, parameterName *string) error {
 	return nil
 }
 

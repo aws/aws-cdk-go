@@ -1,8 +1,6 @@
 package awsquicksight
 
 
-// Dataset schema.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,7 +17,7 @@ package awsquicksight
 //   }
 //
 type CfnTemplate_DataSetSchemaProperty struct {
-	// A structure containing the list of column schemas.
+	// `CfnTemplate.DataSetSchemaProperty.ColumnSchemaList`.
 	ColumnSchemaList interface{} `field:"optional" json:"columnSchemaList" yaml:"columnSchemaList"`
 }
 

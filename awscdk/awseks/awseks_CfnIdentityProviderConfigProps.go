@@ -1,7 +1,7 @@
 package awseks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnIdentityProviderConfig`.
@@ -50,7 +50,7 @@ type CfnIdentityProviderConfigProps struct {
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The name of the configuration.
 	IdentityProviderConfigName *string `field:"optional" json:"identityProviderConfigName" yaml:"identityProviderConfigName"`
-	// An object representing an OpenID Connect (OIDC) identity provider configuration.
+	// An object that represents an OpenID Connect (OIDC) identity provider configuration.
 	Oidc interface{} `field:"optional" json:"oidc" yaml:"oidc"`
 	// The metadata to apply to the provider configuration to assist with categorization and organization.
 	//

@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // `StageDescription` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
@@ -65,11 +65,9 @@ import (
 type CfnDeployment_StageDescriptionProperty struct {
 	// Specifies settings for logging access in this stage.
 	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Indicates whether cache clustering is enabled for the stage.
 	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// The size of the stage's cache cluster.
-	//
-	// For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference* .
 	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// Indicates whether the cached responses are encrypted.
 	CacheDataEncrypted interface{} `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
@@ -93,7 +91,7 @@ type CfnDeployment_StageDescriptionProperty struct {
 	DocumentationVersion *string `field:"optional" json:"documentationVersion" yaml:"documentationVersion"`
 	// The logging level for this method.
 	//
-	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/latest/api/API_Stage.html#loggingLevel) resource in the *Amazon API Gateway API Reference* .
+	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the *Amazon API Gateway API Reference* .
 	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Configures settings for all of the stage's methods.
 	MethodSettings interface{} `field:"optional" json:"methodSettings" yaml:"methodSettings"`

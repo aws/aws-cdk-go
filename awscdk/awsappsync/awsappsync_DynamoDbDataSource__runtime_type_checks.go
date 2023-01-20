@@ -7,11 +7,14 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (d *jsiiProxy_DynamoDbDataSource) validateCreateFunctionParameters(props *BaseAppsyncFunctionProps) error {
+func (d *jsiiProxy_DynamoDbDataSource) validateCreateFunctionParameters(id *string, props *BaseAppsyncFunctionProps) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
@@ -22,28 +25,16 @@ func (d *jsiiProxy_DynamoDbDataSource) validateCreateFunctionParameters(props *B
 	return nil
 }
 
-func (d *jsiiProxy_DynamoDbDataSource) validateCreateResolverParameters(props *BaseResolverProps) error {
+func (d *jsiiProxy_DynamoDbDataSource) validateCreateResolverParameters(id *string, props *BaseResolverProps) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (d *jsiiProxy_DynamoDbDataSource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (d *jsiiProxy_DynamoDbDataSource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

@@ -17,9 +17,9 @@ package awsapigateway
 //   }
 //
 type CfnDomainName_EndpointConfigurationProperty struct {
-	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName).
+	// A list of endpoint types of an API or its custom domain name.
 	//
-	// For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+	// For an edge-optimized API and its custom domain name, the endpoint type is `EDGE` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` .
 	Types *[]*string `field:"optional" json:"types" yaml:"types"`
 }
 

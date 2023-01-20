@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// Describes a default field and its corresponding value.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +14,9 @@ package awsconnect
 //   }
 //
 type CfnTaskTemplate_DefaultFieldValueProperty struct {
-	// Default value for the field.
+	// `CfnTaskTemplate.DefaultFieldValueProperty.DefaultValue`.
 	DefaultValue *string `field:"required" json:"defaultValue" yaml:"defaultValue"`
-	// Identifier of a field.
+	// `CfnTaskTemplate.DefaultFieldValueProperty.Id`.
 	Id interface{} `field:"required" json:"id" yaml:"id"`
 }
 

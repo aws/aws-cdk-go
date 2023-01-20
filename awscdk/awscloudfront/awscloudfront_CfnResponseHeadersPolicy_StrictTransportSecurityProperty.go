@@ -1,7 +1,7 @@
 package awscloudfront
 
 
-// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
+// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value.
 //
 // For more information about the `Strict-Transport-Security` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
 //

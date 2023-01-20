@@ -1,8 +1,6 @@
 package awsec2
 
 
-// Describes an additional detail for a path analysis.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +15,9 @@ package awsec2
 //   }
 //
 type CfnNetworkInsightsAnalysis_AdditionalDetailProperty struct {
-	// The information type.
+	// `CfnNetworkInsightsAnalysis.AdditionalDetailProperty.AdditionalDetailType`.
 	AdditionalDetailType *string `field:"optional" json:"additionalDetailType" yaml:"additionalDetailType"`
-	// The path component.
+	// `CfnNetworkInsightsAnalysis.AdditionalDetailProperty.Component`.
 	Component interface{} `field:"optional" json:"component" yaml:"component"`
 }
 

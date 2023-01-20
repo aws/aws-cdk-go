@@ -3,12 +3,11 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 )
 
 // An option group.
-// Experimental.
 type IOptionGroup interface {
 	awscdk.IResource
 	// Adds a configuration to this OptionGroup.
@@ -16,10 +15,8 @@ type IOptionGroup interface {
 	// This method is a no-op for an imported OptionGroup.
 	//
 	// Returns: true if the OptionConfiguration was successfully added.
-	// Experimental.
 	AddConfiguration(configuration *OptionConfiguration) *bool
 	// The name of the option group.
-	// Experimental.
 	OptionGroupName() *string
 }
 

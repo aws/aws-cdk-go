@@ -3,8 +3,6 @@ package awselasticloadbalancing
 
 // Specifies a listener for your Classic Load Balancer.
 //
-// Modifying any property replaces the listener.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

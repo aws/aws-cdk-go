@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnSqlInjectionMatchSet) validateSetSqlInjectionMatchTuplesPa
 	return nil
 }
 
-func validateNewCfnSqlInjectionMatchSetParameters(scope awscdk.Construct, id *string, props *CfnSqlInjectionMatchSetProps) error {
+func validateNewCfnSqlInjectionMatchSetParameters(scope constructs.Construct, id *string, props *CfnSqlInjectionMatchSetProps) error {
 	return nil
 }
 

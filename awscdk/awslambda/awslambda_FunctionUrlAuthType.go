@@ -16,15 +16,12 @@ package awslambda
 //   	value: fnUrl.url,
 //   })
 //
-// Experimental.
 type FunctionUrlAuthType string
 
 const (
 	// Restrict access to authenticated IAM users only.
-	// Experimental.
 	FunctionUrlAuthType_AWS_IAM FunctionUrlAuthType = "AWS_IAM"
 	// Bypass IAM authentication to create a public endpoint.
-	// Experimental.
 	FunctionUrlAuthType_NONE FunctionUrlAuthType = "NONE"
 )
 

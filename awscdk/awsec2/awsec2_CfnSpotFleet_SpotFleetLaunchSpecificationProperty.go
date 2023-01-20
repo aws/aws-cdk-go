@@ -184,7 +184,7 @@ type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
-	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+	// > If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
@@ -212,9 +212,7 @@ type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	SecurityGroups interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
-	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
-	//
-	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	// If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of `WeightedCapacity` .
 	SpotPrice *string `field:"optional" json:"spotPrice" yaml:"spotPrice"`
 	// The IDs of the subnets in which to launch the instances.
 	//

@@ -23,20 +23,16 @@ package awsrds
 //   	},
 //   }
 //
-// Experimental.
 type ProxyTargetConfig struct {
 	// The engine family of the database instance or cluster this proxy connects with.
-	// Experimental.
 	EngineFamily *string `field:"required" json:"engineFamily" yaml:"engineFamily"`
 	// The database clusters to which this proxy connects.
 	//
 	// Either this or `dbInstances` will be set and the other `undefined`.
-	// Experimental.
 	DbClusters *[]IDatabaseCluster `field:"optional" json:"dbClusters" yaml:"dbClusters"`
 	// The database instances to which this proxy connects.
 	//
 	// Either this or `dbClusters` will be set and the other `undefined`.
-	// Experimental.
 	DbInstances *[]IDatabaseInstance `field:"optional" json:"dbInstances" yaml:"dbInstances"`
 }
 

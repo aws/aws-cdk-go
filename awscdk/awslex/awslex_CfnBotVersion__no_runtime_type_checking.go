@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnBotVersion) validateAddDeletionOverrideParameters(path *st
 	return nil
 }
 
+func (c *jsiiProxy_CfnBotVersion) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBotVersion) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnBotVersion) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnBotVersion) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBotVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnBotVersion) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnBotVersion) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnBotVersion) validateRenderPropertiesParameters(props *map[
 	return nil
 }
 
-func (c *jsiiProxy_CfnBotVersion) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBotVersion) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnBotVersion) validateSetBotVersionLocaleSpecificationParame
 	return nil
 }
 
-func validateNewCfnBotVersionParameters(scope awscdk.Construct, id *string, props *CfnBotVersionProps) error {
+func validateNewCfnBotVersionParameters(scope constructs.Construct, id *string, props *CfnBotVersionProps) error {
 	return nil
 }
 

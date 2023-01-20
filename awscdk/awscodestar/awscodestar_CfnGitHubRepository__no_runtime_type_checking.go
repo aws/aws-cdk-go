@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnGitHubRepository) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnGitHubRepository) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGitHubRepository) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnGitHubRepository) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnGitHubRepository) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGitHubRepository) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnGitHubRepository) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnGitHubRepository) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnGitHubRepository) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnGitHubRepository) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnGitHubRepository) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnGitHubRepository) validateSetRepositoryOwnerParameters(val
 	return nil
 }
 
-func validateNewCfnGitHubRepositoryParameters(scope awscdk.Construct, id *string, props *CfnGitHubRepositoryProps) error {
+func validateNewCfnGitHubRepositoryParameters(scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) error {
 	return nil
 }
 

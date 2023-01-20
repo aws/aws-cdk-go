@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnEndpointGroup) validateAddDeletionOverrideParameters(path 
 	return nil
 }
 
+func (c *jsiiProxy_CfnEndpointGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEndpointGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnEndpointGroup) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnEndpointGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnEndpointGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnEndpointGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnEndpointGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnEndpointGroup) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnEndpointGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnEndpointGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnEndpointGroup) validateSetPortOverridesParameters(val inte
 	return nil
 }
 
-func validateNewCfnEndpointGroupParameters(scope awscdk.Construct, id *string, props *CfnEndpointGroupProps) error {
+func validateNewCfnEndpointGroupParameters(scope constructs.Construct, id *string, props *CfnEndpointGroupProps) error {
 	return nil
 }
 

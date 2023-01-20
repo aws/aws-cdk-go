@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLifecyclePolicy) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnLifecyclePolicy) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLifecyclePolicy) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLifecyclePolicy) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnLifecyclePolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLifecyclePolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLifecyclePolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLifecyclePolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLifecyclePolicy) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnLifecyclePolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLifecyclePolicy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnLifecyclePolicy) validateSetPolicyDetailsParameters(val in
 	return nil
 }
 
-func validateNewCfnLifecyclePolicyParameters(scope awscdk.Construct, id *string, props *CfnLifecyclePolicyProps) error {
+func validateNewCfnLifecyclePolicyParameters(scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) error {
 	return nil
 }
 

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateAddDeletionOverr
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateInspectParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateRenderProperties
 	return nil
 }
 
-func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -108,7 +112,7 @@ func (j *jsiiProxy_CfnModelExplainabilityJobDefinition) validateSetStoppingCondi
 	return nil
 }
 
-func validateNewCfnModelExplainabilityJobDefinitionParameters(scope awscdk.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) error {
+func validateNewCfnModelExplainabilityJobDefinitionParameters(scope constructs.Construct, id *string, props *CfnModelExplainabilityJobDefinitionProps) error {
 	return nil
 }
 

@@ -36,30 +36,26 @@ package awsefs
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &functionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	filesystem: lambda.fileSystem.fromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	runtime: lambda.runtime_NODEJS_16_X(),
+//   	runtime: lambda.runtime_NODEJS_18_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	vpc: vpc,
 //   })
 //
-// Experimental.
 type AccessPointOptions struct {
 	// Specifies the POSIX IDs and permissions to apply when creating the access point's root directory.
 	//
 	// If the
 	// root directory specified by `path` does not exist, EFS creates the root directory and applies the
 	// permissions specified here. If the specified `path` does not exist, you must specify `createAcl`.
-	// Experimental.
 	CreateAcl *Acl `field:"optional" json:"createAcl" yaml:"createAcl"`
 	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
-	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 	//
 	// Specify this to enforce a user identity using an access point.
 	// See: - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
 	//
-	// Experimental.
 	PosixUser *PosixUser `field:"optional" json:"posixUser" yaml:"posixUser"`
 }
 

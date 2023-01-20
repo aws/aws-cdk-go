@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnUsagePlan`.
@@ -44,19 +44,17 @@ import (
 //   }
 //
 type CfnUsagePlanProps struct {
-	// The associated API stages of a usage plan.
+	// The API stages to associate with this usage plan.
 	ApiStages interface{} `field:"optional" json:"apiStages" yaml:"apiStages"`
-	// The description of a usage plan.
+	// A description of the usage plan.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The target maximum number of permitted requests per a given unit time interval.
+	// Configures the number of requests that users can make within a given interval.
 	Quota interface{} `field:"optional" json:"quota" yaml:"quota"`
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// A map containing method level throttling information for API stage in a usage plan.
+	// Configures the overall request rate (average requests per second) and burst capacity.
 	Throttle interface{} `field:"optional" json:"throttle" yaml:"throttle"`
-	// The name of a usage plan.
+	// A name for the usage plan.
 	UsagePlanName *string `field:"optional" json:"usagePlanName" yaml:"usagePlanName"`
 }
 

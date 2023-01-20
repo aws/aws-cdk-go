@@ -19,11 +19,13 @@ package awsapigateway
 type CfnUsagePlan_QuotaSettingsProperty struct {
 	// The target maximum number of requests that can be made in a given time period.
 	Limit *float64 `field:"optional" json:"limit" yaml:"limit"`
-	// The number of requests subtracted from the given limit in the initial time period.
-	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
-	// The time period in which the limit applies.
+	// The day that a time period starts.
 	//
-	// Valid values are "DAY", "WEEK" or "MONTH".
+	// For example, with a time period of `WEEK` , an offset of `0` starts on Sunday, and an offset of `1` starts on Monday.
+	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
+	// The time period for which the target maximum limit of requests applies, such as `DAY` or `WEEK` .
+	//
+	// For valid values, see the period property for the [UsagePlan](https://docs.aws.amazon.com/apigateway/api-reference/resource/usage-plan) resource in the *Amazon API Gateway REST API Reference* .
 	Period *string `field:"optional" json:"period" yaml:"period"`
 }
 

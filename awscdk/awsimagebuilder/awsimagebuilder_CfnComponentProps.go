@@ -30,7 +30,7 @@ package awsimagebuilder
 type CfnComponentProps struct {
 	// The name of the component.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The operating system platform of the component.
+	// The platform of the component.
 	Platform *string `field:"required" json:"platform" yaml:"platform"`
 	// The component version.
 	//
@@ -44,15 +44,17 @@ type CfnComponentProps struct {
 	//
 	// Alternatively, you can specify the `uri` of a YAML document file stored in Amazon S3. However, you cannot specify both properties.
 	Data *string `field:"optional" json:"data" yaml:"data"`
+	// The description of the component.
+	//
 	// Describes the contents of the component.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The ID of the KMS key that is used to encrypt this component.
+	// The ID of the KMS key that should be used to encrypt this component.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The operating system (OS) version supported by the component.
 	//
 	// If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
 	SupportedOsVersions *[]*string `field:"optional" json:"supportedOsVersions" yaml:"supportedOsVersions"`
-	// The tags that apply to the component.
+	// The tags of the component.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// The `uri` of a YAML component document file.
 	//

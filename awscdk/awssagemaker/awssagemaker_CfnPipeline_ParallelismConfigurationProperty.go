@@ -1,10 +1,6 @@
 package awssagemaker
 
 
-// Configuration that controls the parallelism of the pipeline.
-//
-// By default, the parallelism configuration specified applies to all executions of the pipeline unless overridden.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +11,7 @@ package awssagemaker
 //   }
 //
 type CfnPipeline_ParallelismConfigurationProperty struct {
-	// The max number of steps that can be executed in parallel.
+	// `CfnPipeline.ParallelismConfigurationProperty.MaxParallelExecutionSteps`.
 	MaxParallelExecutionSteps *float64 `field:"required" json:"maxParallelExecutionSteps" yaml:"maxParallelExecutionSteps"`
 }
 

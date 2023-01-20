@@ -54,20 +54,20 @@ type CfnPackagingConfiguration_DashPackageProperty struct {
 	DashManifests interface{} `field:"required" json:"dashManifests" yaml:"dashManifests"`
 	// Parameters for encrypting content.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// When includeEncoderConfigurationInSegments is set to true, AWS Elemental MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
+	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
 	//
 	// This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments interface{} `field:"optional" json:"includeEncoderConfigurationInSegments" yaml:"includeEncoderConfigurationInSegments"`
 	// `CfnPackagingConfiguration.DashPackageProperty.IncludeIframeOnlyStream`.
 	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
-	// Controls whether AWS Elemental MediaPackage produces single-period or multi-period DASH manifests.
+	// Controls whether MediaPackage produces single-period or multi-period DASH manifests.
 	//
 	// For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html) .
 	//
 	// Valid values:
 	//
-	// - `ADS` - AWS Elemental MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
-	// - *No value* - AWS Elemental MediaPackage will produce single-period DASH manifests. This is the default setting.
+	// - `ADS` - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
+	// - *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.
 	PeriodTriggers *[]*string `field:"optional" json:"periodTriggers" yaml:"periodTriggers"`
 	// Duration (in seconds) of each fragment.
 	//

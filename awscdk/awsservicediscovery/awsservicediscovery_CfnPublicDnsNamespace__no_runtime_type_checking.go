@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) validateAddDeletionOverrideParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnPublicDnsNamespace) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPublicDnsNamespace) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublicDnsNamespace) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPublicDnsNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublicDnsNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPublicDnsNamespace) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnPublicDnsNamespace) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnPublicDnsNamespace) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) validateSetPropertiesParameters(val in
 	return nil
 }
 
-func validateNewCfnPublicDnsNamespaceParameters(scope awscdk.Construct, id *string, props *CfnPublicDnsNamespaceProps) error {
+func validateNewCfnPublicDnsNamespaceParameters(scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) error {
 	return nil
 }
 

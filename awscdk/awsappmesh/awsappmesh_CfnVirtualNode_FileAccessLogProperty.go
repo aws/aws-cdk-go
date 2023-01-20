@@ -30,9 +30,7 @@ type CfnVirtualNode_FileAccessLogProperty struct {
 	//
 	// > The Envoy process must have write permissions to the path that you specify here. Otherwise, Envoy fails to bootstrap properly.
 	Path *string `field:"required" json:"path" yaml:"path"`
-	// The specified format for the logs.
-	//
-	// The format is either `json_format` or `text_format` .
+	// `CfnVirtualNode.FileAccessLogProperty.Format`.
 	Format interface{} `field:"optional" json:"format" yaml:"format"`
 }
 

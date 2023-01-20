@@ -1,7 +1,7 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -17,7 +17,6 @@ import (
 //
 //   environmentPlaceholders := awscdk.Cx_api.NewEnvironmentPlaceholders()
 //
-// Experimental.
 type EnvironmentPlaceholders interface {
 }
 
@@ -26,14 +25,13 @@ type jsiiProxy_EnvironmentPlaceholders struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewEnvironmentPlaceholders() EnvironmentPlaceholders {
 	_init_.Initialize()
 
 	j := jsiiProxy_EnvironmentPlaceholders{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		nil, // no parameters
 		&j,
 	)
@@ -41,12 +39,11 @@ func NewEnvironmentPlaceholders() EnvironmentPlaceholders {
 	return &j
 }
 
-// Experimental.
 func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		nil, // no parameters
 		e,
 	)
@@ -56,7 +53,6 @@ func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 //
 // Duplicated between cdk-assets and aws-cdk CLI because we don't have a good single place to put it
 // (they're nominally independent tools).
-// Experimental.
 func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlaceholderValues) interface{} {
 	_init_.Initialize()
 
@@ -66,7 +62,7 @@ func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlac
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"replace",
 		[]interface{}{object, values},
 		&returns,
@@ -76,7 +72,6 @@ func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlac
 }
 
 // Like 'replace', but asynchronous.
-// Experimental.
 func EnvironmentPlaceholders_ReplaceAsync(object interface{}, provider IEnvironmentPlaceholderProvider) interface{} {
 	_init_.Initialize()
 
@@ -86,7 +81,7 @@ func EnvironmentPlaceholders_ReplaceAsync(object interface{}, provider IEnvironm
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"replaceAsync",
 		[]interface{}{object, provider},
 		&returns,
@@ -99,7 +94,7 @@ func EnvironmentPlaceholders_CURRENT_ACCOUNT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_ACCOUNT",
 		&returns,
 	)
@@ -110,7 +105,7 @@ func EnvironmentPlaceholders_CURRENT_PARTITION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_PARTITION",
 		&returns,
 	)
@@ -121,7 +116,7 @@ func EnvironmentPlaceholders_CURRENT_REGION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_REGION",
 		&returns,
 	)

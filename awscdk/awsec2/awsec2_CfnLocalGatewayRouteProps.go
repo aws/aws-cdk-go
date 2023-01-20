@@ -24,7 +24,7 @@ type CfnLocalGatewayRouteProps struct {
 	LocalGatewayRouteTableId *string `field:"required" json:"localGatewayRouteTableId" yaml:"localGatewayRouteTableId"`
 	// The ID of the virtual interface group.
 	LocalGatewayVirtualInterfaceGroupId *string `field:"optional" json:"localGatewayVirtualInterfaceGroupId" yaml:"localGatewayVirtualInterfaceGroupId"`
-	// The ID of the network interface.
+	// `AWS::EC2::LocalGatewayRoute.NetworkInterfaceId`.
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 }
 

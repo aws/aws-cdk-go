@@ -202,7 +202,8 @@ behavior:
 * **onFailure**: In the event a record fails and consumes all retries, the record will be sent to SQS queue or SNS topic that is specified here
 * **parallelizationFactor**: The number of batches to concurrently process on each shard.
 * **retryAttempts**: The maximum number of times a record should be retried in the event of failure.
-* **startingPosition**: Will determine where to being consumption, either at the most recent ('LATEST') record or the oldest record ('TRIM_HORIZON'). 'TRIM_HORIZON' will ensure you process all available data, while 'LATEST' will ignore all records that arrived prior to attaching the event source.
+* **startingPosition**: Will determine where to begin consumption. 'LATEST' will start at the most recent record and ignore all records that arrived prior to attaching the event source, 'TRIM_HORIZON' will start at the oldest record and ensure you process all available data, while 'AT_TIMESTAMP' will start reading records from a specified time stamp. Note that 'AT_TIMESTAMP' is only supported for Amazon Kinesis streams.
+* **startingPositionTimestamp**: The time stamp from which to start reading. Used in conjunction with **startingPosition** when set to 'AT_TIMESTAMP'.
 * **tumblingWindow**: The duration in seconds of a processing window when using streams.
 * **enabled**: If the DynamoDB Streams event source mapping should be enabled. The default is true.
 
@@ -260,11 +261,15 @@ The following code sets up a self managed Kafka cluster as an event source. User
 will need to be set up as described in [Managing access and permissions](https://docs.aws.amazon.com/lambda/latest/dg/smaa-permissions.html#smaa-permissions-add-secret).
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // The secret that allows access to your self hosted Kafka cluster
 var secret secret
+
+// (Optional) The secret containing the root CA certificate that your Kafka brokers use for TLS encryption
+var encryption secret
 
 var myFunction function
 
@@ -276,13 +281,18 @@ bootstrapServers := []*string{
 
 // The Kafka topic you want to subscribe to
 topic := "some-cool-topic"
+
+// (Optional) The consumer group id to use when connecting to the Kafka broker. If omitted the UUID of the event source mapping will be used.
+var consumerGroupId string
 myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
 	bootstrapServers: bootstrapServers,
 	topic: topic,
+	consumerGroupId: consumerGroupId,
 	secret: secret,
 	batchSize: jsii.Number(100),
 	 // default
 	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+	encryption: encryption,
 }))
 ```
 

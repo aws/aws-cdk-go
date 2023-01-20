@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awscognito"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
 )
 
 // Configuration for Cognito user-pools in AppSync.
@@ -22,16 +22,12 @@ import (
 //   	defaultAction: awscdk.Aws_appsync.userPoolDefaultAction_ALLOW,
 //   }
 //
-// Experimental.
 type UserPoolConfig struct {
 	// The Cognito user pool to use as identity source.
-	// Experimental.
 	UserPool awscognito.IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// the optional app id regex.
-	// Experimental.
 	AppIdClientRegex *string `field:"optional" json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// Default auth action.
-	// Experimental.
 	DefaultAction UserPoolDefaultAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 }
 

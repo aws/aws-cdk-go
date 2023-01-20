@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnStage`.
@@ -61,39 +61,35 @@ import (
 //   }
 //
 type CfnStageProps struct {
-	// The string identifier of the associated RestApi.
+	// The ID of the `RestApi` resource that you're deploying with this stage.
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
-	// Access log settings, including the access log format and access log destination ARN.
+	// Specifies settings for logging access in this stage.
 	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Indicates whether cache clustering is enabled for the stage.
 	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
-	// The stage's cache capacity in GB.
-	//
-	// For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
+	// The stage's cache cluster size.
 	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
-	// Settings for the canary deployment in this stage.
+	// Specifies settings for the canary deployment in this stage.
 	CanarySetting interface{} `field:"optional" json:"canarySetting" yaml:"canarySetting"`
-	// The identifier of a client certificate for an API stage.
+	// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage.
 	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
-	// The identifier of the Deployment that the stage points to.
+	// The ID of the deployment that the stage is associated with.
+	//
+	// This parameter is required to create a stage.
 	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
-	// The stage's description.
+	// A description of the stage.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The version of the associated API documentation.
+	// The version ID of the API documentation snapshot.
 	DocumentationVersion *string `field:"optional" json:"documentationVersion" yaml:"documentationVersion"`
-	// A map that defines the method settings for a Stage resource.
-	//
-	// Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\* /\*` for overriding all methods in the stage.
+	// Settings for all methods in the stage.
 	MethodSettings interface{} `field:"optional" json:"methodSettings" yaml:"methodSettings"`
-	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway.
-	//
-	// Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
-	// The collection of tags.
-	//
-	// Each tag element is associated with a given resource.
+	// An array of arbitrary tags (key-value pairs) to associate with the stage.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Specifies whether active tracing with X-ray is enabled for the Stage.
+	// Specifies whether active X-Ray tracing is enabled for this stage.
+	//
+	// For more information, see [Trace API Gateway API Execution with AWS X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide* .
 	TracingEnabled interface{} `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
 	//

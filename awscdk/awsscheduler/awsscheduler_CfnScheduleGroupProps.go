@@ -1,7 +1,7 @@
 package awsscheduler
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnScheduleGroup`.
@@ -22,11 +22,9 @@ import (
 //   }
 //
 type CfnScheduleGroupProps struct {
-	// The name of the schedule group.
+	// `AWS::Scheduler::ScheduleGroup.Name`.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// `AWS::Scheduler::ScheduleGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

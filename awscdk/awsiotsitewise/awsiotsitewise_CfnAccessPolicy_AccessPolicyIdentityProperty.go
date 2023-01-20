@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 
-// The identity (IAM Identity Center user, IAM Identity Center group, or IAM user) to which this access policy applies.
+// The identity ( AWS SSO user, AWS SSO group, or IAM user) to which this access policy applies.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +25,7 @@ type CfnAccessPolicy_AccessPolicyIdentityProperty struct {
 	IamRole interface{} `field:"optional" json:"iamRole" yaml:"iamRole"`
 	// An IAM user identity.
 	IamUser interface{} `field:"optional" json:"iamUser" yaml:"iamUser"`
-	// The IAM Identity Center user to which this access policy maps.
+	// The AWS SSO user to which this access policy maps.
 	User interface{} `field:"optional" json:"user" yaml:"user"`
 }
 

@@ -1,7 +1,7 @@
 package awsmemorydb
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnCluster`.
@@ -62,11 +62,9 @@ type CfnClusterProps struct {
 	NodeType *string `field:"required" json:"nodeType" yaml:"nodeType"`
 	// When set to true, the cluster will automatically receive minor engine version upgrades after launch.
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
-	// The cluster 's configuration endpoint.
+	// `AWS::MemoryDB::Cluster.ClusterEndpoint`.
 	ClusterEndpoint interface{} `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
-	// Enables data tiering.
-	//
-	// Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html) .
+	// `AWS::MemoryDB::Cluster.DataTiering`.
 	DataTiering *string `field:"optional" json:"dataTiering" yaml:"dataTiering"`
 	// A description of the cluster .
 	Description *string `field:"optional" json:"description" yaml:"description"`

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDatasetGroup) validateAddDeletionOverrideParameters(path *
 	return nil
 }
 
+func (c *jsiiProxy_CfnDatasetGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDatasetGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDatasetGroup) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnDatasetGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDatasetGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDatasetGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDatasetGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDatasetGroup) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnDatasetGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDatasetGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnDatasetGroup) validateSetDomainParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnDatasetGroupParameters(scope awscdk.Construct, id *string, props *CfnDatasetGroupProps) error {
+func validateNewCfnDatasetGroupParameters(scope constructs.Construct, id *string, props *CfnDatasetGroupProps) error {
 	return nil
 }
 

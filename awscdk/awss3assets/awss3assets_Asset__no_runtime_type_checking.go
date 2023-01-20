@@ -12,14 +12,6 @@ func (a *jsiiProxy_Asset) validateGrantReadParameters(grantee awsiam.IGrantable)
 	return nil
 }
 
-func (a *jsiiProxy_Asset) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (a *jsiiProxy_Asset) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateAsset_IsConstructParameters(x interface{}) error {
 	return nil
 }

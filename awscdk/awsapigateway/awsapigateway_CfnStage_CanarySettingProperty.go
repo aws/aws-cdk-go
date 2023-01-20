@@ -1,7 +1,9 @@
 package awsapigateway
 
 
-// Configuration settings of a canary deployment.
+// The `CanarySetting` property type specifies settings for the canary deployment in this stage.
+//
+// `CanarySetting` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,15 +20,17 @@ package awsapigateway
 //   }
 //
 type CfnStage_CanarySettingProperty struct {
-	// The ID of the canary deployment.
+	// The identifier of the deployment that the stage points to.
 	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
-	// The percent (0-100) of traffic diverted to a canary deployment.
+	// The percentage (0-100) of traffic diverted to a canary deployment.
 	PercentTraffic *float64 `field:"optional" json:"percentTraffic" yaml:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary.
 	//
 	// These stage variables are represented as a string-to-string map between stage variable names and their values.
+	//
+	// Duplicates are not allowed.
 	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
-	// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
+	// Whether the canary deployment uses the stage cache or not.
 	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 

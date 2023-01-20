@@ -1,14 +1,13 @@
 package awsecspatterns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An EC2 service running on an ECS cluster fronted by a network load balancer.
@@ -29,98 +28,34 @@ import (
 //   	desiredCount: jsii.Number(2),
 //   })
 //
-// Experimental.
 type NetworkLoadBalancedEc2Service interface {
 	NetworkLoadBalancedServiceBase
 	// The cluster that hosts the service.
-	// Experimental.
 	Cluster() awsecs.ICluster
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `internalDesiredCount` instead.
-	DesiredCount() *float64
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The default is 1 for all new services and uses the existing services desired count
 	// when updating an existing service, if one is not provided.
-	// Experimental.
 	InternalDesiredCount() *float64
 	// The listener for the service.
-	// Experimental.
 	Listener() awselasticloadbalancingv2.NetworkListener
 	// The Network Load Balancer for the service.
-	// Experimental.
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The ECS service in this construct.
-	// Experimental.
 	Service() awsecs.Ec2Service
 	// The target group for the service.
-	// Experimental.
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	// The EC2 Task Definition in this construct.
-	// Experimental.
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	// Adds service as a target of the target group.
-	// Experimental.
 	AddServiceAsTarget(service awsecs.BaseService)
-	// Experimental.
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	// Returns the default cluster.
-	// Experimental.
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkLoadBalancedEc2Service
@@ -133,16 +68,6 @@ func (j *jsiiProxy_NetworkLoadBalancedEc2Service) Cluster() awsecs.ICluster {
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkLoadBalancedEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -178,8 +103,8 @@ func (j *jsiiProxy_NetworkLoadBalancedEc2Service) LoadBalancer() awselasticloadb
 	return returns
 }
 
-func (j *jsiiProxy_NetworkLoadBalancedEc2Service) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NetworkLoadBalancedEc2Service) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -220,7 +145,6 @@ func (j *jsiiProxy_NetworkLoadBalancedEc2Service) TaskDefinition() awsecs.Ec2Tas
 
 
 // Constructs a new instance of the NetworkLoadBalancedEc2Service class.
-// Experimental.
 func NewNetworkLoadBalancedEc2Service(scope constructs.Construct, id *string, props *NetworkLoadBalancedEc2ServiceProps) NetworkLoadBalancedEc2Service {
 	_init_.Initialize()
 
@@ -230,7 +154,7 @@ func NewNetworkLoadBalancedEc2Service(scope constructs.Construct, id *string, pr
 	j := jsiiProxy_NetworkLoadBalancedEc2Service{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -239,19 +163,33 @@ func NewNetworkLoadBalancedEc2Service(scope constructs.Construct, id *string, pr
 }
 
 // Constructs a new instance of the NetworkLoadBalancedEc2Service class.
-// Experimental.
 func NewNetworkLoadBalancedEc2Service_Override(n NetworkLoadBalancedEc2Service, scope constructs.Construct, id *string, props *NetworkLoadBalancedEc2ServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func NetworkLoadBalancedEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -261,7 +199,7 @@ func NetworkLoadBalancedEc2Service_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -297,7 +235,7 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) CreateAWSLogDriver(prefix *str
 	return returns
 }
 
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (n *jsiiProxy_NetworkLoadBalancedEc2Service) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	if err := n.validateGetDefaultClusterParameters(scope); err != nil {
 		panic(err)
 	}
@@ -313,76 +251,12 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) GetDefaultCluster(scope awscdk
 	return returns
 }
 
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
-	if err := n.validateOnSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Synthesize(session awscdk.ISynthesisSession) {
-	if err := n.validateSynthesizeParameters(session); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

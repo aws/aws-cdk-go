@@ -1,7 +1,7 @@
 package awsssmincidents
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnReplicationSet`.
@@ -38,7 +38,7 @@ type CfnReplicationSetProps struct {
 	//
 	// If deletion protection is enabled, you can't delete the last Region in the replication set.
 	DeletionProtected interface{} `field:"optional" json:"deletionProtected" yaml:"deletionProtected"`
-	// A list of tags to add to the replication set.
+	// `AWS::SSMIncidents::ReplicationSet.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

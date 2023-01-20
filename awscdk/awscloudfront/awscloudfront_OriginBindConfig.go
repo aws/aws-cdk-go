@@ -1,7 +1,7 @@
 package awscloudfront
 
 
-// The struct returned from {@link IOrigin.bind}.
+// The struct returned from `IOrigin.bind`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,13 +56,10 @@ package awscloudfront
 //   	},
 //   }
 //
-// Experimental.
 type OriginBindConfig struct {
 	// The failover configuration for this Origin.
-	// Experimental.
 	FailoverConfig *OriginFailoverConfig `field:"optional" json:"failoverConfig" yaml:"failoverConfig"`
 	// The CloudFormation OriginProperty configuration for this Origin.
-	// Experimental.
 	OriginProperty *CfnDistribution_OriginProperty `field:"optional" json:"originProperty" yaml:"originProperty"`
 }
 

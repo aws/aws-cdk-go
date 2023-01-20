@@ -1,15 +1,17 @@
 package pipelines
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Construction properties for a `ShellStep`.
 //
 // Example:
-//   // Modern API
-//   modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-//   	selfMutation: jsii.Boolean(false),
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var codePipeline pipeline
+//
+//
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 //   		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
 //   			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
@@ -20,19 +22,11 @@ import (
 //   			jsii.String("npx cdk synth"),
 //   		},
 //   	}),
+//   	codePipeline: codePipeline,
 //   })
 //
-//   // Original API
-//   cloudAssemblyArtifact := codepipeline.NewArtifact()
-//   originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdkPipelineProps{
-//   	selfMutating: jsii.Boolean(false),
-//   	cloudAssemblyArtifact: cloudAssemblyArtifact,
-//   })
-//
-// Experimental.
 type ShellStepProps struct {
 	// Commands to run.
-	// Experimental.
 	Commands *[]*string `field:"required" json:"commands" yaml:"commands"`
 	// Additional FileSets to put in other directories.
 	//
@@ -53,10 +47,8 @@ type ShellStepProps struct {
 	//    }
 	// });
 	// ```.
-	// Experimental.
 	AdditionalInputs *map[string]IFileSetProducer `field:"optional" json:"additionalInputs" yaml:"additionalInputs"`
 	// Environment variables to set.
-	// Experimental.
 	Env *map[string]*string `field:"optional" json:"env" yaml:"env"`
 	// Set environment variables based on Stack Outputs.
 	//
@@ -64,26 +56,22 @@ type ShellStepProps struct {
 	// access the `CfnOutput`s of those stacks to get access to
 	// --for example--automatically generated resource names or
 	// endpoint URLs.
-	// Experimental.
 	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `field:"optional" json:"envFromCfnOutputs" yaml:"envFromCfnOutputs"`
 	// FileSet to run these scripts on.
 	//
 	// The files in the FileSet will be placed in the working directory when
 	// the script is executed. Use `additionalInputs` to download file sets
 	// to other directories as well.
-	// Experimental.
 	Input IFileSetProducer `field:"optional" json:"input" yaml:"input"`
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
-	// Experimental.
 	InstallCommands *[]*string `field:"optional" json:"installCommands" yaml:"installCommands"`
 	// The directory that will contain the primary output fileset.
 	//
 	// After running the script, the contents of the given directory
 	// will be treated as the primary output of this Step.
-	// Experimental.
 	PrimaryOutputDirectory *string `field:"optional" json:"primaryOutputDirectory" yaml:"primaryOutputDirectory"`
 }
 

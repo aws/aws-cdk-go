@@ -1,11 +1,11 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
 )
 
 // Use an sms address as a subscription target.
@@ -15,11 +15,9 @@ import (
 //
 //   myTopic.addSubscription(subscriptions.NewSmsSubscription(jsii.String("+15551231234")))
 //
-// Experimental.
 type SmsSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration used to subscribe to an SNS topic.
-	// Experimental.
 	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -28,7 +26,6 @@ type jsiiProxy_SmsSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
-// Experimental.
 func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSubscription {
 	_init_.Initialize()
 
@@ -38,7 +35,7 @@ func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSub
 	j := jsiiProxy_SmsSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SmsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		&j,
 	)
@@ -46,12 +43,11 @@ func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSub
 	return &j
 }
 
-// Experimental.
 func NewSmsSubscription_Override(s SmsSubscription, phoneNumber *string, props *SmsSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SmsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		s,
 	)

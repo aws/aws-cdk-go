@@ -27,9 +27,9 @@ type CfnDomainName_DomainNameConfigurationProperty struct {
 	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// The endpoint type.
 	EndpointType *string `field:"optional" json:"endpointType" yaml:"endpointType"`
-	// The Amazon resource name (ARN) for the public certificate issued by AWS Certificate Manager .
+	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain.
 	//
-	// This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
+	// Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn *string `field:"optional" json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
 	// The Transport Layer Security (TLS) version of the security policy for this domain name.
 	//

@@ -82,7 +82,7 @@ type CfnClientVpnEndpointProps struct {
 	AuthenticationOptions interface{} `field:"required" json:"authenticationOptions" yaml:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
 	//
-	// The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.
+	// The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock *string `field:"required" json:"clientCidrBlock" yaml:"clientCidrBlock"`
 	// Information about the client connection logging options.
 	//

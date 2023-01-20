@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Properties for defining a `CfnRestApi`.
@@ -54,13 +54,14 @@ import (
 //   }
 //
 type CfnRestApiProps struct {
-	// The source of the API key for metering requests according to a usage plan.
+	// The source of the API key for metering requests according to a usage plan. Valid values are:.
 	//
-	// Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
+	// - `HEADER` to read the API key from the `X-API-Key` header of a request.
+	// - `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a Lambda authorizer.
 	ApiKeySourceType *string `field:"optional" json:"apiKeySourceType" yaml:"apiKeySourceType"`
-	// The list of binary media types supported by the RestApi.
+	// The list of binary media types that are supported by the `RestApi` resource.
 	//
-	// By default, the RestApi supports only UTF-8-encoded text payloads.
+	// Use `~1` instead of `/` in the media types, for example `image~1png` or `application~1octet-stream` . By default, `RestApi` supports only UTF-8-encoded text payloads. Duplicates are not allowed. For more information, see [Enable Support for Binary Payloads in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings.html) in the *API Gateway Developer Guide* .
 	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// An OpenAPI specification that defines a set of RESTful APIs in JSON format.
 	//
@@ -68,21 +69,19 @@ type CfnRestApiProps struct {
 	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
 	BodyS3Location interface{} `field:"optional" json:"bodyS3Location" yaml:"bodyS3Location"`
-	// The ID of the RestApi that you want to clone from.
+	// The ID of the `RestApi` resource that you want to clone.
 	CloneFrom *string `field:"optional" json:"cloneFrom" yaml:"cloneFrom"`
-	// The description of the RestApi.
+	// A description of the `RestApi` resource.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
 	//
-	// By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+	// By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
 	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the `Parameters` property.
 	EndpointConfiguration interface{} `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
-	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered.
-	//
-	// The default value is `false` .
+	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the `RestApi` resource.
 	FailOnWarnings interface{} `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API.
 	//
@@ -100,19 +99,15 @@ type CfnRestApiProps struct {
 	//
 	// If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is `overwrite` . Otherwise, the default value is `merge` .
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
-	// The name of the RestApi.
+	// A name for the `RestApi` resource.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Custom header parameters as part of the request.
-	//
-	// For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
+	// Custom header parameters for the request.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for the `RestApi` resource.
 	//
 	// To set the ARN for the policy, use the `!Join` intrinsic function with `""` as delimiter and values of `"execute-api:/"` and `"*"` .
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
-	// The key-value map of strings.
-	//
-	// The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
+	// An array of arbitrary tags (key-value pairs) to associate with the API.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

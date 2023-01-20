@@ -15,11 +15,13 @@ package awsapigateway
 //   }
 //
 type CfnUsagePlanKeyProps struct {
-	// The Id of the UsagePlanKey resource to be deleted.
+	// The ID of the usage plan key.
 	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
-	// The type of a UsagePlanKey resource for a plan customer.
+	// The type of usage plan key.
+	//
+	// Currently, the only valid key type is `API_KEY` .
 	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
-	// The Id of the UsagePlan resource representing the usage plan containing the to-be-deleted UsagePlanKey resource representing a plan customer.
+	// The ID of the usage plan.
 	UsagePlanId *string `field:"required" json:"usagePlanId" yaml:"usagePlanId"`
 }
 

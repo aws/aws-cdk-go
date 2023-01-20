@@ -60,11 +60,9 @@ type CfnResolverProps struct {
 	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The caching configuration for the resolver.
 	CachingConfig interface{} `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
-	// The `resolver` code that contains the request and response functions.
-	//
-	// When code is used, the `runtime` is required. The runtime value must be `APPSYNC_JS` .
+	// `AWS::AppSync::Resolver.Code`.
 	Code *string `field:"optional" json:"code" yaml:"code"`
-	// The Amazon S3 endpoint.
+	// `AWS::AppSync::Resolver.CodeS3Location`.
 	CodeS3Location *string `field:"optional" json:"codeS3Location" yaml:"codeS3Location"`
 	// The resolver data source name.
 	DataSourceName *string `field:"optional" json:"dataSourceName" yaml:"dataSourceName"`
@@ -91,9 +89,7 @@ type CfnResolverProps struct {
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	ResponseMappingTemplateS3Location *string `field:"optional" json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function.
-	//
-	// Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+	// `AWS::AppSync::Resolver.Runtime`.
 	Runtime interface{} `field:"optional" json:"runtime" yaml:"runtime"`
 	// The `SyncConfig` for a resolver attached to a versioned data source.
 	SyncConfig interface{} `field:"optional" json:"syncConfig" yaml:"syncConfig"`
