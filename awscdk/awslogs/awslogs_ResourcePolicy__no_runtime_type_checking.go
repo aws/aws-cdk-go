@@ -16,15 +16,19 @@ func (r *jsiiProxy_ResourcePolicy) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func (r *jsiiProxy_ResourcePolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (r *jsiiProxy_ResourcePolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateResourcePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateResourcePolicy_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateResourcePolicy_IsResourceParameters(construct constructs.IConstruct) error {
+func validateResourcePolicy_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,17 +11,20 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   treeInspector := cdk.NewTreeInspector()
+//   treeInspector := monocdk.NewTreeInspector()
 //
+// Experimental.
 type TreeInspector interface {
 	// Represents the bag of attributes as key-value pairs.
+	// Experimental.
 	Attributes() *map[string]interface{}
 	// Adds attribute to bag.
 	//
 	// Keys should be added by convention to prevent conflicts
 	// i.e. L1 constructs will contain attributes with keys prefixed with aws:cdk:cloudformation
+	// Experimental.
 	AddAttribute(key *string, value interface{})
 }
 
@@ -41,13 +44,14 @@ func (j *jsiiProxy_TreeInspector) Attributes() *map[string]interface{} {
 }
 
 
+// Experimental.
 func NewTreeInspector() TreeInspector {
 	_init_.Initialize()
 
 	j := jsiiProxy_TreeInspector{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.TreeInspector",
+		"monocdk.TreeInspector",
 		nil, // no parameters
 		&j,
 	)
@@ -55,11 +59,12 @@ func NewTreeInspector() TreeInspector {
 	return &j
 }
 
+// Experimental.
 func NewTreeInspector_Override(t TreeInspector) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.TreeInspector",
+		"monocdk.TreeInspector",
 		nil, // no parameters
 		t,
 	)

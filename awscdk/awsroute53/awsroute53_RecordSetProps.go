@@ -1,7 +1,7 @@
 package awsroute53
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Construction properties for a RecordSet.
@@ -9,9 +9,10 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var duration duration
 //   var hostedZone hostedZone
 //   var recordTarget recordTarget
 //
@@ -22,34 +23,29 @@ import (
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
-//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
-//   	ttl: cdk.duration.minutes(jsii.Number(30)),
+//   	ttl: duration,
 //   }
 //
+// Experimental.
 type RecordSetProps struct {
 	// The hosted zone in which to define the new record.
+	// Experimental.
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
-	// Whether to delete the same record set in the hosted zone if it already exists (dangerous!).
-	//
-	// This allows to deploy a new record set while minimizing the downtime because the
-	// new record set will be created immediately after the existing one is deleted. It
-	// also avoids "manual" actions to delete existing record sets.
-	//
-	// > **N.B.:** this feature is dangerous, use with caution! It can only be used safely when
-	// > `deleteExisting` is set to `true` as soon as the resource is added to the stack. Changing
-	// > an existing Record Set's `deleteExisting` property from `false -> true` after deployment
-	// > will delete the record!
-	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The record type.
+	// Experimental.
 	RecordType RecordType `field:"required" json:"recordType" yaml:"recordType"`
 	// The target for this record, either `RecordTarget.fromValues()` or `RecordTarget.fromAlias()`.
+	// Experimental.
 	Target RecordTarget `field:"required" json:"target" yaml:"target"`
 }
 

@@ -1,18 +1,15 @@
 package pipelines
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
 )
 
 // Properties for a `CodePipeline`.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var codePipeline pipeline
-//
-//
-//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+//   // Modern API
+//   modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
+//   	selfMutation: jsii.Boolean(false),
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 //   		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
 //   			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
@@ -23,9 +20,16 @@ import (
 //   			jsii.String("npx cdk synth"),
 //   		},
 //   	}),
-//   	codePipeline: codePipeline,
 //   })
 //
+//   // Original API
+//   cloudAssemblyArtifact := codepipeline.NewArtifact()
+//   originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdkPipelineProps{
+//   	selfMutating: jsii.Boolean(false),
+//   	cloudAssemblyArtifact: cloudAssemblyArtifact,
+//   })
+//
+// Experimental.
 type CodePipelineProps struct {
 	// The build step that produces the CDK Cloud Assembly.
 	//
@@ -34,8 +38,10 @@ type CodePipelineProps struct {
 	//
 	// If you use a `ShellStep` here and you don't configure an output directory,
 	// the output directory will automatically be assumed to be `cdk.out`.
+	// Experimental.
 	Synth IFileSetProducer `field:"required" json:"synth" yaml:"synth"`
 	// Additional customizations to apply to the asset publishing CodeBuild projects.
+	// Experimental.
 	AssetPublishingCodeBuildDefaults *CodeBuildOptions `field:"optional" json:"assetPublishingCodeBuildDefaults" yaml:"assetPublishingCodeBuildDefaults"`
 	// CDK CLI version to use in self-mutation and asset publishing steps.
 	//
@@ -54,12 +60,15 @@ type CodePipelineProps struct {
 	// you want to update both framework and CLI version, you should update the
 	// CLI version first, commit, push and deploy, and only then update the
 	// framework version.
+	// Experimental.
 	CliVersion *string `field:"optional" json:"cliVersion" yaml:"cliVersion"`
 	// Customize the CodeBuild projects created for this pipeline.
+	// Experimental.
 	CodeBuildDefaults *CodeBuildOptions `field:"optional" json:"codeBuildDefaults" yaml:"codeBuildDefaults"`
 	// An existing Pipeline to be reused and built upon.
 	//
 	// [disable-awslint:ref-via-interface].
+	// Experimental.
 	CodePipeline awscodepipeline.Pipeline `field:"optional" json:"codePipeline" yaml:"codePipeline"`
 	// Create KMS keys for the artifact buckets, allowing cross-account deployments.
 	//
@@ -68,10 +77,12 @@ type CodePipelineProps struct {
 	// buckets encrypted, be sure to set this value to `true`.
 	//
 	// Be aware there is a cost associated with maintaining the KMS keys.
+	// Experimental.
 	CrossAccountKeys *bool `field:"optional" json:"crossAccountKeys" yaml:"crossAccountKeys"`
 	// A list of credentials used to authenticate to Docker registries.
 	//
 	// Specify any credentials necessary within the pipeline to build, synth, update, or publish assets.
+	// Experimental.
 	DockerCredentials *[]DockerCredential `field:"optional" json:"dockerCredentials" yaml:"dockerCredentials"`
 	// Enable Docker for the self-mutate step.
 	//
@@ -87,6 +98,7 @@ type CodePipelineProps struct {
 	// If you are about to turn this on in an already-deployed Pipeline,
 	// set the value to `true` first, commit and allow the pipeline to
 	// self-update, and only then use the Docker asset in the pipeline.
+	// Experimental.
 	DockerEnabledForSelfMutation *bool `field:"optional" json:"dockerEnabledForSelfMutation" yaml:"dockerEnabledForSelfMutation"`
 	// Enable Docker for the 'synth' step.
 	//
@@ -104,13 +116,10 @@ type CodePipelineProps struct {
 	// If you are about to turn this on in an already-deployed Pipeline,
 	// set the value to `true` first, commit and allow the pipeline to
 	// self-update, and only then use the bundled asset.
+	// Experimental.
 	DockerEnabledForSynth *bool `field:"optional" json:"dockerEnabledForSynth" yaml:"dockerEnabledForSynth"`
-	// Enable KMS key rotation for the generated KMS keys.
-	//
-	// By default KMS key rotation is disabled, but will add
-	// additional costs when enabled.
-	EnableKeyRotation *bool `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// The name of the CodePipeline pipeline.
+	// Experimental.
 	PipelineName *string `field:"optional" json:"pipelineName" yaml:"pipelineName"`
 	// Publish assets in multiple CodeBuild projects.
 	//
@@ -121,11 +130,11 @@ type CodePipelineProps struct {
 	// projects.
 	//
 	// Experiment and see what value works best for you.
+	// Experimental.
 	PublishAssetsInParallel *bool `field:"optional" json:"publishAssetsInParallel" yaml:"publishAssetsInParallel"`
 	// Reuse the same cross region support stack for all pipelines in the App.
+	// Experimental.
 	ReuseCrossRegionSupportStacks *bool `field:"optional" json:"reuseCrossRegionSupportStacks" yaml:"reuseCrossRegionSupportStacks"`
-	// The IAM role to be assumed by this Pipeline.
-	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether the pipeline will update itself.
 	//
 	// This needs to be set to `true` to allow the pipeline to reconfigure
@@ -134,15 +143,13 @@ type CodePipelineProps struct {
 	//
 	// You can temporarily set this to `false` while you are iterating
 	// on the pipeline itself and prefer to deploy changes using `cdk deploy`.
+	// Experimental.
 	SelfMutation *bool `field:"optional" json:"selfMutation" yaml:"selfMutation"`
 	// Additional customizations to apply to the self mutation CodeBuild projects.
+	// Experimental.
 	SelfMutationCodeBuildDefaults *CodeBuildOptions `field:"optional" json:"selfMutationCodeBuildDefaults" yaml:"selfMutationCodeBuildDefaults"`
 	// Additional customizations to apply to the synthesize CodeBuild projects.
+	// Experimental.
 	SynthCodeBuildDefaults *CodeBuildOptions `field:"optional" json:"synthCodeBuildDefaults" yaml:"synthCodeBuildDefaults"`
-	// Deploy every stack by creating a change set and executing it.
-	//
-	// When enabled, creates a "Prepare" and "Execute" action for each stack. Disable
-	// to deploy the stack in one pipeline action.
-	UseChangeSets *bool `field:"optional" json:"useChangeSets" yaml:"useChangeSets"`
 }
 

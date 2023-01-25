@@ -3,30 +3,34 @@ package awsdynamodb
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
 )
 
 // An interface that represents a DynamoDB Table - either created with the CDK, or an existing one.
+// Experimental.
 type ITable interface {
 	awscdk.IResource
 	// Adds an IAM policy statement associated with this table to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits all DynamoDB operations ("dynamodb:*") to an IAM principal.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantReadData(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to all data read/write operations to this table.
 	//
@@ -35,50 +39,67 @@ type ITable interface {
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement associated with this table's stream to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	// Experimental.
 	GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits an IAM principal all stream data read operations for this table's stream: DescribeStream, GetRecords, GetShardIterator, ListStreams.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM Principal to list streams attached to current dynamodb table.
+	// Experimental.
 	GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data write operations to this table: BatchWriteItem, PutItem, UpdateItem, DeleteItem.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Metric for the number of Errors executing all Lambdas.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the conditional check failed requests.
+	// Experimental.
 	MetricConditionalCheckFailedRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the consumed read capacity units.
+	// Experimental.
 	MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the consumed write capacity units.
+	// Experimental.
 	MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the successful request latency.
+	// Experimental.
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the system errors.
+	// Deprecated: use `metricSystemErrorsForOperations`.
+	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the system errors this table.
+	// Experimental.
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	// Metric for throttled requests.
-	// Deprecated: use `metricThrottledRequestsForOperations`.
+	// Experimental.
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for throttled requests.
-	MetricThrottledRequestsForOperations(props *OperationsMetricOptions) awscloudwatch.IMetric
 	// Metric for the user errors.
+	// Experimental.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Optional KMS encryption key associated with this table.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// Arn of the dynamodb table.
+	// Experimental.
 	TableArn() *string
 	// Table name of the dynamodb table.
+	// Experimental.
 	TableName() *string
 	// ARN of the table's stream, if there is one.
+	// Experimental.
 	TableStreamArn() *string
 }
 
@@ -305,6 +326,22 @@ func (i *jsiiProxy_ITable) MetricSuccessfulRequestLatency(props *awscloudwatch.M
 	return returns
 }
 
+func (i *jsiiProxy_ITable) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSystemErrorsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricSystemErrors",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (i *jsiiProxy_ITable) MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric {
 	if err := i.validateMetricSystemErrorsForOperationsParameters(props); err != nil {
 		panic(err)
@@ -330,22 +367,6 @@ func (i *jsiiProxy_ITable) MetricThrottledRequests(props *awscloudwatch.MetricOp
 	_jsii_.Invoke(
 		i,
 		"metricThrottledRequests",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_ITable) MetricThrottledRequestsForOperations(props *OperationsMetricOptions) awscloudwatch.IMetric {
-	if err := i.validateMetricThrottledRequestsForOperationsParameters(props); err != nil {
-		panic(err)
-	}
-	var returns awscloudwatch.IMetric
-
-	_jsii_.Invoke(
-		i,
-		"metricThrottledRequestsForOperations",
 		[]interface{}{props},
 		&returns,
 	)

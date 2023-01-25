@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) validateAddDeletionOverrideParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnMatchmakingRuleSet) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnMatchmakingRuleSet) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnMatchmakingRuleSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMatchmakingRuleSet) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMatchmakingRuleSet) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMatchmakingRuleSet) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnMatchmakingRuleSet) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMatchmakingRuleSet) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) validateSetRuleSetBodyParameters(val *
 	return nil
 }
 
-func validateNewCfnMatchmakingRuleSetParameters(scope constructs.Construct, id *string, props *CfnMatchmakingRuleSetProps) error {
+func validateNewCfnMatchmakingRuleSetParameters(scope awscdk.Construct, id *string, props *CfnMatchmakingRuleSetProps) error {
 	return nil
 }
 

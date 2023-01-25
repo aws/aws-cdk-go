@@ -3,7 +3,7 @@ package awsrds
 
 // Creation properties of the plain Aurora database cluster engine.
 //
-// Used in `DatabaseClusterEngine.aurora`.
+// Used in {@link DatabaseClusterEngine.aurora}.
 //
 // Example:
 //   var vpc vpc
@@ -18,8 +18,10 @@ package awsrds
 //   	snapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Experimental.
 type AuroraClusterEngineProps struct {
 	// The version of the Aurora cluster engine.
+	// Experimental.
 	Version AuroraEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

@@ -19,8 +19,10 @@ package awsecs
 //   	},
 //   })
 //
+// Experimental.
 type DeploymentController struct {
 	// The deployment controller type to use.
+	// Experimental.
 	Type DeploymentControllerType `field:"optional" json:"type" yaml:"type"`
 }
 

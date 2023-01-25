@@ -1,7 +1,7 @@
 package awsevents
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // The event archive properties.
@@ -9,10 +9,11 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var detail interface{}
+//   var duration duration
 //   var eventBus eventBus
 //
 //   archiveProps := &archiveProps{
@@ -50,21 +51,27 @@ import (
 //   	// the properties below are optional
 //   	archiveName: jsii.String("archiveName"),
 //   	description: jsii.String("description"),
-//   	retention: cdk.duration.minutes(jsii.Number(30)),
+//   	retention: duration,
 //   }
 //
+// Experimental.
 type ArchiveProps struct {
 	// An event pattern to use to filter events sent to the archive.
+	// Experimental.
 	EventPattern *EventPattern `field:"required" json:"eventPattern" yaml:"eventPattern"`
 	// The name of the archive.
+	// Experimental.
 	ArchiveName *string `field:"optional" json:"archiveName" yaml:"archiveName"`
 	// A description for the archive.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
+	// Experimental.
 	Retention awscdk.Duration `field:"optional" json:"retention" yaml:"retention"`
 	// The event source associated with the archive.
+	// Experimental.
 	SourceEventBus IEventBus `field:"required" json:"sourceEventBus" yaml:"sourceEventBus"`
 }
 

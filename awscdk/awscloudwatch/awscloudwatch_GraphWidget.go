@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -17,27 +17,40 @@ import (
 //   	legendPosition: cloudwatch.legendPosition_RIGHT,
 //   }))
 //
+// Experimental.
 type GraphWidget interface {
 	ConcreteWidget
 	// The amount of vertical grid units the widget will take up.
+	// Experimental.
 	Height() *float64
 	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
 	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
+	// Experimental.
 	Width() *float64
+	// Experimental.
 	X() *float64
+	// Experimental.
 	SetX(val *float64)
+	// Experimental.
 	Y() *float64
+	// Experimental.
 	SetY(val *float64)
 	// Add another metric to the left Y axis of the GraphWidget.
+	// Experimental.
 	AddLeftMetric(metric IMetric)
 	// Add another metric to the right Y axis of the GraphWidget.
+	// Experimental.
 	AddRightMetric(metric IMetric)
 	// Copy the warnings from the given metric.
+	// Experimental.
 	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
+	// Experimental.
 	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
+	// Experimental.
 	ToJson() *[]interface{}
 }
 
@@ -97,6 +110,7 @@ func (j *jsiiProxy_GraphWidget) Y() *float64 {
 }
 
 
+// Experimental.
 func NewGraphWidget(props *GraphWidgetProps) GraphWidget {
 	_init_.Initialize()
 
@@ -106,7 +120,7 @@ func NewGraphWidget(props *GraphWidgetProps) GraphWidget {
 	j := jsiiProxy_GraphWidget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.GraphWidget",
+		"monocdk.aws_cloudwatch.GraphWidget",
 		[]interface{}{props},
 		&j,
 	)
@@ -114,11 +128,12 @@ func NewGraphWidget(props *GraphWidgetProps) GraphWidget {
 	return &j
 }
 
+// Experimental.
 func NewGraphWidget_Override(g GraphWidget, props *GraphWidgetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.GraphWidget",
+		"monocdk.aws_cloudwatch.GraphWidget",
 		[]interface{}{props},
 		g,
 	)

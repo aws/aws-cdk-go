@@ -3,7 +3,7 @@ package awscodepipelineactions
 
 // How should the CodeCommit Action detect changes.
 //
-// This is the type of the `CodeCommitSourceAction.trigger` property.
+// This is the type of the {@link CodeCommitSourceAction.trigger} property.
 //
 // Example:
 //   // Source stage: read from repository
@@ -59,16 +59,20 @@ package awscodepipelineactions
 //   	},
 //   })
 //
+// Experimental.
 type CodeCommitTrigger string
 
 const (
 	// The Action will never detect changes - the Pipeline it's part of will only begin a run when explicitly started.
+	// Experimental.
 	CodeCommitTrigger_NONE CodeCommitTrigger = "NONE"
 	// CodePipeline will poll the repository to detect changes.
+	// Experimental.
 	CodeCommitTrigger_POLL CodeCommitTrigger = "POLL"
 	// CodePipeline will use CloudWatch Events to be notified of changes.
 	//
 	// This is the default method of detecting changes.
+	// Experimental.
 	CodeCommitTrigger_EVENTS CodeCommitTrigger = "EVENTS"
 )
 

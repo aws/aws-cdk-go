@@ -24,12 +24,15 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
+// Experimental.
 type AmazonLinuxEdition string
 
 const (
 	// Standard edition.
+	// Experimental.
 	AmazonLinuxEdition_STANDARD AmazonLinuxEdition = "STANDARD"
 	// Minimal edition.
+	// Experimental.
 	AmazonLinuxEdition_MINIMAL AmazonLinuxEdition = "MINIMAL"
 )
 

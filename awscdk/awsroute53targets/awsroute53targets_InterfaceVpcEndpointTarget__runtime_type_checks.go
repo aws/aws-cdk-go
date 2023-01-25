@@ -5,8 +5,8 @@ package awsroute53targets
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 func (i *jsiiProxy_InterfaceVpcEndpointTarget) validateBindParameters(_record awsroute53.IRecordSet) error {
@@ -17,7 +17,7 @@ func (i *jsiiProxy_InterfaceVpcEndpointTarget) validateBindParameters(_record aw
 	return nil
 }
 
-func validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint awsec2.InterfaceVpcEndpoint) error {
+func validateNewInterfaceVpcEndpointTargetParameters(vpcEndpoint awsec2.IInterfaceVpcEndpoint) error {
 	if vpcEndpoint == nil {
 		return fmt.Errorf("parameter vpcEndpoint is required, but nil was provided")
 	}

@@ -1,7 +1,7 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -33,15 +33,20 @@ import (
 //   	definition: task,
 //   })
 //
+// Experimental.
 type Chain interface {
 	IChainable
 	// The chainable end state(s) of this chain.
+	// Experimental.
 	EndStates() *[]INextable
 	// Identify this Chain.
+	// Experimental.
 	Id() *string
 	// The start state of this chain.
+	// Experimental.
 	StartState() State
 	// Continue normal execution with the given state.
+	// Experimental.
 	Next(next IChainable) Chain
 	// Return a single state that encompasses all states in the chain.
 	//
@@ -51,6 +56,7 @@ type Chain interface {
 	// to be an array with the result of the state machine in it. Adjust
 	// your paths accordingly. For example, change 'outputPath' to
 	// '$[0]'.
+	// Experimental.
 	ToSingleState(id *string, props *ParallelProps) Parallel
 }
 
@@ -91,6 +97,7 @@ func (j *jsiiProxy_Chain) StartState() State {
 
 
 // Make a Chain with specific start and end states, and a last-added Chainable.
+// Experimental.
 func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable) Chain {
 	_init_.Initialize()
 
@@ -100,7 +107,7 @@ func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable
 	var returns Chain
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Chain",
+		"monocdk.aws_stepfunctions.Chain",
 		"custom",
 		[]interface{}{startState, endStates, lastAdded},
 		&returns,
@@ -110,6 +117,7 @@ func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable
 }
 
 // Make a Chain with the start from one chain and the ends from another.
+// Experimental.
 func Chain_Sequence(start IChainable, next IChainable) Chain {
 	_init_.Initialize()
 
@@ -119,7 +127,7 @@ func Chain_Sequence(start IChainable, next IChainable) Chain {
 	var returns Chain
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Chain",
+		"monocdk.aws_stepfunctions.Chain",
 		"sequence",
 		[]interface{}{start, next},
 		&returns,
@@ -129,6 +137,7 @@ func Chain_Sequence(start IChainable, next IChainable) Chain {
 }
 
 // Begin a new Chain from one chainable.
+// Experimental.
 func Chain_Start(state IChainable) Chain {
 	_init_.Initialize()
 
@@ -138,7 +147,7 @@ func Chain_Start(state IChainable) Chain {
 	var returns Chain
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Chain",
+		"monocdk.aws_stepfunctions.Chain",
 		"start",
 		[]interface{}{state},
 		&returns,

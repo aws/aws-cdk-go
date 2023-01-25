@@ -1,12 +1,12 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
 )
 
 // Use a Lambda function as a subscription target.
@@ -51,9 +51,11 @@ import (
 //   	},
 //   }))
 //
+// Experimental.
 type LambdaSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for a Lambda function to subscribe to an SNS topic.
+	// Experimental.
 	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -62,6 +64,7 @@ type jsiiProxy_LambdaSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
+// Experimental.
 func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProps) LambdaSubscription {
 	_init_.Initialize()
 
@@ -71,7 +74,7 @@ func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProp
 	j := jsiiProxy_LambdaSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
+		"monocdk.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		&j,
 	)
@@ -79,11 +82,12 @@ func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProp
 	return &j
 }
 
+// Experimental.
 func NewLambdaSubscription_Override(l LambdaSubscription, fn awslambda.IFunction, props *LambdaSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
+		"monocdk.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		l,
 	)

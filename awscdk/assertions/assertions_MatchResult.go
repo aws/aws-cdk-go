@@ -1,7 +1,7 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,39 +16,38 @@ import (
 //
 //   matchResult := awscdk.Assertions.NewMatchResult(target)
 //
+// Experimental.
 type MatchResult interface {
-	// The cost of the failures so far.
-	FailCost() *float64
 	// The number of failures.
+	// Experimental.
 	FailCount() *float64
-	// Whether the match is a success.
-	IsSuccess() *bool
 	// The target for which this result was generated.
+	// Experimental.
 	Target() interface{}
 	// Compose the results of a previous match as a subtree.
+	// Experimental.
 	Compose(id *string, inner MatchResult) MatchResult
 	// Prepare the result to be analyzed.
 	//
 	// This API *must* be called prior to analyzing these results.
+	// Experimental.
 	Finished() MatchResult
 	// Does the result contain any failures.
 	//
 	// If not, the result is a success.
+	// Experimental.
 	HasFailed() *bool
 	// DEPRECATED.
 	// Deprecated: use recordFailure().
 	Push(matcher Matcher, path *[]*string, message *string) MatchResult
 	// Record a capture against in this match result.
+	// Experimental.
 	RecordCapture(options *MatchCapture)
 	// Record a new failure into this result at a specific path.
+	// Experimental.
 	RecordFailure(failure *MatchFailure) MatchResult
-	// Do a deep render of the match result, showing the structure mismatches in context.
-	RenderMismatch() *string
-	// Render the failed match in a presentable way.
-	//
-	// Prefer using `renderMismatch` over this method. It is left for backwards
-	// compatibility for test suites that expect it, but `renderMismatch()` will
-	// produce better output.
+	// Get the list of failures as human readable strings.
+	// Experimental.
 	ToHumanStrings() *[]*string
 }
 
@@ -57,31 +56,11 @@ type jsiiProxy_MatchResult struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_MatchResult) FailCost() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"failCost",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_MatchResult) FailCount() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
 		"failCount",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_MatchResult) IsSuccess() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isSuccess",
 		&returns,
 	)
 	return returns
@@ -98,6 +77,7 @@ func (j *jsiiProxy_MatchResult) Target() interface{} {
 }
 
 
+// Experimental.
 func NewMatchResult(target interface{}) MatchResult {
 	_init_.Initialize()
 
@@ -107,7 +87,7 @@ func NewMatchResult(target interface{}) MatchResult {
 	j := jsiiProxy_MatchResult{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.MatchResult",
+		"monocdk.assertions.MatchResult",
 		[]interface{}{target},
 		&j,
 	)
@@ -115,11 +95,12 @@ func NewMatchResult(target interface{}) MatchResult {
 	return &j
 }
 
+// Experimental.
 func NewMatchResult_Override(m MatchResult, target interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.MatchResult",
+		"monocdk.assertions.MatchResult",
 		[]interface{}{target},
 		m,
 	)
@@ -204,19 +185,6 @@ func (m *jsiiProxy_MatchResult) RecordFailure(failure *MatchFailure) MatchResult
 		m,
 		"recordFailure",
 		[]interface{}{failure},
-		&returns,
-	)
-
-	return returns
-}
-
-func (m *jsiiProxy_MatchResult) RenderMismatch() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		m,
-		"renderMismatch",
-		nil, // no parameters
 		&returns,
 	)
 

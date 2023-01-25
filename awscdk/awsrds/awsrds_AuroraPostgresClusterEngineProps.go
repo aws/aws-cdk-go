@@ -3,7 +3,7 @@ package awsrds
 
 // Creation properties of the Aurora PostgreSQL database cluster engine.
 //
-// Used in `DatabaseClusterEngine.auroraPostgres`.
+// Used in {@link DatabaseClusterEngine.auroraPostgres}.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,8 +16,10 @@ package awsrds
 //   	version: auroraPostgresEngineVersion,
 //   }
 //
+// Experimental.
 type AuroraPostgresClusterEngineProps struct {
 	// The version of the Aurora PostgreSQL cluster engine.
+	// Experimental.
 	Version AuroraPostgresEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

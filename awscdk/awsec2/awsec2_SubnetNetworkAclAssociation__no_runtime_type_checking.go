@@ -16,6 +16,14 @@ func (s *jsiiProxy_SubnetNetworkAclAssociation) validateGetResourceNameAttribute
 	return nil
 }
 
+func (s *jsiiProxy_SubnetNetworkAclAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_SubnetNetworkAclAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateSubnetNetworkAclAssociation_FromSubnetNetworkAclAssociationAssociationIdParameters(scope constructs.Construct, id *string, subnetNetworkAclAssociationAssociationId *string) error {
 	return nil
 }
@@ -24,11 +32,7 @@ func validateSubnetNetworkAclAssociation_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func validateSubnetNetworkAclAssociation_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateSubnetNetworkAclAssociation_IsResourceParameters(construct constructs.IConstruct) error {
+func validateSubnetNetworkAclAssociation_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

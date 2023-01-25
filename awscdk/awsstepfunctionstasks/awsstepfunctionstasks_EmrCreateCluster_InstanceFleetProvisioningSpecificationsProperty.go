@@ -21,8 +21,10 @@ package awsstepfunctionstasks
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetProvisioningSpecifications.html
 //
+// Experimental.
 type EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 	// The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
+	// Experimental.
 	SpotSpecification *EmrCreateCluster_SpotProvisioningSpecificationProperty `field:"required" json:"spotSpecification" yaml:"spotSpecification"`
 }
 

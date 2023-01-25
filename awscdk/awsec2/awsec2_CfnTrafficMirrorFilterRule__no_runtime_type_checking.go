@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateAddDeletionOverrideParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateRenderPropertiesParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -112,7 +108,7 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) validateSetTrafficMirrorFilterIdP
 	return nil
 }
 
-func validateNewCfnTrafficMirrorFilterRuleParameters(scope constructs.Construct, id *string, props *CfnTrafficMirrorFilterRuleProps) error {
+func validateNewCfnTrafficMirrorFilterRuleParameters(scope awscdk.Construct, id *string, props *CfnTrafficMirrorFilterRuleProps) error {
 	return nil
 }
 

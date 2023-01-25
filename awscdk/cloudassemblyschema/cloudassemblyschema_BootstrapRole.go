@@ -17,14 +17,19 @@ package cloudassemblyschema
 //   	requiresBootstrapStackVersion: jsii.Number(123),
 //   }
 //
+// Experimental.
 type BootstrapRole struct {
 	// The ARN of the IAM role created as part of bootrapping e.g. lookupRoleArn.
+	// Experimental.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// External ID to use when assuming the bootstrap role.
+	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// Name of SSM parameter with bootstrap stack version.
+	// Experimental.
 	BootstrapStackVersionSsmParameter *string `field:"optional" json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// Version of bootstrap stack required to use this role.
+	// Experimental.
 	RequiresBootstrapStackVersion *float64 `field:"optional" json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 }
 

@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,10 +14,13 @@ import (
 //
 //   partitionKeyStep := awscdk.Aws_appsync.NewPartitionKeyStep(jsii.String("key"))
 //
+// Experimental.
 type PartitionKeyStep interface {
 	// Assign an auto-generated value to the partition key.
+	// Experimental.
 	Auto() PartitionKey
 	// Assign an auto-generated value to the partition key.
+	// Experimental.
 	Is(val *string) PartitionKey
 }
 
@@ -26,6 +29,7 @@ type jsiiProxy_PartitionKeyStep struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewPartitionKeyStep(key *string) PartitionKeyStep {
 	_init_.Initialize()
 
@@ -35,7 +39,7 @@ func NewPartitionKeyStep(key *string) PartitionKeyStep {
 	j := jsiiProxy_PartitionKeyStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.PartitionKeyStep",
+		"monocdk.aws_appsync.PartitionKeyStep",
 		[]interface{}{key},
 		&j,
 	)
@@ -43,11 +47,12 @@ func NewPartitionKeyStep(key *string) PartitionKeyStep {
 	return &j
 }
 
+// Experimental.
 func NewPartitionKeyStep_Override(p PartitionKeyStep, key *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.PartitionKeyStep",
+		"monocdk.aws_appsync.PartitionKeyStep",
 		[]interface{}{key},
 		p,
 	)

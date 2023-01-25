@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnGatewayResponse) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnGatewayResponse) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnGatewayResponse) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnGatewayResponse) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnGatewayResponse) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnGatewayResponse) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnGatewayResponse) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnGatewayResponse) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnGatewayResponse) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnGatewayResponse) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnGatewayResponse) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnGatewayResponse) validateSetRestApiIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnGatewayResponseParameters(scope constructs.Construct, id *string, props *CfnGatewayResponseProps) error {
+func validateNewCfnGatewayResponseParameters(scope awscdk.Construct, id *string, props *CfnGatewayResponseProps) error {
 	return nil
 }
 

@@ -8,11 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler",
 		reflect.TypeOf((*CfnInferenceScheduler)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -35,21 +34,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "modelName", GoGetter: "ModelName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serverSideKmsKeyId", GoGetter: "ServerSideKmsKeyId"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -60,27 +60,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler.DataInputConfigurationProperty",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler.DataInputConfigurationProperty",
 		reflect.TypeOf((*CfnInferenceScheduler_DataInputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler.DataOutputConfigurationProperty",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler.DataOutputConfigurationProperty",
 		reflect.TypeOf((*CfnInferenceScheduler_DataOutputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler.InputNameConfigurationProperty",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler.InputNameConfigurationProperty",
 		reflect.TypeOf((*CfnInferenceScheduler_InputNameConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler.S3InputConfigurationProperty",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler.S3InputConfigurationProperty",
 		reflect.TypeOf((*CfnInferenceScheduler_S3InputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler.S3OutputConfigurationProperty",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler.S3OutputConfigurationProperty",
 		reflect.TypeOf((*CfnInferenceScheduler_S3OutputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceSchedulerProps",
+		"monocdk.aws_lookoutequipment.CfnInferenceSchedulerProps",
 		reflect.TypeOf((*CfnInferenceSchedulerProps)(nil)).Elem(),
 	)
 }

@@ -32,6 +32,10 @@ func (d *jsiiProxy_DockerImageFunction) validateAddToRolePolicyParameters(statem
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageFunction) validateAddVersionParameters(name *string, asyncInvokeConfig *EventInvokeConfigOptions) error {
+	return nil
+}
+
 func (d *jsiiProxy_DockerImageFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
@@ -40,7 +44,7 @@ func (d *jsiiProxy_DockerImageFunction) validateConfigureAsyncInvokeParameters(o
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope constructs.Construct, action *string) error {
+func (d *jsiiProxy_DockerImageFunction) validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope awscdk.Construct, action *string) error {
 	return nil
 }
 
@@ -57,10 +61,6 @@ func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeParameters(grantee aw
 }
 
 func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
-	return nil
-}
-
-func (d *jsiiProxy_DockerImageFunction) validateInvalidateVersionBasedOnParameters(x *string) error {
 	return nil
 }
 
@@ -84,7 +84,15 @@ func (d *jsiiProxy_DockerImageFunction) validateMetricThrottlesParameters(props 
 	return nil
 }
 
-func (d *jsiiProxy_DockerImageFunction) validateWarnInvokeFunctionPermissionsParameters(scope constructs.Construct) error {
+func (d *jsiiProxy_DockerImageFunction) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageFunction) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageFunction) validateWarnInvokeFunctionPermissionsParameters(scope awscdk.Construct) error {
 	return nil
 }
 
@@ -108,11 +116,7 @@ func validateDockerImageFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateDockerImageFunction_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateDockerImageFunction_IsResourceParameters(construct constructs.IConstruct) error {
+func validateDockerImageFunction_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

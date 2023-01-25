@@ -3,21 +3,23 @@ package awselasticloadbalancingv2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2/internal"
 )
 
 // A network load balancer.
+// Experimental.
 type INetworkLoadBalancer interface {
 	ILoadBalancerV2
 	awsec2.IVpcEndpointServiceLoadBalancer
 	// Add a listener to this load balancer.
 	//
 	// Returns: The newly created listener.
+	// Experimental.
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
 	// The VPC this load balancer has been created in (if available).
+	// Experimental.
 	Vpc() awsec2.IVpc
 }
 
@@ -104,8 +106,8 @@ func (j *jsiiProxy_INetworkLoadBalancer) LoadBalancerDnsName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_INetworkLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_INetworkLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

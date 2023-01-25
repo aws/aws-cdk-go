@@ -1,19 +1,19 @@
 package pipelines
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipelineactions"
 )
 
 // Options for GitHub sources.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipelines.codePipelineSource.gitHub(jsii.String("org/repo"), jsii.String("branch"), &gitHubSourceOptions{
 //   	// This is optional
 //   	authentication: cdk.secretValue.secretsManager(jsii.String("my-token")),
 //   })
 //
+// Experimental.
 type GitHubSourceOptions struct {
 	// A GitHub OAuth token to use for authentication.
 	//
@@ -29,6 +29,7 @@ type GitHubSourceOptions struct {
 	// * **admin:repo_hook** - if you plan to use webhooks (true by default).
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/GitHub-create-personal-token-CLI.html
 	//
+	// Experimental.
 	Authentication awscdk.SecretValue `field:"optional" json:"authentication" yaml:"authentication"`
 	// How AWS CodePipeline should be triggered.
 	//
@@ -38,6 +39,7 @@ type GitHubSourceOptions struct {
 	//
 	// To use `WEBHOOK`, your GitHub Personal Access Token should have
 	// **admin:repo_hook** scope (in addition to the regular **repo** scope).
+	// Experimental.
 	Trigger awscodepipelineactions.GitHubTrigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 

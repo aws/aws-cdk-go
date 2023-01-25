@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 func (i *jsiiProxy_IRule) validateOnComplianceChangeParameters(id *string, options *awsevents.OnEventOptions) error {

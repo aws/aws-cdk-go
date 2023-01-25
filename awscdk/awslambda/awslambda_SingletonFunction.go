@@ -1,15 +1,15 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A Lambda that will only ever be added to a stack once.
@@ -22,7 +22,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -32,11 +32,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var adotLayerVersion adotLayerVersion
 //   var architecture architecture
 //   var code code
 //   var codeSigningConfig codeSigningConfig
 //   var destination iDestination
+//   var duration duration
 //   var eventSource iEventSource
 //   var fileSystem fileSystem
 //   var key key
@@ -61,22 +61,21 @@ import (
 //   	uuid: jsii.String("uuid"),
 //
 //   	// the properties below are optional
-//   	adotInstrumentation: &adotInstrumentationConfig{
-//   		execWrapper: awscdk.*Aws_lambda.adotLambdaExecWrapper_REGULAR_HANDLER,
-//   		layerVersion: adotLayerVersion,
-//   	},
 //   	allowAllOutbound: jsii.Boolean(false),
 //   	allowPublicSubnet: jsii.Boolean(false),
 //   	architecture: architecture,
+//   	architectures: []*architecture{
+//   		architecture,
+//   	},
 //   	codeSigningConfig: codeSigningConfig,
 //   	currentVersionOptions: &versionOptions{
 //   		codeSha256: jsii.String("codeSha256"),
 //   		description: jsii.String("description"),
-//   		maxEventAge: cdk.duration.minutes(jsii.Number(30)),
+//   		maxEventAge: duration,
 //   		onFailure: destination,
 //   		onSuccess: destination,
 //   		provisionedConcurrentExecutions: jsii.Number(123),
-//   		removalPolicy: cdk.removalPolicy_DESTROY,
+//   		removalPolicy: monocdk.removalPolicy_DESTROY,
 //   		retryAttempts: jsii.Number(123),
 //   	},
 //   	deadLetterQueue: queue,
@@ -103,11 +102,11 @@ import (
 //   	},
 //   	logRetention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //   	logRetentionRetryOptions: &logRetentionRetryOptions{
-//   		base: cdk.*duration.minutes(jsii.Number(30)),
+//   		base: duration,
 //   		maxRetries: jsii.Number(123),
 //   	},
 //   	logRetentionRole: role,
-//   	maxEventAge: cdk.*duration.minutes(jsii.Number(30)),
+//   	maxEventAge: duration,
 //   	memorySize: jsii.Number(123),
 //   	onFailure: destination,
 //   	onSuccess: destination,
@@ -116,10 +115,11 @@ import (
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	retryAttempts: jsii.Number(123),
 //   	role: role,
+//   	securityGroup: securityGroup,
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
-//   	timeout: cdk.*duration.minutes(jsii.Number(30)),
+//   	timeout: duration,
 //   	tracing: awscdk.*Aws_lambda.tracing_ACTIVE,
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
@@ -131,30 +131,36 @@ import (
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
+//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   })
 //
+// Experimental.
 type SingletonFunction interface {
 	FunctionBase
 	// The architecture of this Lambda Function.
+	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
+	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
+	// Experimental.
 	Connections() awsec2.Connections
 	// Returns a `lambda.Version` which represents the current version of this singleton Lambda function. A new version will be created every time the function's configuration changes.
 	//
 	// You can specify options for this version using the `currentVersionOptions`
 	// prop when initializing the `lambda.SingletonFunction`.
+	// Experimental.
 	CurrentVersion() Version
 	// The environment this resource belongs to.
 	//
@@ -164,16 +170,21 @@ type SingletonFunction interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN fo the function.
+	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
+	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
+	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
+	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -183,6 +194,7 @@ type SingletonFunction interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
+	// Experimental.
 	LatestVersion() IVersion
 	// The LogGroup where the Lambda function's logs are made available.
 	//
@@ -192,11 +204,14 @@ type SingletonFunction interface {
 	//
 	// Further, if the log group already exists and the `logRetention` is not set, the custom resource will reset the log retention
 	// to never expire even if it was configured with a different value.
+	// Experimental.
 	LogGroup() awslogs.ILogGroup
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The construct node where permissions are attached.
-	PermissionsNode() constructs.Node
+	// Experimental.
+	PermissionsNode() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -204,22 +219,29 @@ type SingletonFunction interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
+	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
 	//
 	// Undefined if the function was imported without a role.
+	// Experimental.
 	Role() awsiam.IRole
 	// The runtime environment for the Lambda function.
+	// Experimental.
 	Runtime() Runtime
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Using node.addDependency() does not work on this method as the underlying lambda function is modeled as a singleton across the stack. Use this method instead to declare dependencies.
-	AddDependency(up ...constructs.IDependable)
+	// Experimental.
+	AddDependency(up ...awscdk.IDependable)
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
+	// Experimental.
 	AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function
 	// Adds an event source to this function.
 	//
@@ -230,16 +252,22 @@ type SingletonFunction interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
+	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
+	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
+	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
+	// Experimental.
 	AddLayers(layers ...ILayerVersion)
 	// Adds a permission to the Lambda resource policy.
+	// Experimental.
 	AddPermission(name *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
+	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
@@ -250,8 +278,10 @@ type SingletonFunction interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
+	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -259,9 +289,12 @@ type SingletonFunction interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
+	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string)
 	// The SingletonFunction construct cannot be added as a dependency of another construct using node.addDependency(). Use this method instead to declare this as a dependency of another construct.
-	DependOn(down constructs.IConstruct)
+	// Experimental.
+	DependOn(down awscdk.IConstruct)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -269,38 +302,97 @@ type SingletonFunction interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
+	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
+	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
+	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
+	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
+	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	WarnInvokeFunctionPermissions(scope constructs.Construct)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
+	WarnInvokeFunctionPermissions(scope awscdk.Construct)
 }
 
 // The jsii proxy struct for SingletonFunction
@@ -418,8 +510,8 @@ func (j *jsiiProxy_SingletonFunction) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_SingletonFunction) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SingletonFunction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -428,8 +520,8 @@ func (j *jsiiProxy_SingletonFunction) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_SingletonFunction) PermissionsNode() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SingletonFunction) PermissionsNode() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -489,6 +581,7 @@ func (j *jsiiProxy_SingletonFunction) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewSingletonFunction(scope constructs.Construct, id *string, props *SingletonFunctionProps) SingletonFunction {
 	_init_.Initialize()
 
@@ -498,7 +591,7 @@ func NewSingletonFunction(scope constructs.Construct, id *string, props *Singlet
 	j := jsiiProxy_SingletonFunction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.SingletonFunction",
+		"monocdk.aws_lambda.SingletonFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -506,33 +599,19 @@ func NewSingletonFunction(scope constructs.Construct, id *string, props *Singlet
 	return &j
 }
 
+// Experimental.
 func NewSingletonFunction_Override(s SingletonFunction, scope constructs.Construct, id *string, props *SingletonFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.SingletonFunction",
+		"monocdk.aws_lambda.SingletonFunction",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func SingletonFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -542,7 +621,7 @@ func SingletonFunction_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.SingletonFunction",
+		"monocdk.aws_lambda.SingletonFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -551,27 +630,9 @@ func SingletonFunction_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Returns true if the construct was created by CDK, and false otherwise.
-func SingletonFunction_IsOwnedResource(construct constructs.IConstruct) *bool {
-	_init_.Initialize()
-
-	if err := validateSingletonFunction_IsOwnedResourceParameters(construct); err != nil {
-		panic(err)
-	}
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.SingletonFunction",
-		"isOwnedResource",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
 // Check whether the given construct is a Resource.
-func SingletonFunction_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func SingletonFunction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	if err := validateSingletonFunction_IsResourceParameters(construct); err != nil {
@@ -580,7 +641,7 @@ func SingletonFunction_IsResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.SingletonFunction",
+		"monocdk.aws_lambda.SingletonFunction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -589,7 +650,7 @@ func SingletonFunction_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (s *jsiiProxy_SingletonFunction) AddDependency(up ...constructs.IDependable) {
+func (s *jsiiProxy_SingletonFunction) AddDependency(up ...awscdk.IDependable) {
 	args := []interface{}{}
 	for _, a := range up {
 		args = append(args, a)
@@ -718,7 +779,7 @@ func (s *jsiiProxy_SingletonFunction) ConfigureAsyncInvoke(options *EventInvokeC
 	)
 }
 
-func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
+func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
 	if err := s.validateConsiderWarningOnInvokeFunctionPermissionsParameters(scope, action); err != nil {
 		panic(err)
 	}
@@ -729,7 +790,7 @@ func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions
 	)
 }
 
-func (s *jsiiProxy_SingletonFunction) DependOn(down constructs.IConstruct) {
+func (s *jsiiProxy_SingletonFunction) DependOn(down awscdk.IConstruct) {
 	if err := s.validateDependOnParameters(down); err != nil {
 		panic(err)
 	}
@@ -897,6 +958,57 @@ func (s *jsiiProxy_SingletonFunction) MetricThrottles(props *awscloudwatch.Metri
 	return returns
 }
 
+func (s *jsiiProxy_SingletonFunction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_SingletonFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := s.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_SingletonFunction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SingletonFunction) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_SingletonFunction) Synthesize(session awscdk.ISynthesisSession) {
+	if err := s.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_SingletonFunction) ToString() *string {
 	var returns *string
 
@@ -910,7 +1022,20 @@ func (s *jsiiProxy_SingletonFunction) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
+func (s *jsiiProxy_SingletonFunction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
 	if err := s.validateWarnInvokeFunctionPermissionsParameters(scope); err != nil {
 		panic(err)
 	}

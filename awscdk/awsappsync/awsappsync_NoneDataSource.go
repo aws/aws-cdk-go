@@ -1,11 +1,12 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An AppSync dummy datasource.
@@ -25,24 +26,83 @@ import (
 //   	name: jsii.String("name"),
 //   })
 //
+// Experimental.
 type NoneDataSource interface {
 	BaseDataSource
+	// Experimental.
 	Api() IGraphqlApi
+	// Experimental.
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.
+	// Experimental.
 	Ds() CfnDataSource
 	// the name of the data source.
+	// Experimental.
 	Name() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	ServiceRole() awsiam.IRole
+	// Experimental.
 	SetServiceRole(val awsiam.IRole)
 	// creates a new appsync function for this datasource and API using the given properties.
-	CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction
+	// Experimental.
+	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	// creates a new resolver for this datasource and API using the given properties.
-	CreateResolver(id *string, props *BaseResolverProps) Resolver
+	// Experimental.
+	CreateResolver(props *BaseResolverProps) Resolver
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for NoneDataSource
@@ -80,8 +140,8 @@ func (j *jsiiProxy_NoneDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_NoneDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NoneDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -101,6 +161,7 @@ func (j *jsiiProxy_NoneDataSource) ServiceRole() awsiam.IRole {
 }
 
 
+// Experimental.
 func NewNoneDataSource(scope constructs.Construct, id *string, props *NoneDataSourceProps) NoneDataSource {
 	_init_.Initialize()
 
@@ -110,7 +171,7 @@ func NewNoneDataSource(scope constructs.Construct, id *string, props *NoneDataSo
 	j := jsiiProxy_NoneDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.NoneDataSource",
+		"monocdk.aws_appsync.NoneDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -118,11 +179,12 @@ func NewNoneDataSource(scope constructs.Construct, id *string, props *NoneDataSo
 	return &j
 }
 
+// Experimental.
 func NewNoneDataSource_Override(n NoneDataSource, scope constructs.Construct, id *string, props *NoneDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.NoneDataSource",
+		"monocdk.aws_appsync.NoneDataSource",
 		[]interface{}{scope, id, props},
 		n,
 	)
@@ -147,23 +209,8 @@ func (j *jsiiProxy_NoneDataSource)SetServiceRole(val awsiam.IRole) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func NoneDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -173,7 +220,7 @@ func NoneDataSource_IsConstruct(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.NoneDataSource",
+		"monocdk.aws_appsync.NoneDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -182,8 +229,8 @@ func NoneDataSource_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (n *jsiiProxy_NoneDataSource) CreateFunction(id *string, props *BaseAppsyncFunctionProps) AppsyncFunction {
-	if err := n.validateCreateFunctionParameters(id, props); err != nil {
+func (n *jsiiProxy_NoneDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	if err := n.validateCreateFunctionParameters(props); err != nil {
 		panic(err)
 	}
 	var returns AppsyncFunction
@@ -191,15 +238,15 @@ func (n *jsiiProxy_NoneDataSource) CreateFunction(id *string, props *BaseAppsync
 	_jsii_.Invoke(
 		n,
 		"createFunction",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (n *jsiiProxy_NoneDataSource) CreateResolver(id *string, props *BaseResolverProps) Resolver {
-	if err := n.validateCreateResolverParameters(id, props); err != nil {
+func (n *jsiiProxy_NoneDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	if err := n.validateCreateResolverParameters(props); err != nil {
 		panic(err)
 	}
 	var returns Resolver
@@ -207,11 +254,62 @@ func (n *jsiiProxy_NoneDataSource) CreateResolver(id *string, props *BaseResolve
 	_jsii_.Invoke(
 		n,
 		"createResolver",
-		[]interface{}{id, props},
+		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
+}
+
+func (n *jsiiProxy_NoneDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (n *jsiiProxy_NoneDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	if err := n.validateOnSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (n *jsiiProxy_NoneDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NoneDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (n *jsiiProxy_NoneDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	if err := n.validateSynthesizeParameters(session); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 func (n *jsiiProxy_NoneDataSource) ToString() *string {
@@ -220,6 +318,19 @@ func (n *jsiiProxy_NoneDataSource) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NoneDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

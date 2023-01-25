@@ -80,10 +80,6 @@ package awscloudfront
 //   			override: jsii.Boolean(true),
 //   		},
 //   	},
-//   	removeHeaders: []*string{
-//   		jsii.String("Server"),
-//   	},
-//   	serverTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
@@ -92,10 +88,13 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ResponseHeadersReferrerPolicy struct {
 	// A Boolean that determines whether CloudFront overrides the Referrer-Policy HTTP response header received from the origin with the one specified in this response headers policy.
+	// Experimental.
 	Override *bool `field:"required" json:"override" yaml:"override"`
 	// The value of the Referrer-Policy HTTP response header.
+	// Experimental.
 	ReferrerPolicy HeadersReferrerPolicy `field:"required" json:"referrerPolicy" yaml:"referrerPolicy"`
 }
 

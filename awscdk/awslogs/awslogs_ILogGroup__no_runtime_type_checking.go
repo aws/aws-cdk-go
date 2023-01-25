@@ -24,10 +24,6 @@ func (i *jsiiProxy_ILogGroup) validateGrantParameters(grantee awsiam.IGrantable)
 	return nil
 }
 
-func (i *jsiiProxy_ILogGroup) validateGrantReadParameters(grantee awsiam.IGrantable) error {
-	return nil
-}
-
 func (i *jsiiProxy_ILogGroup) validateGrantWriteParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

@@ -1,18 +1,17 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // CodePipeline Action to deploy an ECS Service.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service fargateService
@@ -38,20 +37,27 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type EcsDeployAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
-	// Note that this accessor will be called before the `bind` callback.
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
-	// This is a renamed version of the `IAction.actionProperties` property.
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	// This is a renamed version of the `IAction.bind` method.
-	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -81,6 +87,7 @@ func (j *jsiiProxy_EcsDeployAction) ProvidedActionProperties() *awscodepipeline.
 }
 
 
+// Experimental.
 func NewEcsDeployAction(props *EcsDeployActionProps) EcsDeployAction {
 	_init_.Initialize()
 
@@ -90,7 +97,7 @@ func NewEcsDeployAction(props *EcsDeployActionProps) EcsDeployAction {
 	j := jsiiProxy_EcsDeployAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcsDeployAction",
+		"monocdk.aws_codepipeline_actions.EcsDeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -98,17 +105,18 @@ func NewEcsDeployAction(props *EcsDeployActionProps) EcsDeployAction {
 	return &j
 }
 
+// Experimental.
 func NewEcsDeployAction_Override(e EcsDeployAction, props *EcsDeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcsDeployAction",
+		"monocdk.aws_codepipeline_actions.EcsDeployAction",
 		[]interface{}{props},
 		e,
 	)
 }
 
-func (e *jsiiProxy_EcsDeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcsDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := e.validateBindParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
@@ -124,7 +132,7 @@ func (e *jsiiProxy_EcsDeployAction) Bind(scope constructs.Construct, stage awsco
 	return returns
 }
 
-func (e *jsiiProxy_EcsDeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcsDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := e.validateBoundParameters(_scope, _stage, options); err != nil {
 		panic(err)
 	}

@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // A log driver that sends log information to json-file Logs.
@@ -28,10 +28,12 @@ import (
 //   	tag: jsii.String("tag"),
 //   })
 //
+// Experimental.
 type JsonFileLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for JsonFileLogDriver
@@ -40,6 +42,7 @@ type jsiiProxy_JsonFileLogDriver struct {
 }
 
 // Constructs a new instance of the JsonFileLogDriver class.
+// Experimental.
 func NewJsonFileLogDriver(props *JsonFileLogDriverProps) JsonFileLogDriver {
 	_init_.Initialize()
 
@@ -49,7 +52,7 @@ func NewJsonFileLogDriver(props *JsonFileLogDriverProps) JsonFileLogDriver {
 	j := jsiiProxy_JsonFileLogDriver{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriver",
+		"monocdk.aws_ecs.JsonFileLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -58,17 +61,19 @@ func NewJsonFileLogDriver(props *JsonFileLogDriverProps) JsonFileLogDriver {
 }
 
 // Constructs a new instance of the JsonFileLogDriver class.
+// Experimental.
 func NewJsonFileLogDriver_Override(j JsonFileLogDriver, props *JsonFileLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriver",
+		"monocdk.aws_ecs.JsonFileLogDriver",
 		[]interface{}{props},
 		j,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
+// Experimental.
 func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
@@ -78,7 +83,7 @@ func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriver",
+		"monocdk.aws_ecs.JsonFileLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -87,7 +92,7 @@ func JsonFileLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	if err := j.validateBindParameters(_scope, _containerDefinition); err != nil {
 		panic(err)
 	}

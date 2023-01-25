@@ -41,8 +41,6 @@ configure it on the asset itself.
 Use `asset.imageUri` to reference the image. It includes both the ECR image URL
 and tag.
 
-Use `asset.imageTag` to reference only the image tag.
-
 You can optionally pass build args to the `docker build` command by specifying
 the `buildArgs` property. It is recommended to skip hashing of `buildArgs` for
 values that can change between different machines to maintain a consistent
@@ -102,21 +100,6 @@ asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerIm
 })
 ```
 
-You can optionally pass an array of outputs to the `docker build` command by specifying
-the `outputs` property:
-
-```go
-import "github.com/aws/aws-cdk-go/awscdk"
-
-
-asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
-	directory: path.join(__dirname, jsii.String("my-image")),
-	outputs: []*string{
-		jsii.String("type=local,dest=out"),
-	},
-})
-```
-
 ## Images from Tarball
 
 Images are loaded from a local tarball, uploaded to ECR by the CDK toolkit and/or your app's CI-CD pipeline, and can be
@@ -151,7 +134,7 @@ Here an example from the [cdklabs/cdk-ecr-deployment](https://github.com/cdklabs
 ```text
 // This example available in TypeScript only
 
-import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
+import { DockerImageAsset } from 'monocdk/aws-ecr-assets';
 import * as ecrdeploy from 'cdk-ecr-deployment';
 
 const image = new DockerImageAsset(this, 'CDKDockerImage', {

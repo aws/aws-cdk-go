@@ -20,6 +20,14 @@ func (p *jsiiProxy_PrivateHostedZone) validateGetResourceNameAttributeParameters
 	return nil
 }
 
+func (p *jsiiProxy_PrivateHostedZone) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (p *jsiiProxy_PrivateHostedZone) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validatePrivateHostedZone_FromHostedZoneAttributesParameters(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) error {
 	return nil
 }
@@ -40,11 +48,7 @@ func validatePrivateHostedZone_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validatePrivateHostedZone_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validatePrivateHostedZone_IsResourceParameters(construct constructs.IConstruct) error {
+func validatePrivateHostedZone_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

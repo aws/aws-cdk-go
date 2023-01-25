@@ -2,6 +2,7 @@ package triggers
 
 
 // Determines.
+// Experimental.
 type TriggerInvalidation string
 
 const (
@@ -9,6 +10,7 @@ const (
 	//
 	// This is implemented by associated the trigger with the `currentVersion`
 	// of the AWS Lambda function, which gets recreated every time the handler changes.
+	// Experimental.
 	TriggerInvalidation_HANDLER_CHANGE TriggerInvalidation = "HANDLER_CHANGE"
 )
 

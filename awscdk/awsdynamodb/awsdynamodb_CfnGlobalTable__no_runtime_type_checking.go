@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnGlobalTable) validateAddDeletionOverrideParameters(path *s
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalTable) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnGlobalTable) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnGlobalTable) validateInspectParameters(inspector awscdk.Tr
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalTable) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnGlobalTable) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalTable) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnGlobalTable) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnGlobalTable) validateRenderPropertiesParameters(props *map
 	return nil
 }
 
-func (c *jsiiProxy_CfnGlobalTable) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnGlobalTable) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -116,7 +112,7 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetWriteProvisionedThroughputSettings
 	return nil
 }
 
-func validateNewCfnGlobalTableParameters(scope constructs.Construct, id *string, props *CfnGlobalTableProps) error {
+func validateNewCfnGlobalTableParameters(scope awscdk.Construct, id *string, props *CfnGlobalTableProps) error {
 	return nil
 }
 
