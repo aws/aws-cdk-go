@@ -74,6 +74,7 @@ type CfnApi interface {
 	//
 	// For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
 	AttrApiEndpoint() *string
+	// The API identifier.
 	AttrApiId() *string
 	// Specifies how to interpret the base path of the API during import.
 	//

@@ -11,8 +11,6 @@ import (
 
 // A CloudFormation `AWS::IoTThingsGraph::FlowTemplate`.
 //
-// Represents a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the latest version of the user's namespace unless another namespace version is specified in the request.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,16 +34,14 @@ type CfnFlowTemplate interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The version of the user's namespace against which the workflow was validated.
-	//
-	// Use this value in your system instance.
+	// `AWS::IoTThingsGraph::FlowTemplate.CompatibleNamespaceVersion`.
 	CompatibleNamespaceVersion() *float64
 	SetCompatibleNamespaceVersion(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A workflow's definition document.
+	// `AWS::IoTThingsGraph::FlowTemplate.Definition`.
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.

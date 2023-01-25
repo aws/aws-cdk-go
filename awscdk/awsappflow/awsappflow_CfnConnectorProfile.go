@@ -272,7 +272,7 @@ type CfnConnectorProfile interface {
 	// Indicates the connection mode and if it is public or private.
 	ConnectionMode() *string
 	SetConnectionMode(val *string)
-	// `AWS::AppFlow::ConnectorProfile.ConnectorLabel`.
+	// The label for the connector profile being created.
 	ConnectorLabel() *string
 	SetConnectorLabel(val *string)
 	// Defines the connector-specific configuration and credentials.

@@ -62,6 +62,8 @@ import (
 type CfnJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// This parameter is no longer supported. Use `MaxCapacity` instead.
+	//
 	// The number of capacity units that are allocated to this job.
 	AllocatedCapacity() *float64
 	SetAllocatedCapacity(val *float64)
@@ -92,7 +94,13 @@ type CfnJob interface {
 	// A description of the job.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Glue::Job.ExecutionClass`.
+	// Indicates whether the job is run with a standard or flexible execution class.
+	//
+	// The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.
+	//
+	// The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary.
+	//
+	// Only jobs with AWS Glue version 3.0 and above and command type `glueetl` will be allowed to set `ExecutionClass` to `FLEX` . The flexible execution class is available for Spark jobs.
 	ExecutionClass() *string
 	SetExecutionClass(val *string)
 	// The maximum number of concurrent runs that are allowed for this job.
@@ -140,7 +148,7 @@ type CfnJob interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Glue::Job.NonOverridableArguments`.
+	// Non-overridable arguments for this job, specified as name-value pairs.
 	NonOverridableArguments() interface{}
 	SetNonOverridableArguments(val interface{})
 	// Specifies configuration properties of a notification.

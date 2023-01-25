@@ -28,7 +28,9 @@ type CfnVirtualGateway_VirtualGatewayFileAccessLogProperty struct {
 	//
 	// You can use `/dev/stdout` to send access logs to standard out and configure your Envoy container to use a log driver, such as `awslogs` , to export the access logs to a log storage service such as Amazon CloudWatch Logs. You can also specify a path in the Envoy container's file system to write the files to disk.
 	Path *string `field:"required" json:"path" yaml:"path"`
-	// `CfnVirtualGateway.VirtualGatewayFileAccessLogProperty.Format`.
+	// The specified format for the virtual gateway access logs.
+	//
+	// It can be either `json_format` or `text_format` .
 	Format interface{} `field:"optional" json:"format" yaml:"format"`
 }
 

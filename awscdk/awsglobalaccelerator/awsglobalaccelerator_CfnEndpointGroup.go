@@ -103,7 +103,7 @@ type CfnEndpointGroup interface {
 	Node() constructs.Node
 	// Allows you to override the destination ports used to route traffic to an endpoint.
 	//
-	// Using a port override lets you to map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+	// Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 	PortOverrides() interface{}
 	SetPortOverrides(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

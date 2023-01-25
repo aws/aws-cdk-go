@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::Transfer::Agreement`.
 //
+// Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership, between an AWS Transfer Family server and an AS2 process. The agreement defines the file and message transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family combines a server, local profile, partner profile, certificate, and other attributes.
+//
+// The partner is identified with the `PartnerProfileId` , and the AS2 process is identified with the `LocalProfileId` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,12 +41,14 @@ import (
 type CfnAgreement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Transfer::Agreement.AccessRole`.
+	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
+	//
+	// We use the file’s parent directory (for example, for `--send-file-paths /bucket/dir/file.txt` , parent directory is `/bucket/dir/` ) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the `AccessRole` needs to provide read and write access to the parent directory of the file location used in the `StartFileTransfer` request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with `StartFileTransfer` .
 	AccessRole() *string
 	SetAccessRole(val *string)
 	AttrAgreementId() *string
 	AttrArn() *string
-	// `AWS::Transfer::Agreement.BaseDirectory`.
+	// The landing directory (folder) for files that are transferred by using the AS2 protocol.
 	BaseDirectory() *string
 	SetBaseDirectory(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -54,10 +60,10 @@ type CfnAgreement interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Transfer::Agreement.Description`.
+	// The name or short description that's used to identify the agreement.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Transfer::Agreement.LocalProfileId`.
+	// A unique identifier for the AS2 local profile.
 	LocalProfileId() *string
 	SetLocalProfileId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -72,7 +78,7 @@ type CfnAgreement interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Transfer::Agreement.PartnerProfileId`.
+	// A unique identifier for the partner profile used in the agreement.
 	PartnerProfileId() *string
 	SetPartnerProfileId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -80,17 +86,19 @@ type CfnAgreement interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Transfer::Agreement.ServerId`.
+	// A system-assigned unique identifier for a server instance.
+	//
+	// This identifier indicates the specific server that the agreement uses.
 	ServerId() *string
 	SetServerId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Transfer::Agreement.Status`.
+	// The current status of the agreement, either `ACTIVE` or `INACTIVE` .
 	Status() *string
 	SetStatus(val *string)
-	// `AWS::Transfer::Agreement.Tags`.
+	// Key-value pairs that can be used to group and search for agreements.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::IoTFleetWise::Campaign`.
 //
+// Creates an orchestration of data collection rules. The AWS IoT FleetWise Edge Agent software running in vehicles uses campaigns to decide how to collect and transfer data to the cloud. You create campaigns in the cloud. After you or your team approve campaigns, AWS IoT FleetWise automatically deploys them to vehicles.
+//
+// For more information, see [Collect and transfer data with campaigns](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html) in the *AWS IoT FleetWise Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -92,7 +96,7 @@ type CfnCampaign interface {
 	// `AWS::IoTFleetWise::Campaign.DataExtraDimensions`.
 	DataExtraDimensions() *[]*string
 	SetDataExtraDimensions(val *[]*string)
-	// `AWS::IoTFleetWise::Campaign.Description`.
+	// The description of the campaign.
 	Description() *string
 	SetDescription(val *string)
 	// `AWS::IoTFleetWise::Campaign.DiagnosticsMode`.
@@ -111,7 +115,7 @@ type CfnCampaign interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IoTFleetWise::Campaign.Name`.
+	// The name of a campaign.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -127,7 +131,7 @@ type CfnCampaign interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::IoTFleetWise::Campaign.SignalCatalogArn`.
+	// The ARN of the signal catalog associated with the campaign.
 	SignalCatalogArn() *string
 	SetSignalCatalogArn(val *string)
 	// `AWS::IoTFleetWise::Campaign.SignalsToCollect`.
@@ -145,7 +149,7 @@ type CfnCampaign interface {
 	SetStartTime(val *string)
 	// `AWS::IoTFleetWise::Campaign.Tags`.
 	Tags() awscdk.TagManager
-	// `AWS::IoTFleetWise::Campaign.TargetArn`.
+	// The ARN of a vehicle or fleet to which the campaign is deployed.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// Deprecated.

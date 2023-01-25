@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Transfer::Profile`.
 //
+// Creates the local or partner profile to use for AS2 transfers.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,12 +37,14 @@ import (
 type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Transfer::Profile.As2Id`.
+	// The `As2Id` is the *AS2-name* , as defined in the [RFC 4130](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc4130) . For inbound transfers, this is the `AS2-From` header for the AS2 messages sent from the partner. For outbound connectors, this is the `AS2-To` header for the AS2 messages sent to the partner using the `StartFileTransfer` API operation. This ID cannot include spaces.
 	As2Id() *string
 	SetAs2Id(val *string)
 	AttrArn() *string
 	AttrProfileId() *string
-	// `AWS::Transfer::Profile.CertificateIds`.
+	// An array of identifiers for the imported certificates.
+	//
+	// You use this identifier for working with profiles and partner profiles.
 	CertificateIds() *[]*string
 	SetCertificateIds(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -64,7 +68,9 @@ type CfnProfile interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Transfer::Profile.ProfileType`.
+	// Indicates whether to list only `LOCAL` type profiles or only `PARTNER` type profiles.
+	//
+	// If not supplied in the request, the command lists all types of profiles.
 	ProfileType() *string
 	SetProfileType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -76,7 +82,7 @@ type CfnProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Transfer::Profile.Tags`.
+	// Key-value pairs that can be used to group and search for profiles.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -62,7 +62,7 @@ type CfnVPCEndpoint interface {
 	//
 	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
 	AttrDnsEntries() *[]*string
-	// (Interface endpoints) One or more network interface IDs.
+	// (Interface endpoints) The network interface IDs.
 	//
 	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
 	AttrNetworkInterfaceIds() *[]*string
@@ -110,28 +110,26 @@ type CfnVPCEndpoint interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The route table IDs.
+	// The IDs of the route tables.
 	//
 	// Routing is supported only for gateway endpoints.
 	RouteTableIds() *[]*string
 	SetRouteTableIds(val *[]*string)
-	// The IDs of the security groups to associate with the endpoint network interface.
+	// The IDs of the security groups to associate with the endpoint network interfaces.
 	//
-	// Security groups are supported only for interface endpoints.
+	// If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The service name.
-	//
-	// To list the available services, use [DescribeVpcEndpointServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html) . Otherwise, get the name from the service provider.
 	ServiceName() *string
 	SetServiceName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ID of the subnets in which to create an endpoint network interface.
+	// The IDs of the subnets in which to create endpoint network interfaces.
 	//
-	// You must specify this property for an interface endpoints or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
+	// You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
 	// Deprecated.
@@ -152,7 +150,7 @@ type CfnVPCEndpoint interface {
 	// Default: Gateway.
 	VpcEndpointType() *string
 	SetVpcEndpointType(val *string)
-	// The ID of the VPC in which the endpoint will be used.
+	// The ID of the VPC for the endpoint.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

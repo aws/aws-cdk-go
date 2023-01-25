@@ -1,6 +1,10 @@
 package awslambda
 
 
+// (Amazon SQS only) The scaling configuration for the event source.
+//
+// To remove the configuration, pass an empty value.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +15,7 @@ package awslambda
 //   }
 //
 type CfnEventSourceMapping_ScalingConfigProperty struct {
-	// `CfnEventSourceMapping.ScalingConfigProperty.MaximumConcurrency`.
+	// Limits the number of concurrent instances that the Amazon SQS event source can invoke.
 	MaximumConcurrency *float64 `field:"optional" json:"maximumConcurrency" yaml:"maximumConcurrency"`
 }
 

@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Connect::PhoneNumber`.
 //
-// Claims a phone number to the specified Amazon Connect instance.
+// Claims a phone number to the specified Amazon Connect instance or traffic distribution group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -83,8 +83,10 @@ type CfnPhoneNumber interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags() awscdk.TagManager
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+	// The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution group that phone numbers are claimed to.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// The type of phone number.

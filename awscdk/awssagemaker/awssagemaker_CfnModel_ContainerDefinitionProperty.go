@@ -48,7 +48,7 @@ type CfnModel_ContainerDefinitionProperty struct {
 	//
 	// For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html)
 	ImageConfig interface{} `field:"optional" json:"imageConfig" yaml:"imageConfig"`
-	// `CfnModel.ContainerDefinitionProperty.InferenceSpecificationName`.
+	// The inference specification name in the model package version.
 	InferenceSpecificationName *string `field:"optional" json:"inferenceSpecificationName" yaml:"inferenceSpecificationName"`
 	// Whether the container hosts a single model or multiple models.
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`

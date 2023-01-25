@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Amplify::Branch`.
 //
-// The AWS::Amplify::Branch resource creates a new branch within an app.
+// The AWS::Amplify::Branch resource specifies a new branch within an app.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -109,11 +109,11 @@ type CfnBranch interface {
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
 	EnablePerformanceMode() interface{}
 	SetEnablePerformanceMode(val interface{})
-	// Sets whether the Amplify Console creates a preview for each pull request that is made for this branch.
+	// Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch.
 	//
-	// If this property is enabled, the Amplify Console deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+	// If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
 	//
-	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+	// To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview() interface{}
@@ -121,7 +121,7 @@ type CfnBranch interface {
 	// The environment variables for the branch.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
-	// `AWS::Amplify::Branch.Framework`.
+	// The framework for the branch.
 	Framework() *string
 	SetFramework(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -142,7 +142,7 @@ type CfnBranch interface {
 	//
 	// To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
 	//
-	// If you don't specify an environment, the Amplify Console provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Console deletes this environment when the pull request is closed.
+	// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
 	//
 	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
 	//

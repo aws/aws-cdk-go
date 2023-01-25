@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Connect::ContactFlowModule`.
 //
-// The `AWS::Connect::ContactFlowModule` resource specifies a contact flow module for the specified Amazon Connect instance.
+// Specifies a flow module for an Amazon Connect instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,9 +37,9 @@ import (
 type CfnContactFlowModule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `Ref` returns the contact flow module Amazon Resource Name (ARN). For example:.
+	// `Ref` returns the Amazon Resource Name (ARN) of the flow module. For example:.
 	//
-	// `{ "Ref": "myContactFlowModuleArn" }`.
+	// `{ "Ref": "myFlowModuleArn" }`.
 	AttrContactFlowModuleArn() *string
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -47,14 +47,14 @@ type CfnContactFlowModule interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The content of the contact flow module.
+	// The content of the flow module.
 	Content() *string
 	SetContent(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the contact flow module.
+	// The description of the flow module.
 	Description() *string
 	SetDescription(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
@@ -70,7 +70,7 @@ type CfnContactFlowModule interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the contact flow module.
+	// The name of the flow module.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,7 +84,7 @@ type CfnContactFlowModule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The state of the contact flow module.
+	// The state of the flow module.
 	State() *string
 	SetState(val *string)
 	// An array of key-value pairs to apply to this resource.

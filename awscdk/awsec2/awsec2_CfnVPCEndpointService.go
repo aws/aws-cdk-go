@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::EC2::VPCEndpointService`.
 //
-// Creates a VPC endpoint service configuration to which service consumers ( AWS accounts, IAM users, and IAM roles) can connect.
+// Creates a VPC endpoint service configuration to which service consumers ( AWS accounts, users, and IAM roles) can connect.
 //
 // To create an endpoint service configuration, you must first create one of the following for your service:
 //
@@ -48,14 +48,14 @@ type CfnVPCEndpointService interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::EC2::VPCEndpointService.ContributorInsightsEnabled`.
+	// Indicates whether to enable the built-in Contributor Insights rules.
 	ContributorInsightsEnabled() interface{}
 	SetContributorInsightsEnabled(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+	// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 	GatewayLoadBalancerArns() *[]*string
 	SetGatewayLoadBalancerArns(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,7 +68,7 @@ type CfnVPCEndpointService interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
+	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	NetworkLoadBalancerArns() *[]*string
 	SetNetworkLoadBalancerArns(val *[]*string)
 	// The tree node.

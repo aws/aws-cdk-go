@@ -96,7 +96,11 @@ type CfnVolumeProps struct {
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The tags to apply to the volume during creation.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The throughput that the volume supports, in MiB/s.
+	// The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+	//
+	// This parameter is valid only for `gp3` volumes. The default value is 125.
+	//
+	// Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The volume type. This parameter can be one of the following values:.
 	//
@@ -105,6 +109,8 @@ type CfnVolumeProps struct {
 	// - Throughput Optimized HDD: `st1`
 	// - Cold HDD: `sc1`
 	// - Magnetic: `standard`
+	//
+	// > Throughput Optimized HDD ( `st1` ) and Cold HDD ( `sc1` ) volumes can't be used as boot volumes.
 	//
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	//

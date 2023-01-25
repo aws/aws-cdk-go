@@ -34,7 +34,7 @@ type CfnPricingPlanProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The `PricingRuleArns` that are associated with the Pricing Plan.
 	PricingRuleArns *[]*string `field:"optional" json:"pricingRuleArns" yaml:"pricingRuleArns"`
-	// `AWS::BillingConductor::PricingPlan.Tags`.
+	// A map that contains tag keys and tag values that are attached to a pricing plan.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

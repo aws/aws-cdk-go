@@ -38,9 +38,13 @@ type CfnIPSetProps struct {
 	Location *string `field:"required" json:"location" yaml:"location"`
 	// The user-friendly name to identify the IPSet.
 	//
-	// Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).
+	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::GuardDuty::IPSet.Tags`.
+	// The tags to be added to a new IP set resource.
+	//
+	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

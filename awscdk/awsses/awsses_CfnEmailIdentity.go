@@ -11,6 +11,14 @@ import (
 
 // A CloudFormation `AWS::SES::EmailIdentity`.
 //
+// Specifies an identity for using within SES. An identity is an email address or domain that you use when you send email. Before you can use an identity to send email, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2 permission to send email from the identity.
+//
+// When you verify an email address, SES sends an email to the address. Your email address is verified as soon as you follow the link in the verification email. When you verify a domain without specifying the DkimSigningAttributes properties, OR only the NextSigningKeyLength property of DkimSigningAttributes, this resource provides a set of CNAME token names and values (DkimDNSTokenName1, DkimDNSTokenValue1, DkimDNSTokenName2, DkimDNSTokenValue2, DkimDNSTokenName3, DkimDNSTokenValue3) as outputs. You can then add these to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. This verification method is known as Easy DKIM.
+//
+// Alternatively, you can perform the verification process by providing your own public-private key pair. This verification method is known as Bring Your Own DKIM (BYODKIM). To use BYODKIM, your resource must include DkimSigningAttributes properties DomainSigningSelector and DomainSigningPrivateKey. When you specify this object, you provide a selector (DomainSigningSelector) (a component of the DNS record name that identifies the public key to use for DKIM authentication) and a private key (DomainSigningPrivateKey).
+//
+// Additionally, you can associate an existing configuration set with the email identity that you're verifying.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -43,34 +51,40 @@ import (
 type CfnEmailIdentity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The host name for the first token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenName1() *string
+	// The host name for the second token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenName2() *string
+	// The host name for the third token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenName3() *string
+	// The record value for the first token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenValue1() *string
+	// The record value for the second token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenValue2() *string
+	// The record value for the third token that you have to add to the DNS configuration for your domain.
 	AttrDkimDnsTokenValue3() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::SES::EmailIdentity.ConfigurationSetAttributes`.
+	// Used to associate a configuration set with an email identity.
 	ConfigurationSetAttributes() interface{}
 	SetConfigurationSetAttributes(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::SES::EmailIdentity.DkimAttributes`.
+	// An object that contains information about the DKIM attributes for the identity.
 	DkimAttributes() interface{}
 	SetDkimAttributes(val interface{})
-	// `AWS::SES::EmailIdentity.DkimSigningAttributes`.
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
 	DkimSigningAttributes() interface{}
 	SetDkimSigningAttributes(val interface{})
-	// `AWS::SES::EmailIdentity.EmailIdentity`.
+	// The email address or domain to verify.
 	EmailIdentity() *string
 	SetEmailIdentity(val *string)
-	// `AWS::SES::EmailIdentity.FeedbackAttributes`.
+	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes() interface{}
 	SetFeedbackAttributes(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -83,7 +97,7 @@ type CfnEmailIdentity interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::SES::EmailIdentity.MailFromAttributes`.
+	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes() interface{}
 	SetMailFromAttributes(val interface{})
 	// The tree node.

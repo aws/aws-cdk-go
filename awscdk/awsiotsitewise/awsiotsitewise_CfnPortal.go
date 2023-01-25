@@ -11,9 +11,9 @@ import (
 
 // A CloudFormation `AWS::IoTSiteWise::Portal`.
 //
-// Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable AWS SSO . AWS IoT SiteWise Monitor uses AWS SSO to manage user permissions. For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* .
+// Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable IAM Identity Center . AWS IoT SiteWise Monitor uses IAM Identity Center to manage user permissions. For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* .
 //
-// > Before you can sign in to a new portal, you must add at least one AWS SSO user or group to that portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) in the *AWS IoT SiteWise User Guide* .
+// > Before you can sign in to a new portal, you must add at least one IAM Identity Center user or group to that portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) in the *AWS IoT SiteWise User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,7 +52,7 @@ type CfnPortal interface {
 	//
 	// `arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}`.
 	AttrPortalArn() *string
-	// The AWS SSO application generated client ID (used with AWS SSO APIs).
+	// The IAM Identity Center application generated client ID (used with IAM Identity Center APIs).
 	AttrPortalClientId() *string
 	// The ID of the created portal.
 	AttrPortalId() *string
@@ -86,7 +86,7 @@ type CfnPortal interface {
 	SetNotificationSenderEmail(val *string)
 	// The service to use to authenticate users to the portal. Choose from the following options:.
 	//
-	// - `SSO` – The portal uses AWS Single Sign-On to authenticate users and manage user permissions. Before you can create a portal that uses AWS SSO , you must enable AWS SSO . For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* . This option is only available in AWS Regions other than the China Regions.
+	// - `SSO` – The portal uses AWS IAM Identity Center (successor to AWS Single Sign-On) to authenticate users and manage user permissions. Before you can create a portal that uses IAM Identity Center , you must enable IAM Identity Center . For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* . This option is only available in AWS Regions other than the China Regions.
 	// - `IAM` – The portal uses AWS Identity and Access Management ( IAM ) to authenticate users and manage user permissions.
 	//
 	// You can't change this value after you create a portal.

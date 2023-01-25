@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::OpenSearchServerless::SecurityPolicy`.
 //
+// Creates an encryption or network policy to be used by one or more OpenSearch Serverless collections.
+//
+// Network policies specify access to a collection and its OpenSearch Dashboards endpoint from public networks or specific VPC endpoints. For more information, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html) .
+//
+// Encryption policies specify a KMS encryption key to assign to particular collections. For more information, see [Encryption at rest for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,7 +43,7 @@ type CfnSecurityPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::OpenSearchServerless::SecurityPolicy.Description`.
+	// The description of the security policy.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -50,12 +56,12 @@ type CfnSecurityPolicy interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::OpenSearchServerless::SecurityPolicy.Name`.
+	// The name of the policy.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::OpenSearchServerless::SecurityPolicy.Policy`.
+	// The JSON policy document without any whitespaces.
 	Policy() *string
 	SetPolicy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -67,7 +73,9 @@ type CfnSecurityPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::OpenSearchServerless::SecurityPolicy.Type`.
+	// The type of security policy.
+	//
+	// Can be either `encryption` or `network` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

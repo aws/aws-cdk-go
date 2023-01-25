@@ -11,7 +11,16 @@ import (
 
 // A CloudFormation `AWS::EC2::LaunchTemplate`.
 //
-// Specifies a launch template for an Amazon EC2 instance. A launch template contains the parameters to launch an instance. For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
+// Specifies the properties for creating a launch template.
+//
+// The minimum required properties for specifying a launch template are as follows:
+//
+// - You must specify at least one property for the launch template data.
+// - You do not need to specify a name for the launch template. If you do not specify a name, AWS CloudFormation creates the name for you.
+//
+// A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the `ImageId` property, which has no default value. If you do not specify an AMI ID for the launch template `ImageId` property, you must specify an AMI ID for the instance `ImageId` property.
+//
+// For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
 //   var cluster cluster
@@ -37,7 +46,7 @@ type CfnLaunchTemplate interface {
 	awscdk.IInspectable
 	// The default version of the launch template, such as 2.
 	//
-	// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 Console or by using the `modify-launch-template` AWS CLI command.
+	// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
 	AttrDefaultVersionNumber() *string
 	// The latest version of the launch template, such as `5` .
 	AttrLatestVersionNumber() *string
@@ -77,7 +86,11 @@ type CfnLaunchTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to apply to the launch template during creation.
+	// The tags to apply to the launch template on creation.
+	//
+	// To tag the launch template, the resource type must be `launch-template` .
+	//
+	// > To specify the tags for the resources that are created when an instance is launched, you must use the `TagSpecifications` parameter in the [launch template data](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html) structure.
 	TagSpecifications() interface{}
 	SetTagSpecifications(val interface{})
 	// Deprecated.
@@ -93,7 +106,7 @@ type CfnLaunchTemplate interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::EC2::LaunchTemplate.VersionDescription`.
+	// A description for the first version of the launch template.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

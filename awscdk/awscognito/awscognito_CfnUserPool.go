@@ -184,7 +184,11 @@ type CfnUserPool interface {
 	// `AWS::Cognito::UserPool.DeletionProtection`.
 	DeletionProtection() *string
 	SetDeletionProtection(val *string)
-	// The device configuration.
+	// The device-remembering configuration for a user pool.
+	//
+	// A null value indicates that you have deactivated device remembering in your user pool.
+	//
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
 	DeviceConfiguration() interface{}
 	SetDeviceConfiguration(val interface{})
 	// The email configuration of your user pool.
@@ -192,14 +196,14 @@ type CfnUserPool interface {
 	// The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 	EmailConfiguration() interface{}
 	SetEmailConfiguration(val interface{})
-	// A string representing the email verification message.
+	// This parameter is no longer used.
 	//
-	// EmailVerificationMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	EmailVerificationMessage() *string
 	SetEmailVerificationMessage(val *string)
-	// A string representing the email verification subject.
+	// This parameter is no longer used.
 	//
-	// EmailVerificationSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	EmailVerificationSubject() *string
 	SetEmailVerificationSubject(val *string)
 	// Enables MFA on a specified user pool.
@@ -231,7 +235,7 @@ type CfnUserPool interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The multi-factor (MFA) configuration. Valid values include:.
+	// The multi-factor authentication (MFA) configuration. Valid values include:.
 	//
 	// - `OFF` MFA won't be used for any users.
 	// - `ON` MFA is required for all users to sign in.
@@ -261,7 +265,9 @@ type CfnUserPool interface {
 	// To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
 	SmsConfiguration() interface{}
 	SetSmsConfiguration(val interface{})
-	// A string representing the SMS verification message.
+	// This parameter is no longer used.
+	//
+	// See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
 	SmsVerificationMessage() *string
 	SetSmsVerificationMessage(val *string)
 	// The stack in which this element is defined.
@@ -289,7 +295,7 @@ type CfnUserPool interface {
 	//
 	// These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
 	// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
-	// more information, see [Verifying updates to to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
+	// more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
 	UserAttributeUpdateSettings() interface{}
 	SetUserAttributeUpdateSettings(val interface{})
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.

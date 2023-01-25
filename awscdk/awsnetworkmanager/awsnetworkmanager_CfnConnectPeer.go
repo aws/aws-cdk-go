@@ -56,7 +56,7 @@ type CfnConnectPeer interface {
 	//
 	// This will be: `REJECTED` | `PENDING_ATTACHMENT_ACCEPTANCE` | `CREATING` | `FAILED` | `AVAILABLE` | `UPDATING` | `PENDING_NETWORK_UPDATE` | `PENDING_TAG_ACCEPTANCE` | `DELETING` .
 	AttrState() *string
-	// The BGP peer options.
+	// `AWS::NetworkManager::ConnectPeer.BgpOptions`.
 	BgpOptions() interface{}
 	SetBgpOptions(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -64,7 +64,7 @@ type CfnConnectPeer interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The ID of Connect peer.
+	// The ID of the attachment to connect.
 	ConnectAttachmentId() *string
 	SetConnectAttachmentId(val *string)
 	// The IP address of a core network.
@@ -101,7 +101,7 @@ type CfnConnectPeer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags associated with the Connect peer.
+	// The list of key-value tags associated with the Connect peer.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

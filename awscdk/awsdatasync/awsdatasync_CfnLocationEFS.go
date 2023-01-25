@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::DataSync::LocationEFS`.
 //
-// The `AWS::DataSync::LocationEFS` resource specifies an endpoint for an Amazon EFS location.
+// The `AWS::DataSync::LocationEFS` resource creates an endpoint for an Amazon EFS file system. AWS DataSync can access this endpoint as a source or destination location.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,7 +43,7 @@ import (
 type CfnLocationEFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::DataSync::LocationEFS.AccessPointArn`.
+	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
 	AccessPointArn() *string
 	SetAccessPointArn(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system.
@@ -59,25 +59,18 @@ type CfnLocationEFS interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The subnet and security group that the Amazon EFS file system uses.
-	//
-	// The security group that you provide needs to be able to communicate with the security group on the mount target in the subnet specified.
-	//
-	// The exact relationship between security group M (of the mount target) and security group S (which you provide for DataSync to use at this stage) is as follows:
-	//
-	// - Security group M (which you associate with the mount target) must allow inbound access for the Transmission Control Protocol (TCP) on the NFS port (2049) from security group S. You can enable inbound connections either by IP address (CIDR range) or security group.
-	// - Security group S (provided to DataSync to access EFS) should have a rule that enables outbound connections to the NFS port on one of the file system’s mount targets. You can enable outbound connections either by IP address (CIDR range) or security group.
-	//
-	// For information about security groups and mount targets, see [Security Groups for Amazon EC2 Instances and Mount Targets](https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access) in the *Amazon EFS User Guide.*
+	// Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
 	Ec2Config() interface{}
 	SetEc2Config(val interface{})
-	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
+	// Specifies the ARN for the Amazon EFS file system.
 	EfsFilesystemArn() *string
 	SetEfsFilesystemArn(val *string)
-	// `AWS::DataSync::LocationEFS.FileSystemAccessRoleArn`.
+	// Specifies an AWS Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
 	FileSystemAccessRoleArn() *string
 	SetFileSystemAccessRoleArn(val *string)
-	// `AWS::DataSync::LocationEFS.InTransitEncryption`.
+	// Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption when it copies data to or from the Amazon EFS file system.
+	//
+	// If you specify an access point using `AccessPointArn` or an IAM role using `FileSystemAccessRoleArn` , you must set this parameter to `TLS1_2` .
 	InTransitEncryption() *string
 	SetInTransitEncryption(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -101,14 +94,14 @@ type CfnLocationEFS interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A subdirectory in the location’s path.
+	// Specifies a mount path for your Amazon EFS file system.
 	//
-	// This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination. By default, AWS DataSync uses the root directory.
+	// This is where DataSync reads or writes data (depending on if this is a source or destination location). By default, DataSync uses the root directory, but you can also include subdirectories.
 	//
-	// > `Subdirectory` must be specified with forward slashes. For example, `/path/to/folder` .
+	// > You must specify a value with forward slashes (for example, `/path/to/folder` ).
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// The key-value pair that represents a tag that you want to add to the resource.
+	// Specifies the key-value pair that represents a tag that you want to add to the resource.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
 	Tags() awscdk.TagManager

@@ -68,7 +68,7 @@ type CfnWorkspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::APS::Workspace.LoggingConfiguration`.
+	// The LoggingConfiguration attribute is used to set the logging configuration for the workspace.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

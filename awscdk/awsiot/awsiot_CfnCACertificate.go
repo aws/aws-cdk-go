@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::IoT::CACertificate`.
 //
+// Specifies a CA certificate.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,15 +43,29 @@ import (
 type CfnCACertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:.
+	//
+	// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+	//
+	// A value similar to the following is returned:
+	//
+	// `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`.
 	AttrArn() *string
+	// The CA certificate ID.
 	AttrId() *string
-	// `AWS::IoT::CACertificate.AutoRegistrationStatus`.
+	// Whether the CA certificate is configured for auto registration of device certificates.
+	//
+	// Valid values are "ENABLE" and "DISABLE".
 	AutoRegistrationStatus() *string
 	SetAutoRegistrationStatus(val *string)
-	// `AWS::IoT::CACertificate.CACertificatePem`.
+	// The certificate data in PEM format.
 	CaCertificatePem() *string
 	SetCaCertificatePem(val *string)
-	// `AWS::IoT::CACertificate.CertificateMode`.
+	// The mode of the CA.
+	//
+	// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+	//
+	// Valid values are "DEFAULT" and "SNI_ONLY".
 	CertificateMode() *string
 	SetCertificateMode(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -78,20 +94,24 @@ type CfnCACertificate interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::IoT::CACertificate.RegistrationConfig`.
+	// Information about the registration configuration.
 	RegistrationConfig() interface{}
 	SetRegistrationConfig(val interface{})
-	// `AWS::IoT::CACertificate.RemoveAutoRegistration`.
+	// If true, removes auto registration.
 	RemoveAutoRegistration() interface{}
 	SetRemoveAutoRegistration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoT::CACertificate.Status`.
+	// The status of the CA certificate.
+	//
+	// Valid values are "ACTIVE" and "INACTIVE".
 	Status() *string
 	SetStatus(val *string)
-	// `AWS::IoT::CACertificate.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -106,7 +126,7 @@ type CfnCACertificate interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::IoT::CACertificate.VerificationCertificatePem`.
+	// The private key verification certificate.
 	VerificationCertificatePem() *string
 	SetVerificationCertificatePem(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -99,9 +99,9 @@ var hostedZone hostedZone
 
 var myBucket bucket
 
-myCertificate := acm.NewDnsValidatedCertificate(this, jsii.String("mySiteCert"), &dnsValidatedCertificateProps{
+myCertificate := acm.NewCertificate(this, jsii.String("mySiteCert"), &certificateProps{
 	domainName: jsii.String("www.example.com"),
-	hostedZone: hostedZone,
+	validation: acm.certificateValidation.fromDns(hostedZone),
 })
 cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
 	defaultBehavior: &behaviorOptions{
@@ -644,7 +644,6 @@ newly created distributions use HTTP/2 but can be configured to use both HTTP/2 
 just HTTP/3. For all supported HTTP versions, see the `HttpVerson` enum.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Configure a distribution to use HTTP/2 and HTTP/3
 // Configure a distribution to use HTTP/2 and HTTP/3
 cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{

@@ -30,6 +30,7 @@ type CfnDistribution interface {
 	awscdk.IInspectable
 	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 	AttrDomainName() *string
+	// The identifier for the distribution, for example `EDFDVBD632BHDS5` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -40,9 +41,7 @@ type CfnDistribution interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The current configuration information for the distribution.
-	//
-	// Send a `GET` request to the `/ *CloudFront API version* /distribution ID/config` resource.
+	// The distribution's configuration.
 	DistributionConfig() interface{}
 	SetDistributionConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.

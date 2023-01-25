@@ -52,12 +52,10 @@ type CfnResource interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// If you want to create a child resource, the ID of the parent resource.
-	//
-	// For resources without a parent, specify the `RestApi` root resource ID, such as `{ "Fn::GetAtt": ["MyRestApi", "RootResourceId"] }` .
+	// The parent resource's identifier.
 	ParentId() *string
 	SetParentId(val *string)
-	// A path name for the resource.
+	// The last path segment for this resource.
 	PathPart() *string
 	SetPathPart(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -65,7 +63,7 @@ type CfnResource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the [RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource in which you want to create this resource.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.

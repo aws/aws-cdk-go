@@ -41,6 +41,7 @@ type CfnEIP interface {
 	//
 	// This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AttrAllocationId() *string
+	// The Elastic IP address.
 	AttrPublicIp() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -75,7 +76,13 @@ type CfnEIP interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::EC2::EIP.NetworkBorderGroup`.
+	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+	//
+	// Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
+	//
+	// Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
+	//
+	// You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic, you receive an `InvalidParameterCombination` error.
 	NetworkBorderGroup() *string
 	SetNetworkBorderGroup(val *string)
 	// The tree node.
@@ -100,7 +107,7 @@ type CfnEIP interface {
 	//
 	// > Updates to the `Tags` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	Tags() awscdk.TagManager
-	// `AWS::EC2::EIP.TransferAddress`.
+	// The Elastic IP address you are accepting for transfer.
 	TransferAddress() *string
 	SetTransferAddress(val *string)
 	// Deprecated.

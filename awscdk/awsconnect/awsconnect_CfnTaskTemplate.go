@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Connect::TaskTemplate`.
 //
+// Specifies a task template for a Amazon Connect instance.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -61,35 +63,42 @@ import (
 type CfnTaskTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the task template.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Connect::TaskTemplate.ClientToken`.
+	// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 	ClientToken() *string
 	SetClientToken(val *string)
-	// `AWS::Connect::TaskTemplate.Constraints`.
+	// Constraints that are applicable to the fields listed.
+	//
+	// The values can be represented in either JSON or YAML format. For an example of the JSON configuration, see *Examples* at the bottom of this page.
 	Constraints() interface{}
 	SetConstraints(val interface{})
-	// `AWS::Connect::TaskTemplate.ContactFlowArn`.
+	// The Amazon Resource Name (ARN) of the flow that runs by default when a task is created by referencing this template.
+	//
+	// `ContactFlowArn` is not required when there is a field with `fieldType` = `QUICK_CONNECT` .
 	ContactFlowArn() *string
 	SetContactFlowArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Connect::TaskTemplate.Defaults`.
+	// The default values for fields when a task is created by referencing this template.
 	Defaults() interface{}
 	SetDefaults(val interface{})
-	// `AWS::Connect::TaskTemplate.Description`.
+	// The description of the task template.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Connect::TaskTemplate.Fields`.
+	// Fields that are part of the template.
+	//
+	// A template requires at least one field that has type `Name` .
 	Fields() interface{}
 	SetFields(val interface{})
-	// `AWS::Connect::TaskTemplate.InstanceArn`.
+	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -102,7 +111,7 @@ type CfnTaskTemplate interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Connect::TaskTemplate.Name`.
+	// The name of the task template.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -116,10 +125,10 @@ type CfnTaskTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Connect::TaskTemplate.Status`.
+	// The status of the task template.
 	Status() *string
 	SetStatus(val *string)
-	// `AWS::Connect::TaskTemplate.Tags`.
+	// The tags used to organize, track, or control access for this resource.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -439,12 +439,24 @@ func init() {
 		reflect.TypeOf((*CfnWorkflow_CustomStepDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnWorkflow.DecryptStepDetailsProperty",
+		reflect.TypeOf((*CfnWorkflow_DecryptStepDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnWorkflow.DeleteStepDetailsProperty",
 		reflect.TypeOf((*CfnWorkflow_DeleteStepDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnWorkflow.EfsInputFileLocationProperty",
+		reflect.TypeOf((*CfnWorkflow_EfsInputFileLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnWorkflow.InputFileLocationProperty",
 		reflect.TypeOf((*CfnWorkflow_InputFileLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnWorkflow.S3FileLocationProperty",
+		reflect.TypeOf((*CfnWorkflow_S3FileLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnWorkflow.S3InputFileLocationProperty",

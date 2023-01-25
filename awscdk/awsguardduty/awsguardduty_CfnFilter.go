@@ -77,6 +77,8 @@ type CfnFilter interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The description of the filter.
+	//
+	// Valid special characters include period (.), underscore (_), dash (-), and whitespace. The new line character is considered to be an invalid input for description.
 	Description() *string
 	SetDescription(val *string)
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
@@ -97,12 +99,16 @@ type CfnFilter interface {
 	LogicalId() *string
 	// The name of the filter.
 	//
-	// Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.
+	// Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::GuardDuty::Filter.Rank`.
+	// Specifies the position of the filter in the list of current filters.
+	//
+	// Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+	//
+	// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
 	Rank() *float64
 	SetRank(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -114,7 +120,11 @@ type CfnFilter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::GuardDuty::Filter.Tags`.
+	// The tags to be added to a new filter resource.
+	//
+	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

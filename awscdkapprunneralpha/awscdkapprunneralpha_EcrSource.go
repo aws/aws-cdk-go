@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var repository repository
+//   var secret secret
 //
 //   ecrSource := apprunner_alpha.NewEcrSource(&ecrProps{
 //   	repository: repository,
@@ -25,6 +26,12 @@ import (
 //   	imageConfiguration: &imageConfiguration{
 //   		environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
+//   		},
+//   		environmentSecrets: map[string]*secret{
+//   			"environmentSecretsKey": secret,
+//   		},
+//   		environmentVariables: map[string]*string{
+//   			"environmentVariablesKey": jsii.String("environmentVariables"),
 //   		},
 //   		port: jsii.Number(123),
 //   		startCommand: jsii.String("startCommand"),

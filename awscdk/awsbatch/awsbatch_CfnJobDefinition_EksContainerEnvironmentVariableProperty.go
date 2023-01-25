@@ -1,6 +1,8 @@
 package awsbatch
 
 
+// An environment variable.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,9 @@ package awsbatch
 //   }
 //
 type CfnJobDefinition_EksContainerEnvironmentVariableProperty struct {
-	// `CfnJobDefinition.EksContainerEnvironmentVariableProperty.Name`.
+	// The name of the environment variable.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnJobDefinition.EksContainerEnvironmentVariableProperty.Value`.
+	// The value of the environment variable.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

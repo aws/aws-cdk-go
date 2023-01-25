@@ -13,7 +13,7 @@ import (
 //
 // > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
-// Use an `WebACL` to define a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can contain rule statements that you define explicitly and rule statements that reference rule groups and managed rule groups. You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , or an AWS AppSync GraphQL API.
+// Use an `WebACL` to define a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you specify a default action to take (allow, block) for any request that doesn't match any of the rules. The rules in a web ACL can contain rule statements that you define explicitly and rule statements that reference rule groups and managed rule groups. You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , an AWS AppSync GraphQL API, or an Amazon Cognito user pool.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -781,7 +781,9 @@ type CfnWebACL interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::WAFv2::WebACL.ChallengeConfig`.
+	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings.
+	//
+	// If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
 	ChallengeConfig() interface{}
 	SetChallengeConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -832,7 +834,7 @@ type CfnWebACL interface {
 	SetRules(val interface{})
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, or an Amazon Cognito user pool. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//
@@ -849,7 +851,9 @@ type CfnWebACL interface {
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags() awscdk.TagManager
-	// `AWS::WAFv2::WebACL.TokenDomains`.
+	// Specifies the domains that AWS WAF should accept in a web request token.
+	//
+	// This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
 	TokenDomains() *[]*string
 	SetTokenDomains(val *[]*string)
 	// Deprecated.

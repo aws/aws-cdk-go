@@ -21,7 +21,7 @@ package awsecs
 type CfnCluster_ExecuteCommandLogConfigurationProperty struct {
 	// Determines whether to use encryption on the CloudWatch logs.
 	//
-	// If not specified, encryption will be disabled.
+	// If not specified, encryption will be off.
 	CloudWatchEncryptionEnabled interface{} `field:"optional" json:"cloudWatchEncryptionEnabled" yaml:"cloudWatchEncryptionEnabled"`
 	// The name of the CloudWatch log group to send logs to.
 	//

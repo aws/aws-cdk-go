@@ -215,7 +215,7 @@ type CfnCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::MSK::Cluster.StorageMode`.
+	// This controls storage mode for supported storage tiers.
 	StorageMode() *string
 	SetStorageMode(val *string)
 	// A map of key:value pairs to apply to this resource.

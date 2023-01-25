@@ -46,7 +46,7 @@ type CfnPackagingGroup interface {
 	//
 	// You can get this from the response to any request to the packaging group.
 	AttrArn() *string
-	// The fully qualified domain name for the assets in the PackagingGroup.
+	// The URL for the assets in the PackagingGroup.
 	AttrDomainName() *string
 	// Parameters for CDN authorization.
 	Authorization() interface{}

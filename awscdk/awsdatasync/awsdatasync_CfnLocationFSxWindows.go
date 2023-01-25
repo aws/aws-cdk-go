@@ -53,10 +53,10 @@ type CfnLocationFSxWindows interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The name of the Windows domain that the FSx for Windows File Server belongs to.
+	// Specifies the name of the Windows domain that the FSx for Windows File Server belongs to.
 	Domain() *string
 	SetDomain(val *string)
-	// The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
+	// Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
 	FsxFilesystemArn() *string
 	SetFsxFilesystemArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -71,7 +71,7 @@ type CfnLocationFSxWindows interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The password of the user who has the permissions to access files and folders in the FSx for Windows File Server file system.
+	// Specifies the password of the user who has the permissions to access files and folders in the file system.
 	Password() *string
 	SetPassword(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -90,14 +90,14 @@ type CfnLocationFSxWindows interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A subdirectory in the location's path.
+	// Specifies a mount path for your file system using forward slashes.
 	//
-	// This subdirectory in the Amazon FSx for Windows File Server file system is used to read data from the Amazon FSx for Windows File Server source location or write data to the FSx for Windows File Server destination.
+	// This is where DataSync reads or writes data (depending on if this is a source or destination location).
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// The key-value pair that represents a tag that you want to add to the resource.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	//
-	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
+	// We recommend creating at least a name tag for your location.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

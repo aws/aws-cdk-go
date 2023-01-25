@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::SES::VdmAttributes`.
 //
+// The Virtual Deliverability Manager (VDM) attributes that apply to your Amazon SES account.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -38,10 +40,10 @@ type CfnVdmAttributes interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::SES::VdmAttributes.DashboardAttributes`.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes() interface{}
 	SetDashboardAttributes(val interface{})
-	// `AWS::SES::VdmAttributes.GuardianAttributes`.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianAttributes() interface{}
 	SetGuardianAttributes(val interface{})
 	// The logical ID for this CloudFormation stack element.

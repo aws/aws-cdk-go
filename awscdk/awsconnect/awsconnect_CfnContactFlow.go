@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Connect::ContactFlow`.
 //
-// The `AWS::Connect::ContactFlow` resource specifies a contact flow for the specified Amazon Connect instance.
+// Specifies a flow for an Amazon Connect instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,23 +38,25 @@ import (
 type CfnContactFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `Ref` returns the contact flow Amazon Resource Name (ARN). For example:.
+	// `Ref` returns the Amazon Resource Name (ARN) of the flow. For example:.
 	//
-	// `{ "Ref": "myContactFlowArn" }`.
+	// `{ "Ref": "myFlowArn" }`.
 	AttrContactFlowArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The content of the contact flow.
+	// The content of the flow.
+	//
+	// For more information, see [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html) in the *Amazon Connect Administrator Guide* .
 	Content() *string
 	SetContent(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the contact flow.
+	// The description of the flow.
 	Description() *string
 	SetDescription(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
@@ -70,7 +72,7 @@ type CfnContactFlow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the contact flow.
+	// The name of the flow.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,16 +86,16 @@ type CfnContactFlow interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The state of the contact flow.
+	// The state of the flow.
 	State() *string
 	SetState(val *string)
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
-	// The type of the contact flow.
+	// The type of the flow.
 	//
-	// For descriptions of the available types, see [Choose a Contact Flow Type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
+	// For descriptions of the available types, see [Choose a flow type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

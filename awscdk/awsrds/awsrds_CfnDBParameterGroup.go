@@ -15,9 +15,9 @@ import (
 //
 // This type can be declared in a template and referenced in the `DBParameterGroupName` property of an `[AWS::RDS::DBInstance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html)` resource.
 //
-// For information about configuring parameters for Amazon RDS DB instances, see [Working with DB parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide* .
+// For information about configuring parameters for Amazon RDS DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide* .
 //
-// For information about configuring parameters for Amazon Aurora DB instances, see [Working with DB parameter groups and DB cluster parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
+// For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
 //
 // > Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
 //
@@ -46,6 +46,7 @@ import (
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The name of the DB parameter group.
 	AttrDbParameterGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,7 +57,17 @@ type CfnDBParameterGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::RDS::DBParameterGroup.DBParameterGroupName`.
+	// The name of the DB parameter group.
+	//
+	// Constraints:
+	//
+	// - Must be 1 to 255 letters, numbers, or hyphens.
+	// - First character must be a letter
+	// - Can't end with a hyphen or contain two consecutive hyphens
+	//
+	// If you don't specify a value for `DBParameterGroupName` property, a name is automatically created for the DB parameter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbParameterGroupName() *string
 	SetDbParameterGroupName(val *string)
 	// Provides the customer-specified description for this DB parameter group.
@@ -109,7 +120,7 @@ type CfnDBParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags to assign to the DB parameter group.
+	// An optional array of key-value pairs to apply to this DB parameter group.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

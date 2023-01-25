@@ -50,19 +50,19 @@ package awskendra
 //   }
 //
 type CfnDataSource_SharePointConfigurationProperty struct {
-	// The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager .
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance.
 	//
-	// The credentials should be a user/password pair. If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) . For more information about AWS Secrets Manager see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
+	// If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
+	//
+	// You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a SharePoint data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
-	// The version of Microsoft SharePoint that you are using as a data source.
+	// The version of Microsoft SharePoint that you use.
 	SharePointVersion *string `field:"required" json:"sharePointVersion" yaml:"sharePointVersion"`
-	// The URLs of the Microsoft SharePoint site that contains the documents that should be indexed.
+	// The Microsoft SharePoint site URLs for the documents you want to index.
 	Urls *[]*string `field:"required" json:"urls" yaml:"urls"`
-	// `TRUE` to include attachments to documents stored in your Microsoft SharePoint site in the index;
-	//
-	// otherwise, `FALSE` .
+	// `TRUE` to index document attachments.
 	CrawlAttachments interface{} `field:"optional" json:"crawlAttachments" yaml:"crawlAttachments"`
-	// A Boolean value that specifies whether local groups are disabled ( `True` ) or enabled ( `False` ).
+	// `TRUE` to disable local groups information.
 	DisableLocalGroups interface{} `field:"optional" json:"disableLocalGroups" yaml:"disableLocalGroups"`
 	// The Microsoft SharePoint attribute field that contains the title of the document.
 	DocumentTitleFieldName *string `field:"optional" json:"documentTitleFieldName" yaml:"documentTitleFieldName"`
@@ -72,7 +72,7 @@ type CfnDataSource_SharePointConfigurationProperty struct {
 	//
 	// The regex is applied to the display URL of the SharePoint document.
 	ExclusionPatterns *[]*string `field:"optional" json:"exclusionPatterns" yaml:"exclusionPatterns"`
-	// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes to custom fields in the Amazon Kendra index.
+	// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields.
 	//
 	// You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
 	FieldMappings interface{} `field:"optional" json:"fieldMappings" yaml:"fieldMappings"`
@@ -80,7 +80,7 @@ type CfnDataSource_SharePointConfigurationProperty struct {
 	//
 	// Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
 	//
-	// The regex is applied to the display URL of the SharePoint document.
+	// The regex applies to the display URL of the SharePoint document.
 	InclusionPatterns *[]*string `field:"optional" json:"inclusionPatterns" yaml:"inclusionPatterns"`
 	// Information required to find a specific file in an Amazon S3 bucket.
 	SslCertificateS3Path interface{} `field:"optional" json:"sslCertificateS3Path" yaml:"sslCertificateS3Path"`

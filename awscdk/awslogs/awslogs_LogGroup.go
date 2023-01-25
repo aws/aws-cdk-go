@@ -106,6 +106,8 @@ type LogGroup interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Give the indicated permissions on this log group and all streams.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Give permissions to read and filter events from this log group.
+	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Give permissions to create and write to streams in this log group.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Public method to get the physical name of this log group.
@@ -472,6 +474,22 @@ func (l *jsiiProxy_LogGroup) Grant(grantee awsiam.IGrantable, actions ...*string
 		l,
 		"grant",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroup) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := l.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		l,
+		"grantRead",
+		[]interface{}{grantee},
 		&returns,
 	)
 

@@ -1,6 +1,8 @@
 package awsiot
 
 
+// A key-value pair that you define in the header.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsiot
 //   }
 //
 type CfnTopicRule_UserPropertyProperty struct {
-	// `CfnTopicRule.UserPropertyProperty.Key`.
+	// A key to be specified in `UserProperty` .
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// `CfnTopicRule.UserPropertyProperty.Value`.
+	// A value to be specified in `UserProperty` .
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 

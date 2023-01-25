@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::SSO::PermissionSet`.
 //
-// Specifies a permission set within a specified SSO instance.
+// Specifies a permission set within a specified IAM Identity Center instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -71,16 +71,18 @@ type CfnPermissionSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::SSO::PermissionSet.CustomerManagedPolicyReferences`.
+	// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 	CustomerManagedPolicyReferences() interface{}
 	SetCustomerManagedPolicyReferences(val interface{})
 	// The description of the `PermissionSet` .
 	Description() *string
 	SetDescription(val *string)
-	// The IAM inline policy that is attached to the permission set.
+	// The inline policy that is attached to the permission set.
+	//
+	// > For `Length Constraints` , if a valid ARN is provided for a permission set, it is possible for an empty inline policy to be returned.
 	InlinePolicy() interface{}
 	SetInlinePolicy(val interface{})
-	// The ARN of the SSO instance under which the operation will be executed.
+	// The ARN of the IAM Identity Center instance under which the operation will be executed.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	InstanceArn() *string
@@ -95,7 +97,7 @@ type CfnPermissionSet interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A structure that stores the details of the IAM managed policy.
+	// A structure that stores the details of the AWS managed policy.
 	ManagedPolicies() *[]*string
 	SetManagedPolicies(val *[]*string)
 	// The name of the permission set.
@@ -103,7 +105,11 @@ type CfnPermissionSet interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::SSO::PermissionSet.PermissionsBoundary`.
+	// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary.
+	//
+	// Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+	//
+	// > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
 	PermissionsBoundary() interface{}
 	SetPermissionsBoundary(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -74,7 +74,7 @@ type CfnBillingGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The billing group description.
+	// The description of the billing group.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.

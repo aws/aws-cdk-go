@@ -270,6 +270,8 @@ type CfnOriginEndpoint interface {
 	Node() constructs.Node
 	// Controls video origination from this endpoint.
 	//
+	// Valid values:
+	//
 	// - `ALLOW` - enables this endpoint to serve content to requesting devices.
 	// - `DENY` - prevents this endpoint from serving content. Denying origination is helpful for harvesting live-to-VOD assets. For more information about harvesting and origination, see [Live-to-VOD Requirements](https://docs.aws.amazon.com/mediapackage/latest/ug/ltov-reqmts.html) .
 	Origination() *string

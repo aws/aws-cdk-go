@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Location::Tracker`.
 //
-// The `AWS::Location::Tracker` resource specifies a tracker resource in your AWS account , which lets you receive current and historical location of devices.
+// Specifies a tracker resource in your AWS account , which lets you receive current and historical location of devices.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

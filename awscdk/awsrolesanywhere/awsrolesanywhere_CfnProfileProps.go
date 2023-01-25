@@ -32,21 +32,23 @@ import (
 //   }
 //
 type CfnProfileProps struct {
-	// `AWS::RolesAnywhere::Profile.DurationSeconds`.
+	// Sets the maximum number of seconds that vended temporary credentials through [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html) will be valid for, between 900 and 3600.
 	DurationSeconds *float64 `field:"optional" json:"durationSeconds" yaml:"durationSeconds"`
-	// `AWS::RolesAnywhere::Profile.Enabled`.
+	// Indicates whether the profile is enabled.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// `AWS::RolesAnywhere::Profile.ManagedPolicyArns`.
+	// A list of managed policy ARNs that apply to the vended session credentials.
 	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
-	// `AWS::RolesAnywhere::Profile.Name`.
+	// The name of the profile.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::RolesAnywhere::Profile.RequireInstanceProperties`.
+	// Specifies whether instance properties are required in temporary credential requests with this profile.
 	RequireInstanceProperties interface{} `field:"optional" json:"requireInstanceProperties" yaml:"requireInstanceProperties"`
-	// `AWS::RolesAnywhere::Profile.RoleArns`.
+	// A list of IAM role ARNs.
+	//
+	// During `CreateSession` , if a matching role ARN is provided, the properties in this profile will be applied to the intersection session policy.
 	RoleArns *[]*string `field:"optional" json:"roleArns" yaml:"roleArns"`
-	// `AWS::RolesAnywhere::Profile.SessionPolicy`.
+	// A session policy that applies to the trust boundary of the vended session credentials.
 	SessionPolicy *string `field:"optional" json:"sessionPolicy" yaml:"sessionPolicy"`
-	// `AWS::RolesAnywhere::Profile.Tags`.
+	// A list of tags to attach to the profile.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -118,7 +118,7 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 	// A string value that you want AWS WAF to search for.
 	//
-	// AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 50 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
+	// AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 	//
 	// Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
 	//

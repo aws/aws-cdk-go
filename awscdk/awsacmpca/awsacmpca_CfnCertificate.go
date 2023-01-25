@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::ACMPCA::Certificate`.
 //
-// The `AWS::ACMPCA::Certificate` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html) action.
+// The `AWS::ACMPCA::Certificate` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -196,7 +196,7 @@ type CfnCertificate interface {
 	Stack() awscdk.Stack
 	// Specifies a custom configuration template to use when issuing a certificate.
 	//
-	// If this parameter is not provided, ACM Private CA defaults to the `EndEntityCertificate/V1` template. For more information about ACM Private CA templates, see [Using Templates](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) .
+	// If this parameter is not provided, AWS Private CA defaults to the `EndEntityCertificate/V1` template. For more information about AWS Private CA templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) .
 	TemplateArn() *string
 	SetTemplateArn(val *string)
 	// Deprecated.
@@ -219,7 +219,7 @@ type CfnCertificate interface {
 	//
 	// This parameter sets the “Not Before" date for the certificate.
 	//
-	// By default, when issuing a certificate, ACM Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.
+	// By default, when issuing a certificate, AWS Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.
 	//
 	// Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.
 	//

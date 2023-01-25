@@ -84,7 +84,9 @@ type CfnRecordingConfiguration interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::IVS::RecordingConfiguration.RecordingReconnectWindowSeconds`.
+	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+	//
+	// *Default* : `0`.
 	RecordingReconnectWindowSeconds() *float64
 	SetRecordingReconnectWindowSeconds(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

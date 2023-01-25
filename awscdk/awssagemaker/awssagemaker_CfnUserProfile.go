@@ -11,9 +11,9 @@ import (
 
 // A CloudFormation `AWS::SageMaker::UserProfile`.
 //
-// Creates a user profile. A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an administrator invites a person by email or imports them from SSO, a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
+// Creates a user profile. A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an administrator invites a person by email or imports them from IAM Identity Center , a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
 //
-// > If you're using SSO authentication, an SSO user, or an SSO group containing that user, must be assigned to the Amazon SageMaker Studio application from the AWS SSO Console to create a user profile. For more information about application assignment, see [Assign user access](https://docs.aws.amazon.com/singlesignon/latest/userguide/assignuserstoapp.html) . After assignment is complete, a user profile can be created for that SSO user with AWS CloudFormation.
+// > If you're using IAM Identity Center authentication, a user in IAM Identity Center , or a group in IAM Identity Center containing that user, must be assigned to the Amazon SageMaker Studio application from the IAM Identity Center Console to create a user profile. For more information about application assignment, see [Assign user access](https://docs.aws.amazon.com/singlesignon/latest/userguide/assignuserstoapp.html) . After assignment is complete, a user profile can be created for that user in IAM Identity Center with AWS CloudFormation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -109,12 +109,12 @@ type CfnUserProfile interface {
 	Ref() *string
 	// A specifier for the type of value specified in SingleSignOnUserValue.
 	//
-	// Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+	// Currently, the only supported value is "UserName". If the Domain's AuthMode is IAM Identity Center , this field is required. If the Domain's AuthMode is not IAM Identity Center , this field cannot be specified.
 	SingleSignOnUserIdentifier() *string
 	SetSingleSignOnUserIdentifier(val *string)
 	// The username of the associated AWS Single Sign-On User for this UserProfile.
 	//
-	// If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
+	// If the Domain's AuthMode is IAM Identity Center , this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not IAM Identity Center , this field cannot be specified.
 	SingleSignOnUserValue() *string
 	SetSingleSignOnUserValue(val *string)
 	// The stack in which this element is defined.

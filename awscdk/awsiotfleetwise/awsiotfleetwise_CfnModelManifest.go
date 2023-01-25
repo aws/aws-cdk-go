@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::IoTFleetWise::ModelManifest`.
 //
+// Creates a vehicle model (model manifest) that specifies signals (attributes, branches, sensors, and actuators).
+//
+// For more information, see [Vehicle models](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html) in the *AWS IoT FleetWise Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -49,7 +53,7 @@ type CfnModelManifest interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTFleetWise::ModelManifest.Description`.
+	// A brief description of the vehicle model.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,7 +66,7 @@ type CfnModelManifest interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IoTFleetWise::ModelManifest.Name`.
+	// The name of the vehicle model.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -75,14 +79,16 @@ type CfnModelManifest interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::IoTFleetWise::ModelManifest.SignalCatalogArn`.
+	// The ARN of the signal catalog associated with the vehicle model.
 	SignalCatalogArn() *string
 	SetSignalCatalogArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTFleetWise::ModelManifest.Status`.
+	// The state of the vehicle model.
+	//
+	// If the status is `ACTIVE` , the vehicle model can't be edited. If the status is `DRAFT` , you can edit the vehicle model.
 	Status() *string
 	SetStatus(val *string)
 	// `AWS::IoTFleetWise::ModelManifest.Tags`.

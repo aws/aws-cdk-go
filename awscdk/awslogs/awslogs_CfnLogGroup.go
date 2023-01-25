@@ -53,7 +53,11 @@ type CfnLogGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Logs::LogGroup.DataProtectionPolicy`.
+	// Creates a data protection policy and assigns it to the log group.
+	//
+	// A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
+	//
+	// For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html) .
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
@@ -91,7 +95,7 @@ type CfnLogGroup interface {
 	//
 	// Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.
 	//
-	// To set a log group to never have log events expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html) .
+	// To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html) .
 	RetentionInDays() *float64
 	SetRetentionInDays(val *float64)
 	// The stack in which this element is defined.

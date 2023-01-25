@@ -46,7 +46,11 @@ type CfnDetectorProps struct {
 	DataSources interface{} `field:"optional" json:"dataSources" yaml:"dataSources"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
-	// `AWS::GuardDuty::Detector.Tags`.
+	// The tags to be added to a new detector resource.
+	//
+	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

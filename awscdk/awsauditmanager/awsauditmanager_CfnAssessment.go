@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::AuditManager::Assessment`.
 //
-// The `AWS::AuditManager::Assessment` resource is an AWS Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager . An Audit Manager assessment is an implementation of an Audit Manager framework.
+// The `AWS::AuditManager::Assessment` resource is an Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager . An Audit Manager assessment is an implementation of an Audit Manager framework.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -105,7 +105,7 @@ type CfnAssessment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::AuditManager::Assessment.Delegations`.
+	// The delegations that are associated with the assessment.
 	Delegations() interface{}
 	SetDelegations(val interface{})
 	// The description of the assessment.
@@ -145,6 +145,10 @@ type CfnAssessment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The overall status of the assessment.
+	//
+	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+	//
+	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	Status() *string
 	SetStatus(val *string)
 	// The tags that are associated with the assessment.

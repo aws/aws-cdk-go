@@ -86,7 +86,7 @@ type CfnJobQueue interface {
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the scheduling policy.
 	//
-	// The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy` .
+	// The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 	SchedulingPolicyArn() *string
 	SetSchedulingPolicyArn(val *string)
 	// The stack in which this element is defined.
@@ -98,7 +98,7 @@ type CfnJobQueue interface {
 	// If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 	State() *string
 	SetState(val *string)
-	// The tags applied to the job queue.
+	// The tags that are applied to the job queue.
 	//
 	// For more information, see [Tagging your AWS Batch resources](https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html) in *AWS Batch User Guide* .
 	Tags() awscdk.TagManager

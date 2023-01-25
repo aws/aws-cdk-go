@@ -33,7 +33,6 @@ import (
 //   		},
 //   	},
 //   	subscriptionName: jsii.String("subscriptionName"),
-//   	threshold: jsii.Number(123),
 //
 //   	// the properties below are optional
 //   	resourceTags: []interface{}{
@@ -42,6 +41,8 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	threshold: jsii.Number(123),
+//   	thresholdExpression: jsii.String("thresholdExpression"),
 //   })
 //
 type CfnAnomalySubscription interface {
@@ -96,9 +97,18 @@ type CfnAnomalySubscription interface {
 	// The name for the subscription.
 	SubscriptionName() *string
 	SetSubscriptionName(val *string)
+	// (deprecated).
+	//
 	// The dollar value that triggers a notification if the threshold is exceeded.
+	//
+	// This field has been deprecated. To specify a threshold, use ThresholdExpression. Continued use of Threshold will be treated as shorthand syntax for a ThresholdExpression.
+	//
+	// One of Threshold or ThresholdExpression is required for this resource.
 	Threshold() *float64
 	SetThreshold(val *float64)
+	// `AWS::CE::AnomalySubscription.ThresholdExpression`.
+	ThresholdExpression() *string
+	SetThresholdExpression(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -405,6 +415,16 @@ func (j *jsiiProxy_CfnAnomalySubscription) Threshold() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnomalySubscription) ThresholdExpression() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"thresholdExpression",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnomalySubscription) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -511,12 +531,17 @@ func (j *jsiiProxy_CfnAnomalySubscription)SetSubscriptionName(val *string) {
 }
 
 func (j *jsiiProxy_CfnAnomalySubscription)SetThreshold(val *float64) {
-	if err := j.validateSetThresholdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"threshold",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnomalySubscription)SetThresholdExpression(val *string) {
+	_jsii_.Set(
+		j,
+		"thresholdExpression",
 		val,
 	)
 }

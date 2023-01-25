@@ -52,6 +52,9 @@ type CfnFunction interface {
 	//
 	// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
 	AttrFunctionArn() *string
+	// The Amazon Resource Name (ARN) of the function.
+	//
+	// The ARN uniquely identifies the function.
 	AttrFunctionMetadataFunctionArn() *string
 	AttrStage() *string
 	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created.
@@ -76,7 +79,7 @@ type CfnFunction interface {
 	// Contains configuration information about a CloudFront function.
 	FunctionConfig() interface{}
 	SetFunctionConfig(val interface{})
-	// `AWS::CloudFront::Function.FunctionMetadata`.
+	// Contains metadata about a CloudFront function.
 	FunctionMetadata() interface{}
 	SetFunctionMetadata(val interface{})
 	// The logical ID for this CloudFormation stack element.

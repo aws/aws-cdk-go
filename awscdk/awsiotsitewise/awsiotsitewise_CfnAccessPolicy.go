@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::IoTSiteWise::AccessPolicy`.
 //
-// Creates an access policy that grants the specified identity ( AWS SSO user, AWS SSO group, or IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.
+// Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,7 +46,7 @@ type CfnAccessPolicy interface {
 	awscdk.IInspectable
 	// The identity for this access policy.
 	//
-	// Choose an AWS SSO user, an AWS SSO group, or an IAM user.
+	// Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.
 	AccessPolicyIdentity() interface{}
 	SetAccessPolicyIdentity(val interface{})
 	// The permission level for this access policy.

@@ -13,7 +13,7 @@ import (
 //
 // The `AWS::RDS::DBClusterParameterGroup` resource creates a new Amazon RDS DB cluster parameter group.
 //
-// For information about configuring parameters for Amazon Aurora DB instances, see [Working with DB parameter groups and DB cluster parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
+// For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
 //
 // > If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
 // >
@@ -53,7 +53,15 @@ type CfnDBClusterParameterGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::RDS::DBClusterParameterGroup.DBClusterParameterGroupName`.
+	// The name of the DB cluster parameter group.
+	//
+	// Constraints:
+	//
+	// - Must not match the name of an existing DB cluster parameter group.
+	//
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster paramter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
 	// A friendly description for this DB cluster parameter group.
@@ -98,7 +106,7 @@ type CfnDBClusterParameterGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags to assign to the DB cluster parameter group.
+	// An optional array of key-value pairs to apply to this DB cluster parameter group.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

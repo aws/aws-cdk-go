@@ -12,7 +12,6 @@ package awsfms
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
 //   	remediationEnabled: jsii.Boolean(false),
-//   	resourceType: jsii.String("resourceType"),
 //   	securityServicePolicyData: &securityServicePolicyDataProperty{
 //   		type: jsii.String("type"),
 //
@@ -46,7 +45,11 @@ package awsfms
 //   			jsii.String("orgunit"),
 //   		},
 //   	},
+//   	policyDescription: jsii.String("policyDescription"),
 //   	resourcesCleanUp: jsii.Boolean(false),
+//   	resourceSetIds: []*string{
+//   		jsii.String("resourceSetIds"),
+//   	},
 //   	resourceTags: []interface{}{
 //   		&resourceTagProperty{
 //   			key: jsii.String("key"),
@@ -55,6 +58,7 @@ package awsfms
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	resourceType: jsii.String("resourceType"),
 //   	resourceTypeList: []*string{
 //   		jsii.String("resourceTypeList"),
 //   	},
@@ -75,12 +79,6 @@ type CfnPolicyProps struct {
 	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled interface{} `field:"required" json:"remediationEnabled" yaml:"remediationEnabled"`
-	// The type of resource protected by or in scope of the policy.
-	//
-	// This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
-	//
-	// For AWS WAF and Shield Advanced, example resource types include `AWS::ElasticLoadBalancingV2::LoadBalancer` and `AWS::CloudFront::Distribution` . For a security group common policy, valid values are `AWS::EC2::NetworkInterface` and `AWS::EC2::Instance` . For a security group content audit policy, valid values are `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` . For a security group usage audit policy, the value is `AWS::EC2::SecurityGroup` . For an AWS Network Firewall policy or DNS Firewall policy, the value is `AWS::EC2::VPC` .
-	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// Details about the security service that is being used to protect the resources.
 	//
 	// This contains the following settings:
@@ -166,6 +164,8 @@ type CfnPolicyProps struct {
 	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{“ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	IncludeMap interface{} `field:"optional" json:"includeMap" yaml:"includeMap"`
+	// `AWS::FMS::Policy.PolicyDescription`.
+	PolicyDescription *string `field:"optional" json:"policyDescription" yaml:"policyDescription"`
 	// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope.
 	//
 	// For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
@@ -174,10 +174,18 @@ type CfnPolicyProps struct {
 	//
 	// This option is not available for Shield Advanced or AWS WAF Classic policies.
 	ResourcesCleanUp interface{} `field:"optional" json:"resourcesCleanUp" yaml:"resourcesCleanUp"`
+	// `AWS::FMS::Policy.ResourceSetIds`.
+	ResourceSetIds *[]*string `field:"optional" json:"resourceSetIds" yaml:"resourceSetIds"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.
 	//
 	// If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
+	// The type of resource protected by or in scope of the policy.
+	//
+	// This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
+	//
+	// For AWS WAF and Shield Advanced, example resource types include `AWS::ElasticLoadBalancingV2::LoadBalancer` and `AWS::CloudFront::Distribution` . For a security group common policy, valid values are `AWS::EC2::NetworkInterface` and `AWS::EC2::Instance` . For a security group content audit policy, valid values are `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` . For a security group usage audit policy, the value is `AWS::EC2::SecurityGroup` . For an AWS Network Firewall policy or DNS Firewall policy, the value is `AWS::EC2::VPC` .
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// An array of `ResourceType` objects.
 	//
 	// Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .

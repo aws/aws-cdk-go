@@ -64,9 +64,9 @@ type CfnEventBus interface {
 	LogicalId() *string
 	// The name of the new event bus.
 	//
-	// Event bus names cannot contain the / character. You can't use the name `default` for a custom event bus, as this name is already used for your account's default event bus.
+	// Custom event bus names can't contain the `/` character, but you can use the `/` character in partner event bus names. In addition, for partner event buses, the name must exactly match the name of the partner event source that this event bus is matched to.
 	//
-	// If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
+	// You can't use the name `default` for a custom event bus, as this name is already used for your account's default event bus.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

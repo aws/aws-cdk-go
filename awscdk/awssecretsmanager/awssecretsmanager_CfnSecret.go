@@ -68,6 +68,7 @@ import (
 type CfnSecret interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -82,12 +83,14 @@ type CfnSecret interface {
 	SetDescription(val *string)
 	// A structure that specifies how to generate a password to encrypt and store in the secret.
 	//
-	// Either `GenerateSecretString` or `SecretString` must have a value, but not both. They cannot both be empty.
+	// To include a specific string in the secret, use `SecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret.
 	//
 	// We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 	GenerateSecretString() interface{}
 	SetGenerateSecretString(val interface{})
 	// The ARN, key ID, or alias of the AWS KMS key that Secrets Manager uses to encrypt the secret value in the secret.
+	//
+	// An alias is always prefixed by `alias/` , for example `alias/aws/secretsmanager` . For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html) .
 	//
 	// To use a AWS KMS key in a different account, use the key ARN or the alias ARN.
 	//
@@ -125,9 +128,7 @@ type CfnSecret interface {
 	SetReplicaRegions(val interface{})
 	// The text to encrypt and store in the secret.
 	//
-	// We recommend you use a JSON structure of key/value pairs for your secret value.
-	//
-	// Either `GenerateSecretString` or `SecretString` must have a value, but not both. They cannot both be empty. We recommend that you use the `GenerateSecretString` property to generate a random password.
+	// We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use `GenerateSecretString` instead. If you omit both `GenerateSecretString` and `SecretString` , you create an empty secret.
 	SecretString() *string
 	SetSecretString(val *string)
 	// The stack in which this element is defined.
@@ -299,6 +300,16 @@ type CfnSecret interface {
 type jsiiProxy_CfnSecret struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnSecret) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSecret) CfnOptions() awscdk.ICfnResourceOptions {

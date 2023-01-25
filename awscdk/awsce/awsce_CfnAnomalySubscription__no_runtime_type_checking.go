@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnAnomalySubscription) validateSetSubscriptionNameParameters
 	return nil
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) validateSetThresholdParameters(val *float64) error {
-	return nil
-}
-
 func validateNewCfnAnomalySubscriptionParameters(scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) error {
 	return nil
 }

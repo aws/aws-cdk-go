@@ -1,6 +1,8 @@
 package awsappflow
 
 
+// The properties that are applied when the custom connector is being used as a source.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,9 @@ package awsappflow
 //   }
 //
 type CfnFlow_CustomConnectorSourcePropertiesProperty struct {
-	// `CfnFlow.CustomConnectorSourcePropertiesProperty.EntityName`.
+	// The entity specified in the custom connector as a source in the flow.
 	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
-	// `CfnFlow.CustomConnectorSourcePropertiesProperty.CustomProperties`.
+	// Custom properties that are required to use the custom connector as a source.
 	CustomProperties interface{} `field:"optional" json:"customProperties" yaml:"customProperties"`
 }
 

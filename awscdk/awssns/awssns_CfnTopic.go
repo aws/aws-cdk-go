@@ -47,6 +47,7 @@ import (
 type CfnTopic interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the ARN of an Amazon SNS topic.
 	AttrTopicArn() *string
 	// Returns the name of an Amazon SNS topic.
 	AttrTopicName() *string
@@ -67,10 +68,18 @@ type CfnTopic interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::SNS::Topic.DataProtectionPolicy`.
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30,720.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	//
+	// The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// Set to true to create a FIFO topic.

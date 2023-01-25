@@ -62,9 +62,9 @@ type CfnDomainName interface {
 	AttrRegionalDomainName() *string
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 	AttrRegionalHostedZoneId() *string
-	// The reference to an AWS -managed certificate for use by the edge-optimized endpoint for this domain name.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name.
 	//
-	// AWS Certificate Manager is the only supported source. For requirements and additional information about setting up certificates, see [Get Certificates Ready in AWS Certificate Manager](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html#how-to-custom-domains-prerequisites) in the *API Gateway Developer Guide* .
+	// AWS Certificate Manager is the only supported source.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -76,12 +76,10 @@ type CfnDomainName interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The custom domain name for your API.
-	//
-	// Uppercase letters are not supported.
+	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName() *string
 	SetDomainName(val *string)
-	// A list of the endpoint types of the domain name.
+	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -95,6 +93,8 @@ type CfnDomainName interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The mutual TLS authentication configuration for a custom domain name.
+	//
+	// If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication() interface{}
 	SetMutualTlsAuthentication(val interface{})
 	// The tree node.
@@ -109,21 +109,23 @@ type CfnDomainName interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The reference to an AWS -managed certificate for use by the regional endpoint for the domain name.
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name.
 	//
 	// AWS Certificate Manager is the only supported source.
 	RegionalCertificateArn() *string
 	SetRegionalCertificateArn(val *string)
-	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	//
-	// Valid values include `TLS_1_0` and `TLS_1_2` .
+	// The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy() *string
 	SetSecurityPolicy(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of arbitrary tags (key-value pairs) to associate with the domain name.
+	// The collection of tags.
+	//
+	// Each tag element is associated with a given resource.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::IdentityStore::GroupMembership`.
 //
+// Contains the identifiers for a group, a group member, and a `GroupMembership` object in the identity store.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,6 +29,7 @@ import (
 type CfnGroupMembership interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The identifier for a `GroupMembership` in the identity store.
 	AttrMembershipId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,7 +56,9 @@ type CfnGroupMembership interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IdentityStore::GroupMembership.MemberId`.
+	// An object containing the identifier of a group member.
+	//
+	// Setting `MemberId` 's `UserId` field to a specific User's ID indicates we should consider that User as a group member.
 	MemberId() interface{}
 	SetMemberId(val interface{})
 	// The tree node.

@@ -11,6 +11,7 @@ package awscdkapprunneralpha
 //
 //   var gitHubConnection gitHubConnection
 //   var runtime runtime
+//   var secret secret
 //
 //   codeRepositoryProps := &codeRepositoryProps{
 //   	codeConfiguration: &codeConfiguration{
@@ -24,6 +25,12 @@ package awscdkapprunneralpha
 //   			buildCommand: jsii.String("buildCommand"),
 //   			environment: map[string]*string{
 //   				"environmentKey": jsii.String("environment"),
+//   			},
+//   			environmentSecrets: map[string]*secret{
+//   				"environmentSecretsKey": secret,
+//   			},
+//   			environmentVariables: map[string]*string{
+//   				"environmentVariablesKey": jsii.String("environmentVariables"),
 //   			},
 //   			port: jsii.String("port"),
 //   			startCommand: jsii.String("startCommand"),

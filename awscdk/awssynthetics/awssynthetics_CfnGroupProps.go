@@ -27,11 +27,13 @@ import (
 //   }
 //
 type CfnGroupProps struct {
-	// `AWS::Synthetics::Group.Name`.
+	// A name for the group. It can include any Unicode characters.
+	//
+	// The names for all groups in your account, across all Regions, must be unique.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::Synthetics::Group.ResourceArns`.
+	// The ARNs of the canaries that you want to associate with this group.
 	ResourceArns *[]*string `field:"optional" json:"resourceArns" yaml:"resourceArns"`
-	// `AWS::Synthetics::Group.Tags`.
+	// The list of key-value pairs that are associated with the group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

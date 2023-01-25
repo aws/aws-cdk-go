@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Connect::UserHierarchyGroup`.
 //
-// Creates a new user hierarchy group.
+// Specifies a new user hierarchy group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

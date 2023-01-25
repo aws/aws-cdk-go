@@ -84,6 +84,8 @@ type CfnService interface {
 	Description() *string
 	SetDescription(val *string)
 	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+	//
+	// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
 	DnsConfig() interface{}
 	SetDnsConfig(val interface{})
 	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .

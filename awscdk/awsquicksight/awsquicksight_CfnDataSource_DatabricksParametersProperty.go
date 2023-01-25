@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The required parameters that are needed to connect to a Databricks data source.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,11 @@ package awsquicksight
 //   }
 //
 type CfnDataSource_DatabricksParametersProperty struct {
-	// `CfnDataSource.DatabricksParametersProperty.Host`.
+	// The host name of the Databricks data source.
 	Host *string `field:"required" json:"host" yaml:"host"`
-	// `CfnDataSource.DatabricksParametersProperty.Port`.
+	// The port for the Databricks data source.
 	Port *float64 `field:"required" json:"port" yaml:"port"`
-	// `CfnDataSource.DatabricksParametersProperty.SqlEndpointPath`.
+	// The HTTP path of the Databricks data source.
 	SqlEndpointPath *string `field:"required" json:"sqlEndpointPath" yaml:"sqlEndpointPath"`
 }
 

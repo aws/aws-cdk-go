@@ -70,7 +70,7 @@ type CfnIPSet interface {
 	LogicalId() *string
 	// The user-friendly name to identify the IPSet.
 	//
-	// Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).
+	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,7 +84,11 @@ type CfnIPSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::GuardDuty::IPSet.Tags`.
+	// The tags to be added to a new IP set resource.
+	//
+	// Each tag consists of a key and an optional value, both of which you define.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

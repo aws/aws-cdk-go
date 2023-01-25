@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::RolesAnywhere::Profile`.
 //
+// Creates a *profile* , a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.
+//
+// *Required permissions:* `rolesanywhere:CreateProfile` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,7 +43,9 @@ import (
 type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the profile.
 	AttrProfileArn() *string
+	// The unique primary identifier of the Profile.
 	AttrProfileId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -50,10 +56,10 @@ type CfnProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::RolesAnywhere::Profile.DurationSeconds`.
+	// Sets the maximum number of seconds that vended temporary credentials through [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html) will be valid for, between 900 and 3600.
 	DurationSeconds() *float64
 	SetDurationSeconds(val *float64)
-	// `AWS::RolesAnywhere::Profile.Enabled`.
+	// Indicates whether the profile is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -66,10 +72,10 @@ type CfnProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::RolesAnywhere::Profile.ManagedPolicyArns`.
+	// A list of managed policy ARNs that apply to the vended session credentials.
 	ManagedPolicyArns() *[]*string
 	SetManagedPolicyArns(val *[]*string)
-	// `AWS::RolesAnywhere::Profile.Name`.
+	// The name of the profile.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -79,20 +85,22 @@ type CfnProfile interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::RolesAnywhere::Profile.RequireInstanceProperties`.
+	// Specifies whether instance properties are required in temporary credential requests with this profile.
 	RequireInstanceProperties() interface{}
 	SetRequireInstanceProperties(val interface{})
-	// `AWS::RolesAnywhere::Profile.RoleArns`.
+	// A list of IAM role ARNs.
+	//
+	// During `CreateSession` , if a matching role ARN is provided, the properties in this profile will be applied to the intersection session policy.
 	RoleArns() *[]*string
 	SetRoleArns(val *[]*string)
-	// `AWS::RolesAnywhere::Profile.SessionPolicy`.
+	// A session policy that applies to the trust boundary of the vended session credentials.
 	SessionPolicy() *string
 	SetSessionPolicy(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::RolesAnywhere::Profile.Tags`.
+	// A list of tags to attach to the profile.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

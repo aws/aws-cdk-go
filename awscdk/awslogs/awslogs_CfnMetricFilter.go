@@ -57,7 +57,7 @@ type CfnMetricFilter interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Logs::MetricFilter.FilterName`.
+	// The name of the metric filter.
 	FilterName() *string
 	SetFilterName(val *string)
 	// A filter pattern for extracting metric data out of ingested log events.

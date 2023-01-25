@@ -105,6 +105,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "subscribers", GoGetter: "Subscribers"},
 			_jsii_.MemberProperty{JsiiProperty: "subscriptionName", GoGetter: "SubscriptionName"},
 			_jsii_.MemberProperty{JsiiProperty: "threshold", GoGetter: "Threshold"},
+			_jsii_.MemberProperty{JsiiProperty: "thresholdExpression", GoGetter: "ThresholdExpression"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},

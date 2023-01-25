@@ -170,7 +170,9 @@ type CfnEndpointConfigProps struct {
 	// >
 	// > For more information about local instance storage encryption, see [SSD Instance Store Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html) .
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// `AWS::SageMaker::EndpointConfig.ShadowProductionVariants`.
+	// Array of `ProductionVariant` objects.
+	//
+	// There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `ProductionVariants` . If you use this field, you can only specify one variant for `ProductionVariants` and one variant for `ShadowProductionVariants` .
 	ShadowProductionVariants interface{} `field:"optional" json:"shadowProductionVariants" yaml:"shadowProductionVariants"`
 	// A list of key-value pairs to apply to this resource.
 	//

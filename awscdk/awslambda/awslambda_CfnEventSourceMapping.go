@@ -90,7 +90,7 @@ import (
 type CfnEventSourceMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Lambda::EventSourceMapping.AmazonManagedKafkaEventSourceConfig`.
+	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 	AmazonManagedKafkaEventSourceConfig() interface{}
 	SetAmazonManagedKafkaEventSourceConfig(val interface{})
 	// The event source mapping's ID.
@@ -99,12 +99,12 @@ type CfnEventSourceMapping interface {
 	//
 	// Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
 	//
-	// - *Amazon Kinesis* - Default 100. Max 10,000.
-	// - *Amazon DynamoDB Streams* - Default 100. Max 10,000.
-	// - *Amazon Simple Queue Service* - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
-	// - *Amazon Managed Streaming for Apache Kafka* - Default 100. Max 10,000.
-	// - *Self-Managed Apache Kafka* - Default 100. Max 10,000.
-	// - *Amazon MQ (ActiveMQ and RabbitMQ)* - Default 100. Max 10,000.
+	// - *Amazon Kinesis* – Default 100. Max 10,000.
+	// - *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+	// - *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+	// - *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+	// - *Self-managed Apache Kafka* – Default 100. Max 10,000.
+	// - *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
 	BatchSize() *float64
 	SetBatchSize(val *float64)
 	// (Streams only) If the function returns an error, split the batch in two and retry.
@@ -131,23 +131,24 @@ type CfnEventSourceMapping interface {
 	SetEnabled(val interface{})
 	// The Amazon Resource Name (ARN) of the event source.
 	//
-	// - *Amazon Kinesis* - The ARN of the data stream or a stream consumer.
-	// - *Amazon DynamoDB Streams* - The ARN of the stream.
-	// - *Amazon Simple Queue Service* - The ARN of the queue.
-	// - *Amazon Managed Streaming for Apache Kafka* - The ARN of the cluster.
+	// - *Amazon Kinesis* – The ARN of the data stream or a stream consumer.
+	// - *Amazon DynamoDB Streams* – The ARN of the stream.
+	// - *Amazon Simple Queue Service* – The ARN of the queue.
+	// - *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster.
+	// - *Amazon MQ* – The ARN of the broker.
 	EventSourceArn() *string
 	SetEventSourceArn(val *string)
-	// (Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event.
+	// An object that defines the filter criteria that determine whether Lambda should process an event.
 	//
 	// For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) .
 	FilterCriteria() interface{}
 	SetFilterCriteria(val interface{})
 	// The name of the Lambda function.
 	//
-	// **Name formats** - *Function name* - `MyFunction` .
-	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
-	// - *Version or Alias ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD` .
-	// - *Partial ARN* - `123456789012:function:MyFunction` .
+	// **Name formats** - *Function name* – `MyFunction` .
+	// - *Function ARN* – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+	// - *Version or Alias ARN* – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD` .
+	// - *Partial ARN* – `123456789012:function:MyFunction` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName() *string
@@ -171,7 +172,9 @@ type CfnEventSourceMapping interface {
 	//
 	// *Default ( Kinesis , DynamoDB , Amazon SQS event sources)* : 0
 	//
-	// *Default ( Amazon MSK , Kafka, Amazon MQ event sources)* : 500 ms.
+	// *Default ( Amazon MSK , Kafka, Amazon MQ event sources)* : 500 ms
+	//
+	// *Related setting:* When you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
 	MaximumBatchingWindowInSeconds() *float64
 	SetMaximumBatchingWindowInSeconds(val *float64)
 	// (Streams only) Discard records older than the specified age.
@@ -201,13 +204,15 @@ type CfnEventSourceMapping interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Lambda::EventSourceMapping.ScalingConfig`.
+	// (Amazon SQS only) The scaling configuration for the event source.
+	//
+	// For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency) .
 	ScalingConfig() interface{}
 	SetScalingConfig(val interface{})
 	// The self-managed Apache Kafka cluster for your event source.
 	SelfManagedEventSource() interface{}
 	SetSelfManagedEventSource(val interface{})
-	// `AWS::Lambda::EventSourceMapping.SelfManagedKafkaEventSourceConfig`.
+	// Specific configuration settings for a self-managed Apache Kafka event source.
 	SelfManagedKafkaEventSourceConfig() interface{}
 	SetSelfManagedKafkaEventSourceConfig(val interface{})
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
@@ -232,7 +237,7 @@ type CfnEventSourceMapping interface {
 	SetTopics(val *[]*string)
 	// (Streams only) The duration in seconds of a processing window.
 	//
-	// The range is between 1 second up to 900 seconds.
+	// The range is between 1 second and 900 seconds.
 	TumblingWindowInSeconds() *float64
 	SetTumblingWindowInSeconds(val *float64)
 	// Deprecated.

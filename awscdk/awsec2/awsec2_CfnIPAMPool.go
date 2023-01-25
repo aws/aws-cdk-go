@@ -102,7 +102,9 @@ type CfnIPAMPool interface {
 	// A locale must be set on the pool for this feature to work.
 	AutoImport() interface{}
 	SetAutoImport(val interface{})
-	// `AWS::EC2::IPAMPool.AwsService`.
+	// Limits which service in AWS that the pool can be used in.
+	//
+	// "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
 	AwsService() *string
 	SetAwsService(val *string)
 	// Options for this resource, such as condition, update policy etc.

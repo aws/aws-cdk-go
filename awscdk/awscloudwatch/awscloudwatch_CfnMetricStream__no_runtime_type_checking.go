@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnMetricStream) validateSetIncludeFiltersParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnMetricStream) validateSetIncludeLinkedAccountsMetricsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMetricStream) validateSetOutputFormatParameters(val *string) error {
 	return nil
 }

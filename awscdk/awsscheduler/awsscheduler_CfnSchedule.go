@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Scheduler::Schedule`.
 //
+// Creates the specified schedule.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -121,6 +123,7 @@ import (
 type CfnSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) for the Amazon EventBridge Scheduler schedule.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -131,19 +134,22 @@ type CfnSchedule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Scheduler::Schedule.Description`.
+	// The description you specify for the schedule.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Scheduler::Schedule.EndDate`.
+	// The date, in UTC, before which the schedule can invoke its target.
+	//
+	// Depending on the schedule's recurrence expression, invocations might stop on, or before, the `EndDate` you specify.
+	// EventBridge Scheduler ignores `EndDate` for one-time schedules.
 	EndDate() *string
 	SetEndDate(val *string)
-	// `AWS::Scheduler::Schedule.FlexibleTimeWindow`.
+	// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 	FlexibleTimeWindow() interface{}
 	SetFlexibleTimeWindow(val interface{})
-	// `AWS::Scheduler::Schedule.GroupName`.
+	// The name of the schedule group associated with this schedule.
 	GroupName() *string
 	SetGroupName(val *string)
-	// `AWS::Scheduler::Schedule.KmsKeyArn`.
+	// The Amazon Resource Name (ARN) for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -156,7 +162,7 @@ type CfnSchedule interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Scheduler::Schedule.Name`.
+	// The name of the schedule.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -166,23 +172,38 @@ type CfnSchedule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Scheduler::Schedule.ScheduleExpression`.
+	// The expression that defines when the schedule runs. The following formats are supported.
+	//
+	// - `at` expression - `at(yyyy-mm-ddThh:mm:ss)`
+	// - `rate` expression - `rate(unit value)`
+	// - `cron` expression - `cron(fields)`
+	//
+	// You can use `at` expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use `rate` and `cron` expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month.
+	//
+	// A `cron` expression consists of six fields separated by white spaces: `(minutes hours day_of_month month day_of_week year)` .
+	//
+	// A `rate` expression consists of a *value* as a positive integer, and a *unit* with the following options: `minute` | `minutes` | `hour` | `hours` | `day` | `days`
+	//
+	// For more information and examples, see [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html) in the *EventBridge Scheduler User Guide* .
 	ScheduleExpression() *string
 	SetScheduleExpression(val *string)
-	// `AWS::Scheduler::Schedule.ScheduleExpressionTimezone`.
+	// The timezone in which the scheduling expression is evaluated.
 	ScheduleExpressionTimezone() *string
 	SetScheduleExpressionTimezone(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Scheduler::Schedule.StartDate`.
+	// The date, in UTC, after which the schedule can begin invoking its target.
+	//
+	// Depending on the schedule's recurrence expression, invocations might occur on, or after, the `StartDate` you specify.
+	// EventBridge Scheduler ignores `StartDate` for one-time schedules.
 	StartDate() *string
 	SetStartDate(val *string)
-	// `AWS::Scheduler::Schedule.State`.
+	// Specifies whether the schedule is enabled or disabled.
 	State() *string
 	SetState(val *string)
-	// `AWS::Scheduler::Schedule.Target`.
+	// The schedule's target details.
 	Target() interface{}
 	SetTarget(val interface{})
 	// Deprecated.

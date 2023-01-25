@@ -29,9 +29,13 @@ type CfnUser_UserIdentityInfoProperty struct {
 	//
 	// This is required if you are using Amazon Connect or SAML for identity management.
 	LastName *string `field:"optional" json:"lastName" yaml:"lastName"`
-	// `CfnUser.UserIdentityInfoProperty.Mobile`.
+	// The user's mobile number.
 	Mobile *string `field:"optional" json:"mobile" yaml:"mobile"`
-	// `CfnUser.UserIdentityInfoProperty.SecondaryEmail`.
+	// The user's secondary email address.
+	//
+	// If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+	//
+	// *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}`
 	SecondaryEmail *string `field:"optional" json:"secondaryEmail" yaml:"secondaryEmail"`
 }
 

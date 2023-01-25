@@ -5,6 +5,21 @@ package awscdkapprunneralpha
 // Properties of the image repository for `Source.fromEcrPublic()`.
 //
 // Example:
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	ipAddresses: ec2.ipAddresses.cidr(jsii.String("10.0.0.0/16")),
+//   })
+//
+//   vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &vpcConnectorProps{
+//   	vpc: vpc,
+//   	vpcSubnets: vpc.selectSubnets(&subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	}),
+//   	vpcConnectorName: jsii.String("MyVpcConnector"),
+//   })
+//
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
 //   	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
 //   		imageConfiguration: &imageConfiguration{
@@ -12,6 +27,7 @@ package awscdkapprunneralpha
 //   		},
 //   		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 //   	}),
+//   	vpcConnector: vpcConnector,
 //   })
 //
 // Experimental.

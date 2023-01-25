@@ -38,10 +38,10 @@ type CfnDocumentationVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the API documentation snapshot.
+	// A description about the new documentation snapshot.
 	Description() *string
 	SetDescription(val *string)
-	// The version identifier of the API documentation snapshot.
+	// The version identifier of the to-be-updated documentation version.
 	DocumentationVersion() *string
 	SetDocumentationVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -61,7 +61,7 @@ type CfnDocumentationVersion interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.

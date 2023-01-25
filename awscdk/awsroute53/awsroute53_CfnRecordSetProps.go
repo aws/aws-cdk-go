@@ -96,10 +96,11 @@ type CfnRecordSetProps struct {
 	// If you're creating resource records sets for a private hosted zone, note the following:
 	//
 	// - You can't create an alias resource record set in a private hosted zone to route traffic to a CloudFront distribution.
-	// - Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.
 	// - For information about creating failover resource record sets in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) in the *Amazon Route 53 Developer Guide* .
 	AliasTarget interface{} `field:"optional" json:"aliasTarget" yaml:"aliasTarget"`
-	// `AWS::Route53::RecordSet.CidrRoutingConfig`.
+	// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
+	//
+	// A `LocationName` with an asterisk “*” can be used to create a default CIDR record. `CollectionId` is still required for default record.
 	CidrRoutingConfig interface{} `field:"optional" json:"cidrRoutingConfig" yaml:"cidrRoutingConfig"`
 	// *Optional:* Any comments you want to include about a change batch request.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
@@ -223,8 +224,6 @@ type CfnRecordSetProps struct {
 	// *Latency-based resource record sets only:* The Amazon EC2 Region where you created the resource that this resource record set refers to.
 	//
 	// The resource typically is an AWS resource, such as an EC2 instance or an ELB load balancer, and is referred to by an IP address or a DNS domain name, depending on the record type.
-	//
-	// > Although creating latency and latency alias resource record sets in a private hosted zone is allowed, it's not supported.
 	//
 	// When Amazon Route 53 receives a DNS query for a domain name and type for which you have created latency resource record sets, Route 53 selects the latency resource record set that has the lowest latency between the end user and the associated Amazon EC2 Region. Route 53 then returns the value that is associated with the selected resource record set.
 	//

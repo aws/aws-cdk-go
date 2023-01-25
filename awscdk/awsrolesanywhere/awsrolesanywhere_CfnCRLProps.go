@@ -25,15 +25,15 @@ import (
 //   }
 //
 type CfnCRLProps struct {
-	// `AWS::RolesAnywhere::CRL.CrlData`.
+	// The revocation record for a certificate, following the x509 v3 standard.
 	CrlData *string `field:"optional" json:"crlData" yaml:"crlData"`
-	// `AWS::RolesAnywhere::CRL.Enabled`.
+	// Indicates whether the certificate revocation list (CRL) is enabled.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// `AWS::RolesAnywhere::CRL.Name`.
+	// The name of the certificate revocation list (CRL).
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::RolesAnywhere::CRL.Tags`.
+	// A list of tags to attach to the CRL.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::RolesAnywhere::CRL.TrustAnchorArn`.
+	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn *string `field:"optional" json:"trustAnchorArn" yaml:"trustAnchorArn"`
 }
 

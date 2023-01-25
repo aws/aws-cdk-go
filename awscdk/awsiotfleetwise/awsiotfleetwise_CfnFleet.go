@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::IoTFleetWise::Fleet`.
 //
+// Creates a fleet that represents a group of vehicles.
+//
+// > You must create both a signal catalog and vehicles before you can create a fleet.
+//
+// For more information, see [Fleets](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html) in the *AWS IoT FleetWise Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -45,10 +51,10 @@ type CfnFleet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTFleetWise::Fleet.Description`.
+	// A brief description of the fleet.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::IoTFleetWise::Fleet.Id`.
+	// The unique ID of the fleet.
 	Id() *string
 	SetId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,7 +74,7 @@ type CfnFleet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::IoTFleetWise::Fleet.SignalCatalogArn`.
+	// The ARN of the signal catalog associated with the fleet.
 	SignalCatalogArn() *string
 	SetSignalCatalogArn(val *string)
 	// The stack in which this element is defined.

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Scheduler::ScheduleGroup`.
 //
+// Creates the specified schedule group.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,9 +31,15 @@ import (
 type CfnScheduleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the schedule group.
 	AttrArn() *string
+	// The date and time at which the schedule group was created.
 	AttrCreationDate() *string
+	// The time at which the schedule group was last modified.
 	AttrLastModificationDate() *string
+	// Specifies the state of the schedule group.
+	//
+	// Valid values are `ACTIVE` and `DELETING` .
 	AttrState() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,7 +60,7 @@ type CfnScheduleGroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Scheduler::ScheduleGroup.Name`.
+	// The name of the schedule group.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -66,7 +74,9 @@ type CfnScheduleGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Scheduler::ScheduleGroup.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

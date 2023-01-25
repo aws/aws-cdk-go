@@ -49,7 +49,7 @@ type CfnSafetyRuleProps struct {
 	ControlPanelArn *string `field:"required" json:"controlPanelArn" yaml:"controlPanelArn"`
 	// The name of the assertion rule.
 	//
-	// You can use any non-white space character in the name. The name must be unique within a control panel.
+	// The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction.
 	//

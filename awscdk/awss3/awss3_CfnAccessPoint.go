@@ -58,7 +58,7 @@ type CfnAccessPoint interface {
 	// The name of the bucket associated with this access point.
 	Bucket() *string
 	SetBucket(val *string)
-	// `AWS::S3::AccessPoint.BucketAccountId`.
+	// The AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId() *string
 	SetBucketAccountId(val *string)
 	// Options for this resource, such as condition, update policy etc.

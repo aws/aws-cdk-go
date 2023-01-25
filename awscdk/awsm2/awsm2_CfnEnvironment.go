@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::M2::Environment`.
 //
+// Specifies a runtime environment for a given runtime engine.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -56,7 +58,9 @@ import (
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the runtime environment.
 	AttrEnvironmentArn() *string
+	// The unique identifier of the runtime environment.
 	AttrEnvironmentId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -67,22 +71,22 @@ type CfnEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::M2::Environment.Description`.
+	// The description of the runtime environment.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::M2::Environment.EngineType`.
+	// The target platform for the runtime environment.
 	EngineType() *string
 	SetEngineType(val *string)
-	// `AWS::M2::Environment.EngineVersion`.
+	// The version of the runtime engine.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	// `AWS::M2::Environment.HighAvailabilityConfig`.
+	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig() interface{}
 	SetHighAvailabilityConfig(val interface{})
-	// `AWS::M2::Environment.InstanceType`.
+	// The instance type of the runtime environment.
 	InstanceType() *string
 	SetInstanceType(val *string)
-	// `AWS::M2::Environment.KmsKeyId`.
+	// The identifier of a customer managed key.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -95,15 +99,17 @@ type CfnEnvironment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::M2::Environment.Name`.
+	// The name of the runtime environment.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::M2::Environment.PreferredMaintenanceWindow`.
+	// Configures the maintenance window you want for the runtime environment.
+	//
+	// If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
-	// `AWS::M2::Environment.PubliclyAccessible`.
+	// Specifies whether the runtime environment is publicly accessible.
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -111,20 +117,22 @@ type CfnEnvironment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::M2::Environment.SecurityGroupIds`.
+	// The list of security groups for the VPC associated with this runtime environment.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::M2::Environment.StorageConfigurations`.
+	// Defines the storage configuration for a runtime environment.
 	StorageConfigurations() interface{}
 	SetStorageConfigurations(val interface{})
-	// `AWS::M2::Environment.SubnetIds`.
+	// The list of subnets associated with the VPC for this runtime environment.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// `AWS::M2::Environment.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::IoTWireless::NetworkAnalyzerConfiguration`.
 //
+// Network analyzer configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,6 +43,7 @@ import (
 type CfnNetworkAnalyzerConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -51,7 +54,7 @@ type CfnNetworkAnalyzerConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.Description`.
+	// The description of the resource.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -64,7 +67,7 @@ type CfnNetworkAnalyzerConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.Name`.
+	// Name of the network analyzer configuration.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -78,9 +81,11 @@ type CfnNetworkAnalyzerConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.Tags`.
+	// The tags to attach to the specified resource.
+	//
+	// Tags are metadata that you can use to manage a resource.
 	Tags() awscdk.TagManager
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.TraceContent`.
+	// Trace content for your wireless gateway and wireless device resources.
 	TraceContent() interface{}
 	SetTraceContent(val interface{})
 	// Deprecated.
@@ -96,10 +101,14 @@ type CfnNetworkAnalyzerConfiguration interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.WirelessDevices`.
+	// Wireless device resources to add to the network analyzer configuration.
+	//
+	// Provide the `WirelessDeviceId` of the resource to add in the input array.
 	WirelessDevices() *[]*string
 	SetWirelessDevices(val *[]*string)
-	// `AWS::IoTWireless::NetworkAnalyzerConfiguration.WirelessGateways`.
+	// Wireless gateway resources to add to the network analyzer configuration.
+	//
+	// Provide the `WirelessGatewayId` of the resource to add in the input array.
 	WirelessGateways() *[]*string
 	SetWirelessGateways(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -51,7 +51,7 @@ import (
 type CfnAsset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::IoTSiteWise::Asset.AssetDescription`.
+	// A description for the asset.
 	AssetDescription() *string
 	SetAssetDescription(val *string)
 	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .

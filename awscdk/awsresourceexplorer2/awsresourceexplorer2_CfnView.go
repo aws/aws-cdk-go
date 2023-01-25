@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::ResourceExplorer2::View`.
 //
+// Creates a view that users can query by using the [Search](https://docs.aws.amazon.com/resource-explorer/latest/APIReference/API_Search.html) operation. Results from queries that you make using this view include only resources that match the view's `Filters` .
+//
+// > To successfully create a view, you must have `resource-explorer-2:TagResource` permission, even if you don't specify tags to be added to the view.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,6 +40,9 @@ import (
 type CfnView interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the new view. For example:.
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`.
 	AttrViewArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,10 +53,16 @@ type CfnView interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::ResourceExplorer2::View.Filters`.
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view.
+	//
+	// When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/APIReference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 	Filters() interface{}
 	SetFilters(val interface{})
-	// `AWS::ResourceExplorer2::View.IncludedProperties`.
+	// A list of fields that provide additional information about the view.
 	IncludedProperties() interface{}
 	SetIncludedProperties(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -73,7 +86,7 @@ type CfnView interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::ResourceExplorer2::View.Tags`.
+	// Tag key and value pairs that are attached to the view.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -88,7 +101,7 @@ type CfnView interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::ResourceExplorer2::View.ViewName`.
+	// The name of the new view.
 	ViewName() *string
 	SetViewName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -96,7 +96,7 @@ type CfnProvisioningTemplate interface {
 	// The name of the fleet provisioning template.
 	TemplateName() *string
 	SetTemplateName(val *string)
-	// `AWS::IoT::ProvisioningTemplate.TemplateType`.
+	// The type of the provisioning template.
 	TemplateType() *string
 	SetTemplateType(val *string)
 	// Deprecated.

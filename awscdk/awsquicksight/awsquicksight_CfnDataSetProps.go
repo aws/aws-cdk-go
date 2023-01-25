@@ -207,7 +207,7 @@ type CfnDataSetProps struct {
 	//
 	// This ID is unique per AWS Region for each AWS account.
 	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
-	// `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
+	// The usage configuration to apply to child datasets that reference this dataset as a source.
 	DataSetUsageConfiguration interface{} `field:"optional" json:"dataSetUsageConfiguration" yaml:"dataSetUsageConfiguration"`
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders interface{} `field:"optional" json:"fieldFolders" yaml:"fieldFolders"`

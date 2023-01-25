@@ -172,6 +172,8 @@ type CfnEC2FleetProps struct {
 	// Reserved.
 	Context *string `field:"optional" json:"context" yaml:"context"`
 	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
 	ExcessCapacityTerminationPolicy *string `field:"optional" json:"excessCapacityTerminationPolicy" yaml:"excessCapacityTerminationPolicy"`
 	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 	OnDemandOptions interface{} `field:"optional" json:"onDemandOptions" yaml:"onDemandOptions"`

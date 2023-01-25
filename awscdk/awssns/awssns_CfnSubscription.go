@@ -62,6 +62,11 @@ type CfnSubscription interface {
 	// The filter policy JSON assigned to the subscription.
 	//
 	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon SNS Developer Guide* .
+	//
+	// - `FilterPolicyScope` - This attribute lets you choose the filtering scope by using one of the following string value types:
+	//
+	// - `MessageAttributes` (default) - The filter is applied on the message attributes.
+	// - `MessageBody` - The filter is applied on the message body.
 	FilterPolicy() interface{}
 	SetFilterPolicy(val interface{})
 	// `AWS::SNS::Subscription.FilterPolicyScope`.

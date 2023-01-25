@@ -39,7 +39,7 @@ import (
 type CfnNetworkInsightsAnalysis interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::EC2::NetworkInsightsAnalysis.AdditionalAccounts`.
+	// The member accounts that contain resources that the path can traverse.
 	AdditionalAccounts() *[]*string
 	SetAdditionalAccounts(val *[]*string)
 	// Potential intermediate components.
@@ -64,6 +64,7 @@ type CfnNetworkInsightsAnalysis interface {
 	AttrStatus() *string
 	// The status message, if the status is `failed` .
 	AttrStatusMessage() *string
+	// The IDs of potential intermediate accounts.
 	AttrSuggestedAccounts() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

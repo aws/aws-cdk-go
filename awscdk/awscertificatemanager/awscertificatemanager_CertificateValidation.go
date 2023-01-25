@@ -10,14 +10,24 @@ import (
 // How to validate a certificate.
 //
 // Example:
-//   myHostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &hostedZoneProps{
+//   exampleCom := route53.NewHostedZone(this, jsii.String("ExampleCom"), &hostedZoneProps{
 //   	zoneName: jsii.String("example.com"),
 //   })
-//   acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
-//   	domainName: jsii.String("hello.example.com"),
-//   	certificateName: jsii.String("Hello World Service"),
-//   	 // Optionally provide an certificate name
-//   	validation: acm.certificateValidation.fromDns(myHostedZone),
+//   exampleNet := route53.NewHostedZone(this, jsii.String("ExampleNet"), &hostedZoneProps{
+//   	zoneName: jsii.String("example.net"),
+//   })
+//
+//   cert := acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
+//   	domainName: jsii.String("test.example.com"),
+//   	subjectAlternativeNames: []*string{
+//   		jsii.String("cool.example.com"),
+//   		jsii.String("test.example.net"),
+//   	},
+//   	validation: acm.certificateValidation.fromDnsMultiZone(map[string]iHostedZone{
+//   		"test.example.com": exampleCom,
+//   		"cool.example.com": exampleCom,
+//   		"test.example.net": exampleNet,
+//   	}),
 //   })
 //
 type CertificateValidation interface {

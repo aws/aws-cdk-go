@@ -51,6 +51,8 @@ type CfnHoursOfOperationProps struct {
 	// The description for the hours of operation.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

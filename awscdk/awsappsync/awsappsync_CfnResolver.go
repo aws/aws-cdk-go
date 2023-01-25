@@ -85,10 +85,12 @@ type CfnResolver interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::AppSync::Resolver.Code`.
+	// The `resolver` code that contains the request and response functions.
+	//
+	// When code is used, the `runtime` is required. The runtime value must be `APPSYNC_JS` .
 	Code() *string
 	SetCode(val *string)
-	// `AWS::AppSync::Resolver.CodeS3Location`.
+	// The Amazon S3 endpoint.
 	CodeS3Location() *string
 	SetCodeS3Location(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -148,7 +150,9 @@ type CfnResolver interface {
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	ResponseMappingTemplateS3Location() *string
 	SetResponseMappingTemplateS3Location(val *string)
-	// `AWS::AppSync::Resolver.Runtime`.
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function.
+	//
+	// Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 	Runtime() interface{}
 	SetRuntime(val interface{})
 	// The stack in which this element is defined.

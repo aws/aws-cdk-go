@@ -23,7 +23,7 @@ package awsmsk
 //   }
 //
 type CfnCluster_VpcConnectivityProperty struct {
-	// `CfnCluster.VpcConnectivityProperty.ClientAuthentication`.
+	// Not currently supported by AWS CloudFormation .
 	ClientAuthentication interface{} `field:"optional" json:"clientAuthentication" yaml:"clientAuthentication"`
 }
 

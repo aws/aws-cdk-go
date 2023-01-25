@@ -145,7 +145,9 @@ type CfnStack interface {
 	// The storage connectors to enable.
 	StorageConnectors() interface{}
 	SetStorageConnectors(val interface{})
-	// `AWS::AppStream::Stack.StreamingExperienceSettings`.
+	// The streaming protocol that you want your stack to prefer.
+	//
+	// This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
 	StreamingExperienceSettings() interface{}
 	SetStreamingExperienceSettings(val interface{})
 	// An array of key-value pairs.

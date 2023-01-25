@@ -8,13 +8,32 @@ import (
 // Properties to create a DNS validated certificate managed by AWS Certificate Manager.
 //
 // Example:
-//   var myHostedZone hostedZone
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   acm.NewDnsValidatedCertificate(this, jsii.String("CrossRegionCertificate"), &dnsValidatedCertificateProps{
-//   	domainName: jsii.String("hello.example.com"),
-//   	hostedZone: myHostedZone,
-//   	region: jsii.String("us-east-1"),
-//   })
+//   var certificateValidation certificateValidation
+//   var hostedZone hostedZone
+//   var role role
+//
+//   dnsValidatedCertificateProps := &dnsValidatedCertificateProps{
+//   	domainName: jsii.String("domainName"),
+//   	hostedZone: hostedZone,
+//
+//   	// the properties below are optional
+//   	certificateName: jsii.String("certificateName"),
+//   	cleanupRoute53Records: jsii.Boolean(false),
+//   	customResourceRole: role,
+//   	region: jsii.String("region"),
+//   	route53Endpoint: jsii.String("route53Endpoint"),
+//   	subjectAlternativeNames: []*string{
+//   		jsii.String("subjectAlternativeNames"),
+//   	},
+//   	transparencyLoggingEnabled: jsii.Boolean(false),
+//   	validation: certificateValidation,
+//   }
 //
 type DnsValidatedCertificateProps struct {
 	// Fully-qualified domain name to request a certificate for.

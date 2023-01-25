@@ -16,11 +16,9 @@ package awsapigateway
 type CfnUsagePlan_ThrottleSettingsProperty struct {
 	// The API target request burst rate limit.
 	//
-	// This allows more requests through for a period of time than the target rate limit. For more information about request throttling, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
+	// This allows more requests through for a period of time than the target rate limit.
 	BurstLimit *float64 `field:"optional" json:"burstLimit" yaml:"burstLimit"`
-	// The API target request steady-state rate limit.
-	//
-	// For more information about request throttling, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
+	// The API target request rate limit.
 	RateLimit *float64 `field:"optional" json:"rateLimit" yaml:"rateLimit"`
 }
 

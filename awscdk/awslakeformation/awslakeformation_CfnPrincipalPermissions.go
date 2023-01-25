@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::LakeFormation::PrincipalPermissions`.
 //
+// The `AWS::LakeFormation::PrincipalPermissions` resource represents the permissions that a principal has on a Data Catalog resource (such as AWS Glue databases or AWS Glue tables). When you create a `PrincipalPermissions` resource, the permissions are granted via the AWS Lake Formation `GrantPermissions` API operation. When you delete a `PrincipalPermissions` resource, the permissions on principal-resource pair are revoked via the AWS Lake Formation `RevokePermissions` API operation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -96,9 +98,17 @@ import (
 type CfnPrincipalPermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Json encoding of the input principal.
+	//
+	// For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`.
 	AttrPrincipalIdentifier() *string
+	// Json encoding of the input resource.
+	//
+	// For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`.
 	AttrResourceIdentifier() *string
-	// `AWS::LakeFormation::PrincipalPermissions.Catalog`.
+	// The identifier for the Data Catalog .
+	//
+	// By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	Catalog() *string
 	SetCatalog(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -122,13 +132,13 @@ type CfnPrincipalPermissions interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::LakeFormation::PrincipalPermissions.Permissions`.
+	// The permissions granted or revoked.
 	Permissions() *[]*string
 	SetPermissions(val *[]*string)
-	// `AWS::LakeFormation::PrincipalPermissions.PermissionsWithGrantOption`.
+	// Indicates the ability to grant permissions (as a subset of permissions granted).
 	PermissionsWithGrantOption() *[]*string
 	SetPermissionsWithGrantOption(val *[]*string)
-	// `AWS::LakeFormation::PrincipalPermissions.Principal`.
+	// The principal to be granted a permission.
 	Principal() interface{}
 	SetPrincipal(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -136,7 +146,7 @@ type CfnPrincipalPermissions interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::LakeFormation::PrincipalPermissions.Resource`.
+	// The resource to be granted or revoked permissions.
 	Resource() interface{}
 	SetResource(val interface{})
 	// The stack in which this element is defined.

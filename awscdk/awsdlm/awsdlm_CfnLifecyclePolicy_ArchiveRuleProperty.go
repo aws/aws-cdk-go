@@ -1,6 +1,8 @@
 package awsdlm
 
 
+// *[Snapshot policies only]* Specifies a snapshot archiving rule for a schedule.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,7 +19,7 @@ package awsdlm
 //   }
 //
 type CfnLifecyclePolicy_ArchiveRuleProperty struct {
-	// `CfnLifecyclePolicy.ArchiveRuleProperty.RetainRule`.
+	// Information about the retention period for the snapshot archiving rule.
 	RetainRule interface{} `field:"required" json:"retainRule" yaml:"retainRule"`
 }
 

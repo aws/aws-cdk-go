@@ -32,6 +32,7 @@ type CfnPolicy interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
 	AttrArn() *string
+	// The name of this policy.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

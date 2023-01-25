@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::RedshiftServerless::Workgroup`.
 //
+// The collection of compute resources in Amazon Redshift Serverless.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -101,7 +103,7 @@ type CfnWorkgroup interface {
 	AttrWorkgroupWorkgroupArn() *string
 	AttrWorkgroupWorkgroupId() *string
 	AttrWorkgroupWorkgroupName() *string
-	// `AWS::RedshiftServerless::Workgroup.BaseCapacity`.
+	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity() *float64
 	SetBaseCapacity(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -109,14 +111,16 @@ type CfnWorkgroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::RedshiftServerless::Workgroup.ConfigParameters`.
+	// A list of parameters to set for finer control over a database.
+	//
+	// Available options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
 	ConfigParameters() interface{}
 	SetConfigParameters(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::RedshiftServerless::Workgroup.EnhancedVpcRouting`.
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	EnhancedVpcRouting() interface{}
 	SetEnhancedVpcRouting(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -129,12 +133,12 @@ type CfnWorkgroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::RedshiftServerless::Workgroup.NamespaceName`.
+	// The namespace the workgroup is associated with.
 	NamespaceName() *string
 	SetNamespaceName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::RedshiftServerless::Workgroup.PubliclyAccessible`.
+	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -142,17 +146,17 @@ type CfnWorkgroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::RedshiftServerless::Workgroup.SecurityGroupIds`.
+	// A list of security group IDs to associate with the workgroup.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::RedshiftServerless::Workgroup.SubnetIds`.
+	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// `AWS::RedshiftServerless::Workgroup.Tags`.
+	// The map of the key-value pairs used to tag the workgroup.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -170,7 +174,7 @@ type CfnWorkgroup interface {
 	// `AWS::RedshiftServerless::Workgroup.Workgroup`.
 	Workgroup() interface{}
 	SetWorkgroup(val interface{})
-	// `AWS::RedshiftServerless::Workgroup.WorkgroupName`.
+	// The name of the workgroup.
 	WorkgroupName() *string
 	SetWorkgroupName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

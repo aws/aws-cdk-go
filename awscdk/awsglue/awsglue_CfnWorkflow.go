@@ -57,7 +57,9 @@ type CfnWorkflow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Glue::Workflow.MaxConcurrentRuns`.
+	// You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs.
+	//
+	// If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns() *float64
 	SetMaxConcurrentRuns(val *float64)
 	// The name of the workflow representing the flow.

@@ -46,7 +46,12 @@ type CfnUser interface {
 	//
 	// Can be "active", "modifying" or "deleting".
 	AttrStatus() *string
-	// `AWS::ElastiCache::User.AuthenticationMode`.
+	// Specifies the authentication mode to use. Below is an example of the possible JSON values:.
+	//
+	// ```
+	// { Type: <iam | no-password-required | password> Passwords: ["*****", "******"] // If Type is password.
+	// }
+	// ```.
 	AuthenticationMode() interface{}
 	SetAuthenticationMode(val interface{})
 	// Options for this resource, such as condition, update policy etc.

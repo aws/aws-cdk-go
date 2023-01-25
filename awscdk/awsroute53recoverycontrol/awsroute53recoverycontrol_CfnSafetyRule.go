@@ -94,7 +94,7 @@ type CfnSafetyRule interface {
 	LogicalId() *string
 	// The name of the assertion rule.
 	//
-	// You can use any non-white space character in the name. The name must be unique within a control panel.
+	// The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 	Name() *string
 	SetName(val *string)
 	// The tree node.

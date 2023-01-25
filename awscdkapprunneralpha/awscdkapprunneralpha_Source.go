@@ -11,18 +11,18 @@ import (
 // Represents the App Runner service source.
 //
 // Example:
-//   import assets "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
-//   	directory: path.join(__dirname, jsii.String("./docker.assets")),
-//   })
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-//   	source: apprunner.source.fromAsset(&assetProps{
-//   		imageConfiguration: &imageConfiguration{
-//   			port: jsii.Number(8000),
+//   	source: apprunner.source.fromGitHub(&githubRepositoryProps{
+//   		repositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
+//   		branch: jsii.String("main"),
+//   		configurationSource: apprunner.configurationSourceType_API,
+//   		codeConfigurationValues: &codeConfigurationValues{
+//   			runtime: apprunner.runtime_PYTHON_3(),
+//   			port: jsii.String("8000"),
+//   			startCommand: jsii.String("python app.py"),
+//   			buildCommand: jsii.String("yum install -y pycairo && pip install -r requirements.txt"),
 //   		},
-//   		asset: imageAsset,
+//   		connection: apprunner.gitHubConnection.fromConnectionArn(jsii.String("CONNECTION_ARN")),
 //   	}),
 //   })
 //

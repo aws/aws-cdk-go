@@ -156,7 +156,7 @@ type CfnDomain interface {
 	AttrHomeEfsFileSystemId() *string
 	// The ID of the security group that authorizes traffic between the `RSessionGateway` apps and the `RStudioServerPro` app.
 	AttrSecurityGroupIdForDomainBoundary() *string
-	// The AWS SSO managed application instance ID.
+	// The IAM Identity Center managed application instance ID.
 	AttrSingleSignOnManagedApplicationInstanceId() *string
 	// The URL for the Domain.
 	AttrUrl() *string

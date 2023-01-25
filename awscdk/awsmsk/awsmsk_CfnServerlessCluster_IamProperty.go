@@ -1,6 +1,8 @@
 package awsmsk
 
 
+// Details for IAM client authentication.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsmsk
 //   }
 //
 type CfnServerlessCluster_IamProperty struct {
-	// `CfnServerlessCluster.IamProperty.Enabled`.
+	// SASL/IAM authentication is enabled or not.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 

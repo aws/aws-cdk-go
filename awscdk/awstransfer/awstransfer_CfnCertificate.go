@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Transfer::Certificate`.
 //
+// Imports the signing and encryption certificates that you need to create local (AS2) profiles and partner profiles.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,20 +39,33 @@ import (
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Transfer::Certificate.ActiveDate`.
+	// An optional date that specifies when the certificate becomes active.
 	ActiveDate() *string
 	SetActiveDate(val *string)
+	// The unique Amazon Resource Name (ARN) for the certificate.
 	AttrArn() *string
+	// An array of identifiers for the imported certificates.
+	//
+	// You use this identifier for working with profiles and partner profiles.
 	AttrCertificateId() *string
+	// The final date that the certificate is valid.
 	AttrNotAfterDate() *string
+	// The earliest date that the certificate is valid.
 	AttrNotBeforeDate() *string
+	// The serial number for the certificate.
 	AttrSerial() *string
+	// The certificate can be either `ACTIVE` , `PENDING_ROTATION` , or `INACTIVE` .
+	//
+	// `PENDING_ROTATION` means that this certificate will replace the current certificate when it expires.
 	AttrStatus() *string
+	// If a private key has been specified for the certificate, its type is `CERTIFICATE_WITH_PRIVATE_KEY` .
+	//
+	// If there is no private key, the type is `CERTIFICATE` .
 	AttrType() *string
-	// `AWS::Transfer::Certificate.Certificate`.
+	// The file name for the certificate.
 	Certificate() *string
 	SetCertificate(val *string)
-	// `AWS::Transfer::Certificate.CertificateChain`.
+	// The list of certificates that make up the chain for the certificate.
 	CertificateChain() *string
 	SetCertificateChain(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -62,10 +77,10 @@ type CfnCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Transfer::Certificate.Description`.
+	// The name or description that's used to identity the certificate.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Transfer::Certificate.InactiveDate`.
+	// An optional date that specifies when the certificate becomes inactive.
 	InactiveDate() *string
 	SetInactiveDate(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,7 +95,7 @@ type CfnCertificate interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Transfer::Certificate.PrivateKey`.
+	// The file that contains the private key for the certificate that's being imported.
 	PrivateKey() *string
 	SetPrivateKey(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -92,7 +107,7 @@ type CfnCertificate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Transfer::Certificate.Tags`.
+	// Key-value pairs that can be used to group and search for certificates.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -107,7 +122,7 @@ type CfnCertificate interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::Transfer::Certificate.Usage`.
+	// Specifies whether this certificate is used for signing or encryption.
 	Usage() *string
 	SetUsage(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

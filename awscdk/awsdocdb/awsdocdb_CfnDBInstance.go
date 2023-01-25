@@ -87,7 +87,9 @@ type CfnDBInstance interface {
 	// Example: `mydbinstance`.
 	DbInstanceIdentifier() *string
 	SetDbInstanceIdentifier(val *string)
-	// `AWS::DocDB::DBInstance.EnablePerformanceInsights`.
+	// A value that indicates whether to enable Performance Insights for the DB Instance.
+	//
+	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) .
 	EnablePerformanceInsights() interface{}
 	SetEnablePerformanceInsights(val interface{})
 	// The logical ID for this CloudFormation stack element.

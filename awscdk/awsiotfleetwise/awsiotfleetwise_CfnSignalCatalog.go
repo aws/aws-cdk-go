@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::IoTFleetWise::SignalCatalog`.
 //
+// Creates a collection of standardized signals that can be reused to create vehicle models.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -119,7 +121,7 @@ type CfnSignalCatalog interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IoTFleetWise::SignalCatalog.Name`.
+	// The name of the signal catalog.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

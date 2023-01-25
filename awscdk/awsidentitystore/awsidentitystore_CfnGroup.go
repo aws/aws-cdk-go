@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::IdentityStore::Group`.
 //
+// A group object, which contains a specified group’s metadata and attributes.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,6 +29,7 @@ import (
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The identifier of the newly created group in the identity store.
 	AttrGroupId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -37,7 +40,7 @@ type CfnGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IdentityStore::Group.Description`.
+	// A string containing the description of the group.
 	Description() *string
 	SetDescription(val *string)
 	// `AWS::IdentityStore::Group.DisplayName`.

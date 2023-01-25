@@ -20,6 +20,7 @@ import (
 //   	billingEntity: jsii.String("billingEntity"),
 //   	description: jsii.String("description"),
 //   	modifierPercentage: jsii.Number(123),
+//   	operation: jsii.String("operation"),
 //   	service: jsii.String("service"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -32,6 +33,7 @@ import (
 //   			activated: jsii.Boolean(false),
 //   		},
 //   	},
+//   	usageType: jsii.String("usageType"),
 //   }
 //
 type CfnPricingRuleProps struct {
@@ -41,17 +43,21 @@ type CfnPricingRuleProps struct {
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// The type of pricing rule.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `AWS::BillingConductor::PricingRule.BillingEntity`.
+	// The seller of services provided by AWS , their affiliates, or third-party providers selling services via AWS Marketplace .
 	BillingEntity *string `field:"optional" json:"billingEntity" yaml:"billingEntity"`
 	// The pricing rule description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A percentage modifier applied on the public pricing rates.
 	ModifierPercentage *float64 `field:"optional" json:"modifierPercentage" yaml:"modifierPercentage"`
+	// `AWS::BillingConductor::PricingRule.Operation`.
+	Operation *string `field:"optional" json:"operation" yaml:"operation"`
 	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service *string `field:"optional" json:"service" yaml:"service"`
-	// `AWS::BillingConductor::PricingRule.Tags`.
+	// A map that contains tag keys and tag values that are attached to a pricing rule.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::BillingConductor::PricingRule.Tiering`.
+	// The set of tiering configurations for the pricing rule.
 	Tiering interface{} `field:"optional" json:"tiering" yaml:"tiering"`
+	// `AWS::BillingConductor::PricingRule.UsageType`.
+	UsageType *string `field:"optional" json:"usageType" yaml:"usageType"`
 }
 

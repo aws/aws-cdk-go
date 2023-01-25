@@ -53,7 +53,7 @@ type CfnRequestValidator interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of this request validator.
+	// The name of this RequestValidator.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -63,7 +63,7 @@ type CfnRequestValidator interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The identifier of the targeted API entity.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.
@@ -83,10 +83,10 @@ type CfnRequestValidator interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody() interface{}
 	SetValidateRequestBody(val interface{})
-	// Indicates whether to validate request parameters.
+	// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
 	ValidateRequestParameters() interface{}
 	SetValidateRequestParameters(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

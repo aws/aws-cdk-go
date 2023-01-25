@@ -71,7 +71,7 @@ type CfnDomain interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The server-side encryption configuration containing the KMS Key Identifier you want Voice ID to use to encrypt your data.
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
 	// The stack in which this element is defined.

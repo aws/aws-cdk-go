@@ -13,6 +13,8 @@ import (
 //
 // Adds an Amazon CloudWatch log stream to monitor application configuration errors.
 //
+// > Only one *ApplicationCloudWatchLoggingOption* resource can be attached per application.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

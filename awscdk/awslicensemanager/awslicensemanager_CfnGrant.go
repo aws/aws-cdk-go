@@ -73,7 +73,13 @@ type CfnGrant interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The grant principals.
+	// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):.
+	//
+	// - An AWS account, which includes only the account specified.
+	//
+	// - An organizational unit (OU), which includes all accounts in the OU.
+	//
+	// - An organization, which will include all accounts across your organization.
 	Principals() *[]*string
 	SetPrincipals(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

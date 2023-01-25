@@ -39,7 +39,7 @@ type CfnVPCEndpointConnectionNotification interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// One or more endpoint events for which to receive notifications.
+	// The endpoint events for which to receive notifications.
 	//
 	// Valid values are `Accept` , `Connect` , `Delete` , and `Reject` .
 	ConnectionEvents() *[]*string

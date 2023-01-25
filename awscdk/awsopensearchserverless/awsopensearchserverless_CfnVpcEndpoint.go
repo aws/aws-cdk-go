@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::OpenSearchServerless::VpcEndpoint`.
 //
+// Creates an OpenSearch Serverless-managed interface VPC endpoint. For more information, see [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,6 +34,9 @@ import (
 type CfnVpcEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique identifier of the endpoint.
+	//
+	// For example, `vpce-050f79086ee71ac05` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,7 +57,7 @@ type CfnVpcEndpoint interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::OpenSearchServerless::VpcEndpoint.Name`.
+	// The name of the endpoint.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -62,14 +67,14 @@ type CfnVpcEndpoint interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::OpenSearchServerless::VpcEndpoint.SecurityGroupIds`.
+	// The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::OpenSearchServerless::VpcEndpoint.SubnetIds`.
+	// The ID of the subnets from which you access OpenSearch Serverless.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
 	// Deprecated.
@@ -85,7 +90,7 @@ type CfnVpcEndpoint interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::OpenSearchServerless::VpcEndpoint.VpcId`.
+	// The ID of the VPC from which you access OpenSearch Serverless.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

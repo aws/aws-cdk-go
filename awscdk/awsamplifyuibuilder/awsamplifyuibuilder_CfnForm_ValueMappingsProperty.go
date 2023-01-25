@@ -1,6 +1,8 @@
 package awsamplifyuibuilder
 
 
+// Represents the data binding configuration for a value map.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,7 +24,7 @@ package awsamplifyuibuilder
 //   }
 //
 type CfnForm_ValueMappingsProperty struct {
-	// `CfnForm.ValueMappingsProperty.Values`.
+	// The value and display value pairs.
 	Values interface{} `field:"required" json:"values" yaml:"values"`
 }
 

@@ -32,13 +32,21 @@ import (
 //   }
 //
 type CfnAllowListProps struct {
-	// `AWS::Macie::AllowList.Criteria`.
+	// The criteria that specify the text or text pattern to ignore.
+	//
+	// The criteria can be the location and name of an Amazon S3 object that lists specific text to ignore ( `S3WordsList` ), or a regular expression ( `Regex` ) that defines a text pattern to ignore.
 	Criteria interface{} `field:"required" json:"criteria" yaml:"criteria"`
-	// `AWS::Macie::AllowList.Name`.
+	// A custom name for the allow list.
+	//
+	// The name can contain 1-128 characters.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::Macie::AllowList.Description`.
+	// A custom description of the allow list.
+	//
+	// The description can contain 1-512 characters.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Macie::AllowList.Tags`.
+	// An array of key-value pairs to apply to the allow list.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

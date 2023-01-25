@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::BillingConductor::PricingRule`.
 //
-// Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
+// Creates a pricing rule which can be associated with a pricing plan, or a set of pricing plans.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,7 @@ import (
 //   	billingEntity: jsii.String("billingEntity"),
 //   	description: jsii.String("description"),
 //   	modifierPercentage: jsii.Number(123),
+//   	operation: jsii.String("operation"),
 //   	service: jsii.String("service"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -39,6 +40,7 @@ import (
 //   			activated: jsii.Boolean(false),
 //   		},
 //   	},
+//   	usageType: jsii.String("usageType"),
 //   })
 //
 type CfnPricingRule interface {
@@ -52,7 +54,7 @@ type CfnPricingRule interface {
 	AttrCreationTime() *float64
 	// The most recent time the pricing rule was modified.
 	AttrLastModifiedTime() *float64
-	// `AWS::BillingConductor::PricingRule.BillingEntity`.
+	// The seller of services provided by AWS , their affiliates, or third-party providers selling services via AWS Marketplace .
 	BillingEntity() *string
 	SetBillingEntity(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -85,6 +87,9 @@ type CfnPricingRule interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::BillingConductor::PricingRule.Operation`.
+	Operation() *string
+	SetOperation(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -100,9 +105,9 @@ type CfnPricingRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::BillingConductor::PricingRule.Tags`.
+	// A map that contains tag keys and tag values that are attached to a pricing rule.
 	Tags() awscdk.TagManager
-	// `AWS::BillingConductor::PricingRule.Tiering`.
+	// The set of tiering configurations for the pricing rule.
 	Tiering() interface{}
 	SetTiering(val interface{})
 	// The type of pricing rule.
@@ -121,6 +126,9 @@ type CfnPricingRule interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// `AWS::BillingConductor::PricingRule.UsageType`.
+	UsageType() *string
+	SetUsageType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -394,6 +402,16 @@ func (j *jsiiProxy_CfnPricingRule) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPricingRule) Operation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"operation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPricingRule) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -484,6 +502,16 @@ func (j *jsiiProxy_CfnPricingRule) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPricingRule) UsageType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"usageType",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::BillingConductor::PricingRule`.
 func NewCfnPricingRule(scope constructs.Construct, id *string, props *CfnPricingRuleProps) CfnPricingRule {
@@ -549,6 +577,14 @@ func (j *jsiiProxy_CfnPricingRule)SetName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnPricingRule)SetOperation(val *string) {
+	_jsii_.Set(
+		j,
+		"operation",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPricingRule)SetScope(val *string) {
 	if err := j.validateSetScopeParameters(val); err != nil {
 		panic(err)
@@ -586,6 +622,14 @@ func (j *jsiiProxy_CfnPricingRule)SetType(val *string) {
 	_jsii_.Set(
 		j,
 		"type",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPricingRule)SetUsageType(val *string) {
+	_jsii_.Set(
+		j,
+		"usageType",
 		val,
 	)
 }

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Connect::InstanceStorageConfig`.
 //
+// The storage configuration for the instance.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -53,6 +55,7 @@ import (
 type CfnInstanceStorageConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -63,16 +66,16 @@ type CfnInstanceStorageConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Connect::InstanceStorageConfig.InstanceArn`.
+	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
-	// `AWS::Connect::InstanceStorageConfig.KinesisFirehoseConfig`.
+	// The configuration of the Kinesis Firehose delivery stream.
 	KinesisFirehoseConfig() interface{}
 	SetKinesisFirehoseConfig(val interface{})
-	// `AWS::Connect::InstanceStorageConfig.KinesisStreamConfig`.
+	// The configuration of the Kinesis data stream.
 	KinesisStreamConfig() interface{}
 	SetKinesisStreamConfig(val interface{})
-	// `AWS::Connect::InstanceStorageConfig.KinesisVideoStreamConfig`.
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig() interface{}
 	SetKinesisVideoStreamConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -92,17 +95,19 @@ type CfnInstanceStorageConfig interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Connect::InstanceStorageConfig.ResourceType`.
+	// A valid resource type.
+	//
+	// Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`.
 	ResourceType() *string
 	SetResourceType(val *string)
-	// `AWS::Connect::InstanceStorageConfig.S3Config`.
+	// The S3 bucket configuration.
 	S3Config() interface{}
 	SetS3Config(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Connect::InstanceStorageConfig.StorageType`.
+	// A valid storage type.
 	StorageType() *string
 	SetStorageType(val *string)
 	// Deprecated.

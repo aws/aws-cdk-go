@@ -11,9 +11,9 @@ import (
 
 // A CloudFormation `AWS::Kendra::DataSource`.
 //
-// Specifies a data source that you use to with an Amazon Kendra index.
+// Creates a data source connector that you want to use with an Amazon Kendra index.
 //
-// You specify a name, connector type and description for your data source.
+// You specify a name, data source connector type and description for your data source. You also specify configuration information for the data source connector.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -600,26 +600,17 @@ type CfnDataSource interface {
 	SetCustomDocumentEnrichmentConfiguration(val interface{})
 	// Configuration information for an Amazon Kendra data source.
 	//
-	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration. Choose from one of the following data sources.
-	//
-	// - Amazon S3
-	// - Confluence
-	// - Custom
-	// - Database
-	// - Microsoft OneDrive
-	// - Microsoft SharePoint
-	// - Salesforce
-	// - ServiceNow
+	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
 	//
 	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
 	//
 	// The `Configuration` parameter is required for all other data sources.
 	DataSourceConfiguration() interface{}
 	SetDataSourceConfiguration(val interface{})
-	// A description of the data source.
+	// A description for the data source connector.
 	Description() *string
 	SetDescription(val *string)
-	// The identifier of the index that should be associated with this data source.
+	// The identifier of the index you want to use with the data source connector.
 	IndexId() *string
 	SetIndexId(val *string)
 	// The logical ID for this CloudFormation stack element.

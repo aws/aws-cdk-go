@@ -11,6 +11,16 @@ import (
 
 // A CloudFormation `AWS::Oam::Link`.
 //
+// Creates a link between a source account and a sink that you have created in a monitoring account.
+//
+// Before you create a link, you must create a sink in the monitoring account. The sink must have a sink policy that permits the source account to link to it. You can grant permission to source accounts by granting permission to an entire organization, an organizational unit, or to individual accounts.
+//
+// For more information, see [CreateSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html) and [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html) .
+//
+// Each monitoring account can be linked to as many as 100,000 source accounts.
+//
+// Each source account can be linked to as many as five monitoring accounts.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,7 +42,13 @@ import (
 type CfnLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the link.
+	//
+	// For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`.
 	AttrArn() *string
+	// The friendly human-readable name used to identify this source account when it is viewed from the monitoring account.
+	//
+	// For example, `my-account1` .
 	AttrLabel() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,7 +59,13 @@ type CfnLink interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Oam::Link.LabelTemplate`.
+	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+	//
+	// You can include the following variables in your template:
+	//
+	// - `$AccountName` is the name of the account
+	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`.
 	LabelTemplate() *string
 	SetLabelTemplate(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -63,17 +85,23 @@ type CfnLink interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Oam::Link.ResourceTypes`.
+	// An array of strings that define which types of data that the source account shares with the monitoring account.
+	//
+	// Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace` .
 	ResourceTypes() *[]*string
 	SetResourceTypes(val *[]*string)
-	// `AWS::Oam::Link.SinkIdentifier`.
+	// The ARN of the sink in the monitoring account that you want to link to.
+	//
+	// You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
 	SinkIdentifier() *string
 	SetSinkIdentifier(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Oam::Link.Tags`.
+	// An array of key-value pairs to apply to the link.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

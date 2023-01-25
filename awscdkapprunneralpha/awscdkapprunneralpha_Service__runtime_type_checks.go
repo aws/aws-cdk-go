@@ -12,6 +12,30 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (s *jsiiProxy_Service) validateAddEnvironmentVariableParameters(name *string, value *string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_Service) validateAddSecretParameters(name *string, secret Secret) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if secret == nil {
+		return fmt.Errorf("parameter secret is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_Service) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

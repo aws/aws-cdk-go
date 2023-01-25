@@ -92,22 +92,24 @@ import (
 type CfnMethod interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Indicates whether the method requires clients to submit a valid API key.
+	// A boolean flag specifying whether a valid ApiKey is required to invoke this method.
 	ApiKeyRequired() interface{}
 	SetApiKeyRequired(val interface{})
 	// A list of authorization scopes configured on the method.
 	//
-	// The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes match a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+	// The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
 	AuthorizationScopes() *[]*string
 	SetAuthorizationScopes(val *[]*string)
 	// The method's authorization type.
 	//
-	// This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/api-reference/resource/method/) in the *API Gateway API Reference* .
+	// This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference* .
 	//
 	// > If you specify the `AuthorizerId` property, specify `CUSTOM` or `COGNITO_USER_POOLS` for this property.
 	AuthorizationType() *string
 	SetAuthorizationType(val *string)
-	// The identifier of the [authorizer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html) to use on this method. If you specify this property, specify `CUSTOM` or `COGNITO_USER_POOLS` for the `AuthorizationType` property.
+	// The identifier of an Authorizer to use on this method.
+	//
+	// The `authorizationType` must be `CUSTOM` .
 	AuthorizerId() *string
 	SetAuthorizerId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -119,10 +121,10 @@ type CfnMethod interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The HTTP method that clients use to call this method.
+	// The method's HTTP verb.
 	HttpMethod() *string
 	SetHttpMethod(val *string)
-	// The backend system that the method calls when it receives a request.
+	// Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
 	Integration() interface{}
 	SetIntegration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -135,14 +137,14 @@ type CfnMethod interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The responses that can be sent to the client who calls the method.
+	// Gets a method response associated with a given HTTP status code.
 	MethodResponses() interface{}
 	SetMethodResponses(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// A friendly operation name for the method.
+	// A human-friendly operation identifier for the method.
 	//
-	// For example, you can assign the `OperationName` of `ListPets` for the `GET /pets` method.
+	// For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
 	OperationName() *string
 	SetOperationName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -150,23 +152,21 @@ type CfnMethod interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The resources that are used for the request's content type.
-	//
-	// Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a `Model` resource name as the value. To use the same model regardless of the content type, specify `$default` as the key.
+	// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
 	RequestModels() interface{}
 	SetRequestModels(val interface{})
-	// The request parameters that API Gateway accepts.
+	// A key-value map defining required or optional method request parameters that can be accepted by API Gateway.
 	//
-	// Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value. The Boolean specifies whether a parameter is required. A source must match the format `method.request. *location* . *name*` , where the location is querystring, path, or header, and *name* is a valid, unique parameter name.
+	// A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
 	RequestParameters() interface{}
 	SetRequestParameters(val interface{})
-	// The ID of the associated request validator.
+	// The identifier of a RequestValidator for request validation.
 	RequestValidatorId() *string
 	SetRequestValidatorId(val *string)
-	// The ID of an API Gateway [resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html) . For root resource methods, specify the `RestApi` root resource ID, such as `{ "Fn::GetAtt": ["MyRestApi", "RootResourceId"] }` .
+	// The Resource identifier for the MethodResponse resource.
 	ResourceId() *string
 	SetResourceId(val *string)
-	// The ID of the [RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource in which API Gateway creates the method.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.

@@ -60,7 +60,7 @@ type CfnCustomLineItemProps struct {
 	//
 	// This is shown on the Bills page in association with the charge value.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::BillingConductor::CustomLineItem.Tags`.
+	// A map that contains tag keys and tag values that are attached to a custom line item.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

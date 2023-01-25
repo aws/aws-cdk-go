@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::BillingConductor::CustomLineItem`.
 //
-// Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.
+// Creates a custom line item that can be used to create a one-time or recurring, fixed or percentage-based charge that you can apply to a single billing group. You can apply custom line items to the current or previous billing period. You can create either a fee or a discount custom line item.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -118,7 +118,7 @@ type CfnCustomLineItem interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::BillingConductor::CustomLineItem.Tags`.
+	// A map that contains tag keys and tag values that are attached to a custom line item.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

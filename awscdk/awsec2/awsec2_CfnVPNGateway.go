@@ -39,6 +39,7 @@ type CfnVPNGateway interface {
 	// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	AmazonSideAsn() *float64
 	SetAmazonSideAsn(val *float64)
+	// The ID of the VPN gateway.
 	AttrVpnGatewayId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

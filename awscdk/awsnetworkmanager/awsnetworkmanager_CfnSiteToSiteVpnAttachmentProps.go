@@ -23,9 +23,9 @@ import (
 //   }
 //
 type CfnSiteToSiteVpnAttachmentProps struct {
-	// The core network ID.
+	// `AWS::NetworkManager::SiteToSiteVpnAttachment.CoreNetworkId`.
 	CoreNetworkId *string `field:"optional" json:"coreNetworkId" yaml:"coreNetworkId"`
-	// The tags associated with the site-to-site VPN attachment.
+	// `AWS::NetworkManager::SiteToSiteVpnAttachment.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the site-to-site VPN attachment.
 	VpnConnectionArn *string `field:"optional" json:"vpnConnectionArn" yaml:"vpnConnectionArn"`

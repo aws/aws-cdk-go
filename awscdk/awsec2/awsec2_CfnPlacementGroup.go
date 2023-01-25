@@ -37,6 +37,7 @@ import (
 type CfnPlacementGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The name of the placement group.
 	AttrGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -59,7 +60,9 @@ type CfnPlacementGroup interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::EC2::PlacementGroup.PartitionCount`.
+	// The number of partitions.
+	//
+	// Valid only when *Strategy* is set to `partition` .
 	PartitionCount() *float64
 	SetPartitionCount(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -67,7 +70,10 @@ type CfnPlacementGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::EC2::PlacementGroup.SpreadLevel`.
+	// Determines how placement groups spread instances.
+	//
+	// - Host – You can use `host` only with Outpost placement groups.
+	// - Rack – No usage restrictions.
 	SpreadLevel() *string
 	SetSpreadLevel(val *string)
 	// The stack in which this element is defined.
@@ -77,7 +83,7 @@ type CfnPlacementGroup interface {
 	// The placement strategy.
 	Strategy() *string
 	SetStrategy(val *string)
-	// `AWS::EC2::PlacementGroup.Tags`.
+	// The tags to apply to the new placement group.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

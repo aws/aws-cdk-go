@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::AmplifyUIBuilder::Form`.
 //
+// Contains the configuration settings for a `Form` user interface (UI) element for an Amplify app. A form is a component you can add to your project by specifying a data source as the default configuration for the form.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -151,7 +153,7 @@ import (
 type CfnForm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::AmplifyUIBuilder::Form.AppId`.
+	// The unique ID of the Amplify app associated with the form.
 	AppId() *string
 	SetAppId(val *string)
 	AttrId() *string
@@ -164,19 +166,19 @@ type CfnForm interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::AmplifyUIBuilder::Form.Cta`.
+	// Stores the call to action configuration for the form.
 	Cta() interface{}
 	SetCta(val interface{})
-	// `AWS::AmplifyUIBuilder::Form.DataType`.
+	// The type of data source to use to create the form.
 	DataType() interface{}
 	SetDataType(val interface{})
-	// `AWS::AmplifyUIBuilder::Form.EnvironmentName`.
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName() *string
 	SetEnvironmentName(val *string)
-	// `AWS::AmplifyUIBuilder::Form.Fields`.
+	// Stores the information about the form's fields.
 	Fields() interface{}
 	SetFields(val interface{})
-	// `AWS::AmplifyUIBuilder::Form.FormActionType`.
+	// The operation to perform on the specified form.
 	FormActionType() *string
 	SetFormActionType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -189,7 +191,7 @@ type CfnForm interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::AmplifyUIBuilder::Form.Name`.
+	// The name of the form.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -199,20 +201,20 @@ type CfnForm interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::AmplifyUIBuilder::Form.SchemaVersion`.
+	// The schema version of the form when it was imported.
 	SchemaVersion() *string
 	SetSchemaVersion(val *string)
-	// `AWS::AmplifyUIBuilder::Form.SectionalElements`.
+	// Stores the visual helper elements for the form that are not associated with any data.
 	SectionalElements() interface{}
 	SetSectionalElements(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::AmplifyUIBuilder::Form.Style`.
+	// Stores the configuration for the form's style.
 	Style() interface{}
 	SetStyle(val interface{})
-	// `AWS::AmplifyUIBuilder::Form.Tags`.
+	// One or more key-value pairs to use when tagging the form.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

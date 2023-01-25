@@ -67,9 +67,13 @@ type CfnTrailProps struct {
 	S3BucketName *string `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
 	//
+	// You must use a log group that exists in your account.
+	//
 	// Not required unless you specify `CloudWatchLogsRoleArn` .
 	CloudWatchLogsLogGroupArn *string `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+	//
+	// You must use a role that exists in your account.
 	CloudWatchLogsRoleArn *string `field:"optional" json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
 	// Specifies whether log file validation is enabled. The default is false.
 	//
@@ -80,12 +84,12 @@ type CfnTrailProps struct {
 	// By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
 	//
 	// You can configure up to five event selectors for a trail.
-	//
-	// You cannot apply both event selectors and advanced event selectors to a trail.
 	EventSelectors interface{} `field:"optional" json:"eventSelectors" yaml:"eventSelectors"`
 	// Specifies whether the trail is publishing events from global services such as IAM to the log files.
 	IncludeGlobalServiceEvents interface{} `field:"optional" json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
-	// `AWS::CloudTrail::Trail.InsightSelectors`.
+	// A JSON string that contains the insight types you want to log on a trail.
+	//
+	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid insight types.
 	InsightSelectors interface{} `field:"optional" json:"insightSelectors" yaml:"insightSelectors"`
 	// Specifies whether the trail applies only to the current region or to all regions.
 	//
@@ -93,7 +97,7 @@ type CfnTrailProps struct {
 	IsMultiRegionTrail interface{} `field:"optional" json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
 	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
 	//
-	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations . If the trail is not an organization trail and this is set to `true` , the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to `false` , the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
+	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account or delegated administrator account for an organization in AWS Organizations . If the trail is not an organization trail and this is set to `true` , the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to `false` , the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
 	IsOrganizationTrail interface{} `field:"optional" json:"isOrganizationTrail" yaml:"isOrganizationTrail"`
 	// Specifies the AWS KMS key ID to use to encrypt the logs delivered by CloudTrail.
 	//

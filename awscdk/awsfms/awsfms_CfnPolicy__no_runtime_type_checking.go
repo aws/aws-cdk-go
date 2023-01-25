@@ -112,10 +112,6 @@ func (j *jsiiProxy_CfnPolicy) validateSetResourceTagsParameters(val interface{})
 	return nil
 }
 
-func (j *jsiiProxy_CfnPolicy) validateSetResourceTypeParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPolicy) validateSetSecurityServicePolicyDataParameters(val interface{}) error {
 	return nil
 }

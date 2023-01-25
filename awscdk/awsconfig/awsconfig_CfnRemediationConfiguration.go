@@ -78,7 +78,7 @@ type CfnRemediationConfiguration interface {
 	SetMaximumAutomaticAttempts(val *float64)
 	// The tree node.
 	Node() constructs.Node
-	// An object of the RemediationParameterValue.
+	// An object of the RemediationParameterValue. For more information, see [RemediationParameterValue](https://docs.aws.amazon.com/config/latest/APIReference/API_RemediationParameterValue.html) .
 	//
 	// > The type is a map of strings to RemediationParameterValue.
 	Parameters() interface{}

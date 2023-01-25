@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnApi) validateSetDefinitionUriParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnApi) validateSetDisableExecuteApiEndpointParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApi) validateSetDomainParameters(val interface{}) error {
 	return nil
 }

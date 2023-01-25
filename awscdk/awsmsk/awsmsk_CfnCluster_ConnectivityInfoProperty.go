@@ -36,7 +36,7 @@ type CfnCluster_ConnectivityInfoProperty struct {
 	//
 	// Public access is off by default.
 	PublicAccess interface{} `field:"optional" json:"publicAccess" yaml:"publicAccess"`
-	// `CfnCluster.ConnectivityInfoProperty.VpcConnectivity`.
+	// Not currently supported by AWS CloudFormation .
 	VpcConnectivity interface{} `field:"optional" json:"vpcConnectivity" yaml:"vpcConnectivity"`
 }
 

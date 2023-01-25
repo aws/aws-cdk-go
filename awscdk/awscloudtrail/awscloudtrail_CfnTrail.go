@@ -79,10 +79,14 @@ type CfnTrail interface {
 	CfnResourceType() *string
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
 	//
+	// You must use a log group that exists in your account.
+	//
 	// Not required unless you specify `CloudWatchLogsRoleArn` .
 	CloudWatchLogsLogGroupArn() *string
 	SetCloudWatchLogsLogGroupArn(val *string)
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+	//
+	// You must use a role that exists in your account.
 	CloudWatchLogsRoleArn() *string
 	SetCloudWatchLogsRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -99,14 +103,14 @@ type CfnTrail interface {
 	// By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
 	//
 	// You can configure up to five event selectors for a trail.
-	//
-	// You cannot apply both event selectors and advanced event selectors to a trail.
 	EventSelectors() interface{}
 	SetEventSelectors(val interface{})
 	// Specifies whether the trail is publishing events from global services such as IAM to the log files.
 	IncludeGlobalServiceEvents() interface{}
 	SetIncludeGlobalServiceEvents(val interface{})
-	// `AWS::CloudTrail::Trail.InsightSelectors`.
+	// A JSON string that contains the insight types you want to log on a trail.
+	//
+	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid insight types.
 	InsightSelectors() interface{}
 	SetInsightSelectors(val interface{})
 	// Whether the CloudTrail trail is currently logging AWS API calls.
@@ -119,7 +123,7 @@ type CfnTrail interface {
 	SetIsMultiRegionTrail(val interface{})
 	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
 	//
-	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations . If the trail is not an organization trail and this is set to `true` , the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to `false` , the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
+	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account or delegated administrator account for an organization in AWS Organizations . If the trail is not an organization trail and this is set to `true` , the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to `false` , the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
 	IsOrganizationTrail() interface{}
 	SetIsOrganizationTrail(val interface{})
 	// Specifies the AWS KMS key ID to use to encrypt the logs delivered by CloudTrail.

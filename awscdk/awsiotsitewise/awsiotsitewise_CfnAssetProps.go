@@ -48,7 +48,7 @@ type CfnAssetProps struct {
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	AssetName *string `field:"required" json:"assetName" yaml:"assetName"`
-	// `AWS::IoTSiteWise::Asset.AssetDescription`.
+	// A description for the asset.
 	AssetDescription *string `field:"optional" json:"assetDescription" yaml:"assetDescription"`
 	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
 	//

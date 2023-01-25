@@ -290,8 +290,14 @@ type CfnTaskDefinitionProps struct {
 	// - 256 (.25 vCPU) - Available `memory` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
 	// - 512 (.5 vCPU) - Available `memory` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
 	// - 1024 (1 vCPU) - Available `memory` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
-	// - 2048 (2 vCPU) - Available `memory` values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
-	// - 4096 (4 vCPU) - Available `memory` values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB).
+	// - 2048 (2 vCPU) - Available `memory` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+	// - 4096 (4 vCPU) - Available `memory` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+	// - 8192 (8 vCPU) - Available `memory` values: 16 GB and 60 GB in 4 GB increments
+	//
+	// This option requires Linux platform `1.4.0` or later.
+	// - 16384 (16vCPU) - Available `memory` values: 32GB and 120 GB in 8 GB increments
+	//
+	// This option requires Linux platform `1.4.0` or later.
 	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
@@ -332,7 +338,13 @@ type CfnTaskDefinitionProps struct {
 	// - 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available `cpu` values: 512 (.5 vCPU)
 	// - 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available `cpu` values: 1024 (1 vCPU)
 	// - Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available `cpu` values: 2048 (2 vCPU)
-	// - Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available `cpu` values: 4096 (4 vCPU).
+	// - Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available `cpu` values: 4096 (4 vCPU)
+	// - Between 16 GB and 60 GB in 4 GB increments - Available `cpu` values: 8192 (8 vCPU)
+	//
+	// This option requires Linux platform `1.4.0` or later.
+	// - Between 32GB and 120 GB in 8 GB increments - Available `cpu` values: 16384 (16 vCPU)
+	//
+	// This option requires Linux platform `1.4.0` or later.
 	Memory *string `field:"optional" json:"memory" yaml:"memory"`
 	// The Docker networking mode to use for the containers in the task.
 	//
@@ -369,6 +381,12 @@ type CfnTaskDefinitionProps struct {
 	// The task launch types the task definition was validated against.
 	//
 	// To determine which task launch types the task definition is validated for, see the `TaskDefinition$compatibilities` parameter.
+	//
+	// The valid values are:
+	//
+	// - `EC2` - The EC2 launch type
+	// - `FARGATE` - The Fargate launch type
+	// - `EXTERNAL` - The external instance (ECS Anywhere) launch type.
 	RequiresCompatibilities *[]*string `field:"optional" json:"requiresCompatibilities" yaml:"requiresCompatibilities"`
 	// The operating system that your tasks definitions run on.
 	//

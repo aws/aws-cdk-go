@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::DataSync::LocationFSxONTAP`.
 //
+// The `AWS::DataSync::LocationFSxONTAP` resource creates an endpoint for an Amazon FSx for NetApp ONTAP file system. AWS DataSync can access this endpoint as a source or destination location.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -52,8 +54,11 @@ import (
 type CfnLocationFSxONTAP interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the FSx for ONTAP file system in the specified location.
 	AttrFsxFilesystemArn() *string
+	// The ARN of the specified location.
 	AttrLocationArn() *string
+	// The URI of the specified location.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -76,7 +81,7 @@ type CfnLocationFSxONTAP interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::DataSync::LocationFSxONTAP.Protocol`.
+	// Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
 	Protocol() interface{}
 	SetProtocol(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -84,20 +89,33 @@ type CfnLocationFSxONTAP interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::DataSync::LocationFSxONTAP.SecurityGroupArns`.
+	// Specifies the Amazon Resource Names (ARNs) of the security groups that DataSync can use to access your FSx for ONTAP file system.
+	//
+	// You must configure the security groups to allow outbound traffic on the following ports (depending on the protocol that you're using):
+	//
+	// - *Network File System (NFS)* : TCP ports 111, 635, and 2049
+	// - *Server Message Block (SMB)* : TCP port 445
+	//
+	// Your file system's security groups must also allow inbound traffic on the same port.
 	SecurityGroupArns() *[]*string
 	SetSecurityGroupArns(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::DataSync::LocationFSxONTAP.StorageVirtualMachineArn`.
+	// Specifies the ARN of the storage virtual machine (SVM) in your file system where you want to copy data to or from.
 	StorageVirtualMachineArn() *string
 	SetStorageVirtualMachineArn(val *string)
-	// `AWS::DataSync::LocationFSxONTAP.Subdirectory`.
+	// Specifies a path to the file share in the SVM where you'll copy your data.
+	//
+	// You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares). For example, your mount path might be `/vol1` , `/vol1/tree1` , or `/share1` .
+	//
+	// > Don't specify a junction path in the SVM's root volume. For more information, see [Managing FSx for ONTAP storage virtual machines](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) in the *Amazon FSx for NetApp ONTAP User Guide* .
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// `AWS::DataSync::LocationFSxONTAP.Tags`.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
+	//
+	// We recommend creating at least a name tag for your location.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

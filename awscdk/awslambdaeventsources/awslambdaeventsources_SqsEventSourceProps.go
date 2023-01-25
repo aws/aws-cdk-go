@@ -39,6 +39,12 @@ type SqsEventSourceProps struct {
 	//
 	// Valid Range: Minimum value of 0 minutes. Maximum value of 5 minutes.
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	// The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS event source can invoke.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency
+	//
+	// Valid Range: Minimum value of 2. Maximum value of 1000.
+	//
+	MaxConcurrency *float64 `field:"optional" json:"maxConcurrency" yaml:"maxConcurrency"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting
 	//

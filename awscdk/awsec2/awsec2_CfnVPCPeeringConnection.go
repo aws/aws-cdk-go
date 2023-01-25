@@ -11,11 +11,13 @@ import (
 
 // A CloudFormation `AWS::EC2::VPCPeeringConnection`.
 //
-// Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different Region to the requester VPC.
+// Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to a different AWS account and can be in a different Region than the requester VPC.
 //
 // The requester VPC and accepter VPC cannot have overlapping CIDR blocks. If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of `failed` .
 //
-// For more information, see [Walkthough: Peer with a VPC in another AWS account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html) .
+// If the VPCs belong to different accounts, the acceptor account must have a role that allows the requester account to accept the VPC peering connection. For more information, see [Walkthough: Peer with a VPC in another AWS account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html) .
+//
+// If the requester and acceptor VPCs are in the same account, the peering request is accepted without a peering role.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,6 +43,7 @@ import (
 type CfnVPCPeeringConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the peering connection.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

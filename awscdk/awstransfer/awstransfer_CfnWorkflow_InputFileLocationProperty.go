@@ -7,6 +7,10 @@ package awstransfer
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   inputFileLocationProperty := &inputFileLocationProperty{
+//   	efsFileLocation: &efsInputFileLocationProperty{
+//   		fileSystemId: jsii.String("fileSystemId"),
+//   		path: jsii.String("path"),
+//   	},
 //   	s3FileLocation: &s3InputFileLocationProperty{
 //   		bucket: jsii.String("bucket"),
 //   		key: jsii.String("key"),
@@ -14,6 +18,8 @@ package awstransfer
 //   }
 //
 type CfnWorkflow_InputFileLocationProperty struct {
+	// `CfnWorkflow.InputFileLocationProperty.EfsFileLocation`.
+	EfsFileLocation interface{} `field:"optional" json:"efsFileLocation" yaml:"efsFileLocation"`
 	// `CfnWorkflow.InputFileLocationProperty.S3FileLocation`.
 	S3FileLocation interface{} `field:"optional" json:"s3FileLocation" yaml:"s3FileLocation"`
 }

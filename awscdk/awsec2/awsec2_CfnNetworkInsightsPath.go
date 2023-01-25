@@ -42,11 +42,13 @@ type CfnNetworkInsightsPath interface {
 	awscdk.IInspectable
 	// The time stamp when the path was created.
 	AttrCreatedDate() *string
+	// The Amazon Resource Name (ARN) of the destination.
 	AttrDestinationArn() *string
 	// The Amazon Resource Name (ARN) of the path.
 	AttrNetworkInsightsPathArn() *string
 	// The ID of the path.
 	AttrNetworkInsightsPathId() *string
+	// The Amazon Resource Name (ARN) of the source.
 	AttrSourceArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

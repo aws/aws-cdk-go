@@ -11,9 +11,9 @@ import (
 
 // A CloudFormation `AWS::Macie::FindingsFilter`.
 //
-// The `AWS::Macie::FindingsFilter` resource represents an individual findings filter that you create and save to view, analyze, and manage findings. A *findings filter* is a set of criteria that specifies which findings to include in the results of a query for findings. A findings filter can also perform specific actions on findings that meet the filter's criteria.
+// The `AWS::Macie::FindingsFilter` resource specifies a findings filter. In Amazon Macie , a *findings filter* , also referred to as a *filter rule* , is a set of custom criteria that specifies which findings to include or exclude from the results of a query for findings. The criteria can help you identify and focus on findings that have specific characteristics, such as severity, type, or the name of an affected AWS resource. You can also configure a findings filter to suppress (automatically archive) findings that match the filter's criteria. For more information, see [Filtering findings](https://docs.aws.amazon.com/macie/latest/user/findings-filter-overview.html) in the *Amazon Macie User Guide* .
 //
-// A `Session` must exist for the account before you can create a `FindingsFilter` . Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that the `Session` is created before the other resources. For example, `"DependsOn: Session"` .
+// An `AWS::Macie::Session` resource must exist for an AWS account before you can create an `AWS::Macie::FindingsFilter` resource for the account. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that an `AWS::Macie::Session` resource is created before other Macie resources are created for an account. For example, `"DependsOn": "Session"` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,17 +48,17 @@ import (
 type CfnFindingsFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The action to perform on findings that meet the filter criteria ( `FindingCriteria` ). Valid values are:.
+	// The action to perform on findings that match the filter criteria ( `FindingCriteria` ). Valid values are:.
 	//
-	// - ARCHIVE - Suppress (automatically archive) the findings.
-	// - NOOP - Don't perform any action on the findings.
+	// - `ARCHIVE` - Suppress (automatically archive) the findings.
+	// - `NOOP` - Don't perform any action on the findings.
 	Action() *string
 	SetAction(val *string)
-	// The Amazon Resource Name (ARN) of the filter.
+	// The Amazon Resource Name (ARN) of the findings filter.
 	AttrArn() *string
 	// An array of `FindingsFilterListItem` objects, one for each findings filter that's associated with the account.
 	AttrFindingsFilterListItems() awscdk.IResolvable
-	// The unique identifier for the filter.
+	// The unique identifier for the findings filter.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -69,9 +69,9 @@ type CfnFindingsFilter interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A custom description of the filter. The description can contain as many as 512 characters.
+	// A custom description of the findings filter. The description can contain 1-512 characters.
 	//
-	// We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie .
+	// Avoid including sensitive data in the description. Users of the account might be able to see the description, depending on the actions that they're allowed to perform in Amazon Macie .
 	Description() *string
 	SetDescription(val *string)
 	// The criteria to use to filter findings.
@@ -87,18 +87,16 @@ type CfnFindingsFilter interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A custom name for the filter.
+	// A custom name for the findings filter. The name can contain 3-64 characters.
 	//
-	// The name must contain at least 3 characters and can contain as many as 64 characters.
-	//
-	// We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie .
+	// Avoid including sensitive data in the name. Users of the account might be able to see the name, depending on the actions that they're allowed to perform in Amazon Macie .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The position of the filter in the list of saved filters on the Amazon Macie console.
+	// The position of the findings filter in the list of saved filters on the Amazon Macie console.
 	//
-	// This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+	// This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to findings.
 	Position() *float64
 	SetPosition(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

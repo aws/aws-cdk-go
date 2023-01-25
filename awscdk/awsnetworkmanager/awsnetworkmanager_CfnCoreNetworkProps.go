@@ -32,11 +32,11 @@ type CfnCoreNetworkProps struct {
 	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The description of a core network.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Describes a core network policy.
+	// Describes a core network policy. For more information, see [Core network policies](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policy-changesets.html) .
 	//
 	// If you update the policy document, CloudFormation will apply the core network change set generated from the updated policy document, and then set it as the LIVE policy.
 	PolicyDocument interface{} `field:"optional" json:"policyDocument" yaml:"policyDocument"`
-	// The tags associated with a core network.
+	// The list of key-value tags associated with a core network.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

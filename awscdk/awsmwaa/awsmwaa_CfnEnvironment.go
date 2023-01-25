@@ -89,7 +89,7 @@ type CfnEnvironment interface {
 	SetAirflowConfigurationOptions(val interface{})
 	// The version of Apache Airflow to use for the environment.
 	//
-	// If no value is specified, defaults to the latest version. Valid values: `2.0.2` , `1.10.12` .
+	// If no value is specified, defaults to the latest version. Valid values: `2.0.2` , `1.10.12` , `2.2.2` , and `2.4.3` .
 	AirflowVersion() *string
 	SetAirflowVersion(val *string)
 	// The ARN for the Amazon MWAA environment.
@@ -187,8 +187,8 @@ type CfnEnvironment interface {
 	SetRequirementsS3Path(val *string)
 	// The number of schedulers that you want to run in your environment. Valid values:.
 	//
-	// - *v2.0.2* - Accepts between 2 to 5. Defaults to 2.
-	// - *v1.10.12* - Accepts 1.
+	// - *v2* - Accepts between 2 to 5. Defaults to 2.
+	// - *v1* - Accepts 1.
 	Schedulers() *float64
 	SetSchedulers(val *float64)
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored.

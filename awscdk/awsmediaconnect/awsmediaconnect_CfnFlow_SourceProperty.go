@@ -77,19 +77,19 @@ type CfnFlow_SourceProperty struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The protocol that is used by the source.
 	//
-	// For a full list of available protocols, see: [Source protocols](https://docs.aws.amazon.com/mediaconnect/latest/api/v1-flows-flowarn-source.html#v1-flows-flowarn-source-prop-setsourcerequest-protocol) in the *AWS Elemental MediaConnect API Reference* .
+	// AWS CloudFormation does not currently support CDI or ST 2110 JPEG XS source protocols.
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
-	// `CfnFlow.SourceProperty.SenderControlPort`.
+	// The port that the flow uses to send outbound requests to initiate connection with the sender.
 	SenderControlPort *float64 `field:"optional" json:"senderControlPort" yaml:"senderControlPort"`
-	// `CfnFlow.SourceProperty.SenderIpAddress`.
+	// The IP address that the flow communicates with to initiate connection with the sender.
 	SenderIpAddress *string `field:"optional" json:"senderIpAddress" yaml:"senderIpAddress"`
 	// The ARN of the source.
 	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 	// The port that the flow will be listening on for incoming content.
 	SourceIngestPort *string `field:"optional" json:"sourceIngestPort" yaml:"sourceIngestPort"`
-	// `CfnFlow.SourceProperty.SourceListenerAddress`.
+	// Source IP or domain name for SRT-caller protocol.
 	SourceListenerAddress *string `field:"optional" json:"sourceListenerAddress" yaml:"sourceListenerAddress"`
-	// `CfnFlow.SourceProperty.SourceListenerPort`.
+	// Source port for SRT-caller protocol.
 	SourceListenerPort *float64 `field:"optional" json:"sourceListenerPort" yaml:"sourceListenerPort"`
 	// The stream ID that you want to use for the transport.
 	//

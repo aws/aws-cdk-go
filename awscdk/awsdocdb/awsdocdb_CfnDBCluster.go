@@ -202,10 +202,28 @@ type CfnDBCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::DocDB::DBCluster.RestoreToTime`.
+	// The date and time to restore the cluster to.
+	//
+	// Valid values: A time in Universal Coordinated Time (UTC) format.
+	//
+	// Constraints:
+	//
+	// - Must be before the latest restorable time for the instance.
+	// - Must be specified if the `UseLatestRestorableTime` parameter is not provided.
+	// - Cannot be specified if the `UseLatestRestorableTime` parameter is `true` .
+	// - Cannot be specified if the `RestoreType` parameter is `copy-on-write` .
+	//
+	// Example: `2015-03-07T23:45:00Z`.
 	RestoreToTime() *string
 	SetRestoreToTime(val *string)
-	// `AWS::DocDB::DBCluster.RestoreType`.
+	// The type of restore to be performed. You can specify one of the following values:.
+	//
+	// - `full-copy` - The new DB cluster is restored as a full copy of the source DB cluster.
+	// - `copy-on-write` - The new DB cluster is restored as a clone of the source DB cluster.
+	//
+	// Constraints: You can't specify `copy-on-write` if the engine version of the source DB cluster is earlier than 1.11.
+	//
+	// If you don't specify a `RestoreType` value, then the new DB cluster is restored as a full copy of the source DB cluster.
 	RestoreType() *string
 	SetRestoreType(val *string)
 	// The identifier for the snapshot or cluster snapshot to restore from.
@@ -217,7 +235,11 @@ type CfnDBCluster interface {
 	// - Must match the identifier of an existing snapshot.
 	SnapshotIdentifier() *string
 	SetSnapshotIdentifier(val *string)
-	// `AWS::DocDB::DBCluster.SourceDBClusterIdentifier`.
+	// The identifier of the source cluster from which to restore.
+	//
+	// Constraints:
+	//
+	// - Must match the identifier of an existing `DBCluster` .
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
 	// The stack in which this element is defined.
@@ -242,7 +264,11 @@ type CfnDBCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::DocDB::DBCluster.UseLatestRestorableTime`.
+	// A value that is set to `true` to restore the cluster to the latest restorable backup time, and `false` otherwise.
+	//
+	// Default: `false`
+	//
+	// Constraints: Cannot be specified if the `RestoreToTime` parameter is provided.
 	UseLatestRestorableTime() interface{}
 	SetUseLatestRestorableTime(val interface{})
 	// A list of EC2 VPC security groups to associate with this cluster.

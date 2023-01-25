@@ -23,6 +23,8 @@ import (
 //
 // When you create a metric stream, the stream is created in the `running` state. If you update an existing metric stream, the state does not change.
 //
+// If you create a metric stream in an account that has been set up as a monitoring account in CloudWatch cross-account observability, you can choose whether to include metrics from linked source accounts in the metric stream.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -44,6 +46,7 @@ import (
 //   			namespace: jsii.String("namespace"),
 //   		},
 //   	},
+//   	includeLinkedAccountsMetrics: jsii.Boolean(false),
 //   	name: jsii.String("name"),
 //   	statisticsConfigurations: []interface{}{
 //   		&metricStreamStatisticsConfigurationProperty{
@@ -105,6 +108,13 @@ type CfnMetricStream interface {
 	// When you modify the `IncludeFilters` or `ExcludeFilters` of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
 	IncludeFilters() interface{}
 	SetIncludeFilters(val interface{})
+	// If you are creating a metric stream in a monitoring account, specify `true` to include metrics from source accounts that are linked to this monitoring account, in the metric stream.
+	//
+	// The default is `false` .
+	//
+	// For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html)
+	IncludeLinkedAccountsMetrics() interface{}
+	SetIncludeLinkedAccountsMetrics(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -412,6 +422,16 @@ func (j *jsiiProxy_CfnMetricStream) IncludeFilters() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMetricStream) IncludeLinkedAccountsMetrics() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"includeLinkedAccountsMetrics",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMetricStream) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -581,6 +601,17 @@ func (j *jsiiProxy_CfnMetricStream)SetIncludeFilters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"includeFilters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMetricStream)SetIncludeLinkedAccountsMetrics(val interface{}) {
+	if err := j.validateSetIncludeLinkedAccountsMetricsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"includeLinkedAccountsMetrics",
 		val,
 	)
 }

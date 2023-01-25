@@ -11,6 +11,13 @@ import (
 
 // A CloudFormation `AWS::IoTFleetWise::DecoderManifest`.
 //
+// Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:
+//
+// - Every signal decoder has a unique name.
+// - Each signal decoder is associated with a network interface.
+// - Each network interface has a unique ID.
+// - The signal decoders are specified in the model manifest.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -106,7 +113,7 @@ type CfnDecoderManifest interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTFleetWise::DecoderManifest.Description`.
+	// A brief description of the decoder manifest.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -119,10 +126,10 @@ type CfnDecoderManifest interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IoTFleetWise::DecoderManifest.ModelManifestArn`.
+	// The ARN of a vehicle model (model manifest) associated with the decoder manifest.
 	ModelManifestArn() *string
 	SetModelManifestArn(val *string)
-	// `AWS::IoTFleetWise::DecoderManifest.Name`.
+	// The name of the decoder manifest.
 	Name() *string
 	SetName(val *string)
 	// `AWS::IoTFleetWise::DecoderManifest.NetworkInterfaces`.
@@ -142,7 +149,9 @@ type CfnDecoderManifest interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTFleetWise::DecoderManifest.Status`.
+	// The state of the decoder manifest.
+	//
+	// If the status is `ACTIVE` , the decoder manifest can't be edited. If the status is marked `DRAFT` , you can edit the decoder manifest.
 	Status() *string
 	SetStatus(val *string)
 	// `AWS::IoTFleetWise::DecoderManifest.Tags`.

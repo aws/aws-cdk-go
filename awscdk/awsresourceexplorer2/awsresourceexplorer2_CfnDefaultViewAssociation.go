@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::ResourceExplorer2::DefaultViewAssociation`.
 //
+// Sets the specified view as the default for the AWS Region in which you call this operation. If a user makes a search query that doesn't explicitly specify the view to use, Resource Explorer chooses this default view automatically for searches performed in this AWS Region .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,6 +25,11 @@ import (
 type CfnDefaultViewAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique identifier of the principal for which the specified view was made the default for the AWS Region that contains the view.
+	//
+	// For example:
+	//
+	// `123456789012`.
 	AttrAssociatedAwsPrincipal() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -67,7 +74,9 @@ type CfnDefaultViewAssociation interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::ResourceExplorer2::DefaultViewAssociation.ViewArn`.
+	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation.
+	//
+	// The specified view must already exist in the specified Region.
 	ViewArn() *string
 	SetViewArn(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

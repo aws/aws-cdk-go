@@ -134,7 +134,9 @@ type CfnExperiment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Evidently::Experiment.RemoveSegment`.
+	// Set this to `true` to remove the segment that is associated with this experiment.
+	//
+	// You can't use this parameter if the experiment is currently running.
 	RemoveSegment() interface{}
 	SetRemoveSegment(val interface{})
 	// A structure that you can use to start and stop the experiment.
@@ -147,7 +149,11 @@ type CfnExperiment interface {
 	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
 	SamplingRate() *float64
 	SetSamplingRate(val *float64)
-	// `AWS::Evidently::Experiment.Segment`.
+	// Specifies an audience *segment* to use in the experiment.
+	//
+	// When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+	//
+	// For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
 	Segment() *string
 	SetSegment(val *string)
 	// The stack in which this element is defined.

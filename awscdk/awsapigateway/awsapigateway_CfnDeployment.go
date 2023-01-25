@@ -99,10 +99,10 @@ type CfnDeployment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies settings for the canary deployment.
+	// The input configuration for a canary deployment.
 	DeploymentCanarySettings() interface{}
 	SetDeploymentCanarySettings(val interface{})
-	// A description of the purpose of the API Gateway deployment.
+	// The description for the Deployment resource to create.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -122,19 +122,17 @@ type CfnDeployment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the `RestApi` resource to deploy.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Configures the stage that API Gateway creates with this deployment.
+	// The description of the Stage resource for the Deployment resource to create.
 	StageDescription() interface{}
 	SetStageDescription(val interface{})
-	// A name for the stage that API Gateway creates with this deployment.
-	//
-	// Use only alphanumeric characters.
+	// The name of the Stage resource for the Deployment resource to create.
 	StageName() *string
 	SetStageName(val *string)
 	// Deprecated.

@@ -52,7 +52,13 @@ type CfnGeofenceCollection interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name for the geofence collection.
+	// A custom name for the geofence collection.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique geofence collection name.
+	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
 	CollectionName() *string
 	SetCollectionName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

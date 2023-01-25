@@ -363,14 +363,18 @@ type CfnJobDefinition interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// An object with various properties specific to container-based jobs.
+	// An object with various properties specific to Amazon ECS based jobs.
+	//
+	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
 	ContainerProperties() interface{}
 	SetContainerProperties(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Batch::JobDefinition.EksProperties`.
+	// An object with various properties that are specific to Amazon EKS based jobs.
+	//
+	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
 	EksProperties() interface{}
 	SetEksProperties(val interface{})
 	// The name of the job definition.
@@ -388,9 +392,11 @@ type CfnJobDefinition interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// An object with various properties specific to multi-node parallel jobs.
+	// An object with various properties that are specific to multi-node parallel jobs.
 	//
-	// > If the job runs on Fargate resources, then you must not specify `nodeProperties` ; use `containerProperties` instead.
+	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
+	//
+	// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
 	NodeProperties() interface{}
 	SetNodeProperties(val interface{})
 	// Default parameters or parameter substitution placeholders that are set in the job definition.
@@ -405,7 +411,7 @@ type CfnJobDefinition interface {
 	SetPlatformCapabilities(val *[]*string)
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task.
 	//
-	// If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks during task creation. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+	// If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
 	PropagateTags() interface{}
 	SetPropagateTags(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -425,11 +431,11 @@ type CfnJobDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags applied to the job definition.
+	// The tags that are applied to the job definition.
 	Tags() awscdk.TagManager
-	// The timeout configuration for jobs that are submitted with this job definition.
+	// The timeout time for jobs that are submitted with this job definition.
 	//
-	// You can specify a timeout duration after which AWS Batch terminates your jobs if they haven't finished.
+	// After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
 	Timeout() interface{}
 	SetTimeout(val interface{})
 	// The type of job definition.

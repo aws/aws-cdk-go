@@ -38,7 +38,7 @@ type CfnAccount interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+	// The ARN of an Amazon CloudWatch role for the current Account.
 	CloudWatchRoleArn() *string
 	SetCloudWatchRoleArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

@@ -33,6 +33,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "definitionBody", GoGetter: "DefinitionBody"},
 			_jsii_.MemberProperty{JsiiProperty: "definitionUri", GoGetter: "DefinitionUri"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "disableExecuteApiEndpoint", GoGetter: "DisableExecuteApiEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "domain", GoGetter: "Domain"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointConfiguration", GoGetter: "EndpointConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayResponses", GoGetter: "GatewayResponses"},
@@ -334,6 +335,14 @@ func init() {
 		reflect.TypeOf((*CfnFunction_HooksProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sam.CfnFunction.HttpApiEventProperty",
+		reflect.TypeOf((*CfnFunction_HttpApiEventProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sam.CfnFunction.HttpApiFunctionAuthProperty",
+		reflect.TypeOf((*CfnFunction_HttpApiFunctionAuthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.IAMPolicyDocumentProperty",
 		reflect.TypeOf((*CfnFunction_IAMPolicyDocumentProperty)(nil)).Elem(),
 	)
@@ -380,6 +389,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.RequestParameterProperty",
 		reflect.TypeOf((*CfnFunction_RequestParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sam.CfnFunction.RouteSettingsProperty",
+		reflect.TypeOf((*CfnFunction_RouteSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sam.CfnFunction.S3EventProperty",

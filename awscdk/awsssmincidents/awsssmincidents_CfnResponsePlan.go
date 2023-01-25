@@ -119,13 +119,13 @@ type CfnResponsePlan interface {
 	// The human readable name of the response plan.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// The contacts and escalation plans that the response plan engages during an incident.
+	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements() *[]*string
 	SetEngagements(val *[]*string)
 	// Details used to create an incident when using this response plan.
 	IncidentTemplate() interface{}
 	SetIncidentTemplate(val interface{})
-	// `AWS::SSMIncidents::ResponsePlan.Integrations`.
+	// Information about third-party services integrated into the response plan.
 	Integrations() interface{}
 	SetIntegrations(val interface{})
 	// The logical ID for this CloudFormation stack element.

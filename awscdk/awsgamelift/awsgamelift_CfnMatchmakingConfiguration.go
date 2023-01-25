@@ -87,7 +87,7 @@ type CfnMatchmakingConfiguration interface {
 	// Information to add to all events related to the matchmaking configuration.
 	CustomEventData() *string
 	SetCustomEventData(val *string)
-	// A descriptive label that is associated with matchmaking configuration.
+	// A description for the matchmaking configuration.
 	Description() *string
 	SetDescription(val *string)
 	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.

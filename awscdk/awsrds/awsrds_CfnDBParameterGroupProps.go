@@ -45,7 +45,17 @@ type CfnDBParameterGroupProps struct {
 	//
 	// For more information, see `[CreateDBParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html)` .
 	Family *string `field:"required" json:"family" yaml:"family"`
-	// `AWS::RDS::DBParameterGroup.DBParameterGroupName`.
+	// The name of the DB parameter group.
+	//
+	// Constraints:
+	//
+	// - Must be 1 to 255 letters, numbers, or hyphens.
+	// - First character must be a letter
+	// - Can't end with a hyphen or contain two consecutive hyphens
+	//
+	// If you don't specify a value for `DBParameterGroupName` property, a name is automatically created for the DB parameter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbParameterGroupName *string `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// An array of parameter names and values for the parameter update.
 	//
@@ -57,7 +67,7 @@ type CfnDBParameterGroupProps struct {
 	//
 	// > AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
-	// Tags to assign to the DB parameter group.
+	// An optional array of key-value pairs to apply to this DB parameter group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

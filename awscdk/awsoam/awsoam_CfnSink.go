@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::Oam::Sink`.
 //
+// Creates or updates a *sink* in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that represents an attachment point in a monitoring account, which source accounts can link to to be able to send observability data.
+//
+// After you create a sink, you must create a sink policy that allows source accounts to attach to it. For more information, see [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html) .
+//
+// An account can have one sink.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,6 +37,9 @@ import (
 type CfnSink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the sink.
+	//
+	// For example, `arn:aws:oam:us-west-1:111111111111:sink:abcd1234-a123-456a-a12b-a123b456c789`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -51,12 +60,17 @@ type CfnSink interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Oam::Sink.Name`.
+	// A name for the sink.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Oam::Sink.Policy`.
+	// The IAM policy that grants permissions to source accounts to link to this sink.
+	//
+	// The policy can grant permission in the following ways:
+	//
+	// - Include organization IDs or organization paths to permit all accounts in an organization
+	// - Include account IDs to permit the specified accounts.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -68,7 +82,9 @@ type CfnSink interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Oam::Sink.Tags`.
+	// An array of key-value pairs to apply to the sink.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -29,19 +29,21 @@ import (
 //   }
 //
 type CfnContactFlowProps struct {
-	// The content of the contact flow.
+	// The content of the flow.
+	//
+	// For more information, see [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html) in the *Amazon Connect Administrator Guide* .
 	Content *string `field:"required" json:"content" yaml:"content"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// The name of the contact flow.
+	// The name of the flow.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The type of the contact flow.
+	// The type of the flow.
 	//
-	// For descriptions of the available types, see [Choose a Contact Flow Type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
+	// For descriptions of the available types, see [Choose a flow type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The description of the contact flow.
+	// The description of the flow.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The state of the contact flow.
+	// The state of the flow.
 	State *string `field:"optional" json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//

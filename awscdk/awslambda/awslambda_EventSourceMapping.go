@@ -50,6 +50,7 @@ import (
 //   	kafkaConsumerGroupId: jsii.String("kafkaConsumerGroupId"),
 //   	kafkaTopic: jsii.String("kafkaTopic"),
 //   	maxBatchingWindow: cdk.duration.minutes(jsii.Number(30)),
+//   	maxConcurrency: jsii.Number(123),
 //   	maxRecordAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	onFailure: eventSourceDlq,
 //   	parallelizationFactor: jsii.Number(123),

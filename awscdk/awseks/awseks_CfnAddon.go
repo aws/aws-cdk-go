@@ -13,7 +13,7 @@ import (
 //
 // Creates an Amazon EKS add-on.
 //
-// Amazon EKS add-ons help to automate the provisioning and lifecycle management of common operational software for Amazon EKS clusters. Amazon EKS add-ons require clusters running version 1.18 or later because Amazon EKS add-ons rely on the Server-side Apply Kubernetes feature, which is only available in Kubernetes 1.18 and later. For more information, see [Amazon EKS add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html) in the *Amazon EKS User Guide* .
+// Amazon EKS add-ons help to automate the provisioning and lifecycle management of common operational software for Amazon EKS clusters. For more information, see [Amazon EKS add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html) in the *Amazon EKS User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,7 @@ import (
 //   	// the properties below are optional
 //   	addonVersion: jsii.String("addonVersion"),
 //   	configurationValues: jsii.String("configurationValues"),
+//   	preserveOnDelete: jsii.Boolean(false),
 //   	resolveConflicts: jsii.String("resolveConflicts"),
 //   	serviceAccountRoleArn: jsii.String("serviceAccountRoleArn"),
 //   	tags: []cfnTag{
@@ -56,7 +57,7 @@ type CfnAddon interface {
 	// The name of the cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
-	// `AWS::EKS::Addon.ConfigurationValues`.
+	// The configuration values that you provided.
 	ConfigurationValues() *string
 	SetConfigurationValues(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -75,12 +76,23 @@ type CfnAddon interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::EKS::Addon.PreserveOnDelete`.
+	PreserveOnDelete() interface{}
+	SetPreserveOnDelete(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// How to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on.
+	// How to resolve field value conflicts for an Amazon EKS add-on.
+	//
+	// Conflicts are handled based on the value you choose:
+	//
+	// - *None* – If the self-managed version of the add-on is installed on your cluster, Amazon EKS doesn't change the value. Creation of the add-on might fail.
+	// - *Overwrite* – If the self-managed version of the add-on is installed on your cluster and the Amazon EKS default value is different than the existing value, Amazon EKS changes the value to the Amazon EKS default value.
+	// - *Preserve* – Not supported. You can set this value when updating an add-on though. For more information, see [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) .
+	//
+	// If you don't currently have the self-managed version of the add-on installed on your cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values to default values, regardless of the option that you specify.
 	ResolveConflicts() *string
 	SetResolveConflicts(val *string)
 	// The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account.
@@ -354,6 +366,16 @@ func (j *jsiiProxy_CfnAddon) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAddon) PreserveOnDelete() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"preserveOnDelete",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAddon) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -488,6 +510,17 @@ func (j *jsiiProxy_CfnAddon)SetConfigurationValues(val *string) {
 	_jsii_.Set(
 		j,
 		"configurationValues",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAddon)SetPreserveOnDelete(val interface{}) {
+	if err := j.validateSetPreserveOnDeleteParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"preserveOnDelete",
 		val,
 	)
 }

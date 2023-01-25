@@ -202,6 +202,7 @@ type CfnScalingPolicy interface {
 	AdjustmentType() *string
 	SetAdjustmentType(val *string)
 	AttrArn() *string
+	// Returns the name of a scaling policy.
 	AttrPolicyName() *string
 	// The name of the Auto Scaling group.
 	AutoScalingGroupName() *string

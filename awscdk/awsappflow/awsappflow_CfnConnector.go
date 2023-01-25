@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::AppFlow::Connector`.
 //
+// Creates a new connector profile associated with your AWS account . There is a soft quota of 100 connector profiles per AWS account . If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you create, you can provide the credentials and properties for only one connector.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -38,20 +40,20 @@ type CfnConnector interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::AppFlow::Connector.ConnectorLabel`.
+	// The label used for registering the connector.
 	ConnectorLabel() *string
 	SetConnectorLabel(val *string)
-	// `AWS::AppFlow::Connector.ConnectorProvisioningConfig`.
+	// The configuration required for registering the connector.
 	ConnectorProvisioningConfig() interface{}
 	SetConnectorProvisioningConfig(val interface{})
-	// `AWS::AppFlow::Connector.ConnectorProvisioningType`.
+	// The provisioning type used to register the connector.
 	ConnectorProvisioningType() *string
 	SetConnectorProvisioningType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::AppFlow::Connector.Description`.
+	// A description of the connector entity field.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.

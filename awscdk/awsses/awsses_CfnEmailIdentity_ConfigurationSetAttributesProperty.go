@@ -1,6 +1,8 @@
 package awsses
 
 
+// Used to associate a configuration set with an email identity.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -11,7 +13,7 @@ package awsses
 //   }
 //
 type CfnEmailIdentity_ConfigurationSetAttributesProperty struct {
-	// `CfnEmailIdentity.ConfigurationSetAttributesProperty.ConfigurationSetName`.
+	// The configuration set to associate with an email identity.
 	ConfigurationSetName *string `field:"optional" json:"configurationSetName" yaml:"configurationSetName"`
 }
 

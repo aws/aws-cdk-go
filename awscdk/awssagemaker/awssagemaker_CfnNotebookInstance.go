@@ -90,7 +90,7 @@ type CfnNotebookInstance interface {
 	// For more information, see [Notebook Instances Are Internet-Enabled by Default](https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access) . You can set the value of this parameter to `Disabled` only if you set a value for the `SubnetId` parameter.
 	DirectInternetAccess() *string
 	SetDirectInternetAccess(val *string)
-	// `AWS::SageMaker::NotebookInstance.InstanceMetadataServiceConfiguration`.
+	// Information on the IMDS configuration of the notebook instance.
 	InstanceMetadataServiceConfiguration() interface{}
 	SetInstanceMetadataServiceConfiguration(val interface{})
 	// The type of ML compute instance to launch for the notebook instance.

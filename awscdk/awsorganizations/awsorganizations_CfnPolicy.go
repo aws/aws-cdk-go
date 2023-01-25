@@ -11,6 +11,16 @@ import (
 
 // A CloudFormation `AWS::Organizations::Policy`.
 //
+// Creates a policy of a specified type that you can attach to a root, an organizational unit (OU), or an individual AWS account .
+//
+// For more information about policies and their use, see [Managing Organization Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) .
+//
+// If the request includes tags, then the requester must have the `organizations:TagResource` permission.
+//
+// This operation can be called only from the organization's management account.
+//
+// > Before you can create a policy of a given type, you must first [enable that policy type](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_enable-disable.html) in your organization.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,22 +47,31 @@ import (
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name (ARN) of the policy.
+	//
+	// For example: `arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111` .
 	AttrArn() *string
+	// Returns a boolean value that indicates whether the specified policy is an AWS managed policy.
+	//
+	// If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it. For example: `true | false` .
 	AttrAwsManaged() awscdk.IResolvable
+	// Returns the unique identifier (ID) of the policy.
+	//
+	// For example: `p-examplepolicyid111` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Organizations::Policy.Content`.
+	// The policy text content.
 	Content() *string
 	SetContent(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Organizations::Policy.Description`.
+	// Human readable description of the policy.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -65,7 +84,9 @@ type CfnPolicy interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Organizations::Policy.Name`.
+	// Name of the policy.
+	//
+	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -79,12 +100,24 @@ type CfnPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Organizations::Policy.Tags`.
+	// A list of tags that you want to attach to the newly created policy.
+	//
+	// For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to `null` . For more information about tagging, see [Tagging AWS Organizations resources](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html) in the AWS Organizations User Guide.
+	//
+	// > If any one of the tags is invalid or if you exceed the allowed number of tags for a policy, then the entire request fails and the policy is not created.
 	Tags() awscdk.TagManager
-	// `AWS::Organizations::Policy.TargetIds`.
+	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to.
+	//
+	// You can get the ID by calling the [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html) , [ListOrganizationalUnitsForParent](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListOrganizationalUnitsForParent.html) , or [ListAccounts](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccounts.html) operations. If you don't specify this parameter, the policy is created but not attached to any organization resource.
+	//
+	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) for a target ID string requires one of the following:
+	//
+	// - *Root* - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+	// - *Account* - A string that consists of exactly 12 digits.
+	// - *Organizational unit (OU)* - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
 	TargetIds() *[]*string
 	SetTargetIds(val *[]*string)
-	// `AWS::Organizations::Policy.Type`.
+	// The type of policy to create.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

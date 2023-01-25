@@ -64,17 +64,17 @@ type CfnCampaignProps struct {
 	Action *string `field:"required" json:"action" yaml:"action"`
 	// `AWS::IoTFleetWise::Campaign.CollectionScheme`.
 	CollectionScheme interface{} `field:"required" json:"collectionScheme" yaml:"collectionScheme"`
-	// `AWS::IoTFleetWise::Campaign.Name`.
+	// The name of a campaign.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::IoTFleetWise::Campaign.SignalCatalogArn`.
+	// The ARN of the signal catalog associated with the campaign.
 	SignalCatalogArn *string `field:"required" json:"signalCatalogArn" yaml:"signalCatalogArn"`
-	// `AWS::IoTFleetWise::Campaign.TargetArn`.
+	// The ARN of a vehicle or fleet to which the campaign is deployed.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// `AWS::IoTFleetWise::Campaign.Compression`.
 	Compression *string `field:"optional" json:"compression" yaml:"compression"`
 	// `AWS::IoTFleetWise::Campaign.DataExtraDimensions`.
 	DataExtraDimensions *[]*string `field:"optional" json:"dataExtraDimensions" yaml:"dataExtraDimensions"`
-	// `AWS::IoTFleetWise::Campaign.Description`.
+	// The description of the campaign.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTFleetWise::Campaign.DiagnosticsMode`.
 	DiagnosticsMode *string `field:"optional" json:"diagnosticsMode" yaml:"diagnosticsMode"`

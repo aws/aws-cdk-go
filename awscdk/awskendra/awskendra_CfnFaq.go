@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Kendra::Faq`.
 //
-// Specifies an new set of frequently asked question (FAQ) questions and answers.
+// Creates an new set of frequently asked question (FAQ) questions and answers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,7 +56,7 @@ type CfnFaq interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the FAQ.
+	// A description for the FAQ.
 	Description() *string
 	SetDescription(val *string)
 	// The format of the input file.

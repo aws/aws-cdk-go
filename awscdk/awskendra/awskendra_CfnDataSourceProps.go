@@ -567,7 +567,7 @@ import (
 //   }
 //
 type CfnDataSourceProps struct {
-	// The identifier of the index that should be associated with this data source.
+	// The identifier of the index you want to use with the data source connector.
 	IndexId *string `field:"required" json:"indexId" yaml:"indexId"`
 	// The name of the data source.
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -577,22 +577,13 @@ type CfnDataSourceProps struct {
 	CustomDocumentEnrichmentConfiguration interface{} `field:"optional" json:"customDocumentEnrichmentConfiguration" yaml:"customDocumentEnrichmentConfiguration"`
 	// Configuration information for an Amazon Kendra data source.
 	//
-	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration. Choose from one of the following data sources.
-	//
-	// - Amazon S3
-	// - Confluence
-	// - Custom
-	// - Database
-	// - Microsoft OneDrive
-	// - Microsoft SharePoint
-	// - Salesforce
-	// - ServiceNow
+	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
 	//
 	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
 	//
 	// The `Configuration` parameter is required for all other data sources.
 	DataSourceConfiguration interface{} `field:"optional" json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
-	// A description of the data source.
+	// A description for the data source connector.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
 	//

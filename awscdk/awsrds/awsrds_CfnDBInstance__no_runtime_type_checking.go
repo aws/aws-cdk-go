@@ -92,6 +92,14 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAutoMinorVersionUpgradeParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetCertificateDetailsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDBInstance) validateSetCertificateRotationRestartParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetCopyTagsToSnapshotParameters(val interface{}) error {
 	return nil
 }

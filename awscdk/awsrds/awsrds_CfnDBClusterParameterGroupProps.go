@@ -47,9 +47,17 @@ type CfnDBClusterParameterGroupProps struct {
 	Family *string `field:"required" json:"family" yaml:"family"`
 	// Provides a list of parameters for the DB cluster parameter group.
 	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
-	// `AWS::RDS::DBClusterParameterGroup.DBClusterParameterGroupName`.
+	// The name of the DB cluster parameter group.
+	//
+	// Constraints:
+	//
+	// - Must not match the name of an existing DB cluster parameter group.
+	//
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster paramter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
-	// Tags to assign to the DB cluster parameter group.
+	// An optional array of key-value pairs to apply to this DB cluster parameter group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

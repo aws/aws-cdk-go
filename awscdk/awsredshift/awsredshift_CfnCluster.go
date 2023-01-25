@@ -102,13 +102,9 @@ type CfnCluster interface {
 	// Default: `true`.
 	AllowVersionUpgrade() interface{}
 	SetAllowVersionUpgrade(val interface{})
-	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) when it is created.
+	// This parameter is retired.
 	//
-	// Possible values include the following.
-	//
-	// - enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.
-	// - disabled - Don't use AQUA.
-	// - auto - Amazon Redshift determines whether to use AQUA.
+	// It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).
 	AquaConfigurationStatus() *string
 	SetAquaConfigurationStatus(val *string)
 	AttrDeferMaintenanceIdentifier() *string
@@ -251,7 +247,7 @@ type CfnCluster interface {
 	SetDestinationRegion(val *string)
 	// The Elastic IP (EIP) address for the cluster.
 	//
-	// Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.
+	// Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. Don't specify the Elastic IP address for a publicly accessible cluster with availability zone relocation turned on. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.
 	ElasticIp() *string
 	SetElasticIp(val *string)
 	// If `true` , the data in the cluster is encrypted at rest.
@@ -259,7 +255,7 @@ type CfnCluster interface {
 	// Default: false.
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
-	// `AWS::Redshift::Cluster.Endpoint`.
+	// The connection endpoint.
 	Endpoint() interface{}
 	SetEndpoint(val interface{})
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled.
@@ -329,7 +325,7 @@ type CfnCluster interface {
 	// - Must contain at least one uppercase letter.
 	// - Must contain at least one lowercase letter.
 	// - Must contain one number.
-	// - Can be any printable ASCII character (ASCII code 33-126) except ' (single quote), " (double quote), \, /, or @.
+	// - Can be any printable ASCII character (ASCII code 33-126) except `'` (single quote), `"` (double quote), `\` , `/` , or `@` .
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
 	// The tree node.
@@ -422,7 +418,9 @@ type CfnCluster interface {
 	// Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
 	SnapshotCopyRetentionPeriod() *float64
 	SetSnapshotCopyRetentionPeriod(val *float64)
-	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+	// The name of the snapshot from which to create the new cluster.
+	//
+	// This parameter isn't case sensitive. You can specify this parameter or `snapshotArn` , but not both.
 	//
 	// Example: `my-snapshot-id`.
 	SnapshotIdentifier() *string

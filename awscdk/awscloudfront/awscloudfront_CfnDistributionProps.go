@@ -279,9 +279,7 @@ import (
 //   }
 //
 type CfnDistributionProps struct {
-	// The current configuration information for the distribution.
-	//
-	// Send a `GET` request to the `/ *CloudFront API version* /distribution ID/config` resource.
+	// The distribution's configuration.
 	DistributionConfig interface{} `field:"required" json:"distributionConfig" yaml:"distributionConfig"`
 	// A complex type that contains zero or more `Tag` elements.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

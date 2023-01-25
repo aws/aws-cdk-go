@@ -176,7 +176,9 @@ type CfnComponentType interface {
 	// For information about the PropertyDefinitionResponse object, see the [PropertyDefinitionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_PropertyDefinitionResponse.html) API reference.
 	PropertyDefinitions() interface{}
 	SetPropertyDefinitions(val interface{})
-	// `AWS::IoTTwinMaker::ComponentType.PropertyGroups`.
+	// An object that maps strings to the property groups in the component type.
+	//
+	// Each string in the mapping must be unique to this object.
 	PropertyGroups() interface{}
 	SetPropertyGroups(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -21,6 +21,8 @@ type CfnImage_ImageTestsConfigurationProperty struct {
 	// Image Builder defaults to enable tests to run following the image build, before image distribution.
 	ImageTestsEnabled interface{} `field:"optional" json:"imageTestsEnabled" yaml:"imageTestsEnabled"`
 	// The maximum time in minutes that tests are permitted to run.
+	//
+	// > The timeoutMinutes attribute is not currently active. This value is ignored.
 	TimeoutMinutes *float64 `field:"optional" json:"timeoutMinutes" yaml:"timeoutMinutes"`
 }
 

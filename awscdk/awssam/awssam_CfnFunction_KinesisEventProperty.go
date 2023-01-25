@@ -13,6 +13,9 @@ package awssam
 //   	// the properties below are optional
 //   	batchSize: jsii.Number(123),
 //   	enabled: jsii.Boolean(false),
+//   	functionResponseTypes: []*string{
+//   		jsii.String("functionResponseTypes"),
+//   	},
 //   }
 //
 type CfnFunction_KinesisEventProperty struct {
@@ -24,5 +27,7 @@ type CfnFunction_KinesisEventProperty struct {
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// `CfnFunction.KinesisEventProperty.Enabled`.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// `CfnFunction.KinesisEventProperty.FunctionResponseTypes`.
+	FunctionResponseTypes *[]*string `field:"optional" json:"functionResponseTypes" yaml:"functionResponseTypes"`
 }
 

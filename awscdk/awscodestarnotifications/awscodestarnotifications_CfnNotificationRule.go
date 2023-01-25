@@ -68,7 +68,7 @@ type CfnNotificationRule interface {
 	SetEventTypeId(val *string)
 	// A list of event types associated with this notification rule.
 	//
-	// For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+	// For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
 	EventTypeIds() *[]*string
 	SetEventTypeIds(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -114,7 +114,7 @@ type CfnNotificationRule interface {
 	// `AWS::CodeStarNotifications::NotificationRule.TargetAddress`.
 	TargetAddress() *string
 	SetTargetAddress(val *string)
-	// A list of Amazon Resource Names (ARNs) of AWS Chatbot topics and AWS Chatbot clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and AWS Chatbot clients to associate with the notification rule.
 	Targets() interface{}
 	SetTargets(val interface{})
 	// Deprecated.

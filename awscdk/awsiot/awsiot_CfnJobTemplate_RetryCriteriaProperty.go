@@ -1,6 +1,8 @@
 package awsiot
 
 
+// The criteria that determines how many retries are allowed for each failure type for a job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -12,9 +14,9 @@ package awsiot
 //   }
 //
 type CfnJobTemplate_RetryCriteriaProperty struct {
-	// `CfnJobTemplate.RetryCriteriaProperty.FailureType`.
+	// The type of job execution failures that can initiate a job retry.
 	FailureType *string `field:"optional" json:"failureType" yaml:"failureType"`
-	// `CfnJobTemplate.RetryCriteriaProperty.NumberOfRetries`.
+	// The number of retries allowed for a failure type for the job.
 	NumberOfRetries *float64 `field:"optional" json:"numberOfRetries" yaml:"numberOfRetries"`
 }
 

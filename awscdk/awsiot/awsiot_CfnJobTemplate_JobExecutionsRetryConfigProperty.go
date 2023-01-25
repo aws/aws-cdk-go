@@ -1,6 +1,8 @@
 package awsiot
 
 
+// The configuration that determines how many retries are allowed for each failure type for a job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

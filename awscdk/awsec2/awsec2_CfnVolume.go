@@ -60,6 +60,7 @@ import (
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the volume.
 	AttrVolumeId() *string
 	// Indicates whether the volume is auto-enabled for I/O operations.
 	//
@@ -162,7 +163,11 @@ type CfnVolume interface {
 	Stack() awscdk.Stack
 	// The tags to apply to the volume during creation.
 	Tags() awscdk.TagManager
-	// The throughput that the volume supports, in MiB/s.
+	// The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+	//
+	// This parameter is valid only for `gp3` volumes. The default value is 125.
+	//
+	// Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput() *float64
 	SetThroughput(val *float64)
 	// Deprecated.
@@ -185,6 +190,8 @@ type CfnVolume interface {
 	// - Throughput Optimized HDD: `st1`
 	// - Cold HDD: `sc1`
 	// - Magnetic: `standard`
+	//
+	// > Throughput Optimized HDD ( `st1` ) and Cold HDD ( `sc1` ) volumes can't be used as boot volumes.
 	//
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	//

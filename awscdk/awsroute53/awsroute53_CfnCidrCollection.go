@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Route53::CidrCollection`.
 //
+// Creates a CIDR collection in the current AWS account.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,7 +35,9 @@ import (
 type CfnCidrCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// "The Amazon resource name (ARN) to uniquely identify the AWS resource.
 	AttrArn() *string
+	// The UUID of the CIDR collection.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -44,7 +48,7 @@ type CfnCidrCollection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Route53::CidrCollection.Locations`.
+	// A complex type that contains information about the list of CIDR locations.
 	Locations() interface{}
 	SetLocations(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -57,7 +61,7 @@ type CfnCidrCollection interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Route53::CidrCollection.Name`.
+	// The name of a CIDR collection.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

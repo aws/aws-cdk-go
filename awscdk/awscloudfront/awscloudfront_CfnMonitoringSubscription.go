@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::CloudFront::MonitoringSubscription`.
 //
+// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,7 +39,7 @@ type CfnMonitoringSubscription interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::CloudFront::MonitoringSubscription.DistributionId`.
+	// The ID of the distribution that you are enabling metrics for.
 	DistributionId() *string
 	SetDistributionId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -50,7 +52,7 @@ type CfnMonitoringSubscription interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::CloudFront::MonitoringSubscription.MonitoringSubscription`.
+	// A subscription configuration for additional CloudWatch metrics.
 	MonitoringSubscription() interface{}
 	SetMonitoringSubscription(val interface{})
 	// The tree node.

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Grafana::Workspace`.
 //
+// Specifies a *workspace* . In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -78,18 +80,48 @@ import (
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Grafana::Workspace.AccountAccessType`.
+	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
+	//
+	// If this is `ORGANIZATION` , the `workspaceOrganizationalUnits` parameter specifies which organizational units the workspace can access.
 	AccountAccessType() *string
 	SetAccountAccessType(val *string)
+	// The date that the workspace was created.
+	//
+	// Type: Timestamp.
 	AttrCreationTimestamp() *string
+	// The URL that users can use to access the Grafana console in the workspace.
+	//
+	// Type: String.
 	AttrEndpoint() *string
+	// The version of Grafana supported in this workspace.
+	//
+	// Type: String.
 	AttrGrafanaVersion() *string
+	// The unique ID of this workspace.
+	//
+	// Type: String.
 	AttrId() *string
+	// The most recent date that the workspace was modified.
+	//
+	// Type: Timestamp.
 	AttrModificationTimestamp() *string
+	// Specifies whether the workspace's SAML configuration is complete.
+	//
+	// Valid values: `CONFIGURED | NOT_CONFIGURED`
+	//
+	// Type: String.
 	AttrSamlConfigurationStatus() *string
+	// The ID of the IAM Identity Center-managed application that is created by Amazon Managed Grafana .
+	//
+	// Type: String.
 	AttrSsoClientId() *string
+	// The current status of the workspace.
+	//
+	// Valid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`
+	//
+	// Type: String.
 	AttrStatus() *string
-	// `AWS::Grafana::Workspace.AuthenticationProviders`.
+	// Specifies whether this workspace uses SAML 2.0, AWS IAM Identity Center (successor to AWS Single Sign-On) , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
 	AuthenticationProviders() *[]*string
 	SetAuthenticationProviders(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -97,17 +129,17 @@ type CfnWorkspace interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::Grafana::Workspace.ClientToken`.
+	// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
 	ClientToken() *string
 	SetClientToken(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Grafana::Workspace.DataSources`.
+	// Specifies the AWS data sources that have been configured to have IAM roles and permissions created to allow Amazon Managed Grafana to read data from these sources.
 	DataSources() *[]*string
 	SetDataSources(val *[]*string)
-	// `AWS::Grafana::Workspace.Description`.
+	// The user-defined description of the workspace.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -120,21 +152,25 @@ type CfnWorkspace interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Grafana::Workspace.Name`.
+	// The name of the workspace.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Grafana::Workspace.NotificationDestinations`.
+	// The AWS notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, to allow Amazon Managed Grafana to use these channels.
 	NotificationDestinations() *[]*string
 	SetNotificationDestinations(val *[]*string)
-	// `AWS::Grafana::Workspace.OrganizationalUnits`.
+	// Specifies the organizational units that this workspace is allowed to use data sources from, if this workspace is in an account that is part of an organization.
 	OrganizationalUnits() *[]*string
 	SetOrganizationalUnits(val *[]*string)
-	// `AWS::Grafana::Workspace.OrganizationRoleName`.
+	// The name of the IAM role that is used to access resources through Organizations .
 	OrganizationRoleName() *string
 	SetOrganizationRoleName(val *string)
-	// `AWS::Grafana::Workspace.PermissionType`.
+	// If this is `Service Managed` , Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+	//
+	// If this is `CUSTOMER_MANAGED` , you manage those roles and permissions yourself. If you are creating this workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, you must choose `CUSTOMER_MANAGED` .
+	//
+	// For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
 	PermissionType() *string
 	SetPermissionType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -142,17 +178,19 @@ type CfnWorkspace interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Grafana::Workspace.RoleArn`.
+	// The IAM role that grants permissions to the AWS resources that the workspace will view data from.
+	//
+	// This role must already exist.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// `AWS::Grafana::Workspace.SamlConfiguration`.
+	// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
 	SamlConfiguration() interface{}
 	SetSamlConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Grafana::Workspace.StackSetName`.
+	// The name of the AWS CloudFormation stack set that is used to generate IAM roles to be used for this workspace.
 	StackSetName() *string
 	SetStackSetName(val *string)
 	// Deprecated.
@@ -168,7 +206,7 @@ type CfnWorkspace interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::Grafana::Workspace.VpcConfiguration`.
+	// The configuration for connecting to data sources in a private VPC ( Amazon Virtual Private Cloud ).
 	VpcConfiguration() interface{}
 	SetVpcConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

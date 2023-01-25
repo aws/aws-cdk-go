@@ -167,7 +167,9 @@ type CfnInstance interface {
 	// If no key pair name is specified, the Regional Lightsail default key pair is used.
 	KeyPairName() *string
 	SetKeyPairName(val *string)
-	// `AWS::Lightsail::Instance.Location`.
+	// The location for the instance, such as the AWS Region and Availability Zone.
+	//
+	// > The `Location` property is read-only and should not be specified in a create instance or update instance request.
 	Location() interface{}
 	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -194,7 +196,9 @@ type CfnInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Lightsail::Instance.State`.
+	// The status code and the state (for example, `running` ) of the instance.
+	//
+	// > The `State` property is read-only and should not be specified in a create instance or update instance request.
 	State() interface{}
 	SetState(val interface{})
 	// An array of key-value pairs to apply to this resource.

@@ -104,8 +104,6 @@ type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// The ID of the Data Catalog in which to create the `Table` .
-	//
-	// If none is supplied, the AWS account ID is used by default.
 	CatalogId() *string
 	SetCatalogId(val *string)
 	// Options for this resource, such as condition, update policy etc.

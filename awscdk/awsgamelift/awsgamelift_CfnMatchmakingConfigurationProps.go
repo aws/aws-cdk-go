@@ -72,7 +72,7 @@ type CfnMatchmakingConfigurationProps struct {
 	BackfillMode *string `field:"optional" json:"backfillMode" yaml:"backfillMode"`
 	// Information to add to all events related to the matchmaking configuration.
 	CustomEventData *string `field:"optional" json:"customEventData" yaml:"customEventData"`
-	// A descriptive label that is associated with matchmaking configuration.
+	// A description for the matchmaking configuration.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
 	//

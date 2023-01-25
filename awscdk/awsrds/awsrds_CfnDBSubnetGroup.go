@@ -82,7 +82,7 @@ type CfnDBSubnetGroup interface {
 	// The EC2 Subnet IDs for the DB subnet group.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
-	// Tags to assign to the DB subnet group.
+	// An optional array of key-value pairs to apply to this DB subnet group.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

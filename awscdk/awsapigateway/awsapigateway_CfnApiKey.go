@@ -55,16 +55,16 @@ type CfnApiKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+	// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
 	CustomerId() *string
 	SetCustomerId(val *string)
-	// A description of the purpose of the API key.
+	// The description of the ApiKey.
 	Description() *string
 	SetDescription(val *string)
-	// Indicates whether the API key can be used by clients.
+	// Specifies whether the ApiKey can be used by callers.
 	Enabled() interface{}
 	SetEnabled(val interface{})
-	// Specifies whether the key identifier is distinct from the created API key value.
+	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value.
 	//
 	// This parameter is deprecated and should not be used.
 	GenerateDistinctId() interface{}
@@ -97,10 +97,12 @@ type CfnApiKey interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of stages to associate with this API key.
+	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys() interface{}
 	SetStageKeys(val interface{})
-	// An array of arbitrary tags (key-value pairs) to associate with the API key.
+	// The key-value map of strings.
+	//
+	// The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -115,9 +117,7 @@ type CfnApiKey interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The value of the API key.
-	//
-	// Must be at least 20 characters long.
+	// Specifies a value of the API key.
 	Value() *string
 	SetValue(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

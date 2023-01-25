@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Lex::ResourcePolicy`.
 //
+// > Amazon Lex V2 is the only supported version in AWS CloudFormation .
+//
 // Specifies a new resource policy with the specified policy statements.
 //
 // Example:

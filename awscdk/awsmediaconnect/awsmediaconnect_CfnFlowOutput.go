@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::MediaConnect::FlowOutput`.
 //
-// The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to. Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source.
+// The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to. Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source. The following protocols are supported: RIST, RTP, RTP-FEC, SRT-listener, SRT-caller, Zixi pull, Zixi push, and Fujitsu-QoS. CDI and ST 2110 JPEG XS protocols are not currently supported by AWS CloudFormation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -78,7 +78,7 @@ type CfnFlowOutput interface {
 	// The encryption credentials that you want to use for the output.
 	Encryption() interface{}
 	SetEncryption(val interface{})
-	// The Amazon Resource Name (ARN) of the flow.
+	// The Amazon Resource Name (ARN) of the flow this output is attached to.
 	FlowArn() *string
 	SetFlowArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -91,7 +91,9 @@ type CfnFlowOutput interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The maximum latency in milliseconds for Zixi-based streams.
+	// The maximum latency in milliseconds.
+	//
+	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
 	MaxLatency() *float64
 	SetMaxLatency(val *float64)
 	// The minimum latency in milliseconds for SRT-based streams.
@@ -127,9 +129,9 @@ type CfnFlowOutput interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The stream ID that you want to use for the transport.
+	// The stream ID that you want to use for this transport.
 	//
-	// This parameter applies only to Zixi-based streams.
+	// This parameter applies only to Zixi and SRT caller-based streams.
 	StreamId() *string
 	SetStreamId(val *string)
 	// Deprecated.

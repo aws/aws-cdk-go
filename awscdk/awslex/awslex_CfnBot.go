@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Lex::Bot`.
 //
+// > Amazon Lex V2 is the only supported version in AWS CloudFormation .
+//
 // Specifies an Amazon Lex conversational bot.
 //
 // You must configure an intent based on the AMAZON.FallbackIntent built-in intent. If you don't add one, creating the bot will fail.

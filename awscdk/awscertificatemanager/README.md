@@ -92,16 +92,43 @@ acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
 ## Cross-region Certificates
 
 ACM certificates that are used with CloudFront -- or higher-level constructs which rely on CloudFront -- must be in the `us-east-1` region.
-The `DnsValidatedCertificate` construct exists to facilitate creating these certificates cross-region. This resource can only be used with
-Route53-based DNS validation.
+CloudFormation allows you to create a Stack with a CloudFront distribution in any region. In order
+to create an ACM certificate in us-east-1 and reference it in a CloudFront distribution is a
+different region, it is recommended to perform a multi stack deployment.
+
+Enable the Stack property `crossRegionReferences`
+in order to access the cross stack/region certificate.
+
+> **This feature is currently experimental**
 
 ```go
-var myHostedZone hostedZone
+// Example automatically generated from non-compiling source. May contain errors.
+stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-1"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+cert := acm.NewCertificate(stack1, jsii.String("Cert"), &certificateProps{
+	domainName: jsii.String("*.example.com"),
+	validation: acm.certificateValidation.fromDns(awscdk.PublicHostedZone.fromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("ZONE_ID"))),
+})
 
-acm.NewDnsValidatedCertificate(this, jsii.String("CrossRegionCertificate"), &dnsValidatedCertificateProps{
-	domainName: jsii.String("hello.example.com"),
-	hostedZone: myHostedZone,
-	region: jsii.String("us-east-1"),
+stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &stackProps{
+	env: &environment{
+		region: jsii.String("us-east-2"),
+	},
+	crossRegionReferences: jsii.Boolean(true),
+})
+
+cloudfront.NewDistribution(stack2, jsii.String("Distribution"), map[string]interface{}{
+	"defaultBehavior": map[string]interface{}{
+		"origin": origins.NewHttpOrigin(jsii.String("example.com")),
+	},
+	"domainNames": []*string{
+		jsii.String("dev.example.com"),
+	},
+	"certificate": cert,
 })
 ```
 

@@ -17,6 +17,8 @@ import (
 //
 // To send VPC traffic to an attached transit gateway, add a route to the VPC route table using [AWS::EC2::Route](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html) .
 //
+// To update tags for a VPC attachment after creation without replacing the attachment, use [AWS::EC2::TransitGatewayVpcAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html) instead.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -44,6 +46,7 @@ import (
 type CfnTransitGatewayAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the attachment.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -66,7 +69,11 @@ type CfnTransitGatewayAttachment interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::EC2::TransitGatewayAttachment.Options`.
+	// The VPC attachment options, in JSON or YAML.
+	//
+	// - `ApplianceModeSupport` - Set to `enable` or `disable` . The default is `disable` .
+	// - `DnsSupport` - Set to `enable` or `disable` . The default is `enable` .
+	// - `Ipv6Support` - Set to `enable` or `disable` . The default is `disable` .
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

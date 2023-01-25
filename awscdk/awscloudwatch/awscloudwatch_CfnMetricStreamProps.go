@@ -27,6 +27,7 @@ import (
 //   			namespace: jsii.String("namespace"),
 //   		},
 //   	},
+//   	includeLinkedAccountsMetrics: jsii.Boolean(false),
 //   	name: jsii.String("name"),
 //   	statisticsConfigurations: []interface{}{
 //   		&metricStreamStatisticsConfigurationProperty{
@@ -76,6 +77,12 @@ type CfnMetricStreamProps struct {
 	//
 	// When you modify the `IncludeFilters` or `ExcludeFilters` of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
 	IncludeFilters interface{} `field:"optional" json:"includeFilters" yaml:"includeFilters"`
+	// If you are creating a metric stream in a monitoring account, specify `true` to include metrics from source accounts that are linked to this monitoring account, in the metric stream.
+	//
+	// The default is `false` .
+	//
+	// For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html)
+	IncludeLinkedAccountsMetrics interface{} `field:"optional" json:"includeLinkedAccountsMetrics" yaml:"includeLinkedAccountsMetrics"`
 	// If you are creating a new metric stream, this is the name for the new stream.
 	//
 	// The name must be different than the names of other metric streams in this account and Region.

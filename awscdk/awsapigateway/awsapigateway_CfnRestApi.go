@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::ApiGateway::RestApi`.
 //
-// The `AWS::ApiGateway::RestApi` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/api-reference/link-relation/restapi-create/) in the *Amazon API Gateway REST API Reference* .
+// The `AWS::ApiGateway::RestApi` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference* .
 //
 // > On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/) , becoming the foundation of the OpenAPI Specification.
 //
@@ -65,18 +65,17 @@ import (
 type CfnRestApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The source of the API key for metering requests according to a usage plan. Valid values are:.
+	// The source of the API key for metering requests according to a usage plan.
 	//
-	// - `HEADER` to read the API key from the `X-API-Key` header of a request.
-	// - `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a Lambda authorizer.
+	// Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 	ApiKeySourceType() *string
 	SetApiKeySourceType(val *string)
 	AttrRestApiId() *string
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	AttrRootResourceId() *string
-	// The list of binary media types that are supported by the `RestApi` resource.
+	// The list of binary media types supported by the RestApi.
 	//
-	// Use `~1` instead of `/` in the media types, for example `image~1png` or `application~1octet-stream` . By default, `RestApi` supports only UTF-8-encoded text payloads. Duplicates are not allowed. For more information, see [Enable Support for Binary Payloads in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings.html) in the *API Gateway Developer Guide* .
+	// By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes() *[]*string
 	SetBinaryMediaTypes(val *[]*string)
 	// An OpenAPI specification that defines a set of RESTful APIs in JSON format.
@@ -92,19 +91,19 @@ type CfnRestApi interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The ID of the `RestApi` resource that you want to clone.
+	// The ID of the RestApi that you want to clone from.
 	CloneFrom() *string
 	SetCloneFrom(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the `RestApi` resource.
+	// The description of the RestApi.
 	Description() *string
 	SetDescription(val *string)
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
 	//
-	// By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+	// By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint() interface{}
 	SetDisableExecuteApiEndpoint(val interface{})
 	// A list of the endpoint types of the API.
@@ -112,7 +111,9 @@ type CfnRestApi interface {
 	// Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the `Parameters` property.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
-	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the `RestApi` resource.
+	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered.
+	//
+	// The default value is `false` .
 	FailOnWarnings() interface{}
 	SetFailOnWarnings(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -143,12 +144,14 @@ type CfnRestApi interface {
 	// If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is `overwrite` . Otherwise, the default value is `merge` .
 	Mode() *string
 	SetMode(val *string)
-	// A name for the `RestApi` resource.
+	// The name of the RestApi.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Custom header parameters for the request.
+	// Custom header parameters as part of the request.
+	//
+	// For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// A policy document that contains the permissions for the `RestApi` resource.
@@ -165,7 +168,9 @@ type CfnRestApi interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of arbitrary tags (key-value pairs) to associate with the API.
+	// The key-value map of strings.
+	//
+	// The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

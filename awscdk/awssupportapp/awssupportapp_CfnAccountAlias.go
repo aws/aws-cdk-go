@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::SupportApp::AccountAlias`.
 //
+// You can use the `AWS::SupportApp::AccountAlias` resource to specify your AWS account when you configure the AWS Support App in Slack. Your alias name appears on the AWS Support App page in the Support Center Console and in messages from the AWS Support App. You can use this alias to identify the account you've configured with the AWS Support App .
+//
+// For more information, see [AWS Support App in Slack](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-app-for-slack.html) in the *AWS Support User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,9 +27,12 @@ import (
 type CfnAccountAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::SupportApp::AccountAlias.AccountAlias`.
+	// An alias or short name for an AWS account .
 	AccountAlias() *string
 	SetAccountAlias(val *string)
+	// The `AccountAlias` resource type has an attribute `AccountAliasResourceId` . You can use this attribute to identify the resource.
+	//
+	// The `AccountAliasResourceId` will be `AccountAlias_for_accountId` . In this example, `AccountAlias_for_` is the prefix and `accountId` is your AWS account number, such as `AccountAlias_for_123456789012` .
 	AttrAccountAliasResourceId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

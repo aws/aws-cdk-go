@@ -50,7 +50,7 @@ type CfnStudio interface {
 	//
 	// For example, `us-west-2` .
 	AttrHomeRegion() *string
-	// The AWS SSO application client ID that is used to integrate with AWS SSO , which enables AWS SSO users to log into the  portal.
+	// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
 	AttrSsoClientId() *string
 	// The unique identifier for the studio resource.
 	AttrStudioId() *string

@@ -65,7 +65,9 @@ type CfnDataLakeSettings interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::LakeFormation::DataLakeSettings.TrustedResourceOwners`.
+	// An array of UTF-8 strings.
+	//
+	// A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's CloudTrail log. You may want to specify this property when you are in a high-trust boundary, such as the same team or company.
 	TrustedResourceOwners() *[]*string
 	SetTrustedResourceOwners(val *[]*string)
 	// Deprecated.

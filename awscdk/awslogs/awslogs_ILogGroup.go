@@ -28,6 +28,8 @@ type ILogGroup interface {
 	ExtractMetric(jsonField *string, metricNamespace *string, metricName *string) awscloudwatch.Metric
 	// Give the indicated permissions on this log group and all streams.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Give permissions to read from this log group and streams.
+	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Give permissions to write to create and write to streams in this log group.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Public method to get the physical name of this log group.
@@ -122,6 +124,22 @@ func (i *jsiiProxy_ILogGroup) Grant(grantee awsiam.IGrantable, actions ...*strin
 		i,
 		"grant",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ILogGroup) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantRead",
+		[]interface{}{grantee},
 		&returns,
 	)
 

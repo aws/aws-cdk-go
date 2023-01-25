@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::SSM::ResourcePolicy`.
 //
+// Creates or updates a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an AWS account ) that can manage your Systems Manager resources. Currently, `OpsItemGroup` is the only resource that supports Systems Manager resource policies. The resource policy for `OpsItemGroup` enables AWS accounts to view and interact with OpsCenter operational work items (OpsItems). OpsCenter is a capability of Systems Manager .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,7 +28,11 @@ import (
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// ID of the current policy version.
+	//
+	// The hash helps to prevent a situation where multiple users attempt to overwrite a policy. You must provide this hash and the policy ID when updating or deleting a policy.
 	AttrPolicyHash() *string
+	// ID of the current policy version.
 	AttrPolicyId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -49,7 +55,7 @@ type CfnResourcePolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::SSM::ResourcePolicy.Policy`.
+	// A policy you want to associate with a resource.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -57,7 +63,7 @@ type CfnResourcePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::SSM::ResourcePolicy.ResourceArn`.
+	// Amazon Resource Name (ARN) of the resource to which you want to attach a policy.
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// The stack in which this element is defined.

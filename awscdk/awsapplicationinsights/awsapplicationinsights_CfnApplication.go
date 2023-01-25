@@ -275,7 +275,9 @@ type CfnApplication interface {
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
 	CweMonitorEnabled() interface{}
 	SetCweMonitorEnabled(val interface{})
-	// `AWS::ApplicationInsights::Application.GroupingType`.
+	// Application Insights can create applications based on a resource group or on an account.
+	//
+	// To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED` .
 	GroupingType() *string
 	SetGroupingType(val *string)
 	// The logical ID for this CloudFormation stack element.

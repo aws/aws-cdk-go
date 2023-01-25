@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::NetworkManager::Site`.
 //
-// Specifies a site in a global network.
+// Creates a new site in a global network.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

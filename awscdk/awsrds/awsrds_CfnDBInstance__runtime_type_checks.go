@@ -273,6 +273,47 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAutoMinorVersionUpgradeParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetCertificateDetailsParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnDBInstance_CertificateDetailsProperty:
+		val := val.(*CfnDBInstance_CertificateDetailsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDBInstance_CertificateDetailsProperty:
+		val_ := val.(CfnDBInstance_CertificateDetailsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDBInstance_CertificateDetailsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDBInstance) validateSetCertificateRotationRestartParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetCopyTagsToSnapshotParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

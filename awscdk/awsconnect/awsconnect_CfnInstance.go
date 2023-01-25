@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::Connect::Instance`.
 //
+// *This is a preview release for Amazon Connect . It is subject to change.*
+//
+// Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis.
+//
+// Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -38,13 +44,20 @@ import (
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the instance.
 	AttrArn() *string
+	// When the instance was created.
 	AttrCreatedTime() *string
-	// `AWS::Connect::Instance.Attributes`.
+	// A toggle for an individual feature at the instance level.
 	Attributes() interface{}
 	SetAttributes(val interface{})
+	// The identifier of the Amazon Connect instance.
+	//
+	// You can find the instanceId in the ARN of the instance.
 	AttrId() *string
+	// The state of the instance.
 	AttrInstanceStatus() *string
+	// The service role of the instance.
 	AttrServiceRole() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -55,13 +68,15 @@ type CfnInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Connect::Instance.DirectoryId`.
+	// The identifier for the directory.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
-	// `AWS::Connect::Instance.IdentityManagementType`.
+	// The identity management type.
 	IdentityManagementType() *string
 	SetIdentityManagementType(val *string)
-	// `AWS::Connect::Instance.InstanceAlias`.
+	// The alias of instance.
+	//
+	// `InstanceAlias` is only required when `IdentityManagementType` is `CONNECT_MANAGED` or `SAML` . `InstanceAlias` is not required when `IdentityManagementType` is `EXISTING_DIRECTORY` .
 	InstanceAlias() *string
 	SetInstanceAlias(val *string)
 	// The logical ID for this CloudFormation stack element.

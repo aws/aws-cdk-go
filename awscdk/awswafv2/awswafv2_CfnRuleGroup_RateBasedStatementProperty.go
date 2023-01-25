@@ -472,7 +472,7 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 	// An optional nested statement that narrows the scope of the web requests that are evaluated by the rate-based statement.
 	//
-	// Requests are only tracked by the rate-based statement if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+	// Requests are only tracked by the rate-based statement if they match the scope-down statement. You can use any nestable statement in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 	ScopeDownStatement interface{} `field:"optional" json:"scopeDownStatement" yaml:"scopeDownStatement"`
 }
 

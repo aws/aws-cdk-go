@@ -34,13 +34,15 @@ type CfnHostProps struct {
 	//
 	// Default: `off`.
 	HostRecovery *string `field:"optional" json:"hostRecovery" yaml:"hostRecovery"`
-	// `AWS::EC2::Host.InstanceFamily`.
+	// The instance family supported by the Dedicated Host.
+	//
+	// For example, `m5` .
 	InstanceFamily *string `field:"optional" json:"instanceFamily" yaml:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts.
 	//
 	// If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
-	// `AWS::EC2::Host.OutpostArn`.
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
 	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
 }
 

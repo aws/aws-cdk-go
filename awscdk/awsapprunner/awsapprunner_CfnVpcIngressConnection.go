@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::AppRunner::VpcIngressConnection`.
 //
+// Specify an AWS App Runner VPC Ingress Connection by using the `AWS::AppRunner::VpcIngressConnection` resource in an AWS CloudFormation template.
+//
+// The `AWS::AppRunner::VpcIngressConnection` resource is an AWS App Runner resource type that specifies an App Runner VPC Ingress Connection.
+//
+// App Runner requires this resource when you want to associate your App Runner service to an Amazon VPC endpoint.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,8 +42,13 @@ import (
 type CfnVpcIngressConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The domain name associated with the VPC Ingress Connection resource.
 	AttrDomainName() *string
+	// The current status of the VPC Ingress Connection.
+	//
+	// The VPC Ingress Connection displays one of the following statuses: `AVAILABLE` , `PENDING_CREATION` , `PENDING_DELETION` , `FAILED_CREATION` , `FAILED_DELETION` , `PENDNG_UPDATE` , `FAILED_UPDATE` , and `DELETED` .
 	AttrStatus() *string
+	// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
 	AttrVpcIngressConnectionArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -48,7 +59,7 @@ type CfnVpcIngressConnection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::AppRunner::VpcIngressConnection.IngressVpcConfiguration`.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
 	IngressVpcConfiguration() interface{}
 	SetIngressVpcConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -68,14 +79,16 @@ type CfnVpcIngressConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::AppRunner::VpcIngressConnection.ServiceArn`.
+	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn() *string
 	SetServiceArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::AppRunner::VpcIngressConnection.Tags`.
+	// An optional list of metadata items that you can associate with the VPC Ingress Connection resource.
+	//
+	// A tag is a key-value pair.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -90,7 +103,7 @@ type CfnVpcIngressConnection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::AppRunner::VpcIngressConnection.VpcIngressConnectionName`.
+	// The customer-provided VPC Ingress Connection name.
 	VpcIngressConnectionName() *string
 	SetVpcIngressConnectionName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

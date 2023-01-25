@@ -160,6 +160,8 @@ type CfnReplicationGroup interface {
 	// - Nonalphanumeric characters are restricted to (!, &, #, $, ^, <, >, -, ).
 	//
 	// For more information, see [AUTH password](https://docs.aws.amazon.com/http://redis.io/commands/AUTH) at http://redis.io/commands/AUTH.
+	//
+	// > If ADDING the AuthToken, update requires [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	AuthToken() *string
 	SetAuthToken(val *string)
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
@@ -259,7 +261,7 @@ type CfnReplicationGroup interface {
 	SetDataTieringEnabled(val interface{})
 	// The name of the cache engine to be used for the clusters in this replication group.
 	//
-	// Must be Redis.
+	// The value must be set to `Redis` .
 	Engine() *string
 	SetEngine(val *string)
 	// The version number of the cache engine to be used for the clusters in this replication group.
@@ -272,7 +274,9 @@ type CfnReplicationGroup interface {
 	// The name of the Global datastore.
 	GlobalReplicationGroupId() *string
 	SetGlobalReplicationGroupId(val *string)
-	// `AWS::ElastiCache::ReplicationGroup.IpDiscovery`.
+	// The network type you choose when creating a replication group, either `ipv4` | `ipv6` .
+	//
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
 	IpDiscovery() *string
 	SetIpDiscovery(val *string)
 	// The ID of the KMS key used to encrypt the disk on the cluster.
@@ -296,7 +300,9 @@ type CfnReplicationGroup interface {
 	// For more information, see [Minimizing Downtime: Multi-AZ](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html) .
 	MultiAzEnabled() interface{}
 	SetMultiAzEnabled(val interface{})
-	// `AWS::ElastiCache::ReplicationGroup.NetworkType`.
+	// Must be either `ipv4` | `ipv6` | `dual_stack` .
+	//
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.
@@ -463,7 +469,7 @@ type CfnReplicationGroup interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The list of user groups to associate with the replication group.
+	// The ID of user group to associate with the replication group.
 	UserGroupIds() *[]*string
 	SetUserGroupIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

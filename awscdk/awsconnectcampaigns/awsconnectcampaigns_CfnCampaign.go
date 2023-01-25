@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::ConnectCampaigns::Campaign`.
 //
+// Contains information about an outbound campaign.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -47,20 +49,21 @@ import (
 type CfnCampaign interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the high-volume outbound campaign.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::ConnectCampaigns::Campaign.ConnectInstanceArn`.
+	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	ConnectInstanceArn() *string
 	SetConnectInstanceArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::ConnectCampaigns::Campaign.DialerConfig`.
+	// Contains information about the dialer configuration.
 	DialerConfig() interface{}
 	SetDialerConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -73,12 +76,12 @@ type CfnCampaign interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::ConnectCampaigns::Campaign.Name`.
+	// The name of the campaign.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::ConnectCampaigns::Campaign.OutboundCallConfig`.
+	// Contains information about the outbound call configuration.
 	OutboundCallConfig() interface{}
 	SetOutboundCallConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -90,7 +93,9 @@ type CfnCampaign interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::ConnectCampaigns::Campaign.Tags`.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

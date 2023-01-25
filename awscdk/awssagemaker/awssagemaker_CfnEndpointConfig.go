@@ -213,7 +213,9 @@ type CfnEndpointConfig interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::SageMaker::EndpointConfig.ShadowProductionVariants`.
+	// Array of `ProductionVariant` objects.
+	//
+	// There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `ProductionVariants` . If you use this field, you can only specify one variant for `ProductionVariants` and one variant for `ShadowProductionVariants` .
 	ShadowProductionVariants() interface{}
 	SetShadowProductionVariants(val interface{})
 	// The stack in which this element is defined.

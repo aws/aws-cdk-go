@@ -1,6 +1,8 @@
 package awsec2
 
 
+// Describes the options for instance hostnames.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,13 @@ package awsec2
 //   }
 //
 type CfnSubnet_PrivateDnsNameOptionsOnLaunchProperty struct {
-	// `CfnSubnet.PrivateDnsNameOptionsOnLaunchProperty.EnableResourceNameDnsAAAARecord`.
+	// Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord interface{} `field:"optional" json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
-	// `CfnSubnet.PrivateDnsNameOptionsOnLaunchProperty.EnableResourceNameDnsARecord`.
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecord interface{} `field:"optional" json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
-	// `CfnSubnet.PrivateDnsNameOptionsOnLaunchProperty.HostnameType`.
+	// The type of hostname for EC2 instances.
+	//
+	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
 	HostnameType *string `field:"optional" json:"hostnameType" yaml:"hostnameType"`
 }
 

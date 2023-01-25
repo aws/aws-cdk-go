@@ -33,6 +33,7 @@ import (
 type CfnDocumentationPart interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID for the documentation part.
 	AttrDocumentationPartId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,7 +44,7 @@ type CfnDocumentationPart interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The location of the API entity that the documentation applies to.
+	// The location of the targeted API entity of the to-be-created documentation part.
 	Location() interface{}
 	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -58,7 +59,9 @@ type CfnDocumentationPart interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The documentation content map of the targeted API entity.
+	// The new documentation content map of the targeted API entity.
+	//
+	// Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 	Properties() *string
 	SetProperties(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -66,7 +69,7 @@ type CfnDocumentationPart interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The identifier of the targeted API entity.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.

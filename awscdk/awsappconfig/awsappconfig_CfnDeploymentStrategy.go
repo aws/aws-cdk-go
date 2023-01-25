@@ -64,7 +64,9 @@ type CfnDeploymentStrategy interface {
 	// A description of the deployment strategy.
 	Description() *string
 	SetDescription(val *string)
-	// The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back.
+	// Specifies the amount of time AWS AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete.
+	//
+	// If an alarm is triggered during this time, AWS AppConfig rolls back the deployment. You must configure permissions for AWS AppConfig to roll back based on CloudWatch alarms. For more information, see [Configuring permissions for rollback based on Amazon CloudWatch alarms](https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html) in the *AWS AppConfig User Guide* .
 	FinalBakeTimeInMinutes() *float64
 	SetFinalBakeTimeInMinutes(val *float64)
 	// The percentage of targets to receive a deployed configuration during each interval.

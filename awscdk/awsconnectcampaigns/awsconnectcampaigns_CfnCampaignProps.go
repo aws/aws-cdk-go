@@ -40,15 +40,17 @@ import (
 //   }
 //
 type CfnCampaignProps struct {
-	// `AWS::ConnectCampaigns::Campaign.ConnectInstanceArn`.
+	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	ConnectInstanceArn *string `field:"required" json:"connectInstanceArn" yaml:"connectInstanceArn"`
-	// `AWS::ConnectCampaigns::Campaign.DialerConfig`.
+	// Contains information about the dialer configuration.
 	DialerConfig interface{} `field:"required" json:"dialerConfig" yaml:"dialerConfig"`
-	// `AWS::ConnectCampaigns::Campaign.Name`.
+	// The name of the campaign.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::ConnectCampaigns::Campaign.OutboundCallConfig`.
+	// Contains information about the outbound call configuration.
 	OutboundCallConfig interface{} `field:"required" json:"outboundCallConfig" yaml:"outboundCallConfig"`
-	// `AWS::ConnectCampaigns::Campaign.Tags`.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

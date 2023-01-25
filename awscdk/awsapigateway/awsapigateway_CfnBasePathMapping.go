@@ -31,7 +31,7 @@ import (
 type CfnBasePathMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath() *string
 	SetBasePath(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -43,7 +43,7 @@ type CfnBasePathMapping interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The `DomainName` of an [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	// The domain name of the BasePathMapping resource to be described.
 	DomainName() *string
 	SetDomainName(val *string)
 	// `AWS::ApiGateway::BasePathMapping.Id`.
@@ -66,14 +66,14 @@ type CfnBasePathMapping interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The name of the API's stage.
+	// The name of the associated stage.
 	Stage() *string
 	SetStage(val *string)
 	// Deprecated.

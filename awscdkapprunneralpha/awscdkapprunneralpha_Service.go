@@ -13,18 +13,18 @@ import (
 // The App Runner Service.
 //
 // Example:
-//   import assets "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
-//   	directory: path.join(__dirname, jsii.String("./docker.assets")),
-//   })
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-//   	source: apprunner.source.fromAsset(&assetProps{
-//   		imageConfiguration: &imageConfiguration{
-//   			port: jsii.Number(8000),
+//   	source: apprunner.source.fromGitHub(&githubRepositoryProps{
+//   		repositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
+//   		branch: jsii.String("main"),
+//   		configurationSource: apprunner.configurationSourceType_API,
+//   		codeConfigurationValues: &codeConfigurationValues{
+//   			runtime: apprunner.runtime_PYTHON_3(),
+//   			port: jsii.String("8000"),
+//   			startCommand: jsii.String("python app.py"),
+//   			buildCommand: jsii.String("yum install -y pycairo && pip install -r requirements.txt"),
 //   		},
-//   		asset: imageAsset,
+//   		connection: apprunner.gitHubConnection.fromConnectionArn(jsii.String("CONNECTION_ARN")),
 //   	}),
 //   })
 //
@@ -41,6 +41,9 @@ type Service interface {
 	// that might be different than the stack they were imported into.
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// Environment variables for this service.
+	// Deprecated: use environmentVariables.
+	Environment() *map[string]*string
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -71,6 +74,12 @@ type Service interface {
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
+	// This method adds an environment variable to the App Runner service.
+	// Experimental.
+	AddEnvironmentVariable(name *string, value *string)
+	// This method adds a secret as environment variable to the App Runner service.
+	// Experimental.
+	AddSecret(name *string, secret Secret)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -114,6 +123,16 @@ func (j *jsiiProxy_Service) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Service) Environment() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"environment",
 		&returns,
 	)
 	return returns
@@ -343,6 +362,28 @@ func Service_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (s *jsiiProxy_Service) AddEnvironmentVariable(name *string, value *string) {
+	if err := s.validateAddEnvironmentVariableParameters(name, value); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"addEnvironmentVariable",
+		[]interface{}{name, value},
+	)
+}
+
+func (s *jsiiProxy_Service) AddSecret(name *string, secret Secret) {
+	if err := s.validateAddSecretParameters(name, secret); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"addSecret",
+		[]interface{}{name, secret},
+	)
 }
 
 func (s *jsiiProxy_Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

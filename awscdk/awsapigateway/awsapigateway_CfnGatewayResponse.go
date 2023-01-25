@@ -65,29 +65,23 @@ type CfnGatewayResponse interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The response parameters (paths, query strings, and headers) for the response.
-	//
-	// Duplicates not allowed.
+	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters() interface{}
 	SetResponseParameters(val interface{})
-	// The response templates for the response.
-	//
-	// Duplicates not allowed.
+	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseTemplates() interface{}
 	SetResponseTemplates(val interface{})
-	// The response type.
-	//
-	// For valid values, see [GatewayResponse](https://docs.aws.amazon.com/apigateway/api-reference/resource/gateway-response/) in the *API Gateway API Reference* .
+	// The response type of the associated GatewayResponse.
 	ResponseType() *string
 	SetResponseType(val *string)
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The HTTP status code for the response.
+	// The HTTP status code for this GatewayResponse.
 	StatusCode() *string
 	SetStatusCode(val *string)
 	// Deprecated.

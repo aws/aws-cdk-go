@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::OpenSearchServerless::SecurityConfig`.
 //
+// Specifies a security configuration for OpenSearch Serverless. For more information, see [SAML authentication for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,6 +35,9 @@ import (
 type CfnSecurityConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique identifier of the security configuration.
+	//
+	// For example, `saml/123456789012/myprovider` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,7 +48,7 @@ type CfnSecurityConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::OpenSearchServerless::SecurityConfig.Description`.
+	// The description of the security configuration.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -56,7 +61,7 @@ type CfnSecurityConfig interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::OpenSearchServerless::SecurityConfig.Name`.
+	// The name of the security configuration.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -66,14 +71,16 @@ type CfnSecurityConfig interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::OpenSearchServerless::SecurityConfig.SamlOptions`.
+	// SAML options for the security configuration in the form of a key-value map.
 	SamlOptions() interface{}
 	SetSamlOptions(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::OpenSearchServerless::SecurityConfig.Type`.
+	// The type of security configuration.
+	//
+	// Currently the only option is `saml` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

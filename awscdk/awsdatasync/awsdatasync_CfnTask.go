@@ -95,14 +95,14 @@ type CfnTask interface {
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
 	DestinationLocationArn() *string
 	SetDestinationLocationArn(val *string)
-	// A list of filter rules that determines which files to exclude from a task.
+	// Specifies a list of filter rules that exclude specific data during your transfer.
 	//
-	// The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
+	// For more information and examples, see [Filtering data transferred by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Excludes() interface{}
 	SetExcludes(val interface{})
-	// A list of filter rules that determines which files to include when running a task.
+	// Specifies a list of filter rules that include specific data during your transfer.
 	//
-	// The pattern contains a single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
+	// For more information and examples, see [Filtering data transferred by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Includes() interface{}
 	SetIncludes(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -122,11 +122,9 @@ type CfnTask interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The set of configuration options that control the behavior of a single execution of the task that occurs when you call `StartTaskExecution` .
+	// Specifies the configuration options for a task. Some options include preserving file or object metadata and verifying data integrity.
 	//
-	// You can configure these options to preserve metadata such as user ID (UID) and group ID (GID), file permissions, data integrity verification, and so on.
-	//
-	// For each individual task execution, you can override these options by specifying the `OverrideOptions` before starting the task execution. For more information, see the [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation.
+	// You can also override these options before starting an individual run of a task (also known as a *task execution* ). For more information, see [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -146,9 +144,9 @@ type CfnTask interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The key-value pair that represents the tag that you want to add to the resource.
+	// Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task.
 	//
-	// The value can be an empty string.
+	// *Tags* are key-value pairs that help you manage, filter, and search for your DataSync resources.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

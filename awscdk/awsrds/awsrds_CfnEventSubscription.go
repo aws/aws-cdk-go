@@ -109,10 +109,12 @@ type CfnEventSubscription interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::RDS::EventSubscription.SubscriptionName`.
+	// The name of the subscription.
+	//
+	// Constraints: The name must be less than 255 characters.
 	SubscriptionName() *string
 	SetSubscriptionName(val *string)
-	// `AWS::RDS::EventSubscription.Tags`.
+	// An optional array of key-value pairs to apply to this subscription.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

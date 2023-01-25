@@ -13,6 +13,8 @@ import (
 //
 // The `AWS::LakeFormation::Permissions` resource represents the permissions that a principal has on an AWS Glue Data Catalog resource (such as AWS Glue database or AWS Glue tables). When you upload a permissions stack, the permissions are granted to the principal and when you remove the stack, the permissions are revoked from the principal. If you remove a stack, and the principal does not have the permissions referenced in the stack then AWS Lake Formation will throw an error because you can’t call revoke on non-existing permissions. To successfully remove the stack, you’ll need to regrant those permissions and then remove the stack.
 //
+// > New versions of AWS Lake Formation permission resources are now available. For more information, see: [AWS:LakeFormation::PrincipalPermissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html)
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -92,7 +94,7 @@ type CfnPermissions interface {
 	// The permissions granted or revoked.
 	Permissions() *[]*string
 	SetPermissions(val *[]*string)
-	// Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).
+	// Indicates the ability to grant permissions (as a subset of permissions granted).
 	PermissionsWithGrantOption() *[]*string
 	SetPermissionsWithGrantOption(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

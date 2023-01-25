@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::IoTFleetWise::Vehicle`.
 //
+// Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.
+//
+// > If you have an existing AWS IoT Thing, you can use AWS IoT FleetWise to create a vehicle and collect data from your thing.
+//
+// For more information, see [Create a vehicle (CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html) in the *AWS IoT FleetWise Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,12 +43,14 @@ import (
 type CfnVehicle interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::IoTFleetWise::Vehicle.AssociationBehavior`.
+	// An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
 	AssociationBehavior() *string
 	SetAssociationBehavior(val *string)
 	AttrArn() *string
 	AttrCreationTime() *string
-	// `AWS::IoTFleetWise::Vehicle.Attributes`.
+	// Static information about a vehicle in a key-value pair.
+	//
+	// For example: `"engine Type"` : `"v6"`.
 	Attributes() interface{}
 	SetAttributes(val interface{})
 	AttrLastModificationTime() *string
@@ -55,7 +63,7 @@ type CfnVehicle interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::IoTFleetWise::Vehicle.DecoderManifestArn`.
+	// The Amazon Resource Name (ARN) of a decoder manifest associated with the vehicle to create.
 	DecoderManifestArn() *string
 	SetDecoderManifestArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,7 +76,7 @@ type CfnVehicle interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::IoTFleetWise::Vehicle.ModelManifestArn`.
+	// The ARN of the vehicle model (model manifest) to create the vehicle from.
 	ModelManifestArn() *string
 	SetModelManifestArn(val *string)
 	// `AWS::IoTFleetWise::Vehicle.Name`.
@@ -85,7 +93,7 @@ type CfnVehicle interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTFleetWise::Vehicle.Tags`.
+	// Metadata which can be used to manage the vehicle.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

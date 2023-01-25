@@ -1,6 +1,8 @@
 package awsredshift
 
 
+// Describes a network interface.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,13 +16,13 @@ package awsredshift
 //   }
 //
 type CfnEndpointAccess_NetworkInterfaceProperty struct {
-	// `CfnEndpointAccess.NetworkInterfaceProperty.AvailabilityZone`.
+	// The Availability Zone.
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
-	// `CfnEndpointAccess.NetworkInterfaceProperty.NetworkInterfaceId`.
+	// The network interface identifier.
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
-	// `CfnEndpointAccess.NetworkInterfaceProperty.PrivateIpAddress`.
+	// The IPv4 address of the network interface within the subnet.
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
-	// `CfnEndpointAccess.NetworkInterfaceProperty.SubnetId`.
+	// The subnet identifier.
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

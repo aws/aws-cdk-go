@@ -19,11 +19,9 @@ package awsiotthingsgraph
 //   }
 //
 type CfnFlowTemplateProps struct {
-	// A workflow's definition document.
+	// `AWS::IoTThingsGraph::FlowTemplate.Definition`.
 	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
-	// The version of the user's namespace against which the workflow was validated.
-	//
-	// Use this value in your system instance.
+	// `AWS::IoTThingsGraph::FlowTemplate.CompatibleNamespaceVersion`.
 	CompatibleNamespaceVersion *float64 `field:"optional" json:"compatibleNamespaceVersion" yaml:"compatibleNamespaceVersion"`
 }
 

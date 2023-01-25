@@ -35,7 +35,6 @@ import (
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
 //   	remediationEnabled: jsii.Boolean(false),
-//   	resourceType: jsii.String("resourceType"),
 //   	securityServicePolicyData: &securityServicePolicyDataProperty{
 //   		type: jsii.String("type"),
 //
@@ -69,7 +68,11 @@ import (
 //   			jsii.String("orgunit"),
 //   		},
 //   	},
+//   	policyDescription: jsii.String("policyDescription"),
 //   	resourcesCleanUp: jsii.Boolean(false),
+//   	resourceSetIds: []*string{
+//   		jsii.String("resourceSetIds"),
+//   	},
 //   	resourceTags: []interface{}{
 //   		&resourceTagProperty{
 //   			key: jsii.String("key"),
@@ -78,6 +81,7 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	resourceType: jsii.String("resourceType"),
 //   	resourceTypeList: []*string{
 //   		jsii.String("resourceTypeList"),
 //   	},
@@ -164,6 +168,9 @@ type CfnPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::FMS::Policy.PolicyDescription`.
+	PolicyDescription() *string
+	SetPolicyDescription(val *string)
 	// The name of the AWS Firewall Manager policy.
 	PolicyName() *string
 	SetPolicyName(val *string)
@@ -184,6 +191,9 @@ type CfnPolicy interface {
 	// This option is not available for Shield Advanced or AWS WAF Classic policies.
 	ResourcesCleanUp() interface{}
 	SetResourcesCleanUp(val interface{})
+	// `AWS::FMS::Policy.ResourceSetIds`.
+	ResourceSetIds() *[]*string
+	SetResourceSetIds(val *[]*string)
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.
 	//
 	// If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
@@ -523,6 +533,16 @@ func (j *jsiiProxy_CfnPolicy) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicy) PolicyDescription() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"policyDescription",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicy) PolicyName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -558,6 +578,16 @@ func (j *jsiiProxy_CfnPolicy) ResourcesCleanUp() interface{} {
 	_jsii_.Get(
 		j,
 		"resourcesCleanUp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPolicy) ResourceSetIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"resourceSetIds",
 		&returns,
 	)
 	return returns
@@ -717,6 +747,14 @@ func (j *jsiiProxy_CfnPolicy)SetIncludeMap(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnPolicy)SetPolicyDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"policyDescription",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPolicy)SetPolicyName(val *string) {
 	if err := j.validateSetPolicyNameParameters(val); err != nil {
 		panic(err)
@@ -750,6 +788,14 @@ func (j *jsiiProxy_CfnPolicy)SetResourcesCleanUp(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnPolicy)SetResourceSetIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"resourceSetIds",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPolicy)SetResourceTags(val interface{}) {
 	if err := j.validateSetResourceTagsParameters(val); err != nil {
 		panic(err)
@@ -762,9 +808,6 @@ func (j *jsiiProxy_CfnPolicy)SetResourceTags(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnPolicy)SetResourceType(val *string) {
-	if err := j.validateSetResourceTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"resourceType",

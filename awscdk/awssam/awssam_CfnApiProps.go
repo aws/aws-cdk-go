@@ -44,6 +44,7 @@ package awssam
 //   	definitionBody: definitionBody,
 //   	definitionUri: jsii.String("definitionUri"),
 //   	description: jsii.String("description"),
+//   	disableExecuteApiEndpoint: jsii.Boolean(false),
 //   	domain: &domainConfigurationProperty{
 //   		certificateArn: jsii.String("certificateArn"),
 //   		domainName: jsii.String("domainName"),
@@ -108,6 +109,8 @@ type CfnApiProps struct {
 	DefinitionUri interface{} `field:"optional" json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::Api.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// `AWS::Serverless::Api.DisableExecuteApiEndpoint`.
+	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// `AWS::Serverless::Api.Domain`.
 	Domain interface{} `field:"optional" json:"domain" yaml:"domain"`
 	// `AWS::Serverless::Api.EndpointConfiguration`.

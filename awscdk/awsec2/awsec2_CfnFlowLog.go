@@ -57,9 +57,9 @@ type CfnFlowLog interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
+	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
 	//
-	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
+	// This parameter is required if the destination type is `cloud-watch-logs` and unsupported otherwise.
 	DeliverLogsPermissionArn() *string
 	SetDeliverLogsPermissionArn(val *string)
 	// The destination options. The following options are supported:.
@@ -69,34 +69,38 @@ type CfnFlowLog interface {
 	// - `PerHourPartition` - Indicates whether to partition the flow log per hour ( `true` | `false` ). The default is `false` .
 	DestinationOptions() interface{}
 	SetDestinationOptions(val interface{})
-	// The destination to which the flow log data is to be published.
+	// The destination for the flow log data. The meaning of this parameter depends on the destination type.
 	//
-	// Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for `LogDestinationType` .
+	// - If the destination type is `cloud-watch-logs` , specify the ARN of a CloudWatch Logs log group. For example:
 	//
-	// If `LogDestinationType` is not specified or `cloud-watch-logs` , specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example, to publish to a log group called `my-logs` , specify `arn:aws:logs:us-east-1:123456789012:log-group:my-logs` . Alternatively, use `LogGroupName` instead.
+	// arn:aws:logs: *region* : *account_id* :log-group: *my_group*
 	//
-	// If LogDestinationType is `s3` , specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: `bucket_ARN/subfolder_name/` . For example, to specify a subfolder named `my-logs` in a bucket named `my-bucket` , use the following ARN: `arn:aws:s3:::my-bucket/my-logs/` . You cannot use `AWSLogs` as a subfolder name. This is a reserved term.
+	// Alternatively, use the `LogGroupName` parameter.
+	// - If the destination type is `s3` , specify the ARN of an S3 bucket. For example:
+	//
+	// arn:aws:s3::: *my_bucket* / *my_subfolder* /
+	//
+	// The subfolder is optional. Note that you can't use `AWSLogs` as a subfolder name.
+	// - If the destination type is `kinesis-data-firehose` , specify the ARN of a Kinesis Data Firehose delivery stream. For example:
+	//
+	// arn:aws:firehose: *region* : *account_id* :deliverystream: *my_stream*.
 	LogDestination() *string
 	SetLogDestination(val *string)
-	// The type of destination to which the flow log data is to be published.
-	//
-	// Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify `cloud-watch-logs` . To publish flow log data to Amazon S3, specify `s3` .
-	//
-	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
+	// The type of destination for the flow log data.
 	//
 	// Default: `cloud-watch-logs`.
 	LogDestinationType() *string
 	SetLogDestinationType(val *string)
 	// The fields to include in the flow log record, in the order in which they should appear.
 	//
-	// For a list of available fields, see [Flow Log Records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) . If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.
+	// If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) in the *Amazon VPC User Guide* or [Transit Gateway Flow Log records](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records) in the *AWS Transit Gateway Guide* .
 	//
 	// Specify the fields using the `${field-id}` format, separated by spaces.
 	LogFormat() *string
 	SetLogFormat(val *string)
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.
 	//
-	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
+	// This parameter is valid only if the destination type is `cloud-watch-logs` .
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -111,7 +115,7 @@ type CfnFlowLog interface {
 	LogicalId() *string
 	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
 	//
-	// You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
+	// The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes). This parameter must be 60 seconds for transit gateway resource types.
 	//
 	// When a network interface is attached to a [Nitro-based instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) , the aggregation interval is always 60 seconds or less, regardless of the value that you specify.
 	//
@@ -125,12 +129,12 @@ type CfnFlowLog interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the subnet, network interface, or VPC for which you want to create a flow log.
+	// The ID of the resource to monitor.
+	//
+	// For example, if the resource type is `VPC` , specify the ID of the VPC.
 	ResourceId() *string
 	SetResourceId(val *string)
-	// The type of resource for which to create the flow log.
-	//
-	// For example, if you specified a VPC ID for the `ResourceId` property, specify `VPC` for this property.
+	// The type of resource to monitor.
 	ResourceType() *string
 	SetResourceType(val *string)
 	// The stack in which this element is defined.
@@ -139,9 +143,9 @@ type CfnFlowLog interface {
 	Stack() awscdk.Stack
 	// The tags to apply to the flow logs.
 	Tags() awscdk.TagManager
-	// The type of traffic to log.
+	// The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).
 	//
-	// You can log traffic that the resource accepts or rejects, or all traffic.
+	// This parameter is not supported for transit gateway resource types. It is required for the other resource types.
 	TrafficType() *string
 	SetTrafficType(val *string)
 	// Deprecated.

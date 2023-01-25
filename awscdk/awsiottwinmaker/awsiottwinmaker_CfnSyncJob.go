@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::IoTTwinMaker::SyncJob`.
 //
+// The SyncJob.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -30,9 +32,13 @@ import (
 type CfnSyncJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The SyncJob ARN.
 	AttrArn() *string
+	// The creation date and time of the SyncJob.
 	AttrCreationDateTime() *string
+	// The SyncJob's state.
 	AttrState() *string
+	// The update date and time.
 	AttrUpdateDateTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -64,13 +70,17 @@ type CfnSyncJob interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::IoTTwinMaker::SyncJob.SyncRole`.
+	// The SyncJob IAM role.
+	//
+	// This IAM role is used by the sync job to read from the syncSource, and create, update or delete the corresponding resources.
 	SyncRole() *string
 	SetSyncRole(val *string)
-	// `AWS::IoTTwinMaker::SyncJob.SyncSource`.
+	// The sync source.
+	//
+	// > Currently the only supported syncSoucre is `SITEWISE` .
 	SyncSource() *string
 	SetSyncSource(val *string)
-	// `AWS::IoTTwinMaker::SyncJob.Tags`.
+	// Metadata you can use to manage the SyncJob.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -85,7 +95,7 @@ type CfnSyncJob interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::IoTTwinMaker::SyncJob.WorkspaceId`.
+	// The ID of the workspace that contains the sync job.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

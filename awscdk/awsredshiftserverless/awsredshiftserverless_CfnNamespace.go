@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::RedshiftServerless::Namespace`.
 //
+// A collection of database objects and users.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -61,10 +63,10 @@ import (
 type CfnNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::RedshiftServerless::Namespace.AdminUsername`.
+	// The username of the administrator for the primary database created in the namespace.
 	AdminUsername() *string
 	SetAdminUsername(val *string)
-	// `AWS::RedshiftServerless::Namespace.AdminUserPassword`.
+	// The password of the administrator for the primary database created in the namespace.
 	AdminUserPassword() *string
 	SetAdminUserPassword(val *string)
 	AttrNamespaceAdminUsername() *string
@@ -87,25 +89,27 @@ type CfnNamespace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::RedshiftServerless::Namespace.DbName`.
+	// The name of the primary database created in the namespace.
 	DbName() *string
 	SetDbName(val *string)
-	// `AWS::RedshiftServerless::Namespace.DefaultIamRoleArn`.
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 	DefaultIamRoleArn() *string
 	SetDefaultIamRoleArn(val *string)
-	// `AWS::RedshiftServerless::Namespace.FinalSnapshotName`.
+	// The name of the snapshot to be created before the namespace is deleted.
 	FinalSnapshotName() *string
 	SetFinalSnapshotName(val *string)
-	// `AWS::RedshiftServerless::Namespace.FinalSnapshotRetentionPeriod`.
+	// How long to retain the final snapshot.
 	FinalSnapshotRetentionPeriod() *float64
 	SetFinalSnapshotRetentionPeriod(val *float64)
-	// `AWS::RedshiftServerless::Namespace.IamRoles`.
+	// A list of IAM roles to associate with the namespace.
 	IamRoles() *[]*string
 	SetIamRoles(val *[]*string)
-	// `AWS::RedshiftServerless::Namespace.KmsKeyId`.
+	// The ID of the AWS Key Management Service key used to encrypt your data.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
-	// `AWS::RedshiftServerless::Namespace.LogExports`.
+	// The types of logs the namespace can export.
+	//
+	// Available export types are `userlog` , `connectionlog` , and `useractivitylog` .
 	LogExports() *[]*string
 	SetLogExports(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -121,7 +125,7 @@ type CfnNamespace interface {
 	// `AWS::RedshiftServerless::Namespace.Namespace`.
 	Namespace() interface{}
 	SetNamespace(val interface{})
-	// `AWS::RedshiftServerless::Namespace.NamespaceName`.
+	// The name of the namespace.
 	NamespaceName() *string
 	SetNamespaceName(val *string)
 	// The tree node.
@@ -135,7 +139,7 @@ type CfnNamespace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::RedshiftServerless::Namespace.Tags`.
+	// The map of the key-value pairs used to tag the namespace.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

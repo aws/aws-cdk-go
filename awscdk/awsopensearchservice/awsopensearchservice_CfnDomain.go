@@ -13,8 +13,6 @@ import (
 //
 // The AWS::OpenSearchService::Domain resource creates an Amazon OpenSearch Service domain.
 //
-// > The `AWS::OpenSearchService::Domain` resource replaces the legacy [AWS::Elasticsearch::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html) resource. While the Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch engines. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see [Remarks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks) .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -114,10 +112,12 @@ type CfnDomain interface {
 	SetAccessPolicies(val interface{})
 	// Additional options to specify for the OpenSearch Service domain.
 	//
-	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-advancedoptions) in the OpenSearch Service configuration API reference.
+	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 	AdvancedOptions() interface{}
 	SetAdvancedOptions(val interface{})
 	// Specifies options for fine-grained access control.
+	//
+	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions() interface{}
 	SetAdvancedSecurityOptions(val interface{})
 	// The Amazon Resource Name (ARN) of the domain, such as `arn:aws:es:us-west-2:123456789012:domain/mystack-1ab2cdefghij` .
@@ -129,20 +129,36 @@ type CfnDomain interface {
 	//
 	// For example, `123456789012/my-domain` .
 	AttrId() *string
+	// The timestamp, in Epoch time, until which you can manually request a service software update.
+	//
+	// After this date, we automatically update your service software.
 	AttrServiceSoftwareOptionsAutomatedUpdateDate() *string
+	// True if you're able to cancel your service software version update.
+	//
+	// False if you can't cancel your service software update.
 	AttrServiceSoftwareOptionsCancellable() awscdk.IResolvable
+	// The current service software version present on the domain.
 	AttrServiceSoftwareOptionsCurrentVersion() *string
+	// A description of the service software update status.
 	AttrServiceSoftwareOptionsDescription() *string
+	// The new service software version, if one is available.
 	AttrServiceSoftwareOptionsNewVersion() *string
+	// True if a service software is never automatically updated.
+	//
+	// False if a service software is automatically updated after the automated update date.
 	AttrServiceSoftwareOptionsOptionalDeployment() awscdk.IResolvable
+	// True if you're able to update your service software version.
+	//
+	// False if you can't update your service software version.
 	AttrServiceSoftwareOptionsUpdateAvailable() awscdk.IResolvable
+	// The status of your service software update.
 	AttrServiceSoftwareOptionsUpdateStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `ClusterConfig` is a property of the AWS::OpenSearchService::Domain resource that configures an Amazon OpenSearch Service cluster.
+	// Container for the cluster configuration of a domain.
 	ClusterConfig() interface{}
 	SetClusterConfig(val interface{})
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
@@ -157,7 +173,7 @@ type CfnDomain interface {
 	SetDomainEndpointOptions(val interface{})
 	// A name for the OpenSearch Service domain.
 	//
-	// For valid values, see the [DomainName](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-domainname) data type in the *Amazon OpenSearch Service Developer Guide* . If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	// The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// Required when creating a new domain.
 	//
@@ -210,7 +226,7 @@ type CfnDomain interface {
 	Ref() *string
 	// *DEPRECATED* .
 	//
-	// The automated snapshot configuration for the OpenSearch Service domain indices.
+	// The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions() interface{}
 	SetSnapshotOptions(val interface{})
 	// The stack in which this element is defined.
@@ -235,6 +251,8 @@ type CfnDomain interface {
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	//
 	// For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	//
+	// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
 	VpcOptions() interface{}
 	SetVpcOptions(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::CloudFront::ContinuousDeploymentPolicy`.
 //
+// Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
+//
+// After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This enables you to test changes to a distribution's configuration before moving all of your production traffic to the new configuration.
+//
+// For more information, see [Using CloudFront continuous deployment to safely test CDN configuration changes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/continuous-deployment.html) in the *Amazon CloudFront Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -48,14 +54,16 @@ import (
 type CfnContinuousDeploymentPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The identifier of the cotinuous deployment policy.
 	AttrId() *string
+	// The date and time when the continuous deployment policy was last modified.
 	AttrLastModifiedTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::CloudFront::ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig`.
+	// Contains the configuration for a continuous deployment policy.
 	ContinuousDeploymentPolicyConfig() interface{}
 	SetContinuousDeploymentPolicyConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

@@ -1,6 +1,8 @@
 package awscloudfront
 
 
+// The traffic configuration of your continuous deployment.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,11 +28,11 @@ package awscloudfront
 //   }
 //
 type CfnContinuousDeploymentPolicy_TrafficConfigProperty struct {
-	// `CfnContinuousDeploymentPolicy.TrafficConfigProperty.Type`.
+	// The type of traffic configuration.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnContinuousDeploymentPolicy.TrafficConfigProperty.SingleHeaderConfig`.
+	// Determines which HTTP requests are sent to the staging distribution.
 	SingleHeaderConfig interface{} `field:"optional" json:"singleHeaderConfig" yaml:"singleHeaderConfig"`
-	// `CfnContinuousDeploymentPolicy.TrafficConfigProperty.SingleWeightConfig`.
+	// Contains the percentage of traffic to send to the staging distribution.
 	SingleWeightConfig interface{} `field:"optional" json:"singleWeightConfig" yaml:"singleWeightConfig"`
 }
 

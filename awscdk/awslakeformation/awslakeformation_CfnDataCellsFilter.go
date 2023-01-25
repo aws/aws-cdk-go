@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::LakeFormation::DataCellsFilter`.
 //
+// A structure that represents a data cell filter with column-level, row-level, and/or cell-level security. Data cell filters belong to a specific table in a Data Catalog . During a stack operation, AWS CloudFormation calls the AWS Lake Formation `CreateDataCellsFilter` API operation to create a `DataCellsFilter` resource, and calls the `DeleteDataCellsFilter` API operation to delete it.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -47,17 +49,23 @@ type CfnDataCellsFilter interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::LakeFormation::DataCellsFilter.ColumnNames`.
+	// An array of UTF-8 strings.
+	//
+	// A list of column names.
 	ColumnNames() *[]*string
 	SetColumnNames(val *[]*string)
-	// `AWS::LakeFormation::DataCellsFilter.ColumnWildcard`.
+	// A wildcard with exclusions.
+	//
+	// You must specify either a `ColumnNames` list or the `ColumnWildCard` .
 	ColumnWildcard() interface{}
 	SetColumnWildcard(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::LakeFormation::DataCellsFilter.DatabaseName`.
+	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// A database in the Data Catalog .
 	DatabaseName() *string
 	SetDatabaseName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,7 +78,9 @@ type CfnDataCellsFilter interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::LakeFormation::DataCellsFilter.Name`.
+	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// The name given by the user to the data filter cell.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -80,17 +90,21 @@ type CfnDataCellsFilter interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::LakeFormation::DataCellsFilter.RowFilter`.
+	// A PartiQL predicate.
 	RowFilter() interface{}
 	SetRowFilter(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::LakeFormation::DataCellsFilter.TableCatalogId`.
+	// Catalog id string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// The ID of the catalog to which the table belongs.
 	TableCatalogId() *string
 	SetTableCatalogId(val *string)
-	// `AWS::LakeFormation::DataCellsFilter.TableName`.
+	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// A table in the database.
 	TableName() *string
 	SetTableName(val *string)
 	// Deprecated.

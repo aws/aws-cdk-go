@@ -107,6 +107,9 @@ type CfnCluster interface {
 	AttrEncryptionConfigKeyArn() *string
 	// The endpoint for your Kubernetes API server, such as `https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com` .
 	AttrEndpoint() *string
+	// The ID of your local Amazon EKS cluster on an AWS Outpost.
+	//
+	// This property isn't available for an Amazon EKS cluster on the AWS cloud.
 	AttrId() *string
 	// The CIDR block that Kubernetes Service IP addresses are assigned from if you created a 1.21 or later cluster with version 1.10.1 or later of the Amazon VPC CNI add-on and specified `ipv6` for *ipFamily* when you created the cluster. Kubernetes assigns Service addresses from the unique local address range ( `fc00::/7` ) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	AttrKubernetesNetworkConfigServiceIpv6Cidr() *string
@@ -145,7 +148,9 @@ type CfnCluster interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::EKS::Cluster.OutpostConfig`.
+	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost.
+	//
+	// This object isn't available for clusters on the AWS cloud.
 	OutpostConfig() interface{}
 	SetOutpostConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -190,7 +195,9 @@ type CfnCluster interface {
 	UpdatedProperties() *map[string]interface{}
 	// The desired Kubernetes version for your cluster.
 	//
-	// If you don't specify a value here, the latest version available in Amazon EKS is used.
+	// If you don't specify a value here, the default version available in Amazon EKS is used.
+	//
+	// > The default version might not be the latest version available.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

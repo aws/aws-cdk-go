@@ -11,9 +11,20 @@ import (
 
 // A CloudFormation `AWS::SES::ConfigurationSet`.
 //
-// The name of the configuration set.
-//
 // Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see [Using Amazon SES Configuration Sets](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html) in the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/) .
+//
+// > *Required permissions:*
+// >
+// > To apply any of the resource options, you will need to have the corresponding AWS Identity and Access Management (IAM) SES API v2 permissions:
+// >
+// > - `ses:GetConfigurationSet`
+// >
+// > - (This permission is replacing the v1 *ses:DescribeConfigurationSet* permission which will not work with these v2 resource options.)
+// > - `ses:PutConfigurationSetDeliveryOptions`
+// > - `ses:PutConfigurationSetReputationOptions`
+// > - `ses:PutConfigurationSetSendingOptions`
+// > - `ses:PutConfigurationSetSuppressionOptions`
+// > - `ses:PutConfigurationSetTrackingOptions`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -62,7 +73,7 @@ type CfnConfigurationSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::SES::ConfigurationSet.DeliveryOptions`.
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions() interface{}
 	SetDeliveryOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -88,20 +99,20 @@ type CfnConfigurationSet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::SES::ConfigurationSet.ReputationOptions`.
+	// An object that represents the reputation settings for the configuration set.
 	ReputationOptions() interface{}
 	SetReputationOptions(val interface{})
-	// `AWS::SES::ConfigurationSet.SendingOptions`.
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
 	SendingOptions() interface{}
 	SetSendingOptions(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::SES::ConfigurationSet.SuppressionOptions`.
+	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions() interface{}
 	SetSuppressionOptions(val interface{})
-	// `AWS::SES::ConfigurationSet.TrackingOptions`.
+	// The name of the custom open and click tracking domain associated with the configuration set.
 	TrackingOptions() interface{}
 	SetTrackingOptions(val interface{})
 	// Deprecated.
@@ -117,7 +128,7 @@ type CfnConfigurationSet interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::SES::ConfigurationSet.VdmOptions`.
+	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
 	VdmOptions() interface{}
 	SetVdmOptions(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

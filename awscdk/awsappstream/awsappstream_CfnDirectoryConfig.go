@@ -38,7 +38,7 @@ import (
 type CfnDirectoryConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::AppStream::DirectoryConfig.CertificateBasedAuthProperties`.
+	// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
 	CertificateBasedAuthProperties() interface{}
 	SetCertificateBasedAuthProperties(val interface{})
 	// Options for this resource, such as condition, update policy etc.

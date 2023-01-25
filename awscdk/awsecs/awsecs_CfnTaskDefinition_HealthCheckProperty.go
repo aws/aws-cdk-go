@@ -29,15 +29,15 @@ package awsecs
 type CfnTaskDefinition_HealthCheckProperty struct {
 	// A string array representing the command that the container runs to determine if it is healthy.
 	//
-	// The string array must start with `CMD` to execute the command arguments directly, or `CMD-SHELL` to run the command with the container's default shell.
+	// The string array must start with `CMD` to run the command arguments directly, or `CMD-SHELL` to run the command with the container's default shell.
 	//
-	// When you use the AWS Management Console JSON panel, the AWS Command Line Interface , or the APIs, enclose the list of commands in brackets.
+	// When you use the AWS Management Console JSON panel, the AWS Command Line Interface , or the APIs, enclose the list of commands in double quotes and brackets.
 	//
 	// `[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`
 	//
-	// You don't need to include the brackets when you use the AWS Management Console.
+	// You don't include the double quotes and brackets when you use the AWS Management Console.
 	//
-	// `"CMD-SHELL", "curl -f http://localhost/ || exit 1"`
+	// `CMD-SHELL, curl -f http://localhost/ || exit 1`
 	//
 	// An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see `HealthCheck` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) .
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
@@ -51,7 +51,7 @@ type CfnTaskDefinition_HealthCheckProperty struct {
 	Retries *float64 `field:"optional" json:"retries" yaml:"retries"`
 	// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries.
 	//
-	// You can specify between 0 and 300 seconds. By default, the `startPeriod` is disabled.
+	// You can specify between 0 and 300 seconds. By default, the `startPeriod` is off.
 	//
 	// > If a health check succeeds within the `startPeriod` , then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
 	StartPeriod *float64 `field:"optional" json:"startPeriod" yaml:"startPeriod"`

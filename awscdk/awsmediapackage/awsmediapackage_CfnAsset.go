@@ -41,8 +41,7 @@ type CfnAsset interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) for the asset.
 	//
-	// You can get this from the response to any request to
-	// the asset.
+	// You can get this from the response to any request to the asset.
 	AttrArn() *string
 	// The time that the asset was initially submitted for ingest.
 	AttrCreatedAt() *string

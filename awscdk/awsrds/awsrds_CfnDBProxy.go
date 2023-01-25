@@ -68,6 +68,7 @@ type CfnDBProxy interface {
 	AttrDbProxyArn() *string
 	// The writer endpoint for the RDS DB instance or Aurora DB cluster.
 	AttrEndpoint() *string
+	// The VPC ID to associate with the DB proxy.
 	AttrVpcId() *string
 	// The authorization mechanism that the proxy uses.
 	Auth() interface{}
@@ -93,9 +94,9 @@ type CfnDBProxy interface {
 	SetDebugLogging(val interface{})
 	// The kinds of databases that the proxy can connect to.
 	//
-	// This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora.
+	// This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL` . For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL` . For RDS for Microsoft SQL Server, specify `SQLSERVER` .
 	//
-	// *Valid values* : `MYSQL` | `POSTGRESQL`.
+	// *Valid values* : `MYSQL` | `POSTGRESQL` | `SQLSERVER`.
 	EngineFamily() *string
 	SetEngineFamily(val *string)
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.

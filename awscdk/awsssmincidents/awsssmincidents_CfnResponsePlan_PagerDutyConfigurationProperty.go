@@ -1,6 +1,8 @@
 package awsssmincidents
 
 
+// Details about the PagerDuty configuration for a response plan.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,11 +17,11 @@ package awsssmincidents
 //   }
 //
 type CfnResponsePlan_PagerDutyConfigurationProperty struct {
-	// `CfnResponsePlan.PagerDutyConfigurationProperty.Name`.
+	// The name of the PagerDuty configuration.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnResponsePlan.PagerDutyConfigurationProperty.PagerDutyIncidentConfiguration`.
+	// Details about the PagerDuty service associated with the configuration.
 	PagerDutyIncidentConfiguration interface{} `field:"required" json:"pagerDutyIncidentConfiguration" yaml:"pagerDutyIncidentConfiguration"`
-	// `CfnResponsePlan.PagerDutyConfigurationProperty.SecretId`.
+	// The ID of the AWS Secrets Manager secret that stores your PagerDuty key, either a General Access REST API Key or User Token REST API Key, and other user credentials.
 	SecretId *string `field:"required" json:"secretId" yaml:"secretId"`
 }
 

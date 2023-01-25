@@ -60,7 +60,7 @@ type CfnSlackChannelConfiguration interface {
 	SetGuardrailPolicies(val *[]*string)
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot .
 	//
-	// This is a user-definworked role that AWS Chatbot will assume. This is not the service-linked role. For more information, see [IAM Policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
+	// This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role. For more information, see [IAM Policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
 	// Specifies the logging level for this configuration. This property affects the log entries pushed to Amazon CloudWatch Logs.

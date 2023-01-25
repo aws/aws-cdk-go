@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Pipes::Pipe`.
 //
+// Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -347,10 +349,15 @@ import (
 type CfnPipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the pipe.
 	AttrArn() *string
+	// The time the pipe was created.
 	AttrCreationTime() *string
+	// The state the pipe is in.
 	AttrCurrentState() *string
+	// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
 	AttrLastModifiedTime() *string
+	// The reason the pipe is in its current state.
 	AttrStateReason() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -361,16 +368,16 @@ type CfnPipe interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Pipes::Pipe.Description`.
+	// A description of the pipe.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Pipes::Pipe.DesiredState`.
+	// The state the pipe should be in.
 	DesiredState() *string
 	SetDesiredState(val *string)
-	// `AWS::Pipes::Pipe.Enrichment`.
+	// The ARN of the enrichment resource.
 	Enrichment() *string
 	SetEnrichment(val *string)
-	// `AWS::Pipes::Pipe.EnrichmentParameters`.
+	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -383,7 +390,7 @@ type CfnPipe interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Pipes::Pipe.Name`.
+	// The name of the pipe.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -393,25 +400,25 @@ type CfnPipe interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Pipes::Pipe.RoleArn`.
+	// The ARN of the role that allows the pipe to send data to the target.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// `AWS::Pipes::Pipe.Source`.
+	// The ARN of the source resource.
 	Source() *string
 	SetSource(val *string)
-	// `AWS::Pipes::Pipe.SourceParameters`.
+	// The parameters required to set up a source for your pipe.
 	SourceParameters() interface{}
 	SetSourceParameters(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Pipes::Pipe.Tags`.
+	// The list of key-value pairs to associate with the pipe.
 	Tags() awscdk.TagManager
-	// `AWS::Pipes::Pipe.Target`.
+	// The ARN of the target resource.
 	Target() *string
 	SetTarget(val *string)
-	// `AWS::Pipes::Pipe.TargetParameters`.
+	// The parameters required to set up a target for your pipe.
 	TargetParameters() interface{}
 	SetTargetParameters(val interface{})
 	// Deprecated.

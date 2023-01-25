@@ -84,7 +84,7 @@ type CfnPricingPlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::BillingConductor::PricingPlan.Tags`.
+	// A map that contains tag keys and tag values that are attached to a pricing plan.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

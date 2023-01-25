@@ -86,7 +86,7 @@ type CfnDeliveryChannel interface {
 	Ref() *string
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
 	//
-	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the AWS Config Developer Guide.
+	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 	S3BucketName() *string
 	SetS3BucketName(val *string)
 	// The prefix for the specified Amazon S3 bucket.
@@ -99,7 +99,7 @@ type CfnDeliveryChannel interface {
 	SetS3KmsKeyArn(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
 	//
-	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the AWS Config Developer Guide.
+	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 	SnsTopicArn() *string
 	SetSnsTopicArn(val *string)
 	// The stack in which this element is defined.

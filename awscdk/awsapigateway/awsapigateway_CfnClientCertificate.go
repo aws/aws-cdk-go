@@ -44,7 +44,7 @@ type CfnClientCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the client certificate.
+	// The description of the client certificate.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,7 +68,9 @@ type CfnClientCertificate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+	// The collection of tags.
+	//
+	// Each tag element is associated with a given resource.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

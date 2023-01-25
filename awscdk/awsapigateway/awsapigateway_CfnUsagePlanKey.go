@@ -27,6 +27,9 @@ import (
 type CfnUsagePlanKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID for the usage plan key.
+	//
+	// For example: `abc123` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -37,12 +40,10 @@ type CfnUsagePlanKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ID of the usage plan key.
+	// The Id of the UsagePlanKey resource to be deleted.
 	KeyId() *string
 	SetKeyId(val *string)
-	// The type of usage plan key.
-	//
-	// Currently, the only valid key type is `API_KEY` .
+	// The type of a UsagePlanKey resource for a plan customer.
 	KeyType() *string
 	SetKeyType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -79,7 +80,7 @@ type CfnUsagePlanKey interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the usage plan.
+	// The Id of the UsagePlan resource representing the usage plan containing the to-be-deleted UsagePlanKey resource representing a plan customer.
 	UsagePlanId() *string
 	SetUsagePlanId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

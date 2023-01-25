@@ -35,8 +35,14 @@ type CodeConfigurationValues struct {
 	// Experimental.
 	BuildCommand *string `field:"optional" json:"buildCommand" yaml:"buildCommand"`
 	// The environment variables that are available to your running App Runner service.
-	// Experimental.
+	// Deprecated: use environmentVariables.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
+	// The environment secrets that are available to your running App Runner service.
+	// Experimental.
+	EnvironmentSecrets *map[string]Secret `field:"optional" json:"environmentSecrets" yaml:"environmentSecrets"`
+	// The environment variables that are available to your running App Runner service.
+	// Experimental.
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The port that your application listens to in the container.
 	// Experimental.
 	Port *string `field:"optional" json:"port" yaml:"port"`

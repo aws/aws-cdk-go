@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::OpenSearchServerless::AccessPolicy`.
 //
+// Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections and the resources within them, and allow a user to access that data irrespective of the access mechanism or network source. For more information, see [Data access control for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,7 +37,7 @@ type CfnAccessPolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::OpenSearchServerless::AccessPolicy.Description`.
+	// The description of the policy.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -48,12 +50,12 @@ type CfnAccessPolicy interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::OpenSearchServerless::AccessPolicy.Name`.
+	// The name of the policy.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::OpenSearchServerless::AccessPolicy.Policy`.
+	// The JSON policy document without any whitespaces.
 	Policy() *string
 	SetPolicy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -65,7 +67,9 @@ type CfnAccessPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::OpenSearchServerless::AccessPolicy.Type`.
+	// The type of access policy.
+	//
+	// Currently the only option is `data` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

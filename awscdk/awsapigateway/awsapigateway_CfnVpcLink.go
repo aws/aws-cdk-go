@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::ApiGateway::VpcLink`.
 //
-// The `AWS::ApiGateway::VpcLink` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC). For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/api-reference/link-relation/vpclink-create/) in the `Amazon API Gateway REST API Reference` .
+// The `AWS::ApiGateway::VpcLink` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC). For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateVpcLink.html) in the `Amazon API Gateway REST API Reference` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,7 +46,7 @@ type CfnVpcLink interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the VPC link.
+	// The description of the VPC link.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -59,7 +59,7 @@ type CfnVpcLink interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A name for the VPC link.
+	// The name used to label and identify the VPC link.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -75,7 +75,7 @@ type CfnVpcLink interface {
 	Stack() awscdk.Stack
 	// An array of arbitrary tags (key-value pairs) to associate with the VPC link.
 	Tags() awscdk.TagManager
-	// The ARN of network load balancer of the VPC targeted by the VPC link.
+	// The ARN of the network load balancer of the VPC targeted by the VPC link.
 	//
 	// The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns() *[]*string

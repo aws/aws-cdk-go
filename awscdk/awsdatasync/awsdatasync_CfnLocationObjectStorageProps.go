@@ -33,29 +33,29 @@ import (
 //   }
 //
 type CfnLocationObjectStorageProps struct {
-	// Specifies the Amazon Resource Names (ARNs) of the agents associated with the location.
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely connect with your location.
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
-	// Specifies the access key (or user name) if credentials are required to access the object storage server.
+	// Specifies the access key (for example, a user name) if credentials are required to authenticate with the object storage server.
 	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
-	// Specifies the name of the bucket that DataSync reads from or writes to.
+	// Specifies the name of the object storage bucket involved in the transfer.
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
-	// Specifies the secret key (or password) if credentials are required to access the object storage server.
+	// Specifies the secret key (for example, a password) if credentials are required to authenticate with the object storage server.
 	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 	// Specifies the domain name or IP address of the object storage server.
 	//
-	// A DataSync agent uses this hostname to mount the object storage server.
+	// A DataSync agent uses this hostname to mount the object storage server in a network.
 	ServerHostname *string `field:"optional" json:"serverHostname" yaml:"serverHostname"`
-	// Specifies the port that your object storage server accepts inbound network traffic on.
-	//
-	// Set to port 80 (HTTP), 443 (HTTPS), or a custom port if needed.
+	// Specifies the port that your object storage server accepts inbound network traffic on (for example, port 443).
 	ServerPort *float64 `field:"optional" json:"serverPort" yaml:"serverPort"`
 	// Specifies the protocol that your object storage server uses to communicate.
 	ServerProtocol *string `field:"optional" json:"serverProtocol" yaml:"serverProtocol"`
-	// Specifies the object prefix that DataSync reads from or writes to.
-	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
-	// Specifies the key-value pair that represents the tag to help you manage, filter, and search for your location.
+	// Specifies the object prefix for your object storage server.
 	//
-	// We recommend using tags for naming your locations.
+	// If this is a source location, DataSync only copies objects with this prefix. If this is a destination location, DataSync writes all objects with this prefix.
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
+	// Specifies the key-value pair that represents a tag that you want to add to the resource.
+	//
+	// Tags can help you manage, filter, and search for your resources. We recommend creating a name tag for your location.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

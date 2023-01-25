@@ -11,6 +11,14 @@ import (
 
 // A CloudFormation `AWS::Evidently::Segment`.
 //
+// Creates or updates a *segment* of your audience. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+//
+// Using a segment in an experiment limits that experiment to evaluate only the users who match the segment criteria. Using one or more segments in a launch allow you to define different traffic splits for the different audience segments.
+//
+// For more information about segment pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
+//
+// The pattern that you define for a segment is matched against the value of `evaluationContext` , which is passed into Evidently in the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation, when Evidently assigns a feature variation to a user.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,6 +41,9 @@ import (
 type CfnSegment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the segment.
+	//
+	// For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -43,7 +54,7 @@ type CfnSegment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Evidently::Segment.Description`.
+	// An optional description for this segment.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -56,12 +67,14 @@ type CfnSegment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Evidently::Segment.Name`.
+	// A name for the segment.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Evidently::Segment.Pattern`.
+	// The pattern to use for the segment.
+	//
+	// For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html) .
 	Pattern() *string
 	SetPattern(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -73,7 +86,15 @@ type CfnSegment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Evidently::Segment.Tags`.
+	// Assigns one or more tags (key-value pairs) to the feature.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	//
+	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+	//
+	// You can associate as many as 50 tags with a feature.
+	//
+	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

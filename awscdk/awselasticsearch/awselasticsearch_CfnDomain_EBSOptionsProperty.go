@@ -24,7 +24,7 @@ type CfnDomain_EBSOptionsProperty struct {
 	EbsEnabled interface{} `field:"optional" json:"ebsEnabled" yaml:"ebsEnabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
-	// This property applies only to the Provisioned IOPS (SSD) EBS volume type.
+	// This property applies only to provisioned IOPS EBS volume types.
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//

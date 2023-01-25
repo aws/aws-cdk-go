@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::EC2::NetworkPerformanceMetricSubscription`.
 //
+// Describes Infrastructure Performance subscriptions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,7 +37,9 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Destination`.
+	// The Region or Availability Zone that's the target for the subscription.
+	//
+	// For example, `eu-west-1` .
 	Destination() *string
 	SetDestination(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -48,7 +52,7 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Metric`.
+	// The metric used for the subscription.
 	Metric() *string
 	SetMetric(val *string)
 	// The tree node.
@@ -58,14 +62,16 @@ type CfnNetworkPerformanceMetricSubscription interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Source`.
+	// The Region or Availability Zone that's the source for the subscription.
+	//
+	// For example, `us-east-1` .
 	Source() *string
 	SetSource(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::EC2::NetworkPerformanceMetricSubscription.Statistic`.
+	// The statistic used for the subscription.
 	Statistic() *string
 	SetStatistic(val *string)
 	// Deprecated.

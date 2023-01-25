@@ -161,12 +161,15 @@ type CfnFileSystem interface {
 	//
 	// Example: `amznfsxp1honlek.corp.example.com`
 	AttrDnsName() *string
-	// Returns the file system's LustreMountName.
+	// Returns the Lustre file system's `LustreMountName` .
 	//
-	// Example for SCRATCH_1 deployment types: This value is always `fsx` .
+	// Example for `SCRATCH_1` deployment types: This value is always `fsx` .
 	//
-	// Example for SCRATCH_2 and PERSISTENT deployment types: `2p3fhbmv`.
+	// Example for `SCRATCH_2` and `PERSISTENT` deployment types: `2p3fhbmv`.
 	AttrLustreMountName() *string
+	// Returns the Amazon Resource Name (ARN) for the Amazon FSx file system.
+	//
+	// Example: `arn:aws:fsx:us-east-2:111122223333:file-system/fs-0123abcd56789ef0a`.
 	AttrResourceArn() *string
 	// Returns the root volume ID of the FSx for OpenZFS file system.
 	//
@@ -257,7 +260,7 @@ type CfnFileSystem interface {
 	Stack() awscdk.Stack
 	// Sets the storage capacity of the file system that you're creating.
 	//
-	// `StorageCapacity` is required if you are creating a new file system. Do not include `StorageCapacity` if you are creating a file system from a backup.
+	// `StorageCapacity` is required if you are creating a new file system.
 	//
 	// *FSx for Lustre file systems* - The amount of storage capacity that you can configure depends on the value that you set for `StorageType` and the Lustre `DeploymentType` , as follows:
 	//
@@ -267,7 +270,7 @@ type CfnFileSystem interface {
 	//
 	// *FSx for ONTAP file systems* - The amount of storage capacity that you can configure is from 1024 GiB up to 196,608 GiB (192 TiB).
 	//
-	// *FSx for OpenZFS file systems* - The amount of storage capacity that you can configure is from 64 GiB up to 524,288 GiB (512 TiB).
+	// *FSx for OpenZFS file systems* - The amount of storage capacity that you can configure is from 64 GiB up to 524,288 GiB (512 TiB). If you are creating a file system from a backup, you can specify a storage capacity equal to or greater than the original file system's storage capacity.
 	//
 	// *FSx for Windows File Server file systems* - The amount of storage capacity that you can configure depends on the value that you set for `StorageType` as follows:
 	//

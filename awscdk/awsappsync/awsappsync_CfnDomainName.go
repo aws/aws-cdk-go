@@ -31,6 +31,7 @@ type CfnDomainName interface {
 	awscdk.IInspectable
 	// The domain name provided by AWS AppSync .
 	AttrAppSyncDomainName() *string
+	// The domain name.
 	AttrDomainName() *string
 	// The ID of your Amazon Route 53 hosted zone.
 	AttrHostedZoneId() *string

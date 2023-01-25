@@ -23,21 +23,15 @@ package awsapigateway
 //   }
 //
 type CfnGatewayResponseProps struct {
-	// The response type.
-	//
-	// For valid values, see [GatewayResponse](https://docs.aws.amazon.com/apigateway/api-reference/resource/gateway-response/) in the *API Gateway API Reference* .
+	// The response type of the associated GatewayResponse.
 	ResponseType *string `field:"required" json:"responseType" yaml:"responseType"`
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
-	// The response parameters (paths, query strings, and headers) for the response.
-	//
-	// Duplicates not allowed.
+	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
-	// The response templates for the response.
-	//
-	// Duplicates not allowed.
+	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseTemplates interface{} `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
-	// The HTTP status code for the response.
+	// The HTTP status code for this GatewayResponse.
 	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 }
 

@@ -86,7 +86,7 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::MemoryDB::Cluster.ClusterEndpoint`.
+	// The cluster 's configuration endpoint.
 	ClusterEndpoint() interface{}
 	SetClusterEndpoint(val interface{})
 	// The name of the cluster .
@@ -96,7 +96,9 @@ type CfnCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::MemoryDB::Cluster.DataTiering`.
+	// Enables data tiering.
+	//
+	// Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html) .
 	DataTiering() *string
 	SetDataTiering(val *string)
 	// A description of the cluster .

@@ -73,7 +73,7 @@ type CfnAssessmentProps struct {
 	AssessmentReportsDestination interface{} `field:"optional" json:"assessmentReportsDestination" yaml:"assessmentReportsDestination"`
 	// The AWS account that's associated with the assessment.
 	AwsAccount interface{} `field:"optional" json:"awsAccount" yaml:"awsAccount"`
-	// `AWS::AuditManager::Assessment.Delegations`.
+	// The delegations that are associated with the assessment.
 	Delegations interface{} `field:"optional" json:"delegations" yaml:"delegations"`
 	// The description of the assessment.
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -86,6 +86,10 @@ type CfnAssessmentProps struct {
 	// The wrapper of AWS accounts and services that are in scope for the assessment.
 	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
 	// The overall status of the assessment.
+	//
+	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+	//
+	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The tags that are associated with the assessment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

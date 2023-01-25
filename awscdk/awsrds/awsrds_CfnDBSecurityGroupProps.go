@@ -41,7 +41,7 @@ type CfnDBSecurityGroupProps struct {
 	//
 	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
 	Ec2VpcId *string `field:"optional" json:"ec2VpcId" yaml:"ec2VpcId"`
-	// Tags to assign to the DB security group.
+	// An optional array of key-value pairs to apply to this DB security group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

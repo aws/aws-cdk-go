@@ -436,20 +436,33 @@ import (
 type CfnModelPackage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationDefinition`.
+	// A structure of additional Inference Specification.
+	//
+	// Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.
 	AdditionalInferenceSpecificationDefinition() interface{}
 	SetAdditionalInferenceSpecificationDefinition(val interface{})
 	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications() interface{}
 	SetAdditionalInferenceSpecifications(val interface{})
-	// `AWS::SageMaker::ModelPackage.AdditionalInferenceSpecificationsToAdd`.
+	// An array of additional Inference Specification objects to be added to the existing array.
+	//
+	// The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
 	AdditionalInferenceSpecificationsToAdd() interface{}
 	SetAdditionalInferenceSpecificationsToAdd(val interface{})
 	// A description provided when the model approval is set.
 	ApprovalDescription() *string
 	SetApprovalDescription(val *string)
+	// The time that the model package was created.
 	AttrCreationTime() *string
+	// The Amazon Resource Name (ARN) of the model package.
 	AttrModelPackageArn() *string
+	// The status of the model package. This can be one of the following values.
+	//
+	// - `PENDING` - The model package creation is pending.
+	// - `IN_PROGRESS` - The model package is in the process of being created.
+	// - `COMPLETED` - The model package was successfully created.
+	// - `FAILED` - The model package creation failed.
+	// - `DELETING` - The model package is in the process of being deleted.
 	AttrModelPackageStatus() *string
 	// Whether the model package is to be certified to be listed on AWS Marketplace.
 	//
@@ -461,10 +474,10 @@ type CfnModelPackage interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::SageMaker::ModelPackage.ClientToken`.
+	// A unique token that guarantees that the call to this API is idempotent.
 	ClientToken() *string
 	SetClientToken(val *string)
-	// `AWS::SageMaker::ModelPackage.CreatedBy`.
+	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
 	CreatedBy() interface{}
 	SetCreatedBy(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -487,10 +500,10 @@ type CfnModelPackage interface {
 	// Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
 	Environment() interface{}
 	SetEnvironment(val interface{})
-	// `AWS::SageMaker::ModelPackage.InferenceSpecification`.
+	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification() interface{}
 	SetInferenceSpecification(val interface{})
-	// `AWS::SageMaker::ModelPackage.LastModifiedBy`.
+	// Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.
 	LastModifiedBy() interface{}
 	SetLastModifiedBy(val interface{})
 	// The last time the model package was modified.
@@ -506,7 +519,7 @@ type CfnModelPackage interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::SageMaker::ModelPackage.MetadataProperties`.
+	// Metadata properties of the tracking entity, trial, or trial component.
 	MetadataProperties() interface{}
 	SetMetadataProperties(val interface{})
 	// The approval status of the model. This can be one of the following values.
@@ -528,10 +541,10 @@ type CfnModelPackage interface {
 	// The name of the model.
 	ModelPackageName() *string
 	SetModelPackageName(val *string)
-	// `AWS::SageMaker::ModelPackage.ModelPackageStatusDetails`.
+	// Specifies the validation and image scan statuses of the model package.
 	ModelPackageStatusDetails() interface{}
 	SetModelPackageStatusDetails(val interface{})
-	// `AWS::SageMaker::ModelPackage.ModelPackageStatusItem`.
+	// Represents the overall status of a model package.
 	ModelPackageStatusItem() interface{}
 	SetModelPackageStatusItem(val interface{})
 	// The version number of a versioned model.
@@ -549,7 +562,7 @@ type CfnModelPackage interface {
 	// This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 	SamplePayloadUrl() *string
 	SetSamplePayloadUrl(val *string)
-	// `AWS::SageMaker::ModelPackage.SourceAlgorithmSpecification`.
+	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification() interface{}
 	SetSourceAlgorithmSpecification(val interface{})
 	// The stack in which this element is defined.
@@ -578,7 +591,7 @@ type CfnModelPackage interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::SageMaker::ModelPackage.ValidationSpecification`.
+	// Specifies batch transform jobs that SageMaker runs to validate your model package.
 	ValidationSpecification() interface{}
 	SetValidationSpecification(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

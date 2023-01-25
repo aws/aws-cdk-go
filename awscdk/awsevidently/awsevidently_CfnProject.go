@@ -47,7 +47,13 @@ import (
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Evidently::Project.AppConfigResource`.
+	// Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* .
+	//
+	// Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+	//
+	// This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+	//
+	// To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
 	AppConfigResource() interface{}
 	SetAppConfigResource(val interface{})
 	// The ARN of the project.

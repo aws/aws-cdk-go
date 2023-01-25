@@ -1,7 +1,7 @@
 package awsathena
 
 
-// The Athena engine version for running queries.
+// The Athena engine version for running queries, or the PySpark engine version for running sessions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,7 +20,7 @@ type CfnWorkGroup_EngineVersionProperty struct {
 	EffectiveEngineVersion *string `field:"optional" json:"effectiveEngineVersion" yaml:"effectiveEngineVersion"`
 	// The engine version requested by the user.
 	//
-	// Possible values are determined by the output of `ListEngineVersions` , including Auto. The default is Auto.
+	// Possible values are determined by the output of `ListEngineVersions` , including AUTO. The default is AUTO.
 	SelectedEngineVersion *string `field:"optional" json:"selectedEngineVersion" yaml:"selectedEngineVersion"`
 }
 

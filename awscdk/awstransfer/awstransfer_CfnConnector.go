@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Transfer::Connector`.
 //
+// Creates the connector, which captures the parameters for an outbound connection for the AS2 protocol. The connector is required for sending files to an externally hosted AS2 server. For more details about connectors, see [Create AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,10 +38,12 @@ import (
 type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Transfer::Connector.AccessRole`.
+	// With AS2, you can send files by calling `StartFileTransfer` and specifying the file paths in the request parameter, `SendFilePaths` .
+	//
+	// We use the file’s parent directory (for example, for `--send-file-paths /bucket/dir/file.txt` , parent directory is `/bucket/dir/` ) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the `AccessRole` needs to provide read and write access to the parent directory of the file location used in the `StartFileTransfer` request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with `StartFileTransfer` .
 	AccessRole() *string
 	SetAccessRole(val *string)
-	// `AWS::Transfer::Connector.As2Config`.
+	// A structure that contains the parameters for a connector object.
 	As2Config() interface{}
 	SetAs2Config(val interface{})
 	AttrArn() *string
@@ -53,7 +57,9 @@ type CfnConnector interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Transfer::Connector.LoggingRole`.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
+	//
+	// When set, you can view connector activity in your CloudWatch logs.
 	LoggingRole() *string
 	SetLoggingRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -77,7 +83,7 @@ type CfnConnector interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Transfer::Connector.Tags`.
+	// Key-value pairs that can be used to group and search for connectors.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -92,7 +98,7 @@ type CfnConnector interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::Transfer::Connector.Url`.
+	// The URL of the partner's AS2 endpoint.
 	Url() *string
 	SetUrl(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

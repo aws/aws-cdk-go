@@ -30,6 +30,7 @@ import (
 //   	kafkaConsumerGroupId: jsii.String("kafkaConsumerGroupId"),
 //   	kafkaTopic: jsii.String("kafkaTopic"),
 //   	maxBatchingWindow: cdk.duration.minutes(jsii.Number(30)),
+//   	maxConcurrency: jsii.Number(123),
 //   	maxRecordAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	onFailure: eventSourceDlq,
 //   	parallelizationFactor: jsii.Number(123),
@@ -83,6 +84,12 @@ type EventSourceMappingOptions struct {
 	//
 	// Maximum of Duration.minutes(5)
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	// The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS event source can invoke.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency
+	//
+	// Valid Range: Minimum value of 2. Maximum value of 1000.
+	//
+	MaxConcurrency *float64 `field:"optional" json:"maxConcurrency" yaml:"maxConcurrency"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:

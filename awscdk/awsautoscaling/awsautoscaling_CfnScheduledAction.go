@@ -38,6 +38,7 @@ import (
 type CfnScheduledAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the name of a scheduled action.
 	AttrScheduledActionName() *string
 	// The name of the Auto Scaling group.
 	AutoScalingGroupName() *string

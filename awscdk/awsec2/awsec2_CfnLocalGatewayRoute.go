@@ -11,7 +11,10 @@ import (
 
 // A CloudFormation `AWS::EC2::LocalGatewayRoute`.
 //
-// Creates a static route for the specified local gateway route table.
+// Creates a static route for the specified local gateway route table. You must specify one of the following targets:
+//
+// - `LocalGatewayVirtualInterfaceGroupId`
+// - `NetworkInterfaceId`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -62,7 +65,7 @@ type CfnLocalGatewayRoute interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::EC2::LocalGatewayRoute.NetworkInterfaceId`.
+	// The ID of the network interface.
 	NetworkInterfaceId() *string
 	SetNetworkInterfaceId(val *string)
 	// The tree node.

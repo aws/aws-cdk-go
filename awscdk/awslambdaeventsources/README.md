@@ -49,6 +49,7 @@ behavior:
   duration. The default value is 20 seconds.
 * **batchSize**: Determines how many records are buffered before invoking your lambda function.
 * **maxBatchingWindow**: The maximum amount of time to gather records before invoking the lambda. This increases the likelihood of a full batch at the cost of delayed processing.
+* **maxConcurrency**: The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS event source can invoke.
 * **enabled**: If the SQS event source mapping should be enabled. The default is true.
 
 ```go

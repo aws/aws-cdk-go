@@ -41,31 +41,42 @@ package awsnimblestudio
 //   }
 //
 type CfnLaunchProfile_StreamConfigurationProperty struct {
-	// Enable or disable the use of the system clipboard to copy and paste between the streaming session and streaming client.
+	// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
 	ClipboardMode *string `field:"required" json:"clipboardMode" yaml:"clipboardMode"`
 	// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
 	Ec2InstanceTypes *[]*string `field:"required" json:"ec2InstanceTypes" yaml:"ec2InstanceTypes"`
 	// The streaming images that users can select from when launching a streaming session with this launch profile.
 	StreamingImageIds *[]*string `field:"required" json:"streamingImageIds" yaml:"streamingImageIds"`
-	// `CfnLaunchProfile.StreamConfigurationProperty.AutomaticTerminationMode`.
+	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+	//
+	// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 	AutomaticTerminationMode *string `field:"optional" json:"automaticTerminationMode" yaml:"automaticTerminationMode"`
 	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated.
 	//
 	// After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
 	MaxSessionLengthInMinutes *float64 `field:"optional" json:"maxSessionLengthInMinutes" yaml:"maxSessionLengthInMinutes"`
-	// Integer that determines if you can start and stop your sessions and how long a session can stay in the STOPPED state.
+	// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state.
 	//
 	// The default value is 0. The maximum value is 5760.
 	//
-	// If the value is missing or set to 0, your sessions can’t be stopped. If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the READY state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of stopped).
+	// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
 	//
-	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the READY state. If the time that a session stays in the READY state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
+	// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+	//
+	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 	MaxStoppedSessionLengthInMinutes *float64 `field:"optional" json:"maxStoppedSessionLengthInMinutes" yaml:"maxStoppedSessionLengthInMinutes"`
-	// `CfnLaunchProfile.StreamConfigurationProperty.SessionPersistenceMode`.
+	// Determine if a streaming session created from this launch profile can configure persistent storage.
+	//
+	// This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 	SessionPersistenceMode *string `field:"optional" json:"sessionPersistenceMode" yaml:"sessionPersistenceMode"`
-	// (Optional) The upload storage for a streaming session.
+	// The upload storage for a streaming session.
 	SessionStorage interface{} `field:"optional" json:"sessionStorage" yaml:"sessionStorage"`
-	// `CfnLaunchProfile.StreamConfigurationProperty.VolumeConfiguration`.
+	// Custom volume configuration for the root volumes that are attached to streaming sessions.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 	VolumeConfiguration interface{} `field:"optional" json:"volumeConfiguration" yaml:"volumeConfiguration"`
 }
 

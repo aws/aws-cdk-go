@@ -7,7 +7,7 @@ package awstransfer
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   copyStepDetailsProperty := &copyStepDetailsProperty{
-//   	destinationFileLocation: &inputFileLocationProperty{
+//   	destinationFileLocation: &s3FileLocationProperty{
 //   		s3FileLocation: &s3InputFileLocationProperty{
 //   			bucket: jsii.String("bucket"),
 //   			key: jsii.String("key"),

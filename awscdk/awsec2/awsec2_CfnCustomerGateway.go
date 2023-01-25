@@ -35,6 +35,7 @@ import (
 type CfnCustomerGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the customer gateway.
 	AttrCustomerGatewayId() *string
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//
@@ -50,7 +51,7 @@ type CfnCustomerGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Internet-routable IP address for the customer gateway's outside interface.
+	// IPv4 address for the customer gateway device's outside interface.
 	//
 	// The address must be static.
 	IpAddress() *string

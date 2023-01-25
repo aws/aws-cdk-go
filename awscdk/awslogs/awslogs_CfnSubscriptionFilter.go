@@ -18,7 +18,7 @@ import (
 // - An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.
 // - An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.
 //
-// There can as many as two subscription filters associated with a log group.
+// There can be as many as two subscription filters associated with a log group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -54,7 +54,7 @@ type CfnSubscriptionFilter interface {
 	// `AWS::Logs::SubscriptionFilter.Distribution`.
 	Distribution() *string
 	SetDistribution(val *string)
-	// `AWS::Logs::SubscriptionFilter.FilterName`.
+	// The name of the subscription filter.
 	FilterName() *string
 	SetFilterName(val *string)
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource.

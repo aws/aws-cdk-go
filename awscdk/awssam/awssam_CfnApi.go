@@ -52,6 +52,7 @@ import (
 //   	definitionBody: definitionBody,
 //   	definitionUri: jsii.String("definitionUri"),
 //   	description: jsii.String("description"),
+//   	disableExecuteApiEndpoint: jsii.Boolean(false),
 //   	domain: &domainConfigurationProperty{
 //   		certificateArn: jsii.String("certificateArn"),
 //   		domainName: jsii.String("domainName"),
@@ -135,6 +136,9 @@ type CfnApi interface {
 	// `AWS::Serverless::Api.Description`.
 	Description() *string
 	SetDescription(val *string)
+	// `AWS::Serverless::Api.DisableExecuteApiEndpoint`.
+	DisableExecuteApiEndpoint() interface{}
+	SetDisableExecuteApiEndpoint(val interface{})
 	// `AWS::Serverless::Api.Domain`.
 	Domain() interface{}
 	SetDomain(val interface{})
@@ -477,6 +481,16 @@ func (j *jsiiProxy_CfnApi) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApi) DisableExecuteApiEndpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"disableExecuteApiEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApi) Domain() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -784,6 +798,17 @@ func (j *jsiiProxy_CfnApi)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApi)SetDisableExecuteApiEndpoint(val interface{}) {
+	if err := j.validateSetDisableExecuteApiEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"disableExecuteApiEndpoint",
 		val,
 	)
 }

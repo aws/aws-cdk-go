@@ -9,6 +9,8 @@ package awscdkapprunneralpha
 //   // The values are placeholders you should change.
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //
+//   var secret secret
+//
 //   imageRepository := &imageRepository{
 //   	imageIdentifier: jsii.String("imageIdentifier"),
 //   	imageRepositoryType: apprunner_alpha.imageRepositoryType_ECR_PUBLIC,
@@ -17,6 +19,12 @@ package awscdkapprunneralpha
 //   	imageConfiguration: &imageConfiguration{
 //   		environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
+//   		},
+//   		environmentSecrets: map[string]*secret{
+//   			"environmentSecretsKey": secret,
+//   		},
+//   		environmentVariables: map[string]*string{
+//   			"environmentVariablesKey": jsii.String("environmentVariables"),
 //   		},
 //   		port: jsii.Number(123),
 //   		startCommand: jsii.String("startCommand"),

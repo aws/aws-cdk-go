@@ -10,6 +10,7 @@ package awscdkapprunneralpha
 //   import apprunner_alpha "github.com/aws/aws-cdk-go/awscdkapprunneralpha"
 //
 //   var runtime runtime
+//   var secret secret
 //
 //   codeConfiguration := &codeConfiguration{
 //   	configurationSource: apprunner_alpha.configurationSourceType_REPOSITORY,
@@ -22,6 +23,12 @@ package awscdkapprunneralpha
 //   		buildCommand: jsii.String("buildCommand"),
 //   		environment: map[string]*string{
 //   			"environmentKey": jsii.String("environment"),
+//   		},
+//   		environmentSecrets: map[string]*secret{
+//   			"environmentSecretsKey": secret,
+//   		},
+//   		environmentVariables: map[string]*string{
+//   			"environmentVariablesKey": jsii.String("environmentVariables"),
 //   		},
 //   		port: jsii.String("port"),
 //   		startCommand: jsii.String("startCommand"),

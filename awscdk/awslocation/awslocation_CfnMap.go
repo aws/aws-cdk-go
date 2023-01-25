@@ -53,7 +53,9 @@ type CfnMap interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Specifies the map style selected from an available data provider.
+	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create.
+	//
+	// The map style defines the look of maps and the data provider for your map resource.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

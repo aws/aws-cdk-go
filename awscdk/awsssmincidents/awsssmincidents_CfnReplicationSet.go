@@ -80,7 +80,7 @@ type CfnReplicationSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::SSMIncidents::ReplicationSet.Tags`.
+	// A list of tags to add to the replication set.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

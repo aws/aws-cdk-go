@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::MSK::ServerlessCluster`.
 //
+// The `AWS::MSK::ServerlessCluster` resource creates an Amazon MSK Serverless cluster. For more information, see [MSK Serverless](https://docs.aws.amazon.com/msk/latest/developerguide/serverless.html) in the *Amazon MSK Developer Guide*
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -47,16 +49,17 @@ import (
 type CfnServerlessCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the serverless cluster.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::MSK::ServerlessCluster.ClientAuthentication`.
+	// Specifies client authentication information for the serverless cluster.
 	ClientAuthentication() interface{}
 	SetClientAuthentication(val interface{})
-	// `AWS::MSK::ServerlessCluster.ClusterName`.
+	// The name of the serverless cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -84,7 +87,7 @@ type CfnServerlessCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::MSK::ServerlessCluster.Tags`.
+	// A map of key:value pairs to apply to this serverless cluster.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
@@ -99,7 +102,7 @@ type CfnServerlessCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::MSK::ServerlessCluster.VpcConfigs`.
+	// VPC configuration information.
 	VpcConfigs() interface{}
 	SetVpcConfigs(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

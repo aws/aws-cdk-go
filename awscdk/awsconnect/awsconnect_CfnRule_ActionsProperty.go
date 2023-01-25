@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// A list of actions to be run when the rule is triggered.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -53,13 +55,17 @@ package awsconnect
 //   }
 //
 type CfnRule_ActionsProperty struct {
-	// `CfnRule.ActionsProperty.AssignContactCategoryActions`.
+	// Information about the contact category action.
+	//
+	// The syntax can be empty, for example, `{}` .
 	AssignContactCategoryActions interface{} `field:"optional" json:"assignContactCategoryActions" yaml:"assignContactCategoryActions"`
-	// `CfnRule.ActionsProperty.EventBridgeActions`.
+	// Information about the EventBridge action.
 	EventBridgeActions interface{} `field:"optional" json:"eventBridgeActions" yaml:"eventBridgeActions"`
-	// `CfnRule.ActionsProperty.SendNotificationActions`.
+	// Information about the send notification action.
 	SendNotificationActions interface{} `field:"optional" json:"sendNotificationActions" yaml:"sendNotificationActions"`
-	// `CfnRule.ActionsProperty.TaskActions`.
+	// Information about the task action.
+	//
+	// This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`.
 	TaskActions interface{} `field:"optional" json:"taskActions" yaml:"taskActions"`
 }
 

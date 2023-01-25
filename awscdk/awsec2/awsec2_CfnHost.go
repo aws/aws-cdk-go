@@ -60,7 +60,9 @@ type CfnHost interface {
 	// Default: `off`.
 	HostRecovery() *string
 	SetHostRecovery(val *string)
-	// `AWS::EC2::Host.InstanceFamily`.
+	// The instance family supported by the Dedicated Host.
+	//
+	// For example, `m5` .
 	InstanceFamily() *string
 	SetInstanceFamily(val *string)
 	// Specifies the instance type to be supported by the Dedicated Hosts.
@@ -80,7 +82,7 @@ type CfnHost interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::EC2::Host.OutpostArn`.
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
 	OutpostArn() *string
 	SetOutpostArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

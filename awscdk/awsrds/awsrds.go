@@ -271,6 +271,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "allowMajorVersionUpgrade", GoGetter: "AllowMajorVersionUpgrade"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "associatedRoles", GoGetter: "AssociatedRoles"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCertificateDetailsCaIdentifier", GoGetter: "AttrCertificateDetailsCaIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCertificateDetailsValidTill", GoGetter: "AttrCertificateDetailsValidTill"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDbInstanceArn", GoGetter: "AttrDbInstanceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDbiResourceId", GoGetter: "AttrDbiResourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDbSystemId", GoGetter: "AttrDbSystemId"},
@@ -282,6 +284,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "backupRetentionPeriod", GoGetter: "BackupRetentionPeriod"},
 			_jsii_.MemberProperty{JsiiProperty: "caCertificateIdentifier", GoGetter: "CaCertificateIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "certificateDetails", GoGetter: "CertificateDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "certificateRotationRestart", GoGetter: "CertificateRotationRestart"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -369,6 +373,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_rds.CfnDBInstance.CertificateDetailsProperty",
+		reflect.TypeOf((*CfnDBInstance_CertificateDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CfnDBInstance.DBInstanceRoleProperty",

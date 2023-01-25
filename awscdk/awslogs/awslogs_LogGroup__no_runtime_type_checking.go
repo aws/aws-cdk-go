@@ -40,6 +40,10 @@ func (l *jsiiProxy_LogGroup) validateGrantParameters(grantee awsiam.IGrantable) 
 	return nil
 }
 
+func (l *jsiiProxy_LogGroup) validateGrantReadParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (l *jsiiProxy_LogGroup) validateGrantWriteParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

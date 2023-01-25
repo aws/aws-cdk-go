@@ -76,7 +76,11 @@ type CfnClusterProps struct {
 	//
 	// When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 	DefaultCapacityProviderStrategy interface{} `field:"optional" json:"defaultCapacityProviderStrategy" yaml:"defaultCapacityProviderStrategy"`
-	// `AWS::ECS::Cluster.ServiceConnectDefaults`.
+	// Use this parameter to set a default Service Connect namespace.
+	//
+	// After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the `enabled` parameter to `true` in the `ServiceConnectConfiguration` . You can set the namespace of each service individually in the `ServiceConnectConfiguration` to override this default parameter.
+	//
+	// Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide* .
 	ServiceConnectDefaults interface{} `field:"optional" json:"serviceConnectDefaults" yaml:"serviceConnectDefaults"`
 	// The metadata that you apply to the cluster to help you categorize and organize them.
 	//

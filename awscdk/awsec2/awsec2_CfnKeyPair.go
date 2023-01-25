@@ -11,12 +11,16 @@ import (
 
 // A CloudFormation `AWS::EC2::KeyPair`.
 //
-// Specifies a key pair for an Amazon EC2 instance. The key pair can either be imported or created by Amazon EC2, as follows:
+// Specifies a key pair for use with an Amazon Elastic Compute Cloud instance as follows:
 //
-// - To import an existing key pair, include the `PublicKeyMaterial` property in the template.
-// - To have Amazon EC2 create a new key pair, omit the `PublicKeyMaterial` property. When Amazon EC2 creates a new key pair, the private key is saved to an AWS Systems Manager Parameter Store. The name of the Systems Manager parameter follows the format `/ec2/keypair/{key_pair_id}` . For more information, see [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) in the *AWS Systems Manager User Guide* .
+// - To import an existing key pair, include the `PublicKeyMaterial` property.
+// - To create a new key pair, omit the `PublicKeyMaterial` property.
 //
-// For more information, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide* .
+// When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. AWS CloudFormation does not create or return the private key material when you import a key pair.
+//
+// When you create a new key pair, the private key is saved to AWS Systems Manager Parameter Store, using a parameter with the following name: `/ec2/keypair/{key_pair_id}` . For more information about retrieving private key, and the required permissions, see [Create a key pair using AWS CloudFormation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *Amazon EC2 User Guide* .
+//
+// When AWS CloudFormation deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

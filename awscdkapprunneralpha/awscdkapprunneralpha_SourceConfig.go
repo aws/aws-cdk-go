@@ -16,6 +16,7 @@ import (
 //   var gitHubConnection gitHubConnection
 //   var repository repository
 //   var runtime runtime
+//   var secret secret
 //
 //   sourceConfig := &sourceConfig{
 //   	codeRepository: &codeRepositoryProps{
@@ -30,6 +31,12 @@ import (
 //   				buildCommand: jsii.String("buildCommand"),
 //   				environment: map[string]*string{
 //   					"environmentKey": jsii.String("environment"),
+//   				},
+//   				environmentSecrets: map[string]*secret{
+//   					"environmentSecretsKey": secret,
+//   				},
+//   				environmentVariables: map[string]*string{
+//   					"environmentVariablesKey": jsii.String("environmentVariables"),
 //   				},
 //   				port: jsii.String("port"),
 //   				startCommand: jsii.String("startCommand"),
@@ -51,6 +58,12 @@ import (
 //   		imageConfiguration: &imageConfiguration{
 //   			environment: map[string]*string{
 //   				"environmentKey": jsii.String("environment"),
+//   			},
+//   			environmentSecrets: map[string]*secret{
+//   				"environmentSecretsKey": secret,
+//   			},
+//   			environmentVariables: map[string]*string{
+//   				"environmentVariablesKey": jsii.String("environmentVariables"),
 //   			},
 //   			port: jsii.Number(123),
 //   			startCommand: jsii.String("startCommand"),

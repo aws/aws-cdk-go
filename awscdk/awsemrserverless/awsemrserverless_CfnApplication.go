@@ -73,7 +73,9 @@ import (
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::EMRServerless::Application.Architecture`.
+	// The CPU architecture type of the application.
+	//
+	// Allowed values: `X86_64` or `ARM64`.
 	Architecture() *string
 	SetArchitecture(val *string)
 	// The ID of the application, such as `ab4rp1abcs8xz47n3x0example` .

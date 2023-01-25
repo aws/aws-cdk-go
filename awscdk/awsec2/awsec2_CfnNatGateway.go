@@ -43,8 +43,11 @@ type CfnNatGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
+	//
+	// This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	AllocationId() *string
 	SetAllocationId(val *string)
+	// The ID of the NAT gateway.
 	AttrNatGatewayId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,6 +55,8 @@ type CfnNatGateway interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// Indicates whether the NAT gateway supports public or private connectivity.
+	//
+	// The default is public connectivity.
 	ConnectivityType() *string
 	SetConnectivityType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -70,7 +75,9 @@ type CfnNatGateway interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::EC2::NatGateway.PrivateIpAddress`.
+	// The private IPv4 address to assign to the NAT gateway.
+	//
+	// If you don't provide an address, a private IPv4 address will be automatically assigned.
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -54,6 +54,8 @@ type CfnJobProps struct {
 	Command interface{} `field:"required" json:"command" yaml:"command"`
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
 	Role *string `field:"required" json:"role" yaml:"role"`
+	// This parameter is no longer supported. Use `MaxCapacity` instead.
+	//
 	// The number of capacity units that are allocated to this job.
 	AllocatedCapacity *float64 `field:"optional" json:"allocatedCapacity" yaml:"allocatedCapacity"`
 	// The connections used for this job.
@@ -68,7 +70,13 @@ type CfnJobProps struct {
 	DefaultArguments interface{} `field:"optional" json:"defaultArguments" yaml:"defaultArguments"`
 	// A description of the job.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::Glue::Job.ExecutionClass`.
+	// Indicates whether the job is run with a standard or flexible execution class.
+	//
+	// The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.
+	//
+	// The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary.
+	//
+	// Only jobs with AWS Glue version 3.0 and above and command type `glueetl` will be allowed to set `ExecutionClass` to `FLEX` . The flexible execution class is available for Spark jobs.
 	ExecutionClass *string `field:"optional" json:"executionClass" yaml:"executionClass"`
 	// The maximum number of concurrent runs that are allowed for this job.
 	ExecutionProperty interface{} `field:"optional" json:"executionProperty" yaml:"executionProperty"`
@@ -97,7 +105,7 @@ type CfnJobProps struct {
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// The name you assign to this job definition.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::Glue::Job.NonOverridableArguments`.
+	// Non-overridable arguments for this job, specified as name-value pairs.
 	NonOverridableArguments interface{} `field:"optional" json:"nonOverridableArguments" yaml:"nonOverridableArguments"`
 	// Specifies configuration properties of a notification.
 	NotificationProperty interface{} `field:"optional" json:"notificationProperty" yaml:"notificationProperty"`

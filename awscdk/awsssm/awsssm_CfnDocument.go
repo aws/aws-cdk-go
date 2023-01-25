@@ -68,6 +68,8 @@ type CfnDocument interface {
 	CfnResourceType() *string
 	// The content for the new SSM document in JSON or YAML.
 	//
+	// For more information about the schemas for SSM document content, see [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) in the *AWS Systems Manager User Guide* .
+	//
 	// > This parameter also supports `String` data types.
 	Content() interface{}
 	SetContent(val interface{})
@@ -99,7 +101,7 @@ type CfnDocument interface {
 	//
 	// > You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
 	// >
-	// > - `aws-`
+	// > - `aws`
 	// > - `amazon`
 	// > - `amzn`.
 	Name() *string

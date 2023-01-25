@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,11 +15,11 @@ package awssagemaker
 //   }
 //
 type CfnModelPackage_UserContextProperty struct {
-	// `CfnModelPackage.UserContextProperty.DomainId`.
+	// The domain associated with the user.
 	DomainId *string `field:"optional" json:"domainId" yaml:"domainId"`
-	// `CfnModelPackage.UserContextProperty.UserProfileArn`.
+	// The Amazon Resource Name (ARN) of the user's profile.
 	UserProfileArn *string `field:"optional" json:"userProfileArn" yaml:"userProfileArn"`
-	// `CfnModelPackage.UserContextProperty.UserProfileName`.
+	// The name of the user's profile.
 	UserProfileName *string `field:"optional" json:"userProfileName" yaml:"userProfileName"`
 }
 

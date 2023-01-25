@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Connect::QuickConnect`.
 //
-// The `AWS::Connect::QuickConnnect` resource specifies a quick connect for the specified Amazon Connect instance.
+// Specifies a quick connect for an Amazon Connect instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -96,6 +96,8 @@ type CfnQuickConnect interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

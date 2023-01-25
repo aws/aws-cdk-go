@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::NetworkManager::CoreNetwork`.
 //
-// Describes a core network within a global network.
+// Describes a core network.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,12 +39,14 @@ type CfnCoreNetwork interface {
 	awscdk.IInspectable
 	// The ARN of the core network.
 	AttrCoreNetworkArn() *string
-	// The core network ID.
+	// The ID of the core network.
 	AttrCoreNetworkId() *string
 	// The timestamp when the core network was created.
 	AttrCreatedAt() *string
+	// The edges.
 	AttrEdges() awscdk.IResolvable
 	AttrOwnerAccount() *string
+	// The segments.
 	AttrSegments() awscdk.IResolvable
 	// The current state of the core network.
 	//
@@ -77,7 +79,7 @@ type CfnCoreNetwork interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Describes a core network policy.
+	// Describes a core network policy. For more information, see [Core network policies](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policy-changesets.html) .
 	//
 	// If you update the policy document, CloudFormation will apply the core network change set generated from the updated policy document, and then set it as the LIVE policy.
 	PolicyDocument() interface{}
@@ -91,7 +93,7 @@ type CfnCoreNetwork interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags associated with a core network.
+	// The list of key-value tags associated with a core network.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

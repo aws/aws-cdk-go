@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::OpenSearchServerless::Collection`.
 //
+// Specifies an OpenSearch Serverless collection. For more information, see [Creating and managing Amazon OpenSearch Serverless collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html) in the *Amazon OpenSearch Service Developer Guide* .
+//
+// > You must create a matching [encryption policy](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html) in order for a collection to be created successfully. You can specify the policy resource within the same CloudFormation template as the collection resource if you use the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute. See [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#aws-resource-opensearchserverless-collection--examples) for a sample template. Otherwise the encryption policy must already exist before you create the collection.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,9 +37,21 @@ import (
 type CfnCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the collection.
+	//
+	// For example, `arn:aws:aoss:us-east-1:123456789012:collection/07tjusf2h91cunochc` .
 	AttrArn() *string
+	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
+	//
+	// For example, `https://07tjusf2h91cunochc.us-east-1.aoss.amazonaws.com` .
 	AttrCollectionEndpoint() *string
+	// Collection-specific endpoint used to access OpenSearch Dashboards.
+	//
+	// For example, `https://07tjusf2h91cunochc.us-east-1.aoss.amazonaws.com/_dashboards` .
 	AttrDashboardEndpoint() *string
+	// A unique identifier for the collection.
+	//
+	// For example, `07tjusf2h91cunochc` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,7 +62,7 @@ type CfnCollection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::OpenSearchServerless::Collection.Description`.
+	// A description of the collection.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -59,7 +75,14 @@ type CfnCollection interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::OpenSearchServerless::Collection.Name`.
+	// The name of the collection.
+	//
+	// Collection names must meet the following criteria:
+	//
+	// - Starts with a lowercase letter
+	// - Unique to your account and AWS Region
+	// - Contains between 3 and 28 characters
+	// - Contains only lowercase letters a-z, the numbers 0-9, and the hyphen (-).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -73,9 +96,13 @@ type CfnCollection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::OpenSearchServerless::Collection.Tags`.
+	// An arbitrary set of tags (key–value pairs) to associate with the collection.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
-	// `AWS::OpenSearchServerless::Collection.Type`.
+	// The type of collection.
+	//
+	// Possible values are `SEARCH` and `TIMESERIES` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

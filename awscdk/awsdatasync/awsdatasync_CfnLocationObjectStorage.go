@@ -42,17 +42,17 @@ import (
 type CfnLocationObjectStorage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Specifies the access key (or user name) if credentials are required to access the object storage server.
+	// Specifies the access key (for example, a user name) if credentials are required to authenticate with the object storage server.
 	AccessKey() *string
 	SetAccessKey(val *string)
-	// Specifies the Amazon Resource Names (ARNs) of the agents associated with the location.
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely connect with your location.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
 	// The Amazon Resource Name (ARN) of the specified object storage location.
 	AttrLocationArn() *string
 	// The URI of the specified object storage location.
 	AttrLocationUri() *string
-	// Specifies the name of the bucket that DataSync reads from or writes to.
+	// Specifies the name of the object storage bucket involved in the transfer.
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -81,17 +81,15 @@ type CfnLocationObjectStorage interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies the secret key (or password) if credentials are required to access the object storage server.
+	// Specifies the secret key (for example, a password) if credentials are required to authenticate with the object storage server.
 	SecretKey() *string
 	SetSecretKey(val *string)
 	// Specifies the domain name or IP address of the object storage server.
 	//
-	// A DataSync agent uses this hostname to mount the object storage server.
+	// A DataSync agent uses this hostname to mount the object storage server in a network.
 	ServerHostname() *string
 	SetServerHostname(val *string)
-	// Specifies the port that your object storage server accepts inbound network traffic on.
-	//
-	// Set to port 80 (HTTP), 443 (HTTPS), or a custom port if needed.
+	// Specifies the port that your object storage server accepts inbound network traffic on (for example, port 443).
 	ServerPort() *float64
 	SetServerPort(val *float64)
 	// Specifies the protocol that your object storage server uses to communicate.
@@ -101,12 +99,14 @@ type CfnLocationObjectStorage interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies the object prefix that DataSync reads from or writes to.
+	// Specifies the object prefix for your object storage server.
+	//
+	// If this is a source location, DataSync only copies objects with this prefix. If this is a destination location, DataSync writes all objects with this prefix.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// Specifies the key-value pair that represents the tag to help you manage, filter, and search for your location.
+	// Specifies the key-value pair that represents a tag that you want to add to the resource.
 	//
-	// We recommend using tags for naming your locations.
+	// Tags can help you manage, filter, and search for your resources. We recommend creating a name tag for your location.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

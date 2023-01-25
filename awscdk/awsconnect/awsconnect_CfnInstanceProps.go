@@ -28,13 +28,15 @@ package awsconnect
 //   }
 //
 type CfnInstanceProps struct {
-	// `AWS::Connect::Instance.Attributes`.
+	// A toggle for an individual feature at the instance level.
 	Attributes interface{} `field:"required" json:"attributes" yaml:"attributes"`
-	// `AWS::Connect::Instance.IdentityManagementType`.
+	// The identity management type.
 	IdentityManagementType *string `field:"required" json:"identityManagementType" yaml:"identityManagementType"`
-	// `AWS::Connect::Instance.DirectoryId`.
+	// The identifier for the directory.
 	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`
-	// `AWS::Connect::Instance.InstanceAlias`.
+	// The alias of instance.
+	//
+	// `InstanceAlias` is only required when `IdentityManagementType` is `CONNECT_MANAGED` or `SAML` . `InstanceAlias` is not required when `IdentityManagementType` is `EXISTING_DIRECTORY` .
 	InstanceAlias *string `field:"optional" json:"instanceAlias" yaml:"instanceAlias"`
 }
 

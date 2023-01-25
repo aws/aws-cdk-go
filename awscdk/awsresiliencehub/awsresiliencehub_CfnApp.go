@@ -54,7 +54,7 @@ import (
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::ResilienceHub::App.AppAssessmentSchedule`.
+	// Assessment execution schedule with 'Daily' or 'Disabled' values.
 	AppAssessmentSchedule() *string
 	SetAppAssessmentSchedule(val *string)
 	// A string containing a full Resilience Hub app template body.

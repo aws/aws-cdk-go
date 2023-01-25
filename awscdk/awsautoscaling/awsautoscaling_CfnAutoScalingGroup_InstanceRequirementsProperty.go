@@ -1,17 +1,24 @@
 package awsautoscaling
 
 
-// `InstanceRequirements` specifies a set of requirements for the types of instances that can be launched by an `AWS::AutoScaling::AutoScalingGroup` resource.
+// The attributes for the instance types for a mixed instances policy.
 //
-// `InstanceRequirements` is a property of the `LaunchTemplateOverrides` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+// Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
 //
-// You must specify `VCpuCount` and `MemoryMiB` , but all other properties are optional. Any unspecified optional property is set to its default.
+// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
 //
-// When you specify multiple properties, you get instance types that satisfy all of the specified properties. If you specify multiple values for a property, you get instance types that satisfy any of the specified values.
+// To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//
+// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+// > You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
 //
 // For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) .
 //
-// For more information, see [Create an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide* . For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances* .
+//
+// `InstanceRequirements` is a property of the `LaunchTemplateOverrides` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -92,7 +99,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	//
 	// To exclude accelerator-enabled instance types, set `Max` to `0` .
 	//
-	// Default: No minimum or maximum.
+	// Default: No minimum or maximum limits.
 	AcceleratorCount interface{} `field:"optional" json:"acceleratorCount" yaml:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
 	//
@@ -117,7 +124,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	AcceleratorNames *[]*string `field:"optional" json:"acceleratorNames" yaml:"acceleratorNames"`
 	// The minimum and maximum total memory size for the accelerators on an instance type, in MiB.
 	//
-	// Default: No minimum or maximum.
+	// Default: No minimum or maximum limits.
 	AcceleratorTotalMemoryMiB interface{} `field:"optional" json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
 	// Lists the accelerator types that must be on an instance type.
 	//
@@ -127,7 +134,17 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	//
 	// Default: Any accelerator type.
 	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
-	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AllowedInstanceTypes`.
+	// The instance types to apply your specified attributes against.
+	//
+	// All other instance types are ignored, even if they match your specified attributes.
+	//
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+	//
+	// For example, if you specify `c5*` , Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
+	//
+	// Default: All instance types.
 	AllowedInstanceTypes *[]*string `field:"optional" json:"allowedInstanceTypes" yaml:"allowedInstanceTypes"`
 	// Indicates whether bare metal instance types are included, excluded, or required.
 	//
@@ -137,7 +154,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	//
 	// For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//
-	// Default: No minimum or maximum.
+	// Default: No minimum or maximum limits.
 	BaselineEbsBandwidthMbps interface{} `field:"optional" json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
 	// Indicates whether burstable performance instance types are included, excluded, or required.
 	//
@@ -155,11 +172,13 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	//
 	// Default: Any manufacturer.
 	CpuManufacturers *[]*string `field:"optional" json:"cpuManufacturers" yaml:"cpuManufacturers"`
-	// Lists which instance types to exclude.
+	// The instance types to exclude.
 	//
-	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ). The following are examples: `c5*` , `m5a.*` , `r*` , `*3*` .
+	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
 	//
-	// For example, if you specify `c5*` , you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , you are excluding all the M5a instance types, but not the M5n instance types.
+	// For example, if you specify `c5*` , you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.
+	//
+	// > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
 	//
 	// Default: No excluded instance types.
 	ExcludedInstanceTypes *[]*string `field:"optional" json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
@@ -179,25 +198,27 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// Indicates the type of local storage that is required.
 	//
 	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
-	// - For instance types with solid state drive (SSD) storage, specify `sdd` .
+	// - For instance types with solid state drive (SSD) storage, specify `ssd` .
 	//
 	// Default: Any local storage type.
 	LocalStorageTypes *[]*string `field:"optional" json:"localStorageTypes" yaml:"localStorageTypes"`
 	// The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
 	//
-	// Default: No minimum or maximum.
+	// Default: No minimum or maximum limits.
 	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum instance memory size for an instance type, in MiB.
 	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
-	// `CfnAutoScalingGroup.InstanceRequirementsProperty.NetworkBandwidthGbps`.
+	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+	//
+	// Default: No minimum or maximum limits.
 	NetworkBandwidthGbps interface{} `field:"optional" json:"networkBandwidthGbps" yaml:"networkBandwidthGbps"`
 	// The minimum and maximum number of network interfaces for an instance type.
 	//
-	// Default: No minimum or maximum.
+	// Default: No minimum or maximum limits.
 	NetworkInterfaceCount interface{} `field:"optional" json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	//
-	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999` .
+	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999` .
 	//
 	// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 	//
@@ -209,7 +230,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	RequireHibernateSupport interface{} `field:"optional" json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instances.
 	//
-	// This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999` .
+	// This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999` .
 	//
 	// If you set `DesiredCapacityType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 	//
@@ -217,7 +238,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	SpotMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum total local storage size for an instance type, in GB.
 	//
-	// Default: No minimum or maximum.
+	// Default: No minimum or maximum limits.
 	TotalLocalStorageGb interface{} `field:"optional" json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
 	// The minimum and maximum number of vCPUs for an instance type.
 	VCpuCount interface{} `field:"optional" json:"vCpuCount" yaml:"vCpuCount"`

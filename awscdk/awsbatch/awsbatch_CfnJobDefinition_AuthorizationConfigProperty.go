@@ -16,7 +16,7 @@ package awsbatch
 type CfnJobDefinition_AuthorizationConfigProperty struct {
 	// The Amazon EFS access point ID to use.
 	//
-	// If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+	// If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
 	AccessPointId *string `field:"optional" json:"accessPointId" yaml:"accessPointId"`
 	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
 	//

@@ -192,6 +192,8 @@ type CfnEC2Fleet interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
 	ExcessCapacityTerminationPolicy() *string
 	SetExcessCapacityTerminationPolicy(val *string)
 	// The configuration for the EC2 Fleet.

@@ -72,6 +72,8 @@ type CfnPublicDnsNamespace interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name that you want to assign to this namespace.
+	//
+	// > Do not include sensitive information in the name. The name is publicly available using DNS queries.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

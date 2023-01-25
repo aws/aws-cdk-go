@@ -11,9 +11,7 @@ import (
 
 // A CloudFormation `AWS::SES::ConfigurationSetEventDestination`.
 //
-// Specifies a configuration set event destination. An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch or Amazon Kinesis Data Firehose.
-//
-// > You can't specify Amazon SNS event destinations in CloudFormation templates.
+// Specifies a configuration set event destination. An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon Simple Notification Service (Amazon SNS).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

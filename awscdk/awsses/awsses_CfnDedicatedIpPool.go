@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::SES::DedicatedIpPool`.
 //
+// Create a new pool of dedicated IP addresses. A pool can include one or more dedicated IP addresses that are associated with your AWS account . You can associate a pool with a configuration set. When you send an email that uses that configuration set, the message is sent from one of the addresses in the associated pool.
+//
+// > You can't delete dedicated IP pools that have a `STANDARD` scaling mode and one or more dedicated IP addresses. This constraint doesn't apply to dedicated IP pools that have a `MANAGED` scaling mode.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -45,7 +49,7 @@ type CfnDedicatedIpPool interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::SES::DedicatedIpPool.PoolName`.
+	// The name of the dedicated IP pool that the IP address is associated with.
 	PoolName() *string
 	SetPoolName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -53,7 +57,14 @@ type CfnDedicatedIpPool interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::SES::DedicatedIpPool.ScalingMode`.
+	// The type of scaling mode.
+	//
+	// The following options are available:
+	//
+	// - `STANDARD` - The customer controls which IPs are part of the dedicated IP pool.
+	// - `MANAGED` - The reputation and number of IPs is automatically managed by Amazon SES .
+	//
+	// The `STANDARD` option is selected by default if no value is specified.
 	ScalingMode() *string
 	SetScalingMode(val *string)
 	// The stack in which this element is defined.

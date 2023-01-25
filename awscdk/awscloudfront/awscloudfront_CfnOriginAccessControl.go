@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::CloudFront::OriginAccessControl`.
 //
+// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+//
+// For an Amazon S3 origin, this makes it possible to block public access to the Amazon S3 bucket so that viewers (users) can access the content in the bucket only through CloudFront.
+//
+// For more information about using a CloudFront origin access control, see [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,6 +37,7 @@ import (
 type CfnOriginAccessControl interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique identifier of the origin access control.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,7 +60,7 @@ type CfnOriginAccessControl interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::CloudFront::OriginAccessControl.OriginAccessControlConfig`.
+	// The origin access control.
 	OriginAccessControlConfig() interface{}
 	SetOriginAccessControlConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

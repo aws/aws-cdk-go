@@ -110,14 +110,16 @@ type CfnFleet interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::GameLift::Fleet.ComputeType`.
+	// The type of compute resource used to host your game servers.
+	//
+	// You can use your own compute resources with GameLift Anywhere or use Amazon EC2 instances with managed GameLift.
 	ComputeType() *string
 	SetComputeType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A human-readable description of the fleet.
+	// A description for the fleet.
 	Description() *string
 	SetDescription(val *string)
 	// The number of EC2 instances that you want this fleet to host.

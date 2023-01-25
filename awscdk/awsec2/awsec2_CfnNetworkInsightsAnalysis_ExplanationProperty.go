@@ -235,9 +235,9 @@ type CfnNetworkInsightsAnalysis_ExplanationProperty struct {
 	ClassicLoadBalancerListener interface{} `field:"optional" json:"classicLoadBalancerListener" yaml:"classicLoadBalancerListener"`
 	// The component.
 	Component interface{} `field:"optional" json:"component" yaml:"component"`
-	// `CfnNetworkInsightsAnalysis.ExplanationProperty.ComponentAccount`.
+	// The AWS account for the component.
 	ComponentAccount *string `field:"optional" json:"componentAccount" yaml:"componentAccount"`
-	// `CfnNetworkInsightsAnalysis.ExplanationProperty.ComponentRegion`.
+	// The Region for the component.
 	ComponentRegion *string `field:"optional" json:"componentRegion" yaml:"componentRegion"`
 	// The customer gateway.
 	CustomerGateway interface{} `field:"optional" json:"customerGateway" yaml:"customerGateway"`

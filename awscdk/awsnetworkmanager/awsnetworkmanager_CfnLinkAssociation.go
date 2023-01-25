@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::NetworkManager::LinkAssociation`.
 //
-// Specifies the association between a device and a link. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
+// Describes the association between a device and a link.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

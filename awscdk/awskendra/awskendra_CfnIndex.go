@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Kendra::Index`.
 //
-// Specifies a new Amazon Kendra index. And index is a collection of documents and associated metadata that you want to search for relevant documents.
+// Creates an Amazon Kendra index
 //
 // Once the index is active you can add documents to your index using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation or using one of the supported data sources.
 //
@@ -99,9 +99,7 @@ type CfnIndex interface {
 	//
 	// For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
 	AttrId() *string
-	// Specifies capacity units configured for your index.
-	//
-	// You can add and remove capacity units to tune an index to your requirements. You can set capacity units only for Enterprise edition indexes.
+	// `AWS::Kendra::Index.CapacityUnits`.
 	CapacityUnits() interface{}
 	SetCapacityUnits(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -113,7 +111,7 @@ type CfnIndex interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the index.
+	// A description for the index.
 	Description() *string
 	SetDescription(val *string)
 	// Specifies the properties of an index field.
@@ -121,7 +119,7 @@ type CfnIndex interface {
 	// You can add either a custom or a built-in field. You can add and remove built-in fields at any time. When a built-in field is removed it's configuration reverts to the default for the field. Custom fields can't be removed from an index after they are added.
 	DocumentMetadataConfigurations() interface{}
 	SetDocumentMetadataConfigurations(val interface{})
-	// Indicates whether the index is a enterprise edition index or a developer edition index.
+	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index.
 	//
 	// Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
 	Edition() *string
@@ -136,7 +134,7 @@ type CfnIndex interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The identifier of the index.
+	// The name of the index.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -181,11 +179,11 @@ type CfnIndex interface {
 	//
 	// ATTRIBUTE_FILTER
 	//
-	// - All indexed content is searchable and displayable for all users. If there is an access control list, it is ignored. You can filter on user and group attributes.
+	// - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
 	//
 	// USER_TOKEN
 	//
-	// - Enables SSO and token-based user access control. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+	// - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
 	UserContextPolicy() *string
 	SetUserContextPolicy(val *string)
 	// Defines the type of user token used for the index.

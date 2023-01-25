@@ -21,6 +21,22 @@ import (
 //   		&workflowStepProperty{
 //   			copyStepDetails: copyStepDetails,
 //   			customStepDetails: customStepDetails,
+//   			decryptStepDetails: &decryptStepDetailsProperty{
+//   				destinationFileLocation: &inputFileLocationProperty{
+//   					efsFileLocation: &efsInputFileLocationProperty{
+//   						fileSystemId: jsii.String("fileSystemId"),
+//   						path: jsii.String("path"),
+//   					},
+//   					s3FileLocation: &s3InputFileLocationProperty{
+//   						bucket: jsii.String("bucket"),
+//   						key: jsii.String("key"),
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   				overwriteExisting: jsii.String("overwriteExisting"),
+//   				sourceFileLocation: jsii.String("sourceFileLocation"),
+//   				type: jsii.String("type"),
+//   			},
 //   			deleteStepDetails: deleteStepDetails,
 //   			tagStepDetails: tagStepDetails,
 //   			type: jsii.String("type"),
@@ -33,6 +49,22 @@ import (
 //   		&workflowStepProperty{
 //   			copyStepDetails: copyStepDetails,
 //   			customStepDetails: customStepDetails,
+//   			decryptStepDetails: &decryptStepDetailsProperty{
+//   				destinationFileLocation: &inputFileLocationProperty{
+//   					efsFileLocation: &efsInputFileLocationProperty{
+//   						fileSystemId: jsii.String("fileSystemId"),
+//   						path: jsii.String("path"),
+//   					},
+//   					s3FileLocation: &s3InputFileLocationProperty{
+//   						bucket: jsii.String("bucket"),
+//   						key: jsii.String("key"),
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   				overwriteExisting: jsii.String("overwriteExisting"),
+//   				sourceFileLocation: jsii.String("sourceFileLocation"),
+//   				type: jsii.String("type"),
+//   			},
 //   			deleteStepDetails: deleteStepDetails,
 //   			tagStepDetails: tagStepDetails,
 //   			type: jsii.String("type"),

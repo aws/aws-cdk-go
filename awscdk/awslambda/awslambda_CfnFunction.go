@@ -133,9 +133,9 @@ type CfnFunction interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
 	//
-	// For more information, see [Dead Letter Queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) .
+	// For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq) .
 	DeadLetterConfig() interface{}
 	SetDeadLetterConfig(val interface{})
 	// A description of the function.
@@ -144,9 +144,9 @@ type CfnFunction interface {
 	// Environment variables that are accessible from function code during execution.
 	Environment() interface{}
 	SetEnvironment(val interface{})
-	// The size of the function’s /tmp directory in MB.
+	// The size of the function's `/tmp` directory in MB.
 	//
-	// The default value is 512, but can be any whole number between 512 and 10240 MB.
+	// The default value is 512, but it can be any whole number between 512 and 10,240 MB.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
 	// Connection settings for an Amazon EFS file system.
@@ -163,19 +163,19 @@ type CfnFunction interface {
 	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	FunctionName() *string
 	SetFunctionName(val *string)
-	// The name of the method within your code that Lambda calls to execute your function.
+	// The name of the method within your code that Lambda calls to run your function.
 	//
-	// Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Programming Model](https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html) .
+	// Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html) .
 	Handler() *string
 	SetHandler(val *string)
 	// Configuration values that override the container image Dockerfile settings.
 	//
-	// See [Container settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) .
+	// For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) .
 	ImageConfig() interface{}
 	SetImageConfig(val interface{})
 	// The ARN of the AWS Key Management Service ( AWS KMS ) key that's used to encrypt your function's environment variables.
 	//
-	// If it's not provided, AWS Lambda uses a default service key.
+	// If it's not provided, Lambda uses a default service key.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
@@ -191,7 +191,7 @@ type CfnFunction interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
+	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
 	MemorySize() *float64
 	SetMemorySize(val *float64)
 	// The tree node.
@@ -215,7 +215,7 @@ type CfnFunction interface {
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
 	Runtime() *string
 	SetRuntime(val *string)
-	// `AWS::Lambda::Function.SnapStart`.
+	// The function's [AWS Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 	SnapStart() interface{}
 	SetSnapStart(val interface{})
 	// The stack in which this element is defined.
@@ -226,7 +226,7 @@ type CfnFunction interface {
 	Tags() awscdk.TagManager
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.
 	//
-	// The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html) .
+	// The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html) .
 	Timeout() *float64
 	SetTimeout(val *float64)
 	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .

@@ -84,7 +84,7 @@ import (
 type CfnSignalCatalogProps struct {
 	// `AWS::IoTFleetWise::SignalCatalog.Description`.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTFleetWise::SignalCatalog.Name`.
+	// The name of the signal catalog.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::IoTFleetWise::SignalCatalog.NodeCounts`.
 	NodeCounts interface{} `field:"optional" json:"nodeCounts" yaml:"nodeCounts"`

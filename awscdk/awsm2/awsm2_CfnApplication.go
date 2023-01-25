@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::M2::Application`.
 //
+// Specifies a new application with given parameters. Requires an existing runtime environment and application definition file.
+//
+// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,7 +39,9 @@ import (
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the application.
 	AttrApplicationArn() *string
+	// The identifier of the application.
 	AttrApplicationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,16 +52,18 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::M2::Application.Definition`.
+	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	//
+	// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
 	Definition() interface{}
 	SetDefinition(val interface{})
-	// `AWS::M2::Application.Description`.
+	// The description of the application.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::M2::Application.EngineType`.
+	// The type of the target platform for this application.
 	EngineType() *string
 	SetEngineType(val *string)
-	// `AWS::M2::Application.KmsKeyId`.
+	// The identifier of a customer managed key.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,7 +76,7 @@ type CfnApplication interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::M2::Application.Name`.
+	// The name of the application.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -82,7 +90,9 @@ type CfnApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::M2::Application.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

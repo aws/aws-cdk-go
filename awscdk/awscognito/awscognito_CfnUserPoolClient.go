@@ -107,7 +107,9 @@ type CfnUserPoolClient interface {
 	SetAnalyticsConfiguration(val interface{})
 	AttrClientSecret() *string
 	AttrName() *string
-	// `AWS::Cognito::UserPoolClient.AuthSessionValidity`.
+	// Amazon Cognito creates a session token for each API request in an authentication flow.
+	//
+	// `AuthSessionValidity` is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.
 	AuthSessionValidity() *float64
 	SetAuthSessionValidity(val *float64)
 	// A list of allowed redirect (callback) URLs for the IdPs.
@@ -152,7 +154,9 @@ type CfnUserPoolClient interface {
 	// App callback URLs such as myapp://example are also supported.
 	DefaultRedirectUri() *string
 	SetDefaultRedirectUri(val *string)
-	// `AWS::Cognito::UserPoolClient.EnablePropagateAdditionalUserContextData`.
+	// Activates the propagation of additional user context data.
+	//
+	// For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
 	EnablePropagateAdditionalUserContextData() interface{}
 	SetEnablePropagateAdditionalUserContextData(val interface{})
 	// Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
@@ -160,21 +164,22 @@ type CfnUserPoolClient interface {
 	// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
 	EnableTokenRevocation() interface{}
 	SetEnableTokenRevocation(val interface{})
-	// The authentication flows that are supported by the user pool clients.
+	// The authentication flows that you want your user pool client to support.
 	//
-	// Flow names without the `ALLOW_` prefix are no longer supported, in favor of new names with the `ALLOW_` prefix.
+	// For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
 	//
-	// > Values with `ALLOW_` prefix must be used only along with the `ALLOW_` prefix.
+	// > If you don't specify a value for `ExplicitAuthFlows` , your user client supports `ALLOW_REFRESH_TOKEN_AUTH` , `ALLOW_USER_SRP_AUTH` , and `ALLOW_CUSTOM_AUTH` .
 	//
 	// Valid values include:
 	//
-	// - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password (SRP) protocol to verify passwords.
-	// - `ALLOW_CUSTOM_AUTH` : Enable AWS Lambda trigger based authentication.
+	// - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.
+	// - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
 	// - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
 	// - `ALLOW_USER_SRP_AUTH` : Enable SRP-based authentication.
 	// - `ALLOW_REFRESH_TOKEN_AUTH` : Enable authflow to refresh tokens.
 	//
-	// If you don't specify a value for `ExplicitAuthFlows` , your app client activates the `ALLOW_USER_SRP_AUTH` and `ALLOW_CUSTOM_AUTH` authentication flows.
+	// In some environments, you will see the values `ADMIN_NO_SRP_AUTH` , `CUSTOM_AUTH_FLOW_ONLY` , or `USER_PASSWORD_AUTH` . You can't assign these legacy `ExplicitAuthFlows` values to user pool clients at the same time as values that begin with `ALLOW_` ,
+	// like `ALLOW_USER_SRP_AUTH` .
 	ExplicitAuthFlows() *[]*string
 	SetExplicitAuthFlows(val *[]*string)
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
@@ -230,9 +235,9 @@ type CfnUserPoolClient interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of provider names for the IdPs that this client supports.
+	// A list of provider names for the identity providers (IdPs) that are supported on this client.
 	//
-	// The following are supported: `COGNITO` , `Facebook` , `Google` `LoginWithAmazon` , and the names of your own SAML and OIDC providers.
+	// The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
 	SupportedIdentityProviders() *[]*string
 	SetSupportedIdentityProviders(val *[]*string)
 	// The units in which the validity times are represented.

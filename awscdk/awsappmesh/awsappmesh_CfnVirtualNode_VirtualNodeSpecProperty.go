@@ -276,6 +276,8 @@ type CfnVirtualNode_VirtualNodeSpecProperty struct {
 	// A reference to an object that represents the defaults for backends.
 	BackendDefaults interface{} `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// The backends that the virtual node is expected to send outbound traffic to.
+	//
+	// > App Mesh doesn't validate the existence of those virtual services specified in backends. This is to prevent a cyclic dependency between virtual nodes and virtual services creation. Make sure the virtual service name is correct. The virtual service can be created afterwards if it doesn't already exist.
 	Backends interface{} `field:"optional" json:"backends" yaml:"backends"`
 	// The listener that the virtual node is expected to receive inbound traffic from.
 	//

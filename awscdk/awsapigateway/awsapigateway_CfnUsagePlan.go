@@ -55,7 +55,7 @@ import (
 type CfnUsagePlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The API stages to associate with this usage plan.
+	// The associated API stages of a usage plan.
 	ApiStages() interface{}
 	SetApiStages(val interface{})
 	// The ID for the usage plan.
@@ -71,7 +71,7 @@ type CfnUsagePlan interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description of the usage plan.
+	// The description of a usage plan.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,7 +86,7 @@ type CfnUsagePlan interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Configures the number of requests that users can make within a given interval.
+	// The target maximum number of permitted requests per a given unit time interval.
 	Quota() interface{}
 	SetQuota(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -98,9 +98,11 @@ type CfnUsagePlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+	// The collection of tags.
+	//
+	// Each tag element is associated with a given resource.
 	Tags() awscdk.TagManager
-	// Configures the overall request rate (average requests per second) and burst capacity.
+	// A map containing method level throttling information for API stage in a usage plan.
 	Throttle() interface{}
 	SetThrottle(val interface{})
 	// Deprecated.
@@ -116,7 +118,7 @@ type CfnUsagePlan interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// A name for the usage plan.
+	// The name of a usage plan.
 	UsagePlanName() *string
 	SetUsagePlanName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

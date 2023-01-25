@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::LakeFormation::TagAssociation`.
 //
+// The `AWS::LakeFormation::TagAssociation` resource represents an assignment of an LF-tag to a Data Catalog resource (database, table, or column). During a stack operation, CloudFormation calls AWS Lake Formation `AddLFTagsToResource` API to create a `TagAssociation` resource and calls the `RemoveLFTagsToResource` API to delete it.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -57,7 +59,15 @@ import (
 type CfnTagAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Json encoding of the input resource.
+	//
+	// **Examples** - Database: `{"Catalog":null,"Database":{"CatalogId":"123456789012","Name":"ExampleDbName"},"Table":null,"TableWithColumns":null}`
+	// - Table: `{"Catalog":null,"Database":null,"Table":{"CatalogId":"123456789012","DatabaseName":"ExampleDbName","Name":"ExampleTableName","TableWildcard":null},"TableWithColumns":null}`
+	// - Columns: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":{"CatalogId":"123456789012","DatabaseName":"ExampleDbName","Name":"ExampleTableName","ColumnNames":["ExampleColName1","ExampleColName2"]}}`.
 	AttrResourceIdentifier() *string
+	// Json encoding of the input LFTags list.
+	//
+	// For example: `[{"CatalogId":null,"TagKey":"tagKey1","TagValues":null},{"CatalogId":null,"TagKey":"tagKey2","TagValues":null}]`.
 	AttrTagsIdentifier() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -68,7 +78,7 @@ type CfnTagAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::LakeFormation::TagAssociation.LFTags`.
+	// A structure containing an LF-tag key-value pair.
 	LfTags() interface{}
 	SetLfTags(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -88,7 +98,9 @@ type CfnTagAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::LakeFormation::TagAssociation.Resource`.
+	// UTF-8 string (valid values: `DATABASE | TABLE` ).
+	//
+	// The resource for which the LF-tag policy applies.
 	Resource() interface{}
 	SetResource(val interface{})
 	// The stack in which this element is defined.

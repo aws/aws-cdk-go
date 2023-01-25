@@ -25,7 +25,9 @@ type IProfilingGroup interface {
 	//   - codeguru-profiler:GetProfile
 	// - codeguru-profiler:DescribeProfilingGroup.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// A name for the profiling group.
+	// The ARN of the profiling group.
+	ProfilingGroupArn() *string
+	// The name of the profiling group.
 	ProfilingGroupName() *string
 }
 
@@ -63,6 +65,16 @@ func (i *jsiiProxy_IProfilingGroup) GrantRead(grantee awsiam.IGrantable) awsiam.
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IProfilingGroup) ProfilingGroupArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"profilingGroupArn",
+		&returns,
+	)
 	return returns
 }
 

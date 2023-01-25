@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// Dashboard version.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,25 +34,25 @@ package awsquicksight
 //   }
 //
 type CfnDashboard_DashboardVersionProperty struct {
-	// `CfnDashboard.DashboardVersionProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the resource.
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
-	// `CfnDashboard.DashboardVersionProperty.CreatedTime`.
+	// The time that this dashboard version was created.
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
-	// `CfnDashboard.DashboardVersionProperty.DataSetArns`.
+	// The Amazon Resource Numbers (ARNs) for the datasets that are associated with this version of the dashboard.
 	DataSetArns *[]*string `field:"optional" json:"dataSetArns" yaml:"dataSetArns"`
-	// `CfnDashboard.DashboardVersionProperty.Description`.
+	// Description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnDashboard.DashboardVersionProperty.Errors`.
+	// Errors associated with this dashboard version.
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
-	// `CfnDashboard.DashboardVersionProperty.Sheets`.
+	// A list of the associated sheets with the unique identifier and name of each sheet.
 	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
-	// `CfnDashboard.DashboardVersionProperty.SourceEntityArn`.
+	// Source entity ARN.
 	SourceEntityArn *string `field:"optional" json:"sourceEntityArn" yaml:"sourceEntityArn"`
-	// `CfnDashboard.DashboardVersionProperty.Status`.
+	// The HTTP status of the request.
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// `CfnDashboard.DashboardVersionProperty.ThemeArn`.
+	// The ARN of the theme associated with a version of the dashboard.
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
-	// `CfnDashboard.DashboardVersionProperty.VersionNumber`.
+	// Version number for this version of the dashboard.
 	VersionNumber *float64 `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 

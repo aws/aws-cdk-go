@@ -46,7 +46,7 @@ type CfnRouteProps struct {
 	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The unique identifier of the service.
 	ServiceIdentifier *string `field:"required" json:"serviceIdentifier" yaml:"serviceIdentifier"`
-	// `AWS::RefactorSpaces::Route.DefaultRoute`.
+	// Configuration for the default route type.
 	DefaultRoute interface{} `field:"optional" json:"defaultRoute" yaml:"defaultRoute"`
 	// The route type of the route.
 	RouteType *string `field:"optional" json:"routeType" yaml:"routeType"`

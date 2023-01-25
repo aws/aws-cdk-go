@@ -44,7 +44,9 @@ type CfnRecordingConfigurationProps struct {
 	//
 	// The value does not need to be unique.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::IVS::RecordingConfiguration.RecordingReconnectWindowSeconds`.
+	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+	//
+	// *Default* : `0`.
 	RecordingReconnectWindowSeconds *float64 `field:"optional" json:"recordingReconnectWindowSeconds" yaml:"recordingReconnectWindowSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	//

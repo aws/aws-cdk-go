@@ -3,7 +3,7 @@ package awscloudfront
 
 // A response headers policy configuration.
 //
-// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers and their values. CloudFront adds the headers in the policy to HTTP responses that it sends for requests that match a cache behavior associated with the policy.
+// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -112,11 +112,11 @@ type CfnResponseHeadersPolicy_ResponseHeadersPolicyConfigProperty struct {
 	CorsConfig interface{} `field:"optional" json:"corsConfig" yaml:"corsConfig"`
 	// A configuration for a set of custom HTTP response headers.
 	CustomHeadersConfig interface{} `field:"optional" json:"customHeadersConfig" yaml:"customHeadersConfig"`
-	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.RemoveHeadersConfig`.
+	// A configuration for a set of HTTP headers to remove from the HTTP response.
 	RemoveHeadersConfig interface{} `field:"optional" json:"removeHeadersConfig" yaml:"removeHeadersConfig"`
 	// A configuration for a set of security-related HTTP response headers.
 	SecurityHeadersConfig interface{} `field:"optional" json:"securityHeadersConfig" yaml:"securityHeadersConfig"`
-	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.ServerTimingHeadersConfig`.
+	// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
 	ServerTimingHeadersConfig interface{} `field:"optional" json:"serverTimingHeadersConfig" yaml:"serverTimingHeadersConfig"`
 }
 

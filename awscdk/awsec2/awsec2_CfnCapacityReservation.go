@@ -57,6 +57,7 @@ type CfnCapacityReservation interface {
 	//
 	// For example: `9` .
 	AttrAvailableInstanceCount() *float64
+	// The ID of the Capacity Reservation.
 	AttrId() *string
 	// Returns the type of instance for which the capacity is reserved.
 	//
@@ -104,7 +105,7 @@ type CfnCapacityReservation interface {
 	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
 	EndDateType() *string
 	SetEndDateType(val *string)
-	// Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
+	// *Deprecated.*.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
 	// The number of instances for which to reserve capacity.

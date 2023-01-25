@@ -165,3 +165,44 @@ apprunner.NewService(this, jsii.String("Service"), &serviceProps{
 	vpcConnector: vpcConnector,
 })
 ```
+
+## Secrets Manager
+
+To include environment variables integrated with AWS Secrets Manager, use the `environmentSecrets` attribute.
+You can use the `addSecret` method from the App Runner `Service` class to include secrets from outside the
+service definition.
+
+```go
+import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
+import ssm "github.com/aws/aws-cdk-go/awscdk"
+
+var stack stack
+
+
+secret := secretsmanager.NewSecret(stack, jsii.String("Secret"))
+parameter := ssm.stringParameter.fromSecureStringParameterAttributes(stack, jsii.String("Parameter"), &secureStringParameterAttributes{
+	parameterName: jsii.String("/name"),
+	version: jsii.Number(1),
+})
+
+service := apprunner.NewService(stack, jsii.String("Service"), &serviceProps{
+	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
+		imageConfiguration: &imageConfiguration{
+			port: jsii.Number(8000),
+			environmentSecrets: map[string]secret{
+				"SECRET": apprunner.*secret.fromSecretsManager(secret),
+				"PARAMETER": apprunner.*secret.fromSsmParameter(parameter),
+				"SECRET_ID": apprunner.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+					"versionId": jsii.String("version-id"),
+				}),
+				"SECRET_STAGE": apprunner.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
+					"versionStage": jsii.String("version-stage"),
+				}),
+			},
+		},
+		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+	}),
+})
+
+service.addSecret(jsii.String("LATER_SECRET"), apprunner.secret.fromSecretsManager(secret, jsii.String("field")))
+```

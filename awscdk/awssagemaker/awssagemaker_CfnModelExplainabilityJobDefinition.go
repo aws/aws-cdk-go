@@ -187,7 +187,7 @@ type CfnModelExplainabilityJobDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::SageMaker::ModelExplainabilityJobDefinition.StoppingCondition`.
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition() interface{}
 	SetStoppingCondition(val interface{})
 	// An array of key-value pairs to apply to this resource.

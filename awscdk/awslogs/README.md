@@ -75,6 +75,13 @@ logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
 logGroup.grantWrite(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
 ```
 
+Similarily, read permissions can be granted to the log group as follows.
+
+```go
+logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
+logGroup.grantRead(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
+```
+
 Be aware that any ARNs or tokenized values passed to the resource policy will be converted into AWS Account IDs.
 This is because CloudWatch Logs Resource Policies do not accept ARNs as principals, but they do accept
 Account ID strings. Non-ARN principals, like Service principals or Any principals, are accepted by CloudWatch.

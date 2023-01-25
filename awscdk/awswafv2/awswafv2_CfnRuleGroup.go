@@ -539,7 +539,9 @@ type CfnRuleGroup interface {
 	//
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 	AttrLabelNamespace() *string
-	// `AWS::WAFv2::RuleGroup.AvailableLabels`.
+	// The labels that one or more rules in this rule group add to matching web requests.
+	//
+	// These labels are defined in the `RuleLabels` for a `Rule` .
 	AvailableLabels() interface{}
 	SetAvailableLabels(val interface{})
 	// The web ACL capacity units (WCUs) required for this rule group.
@@ -554,7 +556,9 @@ type CfnRuleGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::WAFv2::RuleGroup.ConsumedLabels`.
+	// The labels that one or more rules in this rule group match against in label match statements.
+	//
+	// These labels are defined in a `LabelMatchStatement` specification, in the `Statement` definition of a rule.
 	ConsumedLabels() interface{}
 	SetConsumedLabels(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -602,7 +606,7 @@ type CfnRuleGroup interface {
 	SetRules(val interface{})
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
-	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, or an Amazon Cognito user pool. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope() *string

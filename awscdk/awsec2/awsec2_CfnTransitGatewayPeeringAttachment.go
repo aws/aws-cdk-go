@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::EC2::TransitGatewayPeeringAttachment`.
 //
-// Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The transit gateways must be in different Regions. The peer transit gateway can be in your account or a different AWS account .
+// Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The peer transit gateway can be in your account or a different AWS account .
 //
 // After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.
 //
@@ -44,7 +44,9 @@ type CfnTransitGatewayPeeringAttachment interface {
 	//
 	// Note that the `initiating` state has been deprecated.
 	AttrState() *string
+	// The status code.
 	AttrStatusCode() *string
+	// The status message.
 	AttrStatusMessage() *string
 	// The ID of the transit gateway peering attachment.
 	AttrTransitGatewayAttachmentId() *string

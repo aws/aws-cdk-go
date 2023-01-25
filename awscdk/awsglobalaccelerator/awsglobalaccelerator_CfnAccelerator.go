@@ -40,10 +40,17 @@ type CfnAccelerator interface {
 	awscdk.IInspectable
 	// The ARN of the accelerator, such as `arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh` .
 	AttrAcceleratorArn() *string
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+	// The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses.
 	AttrDnsName() *string
+	// The DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
 	AttrDualStackDnsName() *string
+	// The array of IPv4 addresses in the IP address set.
+	//
+	// An IP address set can have a maximum of two IP addresses.
 	AttrIpv4Addresses() *[]*string
+	// The array of IPv6 addresses in the IP address set.
+	//
+	// An IP address set can have a maximum of two IP addresses.
 	AttrIpv6Addresses() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -70,7 +77,9 @@ type CfnAccelerator interface {
 	// For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the *AWS Global Accelerator Developer Guide* .
 	IpAddresses() *[]*string
 	SetIpAddresses(val *[]*string)
-	// The value for the address type must be IPv4.
+	// The IP address type that an accelerator supports.
+	//
+	// For a standard accelerator, the value can be IPV4 or DUAL_STACK.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.

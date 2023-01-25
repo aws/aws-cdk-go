@@ -22,9 +22,11 @@ import (
 //   }
 //
 type CfnScheduleGroupProps struct {
-	// `AWS::Scheduler::ScheduleGroup.Name`.
+	// The name of the schedule group.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::Scheduler::ScheduleGroup.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::Amplify::App`.
 //
-// The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
+// The AWS::Amplify::App resource specifies Apps in Amplify Hosting. An App is a collection of branches.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -149,7 +149,7 @@ type CfnApp interface {
 	// *Pattern:* (?s).*
 	Description() *string
 	SetDescription(val *string)
-	// Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.
+	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion() interface{}
 	SetEnableBranchAutoDeletion(val interface{})
 	// The environment variables map for an Amplify app.
@@ -196,7 +196,9 @@ type CfnApp interface {
 	// *Pattern:* (?s).*
 	OauthToken() *string
 	SetOauthToken(val *string)
-	// `AWS::Amplify::App.Platform`.
+	// The platform for the Amplify app.
+	//
+	// For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
 	Platform() *string
 	SetPlatform(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

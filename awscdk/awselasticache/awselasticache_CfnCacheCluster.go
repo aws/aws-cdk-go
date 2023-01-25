@@ -150,7 +150,7 @@ type CfnCacheCluster interface {
 	//
 	// *R3 node types:* `cache.r3.large` , `cache.r3.xlarge` , `cache.r3.2xlarge` , `cache.r3.4xlarge` , `cache.r3.8xlarge`
 	//
-	// For region availability, see [Supported Node Types by Amazon Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)
+	// For region availability, see [Supported Node Types by Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)
 	//
 	// *Additional node type info*
 	//
@@ -205,7 +205,9 @@ type CfnCacheCluster interface {
 	// *Important:* You can upgrade to a newer engine version (see [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement) ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	// `AWS::ElastiCache::CacheCluster.IpDiscovery`.
+	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
+	//
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
 	IpDiscovery() *string
 	SetIpDiscovery(val *string)
 	// Specifies the destination, format and type of the logs.
@@ -221,7 +223,9 @@ type CfnCacheCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::ElastiCache::CacheCluster.NetworkType`.
+	// Must be either `ipv4` | `ipv6` | `dual_stack` .
+	//
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.
@@ -325,7 +329,9 @@ type CfnCacheCluster interface {
 	Stack() awscdk.Stack
 	// A list of tags to be added to this resource.
 	Tags() awscdk.TagManager
-	// `AWS::ElastiCache::CacheCluster.TransitEncryptionEnabled`.
+	// A flag that enables in-transit encryption when set to true.
+	//
+	// Only available when creating a cache cluster in an Amazon VPC using Memcached version 1.6.12 or later.
 	TransitEncryptionEnabled() interface{}
 	SetTransitEncryptionEnabled(val interface{})
 	// Deprecated.

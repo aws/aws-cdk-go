@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::S3::StorageLens`.
 //
-// The AWS::S3::StorageLens resource creates an instance of an Amazon S3 Storage Lens configuration.
+// The AWS::S3::StorageLens resource creates an Amazon S3 Storage Lens configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

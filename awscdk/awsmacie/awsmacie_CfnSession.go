@@ -11,9 +11,9 @@ import (
 
 // A CloudFormation `AWS::Macie::Session`.
 //
-// The `AWS::Macie::Session` resource represents the Amazon Macie service and configuration settings for an account. A `Session` is created for each AWS Region in which you enable Macie .
+// The `AWS::Macie::Session` resource represents the Amazon Macie service and certain configuration settings for an Amazon Macie account in a specific AWS Region . It enables Macie to become operational for a specific account in a specific Region. An account can have only one session in each Region.
 //
-// You must create a `Session` for an account before you can create an `AWS::Macie::FindingsFilter` or `AWS::Macie::CustomDataIdentifier` resource. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that the `Session` is created before the other resources. For example, `"DependsOn: Session"` .
+// You must create an `AWS::Macie::Session` resource for an account before you can create other types of resources for the account. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that an `AWS::Macie::Session` resource is created before other Macie resources are created for an account. For example, `"DependsOn": "Session"` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,7 +28,7 @@ import (
 type CfnSession interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The account ID for the AWS account in which the `Session` is created.
+	// The account ID for the AWS account in which the Amazon Macie session is created.
 	AttrAwsAccountId() *string
 	// The Amazon Resource Name (ARN) of the service-linked role that allows Amazon Macie to monitor and analyze data in AWS resources for the account.
 	AttrServiceRole() *string
@@ -41,9 +41,9 @@ type CfnSession interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The frequency with which Amazon Macie publishes updates to policy findings for an account.
+	// Specifies how often Amazon Macie publishes updates to policy findings for the account.
 	//
-	// This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events ). Valid values are:
+	// This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events ). Valid values are:
 	//
 	// - FIFTEEN_MINUTES
 	// - ONE_HOUR
@@ -71,9 +71,9 @@ type CfnSession interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The `MacieStatus` of the `Session` .
+	// The status of Amazon Macie for the account.
 	//
-	// Valid values include `ENABLED` and `PAUSED` .
+	// Valid values are: `ENABLED` , start or resume all Macie activities for the account; and, `PAUSED` , suspend all Macie activities for the account.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.

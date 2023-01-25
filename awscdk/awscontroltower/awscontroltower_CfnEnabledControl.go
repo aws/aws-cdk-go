@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::ControlTower::EnabledControl`.
 //
+// The resource represents an enabled control. It specifies an asynchronous operation that creates AWS resources on the specified organizational unit and the accounts it contains. The resources created will vary according to the control that you specify.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,7 +31,9 @@ type CfnEnabledControl interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// `AWS::ControlTower::EnabledControl.ControlIdentifier`.
+	// The ARN of the control.
+	//
+	// Only *Strongly recommended* and *Elective* controls are permitted, with the exception of the *Region deny* guardrail.
 	ControlIdentifier() *string
 	SetControlIdentifier(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -57,7 +61,7 @@ type CfnEnabledControl interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::ControlTower::EnabledControl.TargetIdentifier`.
+	// The ARN of the organizational unit.
 	TargetIdentifier() *string
 	SetTargetIdentifier(val *string)
 	// Deprecated.

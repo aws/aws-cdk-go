@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::Connect::Rule`.
 //
+// Creates a rule for the specified Amazon Connect instance.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -85,9 +87,10 @@ import (
 type CfnRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::Connect::Rule.Actions`.
+	// A list of actions to be run when the rule is triggered.
 	Actions() interface{}
 	SetActions(val interface{})
+	// The Amazon Resource Name (ARN) of the rule.
 	AttrRuleArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -98,10 +101,10 @@ type CfnRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::Connect::Rule.Function`.
+	// The conditions of the rule.
 	Function() *string
 	SetFunction(val *string)
-	// `AWS::Connect::Rule.InstanceArn`.
+	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -114,12 +117,14 @@ type CfnRule interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Connect::Rule.Name`.
+	// The name of the rule.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::Connect::Rule.PublishStatus`.
+	// The publish status of the rule.
+	//
+	// *Allowed values* : `DRAFT` | `PUBLISHED`.
 	PublishStatus() *string
 	SetPublishStatus(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -131,9 +136,11 @@ type CfnRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Connect::Rule.Tags`.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags() awscdk.TagManager
-	// `AWS::Connect::Rule.TriggerEventSource`.
+	// The event source to trigger the rule.
 	TriggerEventSource() interface{}
 	SetTriggerEventSource(val interface{})
 	// Deprecated.

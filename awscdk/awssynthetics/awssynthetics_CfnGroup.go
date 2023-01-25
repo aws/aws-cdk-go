@@ -11,6 +11,12 @@ import (
 
 // A CloudFormation `AWS::Synthetics::Group`.
 //
+// Creates or updates a group which you can use to associate canaries with each other, including cross-Region canaries. Using groups can help you with managing and automating your canaries, and you can also view aggregated run results and statistics for all canaries in a group.
+//
+// Groups are global resources. When you create a group, it is replicated across all AWS Regions, and you can add canaries from any Region to it, and view it in any Region. Although the group ARN format reflects the Region name where it was created, a group is not constrained to any Region. This means that you can put canaries from multiple Regions into the same group, and then use that group to view and manage all of those canaries in a single view.
+//
+// Each group can contain as many as 10 canaries. You can have as many as 20 groups in your account. Any single canary can be a member of up to 10 groups.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,6 +40,7 @@ import (
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Id of the group.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,7 +61,9 @@ type CfnGroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::Synthetics::Group.Name`.
+	// A name for the group. It can include any Unicode characters.
+	//
+	// The names for all groups in your account, across all Regions, must be unique.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -64,14 +73,14 @@ type CfnGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::Synthetics::Group.ResourceArns`.
+	// The ARNs of the canaries that you want to associate with this group.
 	ResourceArns() *[]*string
 	SetResourceArns(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::Synthetics::Group.Tags`.
+	// The list of key-value pairs that are associated with the group.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

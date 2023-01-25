@@ -81,7 +81,7 @@ type CfnTrigger interface {
 	// A description of this trigger.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::Glue::Trigger.EventBatchingCondition`.
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 	EventBatchingCondition() interface{}
 	SetEventBatchingCondition(val interface{})
 	// The logical ID for this CloudFormation stack element.

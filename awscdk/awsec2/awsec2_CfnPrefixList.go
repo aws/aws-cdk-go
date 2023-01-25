@@ -13,8 +13,6 @@ import (
 //
 // Specifies a managed prefix list. You can add one or more entries to the prefix list. Each entry consists of a CIDR block and an optional description.
 //
-// You must specify the maximum number of entries for the prefix list. The maximum number of entries cannot be changed later.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

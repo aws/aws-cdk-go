@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
 //
-// Enables the attribute-based access control (ABAC) feature for the specified AWS SSO instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see [Attribute-Based Access Control](https://docs.aws.amazon.com//singlesignon/latest/userguide/abac.html) in the *AWS SSO User Guide* .
+// Enables the attribute-based access control (ABAC) feature for the specified IAM Identity Center instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see [Attribute-Based Access Control](https://docs.aws.amazon.com//singlesignon/latest/userguide/abac.html) in the *IAM Identity Center User Guide* .
 //
 // > The `InstanceAccessControlAttributeConfiguration` property has been deprecated but is still supported for backwards compatibility purposes. We recommend that you use the `AccessControlAttributes` property instead.
 //
@@ -39,7 +39,7 @@ import (
 type CfnInstanceAccessControlAttributeConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Lists the attributes that are configured for ABAC in the specified AWS SSO instance.
+	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
 	AccessControlAttributes() interface{}
 	SetAccessControlAttributes(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -51,7 +51,7 @@ type CfnInstanceAccessControlAttributeConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ARN of the AWS SSO instance under which the operation will be executed.
+	// The ARN of the IAM Identity Center instance under which the operation will be executed.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

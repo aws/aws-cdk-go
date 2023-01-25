@@ -76,12 +76,10 @@ type CfnComponent interface {
 	// Alternatively, you can specify the `uri` of a YAML document file stored in Amazon S3. However, you cannot specify both properties.
 	Data() *string
 	SetData(val *string)
-	// The description of the component.
-	//
 	// Describes the contents of the component.
 	Description() *string
 	SetDescription(val *string)
-	// The ID of the KMS key that should be used to encrypt this component.
+	// The ID of the KMS key that is used to encrypt this component.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -99,7 +97,7 @@ type CfnComponent interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The platform of the component.
+	// The operating system platform of the component.
 	Platform() *string
 	SetPlatform(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -116,7 +114,7 @@ type CfnComponent interface {
 	// If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
 	SupportedOsVersions() *[]*string
 	SetSupportedOsVersions(val *[]*string)
-	// The tags of the component.
+	// The tags that apply to the component.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::RolesAnywhere::TrustAnchor`.
 //
+// The state of the trust anchor after a read or write operation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,7 +39,9 @@ import (
 type CfnTrustAnchor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the trust anchor.
 	AttrTrustAnchorArn() *string
+	// The unique primary identifier of the TrustAnchor.
 	AttrTrustAnchorId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -48,7 +52,7 @@ type CfnTrustAnchor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::RolesAnywhere::TrustAnchor.Enabled`.
+	// Indicates whether the trust anchor is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -61,7 +65,7 @@ type CfnTrustAnchor interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::RolesAnywhere::TrustAnchor.Name`.
+	// The name of the trust anchor.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -71,14 +75,14 @@ type CfnTrustAnchor interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// `AWS::RolesAnywhere::TrustAnchor.Source`.
+	// The trust anchor type and its related certificate data.
 	Source() interface{}
 	SetSource(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::RolesAnywhere::TrustAnchor.Tags`.
+	// A list of tags to attach to the trust anchor.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

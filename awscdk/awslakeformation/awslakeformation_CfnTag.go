@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::LakeFormation::Tag`.
 //
+// The `AWS::LakeFormation::Tag` resource represents an LF-tag, which consists of a key and one or more possible values for the key. During a stack operation, AWS CloudFormation calls the AWS Lake Formation `CreateLFTag` API to create a tag, and `UpdateLFTag` API to update a tag resource, and a `DeleteLFTag` to delete it.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -29,7 +31,9 @@ import (
 type CfnTag interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::LakeFormation::Tag.CatalogId`.
+	// Catalog id string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// The identifier for the Data Catalog . By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
 	CatalogId() *string
 	SetCatalogId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -62,10 +66,14 @@ type CfnTag interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::LakeFormation::Tag.TagKey`.
+	// UTF-8 string, not less than 1 or more than 255 bytes long, matching the [single-line string pattern](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-common.html#aws-glue-api-regex-oneLine) .
+	//
+	// The key-name for the LF-tag.
 	TagKey() *string
 	SetTagKey(val *string)
-	// `AWS::LakeFormation::Tag.TagValues`.
+	// An array of UTF-8 strings, not less than 1 or more than 50 strings.
+	//
+	// A list of possible values of the corresponding `TagKey` of an LF-tag key-value pair.
 	TagValues() *[]*string
 	SetTagValues(val *[]*string)
 	// Deprecated.

@@ -15,7 +15,7 @@ package awscdk
 //   }
 //
 type CfnResourceVersion_LoggingConfigProperty struct {
-	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+	// The Amazon CloudWatch logs group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 	LogRoleArn *string `field:"optional" json:"logRoleArn" yaml:"logRoleArn"`

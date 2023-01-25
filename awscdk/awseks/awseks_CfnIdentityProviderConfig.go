@@ -82,7 +82,7 @@ type CfnIdentityProviderConfig interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// An object that represents an OpenID Connect (OIDC) identity provider configuration.
+	// An object representing an OpenID Connect (OIDC) identity provider configuration.
 	Oidc() interface{}
 	SetOidc(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

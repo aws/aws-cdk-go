@@ -27,6 +27,7 @@ import (
 type CfnCloudFrontOriginAccessIdentity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
 	AttrId() *string
 	// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3.
 	//

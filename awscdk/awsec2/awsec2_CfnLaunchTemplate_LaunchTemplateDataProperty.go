@@ -259,9 +259,11 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	CpuOptions interface{} `field:"optional" json:"cpuOptions" yaml:"cpuOptions"`
 	// The credit option for CPU usage of the instance.
 	//
-	// Valid for T2, T3, or T3a instances only.
+	// Valid only for T instances.
 	CreditSpecification interface{} `field:"optional" json:"creditSpecification" yaml:"creditSpecification"`
-	// `CfnLaunchTemplate.LaunchTemplateDataProperty.DisableApiStop`.
+	// Indicates whether to enable the instance for stop protection.
+	//
+	// For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide* .
 	DisableApiStop interface{} `field:"optional" json:"disableApiStop" yaml:"disableApiStop"`
 	// If you set this parameter to `true` , you can't terminate the instance using the Amazon EC2 console, CLI, or API;
 	//
@@ -288,6 +290,17 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	// The name or Amazon Resource Name (ARN) of an IAM instance profile.
 	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The ID of the AMI.
+	//
+	// Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+	//
+	// Valid formats:
+	//
+	// - `ami-17characters00000`
+	// - `resolve:ssm:parameter-name`
+	// - `resolve:ssm:parameter-name:version-number`
+	// - `resolve:ssm:parameter-name:label`
+	//
+	// For more information, see [Use a Systems Manager parameter instead of an AMI ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id) in the *Amazon Elastic Compute Cloud User Guide* .
 	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 	//
@@ -299,11 +312,11 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
 	//
-	// If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
+	// If you specify `InstanceRequirements` , you can't specify `InstanceType` .
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	//
-	// If you specify `InstanceTypes` , you can't specify `InstanceRequirements` .
+	// If you specify `InstanceType` , you can't specify `InstanceRequirements` .
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ID of the kernel.
 	//
@@ -315,11 +328,11 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// The license configurations.
 	LicenseSpecifications interface{} `field:"optional" json:"licenseSpecifications" yaml:"licenseSpecifications"`
-	// `CfnLaunchTemplate.LaunchTemplateDataProperty.MaintenanceOptions`.
+	// The maintenance options of your instance.
 	MaintenanceOptions interface{} `field:"optional" json:"maintenanceOptions" yaml:"maintenanceOptions"`
 	// The metadata options for the instance.
 	//
-	// For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	// For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	MetadataOptions interface{} `field:"optional" json:"metadataOptions" yaml:"metadataOptions"`
 	// The monitoring for the instance.
 	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`
@@ -341,13 +354,23 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	//
 	// You can create a security group using [CreateSecurityGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html) . You cannot specify both a security group ID and security name in the same request.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// [EC2-Classic, default VPC] One or more security group names.
+	// One or more security group names.
 	//
 	// For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
-	// The tags to apply to the resources during launch.
+	// The tags to apply to the resources that are created during instance launch.
 	//
-	// You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch.
+	// You can specify tags for the following resources only:
+	//
+	// - Instances
+	// - Volumes
+	// - Elastic graphics
+	// - Spot Instance requests
+	// - Network interfaces
+	//
+	// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
+	//
+	// > To tag the launch template itself, you must use the [TagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html) parameter.
 	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// The user data to make available to the instance.
 	//
