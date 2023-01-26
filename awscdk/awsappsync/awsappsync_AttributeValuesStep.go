@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -18,10 +18,8 @@ import (
 //   	assign,
 //   })
 //
-// Experimental.
 type AttributeValuesStep interface {
 	// Assign the value to the current attribute.
-	// Experimental.
 	Is(val *string) AttributeValues
 }
 
@@ -30,7 +28,6 @@ type jsiiProxy_AttributeValuesStep struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAttributeValuesStep(attr *string, container *string, assignments *[]Assign) AttributeValuesStep {
 	_init_.Initialize()
 
@@ -40,7 +37,7 @@ func NewAttributeValuesStep(attr *string, container *string, assignments *[]Assi
 	j := jsiiProxy_AttributeValuesStep{}
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.AttributeValuesStep",
+		"aws-cdk-lib.aws_appsync.AttributeValuesStep",
 		[]interface{}{attr, container, assignments},
 		&j,
 	)
@@ -48,12 +45,11 @@ func NewAttributeValuesStep(attr *string, container *string, assignments *[]Assi
 	return &j
 }
 
-// Experimental.
 func NewAttributeValuesStep_Override(a AttributeValuesStep, attr *string, container *string, assignments *[]Assign) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appsync.AttributeValuesStep",
+		"aws-cdk-lib.aws_appsync.AttributeValuesStep",
 		[]interface{}{attr, container, assignments},
 		a,
 	)

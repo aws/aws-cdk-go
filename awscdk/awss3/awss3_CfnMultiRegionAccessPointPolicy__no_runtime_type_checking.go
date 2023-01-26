@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateAddDeletionOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateInspectParameters(in
 	return nil
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateRenderPropertiesPara
 	return nil
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateSetPolicyParameters(
 	return nil
 }
 
-func validateNewCfnMultiRegionAccessPointPolicyParameters(scope awscdk.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) error {
+func validateNewCfnMultiRegionAccessPointPolicyParameters(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) error {
 	return nil
 }
 

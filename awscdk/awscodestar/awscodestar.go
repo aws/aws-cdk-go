@@ -8,10 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_codestar.CfnGitHubRepository",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository",
 		reflect.TypeOf((*CfnGitHubRepository)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -31,23 +32,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isPrivate", GoGetter: "IsPrivate"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryAccessToken", GoGetter: "RepositoryAccessToken"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryDescription", GoGetter: "RepositoryDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryOwner", GoGetter: "RepositoryOwner"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -58,73 +58,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestar.CfnGitHubRepository.CodeProperty",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository.CodeProperty",
 		reflect.TypeOf((*CfnGitHubRepository_CodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestar.CfnGitHubRepository.S3Property",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository.S3Property",
 		reflect.TypeOf((*CfnGitHubRepository_S3Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestar.CfnGitHubRepositoryProps",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepositoryProps",
 		reflect.TypeOf((*CfnGitHubRepositoryProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"monocdk.aws_codestar.GitHubRepository",
-		reflect.TypeOf((*GitHubRepository)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberProperty{JsiiProperty: "owner", GoGetter: "Owner"},
-			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
-			_jsii_.MemberProperty{JsiiProperty: "repo", GoGetter: "Repo"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
-		},
-		func() interface{} {
-			j := jsiiProxy_GitHubRepository{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGitHubRepository)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_codestar.GitHubRepositoryProps",
-		reflect.TypeOf((*GitHubRepositoryProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"monocdk.aws_codestar.IGitHubRepository",
-		reflect.TypeOf((*IGitHubRepository)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "owner", GoGetter: "Owner"},
-			_jsii_.MemberProperty{JsiiProperty: "repo", GoGetter: "Repo"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IGitHubRepository{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterEnum(
-		"monocdk.aws_codestar.RepositoryVisibility",
-		reflect.TypeOf((*RepositoryVisibility)(nil)).Elem(),
-		map[string]interface{}{
-			"PRIVATE": RepositoryVisibility_PRIVATE,
-			"PUBLIC": RepositoryVisibility_PUBLIC,
-		},
 	)
 }

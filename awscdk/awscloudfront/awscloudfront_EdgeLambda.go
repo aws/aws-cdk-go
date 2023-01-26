@@ -1,12 +1,12 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Represents a Lambda function version and event type when using Lambda@Edge.
 //
-// The type of the {@link AddBehaviorOptions.edgeLambdas} property.
+// The type of the `AddBehaviorOptions.edgeLambdas` property.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,21 +24,17 @@ import (
 //   	includeBody: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type EdgeLambda struct {
 	// The type of event in response to which should the function be invoked.
-	// Experimental.
 	EventType LambdaEdgeEventType `field:"required" json:"eventType" yaml:"eventType"`
 	// The version of the Lambda function that will be invoked.
 	//
 	// **Note**: it's not possible to use the '$LATEST' function version for Lambda@Edge!
-	// Experimental.
 	FunctionVersion awslambda.IVersion `field:"required" json:"functionVersion" yaml:"functionVersion"`
 	// Allows a Lambda function to have read access to the body content.
 	//
 	// Only valid for "request" event types (`ORIGIN_REQUEST` or `VIEWER_REQUEST`).
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html
-	// Experimental.
 	IncludeBody *bool `field:"optional" json:"includeBody" yaml:"includeBody"`
 }
 

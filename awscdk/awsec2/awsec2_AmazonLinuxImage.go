@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Selects the latest version of Amazon Linux.
@@ -37,15 +37,12 @@ import (
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
-// Experimental.
 type AmazonLinuxImage interface {
 	GenericSSMParameterImage
 	// Name of the SSM parameter we're looking up.
-	// Experimental.
 	ParameterName() *string
 	// Return the image to use in the given context.
-	// Experimental.
-	GetImage(scope awscdk.Construct) *MachineImageConfig
+	GetImage(scope constructs.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for AmazonLinuxImage
@@ -64,7 +61,6 @@ func (j *jsiiProxy_AmazonLinuxImage) ParameterName() *string {
 }
 
 
-// Experimental.
 func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
 	_init_.Initialize()
 
@@ -74,7 +70,7 @@ func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
 	j := jsiiProxy_AmazonLinuxImage{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.AmazonLinuxImage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImage",
 		[]interface{}{props},
 		&j,
 	)
@@ -82,19 +78,17 @@ func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
 	return &j
 }
 
-// Experimental.
 func NewAmazonLinuxImage_Override(a AmazonLinuxImage, props *AmazonLinuxImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.AmazonLinuxImage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImage",
 		[]interface{}{props},
 		a,
 	)
 }
 
 // Return the SSM parameter name that will contain the Amazon Linux image with the given attributes.
-// Experimental.
 func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 	_init_.Initialize()
 
@@ -104,7 +98,7 @@ func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.AmazonLinuxImage",
+		"aws-cdk-lib.aws_ec2.AmazonLinuxImage",
 		"ssmParameterName",
 		[]interface{}{props},
 		&returns,
@@ -113,7 +107,7 @@ func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
 	return returns
 }
 
-func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope constructs.Construct) *MachineImageConfig {
 	if err := a.validateGetImageParameters(scope); err != nil {
 		panic(err)
 	}

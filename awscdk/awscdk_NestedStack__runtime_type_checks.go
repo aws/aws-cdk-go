@@ -1,6 +1,6 @@
 //go:build !no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -8,9 +8,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
-	"github.com/aws/aws-cdk-go/awscdk/cxapi"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (n *jsiiProxy_NestedStack) validateAddDependencyParameters(target Stack) error {
@@ -21,23 +20,13 @@ func (n *jsiiProxy_NestedStack) validateAddDependencyParameters(target Stack) er
 	return nil
 }
 
-func (n *jsiiProxy_NestedStack) validateAddDockerImageAssetParameters(asset *DockerImageAssetSource) error {
-	if asset == nil {
-		return fmt.Errorf("parameter asset is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
-		return err
+func (n *jsiiProxy_NestedStack) validateAddMetadataParameters(key *string, value interface{}) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
 	}
 
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validateAddFileAssetParameters(asset *FileAssetSource) error {
-	if asset == nil {
-		return fmt.Errorf("parameter asset is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(asset, func() string { return "parameter asset" }); err != nil {
-		return err
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
 	}
 
 	return nil
@@ -54,6 +43,18 @@ func (n *jsiiProxy_NestedStack) validateAddTransformParameters(transform *string
 func (n *jsiiProxy_NestedStack) validateAllocateLogicalIdParameters(cfnElement CfnElement) error {
 	if cfnElement == nil {
 		return fmt.Errorf("parameter cfnElement is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NestedStack) validateExportStringListValueParameters(exportedValue interface{}, options *ExportValueOptions) error {
+	if exportedValue == nil {
+		return fmt.Errorf("parameter exportedValue is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil
@@ -90,34 +91,6 @@ func (n *jsiiProxy_NestedStack) validateGetLogicalIdParameters(element CfnElemen
 	return nil
 }
 
-func (n *jsiiProxy_NestedStack) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validateParseArnParameters(arn *string) error {
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validatePrepareCrossReferenceParameters(_sourceStack Stack, reference Reference) error {
-	if _sourceStack == nil {
-		return fmt.Errorf("parameter _sourceStack is required, but nil was provided")
-	}
-
-	if reference == nil {
-		return fmt.Errorf("parameter reference is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (n *jsiiProxy_NestedStack) validateRegionalFactParameters(factName *string) error {
 	if factName == nil {
 		return fmt.Errorf("parameter factName is required, but nil was provided")
@@ -133,17 +106,6 @@ func (n *jsiiProxy_NestedStack) validateRenameLogicalIdParameters(oldId *string,
 
 	if newId == nil {
 		return fmt.Errorf("parameter newId is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validateReportMissingContextParameters(report *cxapi.MissingContext) error {
-	if report == nil {
-		return fmt.Errorf("parameter report is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(report, func() string { return "parameter report" }); err != nil {
-		return err
 	}
 
 	return nil
@@ -187,14 +149,6 @@ func (n *jsiiProxy_NestedStack) validateSplitArnParameters(arn *string, arnForma
 
 	if arnFormat == "" {
 		return fmt.Errorf("parameter arnFormat is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (n *jsiiProxy_NestedStack) validateSynthesizeParameters(session ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

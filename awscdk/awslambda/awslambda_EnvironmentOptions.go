@@ -12,14 +12,12 @@ package awslambda
 //   	removeInEdge: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type EnvironmentOptions struct {
 	// When used in Lambda@Edge via edgeArn() API, these environment variables will be removed.
 	//
 	// If not set, an error will be thrown.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration
 	//
-	// Experimental.
 	RemoveInEdge *bool `field:"optional" json:"removeInEdge" yaml:"removeInEdge"`
 }
 

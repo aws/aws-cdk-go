@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateAddDeletionOverrideParameters(path 
 	return nil
 }
 
+func (c *jsiiProxy_CfnFHIRDatastore) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFHIRDatastore) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnFHIRDatastore) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnFHIRDatastore) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnFHIRDatastore) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnFHIRDatastore) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnFHIRDatastore) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnFHIRDatastore) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnFHIRDatastore) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetSseConfigurationParameters(val i
 	return nil
 }
 
-func validateNewCfnFHIRDatastoreParameters(scope awscdk.Construct, id *string, props *CfnFHIRDatastoreProps) error {
+func validateNewCfnFHIRDatastoreParameters(scope constructs.Construct, id *string, props *CfnFHIRDatastoreProps) error {
 	return nil
 }
 

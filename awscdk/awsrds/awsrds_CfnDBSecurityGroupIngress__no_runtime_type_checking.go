@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) validateSetDbSecurityGroupNamePara
 	return nil
 }
 
-func validateNewCfnDBSecurityGroupIngressParameters(scope awscdk.Construct, id *string, props *CfnDBSecurityGroupIngressProps) error {
+func validateNewCfnDBSecurityGroupIngressParameters(scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) error {
 	return nil
 }
 

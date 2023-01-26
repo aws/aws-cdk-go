@@ -35,14 +35,13 @@ package awsecs
 //   	},
 //   })
 //   newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+//   newContainer.addSecret(jsii.String("API_KEY"), ecs.secret.fromSecretsManager(secret))
+//   newContainer.addSecret(jsii.String("DB_PASSWORD"), ecs.secret.fromSecretsManager(secret, jsii.String("password")))
 //
-// Experimental.
 type SecretVersionInfo struct {
 	// version id of the secret.
-	// Experimental.
 	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 	// version stage of the secret.
-	// Experimental.
 	VersionStage *string `field:"optional" json:"versionStage" yaml:"versionStage"`
 }
 

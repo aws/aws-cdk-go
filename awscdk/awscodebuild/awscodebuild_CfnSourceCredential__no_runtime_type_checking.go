@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSourceCredential) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
+func (c *jsiiProxy_CfnSourceCredential) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSourceCredential) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSourceCredential) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnSourceCredential) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSourceCredential) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSourceCredential) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSourceCredential) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSourceCredential) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnSourceCredential) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSourceCredential) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnSourceCredential) validateSetTokenParameters(val *string) 
 	return nil
 }
 
-func validateNewCfnSourceCredentialParameters(scope awscdk.Construct, id *string, props *CfnSourceCredentialProps) error {
+func validateNewCfnSourceCredentialParameters(scope constructs.Construct, id *string, props *CfnSourceCredentialProps) error {
 	return nil
 }
 

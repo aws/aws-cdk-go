@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVPC) validateAddDeletionOverrideParameters(path *string) e
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPC) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPC) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnVPC) validateInspectParameters(inspector awscdk.TreeInspec
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPC) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVPC) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPC) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVPC) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnVPC) validateRenderPropertiesParameters(props *map[string]
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPC) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVPC) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnVPC) validateSetEnableDnsSupportParameters(val interface{}
 	return nil
 }
 
-func validateNewCfnVPCParameters(scope awscdk.Construct, id *string, props *CfnVPCProps) error {
+func validateNewCfnVPCParameters(scope constructs.Construct, id *string, props *CfnVPCProps) error {
 	return nil
 }
 

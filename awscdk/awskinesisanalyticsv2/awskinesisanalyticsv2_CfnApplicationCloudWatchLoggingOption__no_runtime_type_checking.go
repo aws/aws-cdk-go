@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateAddDeletionOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateInspectParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateRenderProperti
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateSetCloudWatchL
 	return nil
 }
 
-func validateNewCfnApplicationCloudWatchLoggingOptionParameters(scope awscdk.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionProps) error {
+func validateNewCfnApplicationCloudWatchLoggingOptionParameters(scope constructs.Construct, id *string, props *CfnApplicationCloudWatchLoggingOptionProps) error {
 	return nil
 }
 

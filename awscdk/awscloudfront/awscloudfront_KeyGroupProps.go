@@ -28,16 +28,12 @@ package awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type KeyGroupProps struct {
 	// A list of public keys to add to the key group.
-	// Experimental.
 	Items *[]IPublicKey `field:"required" json:"items" yaml:"items"`
 	// A comment to describe the key group.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A name to identify the key group.
-	// Experimental.
 	KeyGroupName *string `field:"optional" json:"keyGroupName" yaml:"keyGroupName"`
 }
 

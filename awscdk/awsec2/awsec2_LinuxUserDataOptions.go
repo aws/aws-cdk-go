@@ -12,10 +12,8 @@ package awsec2
 //   	shebang: jsii.String("shebang"),
 //   }
 //
-// Experimental.
 type LinuxUserDataOptions struct {
 	// Shebang for the UserData script.
-	// Experimental.
 	Shebang *string `field:"optional" json:"shebang" yaml:"shebang"`
 }
 

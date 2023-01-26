@@ -14,6 +14,7 @@ network partitioning. This is achieved by creating an instance of
 `Vpc`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("VPC"))
 ```
 
@@ -30,10 +31,11 @@ distinguishes three different subnet types:
   Internet Gateway. If you want your instances to have a public IP address
   and be directly reachable from the Internet, you must place them in a
   public subnet.
-* **Private with Internet Access (`SubnetType.PRIVATE_WITH_NAT`)** - instances in private subnets are not directly routable from the
-  Internet, and connect out to the Internet via a NAT gateway. By default, a
-  NAT gateway is created in every public subnet for maximum availability. Be
+* **Private with Internet Access (`SubnetType.PRIVATE_WITH_EGRESS`)** - instances in private subnets are not directly routable from the
+  Internet, and you must provide a way to connect out to the Internet.
+  By default, a NAT gateway is created in every public subnet for maximum availability. Be
   aware that you will be charged for NAT gateways.
+  Alternatively you can set `natGateways:0` and provide your own egress configuration (i.e through Transit Gateway)
 * **Isolated (`SubnetType.PRIVATE_ISOLATED`)** - isolated subnets do not route from or to the Internet, and
   as such do not require NAT gateways. They can only connect to or be
   connected to from other instances in the same VPC. A default VPC configuration
@@ -79,7 +81,7 @@ itself to 2 Availability Zones.
 Therefore, to get the VPC to spread over 3 or more availability zones, you
 must specify the environment where the stack will be deployed.
 
-You can gain full control over the availability zones selection strategy by overriding the Stack's [`get availabilityZones()`](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/core/lib/stack.ts) method:
+You can gain full control over the availability zones selection strategy by overriding the Stack's [`get availabilityZones()`](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/core/lib/stack.ts) method:
 
 ```text
 // This example is only available in TypeScript
@@ -113,6 +115,7 @@ The example below will place the endpoint into two AZs (`us-east-1a` and `us-eas
 in Isolated subnets:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -132,6 +135,7 @@ ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &interfaceVpcEndp
 You can also specify specific subnet objects for granular control:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var subnet1 subnet
 var subnet2 subnet
@@ -214,6 +218,7 @@ gets routed, pass a custom value for `defaultAllowedTraffic` and access the
 the VPC:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var instanceType instanceType
 
 
@@ -227,6 +232,92 @@ ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
 provider.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(80)))
 ```
 
+### Ip Address Management
+
+The VPC spans a supernet IP range, which contains the non-overlapping IPs of its contained subnets. Possible sources for this IP range are:
+
+* You specify an IP range directly by specifying a CIDR
+* You allocate an IP range of a given size automatically from AWS IPAM
+
+By default the Vpc will allocate the `10.0.0.0/16` address range which will be exhaustively spread across all subnets in the subnet configuration. This behavior can be changed by passing an object that implements `IIpAddresses` to the `ipAddress` property of a Vpc. See the subsequent sections for the options.
+
+Be aware that if you don't explicitly reserve subnet groups in `subnetConfiguration`, the address space will be fully allocated! If you predict you may need to add more subnet groups later, add them early on and set `reserved: true` (see the "Advanced Subnet Configuration" section for more information).
+
+#### Specifying a CIDR directly
+
+Use `IpAddresses.cidr` to define a Cidr range for your Vpc directly in code:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+ec2.NewVpc(stack, jsii.String("TheVPC"), &vpcProps{
+	ipAddresses: ec2.ipAddresses.cidr(jsii.String("10.0.1.0/20")),
+})
+```
+
+Space will be allocated to subnets in the following order:
+
+* First, spaces is allocated for all subnets groups that explicitly have a `cidrMask` set as part of their configuration (including reserved subnets).
+* Afterwards, any remaining space is divided evenly between the rest of the subnets (if any).
+
+The argument to `IpAddresses.cidr` may not be a token, and concrete Cidr values are generated in the synthesized CloudFormation template.
+
+#### Allocating an IP range from AWS IPAM
+
+Amazon VPC IP Address Manager (IPAM) manages a large IP space, from which chunks can be allocated for use in the Vpc. For information on Amazon VPC IP Address Manager please see the [official documentation](https://docs.aws.amazon.com/vpc/latest/ipam/what-it-is-ipam.html). An example of allocating from AWS IPAM looks like this:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var pool cfnIPAMPool
+
+
+ec2.NewVpc(stack, jsii.String("TheVPC"), &vpcProps{
+	ipAddresses: ec2.ipAddresses.awsIpamAllocation(&awsIpamProps{
+		ipv4IpamPoolId: pool.ref,
+		ipv4NetmaskLength: jsii.Number(18),
+		defaultSubnetIpv4NetmaskLength: jsii.Number(24),
+	}),
+})
+```
+
+`IpAddresses.awsIpamAllocation` requires the following:
+
+* `ipv4IpamPoolId`, the id of an IPAM Pool from which the VPC range should be allocated.
+* `ipv4NetmaskLength`, the size of the IP range that will be requested from the Pool at deploy time.
+* `defaultSubnetIpv4NetmaskLength`, the size of subnets in groups that don't have `cidrMask` set.
+
+With this method of IP address management, no attempt is made to guess at subnet group sizes or to exhaustively allocate the IP range. All subnet groups must have an explicit `cidrMask` set as part of their subnet configuration, or `defaultSubnetIpv4NetmaskLength` must be set for a default size. If not, synthesis will fail and you must provide one or the other.
+
+### Reserving availability zones
+
+There are situations where the IP space for availability zones will
+need to be reserved. This is useful in situations where availability
+zones would need to be added after the vpc is originally deployed,
+without causing IP renumbering for availability zones subnets. The IP
+space for reserving `n` availability zones can be done by setting the
+`reservedAzs` to `n` in vpc props, as shown below:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
+	cidr: jsii.String("10.0.0.0/21"),
+	maxAzs: jsii.Number(3),
+	reservedAzs: jsii.Number(1),
+})
+```
+
+In the example above, the subnets for reserved availability zones is not
+actually provisioned but its IP space is still reserved. If, in the future,
+new availability zones needs to be provisioned, then we would decrement
+the value of `reservedAzs` and increment the `maxAzs` or `availabilityZones`
+accordingly. This action would not cause the IP address of subnets to get
+renumbered, but rather the IP space that was previously reserved will be
+used for the new availability zones subnets.
+
 ### Advanced Subnet Configuration
 
 If the default VPC configuration (public and private subnets spanning the
@@ -236,12 +327,15 @@ to configure the number and size of all subnets. Specifying an advanced
 subnet configuration could look like this:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
-	// 'cidr' configures the IP range and size of the entire VPC.
-	// The IP space will be divided over the configured subnets.
-	cidr: jsii.String("10.0.0.0/21"),
+	// 'IpAddresses' configures the IP range and size of the entire VPC.
+	// The IP space will be divided based on configuration for the subnets.
+	ipAddresses: ipAddresses_Cidr(jsii.String("10.0.0.0/21")),
 
-	// 'maxAzs' configures the maximum number of availability zones to use
+	// 'maxAzs' configures the maximum number of availability zones to use.
+	// If you want to specify the exact availability zones you want the VPC
+	// to use, use `availabilityZones` instead.
 	maxAzs: jsii.Number(3),
 
 	// 'subnetConfiguration' specifies the "subnet groups" to create.
@@ -269,7 +363,7 @@ vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
 		&subnetConfiguration{
 			cidrMask: jsii.Number(24),
 			name: jsii.String("Application"),
-			subnetType: ec2.*subnetType_PRIVATE_WITH_NAT,
+			subnetType: ec2.*subnetType_PRIVATE_WITH_EGRESS,
 		},
 		&subnetConfiguration{
 			cidrMask: jsii.Number(28),
@@ -308,6 +402,7 @@ DatabaseSubnet3   |`ISOLATED`|`10.0.6.32/28`|#3|Only routes within the VPC
 If you need access to the internet gateway, you can get its ID like so:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -332,6 +427,7 @@ Internet Gateway created for the public subnet - perhaps for routing a VPN
 connection - you can do so like this:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
 	subnetConfiguration: []subnetConfiguration{
 		&subnetConfiguration{
@@ -365,6 +461,7 @@ by setting the `reserved` subnetConfiguration property to true, as shown
 below:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
 	natGateways: jsii.Number(1),
 	subnetConfiguration: []subnetConfiguration{
@@ -376,12 +473,12 @@ vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
 		&subnetConfiguration{
 			cidrMask: jsii.Number(26),
 			name: jsii.String("Application1"),
-			subnetType: ec2.*subnetType_PRIVATE_WITH_NAT,
+			subnetType: ec2.*subnetType_PRIVATE_WITH_EGRESS,
 		},
 		&subnetConfiguration{
 			cidrMask: jsii.Number(26),
 			name: jsii.String("Application2"),
-			subnetType: ec2.*subnetType_PRIVATE_WITH_NAT,
+			subnetType: ec2.*subnetType_PRIVATE_WITH_EGRESS,
 			reserved: jsii.Boolean(true),
 		},
 		&subnetConfiguration{
@@ -494,6 +591,7 @@ following limitations:
 Using `Vpc.fromVpcAttributes()` looks like this:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("VPC"), &vpcAttributes{
 	vpcId: jsii.String("vpc-1234"),
 	availabilityZones: []*string{
@@ -514,6 +612,53 @@ vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("VPC"), &vpcAttributes{
 	isolatedSubnetIds: awscdk.Fn.split(jsii.String(","), ssm.stringParameter.valueForStringParameter(this, jsii.String("MyParameter")), jsii.Number(2)),
 })
 ```
+
+For each subnet group the import function accepts optional parameters for subnet
+names, route table ids and IPv4 CIDR blocks. When supplied, the length of these
+lists are required to match the length of the list of subnet ids, allowing the
+lists to be zipped together to form `ISubnet` instances.
+
+Public subnet group example (for private or isolated subnet groups, use the properties with the respective prefix):
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("VPC"), &vpcAttributes{
+	vpcId: jsii.String("vpc-1234"),
+	availabilityZones: []*string{
+		jsii.String("us-east-1a"),
+		jsii.String("us-east-1b"),
+		jsii.String("us-east-1c"),
+	},
+	publicSubnetIds: []*string{
+		jsii.String("s-12345"),
+		jsii.String("s-34567"),
+		jsii.String("s-56789"),
+	},
+	publicSubnetNames: []*string{
+		jsii.String("Subnet A"),
+		jsii.String("Subnet B"),
+		jsii.String("Subnet C"),
+	},
+	publicSubnetRouteTableIds: []*string{
+		jsii.String("rt-12345"),
+		jsii.String("rt-34567"),
+		jsii.String("rt-56789"),
+	},
+	publicSubnetIpv4CidrBlocks: []*string{
+		jsii.String("10.0.0.0/24"),
+		jsii.String("10.0.1.0/24"),
+		jsii.String("10.0.2.0/24"),
+	},
+})
+```
+
+The above example will create an `IVpc` instance with three public subnets:
+
+| Subnet id | Availability zone | Subnet name | Route table id | IPv4 CIDR   |
+| --------- | ----------------- | ----------- | -------------- | ----------- |
+| s-12345   | us-east-1a        | Subnet A    | rt-12345       | 10.0.0.0/24 |
+| s-34567   | us-east-1b        | Subnet B    | rt-34567       | 10.0.1.0/24 |
+| s-56789   | us-east-1c        | Subnet B    | rt-56789       | 10.0.2.0/24 |
 
 ## Allowing Connections
 
@@ -546,6 +691,7 @@ and an **Ingress** rule to the other. The connections object will automatically
 take care of this for you:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var loadBalancer applicationLoadBalancer
 var appFleet autoScalingGroup
 var dbFleet autoScalingGroup
@@ -566,6 +712,7 @@ appFleet.connections.allowTo(dbFleet, ec2.port.tcp(jsii.Number(443)), jsii.Strin
 There are various classes that implement the connection peer part:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var appFleet autoScalingGroup
 var dbFleet autoScalingGroup
 
@@ -582,6 +729,7 @@ appFleet.connections.allowTo(peer, ec2.port.tcp(jsii.Number(443)), jsii.String("
 Any object that has a security group can itself be used as a connection peer:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var fleet1 autoScalingGroup
 var fleet2 autoScalingGroup
 var appFleet autoScalingGroup
@@ -599,14 +747,18 @@ The connections that are allowed are specified by port ranges. A number of class
 the connection specifier:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 ec2.port.tcp(jsii.Number(80))
 ec2.port.tcpRange(jsii.Number(60000), jsii.Number(65535))
 ec2.port.allTcp()
+ec2.port.allIcmp()
+ec2.port.allIcmpV6()
 ec2.port.allTraffic()
 ```
 
-> NOTE: This set is not complete yet; for example, there is no library support for ICMP at the moment.
-> However, you can write your own classes to implement those.
+> NOTE: Not all protocols have corresponding helper methods. In the absence of a helper method,
+> you can instantiate `Port` yourself with your own settings. You are also welcome to contribute
+> new helper methods.
 
 ### Default Ports
 
@@ -621,6 +773,7 @@ If the object you're calling the peering method on has a default port associated
 For example:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var listener applicationListener
 var appFleet autoScalingGroup
 var rdsDatabase databaseCluster
@@ -659,12 +812,13 @@ mySecurityGroupWithoutInlineRules.addIngressRule(ec2.peer.anyIpv4(), ec2.port.tc
 If you know the ID and the configuration of the security group to import, you can use `SecurityGroup.fromSecurityGroupId`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 sg := ec2.securityGroup.fromSecurityGroupId(this, jsii.String("SecurityGroupImport"), jsii.String("sg-1234"), &securityGroupImportOptions{
 	allowAllOutbound: jsii.Boolean(true),
 })
 ```
 
-Alternatively, use lookup methods to import security groups if you do not know the ID or the configuration details. Method `SecurityGroup.fromLookupByName` looks up a security group if the secruity group ID is unknown.
+Alternatively, use lookup methods to import security groups if you do not know the ID or the configuration details. Method `SecurityGroup.fromLookupByName` looks up a security group if the security group ID is unknown.
 
 ```go
 sg := ec2.securityGroup.fromLookupByName(this, jsii.String("SecurityGroupLookup"), jsii.String("security-group-name"), vpc)
@@ -673,6 +827,7 @@ sg := ec2.securityGroup.fromLookupByName(this, jsii.String("SecurityGroupLookup"
 If the security group ID is known and configuration details are unknown, use method `SecurityGroup.fromLookupById` instead. This method will lookup property `allowAllOutbound` from the current configuration of the security group.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 sg := ec2.securityGroup.fromLookupById(this, jsii.String("SecurityGroupLookup"), jsii.String("sg-1234"))
 ```
 
@@ -819,6 +974,7 @@ genericWindows := ec2.machineImage.genericWindows(map[string]*string{
 Create your VPC with VPN connections by specifying the `vpnConnections` props (keys are construct `id`s):
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &vpcProps{
 	vpnConnections: map[string]vpnConnectionOptions{
 		"dynamic": &vpnConnectionOptions{
@@ -840,6 +996,7 @@ vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &vpcProps{
 To create a VPC that can accept VPN connections, set `vpnGateway` to `true`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &vpcProps{
 	vpnGateway: jsii.Boolean(true),
 })
@@ -857,7 +1014,7 @@ By default, routes will be propagated on the route tables associated with the pr
 private subnets exist, isolated subnets are used. If no isolated subnets exist, public subnets are
 used. Use the `Vpc` property `vpnRoutePropagation` to customize this behavior.
 
-VPN connections expose [metrics (cloudwatch.Metric)](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-cloudwatch/README.md) across all tunnels in the account/region and per connection:
+VPN connections expose [metrics (cloudwatch.Metric)](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-cloudwatch/README.md) across all tunnels in the account/region and per connection:
 
 ```go
 // Across all tunnels in the account/region
@@ -917,6 +1074,7 @@ By default, CDK will place a VPC endpoint in one subnet per AZ. If you wish to o
 use the `subnets` parameter as follows:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -940,6 +1098,7 @@ AZs an endpoint service is available in, and will ensure the VPC endpoint is not
 These AZs will be stored in cdk.context.json.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -957,6 +1116,7 @@ create VPC endpoints without having to configure name, ports, etc. For example, 
 use in your VPC:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -974,6 +1134,7 @@ automatically allowed from the VPC CIDR.
 Use the `connections` object to allow traffic to flow to the endpoint:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var myEndpoint interfaceVpcEndpoint
 
 
@@ -987,6 +1148,7 @@ Alternatively, existing security groups can be used by specifying the `securityG
 A VPC endpoint service enables you to expose a Network Load Balancer(s) as a provider service to consumers, who connect to your service over a VPC endpoint. You can restrict access to your service via allowed principals (anything that extends ArnPrincipal), and require that new connections be manually accepted.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var networkLoadBalancer1 networkLoadBalancer
 var networkLoadBalancer2 networkLoadBalancer
 
@@ -1007,6 +1169,7 @@ Endpoint services support private DNS, which makes it easier for clients to conn
 You can enable private DNS on an endpoint service like so:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 var zone hostedZone
 var vpces vpcEndpointService
@@ -1095,6 +1258,7 @@ you use an `AutoScalingGroup` from the `aws-autoscaling` module instead, as Auto
 care of restarting your instance if it ever fails.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var instanceType instanceType
 
@@ -1137,6 +1301,17 @@ ec2.NewInstance(this, jsii.String("Instance4"), &instanceProps{
 		generation: ec2.*amazonLinuxGeneration_AMAZON_LINUX_2022,
 	}),
 })
+
+// Graviton 3 Processor
+// Graviton 3 Processor
+ec2.NewInstance(this, jsii.String("Instance5"), &instanceProps{
+	vpc: vpc,
+	instanceType: ec2.*instanceType.of(ec2.instanceClass_C7G, ec2.instanceSize_LARGE),
+	machineImage: ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
+		generation: ec2.*amazonLinuxGeneration_AMAZON_LINUX_2,
+		cpuType: ec2.amazonLinuxCpuType_ARM_64,
+	}),
+})
 ```
 
 ### Configuring Instances using CloudFormation Init (cfn-init)
@@ -1151,6 +1326,7 @@ For the full set of capabilities of this system, see the documentation for
 Here is an example of applying some configuration to an instance:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var instanceType instanceType
 var machineImage iMachineImage
@@ -1212,6 +1388,7 @@ config writes a config file for nginx, extracts an archive to the root directory
 restarts nginx so that it picks up the new config and files:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var myBucket bucket
 
 
@@ -1282,6 +1459,7 @@ root device (`/dev/sda1`) size to 50 GiB, and adds another EBS-backed device map
 size:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var instanceType instanceType
 var machineImage iMachineImage
@@ -1310,6 +1488,7 @@ ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 It is also possible to encrypt the block devices. In this example we will create an customer managed key encrypted EBS-backed root device:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc vpc
@@ -1347,6 +1526,7 @@ A notable restriction is that a Volume can only be attached to instances in the 
 The following demonstrates how to create a 500 GiB encrypted Volume in the `us-west-2a` availability zone, and give a role the ability to attach that Volume to a specific instance:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var instance instance
 var role role
 
@@ -1368,6 +1548,7 @@ If you need to grant an instance the ability to attach/detach an EBS volume to/f
 will lead to an unresolvable circular reference between the instance role and the instance. In this case, use `grantAttachVolumeByResourceTag` and `grantDetachVolumeByResourceTag` as follows:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var instance instance
 var volume volume
 
@@ -1390,6 +1571,7 @@ to attach and detach your Volumes to/from instances, and how to format them for 
 The following is a sample skeleton of EC2 UserData that can be used to attach a Volume to the Linux instance that it is running on:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var instance instance
 var volume volume
 
@@ -1410,6 +1592,7 @@ fmt.Sprintf("while ! test -e %v; do sleep 1; done", targetDevice))
 You can configure [tag propagation on volume creation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-propagatetagstovolumeoncreation).
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var instanceType instanceType
 var machineImage iMachineImage
@@ -1420,6 +1603,20 @@ ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 	machineImage: machineImage,
 	instanceType: instanceType,
 	propagateTagsToVolumeOnCreation: jsii.Boolean(true),
+})
+```
+
+#### Throughput on GP3 Volumes
+
+You can specify the `throughput` of a GP3 volume from 125 (default) to 1000.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+ec2.NewVolume(this, jsii.String("Volume"), &volumeProps{
+	availabilityZone: jsii.String("us-east-1a"),
+	size: cdk.size_Gibibytes(jsii.Number(125)),
+	volumeType: ebsDeviceVolumeType_GP3,
+	throughput: jsii.Number(125),
 })
 ```
 
@@ -1434,6 +1631,7 @@ To do this for a single `Instance`, you can use the `requireImdsv2` property.
 The example below demonstrates IMDSv2 being required on a single `Instance`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var instanceType instanceType
 var machineImage iMachineImage
@@ -1456,6 +1654,7 @@ to apply the operation to multiple instances or launch templates, respectively.
 The following example demonstrates how to use the `InstanceRequireImdsv2Aspect` to require IMDSv2 for all EC2 instances in a stack:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 aspect := ec2.NewInstanceRequireImdsv2Aspect()
 awscdk.Aspects.of(this).add(aspect)
 ```
@@ -1469,6 +1668,7 @@ By default, a flow log will be created with CloudWatch Logs as the destination.
 You can create a flow log like this:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -1480,6 +1680,7 @@ ec2.NewFlowLog(this, jsii.String("FlowLog"), &flowLogProps{
 Or you can add a Flow Log to a VPC by using the addFlowLog method like this:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
 
 vpc.addFlowLog(jsii.String("FlowLog"))
@@ -1488,14 +1689,49 @@ vpc.addFlowLog(jsii.String("FlowLog"))
 You can also add multiple flow logs with different destinations.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
 
 vpc.addFlowLog(jsii.String("FlowLogS3"), &flowLogOptions{
 	destination: ec2.flowLogDestination.toS3(),
 })
 
+// Only reject traffic and interval every minute.
 vpc.addFlowLog(jsii.String("FlowLogCloudWatch"), &flowLogOptions{
 	trafficType: ec2.flowLogTrafficType_REJECT,
+	maxAggregationInterval: flowLogMaxAggregationInterval_ONE_MINUTE,
+})
+```
+
+### Custom Formatting
+
+You can also custom format flow logs.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+vpc := ec2.NewVpc(this, jsii.String("Vpc"))
+
+vpc.addFlowLog(jsii.String("FlowLog"), &flowLogOptions{
+	logFormat: []logFormat{
+		ec2.*logFormat_DST_PORT(),
+		ec2.*logFormat_SRC_PORT(),
+	},
+})
+
+// If you just want to add a field to the default field
+vpc.addFlowLog(jsii.String("FlowLog"), &flowLogOptions{
+	logFormat: []*logFormat{
+		ec2.*logFormat_VERSION(),
+		ec2.*logFormat_ALL_DEFAULT_FIELDS(),
+	},
+})
+
+// If AWS CDK does not support the new fields
+vpc.addFlowLog(jsii.String("FlowLog"), &flowLogOptions{
+	logFormat: []*logFormat{
+		ec2.*logFormat_SRC_PORT(),
+		ec2.*logFormat.custom(jsii.String("${new-field}")),
+	},
 })
 ```
 
@@ -1508,6 +1744,7 @@ If you want to customize any of the destination resources you can provide your o
 *CloudWatch Logs*
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -1526,6 +1763,7 @@ ec2.NewFlowLog(this, jsii.String("FlowLog"), &flowLogProps{
 *S3*
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -1542,6 +1780,20 @@ ec2.NewFlowLog(this, jsii.String("FlowLogWithKeyPrefix"), &flowLogProps{
 })
 ```
 
+When the S3 destination is configured, AWS will automatically create an S3 bucket policy
+that allows the service to write logs to the bucket. This makes it impossible to later update
+that bucket policy. To have CDK create the bucket policy so that future updates can be made,
+the `@aws-cdk/aws-s3:createDefaultLoggingPolicy` [feature flag](https://docs.aws.amazon.com/cdk/v2/guide/featureflags.html) can be used. This can be set
+in the `cdk.json` file.
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-s3:createDefaultLoggingPolicy": true
+  }
+}
+```
+
 ## User Data
 
 User data enables you to run a script when your instances start up.  In order to configure these scripts you can add commands directly to the script
@@ -1550,6 +1802,7 @@ or you can use the UserData's convenience functions to aid in the creation of yo
 A user data could be configured to run a script found in an asset through the following:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 
 var instance instance
@@ -1570,6 +1823,24 @@ instance.userData.addExecuteFileCommand(&executeFileOptions{
 })
 asset.grantRead(instance.role)
 ```
+
+### Persisting user data
+
+By default, EC2 UserData is run once on only the first time that an instance is started. It is possible to make the
+user data script run on every start of the instance.
+
+When creating a Windows UserData you can use the `persist` option to set whether or not to add
+`<persist>true</persist>` [to the user data script](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html#user-data-scripts). it can be used as follows:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+windowsUserData := userData_ForWindows(map[string]*bool{
+	"persist": jsii.Boolean(true),
+})
+```
+
+For a Linux instance, this can be accomplished by using a Multipart user data to configure cloud-config as detailed
+in: https://aws.amazon.com/premiumsupport/knowledge-center/execute-user-data-ec2/
 
 ### Multipart user data
 
@@ -1592,6 +1863,7 @@ Below is an example for creating multipart user data with single body part respo
 of storage used by Docker containers:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bootHookConf := ec2.userData.forLinux()
 bootHookConf.addCommands(jsii.String("cloud-init-per once docker_options echo 'OPTIONS=\"${OPTIONS} --storage-opt dm.basesize=40G\"' >> /etc/sysconfig/docker"))
 
@@ -1617,10 +1889,11 @@ For more information see
 #### Using add*Command on MultipartUserData
 
 To use the `add*Command` methods, that are inherited from the `UserData` interface, on `MultipartUserData` you must add a part
-to the `MultipartUserData` and designate it as the reciever for these methods. This is accomplished by using the `addUserDataPart()`
+to the `MultipartUserData` and designate it as the receiver for these methods. This is accomplished by using the `addUserDataPart()`
 method on `MultipartUserData` with the `makeDefault` argument set to `true`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 multipartUserData := ec2.NewMultipartUserData()
 commandsUserData := ec2.userData.forLinux()
 multipartUserData.addUserDataPart(commandsUserData, ec2.multipartBody_SHELL_SCRIPT(), jsii.Boolean(true))
@@ -1643,6 +1916,7 @@ subnet per AZ).
 Importing an existing subnet looks like this:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 // Supply all properties
 subnet1 := ec2.subnet.fromSubnetAttributes(this, jsii.String("SubnetFromAttributes"), &subnetAttributes{
 	subnetId: jsii.String("s-1234"),
@@ -1665,6 +1939,7 @@ an instance. For information on Launch Templates please see the
 The following demonstrates how to create a launch template with an Amazon Machine Image, and security group.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 
 
@@ -1676,11 +1951,25 @@ template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &launchTe
 })
 ```
 
+And the following demonstrates how to enable metadata options support.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &launchTemplateProps{
+	httpEndpoint: jsii.Boolean(true),
+	httpProtocolIpv6: jsii.Boolean(true),
+	httpPutResponseHopLimit: jsii.Number(1),
+	httpTokens: ec2.launchTemplateHttpTokens_REQUIRED,
+	instanceMetadataTags: jsii.Boolean(true),
+})
+```
+
 ## Detailed Monitoring
 
 The following demonstrates how to enable [Detailed Monitoring](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) for an EC2 instance. Keep in mind that Detailed Monitoring results in [additional charges](http://aws.amazon.com/cloudwatch/pricing/).
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var instanceType instanceType
 

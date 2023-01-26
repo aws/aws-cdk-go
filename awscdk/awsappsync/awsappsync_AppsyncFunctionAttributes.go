@@ -12,10 +12,8 @@ package awsappsync
 //   	functionArn: jsii.String("functionArn"),
 //   }
 //
-// Experimental.
 type AppsyncFunctionAttributes struct {
 	// the ARN of the AppSync function.
-	// Experimental.
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 }
 

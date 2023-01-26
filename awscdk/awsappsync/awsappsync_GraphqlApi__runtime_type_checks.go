@@ -7,15 +7,15 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticsearch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awsopensearchservice"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (g *jsiiProxy_GraphqlApi) validateAddDynamoDbDataSourceParameters(id *string, table awsdynamodb.ITable, options *DataSourceOptions) error {
@@ -82,18 +82,6 @@ func (g *jsiiProxy_GraphqlApi) validateAddLambdaDataSourceParameters(id *string,
 	return nil
 }
 
-func (g *jsiiProxy_GraphqlApi) validateAddMutationParameters(fieldName *string, field ResolvableField) error {
-	if fieldName == nil {
-		return fmt.Errorf("parameter fieldName is required, but nil was provided")
-	}
-
-	if field == nil {
-		return fmt.Errorf("parameter field is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (g *jsiiProxy_GraphqlApi) validateAddNoneDataSourceParameters(id *string, options *DataSourceOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -117,18 +105,6 @@ func (g *jsiiProxy_GraphqlApi) validateAddOpenSearchDataSourceParameters(id *str
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (g *jsiiProxy_GraphqlApi) validateAddQueryParameters(fieldName *string, field ResolvableField) error {
-	if fieldName == nil {
-		return fmt.Errorf("parameter fieldName is required, but nil was provided")
-	}
-
-	if field == nil {
-		return fmt.Errorf("parameter field is required, but nil was provided")
 	}
 
 	return nil
@@ -162,34 +138,6 @@ func (g *jsiiProxy_GraphqlApi) validateAddSchemaDependencyParameters(construct a
 	return nil
 }
 
-func (g *jsiiProxy_GraphqlApi) validateAddSubscriptionParameters(fieldName *string, field ResolvableField) error {
-	if fieldName == nil {
-		return fmt.Errorf("parameter fieldName is required, but nil was provided")
-	}
-
-	if field == nil {
-		return fmt.Errorf("parameter field is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (g *jsiiProxy_GraphqlApi) validateAddToSchemaParameters(addition *string) error {
-	if addition == nil {
-		return fmt.Errorf("parameter addition is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (g *jsiiProxy_GraphqlApi) validateAddTypeParameters(type_ IIntermediateType) error {
-	if type_ == nil {
-		return fmt.Errorf("parameter type_ is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (g *jsiiProxy_GraphqlApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")
@@ -198,7 +146,11 @@ func (g *jsiiProxy_GraphqlApi) validateApplyRemovalPolicyParameters(policy awscd
 	return nil
 }
 
-func (g *jsiiProxy_GraphqlApi) validateCreateResolverParameters(props *ExtendedResolverProps) error {
+func (g *jsiiProxy_GraphqlApi) validateCreateResolverParameters(id *string, props *ExtendedResolverProps) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
@@ -268,22 +220,6 @@ func (g *jsiiProxy_GraphqlApi) validateGrantSubscriptionParameters(grantee awsia
 	return nil
 }
 
-func (g *jsiiProxy_GraphqlApi) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (g *jsiiProxy_GraphqlApi) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateGraphqlApi_FromGraphqlApiAttributesParameters(scope constructs.Construct, id *string, attrs *GraphqlApiAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -311,7 +247,15 @@ func validateGraphqlApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateGraphqlApi_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateGraphqlApi_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateGraphqlApi_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

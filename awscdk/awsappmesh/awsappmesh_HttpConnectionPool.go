@@ -4,6 +4,7 @@ package awsappmesh
 // Connection pool properties for HTTP listeners.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
 //
@@ -39,13 +40,10 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("gateway"),
 //   })
 //
-// Experimental.
 type HttpConnectionPool struct {
 	// The maximum connections in the pool.
-	// Experimental.
 	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 	// The maximum pending requests in the pool.
-	// Experimental.
 	MaxPendingRequests *float64 `field:"required" json:"maxPendingRequests" yaml:"maxPendingRequests"`
 }
 

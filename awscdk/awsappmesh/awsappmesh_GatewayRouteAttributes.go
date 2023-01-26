@@ -15,13 +15,10 @@ package awsappmesh
 //   	virtualGateway: virtualGateway,
 //   }
 //
-// Experimental.
 type GatewayRouteAttributes struct {
 	// The name of the GatewayRoute.
-	// Experimental.
 	GatewayRouteName *string `field:"required" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 	// The VirtualGateway this GatewayRoute is associated with.
-	// Experimental.
 	VirtualGateway IVirtualGateway `field:"required" json:"virtualGateway" yaml:"virtualGateway"`
 }
 

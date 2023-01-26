@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnBasePathMapping) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnBasePathMapping) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBasePathMapping) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnBasePathMapping) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnBasePathMapping) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBasePathMapping) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnBasePathMapping) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnBasePathMapping) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnBasePathMapping) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnBasePathMapping) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBasePathMapping) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnBasePathMapping) validateSetDomainNameParameters(val *stri
 	return nil
 }
 
-func validateNewCfnBasePathMappingParameters(scope awscdk.Construct, id *string, props *CfnBasePathMappingProps) error {
+func validateNewCfnBasePathMappingParameters(scope constructs.Construct, id *string, props *CfnBasePathMappingProps) error {
 	return nil
 }
 

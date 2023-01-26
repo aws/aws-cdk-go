@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnRateBasedRule) validateAddDeletionOverrideParameters(path 
 	return nil
 }
 
+func (c *jsiiProxy_CfnRateBasedRule) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRateBasedRule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnRateBasedRule) validateInspectParameters(inspector awscdk.
 	return nil
 }
 
-func (c *jsiiProxy_CfnRateBasedRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnRateBasedRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRateBasedRule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRateBasedRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnRateBasedRule) validateRenderPropertiesParameters(props *m
 	return nil
 }
 
-func (c *jsiiProxy_CfnRateBasedRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnRateBasedRule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnRateBasedRule) validateSetRateLimitParameters(val *float64
 	return nil
 }
 
-func validateNewCfnRateBasedRuleParameters(scope awscdk.Construct, id *string, props *CfnRateBasedRuleProps) error {
+func validateNewCfnRateBasedRuleParameters(scope constructs.Construct, id *string, props *CfnRateBasedRuleProps) error {
 	return nil
 }
 

@@ -23,22 +23,16 @@ package awss3
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html
 //
-// Experimental.
 type RoutingRule struct {
 	// Specifies a condition that must be met for the specified redirect to apply.
-	// Experimental.
 	Condition *RoutingRuleCondition `field:"optional" json:"condition" yaml:"condition"`
 	// The host name to use in the redirect request.
-	// Experimental.
 	HostName *string `field:"optional" json:"hostName" yaml:"hostName"`
 	// The HTTP redirect code to use on the response.
-	// Experimental.
 	HttpRedirectCode *string `field:"optional" json:"httpRedirectCode" yaml:"httpRedirectCode"`
 	// Protocol to use when redirecting requests.
-	// Experimental.
 	Protocol RedirectProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// Specifies the object key prefix to use in the redirect request.
-	// Experimental.
 	ReplaceKey ReplaceKey `field:"optional" json:"replaceKey" yaml:"replaceKey"`
 }
 

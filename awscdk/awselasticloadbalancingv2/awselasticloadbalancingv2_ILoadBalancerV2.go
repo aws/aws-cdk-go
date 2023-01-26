@@ -3,22 +3,19 @@ package awselasticloadbalancingv2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
 )
 
-// Experimental.
 type ILoadBalancerV2 interface {
 	awscdk.IResource
 	// The canonical hosted zone ID of this load balancer.
 	//
 	// Example value: `Z2P70J7EXAMPLE`.
-	// Experimental.
 	LoadBalancerCanonicalHostedZoneId() *string
 	// The DNS name of this load balancer.
 	//
 	// Example value: `my-load-balancer-424835706.us-west-2.elb.amazonaws.com`
-	// Experimental.
 	LoadBalancerDnsName() *string
 }
 

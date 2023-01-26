@@ -1,7 +1,7 @@
 package awsappmesh
 
 
-// The type returned from the `bind()` method in {@link HttpRoutePathMatch}.
+// The type returned from the `bind()` method in `HttpRoutePathMatch`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,13 +16,10 @@ package awsappmesh
 //   	},
 //   }
 //
-// Experimental.
 type HttpRoutePathMatchConfig struct {
 	// Route configuration for matching on the prefix of the URL path of the request.
-	// Experimental.
 	PrefixPathMatch *string `field:"optional" json:"prefixPathMatch" yaml:"prefixPathMatch"`
 	// Route configuration for matching on the complete URL path of the request.
-	// Experimental.
 	WholePathMatch *CfnRoute_HttpPathMatchProperty `field:"optional" json:"wholePathMatch" yaml:"wholePathMatch"`
 }
 

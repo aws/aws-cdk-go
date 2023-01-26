@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCrawler) validateAddDeletionOverrideParameters(path *strin
 	return nil
 }
 
+func (c *jsiiProxy_CfnCrawler) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCrawler) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCrawler) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnCrawler) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCrawler) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCrawler) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCrawler) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCrawler) validateRenderPropertiesParameters(props *map[str
 	return nil
 }
 
-func (c *jsiiProxy_CfnCrawler) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCrawler) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -96,7 +100,7 @@ func (j *jsiiProxy_CfnCrawler) validateSetTargetsParameters(val interface{}) err
 	return nil
 }
 
-func validateNewCfnCrawlerParameters(scope awscdk.Construct, id *string, props *CfnCrawlerProps) error {
+func validateNewCfnCrawlerParameters(scope constructs.Construct, id *string, props *CfnCrawlerProps) error {
 	return nil
 }
 

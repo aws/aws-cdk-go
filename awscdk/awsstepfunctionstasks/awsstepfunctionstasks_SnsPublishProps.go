@@ -1,9 +1,9 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
 
 // Properties for publishing a message to an SNS topic.
@@ -35,38 +35,37 @@ import (
 //   	definition: convertToSeconds.next(createMessage).next(publishMessage).next(wait),
 //   })
 //
-// Experimental.
 type SnsPublishProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Credentials for an IAM Role that the State Machine assumes for executing the task.
+	//
+	// This enables cross-account resource invocations.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-access-cross-acct-resources.html
+	//
+	Credentials *awsstepfunctions.Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern awsstepfunctions.IntegrationPattern `field:"optional" json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -74,20 +73,16 @@ type SnsPublishProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The message you want to send.
 	//
 	// With the exception of SMS, messages must be UTF-8 encoded strings and
 	// at most 256 KB in size.
 	// For SMS, each message can contain up to 140 characters.
-	// Experimental.
 	Message awsstepfunctions.TaskInput `field:"required" json:"message" yaml:"message"`
 	// The SNS topic that the task will publish to.
-	// Experimental.
 	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 	// Add message attributes when publishing.
 	//
@@ -95,7 +90,6 @@ type SnsPublishProps struct {
 	// for subscription filters.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html
 	//
-	// Experimental.
 	MessageAttributes *map[string]*MessageAttribute `field:"optional" json:"messageAttributes" yaml:"messageAttributes"`
 	// Send different messages for each transport protocol.
 	//
@@ -108,13 +102,11 @@ type SnsPublishProps struct {
 	// send to a specific transport protocol (i.e. "sqs", "email", "http", etc)
 	// See: https://docs.aws.amazon.com/sns/latest/api/API_Publish.html#API_Publish_RequestParameters
 	//
-	// Experimental.
 	MessagePerSubscriptionType *bool `field:"optional" json:"messagePerSubscriptionType" yaml:"messagePerSubscriptionType"`
 	// Used as the "Subject" line when the message is delivered to email endpoints.
 	//
 	// This field will also be included, if present, in the standard JSON messages
 	// delivered to other endpoints.
-	// Experimental.
 	Subject *string `field:"optional" json:"subject" yaml:"subject"`
 }
 

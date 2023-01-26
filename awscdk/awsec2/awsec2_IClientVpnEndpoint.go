@@ -3,21 +3,19 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A client VPN endpoint.
-// Experimental.
 type IClientVpnEndpoint interface {
 	IConnectable
 	awscdk.IResource
 	// The endpoint ID.
-	// Experimental.
 	EndpointId() *string
 	// Dependable that can be depended upon to force target networks associations.
-	// Experimental.
-	TargetNetworksAssociated() awscdk.IDependable
+	TargetNetworksAssociated() constructs.IDependable
 }
 
 // The jsii proxy for IClientVpnEndpoint
@@ -47,8 +45,8 @@ func (j *jsiiProxy_IClientVpnEndpoint) EndpointId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IClientVpnEndpoint) TargetNetworksAssociated() awscdk.IDependable {
-	var returns awscdk.IDependable
+func (j *jsiiProxy_IClientVpnEndpoint) TargetNetworksAssociated() constructs.IDependable {
+	var returns constructs.IDependable
 	_jsii_.Get(
 		j,
 		"targetNetworksAssociated",
@@ -77,8 +75,8 @@ func (j *jsiiProxy_IClientVpnEndpoint) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IClientVpnEndpoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IClientVpnEndpoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

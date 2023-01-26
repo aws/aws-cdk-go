@@ -5,16 +5,12 @@ import (
 )
 
 // Interface for objects that can be used in a Chain.
-// Experimental.
 type IChainable interface {
 	// The chainable end state(s) of this chainable.
-	// Experimental.
 	EndStates() *[]INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
 	// The start state of this chainable.
-	// Experimental.
 	StartState() State
 }
 

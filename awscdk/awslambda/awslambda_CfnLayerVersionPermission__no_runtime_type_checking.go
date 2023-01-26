@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnLayerVersionPermission) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnLayerVersionPermission) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLayerVersionPermission) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnLayerVersionPermission) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnLayerVersionPermission) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLayerVersionPermission) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnLayerVersionPermission) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnLayerVersionPermission) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnLayerVersionPermission) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnLayerVersionPermission) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnLayerVersionPermission) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnLayerVersionPermission) validateSetPrincipalParameters(val
 	return nil
 }
 
-func validateNewCfnLayerVersionPermissionParameters(scope awscdk.Construct, id *string, props *CfnLayerVersionPermissionProps) error {
+func validateNewCfnLayerVersionPermissionParameters(scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) error {
 	return nil
 }
 

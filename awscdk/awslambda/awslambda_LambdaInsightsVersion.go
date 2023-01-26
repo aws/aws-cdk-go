@@ -1,7 +1,7 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -10,16 +10,14 @@ import (
 // Example:
 //   layerArn := "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:14"
 //   lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_16_X(),
+//   	runtime: lambda.runtime_NODEJS_18_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	insightsVersion: lambda.lambdaInsightsVersion.fromInsightVersionArn(layerArn),
 //   })
 //
-// Experimental.
 type LambdaInsightsVersion interface {
 	// The arn of the Lambda Insights extension.
-	// Experimental.
 	LayerVersionArn() *string
 }
 
@@ -39,12 +37,11 @@ func (j *jsiiProxy_LambdaInsightsVersion) LayerVersionArn() *string {
 }
 
 
-// Experimental.
 func NewLambdaInsightsVersion_Override(l LambdaInsightsVersion) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		nil, // no parameters
 		l,
 	)
@@ -56,7 +53,6 @@ func NewLambdaInsightsVersion_Override(l LambdaInsightsVersion) {
 // with same region as your function.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-extension-versions.html
 //
-// Experimental.
 func LambdaInsightsVersion_FromInsightVersionArn(arn *string) LambdaInsightsVersion {
 	_init_.Initialize()
 
@@ -66,7 +62,7 @@ func LambdaInsightsVersion_FromInsightVersionArn(arn *string) LambdaInsightsVers
 	var returns LambdaInsightsVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"fromInsightVersionArn",
 		[]interface{}{arn},
 		&returns,
@@ -79,7 +75,7 @@ func LambdaInsightsVersion_VERSION_1_0_119_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_119_0",
 		&returns,
 	)
@@ -90,8 +86,19 @@ func LambdaInsightsVersion_VERSION_1_0_135_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_135_0",
+		&returns,
+	)
+	return returns
+}
+
+func LambdaInsightsVersion_VERSION_1_0_143_0() LambdaInsightsVersion {
+	_init_.Initialize()
+	var returns LambdaInsightsVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
+		"VERSION_1_0_143_0",
 		&returns,
 	)
 	return returns
@@ -101,7 +108,7 @@ func LambdaInsightsVersion_VERSION_1_0_54_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_54_0",
 		&returns,
 	)
@@ -112,7 +119,7 @@ func LambdaInsightsVersion_VERSION_1_0_86_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_86_0",
 		&returns,
 	)
@@ -123,7 +130,7 @@ func LambdaInsightsVersion_VERSION_1_0_89_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_89_0",
 		&returns,
 	)
@@ -134,7 +141,7 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_98_0",
 		&returns,
 	)

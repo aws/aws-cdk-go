@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDirectoryConfig) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
+func (c *jsiiProxy_CfnDirectoryConfig) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDirectoryConfig) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDirectoryConfig) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnDirectoryConfig) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDirectoryConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDirectoryConfig) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDirectoryConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDirectoryConfig) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnDirectoryConfig) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDirectoryConfig) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnDirectoryConfig) validateSetServiceAccountCredentialsParam
 	return nil
 }
 
-func validateNewCfnDirectoryConfigParameters(scope awscdk.Construct, id *string, props *CfnDirectoryConfigProps) error {
+func validateNewCfnDirectoryConfigParameters(scope constructs.Construct, id *string, props *CfnDirectoryConfigProps) error {
 	return nil
 }
 

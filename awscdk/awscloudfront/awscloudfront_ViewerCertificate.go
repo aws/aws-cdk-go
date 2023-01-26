@@ -1,10 +1,10 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
 )
 
 // Viewer certificate configuration class.
@@ -35,11 +35,8 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type ViewerCertificate interface {
-	// Experimental.
 	Aliases() *[]*string
-	// Experimental.
 	Props() *CfnDistribution_ViewerCertificateProperty
 }
 
@@ -70,7 +67,6 @@ func (j *jsiiProxy_ViewerCertificate) Props() *CfnDistribution_ViewerCertificate
 
 
 // Generate an AWS Certificate Manager (ACM) viewer certificate configuration.
-// Experimental.
 func ViewerCertificate_FromAcmCertificate(certificate awscertificatemanager.ICertificate, options *ViewerCertificateOptions) ViewerCertificate {
 	_init_.Initialize()
 
@@ -80,7 +76,7 @@ func ViewerCertificate_FromAcmCertificate(certificate awscertificatemanager.ICer
 	var returns ViewerCertificate
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.ViewerCertificate",
+		"aws-cdk-lib.aws_cloudfront.ViewerCertificate",
 		"fromAcmCertificate",
 		[]interface{}{certificate, options},
 		&returns,
@@ -89,8 +85,7 @@ func ViewerCertificate_FromAcmCertificate(certificate awscertificatemanager.ICer
 	return returns
 }
 
-// Generate a viewer certifcate configuration using the CloudFront default certificate (e.g. d111111abcdef8.cloudfront.net) and a {@link SecurityPolicyProtocol.TLS_V1} security policy.
-// Experimental.
+// Generate a viewer certifcate configuration using the CloudFront default certificate (e.g. d111111abcdef8.cloudfront.net) and a `SecurityPolicyProtocol.TLS_V1` security policy.
 func ViewerCertificate_FromCloudFrontDefaultCertificate(aliases ...*string) ViewerCertificate {
 	_init_.Initialize()
 
@@ -102,7 +97,7 @@ func ViewerCertificate_FromCloudFrontDefaultCertificate(aliases ...*string) View
 	var returns ViewerCertificate
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.ViewerCertificate",
+		"aws-cdk-lib.aws_cloudfront.ViewerCertificate",
 		"fromCloudFrontDefaultCertificate",
 		args,
 		&returns,
@@ -112,7 +107,6 @@ func ViewerCertificate_FromCloudFrontDefaultCertificate(aliases ...*string) View
 }
 
 // Generate an IAM viewer certificate configuration.
-// Experimental.
 func ViewerCertificate_FromIamCertificate(iamCertificateId *string, options *ViewerCertificateOptions) ViewerCertificate {
 	_init_.Initialize()
 
@@ -122,7 +116,7 @@ func ViewerCertificate_FromIamCertificate(iamCertificateId *string, options *Vie
 	var returns ViewerCertificate
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.ViewerCertificate",
+		"aws-cdk-lib.aws_cloudfront.ViewerCertificate",
 		"fromIamCertificate",
 		[]interface{}{iamCertificateId, options},
 		&returns,

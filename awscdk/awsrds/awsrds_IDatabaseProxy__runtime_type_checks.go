@@ -5,7 +5,7 @@ package awsrds
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (i *jsiiProxy_IDatabaseProxy) validateGrantConnectParameters(grantee awsiam.IGrantable) error {

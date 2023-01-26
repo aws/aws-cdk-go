@@ -12,10 +12,8 @@ package awsappmesh
 //   	defaultPort: jsii.Number(123),
 //   }
 //
-// Experimental.
 type HealthCheckBindOptions struct {
 	// Port for Health Check interface.
-	// Experimental.
 	DefaultPort *float64 `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 }
 

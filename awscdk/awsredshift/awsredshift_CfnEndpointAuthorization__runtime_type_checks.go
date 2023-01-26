@@ -7,13 +7,21 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_CfnEndpointAuthorization) validateAddDeletionOverrideParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnEndpointAuthorization) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -103,17 +111,17 @@ func (c *jsiiProxy_CfnEndpointAuthorization) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnEndpointAuthorization) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnEndpointAuthorization) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	if newLogicalId == nil {
+		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
 	}
 
 	return nil
 }
 
-func (c *jsiiProxy_CfnEndpointAuthorization) validateOverrideLogicalIdParameters(newLogicalId *string) error {
-	if newLogicalId == nil {
-		return fmt.Errorf("parameter newLogicalId is required, but nil was provided")
+func (c *jsiiProxy_CfnEndpointAuthorization) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
 
 	return nil
@@ -127,9 +135,13 @@ func (c *jsiiProxy_CfnEndpointAuthorization) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnEndpointAuthorization) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (c *jsiiProxy_CfnEndpointAuthorization) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	if newTarget == nil {
+		return fmt.Errorf("parameter newTarget is required, but nil was provided")
 	}
 
 	return nil
@@ -200,7 +212,7 @@ func (j *jsiiProxy_CfnEndpointAuthorization) validateSetForceParameters(val inte
 	return nil
 }
 
-func validateNewCfnEndpointAuthorizationParameters(scope awscdk.Construct, id *string, props *CfnEndpointAuthorizationProps) error {
+func validateNewCfnEndpointAuthorizationParameters(scope constructs.Construct, id *string, props *CfnEndpointAuthorizationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

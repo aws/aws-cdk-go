@@ -3,40 +3,35 @@ package awscognito
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // Represents a Cognito UserPool.
-// Experimental.
 type IUserPool interface {
 	awscdk.IResource
 	// Add a new app client to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html
 	//
-	// Experimental.
 	AddClient(id *string, options *UserPoolClientOptions) UserPoolClient
 	// Associate a domain to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html
 	//
-	// Experimental.
 	AddDomain(id *string, options *UserPoolDomainOptions) UserPoolDomain
 	// Add a new resource server to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-resource-servers.html
 	//
-	// Experimental.
 	AddResourceServer(id *string, options *UserPoolResourceServerOptions) UserPoolResourceServer
+	// Adds an IAM policy statement associated with this user pool to an IAM principal's policy.
+	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Register an identity provider with this user pool.
-	// Experimental.
 	RegisterIdentityProvider(provider IUserPoolIdentityProvider)
 	// Get all identity providers registered with this user pool.
-	// Experimental.
 	IdentityProviders() *[]IUserPoolIdentityProvider
 	// The ARN of this user pool resource.
-	// Experimental.
 	UserPoolArn() *string
 	// The physical ID of this user pool resource.
-	// Experimental.
 	UserPoolId() *string
 }
 
@@ -87,6 +82,27 @@ func (i *jsiiProxy_IUserPool) AddResourceServer(id *string, options *UserPoolRes
 		i,
 		"addResourceServer",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IUserPool) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grant",
+		args,
 		&returns,
 	)
 

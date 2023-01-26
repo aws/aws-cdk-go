@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnFlowLog) validateAddDeletionOverrideParameters(path *strin
 	return nil
 }
 
+func (c *jsiiProxy_CfnFlowLog) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFlowLog) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnFlowLog) validateInspectParameters(inspector awscdk.TreeIn
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowLog) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnFlowLog) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowLog) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnFlowLog) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnFlowLog) validateRenderPropertiesParameters(props *map[str
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowLog) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnFlowLog) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -88,7 +92,7 @@ func (j *jsiiProxy_CfnFlowLog) validateSetResourceTypeParameters(val *string) er
 	return nil
 }
 
-func validateNewCfnFlowLogParameters(scope awscdk.Construct, id *string, props *CfnFlowLogProps) error {
+func validateNewCfnFlowLogParameters(scope constructs.Construct, id *string, props *CfnFlowLogProps) error {
 	return nil
 }
 

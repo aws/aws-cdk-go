@@ -1,7 +1,7 @@
 package awsiam
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Result of calling `addToPrincipalPolicy`.
@@ -9,8 +9,8 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
 //   var dependable iDependable
 //
@@ -21,13 +21,10 @@ import (
 //   	policyDependable: dependable,
 //   }
 //
-// Experimental.
 type AddToPrincipalPolicyResult struct {
 	// Whether the statement was added to the identity's policies.
-	// Experimental.
 	StatementAdded *bool `field:"required" json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
-	// Experimental.
-	PolicyDependable awscdk.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
+	PolicyDependable constructs.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
 }
 

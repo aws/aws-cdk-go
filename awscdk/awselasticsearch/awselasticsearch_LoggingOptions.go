@@ -1,7 +1,7 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
 // Configures log settings for the domain.

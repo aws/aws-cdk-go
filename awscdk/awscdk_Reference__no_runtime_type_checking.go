@@ -1,6 +1,6 @@
 //go:build no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -17,7 +17,7 @@ func validateReference_IsReferenceParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewReferenceParameters(value interface{}, target IConstruct) error {
+func validateNewReferenceParameters(value interface{}, target constructs.IConstruct) error {
 	return nil
 }
 

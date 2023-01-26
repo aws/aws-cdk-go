@@ -1,7 +1,7 @@
 package awsrds
 
 
-// Options for {@link IParameterGroup.bindToInstance}. Empty for now, but can be extended later.
+// Options for `IParameterGroup.bindToInstance`. Empty for now, but can be extended later.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -11,7 +11,6 @@ package awsrds
 //   parameterGroupInstanceBindOptions := &parameterGroupInstanceBindOptions{
 //   }
 //
-// Experimental.
 type ParameterGroupInstanceBindOptions struct {
 }
 

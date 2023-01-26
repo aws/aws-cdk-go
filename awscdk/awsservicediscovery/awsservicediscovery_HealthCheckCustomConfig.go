@@ -12,10 +12,8 @@ package awsservicediscovery
 //   	failureThreshold: jsii.Number(123),
 //   }
 //
-// Experimental.
 type HealthCheckCustomConfig struct {
 	// The number of 30-second intervals that you want Cloud Map to wait after receiving an UpdateInstanceCustomHealthStatus request before it changes the health status of a service instance.
-	// Experimental.
 	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 }
 

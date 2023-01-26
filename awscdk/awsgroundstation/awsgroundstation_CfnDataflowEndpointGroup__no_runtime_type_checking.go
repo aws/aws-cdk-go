@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataflowEndpointGroup) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataflowEndpointGroup) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataflowEndpointGroup) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDataflowEndpointGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataflowEndpointGroup) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDataflowEndpointGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataflowEndpointGroup) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDataflowEndpointGroup) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) validateSetEndpointDetailsParameter
 	return nil
 }
 
-func validateNewCfnDataflowEndpointGroupParameters(scope awscdk.Construct, id *string, props *CfnDataflowEndpointGroupProps) error {
+func validateNewCfnDataflowEndpointGroupParameters(scope constructs.Construct, id *string, props *CfnDataflowEndpointGroupProps) error {
 	return nil
 }
 

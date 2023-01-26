@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnResponseHeadersPolicy) validateAddDeletionOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnResponseHeadersPolicy) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResponseHeadersPolicy) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnResponseHeadersPolicy) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnResponseHeadersPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnResponseHeadersPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnResponseHeadersPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnResponseHeadersPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnResponseHeadersPolicy) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnResponseHeadersPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnResponseHeadersPolicy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnResponseHeadersPolicy) validateSetResponseHeadersPolicyCon
 	return nil
 }
 
-func validateNewCfnResponseHeadersPolicyParameters(scope awscdk.Construct, id *string, props *CfnResponseHeadersPolicyProps) error {
+func validateNewCfnResponseHeadersPolicyParameters(scope constructs.Construct, id *string, props *CfnResponseHeadersPolicyProps) error {
 	return nil
 }
 

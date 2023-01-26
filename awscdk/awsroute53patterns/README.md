@@ -44,3 +44,35 @@ patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &httpsRedirectProps{
 	}),
 })
 ```
+
+To have `HttpsRedirect` use the `Certificate` construct as the default
+created certificate instead of the deprecated `DnsValidatedCertificate`
+construct, enable the `@aws-cdk/aws-route53-patters:useCertificate`
+feature flag. If you are creating the stack in a region other than `us-east-1`
+you must also enable `crossRegionReferences` on the stack.
+
+```go
+var app app
+
+stack := awscdk.Newstack(app, jsii.String("Stack"), &stackProps{
+	crossRegionReferences: jsii.Boolean(true),
+	env: &environment{
+		region: jsii.String("us-east-2"),
+	},
+})
+
+patterns.NewHttpsRedirect(this, jsii.String("Redirect"), &httpsRedirectProps{
+	recordNames: []*string{
+		jsii.String("foo.example.com"),
+	},
+	targetDomain: jsii.String("bar.example.com"),
+	zone: route53.hostedZone.fromHostedZoneAttributes(this, jsii.String("HostedZone"), &hostedZoneAttributes{
+		hostedZoneId: jsii.String("ID"),
+		zoneName: jsii.String("example.com"),
+	}),
+})
+```
+
+It is safe to upgrade to `@aws-cdk/aws-route53-patterns:useCertificate` since
+the new certificate will be created and updated on the CloudFront distribution
+before the old certificate is deleted.

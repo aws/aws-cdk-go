@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnFirewallPolicy) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
+func (c *jsiiProxy_CfnFirewallPolicy) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFirewallPolicy) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnFirewallPolicy) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallPolicy) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnFirewallPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallPolicy) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnFirewallPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnFirewallPolicy) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnFirewallPolicy) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnFirewallPolicy) validateSetFirewallPolicyNameParameters(va
 	return nil
 }
 
-func validateNewCfnFirewallPolicyParameters(scope awscdk.Construct, id *string, props *CfnFirewallPolicyProps) error {
+func validateNewCfnFirewallPolicyParameters(scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) error {
 	return nil
 }
 

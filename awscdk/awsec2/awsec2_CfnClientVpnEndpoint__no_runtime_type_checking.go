@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnEndpoint) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnEndpoint) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnEndpoint) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnEndpoint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnEndpoint) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnClientVpnEndpoint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnEndpoint) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnEndpoint) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -108,7 +112,7 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTagSpecificationsParameters(
 	return nil
 }
 
-func validateNewCfnClientVpnEndpointParameters(scope awscdk.Construct, id *string, props *CfnClientVpnEndpointProps) error {
+func validateNewCfnClientVpnEndpointParameters(scope constructs.Construct, id *string, props *CfnClientVpnEndpointProps) error {
 	return nil
 }
 
