@@ -36,22 +36,26 @@ package awsefs
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &functionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	filesystem: lambda.fileSystem.fromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	runtime: lambda.runtime_NODEJS_18_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	vpc: vpc,
 //   })
 //
+// Experimental.
 type Acl struct {
 	// Specifies the POSIX group ID to apply to the RootDirectory.
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
+	// Experimental.
 	OwnerGid *string `field:"required" json:"ownerGid" yaml:"ownerGid"`
 	// Specifies the POSIX user ID to apply to the RootDirectory.
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
+	// Experimental.
 	OwnerUid *string `field:"required" json:"ownerUid" yaml:"ownerUid"`
 	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+	// Experimental.
 	Permissions *string `field:"required" json:"permissions" yaml:"permissions"`
 }
 

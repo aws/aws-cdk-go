@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateAddDeletionOverrideParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAcceptedPortfolioShare) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnAcceptedPortfolioShare) validateSetPortfolioIdParameters(v
 	return nil
 }
 
-func validateNewCfnAcceptedPortfolioShareParameters(scope constructs.Construct, id *string, props *CfnAcceptedPortfolioShareProps) error {
+func validateNewCfnAcceptedPortfolioShareParameters(scope awscdk.Construct, id *string, props *CfnAcceptedPortfolioShareProps) error {
 	return nil
 }
 

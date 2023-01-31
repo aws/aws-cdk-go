@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnFargateProfile) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
-func (c *jsiiProxy_CfnFargateProfile) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnFargateProfile) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnFargateProfile) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnFargateProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnFargateProfile) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnFargateProfile) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnFargateProfile) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnFargateProfile) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnFargateProfile) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnFargateProfile) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnFargateProfile) validateSetSelectorsParameters(val interfa
 	return nil
 }
 
-func validateNewCfnFargateProfileParameters(scope constructs.Construct, id *string, props *CfnFargateProfileProps) error {
+func validateNewCfnFargateProfileParameters(scope awscdk.Construct, id *string, props *CfnFargateProfileProps) error {
 	return nil
 }
 

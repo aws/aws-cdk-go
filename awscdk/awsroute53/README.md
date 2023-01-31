@@ -129,49 +129,16 @@ Constructs are available for A, AAAA, CAA, CNAME, MX, NS, SRV and TXT records.
 Use the `CaaAmazonRecord` construct to easily restrict certificate authorities
 allowed to issue certificates for a domain to Amazon only.
 
-### Replacing existing record sets (dangerous!)
-
-Use the `deleteExisting` prop to delete an existing record set before deploying the new one.
-This is useful if you want to minimize downtime and avoid "manual" actions while deploying a
-stack with a record set that already exists. This is typically the case for record sets that
-are not already "owned" by CloudFormation or "owned" by another stack or construct that is
-going to be deleted (migration).
-
-> **N.B.:** this feature is dangerous, use with caution! It can only be used safely when
-> `deleteExisting` is set to `true` as soon as the resource is added to the stack. Changing
-> an existing Record Set's `deleteExisting` property from `false -> true` after deployment
-> will delete the record!
-
-```go
-var myZone hostedZone
-
-
-route53.NewARecord(this, jsii.String("ARecord"), &aRecordProps{
-	zone: myZone,
-	target: route53.recordTarget.fromIpAddresses(jsii.String("1.2.3.4"), jsii.String("5.6.7.8")),
-	deleteExisting: jsii.Boolean(true),
-})
-```
-
-### Cross Account Zone Delegation
-
-If you want to have your root domain hosted zone in one account and your subdomain hosted
-zone in a diferent one, you can use `CrossAccountZoneDelegationRecord` to set up delegation
-between them.
+To add a NS record to a HostedZone in different account you can do the following:
 
 In the account containing the parent hosted zone:
 
 ```go
 parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
 	zoneName: jsii.String("someexample.com"),
+	crossAccountZoneDelegationPrincipal: iam.NewAccountPrincipal(jsii.String("12345678901")),
+	crossAccountZoneDelegationRoleName: jsii.String("MyDelegationRole"),
 })
-crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &roleProps{
-	// The role name must be predictable
-	roleName: jsii.String("MyDelegationRole"),
-	// The other account
-	assumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
-})
-parentZone.grantDelegation(crossAccountRole)
 ```
 
 In the account containing the child zone to be delegated:
@@ -243,7 +210,7 @@ you know the ID and the retrieval for the `zoneName` is undesirable.
 zone := route53.hostedZone.fromHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
 ```
 
-You can import a Public Hosted Zone as well with the similar `PublicHostedZone.fromPublicHostedZoneId` and `PublicHostedZone.fromPublicHostedZoneAttributes` methods:
+You can import a Public Hosted Zone as well with the similar `PubicHostedZone.fromPublicHostedZoneId` and `PubicHostedZone.fromPublicHostedZoneAttributes` methods:
 
 ```go
 zoneFromAttributes := route53.publicHostedZone.fromPublicHostedZoneAttributes(this, jsii.String("MyZone"), &publicHostedZoneAttributes{

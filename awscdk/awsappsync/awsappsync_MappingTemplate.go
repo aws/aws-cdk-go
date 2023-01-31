@@ -1,36 +1,35 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // MappingTemplates for AppSync resolvers.
 //
 // Example:
-//   api := appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
-//   	name: jsii.String("api"),
-//   	schema: appsync.schemaFile.fromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
-//   })
+//   var api graphqlApi
+//   var dummyRequest mappingTemplate
+//   var dummyResponse mappingTemplate
 //
-//   httpDs := api.addHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &httpDataSourceOptions{
-//   	name: jsii.String("httpDsWithStepF"),
-//   	description: jsii.String("from appsync to StepFunctions Workflow"),
-//   	authorizationConfig: &awsIamConfig{
-//   		signingRegion: jsii.String("us-east-1"),
-//   		signingServiceName: jsii.String("states"),
+//   info := appsync.NewObjectType(jsii.String("Info"), &objectTypeOptions{
+//   	definition: map[string]iField{
+//   		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
+//   			"returnType": appsync.GraphqlType.string(),
+//   			"args": map[string]GraphqlType{
+//   				"id": appsync.GraphqlType.string(),
+//   			},
+//   			"dataSource": api.addNoneDataSource(jsii.String("none")),
+//   			"requestMappingTemplate": dummyRequest,
+//   			"responseMappingTemplate": dummyResponse,
+//   		}),
 //   	},
 //   })
 //
-//   httpDs.createResolver(jsii.String("MutationCallStepFunctionResolver"), &baseResolverProps{
-//   	typeName: jsii.String("Mutation"),
-//   	fieldName: jsii.String("callStepFunction"),
-//   	requestMappingTemplate: appsync.mappingTemplate.fromFile(jsii.String("request.vtl")),
-//   	responseMappingTemplate: appsync.*mappingTemplate.fromFile(jsii.String("response.vtl")),
-//   })
-//
+// Experimental.
 type MappingTemplate interface {
 	// this is called to render the mapping template to a VTL string.
+	// Experimental.
 	RenderTemplate() *string
 }
 
@@ -39,17 +38,19 @@ type jsiiProxy_MappingTemplate struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewMappingTemplate_Override(m MappingTemplate) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		nil, // no parameters
 		m,
 	)
 }
 
 // Mapping template to delete a single item from a DynamoDB table.
+// Experimental.
 func MappingTemplate_DynamoDbDeleteItem(keyName *string, idArg *string) MappingTemplate {
 	_init_.Initialize()
 
@@ -59,7 +60,7 @@ func MappingTemplate_DynamoDbDeleteItem(keyName *string, idArg *string) MappingT
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"dynamoDbDeleteItem",
 		[]interface{}{keyName, idArg},
 		&returns,
@@ -69,7 +70,8 @@ func MappingTemplate_DynamoDbDeleteItem(keyName *string, idArg *string) MappingT
 }
 
 // Mapping template to get a single item from a DynamoDB table.
-func MappingTemplate_DynamoDbGetItem(keyName *string, idArg *string, consistentRead *bool) MappingTemplate {
+// Experimental.
+func MappingTemplate_DynamoDbGetItem(keyName *string, idArg *string) MappingTemplate {
 	_init_.Initialize()
 
 	if err := validateMappingTemplate_DynamoDbGetItemParameters(keyName, idArg); err != nil {
@@ -78,9 +80,9 @@ func MappingTemplate_DynamoDbGetItem(keyName *string, idArg *string, consistentR
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"dynamoDbGetItem",
-		[]interface{}{keyName, idArg, consistentRead},
+		[]interface{}{keyName, idArg},
 		&returns,
 	)
 
@@ -88,6 +90,7 @@ func MappingTemplate_DynamoDbGetItem(keyName *string, idArg *string, consistentR
 }
 
 // Mapping template to save a single item to a DynamoDB table.
+// Experimental.
 func MappingTemplate_DynamoDbPutItem(key PrimaryKey, values AttributeValues) MappingTemplate {
 	_init_.Initialize()
 
@@ -97,7 +100,7 @@ func MappingTemplate_DynamoDbPutItem(key PrimaryKey, values AttributeValues) Map
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"dynamoDbPutItem",
 		[]interface{}{key, values},
 		&returns,
@@ -107,7 +110,8 @@ func MappingTemplate_DynamoDbPutItem(key PrimaryKey, values AttributeValues) Map
 }
 
 // Mapping template to query a set of items from a DynamoDB table.
-func MappingTemplate_DynamoDbQuery(cond KeyCondition, indexName *string, consistentRead *bool) MappingTemplate {
+// Experimental.
+func MappingTemplate_DynamoDbQuery(cond KeyCondition, indexName *string) MappingTemplate {
 	_init_.Initialize()
 
 	if err := validateMappingTemplate_DynamoDbQueryParameters(cond); err != nil {
@@ -116,9 +120,9 @@ func MappingTemplate_DynamoDbQuery(cond KeyCondition, indexName *string, consist
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"dynamoDbQuery",
-		[]interface{}{cond, indexName, consistentRead},
+		[]interface{}{cond, indexName},
 		&returns,
 	)
 
@@ -126,13 +130,14 @@ func MappingTemplate_DynamoDbQuery(cond KeyCondition, indexName *string, consist
 }
 
 // Mapping template for a single result item from DynamoDB.
+// Experimental.
 func MappingTemplate_DynamoDbResultItem() MappingTemplate {
 	_init_.Initialize()
 
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"dynamoDbResultItem",
 		nil, // no parameters
 		&returns,
@@ -142,13 +147,14 @@ func MappingTemplate_DynamoDbResultItem() MappingTemplate {
 }
 
 // Mapping template for a result list from DynamoDB.
+// Experimental.
 func MappingTemplate_DynamoDbResultList() MappingTemplate {
 	_init_.Initialize()
 
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"dynamoDbResultList",
 		nil, // no parameters
 		&returns,
@@ -158,15 +164,16 @@ func MappingTemplate_DynamoDbResultList() MappingTemplate {
 }
 
 // Mapping template to scan a DynamoDB table to fetch all entries.
-func MappingTemplate_DynamoDbScanTable(consistentRead *bool) MappingTemplate {
+// Experimental.
+func MappingTemplate_DynamoDbScanTable() MappingTemplate {
 	_init_.Initialize()
 
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"dynamoDbScanTable",
-		[]interface{}{consistentRead},
+		nil, // no parameters
 		&returns,
 	)
 
@@ -174,6 +181,7 @@ func MappingTemplate_DynamoDbScanTable(consistentRead *bool) MappingTemplate {
 }
 
 // Create a mapping template from the given file.
+// Experimental.
 func MappingTemplate_FromFile(fileName *string) MappingTemplate {
 	_init_.Initialize()
 
@@ -183,7 +191,7 @@ func MappingTemplate_FromFile(fileName *string) MappingTemplate {
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"fromFile",
 		[]interface{}{fileName},
 		&returns,
@@ -193,6 +201,7 @@ func MappingTemplate_FromFile(fileName *string) MappingTemplate {
 }
 
 // Create a mapping template from the given string.
+// Experimental.
 func MappingTemplate_FromString(template *string) MappingTemplate {
 	_init_.Initialize()
 
@@ -202,7 +211,7 @@ func MappingTemplate_FromString(template *string) MappingTemplate {
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"fromString",
 		[]interface{}{template},
 		&returns,
@@ -212,13 +221,14 @@ func MappingTemplate_FromString(template *string) MappingTemplate {
 }
 
 // Mapping template to invoke a Lambda function.
+// Experimental.
 func MappingTemplate_LambdaRequest(payload *string, operation *string) MappingTemplate {
 	_init_.Initialize()
 
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"lambdaRequest",
 		[]interface{}{payload, operation},
 		&returns,
@@ -228,13 +238,14 @@ func MappingTemplate_LambdaRequest(payload *string, operation *string) MappingTe
 }
 
 // Mapping template to return the Lambda result to the caller.
+// Experimental.
 func MappingTemplate_LambdaResult() MappingTemplate {
 	_init_.Initialize()
 
 	var returns MappingTemplate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.MappingTemplate",
+		"monocdk.aws_appsync.MappingTemplate",
 		"lambdaResult",
 		nil, // no parameters
 		&returns,

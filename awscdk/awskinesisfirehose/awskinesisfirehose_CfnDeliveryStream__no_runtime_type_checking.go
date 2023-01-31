@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDeliveryStream) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeliveryStream) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDeliveryStream) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDeliveryStream) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeliveryStream) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDeliveryStream) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeliveryStream) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDeliveryStream) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDeliveryStream) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnDeliveryStream) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDeliveryStream) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -120,7 +116,7 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetSplunkDestinationConfigurationP
 	return nil
 }
 
-func validateNewCfnDeliveryStreamParameters(scope constructs.Construct, id *string, props *CfnDeliveryStreamProps) error {
+func validateNewCfnDeliveryStreamParameters(scope awscdk.Construct, id *string, props *CfnDeliveryStreamProps) error {
 	return nil
 }
 

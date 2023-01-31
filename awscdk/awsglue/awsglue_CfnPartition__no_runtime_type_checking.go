@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnPartition) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
-func (c *jsiiProxy_CfnPartition) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnPartition) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnPartition) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnPartition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPartition) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPartition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPartition) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnPartition) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnPartition) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPartition) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnPartition) validateSetTableNameParameters(val *string) err
 	return nil
 }
 
-func validateNewCfnPartitionParameters(scope constructs.Construct, id *string, props *CfnPartitionProps) error {
+func validateNewCfnPartitionParameters(scope awscdk.Construct, id *string, props *CfnPartitionProps) error {
 	return nil
 }
 

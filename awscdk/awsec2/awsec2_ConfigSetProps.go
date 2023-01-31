@@ -4,7 +4,6 @@ package awsec2
 // Options for CloudFormationInit.withConfigSets.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
@@ -58,10 +57,13 @@ package awsec2
 //   	},
 //   })
 //
+// Experimental.
 type ConfigSetProps struct {
 	// The sets of configs to pick from.
+	// Experimental.
 	Configs *map[string]InitConfig `field:"required" json:"configs" yaml:"configs"`
 	// The definitions of each config set.
+	// Experimental.
 	ConfigSets *map[string]*[]*string `field:"required" json:"configSets" yaml:"configSets"`
 }
 

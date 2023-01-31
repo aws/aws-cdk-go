@@ -1,4 +1,4 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 
@@ -7,19 +7,18 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var localBundling iLocalBundling
 //
 //   assetOptions := &assetOptions{
 //   	assetHash: jsii.String("assetHash"),
-//   	assetHashType: cdk.assetHashType_SOURCE,
+//   	assetHashType: monocdk.assetHashType_SOURCE,
 //   	bundling: &bundlingOptions{
 //   		image: dockerImage,
 //
 //   		// the properties below are optional
-//   		bundlingFileAccess: cdk.bundlingFileAccess_VOLUME_COPY,
 //   		command: []*string{
 //   			jsii.String("command"),
 //   		},
@@ -30,8 +29,7 @@ package awscdk
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
-//   		network: jsii.String("network"),
-//   		outputType: cdk.bundlingOutput_ARCHIVED,
+//   		outputType: monocdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
 //   		volumes: []dockerVolume{
@@ -40,16 +38,14 @@ package awscdk
 //   				hostPath: jsii.String("hostPath"),
 //
 //   				// the properties below are optional
-//   				consistency: cdk.dockerVolumeConsistency_CONSISTENT,
+//   				consistency: monocdk.dockerVolumeConsistency_CONSISTENT,
 //   			},
-//   		},
-//   		volumesFrom: []*string{
-//   			jsii.String("volumesFrom"),
 //   		},
 //   		workingDirectory: jsii.String("workingDirectory"),
 //   	},
 //   }
 //
+// Experimental.
 type AssetOptions struct {
 	// Specify a custom hash for this asset.
 	//
@@ -63,11 +59,13 @@ type AssetOptions struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
+	// Experimental.
 	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
+	// Experimental.
 	AssetHashType AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
@@ -75,6 +73,7 @@ type AssetOptions struct {
 	// container is responsible for putting content at `/asset-output`.
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
+	// Experimental.
 	Bundling *BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 }
 

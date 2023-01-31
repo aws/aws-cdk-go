@@ -20,11 +20,19 @@ func (g *jsiiProxy_GraphqlApi) validateAddLambdaDataSourceParameters(id *string,
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApi) validateAddMutationParameters(fieldName *string, field ResolvableField) error {
+	return nil
+}
+
 func (g *jsiiProxy_GraphqlApi) validateAddNoneDataSourceParameters(id *string, options *DataSourceOptions) error {
 	return nil
 }
 
 func (g *jsiiProxy_GraphqlApi) validateAddOpenSearchDataSourceParameters(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) error {
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApi) validateAddQueryParameters(fieldName *string, field ResolvableField) error {
 	return nil
 }
 
@@ -36,11 +44,23 @@ func (g *jsiiProxy_GraphqlApi) validateAddSchemaDependencyParameters(construct a
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApi) validateAddSubscriptionParameters(fieldName *string, field ResolvableField) error {
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApi) validateAddToSchemaParameters(addition *string) error {
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApi) validateAddTypeParameters(type_ IIntermediateType) error {
+	return nil
+}
+
 func (g *jsiiProxy_GraphqlApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
 
-func (g *jsiiProxy_GraphqlApi) validateCreateResolverParameters(id *string, props *ExtendedResolverProps) error {
+func (g *jsiiProxy_GraphqlApi) validateCreateResolverParameters(props *ExtendedResolverProps) error {
 	return nil
 }
 
@@ -68,6 +88,14 @@ func (g *jsiiProxy_GraphqlApi) validateGrantSubscriptionParameters(grantee awsia
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApi) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApi) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateGraphqlApi_FromGraphqlApiAttributesParameters(scope constructs.Construct, id *string, attrs *GraphqlApiAttributes) error {
 	return nil
 }
@@ -76,11 +104,7 @@ func validateGraphqlApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateGraphqlApi_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateGraphqlApi_IsResourceParameters(construct constructs.IConstruct) error {
+func validateGraphqlApi_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

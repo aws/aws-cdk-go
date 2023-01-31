@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnWorkteam) validateAddDeletionOverrideParameters(path *stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnWorkteam) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnWorkteam) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnWorkteam) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnWorkteam) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnWorkteam) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnWorkteam) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnWorkteam) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnWorkteam) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnWorkteam) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnWorkteam) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnWorkteam) validateSetNotificationConfigurationParameters(v
 	return nil
 }
 
-func validateNewCfnWorkteamParameters(scope constructs.Construct, id *string, props *CfnWorkteamProps) error {
+func validateNewCfnWorkteamParameters(scope awscdk.Construct, id *string, props *CfnWorkteamProps) error {
 	return nil
 }
 

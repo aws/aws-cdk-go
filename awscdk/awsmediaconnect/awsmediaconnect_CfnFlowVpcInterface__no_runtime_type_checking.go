@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnFlowVpcInterface) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowVpcInterface) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnFlowVpcInterface) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnFlowVpcInterface) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowVpcInterface) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnFlowVpcInterface) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowVpcInterface) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnFlowVpcInterface) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnFlowVpcInterface) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnFlowVpcInterface) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnFlowVpcInterface) validateSetSubnetIdParameters(val *strin
 	return nil
 }
 
-func validateNewCfnFlowVpcInterfaceParameters(scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) error {
+func validateNewCfnFlowVpcInterfaceParameters(scope awscdk.Construct, id *string, props *CfnFlowVpcInterfaceProps) error {
 	return nil
 }
 

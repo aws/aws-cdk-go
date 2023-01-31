@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnAnomalySubscription) validateAddDeletionOverrideParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalySubscription) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAnomalySubscription) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnAnomalySubscription) validateInspectParameters(inspector a
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalySubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAnomalySubscription) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalySubscription) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAnomalySubscription) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnAnomalySubscription) validateRenderPropertiesParameters(pr
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnomalySubscription) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAnomalySubscription) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnAnomalySubscription) validateSetSubscriptionNameParameters
 	return nil
 }
 
-func validateNewCfnAnomalySubscriptionParameters(scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) error {
+func validateNewCfnAnomalySubscriptionParameters(scope awscdk.Construct, id *string, props *CfnAnomalySubscriptionProps) error {
 	return nil
 }
 

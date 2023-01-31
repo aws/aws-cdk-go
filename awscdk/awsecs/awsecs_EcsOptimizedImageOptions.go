@@ -14,6 +14,7 @@ package awsecs
 //   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
 //   })
 //
+// Experimental.
 type EcsOptimizedImageOptions struct {
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
@@ -30,6 +31,7 @@ type EcsOptimizedImageOptions struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 }
 

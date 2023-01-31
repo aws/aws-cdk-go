@@ -1,56 +1,55 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // CodePipeline invoke Action that is provided by an AWS Lambda function.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   // later:
-//   var project pipelineProject
-//   lambdaInvokeAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
-//   	actionName: jsii.String("Lambda"),
-//   	lambda: lambda.NewFunction(this, jsii.String("Func"), &functionProps{
-//   		runtime: lambda.runtime_NODEJS_14_X(),
-//   		handler: jsii.String("index.handler"),
-//   		code: lambda.code.fromInline(jsii.String("\n        const AWS = require('aws-sdk');\n\n        exports.handler = async function(event, context) {\n            const codepipeline = new AWS.CodePipeline();\n            await codepipeline.putJobSuccessResult({\n                jobId: event['CodePipeline.job'].id,\n                outputVariables: {\n                    MY_VAR: \"some value\",\n                },\n            }).promise();\n        }\n    ")),
-//   	}),
-//   	variablesNamespace: jsii.String("MyNamespace"),
-//   })
+//   var fn function
+//
 //   sourceOutput := codepipeline.NewArtifact()
-//   codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
-//   	actionName: jsii.String("CodeBuild"),
-//   	project: project,
-//   	input: sourceOutput,
-//   	environmentVariables: map[string]buildEnvironmentVariable{
-//   		"MyVar": &buildEnvironmentVariable{
-//   			"value": lambdaInvokeAction.variable(jsii.String("MY_VAR")),
-//   		},
+//   buildOutput := codepipeline.NewArtifact()
+//   lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
+//   	actionName: jsii.String("Lambda"),
+//   	inputs: []artifact{
+//   		sourceOutput,
+//   		buildOutput,
 //   	},
+//   	outputs: []*artifact{
+//   		codepipeline.NewArtifact(jsii.String("Out1")),
+//   		codepipeline.NewArtifact(jsii.String("Out2")),
+//   	},
+//   	lambda: fn,
 //   })
 //
 // See: https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html
 //
+// Experimental.
 type LambdaInvokeAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
-	// Note that this accessor will be called before the `bind` callback.
+	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
-	// This is a renamed version of the `IAction.actionProperties` property.
+	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	// This is a renamed version of the `IAction.bind` method.
-	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// This is a renamed version of the {@link IAction.bind} method.
+	// Experimental.
+	Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	// Reference a CodePipeline variable defined by the Lambda function this action points to.
 	//
@@ -58,7 +57,9 @@ type LambdaInvokeAction interface {
 	// with the 'outputVariables' property filled.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobSuccessResult.html
 	//
+	// Experimental.
 	Variable(variableName *string) *string
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -88,6 +89,7 @@ func (j *jsiiProxy_LambdaInvokeAction) ProvidedActionProperties() *awscodepipeli
 }
 
 
+// Experimental.
 func NewLambdaInvokeAction(props *LambdaInvokeActionProps) LambdaInvokeAction {
 	_init_.Initialize()
 
@@ -97,7 +99,7 @@ func NewLambdaInvokeAction(props *LambdaInvokeActionProps) LambdaInvokeAction {
 	j := jsiiProxy_LambdaInvokeAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.LambdaInvokeAction",
+		"monocdk.aws_codepipeline_actions.LambdaInvokeAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -105,17 +107,18 @@ func NewLambdaInvokeAction(props *LambdaInvokeActionProps) LambdaInvokeAction {
 	return &j
 }
 
+// Experimental.
 func NewLambdaInvokeAction_Override(l LambdaInvokeAction, props *LambdaInvokeActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.LambdaInvokeAction",
+		"monocdk.aws_codepipeline_actions.LambdaInvokeAction",
 		[]interface{}{props},
 		l,
 	)
 }
 
-func (l *jsiiProxy_LambdaInvokeAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (l *jsiiProxy_LambdaInvokeAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := l.validateBindParameters(scope, stage, options); err != nil {
 		panic(err)
 	}
@@ -131,7 +134,7 @@ func (l *jsiiProxy_LambdaInvokeAction) Bind(scope constructs.Construct, stage aw
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvokeAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (l *jsiiProxy_LambdaInvokeAction) Bound(scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	if err := l.validateBoundParameters(scope, _stage, options); err != nil {
 		panic(err)
 	}

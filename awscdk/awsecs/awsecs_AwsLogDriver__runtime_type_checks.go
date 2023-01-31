@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
-func (a *jsiiProxy_AwsLogDriver) validateBindParameters(scope constructs.Construct, containerDefinition ContainerDefinition) error {
+func (a *jsiiProxy_AwsLogDriver) validateBindParameters(scope awscdk.Construct, containerDefinition ContainerDefinition) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

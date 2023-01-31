@@ -1,7 +1,7 @@
 package awscodebuild
 
 
-// The type returned from `IFileSystemLocation#bind`.
+// The type returned from {@link IFileSystemLocation#bind}.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,10 +20,12 @@ package awscodebuild
 //   	},
 //   }
 //
+// Experimental.
 type FileSystemConfig struct {
 	// File system location wrapper property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html
 	//
+	// Experimental.
 	Location *CfnProject_ProjectFileSystemLocationProperty `field:"required" json:"location" yaml:"location"`
 }
 

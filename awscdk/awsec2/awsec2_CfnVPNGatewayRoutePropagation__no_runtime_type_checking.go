@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateAddDeletionOverridePar
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnVPNGatewayRoutePropagation) validateSetVpnGatewayIdParamet
 	return nil
 }
 
-func validateNewCfnVPNGatewayRoutePropagationParameters(scope constructs.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) error {
+func validateNewCfnVPNGatewayRoutePropagationParameters(scope awscdk.Construct, id *string, props *CfnVPNGatewayRoutePropagationProps) error {
 	return nil
 }
 

@@ -19,16 +19,21 @@ package awsservicecatalog
 //   	validateTemplate: jsii.Boolean(false),
 //   }
 //
+// Experimental.
 type CloudFormationProductVersion struct {
 	// The S3 template that points to the provisioning version template.
+	// Experimental.
 	CloudFormationTemplate CloudFormationTemplate `field:"required" json:"cloudFormationTemplate" yaml:"cloudFormationTemplate"`
 	// The description of the product version.
+	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the product version.
+	// Experimental.
 	ProductVersionName *string `field:"optional" json:"productVersionName" yaml:"productVersionName"`
 	// Whether the specified product template will be validated by CloudFormation.
 	//
 	// If turned off, an invalid template configuration can be stored.
+	// Experimental.
 	ValidateTemplate *bool `field:"optional" json:"validateTemplate" yaml:"validateTemplate"`
 }
 

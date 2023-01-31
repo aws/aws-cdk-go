@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnNetworkInterfacePermission) validateAddDeletionOverridePar
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInterfacePermission) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnNetworkInterfacePermission) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnNetworkInterfacePermission) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInterfacePermission) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnNetworkInterfacePermission) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInterfacePermission) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNetworkInterfacePermission) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnNetworkInterfacePermission) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnNetworkInterfacePermission) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnNetworkInterfacePermission) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnNetworkInterfacePermission) validateSetPermissionParameter
 	return nil
 }
 
-func validateNewCfnNetworkInterfacePermissionParameters(scope constructs.Construct, id *string, props *CfnNetworkInterfacePermissionProps) error {
+func validateNewCfnNetworkInterfacePermissionParameters(scope awscdk.Construct, id *string, props *CfnNetworkInterfacePermissionProps) error {
 	return nil
 }
 

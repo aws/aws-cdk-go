@@ -32,15 +32,18 @@ package awslambda
 //   	},
 //   })
 //
+// Experimental.
 type LayerVersionPermission struct {
 	// The AWS Account id of the account that is authorized to use a Lambda Layer Version.
 	//
 	// The wild-card ``'*'`` can be
 	// used to grant access to "any" account (or any account in an organization when ``organizationId`` is specified).
+	// Experimental.
 	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// The ID of the AWS Organization to which the grant is restricted.
 	//
 	// Can only be specified if ``accountId`` is ``'*'``.
+	// Experimental.
 	OrganizationId *string `field:"optional" json:"organizationId" yaml:"organizationId"`
 }
 

@@ -1,7 +1,7 @@
 package awslambdaeventsources
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Example:
@@ -23,14 +23,17 @@ import (
 //   	},
 //   }))
 //
+// Experimental.
 type S3EventSourceProps struct {
 	// The s3 event types that will trigger the notification.
+	// Experimental.
 	Events *[]awss3.EventType `field:"required" json:"events" yaml:"events"`
 	// S3 object key filter rules to determine which objects trigger this event.
 	//
 	// Each filter must include a `prefix` and/or `suffix` that will be matched
 	// against the s3 object key. Refer to the S3 Developer Guide for details
 	// about allowed filter rules.
+	// Experimental.
 	Filters *[]*awss3.NotificationKeyFilter `field:"optional" json:"filters" yaml:"filters"`
 }
 

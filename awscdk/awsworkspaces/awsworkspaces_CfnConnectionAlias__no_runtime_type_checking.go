@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnConnectionAlias) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectionAlias) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnConnectionAlias) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnConnectionAlias) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectionAlias) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnConnectionAlias) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectionAlias) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnConnectionAlias) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnConnectionAlias) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnConnectionAlias) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnConnectionAlias) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnConnectionAlias) validateSetConnectionStringParameters(val
 	return nil
 }
 
-func validateNewCfnConnectionAliasParameters(scope constructs.Construct, id *string, props *CfnConnectionAliasProps) error {
+func validateNewCfnConnectionAliasParameters(scope awscdk.Construct, id *string, props *CfnConnectionAliasProps) error {
 	return nil
 }
 

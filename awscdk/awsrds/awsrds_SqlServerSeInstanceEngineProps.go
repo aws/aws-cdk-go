@@ -3,7 +3,7 @@ package awsrds
 
 // Properties for SQL Server Standard Edition instance engines.
 //
-// Used in `DatabaseInstanceEngine.sqlServerSe`.
+// Used in {@link DatabaseInstanceEngine.sqlServerSe}.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,8 +16,10 @@ package awsrds
 //   	version: sqlServerEngineVersion,
 //   }
 //
+// Experimental.
 type SqlServerSeInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version SqlServerEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

@@ -1,7 +1,7 @@
 package awssesactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
 )
 
 // Construction properties for a SNS action.
@@ -45,10 +45,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type SnsProps struct {
 	// The SNS topic to notify.
+	// Experimental.
 	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 	// The encoding to use for the email within the Amazon SNS notification.
+	// Experimental.
 	Encoding EmailEncoding `field:"optional" json:"encoding" yaml:"encoding"`
 }
 

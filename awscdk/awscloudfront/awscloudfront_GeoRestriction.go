@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -27,13 +27,16 @@ import (
 //   	geoRestriction: cloudfront.geoRestriction.allowlist(jsii.String("US"), jsii.String("GB")),
 //   })
 //
+// Experimental.
 type GeoRestriction interface {
 	// Two-letter, uppercase country code for a country that you want to allow/deny.
 	//
 	// Include one element for each country.
 	// See ISO 3166-1-alpha-2 code on the *International Organization for Standardization* website.
+	// Experimental.
 	Locations() *[]*string
 	// Specifies the restriction type to impose.
+	// Experimental.
 	RestrictionType() *string
 }
 
@@ -64,6 +67,7 @@ func (j *jsiiProxy_GeoRestriction) RestrictionType() *string {
 
 
 // Allow specific countries which you want CloudFront to distribute your content.
+// Experimental.
 func GeoRestriction_Allowlist(locations ...*string) GeoRestriction {
 	_init_.Initialize()
 
@@ -75,7 +79,7 @@ func GeoRestriction_Allowlist(locations ...*string) GeoRestriction {
 	var returns GeoRestriction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.GeoRestriction",
+		"monocdk.aws_cloudfront.GeoRestriction",
 		"allowlist",
 		args,
 		&returns,
@@ -84,7 +88,30 @@ func GeoRestriction_Allowlist(locations ...*string) GeoRestriction {
 	return returns
 }
 
+// DEPRECATED.
+// Deprecated: use `denylist`.
+func GeoRestriction_Blacklist(locations ...*string) GeoRestriction {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range locations {
+		args = append(args, a)
+	}
+
+	var returns GeoRestriction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_cloudfront.GeoRestriction",
+		"blacklist",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 // Deny specific countries which you don't want CloudFront to distribute your content.
+// Experimental.
 func GeoRestriction_Denylist(locations ...*string) GeoRestriction {
 	_init_.Initialize()
 
@@ -96,8 +123,30 @@ func GeoRestriction_Denylist(locations ...*string) GeoRestriction {
 	var returns GeoRestriction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.GeoRestriction",
+		"monocdk.aws_cloudfront.GeoRestriction",
 		"denylist",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `allowlist`.
+func GeoRestriction_Whitelist(locations ...*string) GeoRestriction {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range locations {
+		args = append(args, a)
+	}
+
+	var returns GeoRestriction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_cloudfront.GeoRestriction",
+		"whitelist",
 		args,
 		&returns,
 	)

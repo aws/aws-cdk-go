@@ -14,8 +14,10 @@ package awscodedeploy
 //
 // See: LambdaDeploymentConfig#import.
 //
+// Experimental.
 type LambdaDeploymentConfigImportProps struct {
 	// The physical, human-readable name of the custom CodeDeploy Lambda Deployment Configuration that we are referencing.
+	// Experimental.
 	DeploymentConfigName *string `field:"required" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 

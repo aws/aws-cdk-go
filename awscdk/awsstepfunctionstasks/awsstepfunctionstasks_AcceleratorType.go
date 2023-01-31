@@ -1,10 +1,10 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 // The size of the Elastic Inference (EI) instance to use for the production variant.
@@ -20,8 +20,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html
 //
+// Experimental.
 type AcceleratorType interface {
 	// Return the accelerator type as a dotted string.
+	// Experimental.
 	ToString() *string
 }
 
@@ -30,6 +32,7 @@ type jsiiProxy_AcceleratorType struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewAcceleratorType(instanceTypeIdentifier *string) AcceleratorType {
 	_init_.Initialize()
 
@@ -39,7 +42,7 @@ func NewAcceleratorType(instanceTypeIdentifier *string) AcceleratorType {
 	j := jsiiProxy_AcceleratorType{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
 		[]interface{}{instanceTypeIdentifier},
 		&j,
 	)
@@ -47,11 +50,12 @@ func NewAcceleratorType(instanceTypeIdentifier *string) AcceleratorType {
 	return &j
 }
 
+// Experimental.
 func NewAcceleratorType_Override(a AcceleratorType, instanceTypeIdentifier *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
 		[]interface{}{instanceTypeIdentifier},
 		a,
 	)
@@ -60,6 +64,7 @@ func NewAcceleratorType_Override(a AcceleratorType, instanceTypeIdentifier *stri
 // AcceleratorType.
 //
 // This class takes a combination of a class and size.
+// Experimental.
 func AcceleratorType_Of(acceleratorClass AcceleratorClass, instanceSize awsec2.InstanceSize) AcceleratorType {
 	_init_.Initialize()
 
@@ -69,7 +74,7 @@ func AcceleratorType_Of(acceleratorClass AcceleratorClass, instanceSize awsec2.I
 	var returns AcceleratorType
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
 		"of",
 		[]interface{}{acceleratorClass, instanceSize},
 		&returns,

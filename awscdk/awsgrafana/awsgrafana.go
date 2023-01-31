@@ -8,12 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace",
+		"monocdk.aws_grafana.CfnWorkspace",
 		reflect.TypeOf((*CfnWorkspace)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountAccessType", GoGetter: "AccountAccessType"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -43,24 +42,25 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationDestinations", GoGetter: "NotificationDestinations"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "organizationalUnits", GoGetter: "OrganizationalUnits"},
 			_jsii_.MemberProperty{JsiiProperty: "organizationRoleName", GoGetter: "OrganizationRoleName"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionType", GoGetter: "PermissionType"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "samlConfiguration", GoGetter: "SamlConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stackSetName", GoGetter: "StackSetName"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConfiguration", GoGetter: "VpcConfiguration"},
 		},
@@ -72,27 +72,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace.AssertionAttributesProperty",
+		"monocdk.aws_grafana.CfnWorkspace.AssertionAttributesProperty",
 		reflect.TypeOf((*CfnWorkspace_AssertionAttributesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace.IdpMetadataProperty",
+		"monocdk.aws_grafana.CfnWorkspace.IdpMetadataProperty",
 		reflect.TypeOf((*CfnWorkspace_IdpMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace.RoleValuesProperty",
+		"monocdk.aws_grafana.CfnWorkspace.RoleValuesProperty",
 		reflect.TypeOf((*CfnWorkspace_RoleValuesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace.SamlConfigurationProperty",
+		"monocdk.aws_grafana.CfnWorkspace.SamlConfigurationProperty",
 		reflect.TypeOf((*CfnWorkspace_SamlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_grafana.CfnWorkspace.VpcConfigurationProperty",
+		"monocdk.aws_grafana.CfnWorkspace.VpcConfigurationProperty",
 		reflect.TypeOf((*CfnWorkspace_VpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_grafana.CfnWorkspaceProps",
+		"monocdk.aws_grafana.CfnWorkspaceProps",
 		reflect.TypeOf((*CfnWorkspaceProps)(nil)).Elem(),
 	)
 }

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnWebACLAssociation) validateAddDeletionOverrideParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnWebACLAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnWebACLAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnWebACLAssociation) validateInspectParameters(inspector aws
 	return nil
 }
 
-func (c *jsiiProxy_CfnWebACLAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnWebACLAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnWebACLAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnWebACLAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnWebACLAssociation) validateRenderPropertiesParameters(prop
 	return nil
 }
 
-func (c *jsiiProxy_CfnWebACLAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnWebACLAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnWebACLAssociation) validateSetWebAclArnParameters(val *str
 	return nil
 }
 
-func validateNewCfnWebACLAssociationParameters(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) error {
+func validateNewCfnWebACLAssociationParameters(scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) error {
 	return nil
 }
 

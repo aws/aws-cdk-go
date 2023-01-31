@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 )
 
 func validateNewCfnEipEndpointParameters(eip awsec2.CfnEIP, options *CfnEipEndpointProps) error {

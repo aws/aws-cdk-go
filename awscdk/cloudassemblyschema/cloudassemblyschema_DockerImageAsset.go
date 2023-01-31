@@ -27,9 +27,6 @@ package cloudassemblyschema
 //   		},
 //   		dockerBuildTarget: jsii.String("dockerBuildTarget"),
 //   		dockerFile: jsii.String("dockerFile"),
-//   		dockerOutputs: []*string{
-//   			jsii.String("dockerOutputs"),
-//   		},
 //   		executable: []*string{
 //   			jsii.String("executable"),
 //   		},
@@ -38,10 +35,13 @@ package cloudassemblyschema
 //   	},
 //   }
 //
+// Experimental.
 type DockerImageAsset struct {
 	// Destinations for this file asset.
+	// Experimental.
 	Destinations *map[string]*DockerImageDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
+	// Experimental.
 	Source *DockerImageSource `field:"required" json:"source" yaml:"source"`
 }
 

@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDBCluster) validateAddDeletionOverrideParameters(path *str
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBCluster) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDBCluster) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDBCluster) validateInspectParameters(inspector awscdk.Tree
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDBCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBCluster) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDBCluster) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDBCluster) validateRenderPropertiesParameters(props *map[s
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBCluster) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDBCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnDBCluster) validateSetUseLatestRestorableTimeParameters(va
 	return nil
 }
 
-func validateNewCfnDBClusterParameters(scope constructs.Construct, id *string, props *CfnDBClusterProps) error {
+func validateNewCfnDBClusterParameters(scope awscdk.Construct, id *string, props *CfnDBClusterProps) error {
 	return nil
 }
 

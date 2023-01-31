@@ -7,8 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (t *jsiiProxy_TaskStateBase) validateAddBranchParameters(branch StateGraph) error {
@@ -178,6 +179,22 @@ func (t *jsiiProxy_TaskStateBase) validateMetricTimedOutParameters(props *awsclo
 func (t *jsiiProxy_TaskStateBase) validateNextParameters(next IChainable) error {
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (t *jsiiProxy_TaskStateBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (t *jsiiProxy_TaskStateBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

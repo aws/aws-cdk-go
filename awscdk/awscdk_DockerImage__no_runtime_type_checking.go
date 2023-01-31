@@ -1,6 +1,6 @@
 //go:build no_runtime_type_checking
 
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
@@ -10,6 +10,10 @@ func (d *jsiiProxy_DockerImage) validateCpParameters(imagePath *string) error {
 }
 
 func (d *jsiiProxy_DockerImage) validateRunParameters(options *DockerRunOptions) error {
+	return nil
+}
+
+func validateDockerImage_FromAssetParameters(path *string, options *DockerBuildOptions) error {
 	return nil
 }
 

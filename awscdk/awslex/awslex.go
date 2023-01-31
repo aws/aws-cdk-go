@@ -8,11 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lex.CfnBot",
+		"monocdk.aws_lex.CfnBot",
 		reflect.TypeOf((*CfnBot)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -38,21 +37,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "testBotAliasSettings", GoGetter: "TestBotAliasSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "testBotAliasTags", GoGetter: "TestBotAliasTags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -63,335 +63,334 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.AdvancedRecognitionSettingProperty",
+		"monocdk.aws_lex.CfnBot.AdvancedRecognitionSettingProperty",
 		reflect.TypeOf((*CfnBot_AdvancedRecognitionSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.AllowedInputTypesProperty",
+		"monocdk.aws_lex.CfnBot.AllowedInputTypesProperty",
 		reflect.TypeOf((*CfnBot_AllowedInputTypesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.AudioAndDTMFInputSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.AudioAndDTMFInputSpecificationProperty",
 		reflect.TypeOf((*CfnBot_AudioAndDTMFInputSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.AudioLogDestinationProperty",
+		"monocdk.aws_lex.CfnBot.AudioLogDestinationProperty",
 		reflect.TypeOf((*CfnBot_AudioLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.AudioLogSettingProperty",
+		"monocdk.aws_lex.CfnBot.AudioLogSettingProperty",
 		reflect.TypeOf((*CfnBot_AudioLogSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.AudioSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.AudioSpecificationProperty",
 		reflect.TypeOf((*CfnBot_AudioSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.BotAliasLocaleSettingsItemProperty",
+		"monocdk.aws_lex.CfnBot.BotAliasLocaleSettingsItemProperty",
 		reflect.TypeOf((*CfnBot_BotAliasLocaleSettingsItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.BotAliasLocaleSettingsProperty",
+		"monocdk.aws_lex.CfnBot.BotAliasLocaleSettingsProperty",
 		reflect.TypeOf((*CfnBot_BotAliasLocaleSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.BotLocaleProperty",
+		"monocdk.aws_lex.CfnBot.BotLocaleProperty",
 		reflect.TypeOf((*CfnBot_BotLocaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ButtonProperty",
+		"monocdk.aws_lex.CfnBot.ButtonProperty",
 		reflect.TypeOf((*CfnBot_ButtonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.CloudWatchLogGroupLogDestinationProperty",
+		"monocdk.aws_lex.CfnBot.CloudWatchLogGroupLogDestinationProperty",
 		reflect.TypeOf((*CfnBot_CloudWatchLogGroupLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.CodeHookSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.CodeHookSpecificationProperty",
 		reflect.TypeOf((*CfnBot_CodeHookSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ConditionProperty",
+		"monocdk.aws_lex.CfnBot.ConditionProperty",
 		reflect.TypeOf((*CfnBot_ConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ConditionalBranchProperty",
+		"monocdk.aws_lex.CfnBot.ConditionalBranchProperty",
 		reflect.TypeOf((*CfnBot_ConditionalBranchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ConditionalSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.ConditionalSpecificationProperty",
 		reflect.TypeOf((*CfnBot_ConditionalSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ConversationLogSettingsProperty",
+		"monocdk.aws_lex.CfnBot.ConversationLogSettingsProperty",
 		reflect.TypeOf((*CfnBot_ConversationLogSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.CustomPayloadProperty",
+		"monocdk.aws_lex.CfnBot.CustomPayloadProperty",
 		reflect.TypeOf((*CfnBot_CustomPayloadProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.CustomVocabularyItemProperty",
+		"monocdk.aws_lex.CfnBot.CustomVocabularyItemProperty",
 		reflect.TypeOf((*CfnBot_CustomVocabularyItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.CustomVocabularyProperty",
+		"monocdk.aws_lex.CfnBot.CustomVocabularyProperty",
 		reflect.TypeOf((*CfnBot_CustomVocabularyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.DTMFSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.DTMFSpecificationProperty",
 		reflect.TypeOf((*CfnBot_DTMFSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.DataPrivacyProperty",
+		"monocdk.aws_lex.CfnBot.DataPrivacyProperty",
 		reflect.TypeOf((*CfnBot_DataPrivacyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.DefaultConditionalBranchProperty",
+		"monocdk.aws_lex.CfnBot.DefaultConditionalBranchProperty",
 		reflect.TypeOf((*CfnBot_DefaultConditionalBranchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.DialogActionProperty",
+		"monocdk.aws_lex.CfnBot.DialogActionProperty",
 		reflect.TypeOf((*CfnBot_DialogActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.DialogCodeHookInvocationSettingProperty",
+		"monocdk.aws_lex.CfnBot.DialogCodeHookInvocationSettingProperty",
 		reflect.TypeOf((*CfnBot_DialogCodeHookInvocationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.DialogCodeHookSettingProperty",
+		"monocdk.aws_lex.CfnBot.DialogCodeHookSettingProperty",
 		reflect.TypeOf((*CfnBot_DialogCodeHookSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.DialogStateProperty",
+		"monocdk.aws_lex.CfnBot.DialogStateProperty",
 		reflect.TypeOf((*CfnBot_DialogStateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ElicitationCodeHookInvocationSettingProperty",
+		"monocdk.aws_lex.CfnBot.ElicitationCodeHookInvocationSettingProperty",
 		reflect.TypeOf((*CfnBot_ElicitationCodeHookInvocationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ExternalSourceSettingProperty",
+		"monocdk.aws_lex.CfnBot.ExternalSourceSettingProperty",
 		reflect.TypeOf((*CfnBot_ExternalSourceSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.FulfillmentCodeHookSettingProperty",
+		"monocdk.aws_lex.CfnBot.FulfillmentCodeHookSettingProperty",
 		reflect.TypeOf((*CfnBot_FulfillmentCodeHookSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.FulfillmentStartResponseSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.FulfillmentStartResponseSpecificationProperty",
 		reflect.TypeOf((*CfnBot_FulfillmentStartResponseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.FulfillmentUpdateResponseSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.FulfillmentUpdateResponseSpecificationProperty",
 		reflect.TypeOf((*CfnBot_FulfillmentUpdateResponseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.FulfillmentUpdatesSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.FulfillmentUpdatesSpecificationProperty",
 		reflect.TypeOf((*CfnBot_FulfillmentUpdatesSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.GrammarSlotTypeSettingProperty",
+		"monocdk.aws_lex.CfnBot.GrammarSlotTypeSettingProperty",
 		reflect.TypeOf((*CfnBot_GrammarSlotTypeSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.GrammarSlotTypeSourceProperty",
+		"monocdk.aws_lex.CfnBot.GrammarSlotTypeSourceProperty",
 		reflect.TypeOf((*CfnBot_GrammarSlotTypeSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ImageResponseCardProperty",
+		"monocdk.aws_lex.CfnBot.ImageResponseCardProperty",
 		reflect.TypeOf((*CfnBot_ImageResponseCardProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.InitialResponseSettingProperty",
+		"monocdk.aws_lex.CfnBot.InitialResponseSettingProperty",
 		reflect.TypeOf((*CfnBot_InitialResponseSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.InputContextProperty",
+		"monocdk.aws_lex.CfnBot.InputContextProperty",
 		reflect.TypeOf((*CfnBot_InputContextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.IntentClosingSettingProperty",
+		"monocdk.aws_lex.CfnBot.IntentClosingSettingProperty",
 		reflect.TypeOf((*CfnBot_IntentClosingSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.IntentConfirmationSettingProperty",
+		"monocdk.aws_lex.CfnBot.IntentConfirmationSettingProperty",
 		reflect.TypeOf((*CfnBot_IntentConfirmationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.IntentOverrideProperty",
+		"monocdk.aws_lex.CfnBot.IntentOverrideProperty",
 		reflect.TypeOf((*CfnBot_IntentOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.IntentProperty",
+		"monocdk.aws_lex.CfnBot.IntentProperty",
 		reflect.TypeOf((*CfnBot_IntentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.KendraConfigurationProperty",
+		"monocdk.aws_lex.CfnBot.KendraConfigurationProperty",
 		reflect.TypeOf((*CfnBot_KendraConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.LambdaCodeHookProperty",
+		"monocdk.aws_lex.CfnBot.LambdaCodeHookProperty",
 		reflect.TypeOf((*CfnBot_LambdaCodeHookProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.MessageGroupProperty",
+		"monocdk.aws_lex.CfnBot.MessageGroupProperty",
 		reflect.TypeOf((*CfnBot_MessageGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.MessageProperty",
+		"monocdk.aws_lex.CfnBot.MessageProperty",
 		reflect.TypeOf((*CfnBot_MessageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.MultipleValuesSettingProperty",
+		"monocdk.aws_lex.CfnBot.MultipleValuesSettingProperty",
 		reflect.TypeOf((*CfnBot_MultipleValuesSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ObfuscationSettingProperty",
+		"monocdk.aws_lex.CfnBot.ObfuscationSettingProperty",
 		reflect.TypeOf((*CfnBot_ObfuscationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.OutputContextProperty",
+		"monocdk.aws_lex.CfnBot.OutputContextProperty",
 		reflect.TypeOf((*CfnBot_OutputContextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.PlainTextMessageProperty",
+		"monocdk.aws_lex.CfnBot.PlainTextMessageProperty",
 		reflect.TypeOf((*CfnBot_PlainTextMessageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.PostDialogCodeHookInvocationSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.PostDialogCodeHookInvocationSpecificationProperty",
 		reflect.TypeOf((*CfnBot_PostDialogCodeHookInvocationSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.PostFulfillmentStatusSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.PostFulfillmentStatusSpecificationProperty",
 		reflect.TypeOf((*CfnBot_PostFulfillmentStatusSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.PromptAttemptSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.PromptAttemptSpecificationProperty",
 		reflect.TypeOf((*CfnBot_PromptAttemptSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.PromptSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.PromptSpecificationProperty",
 		reflect.TypeOf((*CfnBot_PromptSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.ResponseSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.ResponseSpecificationProperty",
 		reflect.TypeOf((*CfnBot_ResponseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.S3BucketLogDestinationProperty",
+		"monocdk.aws_lex.CfnBot.S3BucketLogDestinationProperty",
 		reflect.TypeOf((*CfnBot_S3BucketLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.S3LocationProperty",
+		"monocdk.aws_lex.CfnBot.S3LocationProperty",
 		reflect.TypeOf((*CfnBot_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SSMLMessageProperty",
+		"monocdk.aws_lex.CfnBot.SSMLMessageProperty",
 		reflect.TypeOf((*CfnBot_SSMLMessageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SampleUtteranceProperty",
+		"monocdk.aws_lex.CfnBot.SampleUtteranceProperty",
 		reflect.TypeOf((*CfnBot_SampleUtteranceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SampleValueProperty",
+		"monocdk.aws_lex.CfnBot.SampleValueProperty",
 		reflect.TypeOf((*CfnBot_SampleValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SentimentAnalysisSettingsProperty",
+		"monocdk.aws_lex.CfnBot.SentimentAnalysisSettingsProperty",
 		reflect.TypeOf((*CfnBot_SentimentAnalysisSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SessionAttributeProperty",
+		"monocdk.aws_lex.CfnBot.SessionAttributeProperty",
 		reflect.TypeOf((*CfnBot_SessionAttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotCaptureSettingProperty",
+		"monocdk.aws_lex.CfnBot.SlotCaptureSettingProperty",
 		reflect.TypeOf((*CfnBot_SlotCaptureSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotDefaultValueProperty",
+		"monocdk.aws_lex.CfnBot.SlotDefaultValueProperty",
 		reflect.TypeOf((*CfnBot_SlotDefaultValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotDefaultValueSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.SlotDefaultValueSpecificationProperty",
 		reflect.TypeOf((*CfnBot_SlotDefaultValueSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotPriorityProperty",
+		"monocdk.aws_lex.CfnBot.SlotPriorityProperty",
 		reflect.TypeOf((*CfnBot_SlotPriorityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotProperty",
+		"monocdk.aws_lex.CfnBot.SlotProperty",
 		reflect.TypeOf((*CfnBot_SlotProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotTypeProperty",
+		"monocdk.aws_lex.CfnBot.SlotTypeProperty",
 		reflect.TypeOf((*CfnBot_SlotTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotTypeValueProperty",
+		"monocdk.aws_lex.CfnBot.SlotTypeValueProperty",
 		reflect.TypeOf((*CfnBot_SlotTypeValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotValueElicitationSettingProperty",
+		"monocdk.aws_lex.CfnBot.SlotValueElicitationSettingProperty",
 		reflect.TypeOf((*CfnBot_SlotValueElicitationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotValueOverrideMapProperty",
+		"monocdk.aws_lex.CfnBot.SlotValueOverrideMapProperty",
 		reflect.TypeOf((*CfnBot_SlotValueOverrideMapProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotValueOverrideProperty",
+		"monocdk.aws_lex.CfnBot.SlotValueOverrideProperty",
 		reflect.TypeOf((*CfnBot_SlotValueOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotValueProperty",
+		"monocdk.aws_lex.CfnBot.SlotValueProperty",
 		reflect.TypeOf((*CfnBot_SlotValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotValueRegexFilterProperty",
+		"monocdk.aws_lex.CfnBot.SlotValueRegexFilterProperty",
 		reflect.TypeOf((*CfnBot_SlotValueRegexFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.SlotValueSelectionSettingProperty",
+		"monocdk.aws_lex.CfnBot.SlotValueSelectionSettingProperty",
 		reflect.TypeOf((*CfnBot_SlotValueSelectionSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.StillWaitingResponseSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.StillWaitingResponseSpecificationProperty",
 		reflect.TypeOf((*CfnBot_StillWaitingResponseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.TestBotAliasSettingsProperty",
+		"monocdk.aws_lex.CfnBot.TestBotAliasSettingsProperty",
 		reflect.TypeOf((*CfnBot_TestBotAliasSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.TextInputSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.TextInputSpecificationProperty",
 		reflect.TypeOf((*CfnBot_TextInputSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.TextLogDestinationProperty",
+		"monocdk.aws_lex.CfnBot.TextLogDestinationProperty",
 		reflect.TypeOf((*CfnBot_TextLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.TextLogSettingProperty",
+		"monocdk.aws_lex.CfnBot.TextLogSettingProperty",
 		reflect.TypeOf((*CfnBot_TextLogSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.VoiceSettingsProperty",
+		"monocdk.aws_lex.CfnBot.VoiceSettingsProperty",
 		reflect.TypeOf((*CfnBot_VoiceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBot.WaitAndContinueSpecificationProperty",
+		"monocdk.aws_lex.CfnBot.WaitAndContinueSpecificationProperty",
 		reflect.TypeOf((*CfnBot_WaitAndContinueSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lex.CfnBotAlias",
+		"monocdk.aws_lex.CfnBotAlias",
 		reflect.TypeOf((*CfnBotAlias)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -417,19 +416,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "sentimentAnalysisSettings", GoGetter: "SentimentAnalysisSettings"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -440,67 +440,66 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.AudioLogDestinationProperty",
+		"monocdk.aws_lex.CfnBotAlias.AudioLogDestinationProperty",
 		reflect.TypeOf((*CfnBotAlias_AudioLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.AudioLogSettingProperty",
+		"monocdk.aws_lex.CfnBotAlias.AudioLogSettingProperty",
 		reflect.TypeOf((*CfnBotAlias_AudioLogSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.BotAliasLocaleSettingsItemProperty",
+		"monocdk.aws_lex.CfnBotAlias.BotAliasLocaleSettingsItemProperty",
 		reflect.TypeOf((*CfnBotAlias_BotAliasLocaleSettingsItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.BotAliasLocaleSettingsProperty",
+		"monocdk.aws_lex.CfnBotAlias.BotAliasLocaleSettingsProperty",
 		reflect.TypeOf((*CfnBotAlias_BotAliasLocaleSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.CloudWatchLogGroupLogDestinationProperty",
+		"monocdk.aws_lex.CfnBotAlias.CloudWatchLogGroupLogDestinationProperty",
 		reflect.TypeOf((*CfnBotAlias_CloudWatchLogGroupLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.CodeHookSpecificationProperty",
+		"monocdk.aws_lex.CfnBotAlias.CodeHookSpecificationProperty",
 		reflect.TypeOf((*CfnBotAlias_CodeHookSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.ConversationLogSettingsProperty",
+		"monocdk.aws_lex.CfnBotAlias.ConversationLogSettingsProperty",
 		reflect.TypeOf((*CfnBotAlias_ConversationLogSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.LambdaCodeHookProperty",
+		"monocdk.aws_lex.CfnBotAlias.LambdaCodeHookProperty",
 		reflect.TypeOf((*CfnBotAlias_LambdaCodeHookProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.S3BucketLogDestinationProperty",
+		"monocdk.aws_lex.CfnBotAlias.S3BucketLogDestinationProperty",
 		reflect.TypeOf((*CfnBotAlias_S3BucketLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.SentimentAnalysisSettingsProperty",
+		"monocdk.aws_lex.CfnBotAlias.SentimentAnalysisSettingsProperty",
 		reflect.TypeOf((*CfnBotAlias_SentimentAnalysisSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.TextLogDestinationProperty",
+		"monocdk.aws_lex.CfnBotAlias.TextLogDestinationProperty",
 		reflect.TypeOf((*CfnBotAlias_TextLogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAlias.TextLogSettingProperty",
+		"monocdk.aws_lex.CfnBotAlias.TextLogSettingProperty",
 		reflect.TypeOf((*CfnBotAlias_TextLogSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotAliasProps",
+		"monocdk.aws_lex.CfnBotAliasProps",
 		reflect.TypeOf((*CfnBotAliasProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotProps",
+		"monocdk.aws_lex.CfnBotProps",
 		reflect.TypeOf((*CfnBotProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lex.CfnBotVersion",
+		"monocdk.aws_lex.CfnBotVersion",
 		reflect.TypeOf((*CfnBotVersion)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -520,18 +519,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -542,23 +542,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotVersion.BotVersionLocaleDetailsProperty",
+		"monocdk.aws_lex.CfnBotVersion.BotVersionLocaleDetailsProperty",
 		reflect.TypeOf((*CfnBotVersion_BotVersionLocaleDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotVersion.BotVersionLocaleSpecificationProperty",
+		"monocdk.aws_lex.CfnBotVersion.BotVersionLocaleSpecificationProperty",
 		reflect.TypeOf((*CfnBotVersion_BotVersionLocaleSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnBotVersionProps",
+		"monocdk.aws_lex.CfnBotVersionProps",
 		reflect.TypeOf((*CfnBotVersionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
+		"monocdk.aws_lex.CfnResourcePolicy",
 		reflect.TypeOf((*CfnResourcePolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -576,20 +575,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceArn", GoGetter: "ResourceArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -600,7 +600,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lex.CfnResourcePolicyProps",
+		"monocdk.aws_lex.CfnResourcePolicyProps",
 		reflect.TypeOf((*CfnResourcePolicyProps)(nil)).Elem(),
 	)
 }

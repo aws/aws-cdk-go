@@ -1,11 +1,11 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
 )
 
 // Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
@@ -49,9 +49,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type S3 interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
+	// Experimental.
 	Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -60,6 +62,7 @@ type jsiiProxy_S3 struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
+// Experimental.
 func NewS3(props *S3Props) S3 {
 	_init_.Initialize()
 
@@ -69,7 +72,7 @@ func NewS3(props *S3Props) S3 {
 	j := jsiiProxy_S3{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.S3",
+		"monocdk.aws_ses_actions.S3",
 		[]interface{}{props},
 		&j,
 	)
@@ -77,11 +80,12 @@ func NewS3(props *S3Props) S3 {
 	return &j
 }
 
+// Experimental.
 func NewS3_Override(s S3, props *S3Props) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.S3",
+		"monocdk.aws_ses_actions.S3",
 		[]interface{}{props},
 		s,
 	)

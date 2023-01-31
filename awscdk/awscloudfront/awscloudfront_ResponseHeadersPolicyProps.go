@@ -80,10 +80,6 @@ package awscloudfront
 //   			override: jsii.Boolean(true),
 //   		},
 //   	},
-//   	removeHeaders: []*string{
-//   		jsii.String("Server"),
-//   	},
-//   	serverTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
@@ -92,20 +88,22 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type ResponseHeadersPolicyProps struct {
 	// A comment to describe the response headers policy.
+	// Experimental.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+	// Experimental.
 	CorsBehavior *ResponseHeadersCorsBehavior `field:"optional" json:"corsBehavior" yaml:"corsBehavior"`
 	// A configuration for a set of custom HTTP response headers.
+	// Experimental.
 	CustomHeadersBehavior *ResponseCustomHeadersBehavior `field:"optional" json:"customHeadersBehavior" yaml:"customHeadersBehavior"`
-	// A list of HTTP response headers that CloudFront removes from HTTP responses that it sends to viewers.
-	RemoveHeaders *[]*string `field:"optional" json:"removeHeaders" yaml:"removeHeaders"`
 	// A unique name to identify the response headers policy.
+	// Experimental.
 	ResponseHeadersPolicyName *string `field:"optional" json:"responseHeadersPolicyName" yaml:"responseHeadersPolicyName"`
 	// A configuration for a set of security-related HTTP response headers.
+	// Experimental.
 	SecurityHeadersBehavior *ResponseSecurityHeadersBehavior `field:"optional" json:"securityHeadersBehavior" yaml:"securityHeadersBehavior"`
-	// The percentage of responses that you want CloudFront to add the Server-Timing header to.
-	ServerTimingSamplingRate *float64 `field:"optional" json:"serverTimingSamplingRate" yaml:"serverTimingSamplingRate"`
 }
 

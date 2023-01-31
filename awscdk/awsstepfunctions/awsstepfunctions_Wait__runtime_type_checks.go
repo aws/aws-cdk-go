@@ -7,7 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (w *jsiiProxy_Wait) validateAddBranchParameters(branch StateGraph) error {
@@ -73,6 +74,22 @@ func (w *jsiiProxy_Wait) validateMakeNextParameters(next State) error {
 func (w *jsiiProxy_Wait) validateNextParameters(next IChainable) error {
 	if next == nil {
 		return fmt.Errorf("parameter next is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (w *jsiiProxy_Wait) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (w *jsiiProxy_Wait) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

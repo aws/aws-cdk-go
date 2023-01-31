@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnBackupPlan) validateAddDeletionOverrideParameters(path *st
 	return nil
 }
 
-func (c *jsiiProxy_CfnBackupPlan) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnBackupPlan) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnBackupPlan) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnBackupPlan) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnBackupPlan) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnBackupPlan) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnBackupPlan) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnBackupPlan) validateRenderPropertiesParameters(props *map[
 	return nil
 }
 
-func (c *jsiiProxy_CfnBackupPlan) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnBackupPlan) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnBackupPlan) validateSetBackupPlanTagsParameters(val interf
 	return nil
 }
 
-func validateNewCfnBackupPlanParameters(scope constructs.Construct, id *string, props *CfnBackupPlanProps) error {
+func validateNewCfnBackupPlanParameters(scope awscdk.Construct, id *string, props *CfnBackupPlanProps) error {
 	return nil
 }
 

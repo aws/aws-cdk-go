@@ -1,11 +1,11 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Features that are implemented behind a flag in order to preserve backwards compatibility for existing apps.
@@ -18,16 +18,18 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   featureFlags := cdk.featureFlags.of(this)
+//   featureFlags := monocdk.featureFlags.of(this)
 //
+// Experimental.
 type FeatureFlags interface {
 	// Check whether a feature flag is enabled.
 	//
 	// If configured, the flag is present in
 	// the construct node context. Falls back to the defaults defined in the `cx-api`
 	// module.
+	// Experimental.
 	IsEnabled(featureFlag *string) *bool
 }
 
@@ -37,6 +39,7 @@ type jsiiProxy_FeatureFlags struct {
 }
 
 // Inspect feature flags on the construct node's context.
+// Experimental.
 func FeatureFlags_Of(scope constructs.IConstruct) FeatureFlags {
 	_init_.Initialize()
 
@@ -46,7 +49,7 @@ func FeatureFlags_Of(scope constructs.IConstruct) FeatureFlags {
 	var returns FeatureFlags
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.FeatureFlags",
+		"monocdk.FeatureFlags",
 		"of",
 		[]interface{}{scope},
 		&returns,

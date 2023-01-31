@@ -5,8 +5,8 @@ package awsroute53targets
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 func (g *jsiiProxy_GlobalAcceleratorTarget) validateBindParameters(_record awsroute53.IRecordSet) error {

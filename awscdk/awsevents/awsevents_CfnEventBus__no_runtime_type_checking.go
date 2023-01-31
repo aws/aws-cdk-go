@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnEventBus) validateAddDeletionOverrideParameters(path *stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventBus) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnEventBus) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnEventBus) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventBus) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnEventBus) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventBus) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEventBus) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnEventBus) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnEventBus) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnEventBus) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnEventBus) validateSetTagsParameters(val *[]*CfnEventBus_Ta
 	return nil
 }
 
-func validateNewCfnEventBusParameters(scope constructs.Construct, id *string, props *CfnEventBusProps) error {
+func validateNewCfnEventBusParameters(scope awscdk.Construct, id *string, props *CfnEventBusProps) error {
 	return nil
 }
 

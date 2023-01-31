@@ -3,34 +3,31 @@ package awsrds
 
 // Properties for MySQL instance engines.
 //
-// Used in `DatabaseInstanceEngine.mysql`.
+// Used in {@link DatabaseInstanceEngine.mysql}.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
-//
-//   iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &databaseInstanceProps{
+//   role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &roleProps{
+//   	assumedBy: iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
+//   	managedPolicies: []iManagedPolicy{
+//   		iam.managedPolicy.fromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
+//   	},
+//   })
+//   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
 //   	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
-//   		version: mysqlEngineVersion_VER_8_0_30,
+//   		version: rds.mysqlEngineVersion_VER_8_0_19(),
 //   	}),
 //   	vpc: vpc,
-//   	storageType: rds.storageType_IO1,
-//   	iops: jsii.Number(5000),
+//   	domain: jsii.String("d-????????"),
+//   	 // The ID of the domain for the instance to join.
+//   	domainRole: role,
 //   })
 //
-//   gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &databaseInstanceProps{
-//   	engine: rds.*databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
-//   		version: *mysqlEngineVersion_VER_8_0_30,
-//   	}),
-//   	vpc: vpc,
-//   	allocatedStorage: jsii.Number(500),
-//   	storageType: rds.*storageType_GP3,
-//   	storageThroughput: jsii.Number(500),
-//   })
-//
+// Experimental.
 type MySqlInstanceEngineProps struct {
 	// The exact version of the engine to use.
+	// Experimental.
 	Version MysqlEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

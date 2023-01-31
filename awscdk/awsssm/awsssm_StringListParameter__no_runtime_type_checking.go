@@ -24,7 +24,11 @@ func (s *jsiiProxy_StringListParameter) validateGrantWriteParameters(grantee aws
 	return nil
 }
 
-func validateStringListParameter_FromListParameterAttributesParameters(scope constructs.Construct, id *string, attrs *ListParameterAttributes) error {
+func (s *jsiiProxy_StringListParameter) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (s *jsiiProxy_StringListParameter) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -36,15 +40,7 @@ func validateStringListParameter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateStringListParameter_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateStringListParameter_IsResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateStringListParameter_ValueForTypedListParameterParameters(scope constructs.Construct, parameterName *string) error {
+func validateStringListParameter_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

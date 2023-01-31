@@ -8,20 +8,19 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.AdvancedSecurityOptions",
+		"monocdk.aws_opensearchservice.AdvancedSecurityOptions",
 		reflect.TypeOf((*AdvancedSecurityOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CapacityConfig",
+		"monocdk.aws_opensearchservice.CapacityConfig",
 		reflect.TypeOf((*CapacityConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
+		"monocdk.aws_opensearchservice.CfnDomain",
 		reflect.TypeOf((*CfnDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessPolicies", GoGetter: "AccessPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -61,20 +60,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logPublishingOptions", GoGetter: "LogPublishingOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodeToNodeEncryptionOptions", GoGetter: "NodeToNodeEncryptionOptions"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "snapshotOptions", GoGetter: "SnapshotOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcOptions", GoGetter: "VpcOptions"},
 		},
@@ -86,79 +86,79 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.AdvancedSecurityOptionsInputProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.AdvancedSecurityOptionsInputProperty",
 		reflect.TypeOf((*CfnDomain_AdvancedSecurityOptionsInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.ClusterConfigProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.ClusterConfigProperty",
 		reflect.TypeOf((*CfnDomain_ClusterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.CognitoOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.CognitoOptionsProperty",
 		reflect.TypeOf((*CfnDomain_CognitoOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.DomainEndpointOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.DomainEndpointOptionsProperty",
 		reflect.TypeOf((*CfnDomain_DomainEndpointOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.EBSOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.EBSOptionsProperty",
 		reflect.TypeOf((*CfnDomain_EBSOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.EncryptionAtRestOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.EncryptionAtRestOptionsProperty",
 		reflect.TypeOf((*CfnDomain_EncryptionAtRestOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.IdpProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.IdpProperty",
 		reflect.TypeOf((*CfnDomain_IdpProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.LogPublishingOptionProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.LogPublishingOptionProperty",
 		reflect.TypeOf((*CfnDomain_LogPublishingOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.MasterUserOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.MasterUserOptionsProperty",
 		reflect.TypeOf((*CfnDomain_MasterUserOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.NodeToNodeEncryptionOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.NodeToNodeEncryptionOptionsProperty",
 		reflect.TypeOf((*CfnDomain_NodeToNodeEncryptionOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.SAMLOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.SAMLOptionsProperty",
 		reflect.TypeOf((*CfnDomain_SAMLOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.ServiceSoftwareOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.ServiceSoftwareOptionsProperty",
 		reflect.TypeOf((*CfnDomain_ServiceSoftwareOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.SnapshotOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.SnapshotOptionsProperty",
 		reflect.TypeOf((*CfnDomain_SnapshotOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.VPCOptionsProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.VPCOptionsProperty",
 		reflect.TypeOf((*CfnDomain_VPCOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomain.ZoneAwarenessConfigProperty",
+		"monocdk.aws_opensearchservice.CfnDomain.ZoneAwarenessConfigProperty",
 		reflect.TypeOf((*CfnDomain_ZoneAwarenessConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CfnDomainProps",
+		"monocdk.aws_opensearchservice.CfnDomainProps",
 		reflect.TypeOf((*CfnDomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CognitoOptions",
+		"monocdk.aws_opensearchservice.CognitoOptions",
 		reflect.TypeOf((*CognitoOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.CustomEndpointOptions",
+		"monocdk.aws_opensearchservice.CustomEndpointOptions",
 		reflect.TypeOf((*CustomEndpointOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_opensearchservice.Domain",
+		"monocdk.aws_opensearchservice.Domain",
 		reflect.TypeOf((*Domain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAccessPolicies", GoMethod: "AddAccessPolicies"},
@@ -201,11 +201,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricSearchableDocuments", GoMethod: "MetricSearchableDocuments"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSearchLatency", GoMethod: "MetricSearchLatency"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "slowIndexLogGroup", GoGetter: "SlowIndexLogGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "slowSearchLogGroup", GoGetter: "SlowSearchLogGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Domain{}
@@ -216,23 +222,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.DomainAttributes",
+		"monocdk.aws_opensearchservice.DomainAttributes",
 		reflect.TypeOf((*DomainAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.DomainProps",
+		"monocdk.aws_opensearchservice.DomainProps",
 		reflect.TypeOf((*DomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.EbsOptions",
+		"monocdk.aws_opensearchservice.EbsOptions",
 		reflect.TypeOf((*EbsOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.EncryptionAtRestOptions",
+		"monocdk.aws_opensearchservice.EncryptionAtRestOptions",
 		reflect.TypeOf((*EncryptionAtRestOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
+		"monocdk.aws_opensearchservice.EngineVersion",
 		reflect.TypeOf((*EngineVersion)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
@@ -242,7 +248,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_opensearchservice.IDomain",
+		"monocdk.aws_opensearchservice.IDomain",
 		reflect.TypeOf((*IDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -286,11 +292,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.LoggingOptions",
+		"monocdk.aws_opensearchservice.LoggingOptions",
 		reflect.TypeOf((*LoggingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_opensearchservice.TLSSecurityPolicy",
+		"monocdk.aws_opensearchservice.TLSSecurityPolicy",
 		reflect.TypeOf((*TLSSecurityPolicy)(nil)).Elem(),
 		map[string]interface{}{
 			"TLS_1_0": TLSSecurityPolicy_TLS_1_0,
@@ -298,7 +304,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_opensearchservice.ZoneAwarenessConfig",
+		"monocdk.aws_opensearchservice.ZoneAwarenessConfig",
 		reflect.TypeOf((*ZoneAwarenessConfig)(nil)).Elem(),
 	)
 }

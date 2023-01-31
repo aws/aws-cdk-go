@@ -4,6 +4,14 @@ package awsroute53
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (v *jsiiProxy_VpcEndpointServiceDomainName) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (v *jsiiProxy_VpcEndpointServiceDomainName) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateVpcEndpointServiceDomainName_IsConstructParameters(x interface{}) error {
 	return nil
 }

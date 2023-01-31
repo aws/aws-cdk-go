@@ -1,7 +1,7 @@
 package awssns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Properties to associate SNS topics with a policy.
@@ -26,10 +26,13 @@ import (
 //   	},
 //   }))
 //
+// Experimental.
 type TopicPolicyProps struct {
 	// The set of topics this policy applies to.
+	// Experimental.
 	Topics *[]ITopic `field:"required" json:"topics" yaml:"topics"`
 	// IAM policy document to apply to topic(s).
+	// Experimental.
 	PolicyDocument awsiam.PolicyDocument `field:"optional" json:"policyDocument" yaml:"policyDocument"`
 }
 
