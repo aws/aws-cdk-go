@@ -11,6 +11,7 @@ func init() {
 		"@aws-cdk/aws-redshift-alpha.Cluster",
 		reflect.TypeOf((*Cluster)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDefaultIamRole", GoMethod: "AddDefaultIamRole"},
 			_jsii_.MemberMethod{JsiiMethod: "addRotationMultiUser", GoMethod: "AddRotationMultiUser"},
 			_jsii_.MemberMethod{JsiiMethod: "addRotationSingleUser", GoMethod: "AddRotationSingleUser"},
 			_jsii_.MemberMethod{JsiiMethod: "addToParameterGroup", GoMethod: "AddToParameterGroup"},

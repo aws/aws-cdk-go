@@ -35,6 +35,8 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	contactPostPassDurationSeconds: jsii.Number(123),
+//   	contactPrePassDurationSeconds: jsii.Number(123),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -46,6 +48,10 @@ import (
 type CfnDataflowEndpointGroupProps struct {
 	// List of Endpoint Details, containing address and port for each endpoint.
 	EndpointDetails interface{} `field:"required" json:"endpointDetails" yaml:"endpointDetails"`
+	// `AWS::GroundStation::DataflowEndpointGroup.ContactPostPassDurationSeconds`.
+	ContactPostPassDurationSeconds *float64 `field:"optional" json:"contactPostPassDurationSeconds" yaml:"contactPostPassDurationSeconds"`
+	// `AWS::GroundStation::DataflowEndpointGroup.ContactPrePassDurationSeconds`.
+	ContactPrePassDurationSeconds *float64 `field:"optional" json:"contactPrePassDurationSeconds" yaml:"contactPrePassDurationSeconds"`
 	// Tags assigned to a resource.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

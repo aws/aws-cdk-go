@@ -959,6 +959,17 @@ func init() {
 		reflect.TypeOf((*TaskStateBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.Timeout",
+		reflect.TypeOf((*Timeout)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
+			_jsii_.MemberProperty{JsiiProperty: "seconds", GoGetter: "Seconds"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Timeout{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.Wait",
 		reflect.TypeOf((*Wait)(nil)).Elem(),
 		[]_jsii_.Member{

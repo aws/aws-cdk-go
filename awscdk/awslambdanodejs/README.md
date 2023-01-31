@@ -363,3 +363,16 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 
 If you chose to customize the hash, you will need to make sure it is updated every time the asset
 changes, or otherwise it is possible that some deployments will not be invalidated.
+
+## Docker based bundling in complex Docker configurations
+
+By default the input and output of Docker based bundling is handled via bind mounts.
+In situtations where this does not work, like Docker-in-Docker setups or when using a remote Docker socket, you can configure an alternative, but slower, variant that also works in these situations.
+
+```go
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
+	bundling: &bundlingOptions{
+		bundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
+	},
+})
+```

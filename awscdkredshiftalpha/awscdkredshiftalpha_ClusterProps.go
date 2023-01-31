@@ -52,6 +52,11 @@ type ClusterProps struct {
 	// Name of a database which is automatically created inside the cluster.
 	// Experimental.
 	DefaultDatabaseName *string `field:"optional" json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
+	// A single AWS Identity and Access Management (IAM) role to be used as the default role for the cluster.
+	//
+	// The default role must be included in the roles list.
+	// Experimental.
+	DefaultRole awsiam.IRole `field:"optional" json:"defaultRole" yaml:"defaultRole"`
 	// The Elastic IP (EIP) address for the cluster.
 	// See: https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-vpc.html
 	//

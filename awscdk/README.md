@@ -948,6 +948,48 @@ resourceB := awscdk.NewCfnResource(this, jsii.String("ResourceB"), resourceProps
 resourceB.addDependency(resourceA)
 ```
 
+#### CreationPolicy
+
+Some resources support a [CreationPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html) to be specified as a CfnOption.
+
+The creation policy is invoked only when AWS CloudFormation creates the associated resource. Currently, the only AWS CloudFormation resources that support creation policies are `CfnAutoScalingGroup`, `CfnInstance`, `CfnWaitCondition` and `CfnFleet`.
+
+The `CfnFleet` resource from the `aws-appstream` module supports specifying `startFleet` as
+a property of the creationPolicy on the resource options. Setting it to true will make AWS CloudFormation wait until the fleet is started before continuing with the creation of
+resources that depend on the fleet resource.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+fleet := NewCfnFleet(stack, jsii.String("Fleet"), map[string]interface{}{
+	"instanceType": jsii.String("stream.standard.small"),
+	"name": jsii.String("Fleet"),
+	"computeCapacity": map[string]*f64{
+		"desiredInstances": jsii.Number(1),
+	},
+	"imageName": jsii.String("AppStream-AmazonLinux2-09-21-2022"),
+})
+fleet.cfnOptions.creationPolicy = map[string]*bool{
+	"startFleet": jsii.Boolean(true),
+}
+```
+
+The properties passed to the level 2 constructs `AutoScalingGroup` and `Instance` from the
+`aws-ec2` module abstract what is passed into the `CfnOption` properties `resourceSignal` and
+`autoScalingCreationPolicy`, but when using level 1 constructs you can specify these yourself.
+
+The CfnWaitCondition resource from the `aws-cloudformation` module suppports the `resourceSignal`.
+The format of the timeout is `PT#H#M#S`. In the example below AWS Cloudformation will wait for
+3 success signals to occur within 15 minutes before the status of the resource will be set to
+`CREATE_COMPLETE`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+resource.cfnOptions.resourceSignal = map[string]interface{}{
+	"count": jsii.Number(3),
+	"timeout": jsii.String("PR15M"),
+}
+```
+
 ### Intrinsic Functions and Condition Expressions
 
 CloudFormation supports [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). These functions

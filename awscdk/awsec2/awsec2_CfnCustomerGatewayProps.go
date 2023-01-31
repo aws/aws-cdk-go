@@ -17,6 +17,7 @@ import (
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	deviceName: jsii.String("deviceName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -36,6 +37,8 @@ type CfnCustomerGatewayProps struct {
 	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`
 	// The type of VPN connection that this customer gateway supports ( `ipsec.1` ).
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The name of customer gateway device.
+	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
 	// One or more tags for the customer gateway.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

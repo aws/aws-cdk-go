@@ -30,6 +30,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "imageConfiguration", GoGetter: "ImageConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "initialCapacity", GoGetter: "InitialCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -53,6 +54,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "workerTypeSpecifications", GoGetter: "WorkerTypeSpecifications"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnApplication{}
@@ -68,6 +70,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.AutoStopConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_AutoStopConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.ImageConfigurationInputProperty",
+		reflect.TypeOf((*CfnApplication_ImageConfigurationInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.InitialCapacityConfigKeyValuePairProperty",
@@ -88,6 +94,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.WorkerConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_WorkerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.WorkerTypeSpecificationInputProperty",
+		reflect.TypeOf((*CfnApplication_WorkerTypeSpecificationInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplicationProps",

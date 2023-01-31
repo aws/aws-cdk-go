@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::RolesAnywhere::TrustAnchor`.
 //
-// The state of the trust anchor after a read or write operation.
+// Creates a TrustAnchor.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,7 +41,6 @@ type CfnTrustAnchor interface {
 	awscdk.IInspectable
 	// The ARN of the trust anchor.
 	AttrTrustAnchorArn() *string
-	// The unique primary identifier of the TrustAnchor.
 	AttrTrustAnchorId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

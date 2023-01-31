@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnDomain) validateSetAuthModeParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetDefaultSpaceSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetDefaultUserSettingsParameters(val interface{}) error {
 	return nil
 }

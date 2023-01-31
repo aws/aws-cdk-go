@@ -9,18 +9,7 @@ import (
 // Example:
 //   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &nodejsFunctionProps{
 //   	bundling: &bundlingOptions{
-//   		network: jsii.String("host"),
-//   		securityOpt: jsii.String("no-new-privileges"),
-//   		user: jsii.String("user:group"),
-//   		volumesFrom: []*string{
-//   			jsii.String("777f7dc92da7"),
-//   		},
-//   		volumes: []dockerVolume{
-//   			&dockerVolume{
-//   				hostPath: jsii.String("/host-path"),
-//   				containerPath: jsii.String("/container-path"),
-//   			},
-//   		},
+//   		dockerImage: awscdk.DockerImage.fromBuild(jsii.String("/path/to/Dockerfile")),
 //   	},
 //   })
 //
@@ -65,6 +54,8 @@ type BundlingOptions struct {
 	Banner *string `field:"optional" json:"banner" yaml:"banner"`
 	// Build arguments to pass when building the bundling image.
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Which option to use to copy the source files to the docker container and output files back.
+	BundlingFileAccess awscdk.BundlingFileAccess `field:"optional" json:"bundlingFileAccess" yaml:"bundlingFileAccess"`
 	// The charset to use for esbuild's output.
 	//
 	// By default esbuild's output is ASCII-only. Any non-ASCII characters are escaped

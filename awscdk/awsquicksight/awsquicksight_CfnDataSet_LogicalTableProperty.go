@@ -83,6 +83,8 @@ type CfnDataSet_LogicalTableProperty struct {
 	// Source of this logical table.
 	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// Transform operations that act on this logical table.
+	//
+	// For this structure to be valid, only one of the attributes can be non-null.
 	DataTransforms interface{} `field:"optional" json:"dataTransforms" yaml:"dataTransforms"`
 }
 

@@ -80,6 +80,12 @@ import (
 //   	packageType: jsii.String("packageType"),
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	runtime: jsii.String("runtime"),
+//   	runtimeManagementConfig: &runtimeManagementConfigProperty{
+//   		updateRuntimeOn: jsii.String("updateRuntimeOn"),
+//
+//   		// the properties below are optional
+//   		runtimeVersionArn: jsii.String("runtimeVersionArn"),
+//   	},
 //   	snapStart: &snapStartProperty{
 //   		applyOn: jsii.String("applyOn"),
 //   	},
@@ -215,6 +221,11 @@ type CfnFunction interface {
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
 	Runtime() *string
 	SetRuntime(val *string)
+	// Sets the runtime management configuration for a function's version.
+	//
+	// For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html) .
+	RuntimeManagementConfig() interface{}
+	SetRuntimeManagementConfig(val interface{})
 	// The function's [AWS Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 	SnapStart() interface{}
 	SetSnapStart(val interface{})
@@ -661,6 +672,16 @@ func (j *jsiiProxy_CfnFunction) Runtime() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) RuntimeManagementConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"runtimeManagementConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) SnapStart() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -932,6 +953,17 @@ func (j *jsiiProxy_CfnFunction)SetRuntime(val *string) {
 	_jsii_.Set(
 		j,
 		"runtime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetRuntimeManagementConfig(val interface{}) {
+	if err := j.validateSetRuntimeManagementConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"runtimeManagementConfig",
 		val,
 	)
 }

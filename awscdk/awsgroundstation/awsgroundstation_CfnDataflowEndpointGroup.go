@@ -46,6 +46,8 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	contactPostPassDurationSeconds: jsii.Number(123),
+//   	contactPrePassDurationSeconds: jsii.Number(123),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -66,6 +68,12 @@ type CfnDataflowEndpointGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// `AWS::GroundStation::DataflowEndpointGroup.ContactPostPassDurationSeconds`.
+	ContactPostPassDurationSeconds() *float64
+	SetContactPostPassDurationSeconds(val *float64)
+	// `AWS::GroundStation::DataflowEndpointGroup.ContactPrePassDurationSeconds`.
+	ContactPrePassDurationSeconds() *float64
+	SetContactPrePassDurationSeconds(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -292,6 +300,26 @@ func (j *jsiiProxy_CfnDataflowEndpointGroup) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataflowEndpointGroup) ContactPostPassDurationSeconds() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"contactPostPassDurationSeconds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataflowEndpointGroup) ContactPrePassDurationSeconds() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"contactPrePassDurationSeconds",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataflowEndpointGroup) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -409,6 +437,22 @@ func NewCfnDataflowEndpointGroup_Override(c CfnDataflowEndpointGroup, scope cons
 		"aws-cdk-lib.aws_groundstation.CfnDataflowEndpointGroup",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDataflowEndpointGroup)SetContactPostPassDurationSeconds(val *float64) {
+	_jsii_.Set(
+		j,
+		"contactPostPassDurationSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataflowEndpointGroup)SetContactPrePassDurationSeconds(val *float64) {
+	_jsii_.Set(
+		j,
+		"contactPrePassDurationSeconds",
+		val,
 	)
 }
 

@@ -82,6 +82,15 @@ package awsappflow
 //   			redirectUri: jsii.String("redirectUri"),
 //   		},
 //   	},
+//   	pardot: &pardotConnectorProfileCredentialsProperty{
+//   		accessToken: jsii.String("accessToken"),
+//   		clientCredentialsArn: jsii.String("clientCredentialsArn"),
+//   		connectorOAuthRequest: &connectorOAuthRequestProperty{
+//   			authCode: jsii.String("authCode"),
+//   			redirectUri: jsii.String("redirectUri"),
+//   		},
+//   		refreshToken: jsii.String("refreshToken"),
+//   	},
 //   	redshift: &redshiftConnectorProfileCredentialsProperty{
 //   		password: jsii.String("password"),
 //   		username: jsii.String("username"),
@@ -168,6 +177,8 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific credentials required when using Marketo.
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
+	// The connector-specific credentials required when using Salesforce Pardot.
+	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// The connector-specific credentials required when using Amazon Redshift.
 	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The connector-specific credentials required when using Salesforce.

@@ -24,6 +24,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customEvents", GoGetter: "CustomEvents"},
 			_jsii_.MemberProperty{JsiiProperty: "cwLogEnabled", GoGetter: "CwLogEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "domain", GoGetter: "Domain"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -57,6 +58,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rum.CfnAppMonitor.AppMonitorConfigurationProperty",
 		reflect.TypeOf((*CfnAppMonitor_AppMonitorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_rum.CfnAppMonitor.CustomEventsProperty",
+		reflect.TypeOf((*CfnAppMonitor_CustomEventsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rum.CfnAppMonitor.MetricDefinitionProperty",

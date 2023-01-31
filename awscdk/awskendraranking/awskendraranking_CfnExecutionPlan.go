@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::KendraRanking::ExecutionPlan`.
 //
+// Creates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the `Rescore` API. You set the number of capacity units that you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.
+//
+// For an example of using the `CreateRescoreExecutionPlan` API, including using the Python and Java SDKs, see [Semantically ranking a search service's results](https://docs.aws.amazon.com/kendra/latest/dg/search-service-rerank.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -35,9 +39,13 @@ import (
 type CfnExecutionPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the rescore execution plan.
 	AttrArn() *string
+	// The identifier of the rescore execution plan.
 	AttrId() *string
-	// `AWS::KendraRanking::ExecutionPlan.CapacityUnits`.
+	// You can set additional capacity units to meet the needs of your rescore execution plan.
+	//
+	// You are given a single capacity unit by default. If you want to use the default capacity, you don't set additional capacity units. For more information on the default capacity and additional capacity units, see [Adjusting capacity](https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html) .
 	CapacityUnits() interface{}
 	SetCapacityUnits(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -49,7 +57,7 @@ type CfnExecutionPlan interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// `AWS::KendraRanking::ExecutionPlan.Description`.
+	// A description for the rescore execution plan.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,7 +70,7 @@ type CfnExecutionPlan interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// `AWS::KendraRanking::ExecutionPlan.Name`.
+	// A name for the rescore execution plan.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -76,7 +84,9 @@ type CfnExecutionPlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// `AWS::KendraRanking::ExecutionPlan.Tags`.
+	// A list of key-value pairs that identify or categorize your rescore execution plan.
+	//
+	// You can also use tags to help control access to the rescore execution plan. Tag keys and values can consist of Unicode letters, digits, white space. They can also consist of underscore, period, colon, equal, plus, and asperand.
 	Tags() awscdk.TagManager
 	// Deprecated.
 	// Deprecated: use `updatedProperties`

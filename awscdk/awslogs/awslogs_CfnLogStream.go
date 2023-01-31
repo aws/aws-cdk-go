@@ -36,6 +36,7 @@ import (
 type CfnLogStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -218,6 +219,16 @@ type CfnLogStream interface {
 type jsiiProxy_CfnLogStream struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnLogStream) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnLogStream) CfnOptions() awscdk.ICfnResourceOptions {

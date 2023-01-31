@@ -66,6 +66,9 @@ import (
 //   			jsii.String("telemetries"),
 //   		},
 //   	},
+//   	customEvents: &customEventsProperty{
+//   		status: jsii.String("status"),
+//   	},
 //   	cwLogEnabled: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -94,6 +97,11 @@ type CfnAppMonitor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies whether this app monitor allows the web client to define and send custom events.
+	//
+	// If you omit this parameter, custom events are `DISABLED` .
+	CustomEvents() interface{}
+	SetCustomEvents(val interface{})
 	// Data collected by CloudWatch RUM is kept by RUM for 30 days and then deleted.
 	//
 	// This parameter specifies whether CloudWatch RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.
@@ -338,6 +346,16 @@ func (j *jsiiProxy_CfnAppMonitor) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppMonitor) CustomEvents() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customEvents",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppMonitor) CwLogEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -475,6 +493,17 @@ func (j *jsiiProxy_CfnAppMonitor)SetAppMonitorConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"appMonitorConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppMonitor)SetCustomEvents(val interface{}) {
+	if err := j.validateSetCustomEventsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"customEvents",
 		val,
 	)
 }

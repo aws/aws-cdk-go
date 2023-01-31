@@ -31,6 +31,9 @@ import (
 //   		enabled: jsii.Boolean(false),
 //   		idleTimeoutMinutes: jsii.Number(123),
 //   	},
+//   	imageConfiguration: &imageConfigurationInputProperty{
+//   		imageUri: jsii.String("imageUri"),
+//   	},
 //   	initialCapacity: []interface{}{
 //   		&initialCapacityConfigKeyValuePairProperty{
 //   			key: jsii.String("key"),
@@ -68,6 +71,13 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	workerTypeSpecifications: map[string]interface{}{
+//   		"workerTypeSpecificationsKey": &WorkerTypeSpecificationInputProperty{
+//   			"imageConfiguration": &imageConfigurationInputProperty{
+//   				"imageUri": jsii.String("imageUri"),
+//   			},
+//   		},
+//   	},
 //   })
 //
 type CfnApplication interface {
@@ -97,6 +107,9 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The image configuration applied to all worker types.
+	ImageConfiguration() interface{}
+	SetImageConfiguration(val interface{})
 	// The initial capacity of the application.
 	InitialCapacity() interface{}
 	SetInitialCapacity(val interface{})
@@ -165,6 +178,9 @@ type CfnApplication interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The specification applied to each worker type.
+	WorkerTypeSpecifications() interface{}
+	SetWorkerTypeSpecifications(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -388,6 +404,16 @@ func (j *jsiiProxy_CfnApplication) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) ImageConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"imageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) InitialCapacity() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -518,6 +544,16 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) WorkerTypeSpecifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"workerTypeSpecifications",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::EMRServerless::Application`.
 func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
@@ -574,6 +610,17 @@ func (j *jsiiProxy_CfnApplication)SetAutoStopConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"autoStopConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetImageConfiguration(val interface{}) {
+	if err := j.validateSetImageConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"imageConfiguration",
 		val,
 	)
 }
@@ -637,6 +684,17 @@ func (j *jsiiProxy_CfnApplication)SetType(val *string) {
 	_jsii_.Set(
 		j,
 		"type",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetWorkerTypeSpecifications(val interface{}) {
+	if err := j.validateSetWorkerTypeSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"workerTypeSpecifications",
 		val,
 	)
 }

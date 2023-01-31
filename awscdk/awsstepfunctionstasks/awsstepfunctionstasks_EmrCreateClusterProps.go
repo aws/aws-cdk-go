@@ -55,7 +55,13 @@ type EmrCreateClusterProps struct {
 	//
 	Credentials *awsstepfunctions.Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Timeout for the heartbeat.
+	// Deprecated: use `heartbeatTimeout`.
 	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
+	// Timeout for the heartbeat.
+	//
+	// [disable-awslint:duration-prop-type] is needed because all props interface in
+	// aws-stepfunctions-tasks extend this interface.
+	HeartbeatTimeout awsstepfunctions.Timeout `field:"optional" json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
@@ -84,7 +90,13 @@ type EmrCreateClusterProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
-	// Timeout for the state machine.
+	// Timeout for the task.
+	//
+	// [disable-awslint:duration-prop-type] is needed because all props interface in
+	// aws-stepfunctions-tasks extend this interface.
+	TaskTimeout awsstepfunctions.Timeout `field:"optional" json:"taskTimeout" yaml:"taskTimeout"`
+	// Timeout for the task.
+	// Deprecated: use `taskTimeout`.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// A specification of the number and type of Amazon EC2 instances.
 	Instances *EmrCreateCluster_InstancesConfigProperty `field:"required" json:"instances" yaml:"instances"`

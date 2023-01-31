@@ -9,8 +9,17 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
+
+func (c *jsiiProxy_Cluster) validateAddDefaultIamRoleParameters(defaultIamRole awsiam.IRole) error {
+	if defaultIamRole == nil {
+		return fmt.Errorf("parameter defaultIamRole is required, but nil was provided")
+	}
+
+	return nil
+}
 
 func (c *jsiiProxy_Cluster) validateAddRotationMultiUserParameters(id *string, options *RotationMultiUserOptions) error {
 	if id == nil {

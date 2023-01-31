@@ -297,10 +297,21 @@ type CfnDBInstance interface {
 	// For more information about CA certificate identifiers for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide* .
 	CaCertificateIdentifier() *string
 	SetCaCertificateIdentifier(val *string)
-	// `AWS::RDS::DBInstance.CertificateDetails`.
+	// The details of the DB instance's server certificate.
 	CertificateDetails() interface{}
 	SetCertificateDetails(val interface{})
-	// `AWS::RDS::DBInstance.CertificateRotationRestart`.
+	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	//
+	// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+	//
+	// > Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.
+	//
+	// If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate:
+	//
+	// - For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.*
+	// - For more information about rotating your SSL/TLS certificate for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide* .
+	//
+	// This setting doesn't apply to RDS Custom.
 	CertificateRotationRestart() interface{}
 	SetCertificateRotationRestart(val interface{})
 	// Options for this resource, such as condition, update policy etc.

@@ -37,6 +37,9 @@ package awsappflow
 //   		marketo: &marketoSourcePropertiesProperty{
 //   			object: jsii.String("object"),
 //   		},
+//   		pardot: &pardotSourcePropertiesProperty{
+//   			object: jsii.String("object"),
+//   		},
 //   		s3: &s3SourcePropertiesProperty{
 //   			bucketName: jsii.String("bucketName"),
 //   			bucketPrefix: jsii.String("bucketPrefix"),

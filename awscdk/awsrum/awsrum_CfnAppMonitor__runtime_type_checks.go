@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnAppMonitor) validateSetAppMonitorConfigurationParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppMonitor) validateSetCustomEventsParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnAppMonitor_CustomEventsProperty:
+		val := val.(*CfnAppMonitor_CustomEventsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAppMonitor_CustomEventsProperty:
+		val_ := val.(CfnAppMonitor_CustomEventsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnAppMonitor_CustomEventsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAppMonitor) validateSetCwLogEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

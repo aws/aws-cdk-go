@@ -172,13 +172,13 @@ type CfnCacheClusterProps struct {
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
 	// Specifies the destination, format and type of the logs.
 	LogDeliveryConfigurations interface{} `field:"optional" json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
 	// Must be either `ipv4` | `ipv6` | `dual_stack` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
 	//

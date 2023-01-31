@@ -9,12 +9,18 @@ import (
 // Username and password combination.
 //
 // Example:
-//   user := awscdkredshiftalpha.NewUser(this, jsii.String("User"), &userProps{
-//   	cluster: cluster,
-//   	databaseName: jsii.String("databaseName"),
-//   })
-//   cluster.addRotationMultiUser(jsii.String("MultiUserRotation"), &rotationMultiUserOptions{
-//   	secret: user.secret,
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var vpc ec2.Vpc
+//
+//
+//   awscdkredshiftalpha.NewCluster(stack, jsii.String("Redshift"), &clusterProps{
+//   	masterUser: &login{
+//   		masterUsername: jsii.String("admin"),
+//   		masterPassword: cdk.secretValue_UnsafePlainText(jsii.String("tooshort")),
+//   	},
+//   	vpc: vpc,
+//   	publiclyAccessible: jsii.Boolean(true),
+//   	elasticIp: jsii.String("10.123.123.255"),
 //   })
 //
 // Experimental.

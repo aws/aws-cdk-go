@@ -205,6 +205,14 @@ func init() {
 		reflect.TypeOf((*CfnConnectorProfile_OAuthPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.PardotConnectorProfileCredentialsProperty",
+		reflect.TypeOf((*CfnConnectorProfile_PardotConnectorProfileCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.PardotConnectorProfilePropertiesProperty",
+		reflect.TypeOf((*CfnConnectorProfile_PardotConnectorProfilePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.RedshiftConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
@@ -411,6 +419,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnFlow.MetadataCatalogConfigProperty",
 		reflect.TypeOf((*CfnFlow_MetadataCatalogConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnFlow.PardotSourcePropertiesProperty",
+		reflect.TypeOf((*CfnFlow_PardotSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnFlow.PrefixConfigProperty",

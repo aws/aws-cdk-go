@@ -19,12 +19,26 @@ import (
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
 //   	},
 //   	advancedSecurityOptions: &advancedSecurityOptionsInputProperty{
+//   		anonymousAuthDisableDate: jsii.String("anonymousAuthDisableDate"),
+//   		anonymousAuthEnabled: jsii.Boolean(false),
 //   		enabled: jsii.Boolean(false),
 //   		internalUserDatabaseEnabled: jsii.Boolean(false),
 //   		masterUserOptions: &masterUserOptionsProperty{
 //   			masterUserArn: jsii.String("masterUserArn"),
 //   			masterUserName: jsii.String("masterUserName"),
 //   			masterUserPassword: jsii.String("masterUserPassword"),
+//   		},
+//   		samlOptions: &sAMLOptionsProperty{
+//   			enabled: jsii.Boolean(false),
+//   			idp: &idpProperty{
+//   				entityId: jsii.String("entityId"),
+//   				metadataContent: jsii.String("metadataContent"),
+//   			},
+//   			masterBackendRole: jsii.String("masterBackendRole"),
+//   			masterUserName: jsii.String("masterUserName"),
+//   			rolesKey: jsii.String("rolesKey"),
+//   			sessionTimeoutMinutes: jsii.Number(123),
+//   			subjectKey: jsii.String("subjectKey"),
 //   		},
 //   	},
 //   	clusterConfig: &clusterConfigProperty{
@@ -104,7 +118,7 @@ type CfnDomainProps struct {
 	//
 	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 	AdvancedOptions interface{} `field:"optional" json:"advancedOptions" yaml:"advancedOptions"`
-	// Specifies options for fine-grained access control.
+	// Specifies options for fine-grained access control and SAML authentication.
 	//
 	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions interface{} `field:"optional" json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`

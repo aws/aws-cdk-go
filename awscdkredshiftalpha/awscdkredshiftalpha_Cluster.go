@@ -7,6 +7,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdkredshiftalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -75,6 +76,11 @@ type Cluster interface {
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
+	// Adds default IAM role to cluster.
+	//
+	// The default IAM role must be already associated to the cluster to be added as the default role.
+	// Experimental.
+	AddDefaultIamRole(defaultIamRole awsiam.IRole)
 	// Adds the multi user rotation to this cluster.
 	// Experimental.
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
@@ -348,6 +354,17 @@ func Cluster_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_Cluster) AddDefaultIamRole(defaultIamRole awsiam.IRole) {
+	if err := c.validateAddDefaultIamRoleParameters(defaultIamRole); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDefaultIamRole",
+		[]interface{}{defaultIamRole},
+	)
 }
 
 func (c *jsiiProxy_Cluster) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {

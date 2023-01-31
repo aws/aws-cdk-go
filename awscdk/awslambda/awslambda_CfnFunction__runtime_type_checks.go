@@ -370,6 +370,30 @@ func (j *jsiiProxy_CfnFunction) validateSetRoleParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetRuntimeManagementConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnFunction_RuntimeManagementConfigProperty:
+		val := val.(*CfnFunction_RuntimeManagementConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFunction_RuntimeManagementConfigProperty:
+		val_ := val.(CfnFunction_RuntimeManagementConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnFunction_RuntimeManagementConfigProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetSnapStartParameters(val interface{}) error {
 	switch val.(type) {
 	case *CfnFunction_SnapStartProperty:

@@ -17,7 +17,15 @@ import (
 //   	// the properties below are optional
 //   	allocationId: jsii.String("allocationId"),
 //   	connectivityType: jsii.String("connectivityType"),
+//   	maxDrainDurationSeconds: jsii.Number(123),
 //   	privateIpAddress: jsii.String("privateIpAddress"),
+//   	secondaryAllocationIds: []*string{
+//   		jsii.String("secondaryAllocationIds"),
+//   	},
+//   	secondaryPrivateIpAddressCount: jsii.Number(123),
+//   	secondaryPrivateIpAddresses: []*string{
+//   		jsii.String("secondaryPrivateIpAddresses"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -37,10 +45,18 @@ type CfnNatGatewayProps struct {
 	//
 	// The default is public connectivity.
 	ConnectivityType *string `field:"optional" json:"connectivityType" yaml:"connectivityType"`
+	// `AWS::EC2::NatGateway.MaxDrainDurationSeconds`.
+	MaxDrainDurationSeconds *float64 `field:"optional" json:"maxDrainDurationSeconds" yaml:"maxDrainDurationSeconds"`
 	// The private IPv4 address to assign to the NAT gateway.
 	//
 	// If you don't provide an address, a private IPv4 address will be automatically assigned.
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
+	// `AWS::EC2::NatGateway.SecondaryAllocationIds`.
+	SecondaryAllocationIds *[]*string `field:"optional" json:"secondaryAllocationIds" yaml:"secondaryAllocationIds"`
+	// `AWS::EC2::NatGateway.SecondaryPrivateIpAddressCount`.
+	SecondaryPrivateIpAddressCount *float64 `field:"optional" json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
+	// `AWS::EC2::NatGateway.SecondaryPrivateIpAddresses`.
+	SecondaryPrivateIpAddresses *[]*string `field:"optional" json:"secondaryPrivateIpAddresses" yaml:"secondaryPrivateIpAddresses"`
 	// The tags for the NAT gateway.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

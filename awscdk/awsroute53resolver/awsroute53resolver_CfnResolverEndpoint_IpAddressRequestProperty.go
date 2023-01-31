@@ -13,6 +13,7 @@ package awsroute53resolver
 //
 //   	// the properties below are optional
 //   	ip: jsii.String("ip"),
+//   	ipv6: jsii.String("ipv6"),
 //   }
 //
 type CfnResolverEndpoint_IpAddressRequestProperty struct {
@@ -20,5 +21,7 @@ type CfnResolverEndpoint_IpAddressRequestProperty struct {
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The IP address that you want to use for DNS queries.
 	Ip *string `field:"optional" json:"ip" yaml:"ip"`
+	// `CfnResolverEndpoint.IpAddressRequestProperty.Ipv6`.
+	Ipv6 *string `field:"optional" json:"ipv6" yaml:"ipv6"`
 }
 

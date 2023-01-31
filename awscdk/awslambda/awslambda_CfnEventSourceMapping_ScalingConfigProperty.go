@@ -1,9 +1,9 @@
 package awslambda
 
 
-// (Amazon SQS only) The scaling configuration for the event source.
+// ( Amazon Simple Queue Service only) The scaling configuration for the event source.
 //
-// To remove the configuration, pass an empty value.
+// For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

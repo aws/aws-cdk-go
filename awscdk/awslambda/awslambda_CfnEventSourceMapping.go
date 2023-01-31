@@ -204,7 +204,7 @@ type CfnEventSourceMapping interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// (Amazon SQS only) The scaling configuration for the event source.
+	// ( Amazon Simple Queue Service only) The scaling configuration for the event source.
 	//
 	// For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency) .
 	ScalingConfig() interface{}

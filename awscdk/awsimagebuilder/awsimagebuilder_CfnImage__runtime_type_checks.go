@@ -196,6 +196,30 @@ func (j *jsiiProxy_CfnImage) validateSetEnhancedImageMetadataEnabledParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnImage) validateSetImageScanningConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnImage_ImageScanningConfigurationProperty:
+		val := val.(*CfnImage_ImageScanningConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnImage_ImageScanningConfigurationProperty:
+		val_ := val.(CfnImage_ImageScanningConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnImage_ImageScanningConfigurationProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnImage) validateSetImageTestsConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case *CfnImage_ImageTestsConfigurationProperty:

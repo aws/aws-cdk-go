@@ -300,7 +300,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	// - `resolve:ssm:parameter-name:version-number`
 	// - `resolve:ssm:parameter-name:label`
 	//
-	// For more information, see [Use a Systems Manager parameter instead of an AMI ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id) in the *Amazon Elastic Compute Cloud User Guide* .
+	// For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide* .
 	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 	//

@@ -30,7 +30,15 @@ import (
 //   	// the properties below are optional
 //   	allocationId: jsii.String("allocationId"),
 //   	connectivityType: jsii.String("connectivityType"),
+//   	maxDrainDurationSeconds: jsii.Number(123),
 //   	privateIpAddress: jsii.String("privateIpAddress"),
+//   	secondaryAllocationIds: []*string{
+//   		jsii.String("secondaryAllocationIds"),
+//   	},
+//   	secondaryPrivateIpAddressCount: jsii.Number(123),
+//   	secondaryPrivateIpAddresses: []*string{
+//   		jsii.String("secondaryPrivateIpAddresses"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -73,6 +81,9 @@ type CfnNatGateway interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// `AWS::EC2::NatGateway.MaxDrainDurationSeconds`.
+	MaxDrainDurationSeconds() *float64
+	SetMaxDrainDurationSeconds(val *float64)
 	// The tree node.
 	Node() constructs.Node
 	// The private IPv4 address to assign to the NAT gateway.
@@ -85,6 +96,15 @@ type CfnNatGateway interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::EC2::NatGateway.SecondaryAllocationIds`.
+	SecondaryAllocationIds() *[]*string
+	SetSecondaryAllocationIds(val *[]*string)
+	// `AWS::EC2::NatGateway.SecondaryPrivateIpAddressCount`.
+	SecondaryPrivateIpAddressCount() *float64
+	SetSecondaryPrivateIpAddressCount(val *float64)
+	// `AWS::EC2::NatGateway.SecondaryPrivateIpAddresses`.
+	SecondaryPrivateIpAddresses() *[]*string
+	SetSecondaryPrivateIpAddresses(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -320,6 +340,16 @@ func (j *jsiiProxy_CfnNatGateway) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNatGateway) MaxDrainDurationSeconds() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxDrainDurationSeconds",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNatGateway) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -345,6 +375,36 @@ func (j *jsiiProxy_CfnNatGateway) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) SecondaryAllocationIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"secondaryAllocationIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) SecondaryPrivateIpAddressCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"secondaryPrivateIpAddressCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) SecondaryPrivateIpAddresses() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"secondaryPrivateIpAddresses",
 		&returns,
 	)
 	return returns
@@ -446,10 +506,42 @@ func (j *jsiiProxy_CfnNatGateway)SetConnectivityType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnNatGateway)SetMaxDrainDurationSeconds(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxDrainDurationSeconds",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnNatGateway)SetPrivateIpAddress(val *string) {
 	_jsii_.Set(
 		j,
 		"privateIpAddress",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway)SetSecondaryAllocationIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"secondaryAllocationIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway)SetSecondaryPrivateIpAddressCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"secondaryPrivateIpAddressCount",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway)SetSecondaryPrivateIpAddresses(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"secondaryPrivateIpAddresses",
 		val,
 	)
 }

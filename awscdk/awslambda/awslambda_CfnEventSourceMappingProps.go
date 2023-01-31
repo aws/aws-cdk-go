@@ -141,7 +141,7 @@ type CfnEventSourceMappingProps struct {
 	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues *[]*string `field:"optional" json:"queues" yaml:"queues"`
-	// (Amazon SQS only) The scaling configuration for the event source.
+	// ( Amazon Simple Queue Service only) The scaling configuration for the event source.
 	//
 	// For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency) .
 	ScalingConfig interface{} `field:"optional" json:"scalingConfig" yaml:"scalingConfig"`

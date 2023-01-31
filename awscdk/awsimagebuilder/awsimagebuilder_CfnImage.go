@@ -26,6 +26,15 @@ import (
 //   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	enhancedImageMetadataEnabled: jsii.Boolean(false),
 //   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageScanningConfiguration: &imageScanningConfigurationProperty{
+//   		ecrConfiguration: &ecrConfigurationProperty{
+//   			containerTags: []*string{
+//   				jsii.String("containerTags"),
+//   			},
+//   			repositoryName: jsii.String("repositoryName"),
+//   		},
+//   		imageScanningEnabled: jsii.Boolean(false),
+//   	},
 //   	imageTestsConfiguration: &imageTestsConfigurationProperty{
 //   		imageTestsEnabled: jsii.Boolean(false),
 //   		timeoutMinutes: jsii.Number(123),
@@ -73,6 +82,9 @@ type CfnImage interface {
 	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
+	// `AWS::ImageBuilder::Image.ImageScanningConfiguration`.
+	ImageScanningConfiguration() interface{}
+	SetImageScanningConfiguration(val interface{})
 	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
 	ImageTestsConfiguration() interface{}
 	SetImageTestsConfiguration(val interface{})
@@ -368,6 +380,16 @@ func (j *jsiiProxy_CfnImage) ImageRecipeArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImage) ImageScanningConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"imageScanningConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImage) ImageTestsConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -519,6 +541,17 @@ func (j *jsiiProxy_CfnImage)SetImageRecipeArn(val *string) {
 	_jsii_.Set(
 		j,
 		"imageRecipeArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImage)SetImageScanningConfiguration(val interface{}) {
+	if err := j.validateSetImageScanningConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"imageScanningConfiguration",
 		val,
 	)
 }

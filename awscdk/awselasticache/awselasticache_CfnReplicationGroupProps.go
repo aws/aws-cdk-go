@@ -212,7 +212,7 @@ type CfnReplicationGroupProps struct {
 	GlobalReplicationGroupId *string `field:"optional" json:"globalReplicationGroupId" yaml:"globalReplicationGroupId"`
 	// The network type you choose when creating a replication group, either `ipv4` | `ipv6` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
 	// The ID of the KMS key used to encrypt the disk on the cluster.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
@@ -224,7 +224,7 @@ type CfnReplicationGroupProps struct {
 	MultiAzEnabled interface{} `field:"optional" json:"multiAzEnabled" yaml:"multiAzEnabled"`
 	// Must be either `ipv4` | `ipv6` | `dual_stack` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
 	//

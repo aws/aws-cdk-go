@@ -28,6 +28,15 @@ import (
 //   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	enhancedImageMetadataEnabled: jsii.Boolean(false),
 //   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageScanningConfiguration: &imageScanningConfigurationProperty{
+//   		ecrConfiguration: &ecrConfigurationProperty{
+//   			containerTags: []*string{
+//   				jsii.String("containerTags"),
+//   			},
+//   			repositoryName: jsii.String("repositoryName"),
+//   		},
+//   		imageScanningEnabled: jsii.Boolean(false),
+//   	},
 //   	imageTestsConfiguration: &imageTestsConfigurationProperty{
 //   		imageTestsEnabled: jsii.Boolean(false),
 //   		timeoutMinutes: jsii.Number(123),
@@ -77,6 +86,9 @@ type CfnImagePipeline interface {
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
+	// `AWS::ImageBuilder::ImagePipeline.ImageScanningConfiguration`.
+	ImageScanningConfiguration() interface{}
+	SetImageScanningConfiguration(val interface{})
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
 	ImageTestsConfiguration() interface{}
 	SetImageTestsConfiguration(val interface{})
@@ -373,6 +385,16 @@ func (j *jsiiProxy_CfnImagePipeline) ImageRecipeArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImagePipeline) ImageScanningConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"imageScanningConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImagePipeline) ImageTestsConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -562,6 +584,17 @@ func (j *jsiiProxy_CfnImagePipeline)SetImageRecipeArn(val *string) {
 	_jsii_.Set(
 		j,
 		"imageRecipeArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImagePipeline)SetImageScanningConfiguration(val interface{}) {
+	if err := j.validateSetImageScanningConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"imageScanningConfiguration",
 		val,
 	)
 }

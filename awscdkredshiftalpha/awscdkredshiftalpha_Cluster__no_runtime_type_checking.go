@@ -5,6 +5,10 @@ package awscdkredshiftalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_Cluster) validateAddDefaultIamRoleParameters(defaultIamRole awsiam.IRole) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateAddRotationMultiUserParameters(id *string, options *RotationMultiUserOptions) error {
 	return nil
 }

@@ -207,6 +207,9 @@ import (
 //   			marketo: &marketoSourcePropertiesProperty{
 //   				object: jsii.String("object"),
 //   			},
+//   			pardot: &pardotSourcePropertiesProperty{
+//   				object: jsii.String("object"),
+//   			},
 //   			s3: &s3SourcePropertiesProperty{
 //   				bucketName: jsii.String("bucketName"),
 //   				bucketPrefix: jsii.String("bucketPrefix"),
@@ -276,6 +279,7 @@ import (
 //   				googleAnalytics: jsii.String("googleAnalytics"),
 //   				inforNexus: jsii.String("inforNexus"),
 //   				marketo: jsii.String("marketo"),
+//   				pardot: jsii.String("pardot"),
 //   				s3: jsii.String("s3"),
 //   				salesforce: jsii.String("salesforce"),
 //   				sapoData: jsii.String("sapoData"),

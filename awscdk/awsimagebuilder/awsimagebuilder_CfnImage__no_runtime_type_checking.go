@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnImage) validateSetEnhancedImageMetadataEnabledParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnImage) validateSetImageScanningConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnImage) validateSetImageTestsConfigurationParameters(val interface{}) error {
 	return nil
 }

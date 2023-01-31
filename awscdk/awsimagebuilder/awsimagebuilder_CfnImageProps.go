@@ -16,6 +16,15 @@ package awsimagebuilder
 //   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	enhancedImageMetadataEnabled: jsii.Boolean(false),
 //   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageScanningConfiguration: &imageScanningConfigurationProperty{
+//   		ecrConfiguration: &ecrConfigurationProperty{
+//   			containerTags: []*string{
+//   				jsii.String("containerTags"),
+//   			},
+//   			repositoryName: jsii.String("repositoryName"),
+//   		},
+//   		imageScanningEnabled: jsii.Boolean(false),
+//   	},
 //   	imageTestsConfiguration: &imageTestsConfigurationProperty{
 //   		imageTestsEnabled: jsii.Boolean(false),
 //   		timeoutMinutes: jsii.Number(123),
@@ -36,6 +45,8 @@ type CfnImageProps struct {
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
+	// `AWS::ImageBuilder::Image.ImageScanningConfiguration`.
+	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
 	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
 	ImageTestsConfiguration interface{} `field:"optional" json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`
 	// The tags of the image.

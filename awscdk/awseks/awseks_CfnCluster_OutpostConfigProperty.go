@@ -33,7 +33,9 @@ type CfnCluster_OutpostConfigProperty struct {
 	//
 	// Only a single Outpost ARN is supported.
 	OutpostArns *[]*string `field:"required" json:"outpostArns" yaml:"outpostArns"`
-	// `CfnCluster.OutpostConfigProperty.ControlPlanePlacement`.
+	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
+	//
+	// For more information, see [Capacity considerations](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html) in the *Amazon EKS User Guide* .
 	ControlPlanePlacement interface{} `field:"optional" json:"controlPlanePlacement" yaml:"controlPlanePlacement"`
 }
 

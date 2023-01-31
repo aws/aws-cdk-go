@@ -24,6 +24,8 @@ package awscdk
 type BundlingOptions struct {
 	// The Docker image where the command will run.
 	Image DockerImage `field:"required" json:"image" yaml:"image"`
+	// The access mechanism used to make source files available to the bundling container and to return the bundling output back to the host.
+	BundlingFileAccess BundlingFileAccess `field:"optional" json:"bundlingFileAccess" yaml:"bundlingFileAccess"`
 	// The command to run in the Docker container.
 	//
 	// Example value: `['npm', 'install']`.

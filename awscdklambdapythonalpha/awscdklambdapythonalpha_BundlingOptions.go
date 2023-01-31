@@ -90,6 +90,9 @@ type BundlingOptions struct {
 	// This is not used if a custom image is provided.
 	// Experimental.
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Which option to use to copy the source files to the docker container and output files back.
+	// Experimental.
+	BundlingFileAccess awscdk.BundlingFileAccess `field:"optional" json:"bundlingFileAccess" yaml:"bundlingFileAccess"`
 	// Command hooks.
 	// Experimental.
 	CommandHooks ICommandHooks `field:"optional" json:"commandHooks" yaml:"commandHooks"`

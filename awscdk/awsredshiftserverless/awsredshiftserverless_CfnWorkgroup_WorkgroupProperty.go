@@ -53,9 +53,9 @@ package awsredshiftserverless
 type CfnWorkgroup_WorkgroupProperty struct {
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity *float64 `field:"optional" json:"baseCapacity" yaml:"baseCapacity"`
-	// An array of parameters to set for finer control over a database.
+	// An array of parameters to set for advanced control over a database.
 	//
-	// The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
+	// The options are `auto_mv` , `datestyle` , `enable_case_sensitivity_identifier` , `enable_user_activity_logging` , `query_group` , , `search_path` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 	ConfigParameters interface{} `field:"optional" json:"configParameters" yaml:"configParameters"`
 	// The creation date of the workgroup.
 	CreationDate *string `field:"optional" json:"creationDate" yaml:"creationDate"`

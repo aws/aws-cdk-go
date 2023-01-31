@@ -24,6 +24,7 @@ import (
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	deviceName: jsii.String("deviceName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -51,6 +52,9 @@ type CfnCustomerGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The name of customer gateway device.
+	DeviceName() *string
+	SetDeviceName(val *string)
 	// IPv4 address for the customer gateway device's outside interface.
 	//
 	// The address must be static.
@@ -288,6 +292,16 @@ func (j *jsiiProxy_CfnCustomerGateway) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomerGateway) DeviceName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deviceName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomerGateway) IpAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -415,6 +429,14 @@ func (j *jsiiProxy_CfnCustomerGateway)SetBgpAsn(val *float64) {
 	_jsii_.Set(
 		j,
 		"bgpAsn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomerGateway)SetDeviceName(val *string) {
+	_jsii_.Set(
+		j,
+		"deviceName",
 		val,
 	)
 }

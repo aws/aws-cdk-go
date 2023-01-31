@@ -19,6 +19,7 @@ import (
 //
 //   			// the properties below are optional
 //   			ip: jsii.String("ip"),
+//   			ipv6: jsii.String("ipv6"),
 //   		},
 //   	},
 //   	securityGroupIds: []*string{
@@ -29,6 +30,7 @@ import (
 //   	name: jsii.String("name"),
 //   	outpostArn: jsii.String("outpostArn"),
 //   	preferredInstanceType: jsii.String("preferredInstanceType"),
+//   	resolverEndpointType: jsii.String("resolverEndpointType"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -57,6 +59,8 @@ type CfnResolverEndpointProps struct {
 	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
 	// `AWS::Route53Resolver::ResolverEndpoint.PreferredInstanceType`.
 	PreferredInstanceType *string `field:"optional" json:"preferredInstanceType" yaml:"preferredInstanceType"`
+	// `AWS::Route53Resolver::ResolverEndpoint.ResolverEndpointType`.
+	ResolverEndpointType *string `field:"optional" json:"resolverEndpointType" yaml:"resolverEndpointType"`
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

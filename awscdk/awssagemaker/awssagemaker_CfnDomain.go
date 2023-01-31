@@ -105,6 +105,37 @@ import (
 //   	// the properties below are optional
 //   	appNetworkAccessType: jsii.String("appNetworkAccessType"),
 //   	appSecurityGroupManagement: jsii.String("appSecurityGroupManagement"),
+//   	defaultSpaceSettings: &defaultSpaceSettingsProperty{
+//   		executionRole: jsii.String("executionRole"),
+//   		jupyterServerAppSettings: &jupyterServerAppSettingsProperty{
+//   			defaultResourceSpec: &resourceSpecProperty{
+//   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   		},
+//   		kernelGatewayAppSettings: &kernelGatewayAppSettingsProperty{
+//   			customImages: []interface{}{
+//   				&customImageProperty{
+//   					appImageConfigName: jsii.String("appImageConfigName"),
+//   					imageName: jsii.String("imageName"),
+//
+//   					// the properties below are optional
+//   					imageVersionNumber: jsii.Number(123),
+//   				},
+//   			},
+//   			defaultResourceSpec: &resourceSpecProperty{
+//   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   		},
+//   		securityGroups: []*string{
+//   			jsii.String("securityGroups"),
+//   		},
+//   	},
 //   	domainSettings: &domainSettingsProperty{
 //   		rStudioServerProDomainSettings: &rStudioServerProDomainSettingsProperty{
 //   			domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
@@ -174,6 +205,9 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::SageMaker::Domain.DefaultSpaceSettings`.
+	DefaultSpaceSettings() interface{}
+	SetDefaultSpaceSettings(val interface{})
 	// The default user settings.
 	DefaultUserSettings() interface{}
 	SetDefaultUserSettings(val interface{})
@@ -515,6 +549,16 @@ func (j *jsiiProxy_CfnDomain) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) DefaultSpaceSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"defaultSpaceSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) DefaultUserSettings() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -698,6 +742,17 @@ func (j *jsiiProxy_CfnDomain)SetAuthMode(val *string) {
 	_jsii_.Set(
 		j,
 		"authMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetDefaultSpaceSettings(val interface{}) {
+	if err := j.validateSetDefaultSpaceSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"defaultSpaceSettings",
 		val,
 	)
 }

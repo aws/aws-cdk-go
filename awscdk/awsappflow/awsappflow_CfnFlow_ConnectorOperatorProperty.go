@@ -16,6 +16,7 @@ package awsappflow
 //   	googleAnalytics: jsii.String("googleAnalytics"),
 //   	inforNexus: jsii.String("inforNexus"),
 //   	marketo: jsii.String("marketo"),
+//   	pardot: jsii.String("pardot"),
 //   	s3: jsii.String("s3"),
 //   	salesforce: jsii.String("salesforce"),
 //   	sapoData: jsii.String("sapoData"),
@@ -42,6 +43,8 @@ type CfnFlow_ConnectorOperatorProperty struct {
 	InforNexus *string `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The operation to be performed on the provided Marketo source fields.
 	Marketo *string `field:"optional" json:"marketo" yaml:"marketo"`
+	// The operation to be performed on the provided Salesforce Pardot source fields.
+	Pardot *string `field:"optional" json:"pardot" yaml:"pardot"`
 	// The operation to be performed on the provided Amazon S3 source fields.
 	S3 *string `field:"optional" json:"s3" yaml:"s3"`
 	// The operation to be performed on the provided Salesforce source fields.

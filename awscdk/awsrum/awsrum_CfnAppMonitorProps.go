@@ -57,6 +57,9 @@ import (
 //   			jsii.String("telemetries"),
 //   		},
 //   	},
+//   	customEvents: &customEventsProperty{
+//   		status: jsii.String("status"),
+//   	},
 //   	cwLogEnabled: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -81,6 +84,10 @@ type CfnAppMonitorProps struct {
 	//
 	// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
 	AppMonitorConfiguration interface{} `field:"optional" json:"appMonitorConfiguration" yaml:"appMonitorConfiguration"`
+	// Specifies whether this app monitor allows the web client to define and send custom events.
+	//
+	// If you omit this parameter, custom events are `DISABLED` .
+	CustomEvents interface{} `field:"optional" json:"customEvents" yaml:"customEvents"`
 	// Data collected by CloudWatch RUM is kept by RUM for 30 days and then deleted.
 	//
 	// This parameter specifies whether CloudWatch RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.

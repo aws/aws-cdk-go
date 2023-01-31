@@ -286,3 +286,20 @@ an array of commands to run. Commands are chained with `&&`.
 
 The commands will run in the environment in which bundling occurs: inside the
 container for Docker bundling or on the host OS for local bundling.
+
+## Docker based bundling in complex Docker configurations
+
+By default the input and output of Docker based bundling is handled via bind mounts.
+In situtations where this does not work, like Docker-in-Docker setups or when using a remote Docker socket, you can configure an alternative, but slower, variant that also works in these situations.
+
+```go
+entry := "/path/to/function"
+
+python.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
+	entry: jsii.String(entry),
+	runtime: awscdk.Runtime_PYTHON_3_8(),
+	bundling: &bundlingOptions{
+		bundlingFileAccess: awscdk.BundlingFileAccess_VOLUME_COPY,
+	},
+})
+```

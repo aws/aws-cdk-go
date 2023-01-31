@@ -35,6 +35,9 @@ package awsappflow
 //   	marketo: &marketoSourcePropertiesProperty{
 //   		object: jsii.String("object"),
 //   	},
+//   	pardot: &pardotSourcePropertiesProperty{
+//   		object: jsii.String("object"),
+//   	},
 //   	s3: &s3SourcePropertiesProperty{
 //   		bucketName: jsii.String("bucketName"),
 //   		bucketPrefix: jsii.String("bucketPrefix"),
@@ -96,6 +99,8 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// Specifies the information that is required for querying Marketo.
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
+	// Specifies the information that is required for querying Salesforce Pardot.
+	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// Specifies the information that is required for querying Amazon S3.
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 	// Specifies the information that is required for querying Salesforce.

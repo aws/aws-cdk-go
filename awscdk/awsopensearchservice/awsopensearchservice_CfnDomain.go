@@ -26,12 +26,26 @@ import (
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
 //   	},
 //   	advancedSecurityOptions: &advancedSecurityOptionsInputProperty{
+//   		anonymousAuthDisableDate: jsii.String("anonymousAuthDisableDate"),
+//   		anonymousAuthEnabled: jsii.Boolean(false),
 //   		enabled: jsii.Boolean(false),
 //   		internalUserDatabaseEnabled: jsii.Boolean(false),
 //   		masterUserOptions: &masterUserOptionsProperty{
 //   			masterUserArn: jsii.String("masterUserArn"),
 //   			masterUserName: jsii.String("masterUserName"),
 //   			masterUserPassword: jsii.String("masterUserPassword"),
+//   		},
+//   		samlOptions: &sAMLOptionsProperty{
+//   			enabled: jsii.Boolean(false),
+//   			idp: &idpProperty{
+//   				entityId: jsii.String("entityId"),
+//   				metadataContent: jsii.String("metadataContent"),
+//   			},
+//   			masterBackendRole: jsii.String("masterBackendRole"),
+//   			masterUserName: jsii.String("masterUserName"),
+//   			rolesKey: jsii.String("rolesKey"),
+//   			sessionTimeoutMinutes: jsii.Number(123),
+//   			subjectKey: jsii.String("subjectKey"),
 //   		},
 //   	},
 //   	clusterConfig: &clusterConfigProperty{
@@ -115,11 +129,15 @@ type CfnDomain interface {
 	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 	AdvancedOptions() interface{}
 	SetAdvancedOptions(val interface{})
-	// Specifies options for fine-grained access control.
+	// Specifies options for fine-grained access control and SAML authentication.
 	//
 	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions() interface{}
 	SetAdvancedSecurityOptions(val interface{})
+	// Date and time when the migration period will be disabled.
+	//
+	// Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+	AttrAdvancedSecurityOptionsAnonymousAuthDisableDate() *string
 	// The Amazon Resource Name (ARN) of the domain, such as `arn:aws:es:us-west-2:123456789012:domain/mystack-1ab2cdefghij` .
 	AttrArn() *string
 	// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
@@ -413,6 +431,16 @@ func (j *jsiiProxy_CfnDomain) AdvancedSecurityOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"advancedSecurityOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) AttrAdvancedSecurityOptionsAnonymousAuthDisableDate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAdvancedSecurityOptionsAnonymousAuthDisableDate",
 		&returns,
 	)
 	return returns

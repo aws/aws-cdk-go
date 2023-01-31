@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnApplication) validateSetAutoStopConfigurationParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetImageConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetInitialCapacityParameters(val interface{}) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func (j *jsiiProxy_CfnApplication) validateSetReleaseLabelParameters(val *string
 }
 
 func (j *jsiiProxy_CfnApplication) validateSetTypeParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplication) validateSetWorkerTypeSpecificationsParameters(val interface{}) error {
 	return nil
 }
 

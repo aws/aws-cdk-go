@@ -30,6 +30,7 @@ import (
 //   		image: dockerImage,
 //
 //   		// the properties below are optional
+//   		bundlingFileAccess: cdk.bundlingFileAccess_VOLUME_COPY,
 //   		command: []*string{
 //   			jsii.String("command"),
 //   		},

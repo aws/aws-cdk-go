@@ -187,6 +187,30 @@ func (j *jsiiProxy_CfnDomain) validateSetAuthModeParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetDefaultSpaceSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case *CfnDomain_DefaultSpaceSettingsProperty:
+		val := val.(*CfnDomain_DefaultSpaceSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_DefaultSpaceSettingsProperty:
+		val_ := val.(CfnDomain_DefaultSpaceSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *CfnDomain_DefaultSpaceSettingsProperty, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetDefaultUserSettingsParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

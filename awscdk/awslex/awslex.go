@@ -111,6 +111,18 @@ func init() {
 		reflect.TypeOf((*CfnBot_CodeHookSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.ConditionProperty",
+		reflect.TypeOf((*CfnBot_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.ConditionalBranchProperty",
+		reflect.TypeOf((*CfnBot_ConditionalBranchProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.ConditionalSpecificationProperty",
+		reflect.TypeOf((*CfnBot_ConditionalSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.ConversationLogSettingsProperty",
 		reflect.TypeOf((*CfnBot_ConversationLogSettingsProperty)(nil)).Elem(),
 	)
@@ -135,8 +147,28 @@ func init() {
 		reflect.TypeOf((*CfnBot_DataPrivacyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.DefaultConditionalBranchProperty",
+		reflect.TypeOf((*CfnBot_DefaultConditionalBranchProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.DialogActionProperty",
+		reflect.TypeOf((*CfnBot_DialogActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.DialogCodeHookInvocationSettingProperty",
+		reflect.TypeOf((*CfnBot_DialogCodeHookInvocationSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.DialogCodeHookSettingProperty",
 		reflect.TypeOf((*CfnBot_DialogCodeHookSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.DialogStateProperty",
+		reflect.TypeOf((*CfnBot_DialogStateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.ElicitationCodeHookInvocationSettingProperty",
+		reflect.TypeOf((*CfnBot_ElicitationCodeHookInvocationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.ExternalSourceSettingProperty",
@@ -171,6 +203,10 @@ func init() {
 		reflect.TypeOf((*CfnBot_ImageResponseCardProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.InitialResponseSettingProperty",
+		reflect.TypeOf((*CfnBot_InitialResponseSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.InputContextProperty",
 		reflect.TypeOf((*CfnBot_InputContextProperty)(nil)).Elem(),
 	)
@@ -181,6 +217,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.IntentConfirmationSettingProperty",
 		reflect.TypeOf((*CfnBot_IntentConfirmationSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.IntentOverrideProperty",
+		reflect.TypeOf((*CfnBot_IntentOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.IntentProperty",
@@ -217,6 +257,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.PlainTextMessageProperty",
 		reflect.TypeOf((*CfnBot_PlainTextMessageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.PostDialogCodeHookInvocationSpecificationProperty",
+		reflect.TypeOf((*CfnBot_PostDialogCodeHookInvocationSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.PostFulfillmentStatusSpecificationProperty",
@@ -259,6 +303,14 @@ func init() {
 		reflect.TypeOf((*CfnBot_SentimentAnalysisSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.SessionAttributeProperty",
+		reflect.TypeOf((*CfnBot_SessionAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.SlotCaptureSettingProperty",
+		reflect.TypeOf((*CfnBot_SlotCaptureSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.SlotDefaultValueProperty",
 		reflect.TypeOf((*CfnBot_SlotDefaultValueProperty)(nil)).Elem(),
 	)
@@ -285,6 +337,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.SlotValueElicitationSettingProperty",
 		reflect.TypeOf((*CfnBot_SlotValueElicitationSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.SlotValueOverrideMapProperty",
+		reflect.TypeOf((*CfnBot_SlotValueOverrideMapProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.SlotValueOverrideProperty",
+		reflect.TypeOf((*CfnBot_SlotValueOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.SlotValueProperty",
+		reflect.TypeOf((*CfnBot_SlotValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.SlotValueRegexFilterProperty",

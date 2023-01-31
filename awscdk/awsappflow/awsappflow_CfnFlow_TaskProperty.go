@@ -25,6 +25,7 @@ package awsappflow
 //   		googleAnalytics: jsii.String("googleAnalytics"),
 //   		inforNexus: jsii.String("inforNexus"),
 //   		marketo: jsii.String("marketo"),
+//   		pardot: jsii.String("pardot"),
 //   		s3: jsii.String("s3"),
 //   		salesforce: jsii.String("salesforce"),
 //   		sapoData: jsii.String("sapoData"),

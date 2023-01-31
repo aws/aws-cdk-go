@@ -68,7 +68,15 @@ type CfnTemplate_TemplateVersionProperty struct {
 	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
 	// The Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
 	SourceEntityArn *string `field:"optional" json:"sourceEntityArn" yaml:"sourceEntityArn"`
-	// The HTTP status of the request.
+	// The status that is associated with the template.
+	//
+	// - `CREATION_IN_PROGRESS`
+	// - `CREATION_SUCCESSFUL`
+	// - `CREATION_FAILED`
+	// - `UPDATE_IN_PROGRESS`
+	// - `UPDATE_SUCCESSFUL`
+	// - `UPDATE_FAILED`
+	// - `DELETED`.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The ARN of the theme associated with this version of the template.
 	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`

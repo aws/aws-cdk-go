@@ -958,7 +958,7 @@ tasks.NewGlueStartJobRun(this, jsii.String("Task"), &glueStartJobRunProps{
 	arguments: sfn.taskInput.fromObject(map[string]interface{}{
 		"key": jsii.String("value"),
 	}),
-	timeout: awscdk.Duration.minutes(jsii.Number(30)),
+	taskTimeout: sfn.timeout.duration(awscdk.Duration.minutes(jsii.Number(30))),
 	notifyDelayAfter: awscdk.Duration.minutes(jsii.Number(5)),
 })
 ```

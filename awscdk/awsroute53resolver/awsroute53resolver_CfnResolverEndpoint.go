@@ -29,6 +29,7 @@ import (
 //
 //   			// the properties below are optional
 //   			ip: jsii.String("ip"),
+//   			ipv6: jsii.String("ipv6"),
 //   		},
 //   	},
 //   	securityGroupIds: []*string{
@@ -39,6 +40,7 @@ import (
 //   	name: jsii.String("name"),
 //   	outpostArn: jsii.String("outpostArn"),
 //   	preferredInstanceType: jsii.String("preferredInstanceType"),
+//   	resolverEndpointType: jsii.String("resolverEndpointType"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -64,6 +66,7 @@ type CfnResolverEndpoint interface {
 	AttrPreferredInstanceType() *string
 	// The ID of the resolver endpoint.
 	AttrResolverEndpointId() *string
+	AttrResolverEndpointType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -110,6 +113,9 @@ type CfnResolverEndpoint interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::Route53Resolver::ResolverEndpoint.ResolverEndpointType`.
+	ResolverEndpointType() *string
+	SetResolverEndpointType(val *string)
 	// The ID of one or more security groups that control access to this VPC.
 	//
 	// The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
@@ -347,6 +353,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) AttrResolverEndpointId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) AttrResolverEndpointType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrResolverEndpointType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -462,6 +478,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) ResolverEndpointType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resolverEndpointType",
 		&returns,
 	)
 	return returns
@@ -589,6 +615,14 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetPreferredInstanceType(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredInstanceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint)SetResolverEndpointType(val *string) {
+	_jsii_.Set(
+		j,
+		"resolverEndpointType",
 		val,
 	)
 }

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnAppMonitor) validateSetAppMonitorConfigurationParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppMonitor) validateSetCustomEventsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAppMonitor) validateSetCwLogEnabledParameters(val interface{}) error {
 	return nil
 }

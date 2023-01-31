@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::RolesAnywhere::CRL`.
 //
-// The state of the certificate revocation list (CRL) after a read or write operation.
+// Creates a Crl.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,10 +45,10 @@ type CfnCRL interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The revocation record for a certificate, following the x509 v3 standard.
+	// x509 v3 Certificate Revocation List to revoke auth for corresponding certificates presented in CreateSession operations.
 	CrlData() *string
 	SetCrlData(val *string)
-	// Indicates whether the certificate revocation list (CRL) is enabled.
+	// The enabled status of the resource.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -61,7 +61,7 @@ type CfnCRL interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the certificate revocation list (CRL).
+	// The customer specified name of the resource.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -75,7 +75,7 @@ type CfnCRL interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to attach to the CRL.
+	// A list of Tags.
 	Tags() awscdk.TagManager
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn() *string

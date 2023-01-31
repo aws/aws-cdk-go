@@ -164,7 +164,7 @@ type CfnPolicyProps struct {
 	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{“ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	IncludeMap interface{} `field:"optional" json:"includeMap" yaml:"includeMap"`
-	// `AWS::FMS::Policy.PolicyDescription`.
+	// The definition of the AWS Network Firewall firewall policy.
 	PolicyDescription *string `field:"optional" json:"policyDescription" yaml:"policyDescription"`
 	// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope.
 	//
@@ -174,7 +174,7 @@ type CfnPolicyProps struct {
 	//
 	// This option is not available for Shield Advanced or AWS WAF Classic policies.
 	ResourcesCleanUp interface{} `field:"optional" json:"resourcesCleanUp" yaml:"resourcesCleanUp"`
-	// `AWS::FMS::Policy.ResourceSetIds`.
+	// The unique identifiers of the resource sets used by the policy.
 	ResourceSetIds *[]*string `field:"optional" json:"resourceSetIds" yaml:"resourceSetIds"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.
 	//

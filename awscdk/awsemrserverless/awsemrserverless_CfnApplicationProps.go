@@ -24,6 +24,9 @@ import (
 //   		enabled: jsii.Boolean(false),
 //   		idleTimeoutMinutes: jsii.Number(123),
 //   	},
+//   	imageConfiguration: &imageConfigurationInputProperty{
+//   		imageUri: jsii.String("imageUri"),
+//   	},
 //   	initialCapacity: []interface{}{
 //   		&initialCapacityConfigKeyValuePairProperty{
 //   			key: jsii.String("key"),
@@ -61,6 +64,13 @@ import (
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	workerTypeSpecifications: map[string]interface{}{
+//   		"workerTypeSpecificationsKey": &WorkerTypeSpecificationInputProperty{
+//   			"imageConfiguration": &imageConfigurationInputProperty{
+//   				"imageUri": jsii.String("imageUri"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 type CfnApplicationProps struct {
@@ -82,6 +92,8 @@ type CfnApplicationProps struct {
 	AutoStartConfiguration interface{} `field:"optional" json:"autoStartConfiguration" yaml:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
 	AutoStopConfiguration interface{} `field:"optional" json:"autoStopConfiguration" yaml:"autoStopConfiguration"`
+	// The image configuration applied to all worker types.
+	ImageConfiguration interface{} `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 	// The initial capacity of the application.
 	InitialCapacity interface{} `field:"optional" json:"initialCapacity" yaml:"initialCapacity"`
 	// The maximum capacity of the application.
@@ -100,5 +112,7 @@ type CfnApplicationProps struct {
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The tags assigned to the application.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The specification applied to each worker type.
+	WorkerTypeSpecifications interface{} `field:"optional" json:"workerTypeSpecifications" yaml:"workerTypeSpecifications"`
 }
 

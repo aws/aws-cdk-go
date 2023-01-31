@@ -18,6 +18,15 @@ package awsimagebuilder
 //   	distributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	enhancedImageMetadataEnabled: jsii.Boolean(false),
 //   	imageRecipeArn: jsii.String("imageRecipeArn"),
+//   	imageScanningConfiguration: &imageScanningConfigurationProperty{
+//   		ecrConfiguration: &ecrConfigurationProperty{
+//   			containerTags: []*string{
+//   				jsii.String("containerTags"),
+//   			},
+//   			repositoryName: jsii.String("repositoryName"),
+//   		},
+//   		imageScanningEnabled: jsii.Boolean(false),
+//   	},
 //   	imageTestsConfiguration: &imageTestsConfigurationProperty{
 //   		imageTestsEnabled: jsii.Boolean(false),
 //   		timeoutMinutes: jsii.Number(123),
@@ -49,6 +58,8 @@ type CfnImagePipelineProps struct {
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
+	// `AWS::ImageBuilder::ImagePipeline.ImageScanningConfiguration`.
+	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
 	ImageTestsConfiguration interface{} `field:"optional" json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`
 	// The schedule of the image pipeline.

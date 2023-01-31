@@ -48,6 +48,11 @@ type CanaryProps struct {
 	//
 	// Experimental.
 	CanaryName *string `field:"optional" json:"canaryName" yaml:"canaryName"`
+	// Whether or not to delete the lambda resources when the canary is deleted.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-deletelambdaresourcesoncanarydeletion
+	//
+	// Experimental.
+	EnableAutoDeleteLambdas *bool `field:"optional" json:"enableAutoDeleteLambdas" yaml:"enableAutoDeleteLambdas"`
 	// Key-value pairs that the Synthetics caches and makes available for your canary scripts.
 	//
 	// Use environment variables

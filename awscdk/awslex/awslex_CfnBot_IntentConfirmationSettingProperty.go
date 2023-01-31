@@ -8,68 +8,9 @@ package awslex
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var slotValueOverrideProperty_ slotValueOverrideProperty
+//
 //   intentConfirmationSettingProperty := &intentConfirmationSettingProperty{
-//   	declinationResponse: &responseSpecificationProperty{
-//   		messageGroupsList: []interface{}{
-//   			&messageGroupProperty{
-//   				message: &messageProperty{
-//   					customPayload: &customPayloadProperty{
-//   						value: jsii.String("value"),
-//   					},
-//   					imageResponseCard: &imageResponseCardProperty{
-//   						title: jsii.String("title"),
-//
-//   						// the properties below are optional
-//   						buttons: []interface{}{
-//   							&buttonProperty{
-//   								text: jsii.String("text"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   						imageUrl: jsii.String("imageUrl"),
-//   						subtitle: jsii.String("subtitle"),
-//   					},
-//   					plainTextMessage: &plainTextMessageProperty{
-//   						value: jsii.String("value"),
-//   					},
-//   					ssmlMessage: &sSMLMessageProperty{
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//
-//   				// the properties below are optional
-//   				variations: []interface{}{
-//   					&messageProperty{
-//   						customPayload: &customPayloadProperty{
-//   							value: jsii.String("value"),
-//   						},
-//   						imageResponseCard: &imageResponseCardProperty{
-//   							title: jsii.String("title"),
-//
-//   							// the properties below are optional
-//   							buttons: []interface{}{
-//   								&buttonProperty{
-//   									text: jsii.String("text"),
-//   									value: jsii.String("value"),
-//   								},
-//   							},
-//   							imageUrl: jsii.String("imageUrl"),
-//   							subtitle: jsii.String("subtitle"),
-//   						},
-//   						plainTextMessage: &plainTextMessageProperty{
-//   							value: jsii.String("value"),
-//   						},
-//   						ssmlMessage: &sSMLMessageProperty{
-//   							value: jsii.String("value"),
-//   						},
-//   					},
-//   				},
-//   			},
-//   		},
-//
-//   		// the properties below are optional
-//   		allowInterrupt: jsii.Boolean(false),
-//   	},
 //   	promptSpecification: &promptSpecificationProperty{
 //   		maxRetries: jsii.Number(123),
 //   		messageGroupsList: []interface{}{
@@ -164,16 +105,1851 @@ package awslex
 //   	},
 //
 //   	// the properties below are optional
+//   	codeHook: &dialogCodeHookInvocationSettingProperty{
+//   		enableCodeHookInvocation: jsii.Boolean(false),
+//   		isActive: jsii.Boolean(false),
+//   		postCodeHookSpecification: &postDialogCodeHookInvocationSpecificationProperty{
+//   			failureConditional: &conditionalSpecificationProperty{
+//   				conditionalBranches: []interface{}{
+//   					&conditionalBranchProperty{
+//   						condition: &conditionProperty{
+//   							expressionString: jsii.String("expressionString"),
+//   						},
+//   						name: jsii.String("name"),
+//   						nextStep: &dialogStateProperty{
+//   							dialogAction: &dialogActionProperty{
+//   								type: jsii.String("type"),
+//
+//   								// the properties below are optional
+//   								slotToElicit: jsii.String("slotToElicit"),
+//   								suppressNextMessage: jsii.Boolean(false),
+//   							},
+//   							intent: &intentOverrideProperty{
+//   								name: jsii.String("name"),
+//   								slots: []interface{}{
+//   									&slotValueOverrideMapProperty{
+//   										slotName: jsii.String("slotName"),
+//   										slotValueOverride: &slotValueOverrideProperty{
+//   											shape: jsii.String("shape"),
+//   											value: &slotValueProperty{
+//   												interpretedValue: jsii.String("interpretedValue"),
+//   											},
+//   											values: []interface{}{
+//   												slotValueOverrideProperty_,
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							sessionAttributes: []interface{}{
+//   								&sessionAttributeProperty{
+//   									key: jsii.String("key"),
+//
+//   									// the properties below are optional
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						response: &responseSpecificationProperty{
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
+//   				defaultBranch: &defaultConditionalBranchProperty{
+//   					nextStep: &dialogStateProperty{
+//   						dialogAction: &dialogActionProperty{
+//   							type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							slotToElicit: jsii.String("slotToElicit"),
+//   							suppressNextMessage: jsii.Boolean(false),
+//   						},
+//   						intent: &intentOverrideProperty{
+//   							name: jsii.String("name"),
+//   							slots: []interface{}{
+//   								&slotValueOverrideMapProperty{
+//   									slotName: jsii.String("slotName"),
+//   									slotValueOverride: &slotValueOverrideProperty{
+//   										shape: jsii.String("shape"),
+//   										value: &slotValueProperty{
+//   											interpretedValue: jsii.String("interpretedValue"),
+//   										},
+//   										values: []interface{}{
+//   											slotValueOverrideProperty_,
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//   						sessionAttributes: []interface{}{
+//   							&sessionAttributeProperty{
+//   								key: jsii.String("key"),
+//
+//   								// the properties below are optional
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   					response: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   				},
+//   				isActive: jsii.Boolean(false),
+//   			},
+//   			failureNextStep: &dialogStateProperty{
+//   				dialogAction: &dialogActionProperty{
+//   					type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					slotToElicit: jsii.String("slotToElicit"),
+//   					suppressNextMessage: jsii.Boolean(false),
+//   				},
+//   				intent: &intentOverrideProperty{
+//   					name: jsii.String("name"),
+//   					slots: []interface{}{
+//   						&slotValueOverrideMapProperty{
+//   							slotName: jsii.String("slotName"),
+//   							slotValueOverride: &slotValueOverrideProperty{
+//   								shape: jsii.String("shape"),
+//   								value: &slotValueProperty{
+//   									interpretedValue: jsii.String("interpretedValue"),
+//   								},
+//   								values: []interface{}{
+//   									slotValueOverrideProperty_,
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				sessionAttributes: []interface{}{
+//   					&sessionAttributeProperty{
+//   						key: jsii.String("key"),
+//
+//   						// the properties below are optional
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			failureResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   			successConditional: &conditionalSpecificationProperty{
+//   				conditionalBranches: []interface{}{
+//   					&conditionalBranchProperty{
+//   						condition: &conditionProperty{
+//   							expressionString: jsii.String("expressionString"),
+//   						},
+//   						name: jsii.String("name"),
+//   						nextStep: &dialogStateProperty{
+//   							dialogAction: &dialogActionProperty{
+//   								type: jsii.String("type"),
+//
+//   								// the properties below are optional
+//   								slotToElicit: jsii.String("slotToElicit"),
+//   								suppressNextMessage: jsii.Boolean(false),
+//   							},
+//   							intent: &intentOverrideProperty{
+//   								name: jsii.String("name"),
+//   								slots: []interface{}{
+//   									&slotValueOverrideMapProperty{
+//   										slotName: jsii.String("slotName"),
+//   										slotValueOverride: &slotValueOverrideProperty{
+//   											shape: jsii.String("shape"),
+//   											value: &slotValueProperty{
+//   												interpretedValue: jsii.String("interpretedValue"),
+//   											},
+//   											values: []interface{}{
+//   												slotValueOverrideProperty_,
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							sessionAttributes: []interface{}{
+//   								&sessionAttributeProperty{
+//   									key: jsii.String("key"),
+//
+//   									// the properties below are optional
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						response: &responseSpecificationProperty{
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
+//   				defaultBranch: &defaultConditionalBranchProperty{
+//   					nextStep: &dialogStateProperty{
+//   						dialogAction: &dialogActionProperty{
+//   							type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							slotToElicit: jsii.String("slotToElicit"),
+//   							suppressNextMessage: jsii.Boolean(false),
+//   						},
+//   						intent: &intentOverrideProperty{
+//   							name: jsii.String("name"),
+//   							slots: []interface{}{
+//   								&slotValueOverrideMapProperty{
+//   									slotName: jsii.String("slotName"),
+//   									slotValueOverride: &slotValueOverrideProperty{
+//   										shape: jsii.String("shape"),
+//   										value: &slotValueProperty{
+//   											interpretedValue: jsii.String("interpretedValue"),
+//   										},
+//   										values: []interface{}{
+//   											slotValueOverrideProperty_,
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//   						sessionAttributes: []interface{}{
+//   							&sessionAttributeProperty{
+//   								key: jsii.String("key"),
+//
+//   								// the properties below are optional
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   					response: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   				},
+//   				isActive: jsii.Boolean(false),
+//   			},
+//   			successNextStep: &dialogStateProperty{
+//   				dialogAction: &dialogActionProperty{
+//   					type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					slotToElicit: jsii.String("slotToElicit"),
+//   					suppressNextMessage: jsii.Boolean(false),
+//   				},
+//   				intent: &intentOverrideProperty{
+//   					name: jsii.String("name"),
+//   					slots: []interface{}{
+//   						&slotValueOverrideMapProperty{
+//   							slotName: jsii.String("slotName"),
+//   							slotValueOverride: &slotValueOverrideProperty{
+//   								shape: jsii.String("shape"),
+//   								value: &slotValueProperty{
+//   									interpretedValue: jsii.String("interpretedValue"),
+//   								},
+//   								values: []interface{}{
+//   									slotValueOverrideProperty_,
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				sessionAttributes: []interface{}{
+//   					&sessionAttributeProperty{
+//   						key: jsii.String("key"),
+//
+//   						// the properties below are optional
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			successResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   			timeoutConditional: &conditionalSpecificationProperty{
+//   				conditionalBranches: []interface{}{
+//   					&conditionalBranchProperty{
+//   						condition: &conditionProperty{
+//   							expressionString: jsii.String("expressionString"),
+//   						},
+//   						name: jsii.String("name"),
+//   						nextStep: &dialogStateProperty{
+//   							dialogAction: &dialogActionProperty{
+//   								type: jsii.String("type"),
+//
+//   								// the properties below are optional
+//   								slotToElicit: jsii.String("slotToElicit"),
+//   								suppressNextMessage: jsii.Boolean(false),
+//   							},
+//   							intent: &intentOverrideProperty{
+//   								name: jsii.String("name"),
+//   								slots: []interface{}{
+//   									&slotValueOverrideMapProperty{
+//   										slotName: jsii.String("slotName"),
+//   										slotValueOverride: &slotValueOverrideProperty{
+//   											shape: jsii.String("shape"),
+//   											value: &slotValueProperty{
+//   												interpretedValue: jsii.String("interpretedValue"),
+//   											},
+//   											values: []interface{}{
+//   												slotValueOverrideProperty_,
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							sessionAttributes: []interface{}{
+//   								&sessionAttributeProperty{
+//   									key: jsii.String("key"),
+//
+//   									// the properties below are optional
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						response: &responseSpecificationProperty{
+//   							messageGroupsList: []interface{}{
+//   								&messageGroupProperty{
+//   									message: &messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//
+//   									// the properties below are optional
+//   									variations: []interface{}{
+//   										&messageProperty{
+//   											customPayload: &customPayloadProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											imageResponseCard: &imageResponseCardProperty{
+//   												title: jsii.String("title"),
+//
+//   												// the properties below are optional
+//   												buttons: []interface{}{
+//   													&buttonProperty{
+//   														text: jsii.String("text"),
+//   														value: jsii.String("value"),
+//   													},
+//   												},
+//   												imageUrl: jsii.String("imageUrl"),
+//   												subtitle: jsii.String("subtitle"),
+//   											},
+//   											plainTextMessage: &plainTextMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   											ssmlMessage: &sSMLMessageProperty{
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							allowInterrupt: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
+//   				defaultBranch: &defaultConditionalBranchProperty{
+//   					nextStep: &dialogStateProperty{
+//   						dialogAction: &dialogActionProperty{
+//   							type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							slotToElicit: jsii.String("slotToElicit"),
+//   							suppressNextMessage: jsii.Boolean(false),
+//   						},
+//   						intent: &intentOverrideProperty{
+//   							name: jsii.String("name"),
+//   							slots: []interface{}{
+//   								&slotValueOverrideMapProperty{
+//   									slotName: jsii.String("slotName"),
+//   									slotValueOverride: &slotValueOverrideProperty{
+//   										shape: jsii.String("shape"),
+//   										value: &slotValueProperty{
+//   											interpretedValue: jsii.String("interpretedValue"),
+//   										},
+//   										values: []interface{}{
+//   											slotValueOverrideProperty_,
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//   						sessionAttributes: []interface{}{
+//   							&sessionAttributeProperty{
+//   								key: jsii.String("key"),
+//
+//   								// the properties below are optional
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   					response: &responseSpecificationProperty{
+//   						messageGroupsList: []interface{}{
+//   							&messageGroupProperty{
+//   								message: &messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								variations: []interface{}{
+//   									&messageProperty{
+//   										customPayload: &customPayloadProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										imageResponseCard: &imageResponseCardProperty{
+//   											title: jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											buttons: []interface{}{
+//   												&buttonProperty{
+//   													text: jsii.String("text"),
+//   													value: jsii.String("value"),
+//   												},
+//   											},
+//   											imageUrl: jsii.String("imageUrl"),
+//   											subtitle: jsii.String("subtitle"),
+//   										},
+//   										plainTextMessage: &plainTextMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   										ssmlMessage: &sSMLMessageProperty{
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						allowInterrupt: jsii.Boolean(false),
+//   					},
+//   				},
+//   				isActive: jsii.Boolean(false),
+//   			},
+//   			timeoutNextStep: &dialogStateProperty{
+//   				dialogAction: &dialogActionProperty{
+//   					type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					slotToElicit: jsii.String("slotToElicit"),
+//   					suppressNextMessage: jsii.Boolean(false),
+//   				},
+//   				intent: &intentOverrideProperty{
+//   					name: jsii.String("name"),
+//   					slots: []interface{}{
+//   						&slotValueOverrideMapProperty{
+//   							slotName: jsii.String("slotName"),
+//   							slotValueOverride: &slotValueOverrideProperty{
+//   								shape: jsii.String("shape"),
+//   								value: &slotValueProperty{
+//   									interpretedValue: jsii.String("interpretedValue"),
+//   								},
+//   								values: []interface{}{
+//   									slotValueOverrideProperty_,
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				sessionAttributes: []interface{}{
+//   					&sessionAttributeProperty{
+//   						key: jsii.String("key"),
+//
+//   						// the properties below are optional
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			timeoutResponse: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		invocationLabel: jsii.String("invocationLabel"),
+//   	},
+//   	confirmationConditional: &conditionalSpecificationProperty{
+//   		conditionalBranches: []interface{}{
+//   			&conditionalBranchProperty{
+//   				condition: &conditionProperty{
+//   					expressionString: jsii.String("expressionString"),
+//   				},
+//   				name: jsii.String("name"),
+//   				nextStep: &dialogStateProperty{
+//   					dialogAction: &dialogActionProperty{
+//   						type: jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						slotToElicit: jsii.String("slotToElicit"),
+//   						suppressNextMessage: jsii.Boolean(false),
+//   					},
+//   					intent: &intentOverrideProperty{
+//   						name: jsii.String("name"),
+//   						slots: []interface{}{
+//   							&slotValueOverrideMapProperty{
+//   								slotName: jsii.String("slotName"),
+//   								slotValueOverride: &slotValueOverrideProperty{
+//   									shape: jsii.String("shape"),
+//   									value: &slotValueProperty{
+//   										interpretedValue: jsii.String("interpretedValue"),
+//   									},
+//   									values: []interface{}{
+//   										slotValueOverrideProperty_,
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   					sessionAttributes: []interface{}{
+//   						&sessionAttributeProperty{
+//   							key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				response: &responseSpecificationProperty{
+//   					messageGroupsList: []interface{}{
+//   						&messageGroupProperty{
+//   							message: &messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							variations: []interface{}{
+//   								&messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					allowInterrupt: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		defaultBranch: &defaultConditionalBranchProperty{
+//   			nextStep: &dialogStateProperty{
+//   				dialogAction: &dialogActionProperty{
+//   					type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					slotToElicit: jsii.String("slotToElicit"),
+//   					suppressNextMessage: jsii.Boolean(false),
+//   				},
+//   				intent: &intentOverrideProperty{
+//   					name: jsii.String("name"),
+//   					slots: []interface{}{
+//   						&slotValueOverrideMapProperty{
+//   							slotName: jsii.String("slotName"),
+//   							slotValueOverride: &slotValueOverrideProperty{
+//   								shape: jsii.String("shape"),
+//   								value: &slotValueProperty{
+//   									interpretedValue: jsii.String("interpretedValue"),
+//   								},
+//   								values: []interface{}{
+//   									slotValueOverrideProperty_,
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				sessionAttributes: []interface{}{
+//   					&sessionAttributeProperty{
+//   						key: jsii.String("key"),
+//
+//   						// the properties below are optional
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			response: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   		},
+//   		isActive: jsii.Boolean(false),
+//   	},
+//   	confirmationNextStep: &dialogStateProperty{
+//   		dialogAction: &dialogActionProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			slotToElicit: jsii.String("slotToElicit"),
+//   			suppressNextMessage: jsii.Boolean(false),
+//   		},
+//   		intent: &intentOverrideProperty{
+//   			name: jsii.String("name"),
+//   			slots: []interface{}{
+//   				&slotValueOverrideMapProperty{
+//   					slotName: jsii.String("slotName"),
+//   					slotValueOverride: &slotValueOverrideProperty{
+//   						shape: jsii.String("shape"),
+//   						value: &slotValueProperty{
+//   							interpretedValue: jsii.String("interpretedValue"),
+//   						},
+//   						values: []interface{}{
+//   							slotValueOverrideProperty_,
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		sessionAttributes: []interface{}{
+//   			&sessionAttributeProperty{
+//   				key: jsii.String("key"),
+//
+//   				// the properties below are optional
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	confirmationResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	declinationConditional: &conditionalSpecificationProperty{
+//   		conditionalBranches: []interface{}{
+//   			&conditionalBranchProperty{
+//   				condition: &conditionProperty{
+//   					expressionString: jsii.String("expressionString"),
+//   				},
+//   				name: jsii.String("name"),
+//   				nextStep: &dialogStateProperty{
+//   					dialogAction: &dialogActionProperty{
+//   						type: jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						slotToElicit: jsii.String("slotToElicit"),
+//   						suppressNextMessage: jsii.Boolean(false),
+//   					},
+//   					intent: &intentOverrideProperty{
+//   						name: jsii.String("name"),
+//   						slots: []interface{}{
+//   							&slotValueOverrideMapProperty{
+//   								slotName: jsii.String("slotName"),
+//   								slotValueOverride: &slotValueOverrideProperty{
+//   									shape: jsii.String("shape"),
+//   									value: &slotValueProperty{
+//   										interpretedValue: jsii.String("interpretedValue"),
+//   									},
+//   									values: []interface{}{
+//   										slotValueOverrideProperty_,
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   					sessionAttributes: []interface{}{
+//   						&sessionAttributeProperty{
+//   							key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				response: &responseSpecificationProperty{
+//   					messageGroupsList: []interface{}{
+//   						&messageGroupProperty{
+//   							message: &messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							variations: []interface{}{
+//   								&messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					allowInterrupt: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		defaultBranch: &defaultConditionalBranchProperty{
+//   			nextStep: &dialogStateProperty{
+//   				dialogAction: &dialogActionProperty{
+//   					type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					slotToElicit: jsii.String("slotToElicit"),
+//   					suppressNextMessage: jsii.Boolean(false),
+//   				},
+//   				intent: &intentOverrideProperty{
+//   					name: jsii.String("name"),
+//   					slots: []interface{}{
+//   						&slotValueOverrideMapProperty{
+//   							slotName: jsii.String("slotName"),
+//   							slotValueOverride: &slotValueOverrideProperty{
+//   								shape: jsii.String("shape"),
+//   								value: &slotValueProperty{
+//   									interpretedValue: jsii.String("interpretedValue"),
+//   								},
+//   								values: []interface{}{
+//   									slotValueOverrideProperty_,
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				sessionAttributes: []interface{}{
+//   					&sessionAttributeProperty{
+//   						key: jsii.String("key"),
+//
+//   						// the properties below are optional
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			response: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   		},
+//   		isActive: jsii.Boolean(false),
+//   	},
+//   	declinationNextStep: &dialogStateProperty{
+//   		dialogAction: &dialogActionProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			slotToElicit: jsii.String("slotToElicit"),
+//   			suppressNextMessage: jsii.Boolean(false),
+//   		},
+//   		intent: &intentOverrideProperty{
+//   			name: jsii.String("name"),
+//   			slots: []interface{}{
+//   				&slotValueOverrideMapProperty{
+//   					slotName: jsii.String("slotName"),
+//   					slotValueOverride: &slotValueOverrideProperty{
+//   						shape: jsii.String("shape"),
+//   						value: &slotValueProperty{
+//   							interpretedValue: jsii.String("interpretedValue"),
+//   						},
+//   						values: []interface{}{
+//   							slotValueOverrideProperty_,
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		sessionAttributes: []interface{}{
+//   			&sessionAttributeProperty{
+//   				key: jsii.String("key"),
+//
+//   				// the properties below are optional
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	declinationResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
+//   	elicitationCodeHook: &elicitationCodeHookInvocationSettingProperty{
+//   		enableCodeHookInvocation: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		invocationLabel: jsii.String("invocationLabel"),
+//   	},
+//   	failureConditional: &conditionalSpecificationProperty{
+//   		conditionalBranches: []interface{}{
+//   			&conditionalBranchProperty{
+//   				condition: &conditionProperty{
+//   					expressionString: jsii.String("expressionString"),
+//   				},
+//   				name: jsii.String("name"),
+//   				nextStep: &dialogStateProperty{
+//   					dialogAction: &dialogActionProperty{
+//   						type: jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						slotToElicit: jsii.String("slotToElicit"),
+//   						suppressNextMessage: jsii.Boolean(false),
+//   					},
+//   					intent: &intentOverrideProperty{
+//   						name: jsii.String("name"),
+//   						slots: []interface{}{
+//   							&slotValueOverrideMapProperty{
+//   								slotName: jsii.String("slotName"),
+//   								slotValueOverride: &slotValueOverrideProperty{
+//   									shape: jsii.String("shape"),
+//   									value: &slotValueProperty{
+//   										interpretedValue: jsii.String("interpretedValue"),
+//   									},
+//   									values: []interface{}{
+//   										slotValueOverrideProperty_,
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   					sessionAttributes: []interface{}{
+//   						&sessionAttributeProperty{
+//   							key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				response: &responseSpecificationProperty{
+//   					messageGroupsList: []interface{}{
+//   						&messageGroupProperty{
+//   							message: &messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							variations: []interface{}{
+//   								&messageProperty{
+//   									customPayload: &customPayloadProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									imageResponseCard: &imageResponseCardProperty{
+//   										title: jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										buttons: []interface{}{
+//   											&buttonProperty{
+//   												text: jsii.String("text"),
+//   												value: jsii.String("value"),
+//   											},
+//   										},
+//   										imageUrl: jsii.String("imageUrl"),
+//   										subtitle: jsii.String("subtitle"),
+//   									},
+//   									plainTextMessage: &plainTextMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   									ssmlMessage: &sSMLMessageProperty{
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					allowInterrupt: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		defaultBranch: &defaultConditionalBranchProperty{
+//   			nextStep: &dialogStateProperty{
+//   				dialogAction: &dialogActionProperty{
+//   					type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					slotToElicit: jsii.String("slotToElicit"),
+//   					suppressNextMessage: jsii.Boolean(false),
+//   				},
+//   				intent: &intentOverrideProperty{
+//   					name: jsii.String("name"),
+//   					slots: []interface{}{
+//   						&slotValueOverrideMapProperty{
+//   							slotName: jsii.String("slotName"),
+//   							slotValueOverride: &slotValueOverrideProperty{
+//   								shape: jsii.String("shape"),
+//   								value: &slotValueProperty{
+//   									interpretedValue: jsii.String("interpretedValue"),
+//   								},
+//   								values: []interface{}{
+//   									slotValueOverrideProperty_,
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				sessionAttributes: []interface{}{
+//   					&sessionAttributeProperty{
+//   						key: jsii.String("key"),
+//
+//   						// the properties below are optional
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			response: &responseSpecificationProperty{
+//   				messageGroupsList: []interface{}{
+//   					&messageGroupProperty{
+//   						message: &messageProperty{
+//   							customPayload: &customPayloadProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							imageResponseCard: &imageResponseCardProperty{
+//   								title: jsii.String("title"),
+//
+//   								// the properties below are optional
+//   								buttons: []interface{}{
+//   									&buttonProperty{
+//   										text: jsii.String("text"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								imageUrl: jsii.String("imageUrl"),
+//   								subtitle: jsii.String("subtitle"),
+//   							},
+//   							plainTextMessage: &plainTextMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   							ssmlMessage: &sSMLMessageProperty{
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						variations: []interface{}{
+//   							&messageProperty{
+//   								customPayload: &customPayloadProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								imageResponseCard: &imageResponseCardProperty{
+//   									title: jsii.String("title"),
+//
+//   									// the properties below are optional
+//   									buttons: []interface{}{
+//   										&buttonProperty{
+//   											text: jsii.String("text"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									imageUrl: jsii.String("imageUrl"),
+//   									subtitle: jsii.String("subtitle"),
+//   								},
+//   								plainTextMessage: &plainTextMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   								ssmlMessage: &sSMLMessageProperty{
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				allowInterrupt: jsii.Boolean(false),
+//   			},
+//   		},
+//   		isActive: jsii.Boolean(false),
+//   	},
+//   	failureNextStep: &dialogStateProperty{
+//   		dialogAction: &dialogActionProperty{
+//   			type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			slotToElicit: jsii.String("slotToElicit"),
+//   			suppressNextMessage: jsii.Boolean(false),
+//   		},
+//   		intent: &intentOverrideProperty{
+//   			name: jsii.String("name"),
+//   			slots: []interface{}{
+//   				&slotValueOverrideMapProperty{
+//   					slotName: jsii.String("slotName"),
+//   					slotValueOverride: &slotValueOverrideProperty{
+//   						shape: jsii.String("shape"),
+//   						value: &slotValueProperty{
+//   							interpretedValue: jsii.String("interpretedValue"),
+//   						},
+//   						values: []interface{}{
+//   							slotValueOverrideProperty_,
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		sessionAttributes: []interface{}{
+//   			&sessionAttributeProperty{
+//   				key: jsii.String("key"),
+//
+//   				// the properties below are optional
+//   				value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	failureResponse: &responseSpecificationProperty{
+//   		messageGroupsList: []interface{}{
+//   			&messageGroupProperty{
+//   				message: &messageProperty{
+//   					customPayload: &customPayloadProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					imageResponseCard: &imageResponseCardProperty{
+//   						title: jsii.String("title"),
+//
+//   						// the properties below are optional
+//   						buttons: []interface{}{
+//   							&buttonProperty{
+//   								text: jsii.String("text"),
+//   								value: jsii.String("value"),
+//   							},
+//   						},
+//   						imageUrl: jsii.String("imageUrl"),
+//   						subtitle: jsii.String("subtitle"),
+//   					},
+//   					plainTextMessage: &plainTextMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   					ssmlMessage: &sSMLMessageProperty{
+//   						value: jsii.String("value"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				variations: []interface{}{
+//   					&messageProperty{
+//   						customPayload: &customPayloadProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						imageResponseCard: &imageResponseCardProperty{
+//   							title: jsii.String("title"),
+//
+//   							// the properties below are optional
+//   							buttons: []interface{}{
+//   								&buttonProperty{
+//   									text: jsii.String("text"),
+//   									value: jsii.String("value"),
+//   								},
+//   							},
+//   							imageUrl: jsii.String("imageUrl"),
+//   							subtitle: jsii.String("subtitle"),
+//   						},
+//   						plainTextMessage: &plainTextMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   						ssmlMessage: &sSMLMessageProperty{
+//   							value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		allowInterrupt: jsii.Boolean(false),
+//   	},
 //   	isActive: jsii.Boolean(false),
 //   }
 //
 type CfnBot_IntentConfirmationSettingProperty struct {
-	// When the user answers "no" to the question defined in PromptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
-	DeclinationResponse interface{} `field:"required" json:"declinationResponse" yaml:"declinationResponse"`
 	// Prompts the user to confirm the intent.
 	//
 	// This question should have a yes or no answer.
 	PromptSpecification interface{} `field:"required" json:"promptSpecification" yaml:"promptSpecification"`
+	// `CfnBot.IntentConfirmationSettingProperty.CodeHook`.
+	CodeHook interface{} `field:"optional" json:"codeHook" yaml:"codeHook"`
+	// `CfnBot.IntentConfirmationSettingProperty.ConfirmationConditional`.
+	ConfirmationConditional interface{} `field:"optional" json:"confirmationConditional" yaml:"confirmationConditional"`
+	// `CfnBot.IntentConfirmationSettingProperty.ConfirmationNextStep`.
+	ConfirmationNextStep interface{} `field:"optional" json:"confirmationNextStep" yaml:"confirmationNextStep"`
+	// `CfnBot.IntentConfirmationSettingProperty.ConfirmationResponse`.
+	ConfirmationResponse interface{} `field:"optional" json:"confirmationResponse" yaml:"confirmationResponse"`
+	// `CfnBot.IntentConfirmationSettingProperty.DeclinationConditional`.
+	DeclinationConditional interface{} `field:"optional" json:"declinationConditional" yaml:"declinationConditional"`
+	// `CfnBot.IntentConfirmationSettingProperty.DeclinationNextStep`.
+	DeclinationNextStep interface{} `field:"optional" json:"declinationNextStep" yaml:"declinationNextStep"`
+	// When the user answers "no" to the question defined in PromptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+	DeclinationResponse interface{} `field:"optional" json:"declinationResponse" yaml:"declinationResponse"`
+	// `CfnBot.IntentConfirmationSettingProperty.ElicitationCodeHook`.
+	ElicitationCodeHook interface{} `field:"optional" json:"elicitationCodeHook" yaml:"elicitationCodeHook"`
+	// `CfnBot.IntentConfirmationSettingProperty.FailureConditional`.
+	FailureConditional interface{} `field:"optional" json:"failureConditional" yaml:"failureConditional"`
+	// `CfnBot.IntentConfirmationSettingProperty.FailureNextStep`.
+	FailureNextStep interface{} `field:"optional" json:"failureNextStep" yaml:"failureNextStep"`
+	// `CfnBot.IntentConfirmationSettingProperty.FailureResponse`.
+	FailureResponse interface{} `field:"optional" json:"failureResponse" yaml:"failureResponse"`
 	// Specifies whether the intent's confirmation is sent to the user.
 	//
 	// When this field is false, confirmation and declination responses aren't sent and processing continues as if the responses aren't present. If the active field isn't specified, the default is true.

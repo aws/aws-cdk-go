@@ -177,6 +177,14 @@ func init() {
 		"aws-cdk-lib.BootstraplessSynthesizerProps",
 		reflect.TypeOf((*BootstraplessSynthesizerProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.BundlingFileAccess",
+		reflect.TypeOf((*BundlingFileAccess)(nil)).Elem(),
+		map[string]interface{}{
+			"VOLUME_COPY": BundlingFileAccess_VOLUME_COPY,
+			"BIND_MOUNT": BundlingFileAccess_BIND_MOUNT,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.BundlingOptions",
 		reflect.TypeOf((*BundlingOptions)(nil)).Elem(),

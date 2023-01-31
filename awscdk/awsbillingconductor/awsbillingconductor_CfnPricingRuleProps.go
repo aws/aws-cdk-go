@@ -57,7 +57,7 @@ type CfnPricingRuleProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The set of tiering configurations for the pricing rule.
 	Tiering interface{} `field:"optional" json:"tiering" yaml:"tiering"`
-	// `AWS::BillingConductor::PricingRule.UsageType`.
+	// Usage Type is the unit that each service uses to measure the usage of a specific type of resource.
 	UsageType *string `field:"optional" json:"usageType" yaml:"usageType"`
 }
 

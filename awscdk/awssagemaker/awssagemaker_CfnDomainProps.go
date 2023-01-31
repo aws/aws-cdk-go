@@ -79,6 +79,37 @@ import (
 //   	// the properties below are optional
 //   	appNetworkAccessType: jsii.String("appNetworkAccessType"),
 //   	appSecurityGroupManagement: jsii.String("appSecurityGroupManagement"),
+//   	defaultSpaceSettings: &defaultSpaceSettingsProperty{
+//   		executionRole: jsii.String("executionRole"),
+//   		jupyterServerAppSettings: &jupyterServerAppSettingsProperty{
+//   			defaultResourceSpec: &resourceSpecProperty{
+//   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   		},
+//   		kernelGatewayAppSettings: &kernelGatewayAppSettingsProperty{
+//   			customImages: []interface{}{
+//   				&customImageProperty{
+//   					appImageConfigName: jsii.String("appImageConfigName"),
+//   					imageName: jsii.String("imageName"),
+//
+//   					// the properties below are optional
+//   					imageVersionNumber: jsii.Number(123),
+//   				},
+//   			},
+//   			defaultResourceSpec: &resourceSpecProperty{
+//   				instanceType: jsii.String("instanceType"),
+//   				lifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   				sageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				sageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   		},
+//   		securityGroups: []*string{
+//   			jsii.String("securityGroups"),
+//   		},
+//   	},
 //   	domainSettings: &domainSettingsProperty{
 //   		rStudioServerProDomainSettings: &rStudioServerProDomainSettingsProperty{
 //   			domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
@@ -140,6 +171,8 @@ type CfnDomainProps struct {
 	//
 	// Required when `CreateDomain.AppNetworkAccessType` is `VpcOnly` and `DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn` is provided.
 	AppSecurityGroupManagement *string `field:"optional" json:"appSecurityGroupManagement" yaml:"appSecurityGroupManagement"`
+	// `AWS::SageMaker::Domain.DefaultSpaceSettings`.
+	DefaultSpaceSettings interface{} `field:"optional" json:"defaultSpaceSettings" yaml:"defaultSpaceSettings"`
 	// A collection of settings that apply to the `SageMaker Domain` .
 	//
 	// These settings are specified through the `CreateDomain` API call.

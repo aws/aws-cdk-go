@@ -81,6 +81,9 @@ type BundlingOptions struct {
 	// Build arguments to pass when building the bundling image.
 	// Experimental.
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Which option to use to copy the source files to the docker container and output files back.
+	// Experimental.
+	BundlingFileAccess awscdk.BundlingFileAccess `field:"optional" json:"bundlingFileAccess" yaml:"bundlingFileAccess"`
 	// Whether or not to enable cgo during go build.
 	//
 	// This will set the CGO_ENABLED environment variable.

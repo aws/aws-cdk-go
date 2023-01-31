@@ -24,8 +24,6 @@ import (
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
-//   	pricingPlan: jsii.String("pricingPlan"),
-//   	pricingPlanDataSource: jsii.String("pricingPlanDataSource"),
 //   })
 //
 type CfnGeofenceCollection interface {
@@ -83,14 +81,6 @@ type CfnGeofenceCollection interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
-	//
-	// *Allowed Values* : `RequestBasedUsage`.
-	PricingPlan() *string
-	SetPricingPlan(val *string)
-	// This parameter is no longer used.
-	PricingPlanDataSource() *string
-	SetPricingPlanDataSource(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -376,26 +366,6 @@ func (j *jsiiProxy_CfnGeofenceCollection) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGeofenceCollection) PricingPlan() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"pricingPlan",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnGeofenceCollection) PricingPlanDataSource() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"pricingPlanDataSource",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnGeofenceCollection) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -489,22 +459,6 @@ func (j *jsiiProxy_CfnGeofenceCollection)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnGeofenceCollection)SetPricingPlan(val *string) {
-	_jsii_.Set(
-		j,
-		"pricingPlan",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnGeofenceCollection)SetPricingPlanDataSource(val *string) {
-	_jsii_.Set(
-		j,
-		"pricingPlanDataSource",
 		val,
 	)
 }

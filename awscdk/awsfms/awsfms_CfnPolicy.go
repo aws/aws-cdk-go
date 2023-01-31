@@ -168,7 +168,7 @@ type CfnPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::FMS::Policy.PolicyDescription`.
+	// The definition of the AWS Network Firewall firewall policy.
 	PolicyDescription() *string
 	SetPolicyDescription(val *string)
 	// The name of the AWS Firewall Manager policy.
@@ -191,7 +191,7 @@ type CfnPolicy interface {
 	// This option is not available for Shield Advanced or AWS WAF Classic policies.
 	ResourcesCleanUp() interface{}
 	SetResourcesCleanUp(val interface{})
-	// `AWS::FMS::Policy.ResourceSetIds`.
+	// The unique identifiers of the resource sets used by the policy.
 	ResourceSetIds() *[]*string
 	SetResourceSetIds(val *[]*string)
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.

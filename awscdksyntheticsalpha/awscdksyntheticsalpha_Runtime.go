@@ -240,3 +240,36 @@ func Runtime_SYNTHETICS_PYTHON_SELENIUM_1_0() Runtime {
 	return returns
 }
 
+func Runtime_SYNTHETICS_PYTHON_SELENIUM_1_1() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-synthetics-alpha.Runtime",
+		"SYNTHETICS_PYTHON_SELENIUM_1_1",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_SYNTHETICS_PYTHON_SELENIUM_1_2() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-synthetics-alpha.Runtime",
+		"SYNTHETICS_PYTHON_SELENIUM_1_2",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_SYNTHETICS_PYTHON_SELENIUM_1_3() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-synthetics-alpha.Runtime",
+		"SYNTHETICS_PYTHON_SELENIUM_1_3",
+		&returns,
+	)
+	return returns
+}
+

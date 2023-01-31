@@ -276,7 +276,7 @@ type CfnReplicationGroup interface {
 	SetGlobalReplicationGroupId(val *string)
 	// The network type you choose when creating a replication group, either `ipv4` | `ipv6` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	IpDiscovery() *string
 	SetIpDiscovery(val *string)
 	// The ID of the KMS key used to encrypt the disk on the cluster.
@@ -302,7 +302,7 @@ type CfnReplicationGroup interface {
 	SetMultiAzEnabled(val interface{})
 	// Must be either `ipv4` | `ipv6` | `dual_stack` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.

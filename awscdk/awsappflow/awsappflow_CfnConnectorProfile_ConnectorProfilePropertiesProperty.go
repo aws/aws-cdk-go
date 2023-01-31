@@ -33,6 +33,13 @@ package awsappflow
 //   	marketo: &marketoConnectorProfilePropertiesProperty{
 //   		instanceUrl: jsii.String("instanceUrl"),
 //   	},
+//   	pardot: &pardotConnectorProfilePropertiesProperty{
+//   		businessUnitId: jsii.String("businessUnitId"),
+//
+//   		// the properties below are optional
+//   		instanceUrl: jsii.String("instanceUrl"),
+//   		isSandboxEnvironment: jsii.Boolean(false),
+//   	},
 //   	redshift: &redshiftConnectorProfilePropertiesProperty{
 //   		bucketName: jsii.String("bucketName"),
 //   		roleArn: jsii.String("roleArn"),
@@ -101,6 +108,8 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific properties required by Marketo.
 	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
+	// The connector-specific properties required by Salesforce Pardot.
+	Pardot interface{} `field:"optional" json:"pardot" yaml:"pardot"`
 	// The connector-specific properties required by Amazon Redshift.
 	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The connector-specific properties required by Salesforce.

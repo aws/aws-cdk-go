@@ -38,7 +38,9 @@ type CfnAddonProps struct {
 	AddonVersion *string `field:"optional" json:"addonVersion" yaml:"addonVersion"`
 	// The configuration values that you provided.
 	ConfigurationValues *string `field:"optional" json:"configurationValues" yaml:"configurationValues"`
-	// `AWS::EKS::Addon.PreserveOnDelete`.
+	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
+	//
+	// If an IAM account is associated with the add-on, it isn't removed.
 	PreserveOnDelete interface{} `field:"optional" json:"preserveOnDelete" yaml:"preserveOnDelete"`
 	// How to resolve field value conflicts for an Amazon EKS add-on.
 	//

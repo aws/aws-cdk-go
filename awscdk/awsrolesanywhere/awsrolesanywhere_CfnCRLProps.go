@@ -25,13 +25,13 @@ import (
 //   }
 //
 type CfnCRLProps struct {
-	// The revocation record for a certificate, following the x509 v3 standard.
+	// x509 v3 Certificate Revocation List to revoke auth for corresponding certificates presented in CreateSession operations.
 	CrlData *string `field:"optional" json:"crlData" yaml:"crlData"`
-	// Indicates whether the certificate revocation list (CRL) is enabled.
+	// The enabled status of the resource.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// The name of the certificate revocation list (CRL).
+	// The customer specified name of the resource.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// A list of tags to attach to the CRL.
+	// A list of Tags.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn *string `field:"optional" json:"trustAnchorArn" yaml:"trustAnchorArn"`

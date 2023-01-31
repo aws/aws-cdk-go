@@ -76,7 +76,9 @@ type CfnAddon interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// `AWS::EKS::Addon.PreserveOnDelete`.
+	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
+	//
+	// If an IAM account is associated with the add-on, it isn't removed.
 	PreserveOnDelete() interface{}
 	SetPreserveOnDelete(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

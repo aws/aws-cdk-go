@@ -30,6 +30,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "advancedOptions", GoGetter: "AdvancedOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "advancedSecurityOptions", GoGetter: "AdvancedSecurityOptions"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAdvancedSecurityOptionsAnonymousAuthDisableDate", GoGetter: "AttrAdvancedSecurityOptionsAnonymousAuthDisableDate"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainEndpoint", GoGetter: "AttrDomainEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainEndpoints", GoGetter: "AttrDomainEndpoints"},
@@ -109,6 +110,10 @@ func init() {
 		reflect.TypeOf((*CfnDomain_EncryptionAtRestOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain.IdpProperty",
+		reflect.TypeOf((*CfnDomain_IdpProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.LogPublishingOptionProperty",
 		reflect.TypeOf((*CfnDomain_LogPublishingOptionProperty)(nil)).Elem(),
 	)
@@ -119,6 +124,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.NodeToNodeEncryptionOptionsProperty",
 		reflect.TypeOf((*CfnDomain_NodeToNodeEncryptionOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain.SAMLOptionsProperty",
+		reflect.TypeOf((*CfnDomain_SAMLOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.ServiceSoftwareOptionsProperty",

@@ -90,6 +90,15 @@ package awsappflow
 //   					redirectUri: jsii.String("redirectUri"),
 //   				},
 //   			},
+//   			pardot: &pardotConnectorProfileCredentialsProperty{
+//   				accessToken: jsii.String("accessToken"),
+//   				clientCredentialsArn: jsii.String("clientCredentialsArn"),
+//   				connectorOAuthRequest: &connectorOAuthRequestProperty{
+//   					authCode: jsii.String("authCode"),
+//   					redirectUri: jsii.String("redirectUri"),
+//   				},
+//   				refreshToken: jsii.String("refreshToken"),
+//   			},
 //   			redshift: &redshiftConnectorProfileCredentialsProperty{
 //   				password: jsii.String("password"),
 //   				username: jsii.String("username"),
@@ -184,6 +193,13 @@ package awsappflow
 //   			},
 //   			marketo: &marketoConnectorProfilePropertiesProperty{
 //   				instanceUrl: jsii.String("instanceUrl"),
+//   			},
+//   			pardot: &pardotConnectorProfilePropertiesProperty{
+//   				businessUnitId: jsii.String("businessUnitId"),
+//
+//   				// the properties below are optional
+//   				instanceUrl: jsii.String("instanceUrl"),
+//   				isSandboxEnvironment: jsii.Boolean(false),
 //   			},
 //   			redshift: &redshiftConnectorProfilePropertiesProperty{
 //   				bucketName: jsii.String("bucketName"),

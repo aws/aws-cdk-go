@@ -14,6 +14,7 @@ import (
 //
 //   var resultSelector interface{}
 //   var taskRole taskRole
+//   var timeout timeout
 //
 //   taskStateBaseProps := &taskStateBaseProps{
 //   	comment: jsii.String("comment"),
@@ -21,6 +22,7 @@ import (
 //   		role: taskRole,
 //   	},
 //   	heartbeat: cdk.duration.minutes(jsii.Number(30)),
+//   	heartbeatTimeout: timeout,
 //   	inputPath: jsii.String("inputPath"),
 //   	integrationPattern: awscdk.Aws_stepfunctions.integrationPattern_REQUEST_RESPONSE,
 //   	outputPath: jsii.String("outputPath"),
@@ -28,6 +30,7 @@ import (
 //   	resultSelector: map[string]interface{}{
 //   		"resultSelectorKey": resultSelector,
 //   	},
+//   	taskTimeout: timeout,
 //   	timeout: cdk.*duration.minutes(jsii.Number(30)),
 //   }
 //
@@ -41,7 +44,13 @@ type TaskStateBaseProps struct {
 	//
 	Credentials *Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Timeout for the heartbeat.
+	// Deprecated: use `heartbeatTimeout`.
 	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
+	// Timeout for the heartbeat.
+	//
+	// [disable-awslint:duration-prop-type] is needed because all props interface in
+	// aws-stepfunctions-tasks extend this interface.
+	HeartbeatTimeout Timeout `field:"optional" json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
@@ -70,7 +79,13 @@ type TaskStateBaseProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
-	// Timeout for the state machine.
+	// Timeout for the task.
+	//
+	// [disable-awslint:duration-prop-type] is needed because all props interface in
+	// aws-stepfunctions-tasks extend this interface.
+	TaskTimeout Timeout `field:"optional" json:"taskTimeout" yaml:"taskTimeout"`
+	// Timeout for the task.
+	// Deprecated: use `taskTimeout`.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

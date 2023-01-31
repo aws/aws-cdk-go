@@ -268,6 +268,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "imageRecipeArn", GoGetter: "ImageRecipeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "imageScanningConfiguration", GoGetter: "ImageScanningConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "imageTestsConfiguration", GoGetter: "ImageTestsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "infrastructureConfigurationArn", GoGetter: "InfrastructureConfigurationArn"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -294,6 +295,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.EcrConfigurationProperty",
+		reflect.TypeOf((*CfnImage_EcrConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageScanningConfigurationProperty",
+		reflect.TypeOf((*CfnImage_ImageScanningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageTestsConfigurationProperty",
@@ -324,6 +333,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "imageRecipeArn", GoGetter: "ImageRecipeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "imageScanningConfiguration", GoGetter: "ImageScanningConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "imageTestsConfiguration", GoGetter: "ImageTestsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "infrastructureConfigurationArn", GoGetter: "InfrastructureConfigurationArn"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -353,6 +363,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.EcrConfigurationProperty",
+		reflect.TypeOf((*CfnImagePipeline_EcrConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.ImageScanningConfigurationProperty",
+		reflect.TypeOf((*CfnImagePipeline_ImageScanningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.ImageTestsConfigurationProperty",

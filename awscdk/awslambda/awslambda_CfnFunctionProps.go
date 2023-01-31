@@ -63,6 +63,12 @@ import (
 //   	packageType: jsii.String("packageType"),
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	runtime: jsii.String("runtime"),
+//   	runtimeManagementConfig: &runtimeManagementConfigProperty{
+//   		updateRuntimeOn: jsii.String("updateRuntimeOn"),
+//
+//   		// the properties below are optional
+//   		runtimeVersionArn: jsii.String("runtimeVersionArn"),
+//   	},
 //   	snapStart: &snapStartProperty{
 //   		applyOn: jsii.String("applyOn"),
 //   	},
@@ -148,6 +154,10 @@ type CfnFunctionProps struct {
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
+	// Sets the runtime management configuration for a function's version.
+	//
+	// For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html) .
+	RuntimeManagementConfig interface{} `field:"optional" json:"runtimeManagementConfig" yaml:"runtimeManagementConfig"`
 	// The function's [AWS Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 	SnapStart interface{} `field:"optional" json:"snapStart" yaml:"snapStart"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.

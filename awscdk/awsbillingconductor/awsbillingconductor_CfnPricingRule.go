@@ -126,7 +126,7 @@ type CfnPricingRule interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// `AWS::BillingConductor::PricingRule.UsageType`.
+	// Usage Type is the unit that each service uses to measure the usage of a specific type of resource.
 	UsageType() *string
 	SetUsageType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

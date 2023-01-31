@@ -539,6 +539,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "reservedConcurrentExecutions", GoGetter: "ReservedConcurrentExecutions"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
+			_jsii_.MemberProperty{JsiiProperty: "runtimeManagementConfig", GoGetter: "RuntimeManagementConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "snapStart", GoGetter: "SnapStart"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -581,6 +582,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.ImageConfigProperty",
 		reflect.TypeOf((*CfnFunction_ImageConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.RuntimeManagementConfigProperty",
+		reflect.TypeOf((*CfnFunction_RuntimeManagementConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.SnapStartProperty",

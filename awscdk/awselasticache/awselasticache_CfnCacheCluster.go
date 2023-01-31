@@ -207,7 +207,7 @@ type CfnCacheCluster interface {
 	SetEngineVersion(val *string)
 	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	IpDiscovery() *string
 	SetIpDiscovery(val *string)
 	// Specifies the destination, format and type of the logs.
@@ -225,7 +225,7 @@ type CfnCacheCluster interface {
 	LogicalId() *string
 	// Must be either `ipv4` | `ipv6` | `dual_stack` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/https://aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.

@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::EC2::IPAMAllocation`.
 //
-// In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.
+// In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

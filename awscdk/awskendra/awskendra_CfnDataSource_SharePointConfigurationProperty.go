@@ -52,9 +52,7 @@ package awskendra
 type CfnDataSource_SharePointConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance.
 	//
-	// If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
-	//
-	// You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a SharePoint data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
+	// For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 	// The version of Microsoft SharePoint that you use.
 	SharePointVersion *string `field:"required" json:"sharePointVersion" yaml:"sharePointVersion"`
