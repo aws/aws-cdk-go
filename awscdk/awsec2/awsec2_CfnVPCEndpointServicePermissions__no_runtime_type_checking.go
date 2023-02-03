@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateAddDeletionOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateInspectParameters(i
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateRenderPropertiesPar
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVPCEndpointServicePermissions) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions) validateSetServiceIdParamet
 	return nil
 }
 
-func validateNewCfnVPCEndpointServicePermissionsParameters(scope awscdk.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) error {
+func validateNewCfnVPCEndpointServicePermissionsParameters(scope constructs.Construct, id *string, props *CfnVPCEndpointServicePermissionsProps) error {
 	return nil
 }
 

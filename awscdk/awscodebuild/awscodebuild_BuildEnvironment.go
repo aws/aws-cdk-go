@@ -2,6 +2,7 @@ package awscodebuild
 
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var mySecurityGroup securityGroup
 //
@@ -33,7 +34,7 @@ package awscodebuild
 //   		// Control Elastic Network Interface creation
 //   		vpc: vpc,
 //   		subnetSelection: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 //   		},
 //   		securityGroups: []iSecurityGroup{
 //   			mySecurityGroup,
@@ -54,21 +55,16 @@ package awscodebuild
 //   	},
 //   })
 //
-// Experimental.
 type BuildEnvironment struct {
 	// The image used for the builds.
-	// Experimental.
 	BuildImage IBuildImage `field:"optional" json:"buildImage" yaml:"buildImage"`
 	// The location of the PEM-encoded certificate for the build project.
-	// Experimental.
 	Certificate *BuildEnvironmentCertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The type of compute to use for this build.
 	//
-	// See the {@link ComputeType} enum for the possible values.
-	// Experimental.
+	// See the `ComputeType` enum for the possible values.
 	ComputeType ComputeType `field:"optional" json:"computeType" yaml:"computeType"`
 	// The environment variables that your builds can use.
-	// Experimental.
 	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Indicates how the project builds Docker images.
 	//
@@ -78,7 +74,6 @@ type BuildEnvironment struct {
 	// images, and the specified build environment image is not one provided by
 	// AWS CodeBuild with Docker support. Otherwise, all associated builds that
 	// attempt to interact with the Docker daemon will fail.
-	// Experimental.
 	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 }
 

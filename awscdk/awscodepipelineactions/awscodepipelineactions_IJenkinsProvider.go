@@ -3,31 +3,27 @@ package awscodepipelineactions
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipelineactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Jenkins provider.
 //
 // If you want to create a new Jenkins provider managed alongside your CDK code,
-// instantiate the {@link JenkinsProvider} class directly.
+// instantiate the `JenkinsProvider` class directly.
 //
 // If you want to reference an already registered provider,
-// use the {@link JenkinsProvider#fromJenkinsProviderAttributes} method.
-// Experimental.
+// use the `JenkinsProvider#fromJenkinsProviderAttributes` method.
 type IJenkinsProvider interface {
-	awscdk.IConstruct
-	// Experimental.
+	constructs.IConstruct
 	ProviderName() *string
-	// Experimental.
 	ServerUrl() *string
-	// Experimental.
 	Version() *string
 }
 
 // The jsii proxy for IJenkinsProvider
 type jsiiProxy_IJenkinsProvider struct {
-	internal.Type__awscdkIConstruct
+	internal.Type__constructsIConstruct
 }
 
 func (j *jsiiProxy_IJenkinsProvider) ProviderName() *string {

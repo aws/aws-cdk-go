@@ -1,9 +1,8 @@
 package internal
 import (
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 type Type__awscodepipelineAction = awscodepipeline.Action
-type Type__awscdkConstruct = awscdk.Construct
-type Type__awscodepipelineIAction = awscodepipeline.IAction
-type Type__awscdkIConstruct = awscdk.IConstruct
+type Type__constructsConstruct = constructs.Construct
+type Type__constructsIConstruct = constructs.IConstruct

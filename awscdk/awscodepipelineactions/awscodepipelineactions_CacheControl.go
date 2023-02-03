@@ -1,16 +1,16 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Used for HTTP cache-control header, which influences downstream caches.
 //
 // Use the provided static factory methods to construct instances of this class.
-// Used in the {@link S3DeployActionProps.cacheControl} property.
+// Used in the `S3DeployActionProps.cacheControl` property.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,12 +21,9 @@ import (
 //
 // See: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
 //
-// Experimental.
 type CacheControl interface {
 	// the actual text value of the created directive.
-	// Experimental.
 	Value() *string
-	// Experimental.
 	SetValue(val *string)
 }
 
@@ -58,7 +55,6 @@ func (j *jsiiProxy_CacheControl)SetValue(val *string) {
 }
 
 // Allows you to create an arbitrary cache control directive, in case our support is missing a method for a particular directive.
-// Experimental.
 func CacheControl_FromString(s *string) CacheControl {
 	_init_.Initialize()
 
@@ -68,7 +64,7 @@ func CacheControl_FromString(s *string) CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"fromString",
 		[]interface{}{s},
 		&returns,
@@ -78,7 +74,6 @@ func CacheControl_FromString(s *string) CacheControl {
 }
 
 // The 'max-age' cache control directive.
-// Experimental.
 func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
@@ -88,7 +83,7 @@ func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"maxAge",
 		[]interface{}{t},
 		&returns,
@@ -98,14 +93,13 @@ func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 }
 
 // The 'must-revalidate' cache control directive.
-// Experimental.
 func CacheControl_MustRevalidate() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"mustRevalidate",
 		nil, // no parameters
 		&returns,
@@ -115,14 +109,13 @@ func CacheControl_MustRevalidate() CacheControl {
 }
 
 // The 'no-cache' cache control directive.
-// Experimental.
 func CacheControl_NoCache() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"noCache",
 		nil, // no parameters
 		&returns,
@@ -132,14 +125,13 @@ func CacheControl_NoCache() CacheControl {
 }
 
 // The 'no-transform' cache control directive.
-// Experimental.
 func CacheControl_NoTransform() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"noTransform",
 		nil, // no parameters
 		&returns,
@@ -149,14 +141,13 @@ func CacheControl_NoTransform() CacheControl {
 }
 
 // The 'proxy-revalidate' cache control directive.
-// Experimental.
 func CacheControl_ProxyRevalidate() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"proxyRevalidate",
 		nil, // no parameters
 		&returns,
@@ -166,14 +157,13 @@ func CacheControl_ProxyRevalidate() CacheControl {
 }
 
 // The 'private' cache control directive.
-// Experimental.
 func CacheControl_SetPrivate() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"setPrivate",
 		nil, // no parameters
 		&returns,
@@ -183,14 +173,13 @@ func CacheControl_SetPrivate() CacheControl {
 }
 
 // The 'public' cache control directive.
-// Experimental.
 func CacheControl_SetPublic() CacheControl {
 	_init_.Initialize()
 
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"setPublic",
 		nil, // no parameters
 		&returns,
@@ -200,7 +189,6 @@ func CacheControl_SetPublic() CacheControl {
 }
 
 // The 's-max-age' cache control directive.
-// Experimental.
 func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
@@ -210,7 +198,7 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.CacheControl",
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"sMaxAge",
 		[]interface{}{t},
 		&returns,

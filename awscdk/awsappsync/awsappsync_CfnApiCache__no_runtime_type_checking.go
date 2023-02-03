@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnApiCache) validateAddDeletionOverrideParameters(path *stri
 	return nil
 }
 
+func (c *jsiiProxy_CfnApiCache) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApiCache) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnApiCache) validateInspectParameters(inspector awscdk.TreeI
 	return nil
 }
 
-func (c *jsiiProxy_CfnApiCache) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApiCache) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnApiCache) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnApiCache) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnApiCache) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnApiCache) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApiCache) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -100,7 +104,7 @@ func (j *jsiiProxy_CfnApiCache) validateSetTypeParameters(val *string) error {
 	return nil
 }
 
-func validateNewCfnApiCacheParameters(scope awscdk.Construct, id *string, props *CfnApiCacheProps) error {
+func validateNewCfnApiCacheParameters(scope constructs.Construct, id *string, props *CfnApiCacheProps) error {
 	return nil
 }
 

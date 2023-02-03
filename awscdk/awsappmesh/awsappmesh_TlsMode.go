@@ -4,6 +4,7 @@ package awsappmesh
 // Enum of supported TLS modes.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
@@ -53,18 +54,14 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("gateway2"),
 //   })
 //
-// Experimental.
 type TlsMode string
 
 const (
 	// Only accept encrypted traffic.
-	// Experimental.
 	TlsMode_STRICT TlsMode = "STRICT"
 	// Accept encrypted and plaintext traffic.
-	// Experimental.
 	TlsMode_PERMISSIVE TlsMode = "PERMISSIVE"
 	// TLS is disabled, only accept plaintext traffic.
-	// Experimental.
 	TlsMode_DISABLED TlsMode = "DISABLED"
 )
 

@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 )
 
 func (l *jsiiProxy_LinuxArmBuildImage) validateRunScriptBuildspecParameters(entrypoint *string) error {

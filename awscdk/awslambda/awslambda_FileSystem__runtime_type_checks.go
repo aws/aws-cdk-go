@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
 )
 
 func validateFileSystem_FromEfsAccessPointParameters(ap awsefs.IAccessPoint, mountPath *string) error {

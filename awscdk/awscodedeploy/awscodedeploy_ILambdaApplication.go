@@ -3,24 +3,21 @@ package awscodedeploy
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
 )
 
 // Represents a reference to a CodeDeploy Application deploying to AWS Lambda.
 //
 // If you're managing the Application alongside the rest of your CDK resources,
-// use the {@link LambdaApplication} class.
+// use the `LambdaApplication` class.
 //
 // If you want to reference an already existing Application,
 // or one defined in a different CDK Stack,
-// use the {@link LambdaApplication#fromLambdaApplicationName} method.
-// Experimental.
+// use the `LambdaApplication#fromLambdaApplicationName` method.
 type ILambdaApplication interface {
 	awscdk.IResource
-	// Experimental.
 	ApplicationArn() *string
-	// Experimental.
 	ApplicationName() *string
 }
 

@@ -16,19 +16,15 @@ func (g *jsiiProxy_GitHubEnterpriseSourceCredentials) validateGetResourceNameAtt
 	return nil
 }
 
-func (g *jsiiProxy_GitHubEnterpriseSourceCredentials) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (g *jsiiProxy_GitHubEnterpriseSourceCredentials) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateGitHubEnterpriseSourceCredentials_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateGitHubEnterpriseSourceCredentials_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateGitHubEnterpriseSourceCredentials_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateGitHubEnterpriseSourceCredentials_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

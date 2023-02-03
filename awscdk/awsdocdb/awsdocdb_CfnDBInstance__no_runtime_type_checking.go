@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnDBInstance) validateAddDeletionOverrideParameters(path *st
 	return nil
 }
 
+func (c *jsiiProxy_CfnDBInstance) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDBInstance) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnDBInstance) validateInspectParameters(inspector awscdk.Tre
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBInstance) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDBInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBInstance) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDBInstance) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnDBInstance) validateRenderPropertiesParameters(props *map[
 	return nil
 }
 
-func (c *jsiiProxy_CfnDBInstance) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnDBInstance) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnDBInstance) validateSetEnablePerformanceInsightsParameters
 	return nil
 }
 
-func validateNewCfnDBInstanceParameters(scope awscdk.Construct, id *string, props *CfnDBInstanceProps) error {
+func validateNewCfnDBInstanceParameters(scope constructs.Construct, id *string, props *CfnDBInstanceProps) error {
 	return nil
 }
 

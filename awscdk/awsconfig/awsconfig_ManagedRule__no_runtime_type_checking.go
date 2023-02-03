@@ -28,14 +28,6 @@ func (m *jsiiProxy_ManagedRule) validateOnReEvaluationStatusParameters(id *strin
 	return nil
 }
 
-func (m *jsiiProxy_ManagedRule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (m *jsiiProxy_ManagedRule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateManagedRule_FromConfigRuleNameParameters(scope constructs.Construct, id *string, configRuleName *string) error {
 	return nil
 }
@@ -44,7 +36,11 @@ func validateManagedRule_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateManagedRule_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateManagedRule_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateManagedRule_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

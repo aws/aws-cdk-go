@@ -3,38 +3,29 @@ package awskms
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
 )
 
 // A KMS Key, either managed by this CDK app, or imported.
-// Experimental.
 type IKey interface {
 	awscdk.IResource
 	// Defines a new alias for the key.
-	// Experimental.
 	AddAlias(alias *string) Alias
 	// Adds a statement to the KMS key resource policy.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult
 	// Grant the indicated permissions on this key to the given principal.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant decryption permissions using this key to the given principal.
-	// Experimental.
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption permissions using this key to the given principal.
-	// Experimental.
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption and decryption permissions using this key to the given principal.
-	// Experimental.
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the key.
-	// Experimental.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
-	// Experimental.
 	KeyId() *string
 }
 

@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnCodeRepository) validateAddDeletionOverrideParameters(path
 	return nil
 }
 
+func (c *jsiiProxy_CfnCodeRepository) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCodeRepository) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnCodeRepository) validateInspectParameters(inspector awscdk
 	return nil
 }
 
-func (c *jsiiProxy_CfnCodeRepository) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCodeRepository) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnCodeRepository) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnCodeRepository) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnCodeRepository) validateRenderPropertiesParameters(props *
 	return nil
 }
 
-func (c *jsiiProxy_CfnCodeRepository) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnCodeRepository) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnCodeRepository) validateSetGitConfigParameters(val interfa
 	return nil
 }
 
-func validateNewCfnCodeRepositoryParameters(scope awscdk.Construct, id *string, props *CfnCodeRepositoryProps) error {
+func validateNewCfnCodeRepositoryParameters(scope constructs.Construct, id *string, props *CfnCodeRepositoryProps) error {
 	return nil
 }
 

@@ -4,6 +4,7 @@ package awsappmesh
 // Represents TLS properties for listener.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
@@ -53,18 +54,14 @@ package awsappmesh
 //   	virtualGatewayName: jsii.String("gateway2"),
 //   })
 //
-// Experimental.
 type ListenerTlsOptions struct {
 	// Represents TLS certificate.
-	// Experimental.
 	Certificate TlsCertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The TLS mode.
-	// Experimental.
 	Mode TlsMode `field:"required" json:"mode" yaml:"mode"`
 	// Represents a listener's TLS validation context.
 	//
 	// The client certificate will only be validated if the client provides it, enabling mutual TLS.
-	// Experimental.
 	MutualTlsValidation *MutualTlsValidation `field:"optional" json:"mutualTlsValidation" yaml:"mutualTlsValidation"`
 }
 

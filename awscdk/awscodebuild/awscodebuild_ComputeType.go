@@ -4,6 +4,7 @@ package awscodebuild
 // Build machine compute type.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var mySecurityGroup securityGroup
 //
@@ -35,11 +36,14 @@ package awscodebuild
 //   	// Control Elastic Network Interface creation
 //   	vpc: vpc,
 //   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
 //   	},
 //   	securityGroups: []iSecurityGroup{
 //   		mySecurityGroup,
 //   	},
+//
+//   	// Control caching
+//   	cache: codebuild.cache.bucket(s3.NewBucket(this, jsii.String("Cache"))),
 //
 //   	// Additional policy statements for the execution role
 //   	rolePolicyStatements: []policyStatement{
@@ -48,17 +52,12 @@ package awscodebuild
 //   	},
 //   })
 //
-// Experimental.
 type ComputeType string
 
 const (
-	// Experimental.
 	ComputeType_SMALL ComputeType = "SMALL"
-	// Experimental.
 	ComputeType_MEDIUM ComputeType = "MEDIUM"
-	// Experimental.
 	ComputeType_LARGE ComputeType = "LARGE"
-	// Experimental.
 	ComputeType_X2_LARGE ComputeType = "X2_LARGE"
 )
 

@@ -16,19 +16,15 @@ func (a *jsiiProxy_ApiDestination) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (a *jsiiProxy_ApiDestination) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (a *jsiiProxy_ApiDestination) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateApiDestination_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateApiDestination_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateApiDestination_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateApiDestination_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

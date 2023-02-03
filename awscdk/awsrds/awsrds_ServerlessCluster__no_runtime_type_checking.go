@@ -28,14 +28,6 @@ func (s *jsiiProxy_ServerlessCluster) validateGrantDataApiAccessParameters(grant
 	return nil
 }
 
-func (s *jsiiProxy_ServerlessCluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (s *jsiiProxy_ServerlessCluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateServerlessCluster_FromServerlessClusterAttributesParameters(scope constructs.Construct, id *string, attrs *ServerlessClusterAttributes) error {
 	return nil
 }
@@ -44,7 +36,11 @@ func validateServerlessCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateServerlessCluster_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateServerlessCluster_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateServerlessCluster_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

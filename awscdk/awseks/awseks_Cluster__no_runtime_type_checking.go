@@ -56,14 +56,6 @@ func (c *jsiiProxy_Cluster) validateGetServiceLoadBalancerAddressParameters(serv
 	return nil
 }
 
-func (c *jsiiProxy_Cluster) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (c *jsiiProxy_Cluster) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateCluster_FromClusterAttributesParameters(scope constructs.Construct, id *string, attrs *ClusterAttributes) error {
 	return nil
 }
@@ -72,7 +64,11 @@ func validateCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateCluster_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateCluster_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateCluster_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

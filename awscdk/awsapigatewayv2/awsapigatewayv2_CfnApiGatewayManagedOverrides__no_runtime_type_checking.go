@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateAddDeletionOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateInspectParameters(insp
 	return nil
 }
 
-func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateRenderPropertiesParame
 	return nil
 }
 
-func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnApiGatewayManagedOverrides) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -92,7 +96,7 @@ func (j *jsiiProxy_CfnApiGatewayManagedOverrides) validateSetStageParameters(val
 	return nil
 }
 
-func validateNewCfnApiGatewayManagedOverridesParameters(scope awscdk.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) error {
+func validateNewCfnApiGatewayManagedOverridesParameters(scope constructs.Construct, id *string, props *CfnApiGatewayManagedOverridesProps) error {
 	return nil
 }
 

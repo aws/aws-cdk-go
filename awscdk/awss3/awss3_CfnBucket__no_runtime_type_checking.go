@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnBucket) validateAddDeletionOverrideParameters(path *string
 	return nil
 }
 
+func (c *jsiiProxy_CfnBucket) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBucket) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnBucket) validateInspectParameters(inspector awscdk.TreeIns
 	return nil
 }
 
-func (c *jsiiProxy_CfnBucket) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBucket) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnBucket) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnBucket) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnBucket) validateRenderPropertiesParameters(props *map[stri
 	return nil
 }
 
-func (c *jsiiProxy_CfnBucket) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnBucket) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -144,7 +148,7 @@ func (j *jsiiProxy_CfnBucket) validateSetWebsiteConfigurationParameters(val inte
 	return nil
 }
 
-func validateNewCfnBucketParameters(scope awscdk.Construct, id *string, props *CfnBucketProps) error {
+func validateNewCfnBucketParameters(scope constructs.Construct, id *string, props *CfnBucketProps) error {
 	return nil
 }
 

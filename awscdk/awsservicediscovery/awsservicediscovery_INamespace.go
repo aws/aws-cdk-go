@@ -3,24 +3,19 @@ package awsservicediscovery
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 )
 
-// Experimental.
 type INamespace interface {
 	awscdk.IResource
 	// Namespace ARN for the Namespace.
-	// Experimental.
 	NamespaceArn() *string
 	// Namespace Id for the Namespace.
-	// Experimental.
 	NamespaceId() *string
 	// A name for the Namespace.
-	// Experimental.
 	NamespaceName() *string
 	// Type of Namespace.
-	// Experimental.
 	Type() NamespaceType
 }
 

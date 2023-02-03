@@ -3,23 +3,17 @@ package awscodepipeline
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 )
 
 // The abstract interface of a Pipeline Stage that is used by Actions.
-// Experimental.
 type IStage interface {
-	// Experimental.
 	AddAction(action IAction)
-	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	// The actions belonging to this stage.
-	// Experimental.
 	Actions() *[]IAction
-	// Experimental.
 	Pipeline() IPipeline
 	// The physical, human-readable name of this Pipeline Stage.
-	// Experimental.
 	StageName() *string
 }
 

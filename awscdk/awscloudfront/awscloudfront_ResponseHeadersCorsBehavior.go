@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
@@ -86,6 +86,10 @@ import (
 //   			override: jsii.Boolean(true),
 //   		},
 //   	},
+//   	removeHeaders: []*string{
+//   		jsii.String("Server"),
+//   	},
+//   	serverTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
@@ -94,34 +98,26 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ResponseHeadersCorsBehavior struct {
 	// A Boolean that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
-	// Experimental.
 	AccessControlAllowCredentials *bool `field:"required" json:"accessControlAllowCredentials" yaml:"accessControlAllowCredentials"`
 	// A list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
 	//
 	// You can specify `['*']` to allow all headers.
-	// Experimental.
 	AccessControlAllowHeaders *[]*string `field:"required" json:"accessControlAllowHeaders" yaml:"accessControlAllowHeaders"`
 	// A list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header.
-	// Experimental.
 	AccessControlAllowMethods *[]*string `field:"required" json:"accessControlAllowMethods" yaml:"accessControlAllowMethods"`
 	// A list of origins (domain names) that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
 	//
 	// You can specify `['*']` to allow all origins.
-	// Experimental.
 	AccessControlAllowOrigins *[]*string `field:"required" json:"accessControlAllowOrigins" yaml:"accessControlAllowOrigins"`
 	// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
-	// Experimental.
 	OriginOverride *bool `field:"required" json:"originOverride" yaml:"originOverride"`
 	// A list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
 	//
 	// You can specify `['*']` to expose all headers.
-	// Experimental.
 	AccessControlExposeHeaders *[]*string `field:"optional" json:"accessControlExposeHeaders" yaml:"accessControlExposeHeaders"`
 	// A number that CloudFront uses as the value for the Access-Control-Max-Age HTTP response header.
-	// Experimental.
 	AccessControlMaxAge awscdk.Duration `field:"optional" json:"accessControlMaxAge" yaml:"accessControlMaxAge"`
 }
 

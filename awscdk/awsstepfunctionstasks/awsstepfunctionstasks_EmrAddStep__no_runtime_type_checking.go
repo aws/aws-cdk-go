@@ -84,14 +84,6 @@ func (e *jsiiProxy_EmrAddStep) validateNextParameters(next awsstepfunctions.ICha
 	return nil
 }
 
-func (e *jsiiProxy_EmrAddStep) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (e *jsiiProxy_EmrAddStep) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func (e *jsiiProxy_EmrAddStep) validateWhenBoundToGraphParameters(graph awsstepfunctions.StateGraph) error {
 	return nil
 }

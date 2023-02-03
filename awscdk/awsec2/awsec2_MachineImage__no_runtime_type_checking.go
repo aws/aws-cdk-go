@@ -8,10 +8,6 @@ func validateMachineImage_FromSsmParameterParameters(parameterName *string, opti
 	return nil
 }
 
-func validateMachineImage_FromSSMParameterParameters(parameterName *string, os OperatingSystemType) error {
-	return nil
-}
-
 func validateMachineImage_GenericLinuxParameters(amiMap *map[string]*string, props *GenericLinuxImageProps) error {
 	return nil
 }

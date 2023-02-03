@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateAddDeletionOver
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateInspectParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateRenderPropertie
 	return nil
 }
 
-func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateSetSubnetIdPara
 	return nil
 }
 
-func validateNewCfnClientVpnTargetNetworkAssociationParameters(scope awscdk.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) error {
+func validateNewCfnClientVpnTargetNetworkAssociationParameters(scope constructs.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) error {
 	return nil
 }
 

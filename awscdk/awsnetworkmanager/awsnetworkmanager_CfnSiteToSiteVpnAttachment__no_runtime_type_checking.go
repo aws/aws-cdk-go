@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDeletionOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateInspectParameters(inspect
 	return nil
 }
 
-func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateRenderPropertiesParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -76,7 +80,7 @@ func validateCfnSiteToSiteVpnAttachment_IsConstructParameters(x interface{}) err
 	return nil
 }
 
-func validateNewCfnSiteToSiteVpnAttachmentParameters(scope awscdk.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) error {
+func validateNewCfnSiteToSiteVpnAttachmentParameters(scope constructs.Construct, id *string, props *CfnSiteToSiteVpnAttachmentProps) error {
 	return nil
 }
 

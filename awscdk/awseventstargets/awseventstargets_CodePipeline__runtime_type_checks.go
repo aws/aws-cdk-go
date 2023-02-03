@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 )
 
 func (c *jsiiProxy_CodePipeline) validateBindParameters(_rule awsevents.IRule) error {

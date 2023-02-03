@@ -5,7 +5,7 @@ This package contains constructs for working with Amazon Elastic Container Regis
 ## Repositories
 
 Define a repository by creating a new instance of `Repository`. A repository
-holds multiple verions of a single container image.
+holds multiple versions of a single container image.
 
 ```go
 repository := ecr.NewRepository(this, jsii.String("Repository"))

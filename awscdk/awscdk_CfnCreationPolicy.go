@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -10,7 +10,7 @@ package awscdk
 //
 // The creation policy is invoked only when AWS CloudFormation creates the associated resource. Currently, the only
 // AWS CloudFormation resources that support creation policies are AWS::AutoScaling::AutoScalingGroup, AWS::EC2::Instance,
-// and AWS::CloudFormation::WaitCondition.
+// AWS::CloudFormation::WaitCondition and AWS::AppStream::Fleet.
 //
 // Use the CreationPolicy attribute when you want to wait on resource configuration actions before stack creation proceeds.
 // For example, if you install and configure software applications on an EC2 instance, you might want those applications to
@@ -21,7 +21,7 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCreationPolicy := &cfnCreationPolicy{
 //   	autoScalingCreationPolicy: &cfnResourceAutoScalingCreationPolicy{
@@ -31,15 +31,15 @@ package awscdk
 //   		count: jsii.Number(123),
 //   		timeout: jsii.String("timeout"),
 //   	},
+//   	startFleet: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type CfnCreationPolicy struct {
 	// For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.
-	// Experimental.
 	AutoScalingCreationPolicy *CfnResourceAutoScalingCreationPolicy `field:"optional" json:"autoScalingCreationPolicy" yaml:"autoScalingCreationPolicy"`
 	// When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.
-	// Experimental.
 	ResourceSignal *CfnResourceSignal `field:"optional" json:"resourceSignal" yaml:"resourceSignal"`
+	// For an AppStream Fleet creation, specifies that the fleet is started after creation.
+	StartFleet *bool `field:"optional" json:"startFleet" yaml:"startFleet"`
 }
 

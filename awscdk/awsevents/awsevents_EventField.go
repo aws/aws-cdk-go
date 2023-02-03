@@ -1,39 +1,47 @@
 package awsevents
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
 )
 
 // Represents a field in the event pattern.
-// Experimental.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
+//   var rule rule
+//
+//
+//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+//   	logEvent: targets.logGroupTargetInput(map[string]interface{}{
+//   		"timestamp": events.EventField.from(jsii.String("$.time")),
+//   		"message": events.EventField.from(jsii.String("$.detail-type")),
+//   	}),
+//   }))
+//
 type EventField interface {
 	awscdk.IResolvable
 	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
 	//
 	// This may return an array with a single informational element indicating how
 	// to get this property populated, if it was skipped for performance reasons.
-	// Experimental.
 	CreationStack() *[]*string
 	// Human readable display hint about the event pattern.
-	// Experimental.
 	DisplayHint() *string
 	// the path to a field in the event pattern.
-	// Experimental.
 	Path() *string
 	// Produce the Token's value at resolution time.
-	// Experimental.
 	Resolve(_ctx awscdk.IResolveContext) interface{}
 	// Convert the path to the field in the event pattern to JSON.
-	// Experimental.
 	ToJSON() *string
 	// Return a string representation of this resolvable object.
 	//
 	// Returns a reversible string representation.
-	// Experimental.
 	ToString() *string
 }
 
@@ -74,7 +82,6 @@ func (j *jsiiProxy_EventField) Path() *string {
 
 
 // Extract a custom JSON path from the event.
-// Experimental.
 func EventField_FromPath(path *string) *string {
 	_init_.Initialize()
 
@@ -84,7 +91,7 @@ func EventField_FromPath(path *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_events.EventField",
+		"aws-cdk-lib.aws_events.EventField",
 		"fromPath",
 		[]interface{}{path},
 		&returns,
@@ -97,7 +104,7 @@ func EventField_Account() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_events.EventField",
+		"aws-cdk-lib.aws_events.EventField",
 		"account",
 		&returns,
 	)
@@ -108,7 +115,7 @@ func EventField_DetailType() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_events.EventField",
+		"aws-cdk-lib.aws_events.EventField",
 		"detailType",
 		&returns,
 	)
@@ -119,7 +126,7 @@ func EventField_EventId() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_events.EventField",
+		"aws-cdk-lib.aws_events.EventField",
 		"eventId",
 		&returns,
 	)
@@ -130,7 +137,7 @@ func EventField_Region() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_events.EventField",
+		"aws-cdk-lib.aws_events.EventField",
 		"region",
 		&returns,
 	)
@@ -141,7 +148,7 @@ func EventField_Source() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_events.EventField",
+		"aws-cdk-lib.aws_events.EventField",
 		"source",
 		&returns,
 	)
@@ -152,7 +159,7 @@ func EventField_Time() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_events.EventField",
+		"aws-cdk-lib.aws_events.EventField",
 		"time",
 		&returns,
 	)

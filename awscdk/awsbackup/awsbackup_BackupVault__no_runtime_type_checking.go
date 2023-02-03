@@ -24,14 +24,6 @@ func (b *jsiiProxy_BackupVault) validateGrantParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
-func (b *jsiiProxy_BackupVault) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	return nil
-}
-
-func (b *jsiiProxy_BackupVault) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	return nil
-}
-
 func validateBackupVault_FromBackupVaultArnParameters(scope constructs.Construct, id *string, backupVaultArn *string) error {
 	return nil
 }
@@ -44,7 +36,11 @@ func validateBackupVault_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateBackupVault_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateBackupVault_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateBackupVault_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 

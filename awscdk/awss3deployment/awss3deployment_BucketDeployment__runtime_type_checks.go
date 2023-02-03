@@ -7,21 +7,12 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (b *jsiiProxy_BucketDeployment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (b *jsiiProxy_BucketDeployment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
+func (b *jsiiProxy_BucketDeployment) validateAddSourceParameters(source ISource) error {
+	if source == nil {
+		return fmt.Errorf("parameter source is required, but nil was provided")
 	}
 
 	return nil

@@ -12,10 +12,8 @@ package awss3
 //   	dualStack: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type TransferAccelerationUrlOptions struct {
 	// Dual-stack support to connect to the bucket over IPv6.
-	// Experimental.
 	DualStack *bool `field:"optional" json:"dualStack" yaml:"dualStack"`
 }
 

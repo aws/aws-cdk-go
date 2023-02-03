@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (c *jsiiProxy_ClientVpnRoute) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
@@ -42,22 +42,6 @@ func (c *jsiiProxy_ClientVpnRoute) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
-func (c *jsiiProxy_ClientVpnRoute) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (c *jsiiProxy_ClientVpnRoute) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateClientVpnRoute_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -66,7 +50,15 @@ func validateClientVpnRoute_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateClientVpnRoute_IsResourceParameters(construct awscdk.IConstruct) error {
+func validateClientVpnRoute_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	if construct == nil {
+		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateClientVpnRoute_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

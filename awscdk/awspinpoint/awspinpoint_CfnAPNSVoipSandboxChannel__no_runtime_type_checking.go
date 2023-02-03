@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateAddDeletionOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateInspectParameters(inspecto
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateRenderPropertiesParameters
 	return nil
 }
 
-func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnAPNSVoipSandboxChannel) validateSetEnabledParameters(val i
 	return nil
 }
 
-func validateNewCfnAPNSVoipSandboxChannelParameters(scope awscdk.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) error {
+func validateNewCfnAPNSVoipSandboxChannelParameters(scope constructs.Construct, id *string, props *CfnAPNSVoipSandboxChannelProps) error {
 	return nil
 }
 

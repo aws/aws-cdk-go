@@ -42,10 +42,9 @@ ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
 
 For a set of constructs defining common ECS architectural patterns, see the `@aws-cdk/aws-ecs-patterns` package.
 
-## Launch Types: AWS Fargate vs Amazon EC2
+## Launch Types: AWS Fargate vs Amazon EC2 vs AWS ECS Anywhere
 
-There are two sets of constructs in this library; one to run tasks on Amazon EC2 and
-one to run tasks on AWS Fargate.
+There are three sets of constructs in this library:
 
 * Use the `Ec2TaskDefinition` and `Ec2Service` constructs to run tasks on Amazon EC2 instances running in your account.
 * Use the `FargateTaskDefinition` and `FargateService` constructs to run tasks on
@@ -64,7 +63,9 @@ Here are the main differences:
   Application/Network Load Balancers. Only the AWS log driver is supported.
   Many host features are not supported such as adding kernel capabilities
   and mounting host devices/volumes inside the container.
-* **AWS ECSAnywhere**: tasks are run and managed by AWS ECS Anywhere on infrastructure owned by the customer. Only Bridge networking mode is supported. Does not support autoscaling, load balancing, cloudmap or attachment of volumes.
+* **AWS ECS Anywhere**: tasks are run and managed by AWS ECS Anywhere on infrastructure
+  owned by the customer. Bridge, Host and None networking modes are supported. Does not
+  support autoscaling, load balancing, cloudmap or attachment of volumes.
 
 For more information on Amazon EC2 vs AWS Fargate, networking and ECS Anywhere see the AWS Documentation:
 [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html),
@@ -159,6 +160,39 @@ autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &a
 	vpc: vpc,
 	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
 })
+```
+
+To use `LaunchTemplate` with `AsgCapacityProvider`, make sure to specify the `userData` in the `LaunchTemplate`:
+
+```go
+var vpc vpc
+
+launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &launchTemplateProps{
+	instanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
+	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+	userData: ec2.userData.forLinux(),
+})
+
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+	vpc: vpc,
+	mixedInstancesPolicy: &mixedInstancesPolicy{
+		instancesDistribution: &instancesDistribution{
+			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
+		},
+		launchTemplate: launchTemplate,
+	},
+})
+
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+	vpc: vpc,
+})
+
+capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+	autoScalingGroup: autoScalingGroup,
+	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
+})
+
+cluster.addAsgCapacityProvider(capacityProvider)
 ```
 
 ### Bottlerocket
@@ -298,7 +332,7 @@ container := fargateTaskDefinition.addContainer(jsii.String("WebContainer"), &co
 })
 ```
 
-For a `Ec2TaskDefinition`:
+For an `Ec2TaskDefinition`:
 
 ```go
 ec2TaskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"), &ec2TaskDefinitionProps{
@@ -390,6 +424,21 @@ taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &taskDefin
 })
 ```
 
+To grant a principal permission to run your `TaskDefinition`, you can use the `TaskDefinition.grantRun()` method:
+
+```go
+var role iGrantable
+
+taskDef := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &taskDefinitionProps{
+	cpu: jsii.String("512"),
+	memoryMiB: jsii.String("512"),
+	compatibility: ecs.compatibility_EC2_AND_FARGATE,
+})
+
+// Gives role required permissions to run taskDef
+taskDef.grantRun(role)
+```
+
 ### Images
 
 Images supply the software that runs inside the container. Images can be
@@ -443,11 +492,33 @@ newContainer := taskDefinition.addContainer(jsii.String("container"), &container
 	},
 })
 newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
+newContainer.addSecret(jsii.String("API_KEY"), ecs.secret.fromSecretsManager(secret))
+newContainer.addSecret(jsii.String("DB_PASSWORD"), ecs.secret.fromSecretsManager(secret, jsii.String("password")))
 ```
 
 The task execution role is automatically granted read permissions on the secrets/parameters. Support for environment
 files is restricted to the EC2 launch type for files hosted on S3. Further details provided in the AWS documentation
 about [specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html).
+
+### Linux parameters
+
+To apply additional linux-specific options related to init process and memory management to the container, use the `linuxParameters` property:
+
+```go
+var taskDefinition taskDefinition
+
+
+taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
+	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	memoryLimitMiB: jsii.Number(1024),
+	linuxParameters: ecs.NewLinuxParameters(this, jsii.String("LinuxParameters"), &linuxParametersProps{
+		initProcessEnabled: jsii.Boolean(true),
+		sharedMemorySize: jsii.Number(1024),
+		maxSwap: awscdk.Size.mebibytes(jsii.Number(5000)),
+		swappiness: jsii.Number(90),
+	}),
+})
+```
 
 ### System controls
 
@@ -462,8 +533,8 @@ taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOption
 	memoryLimitMiB: jsii.Number(1024),
 	systemControls: []systemControl{
 		&systemControl{
-			namespace: jsii.String("net"),
-			value: jsii.String("ipv4.tcp_tw_recycle"),
+			namespace: jsii.String("net.ipv6.conf.all.default.disable_ipv6"),
+			value: jsii.String("1"),
 		},
 	},
 })
@@ -721,6 +792,37 @@ There are two higher-level constructs available which include a load balancer fo
 * `LoadBalancedFargateService`
 * `LoadBalancedEc2Service`
 
+### Import existing services
+
+`Ec2Service` and `FargateService` provide methods to import existing EC2/Fargate services.
+The ARN of the existing service has to be specified to import the service.
+
+Since AWS has changed the [ARN format for ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids),
+feature flag `@aws-cdk/aws-ecs:arnFormatIncludesClusterName` must be enabled to use the new ARN format.
+The feature flag changes behavior for the entire CDK project. Therefore it is not possible to mix the old and the new format in one CDK project.
+
+```tss
+declare const cluster: ecs.Cluster;
+
+// Import service from EC2 service attributes
+const service = ecs.Ec2Service.fromEc2ServiceAttributes(stack, 'EcsService', {
+  serviceArn: 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service',
+  cluster,
+});
+
+// Import service from EC2 service ARN
+const service = ecs.Ec2Service.fromEc2ServiceArn(stack, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
+
+// Import service from Fargate service attributes
+const service = ecs.FargateService.fromFargateServiceAttributes(stack, 'EcsService', {
+  serviceArn: 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service',
+  cluster,
+});
+
+// Import service from Fargate service ARN
+const service = ecs.FargateService.fromFargateServiceArn(stack, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
+```
+
 ## Task Auto-Scaling
 
 You can configure the task count of a service to match demand. Task auto-scaling is
@@ -870,13 +972,16 @@ taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOpt
 ### splunk Log Driver
 
 ```go
+var secret secret
+
+
 // Create a Task Definition for the container to start
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
 taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
 	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
 	memoryLimitMiB: jsii.Number(256),
 	logging: ecs.logDrivers.splunk(&splunkLogDriverProps{
-		token: awscdk.SecretValue.secretsManager(jsii.String("my-splunk-token")),
+		secretToken: secret,
 		url: jsii.String("my-splunk-url"),
 	}),
 })
@@ -1078,11 +1183,25 @@ it in the constructor. Then add the Capacity Provider to the cluster. Finally,
 you can refer to the Provider by its name in your service's or task's Capacity
 Provider strategy.
 
-By default, an Auto Scaling Group Capacity Provider will manage the Auto Scaling
-Group's size for you. It will also enable managed termination protection, in
-order to prevent EC2 Auto Scaling from terminating EC2 instances that have tasks
-running on them. If you want to disable this behavior, set both
-`enableManagedScaling` to and `enableManagedTerminationProtection` to `false`.
+By default, Auto Scaling Group Capacity Providers will manage the scale-in and
+scale-out behavior of the auto scaling group based on the load your tasks put on
+the cluster, this is called [Managed Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling). If you'd
+rather manage scaling behavior yourself set `enableManagedScaling` to `false`.
+
+Additionally [Managed Termination Protection](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-auto-scaling.html#managed-termination-protection) is enabled by default to
+prevent scale-in behavior from terminating instances that have non-daemon tasks
+running on them. This is ideal for tasks that should be ran to completion. If your
+tasks are safe to interrupt then this protection can be disabled by setting
+`enableManagedTerminationProtection` to `false`. Managed Scaling must be enabled for
+Managed Termination Protection to work.
+
+> Currently there is a known [CloudFormation issue](https://github.com/aws/containers-roadmap/issues/631)
+> that prevents CloudFormation from automatically deleting Auto Scaling Groups that
+> have Managed Termination Protection enabled. To work around this issue you could set
+> `enableManagedTerminationProtection` to `false` on the Auto Scaling Group Capacity
+> Provider. If you'd rather not disable Managed Termination Protection, you can [manually
+> delete the Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html).
+> For other workarounds, see [this GitHub issue](https://github.com/aws/aws-cdk/issues/18179).
 
 ```go
 var vpc vpc
@@ -1222,6 +1341,86 @@ cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 			s3KeyPrefix: jsii.String("exec-command-output"),
 		},
 		logging: ecs.executeCommandLogging_OVERRIDE,
+	},
+})
+```
+
+## Amazon ECS Service Connect
+
+Service Connect is a managed AWS mesh network offering. It simplifies DNS queries and inter-service communication for
+ECS Services by allowing customers to set up simple DNS aliases for their services, which are accessible to all
+services that have enabled Service Connect.
+
+To enable Service Connect, you must have created a CloudMap namespace. The CDK can infer your cluster's default CloudMap namespace,
+or you can specify a custom namespace. You must also have created a named port mapping on at least one container in your Task Definition.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var cluster cluster
+var taskDefinition taskDefinition
+var container containerDefinition
+
+
+container.addPortMappings(&portMapping{
+	name: jsii.String("api"),
+	containerPort: jsii.Number(8080),
+})
+
+taskDefinition.addContainer(container)
+
+cluster.addDefaultCloudMapNamespace(&cloudMapNamespaceOptions{
+	name: jsii.String("local"),
+})
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	serviceConnectConfiguration: &serviceConnectProps{
+		services: []serviceConnectService{
+			&serviceConnectService{
+				portMappingName: jsii.String("api"),
+				dnsName: jsii.String("http-api"),
+				port: jsii.Number(80),
+			},
+		},
+	},
+})
+```
+
+Service Connect-enabled services may now reach this service at `http-api:80`. Traffic to this endpoint will
+be routed to the container's port 8080.
+
+To opt a service into using service connect without advertising a port, simply call the 'enableServiceConnect' method on an initialized service.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+})
+service.enableServiceConnect()
+```
+
+Service Connect also allows custom logging, Service Discovery name, and configuration of the port where service connect traffic is received.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &fargateServiceProps{
+	cluster: cluster,
+	taskDefinition: taskDefinition,
+	serviceConnectConfiguration: &serviceConnectProps{
+		logDriver: ecs.logDrivers.awslogs(map[string]*string{
+			"streamPrefix": jsii.String("sc-traffic"),
+		}),
+		services: []serviceConnectService{
+			&serviceConnectService{
+				portMappingName: jsii.String("api"),
+				dnsName: jsii.String("customized-api"),
+				port: jsii.Number(80),
+				ingressPortOverride: jsii.Number(20040),
+				discoveryName: jsii.String("custom"),
+			},
+		},
 	},
 })
 ```

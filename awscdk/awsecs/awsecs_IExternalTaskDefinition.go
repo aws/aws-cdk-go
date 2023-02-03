@@ -2,7 +2,6 @@ package awsecs
 
 
 // The interface of a task definition run on an External cluster.
-// Experimental.
 type IExternalTaskDefinition interface {
 	ITaskDefinition
 }

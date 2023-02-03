@@ -7,33 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
-
-func (p *jsiiProxy_Provider) validateBindParameters(_scope awscdk.Construct) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (p *jsiiProxy_Provider) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (p *jsiiProxy_Provider) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
-	if session == nil {
-		return fmt.Errorf("parameter session is required, but nil was provided")
-	}
-
-	return nil
-}
 
 func validateProvider_IsConstructParameters(x interface{}) error {
 	if x == nil {

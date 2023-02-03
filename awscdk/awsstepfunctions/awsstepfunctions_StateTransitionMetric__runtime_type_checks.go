@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 )
 
 func validateStateTransitionMetric_MetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {

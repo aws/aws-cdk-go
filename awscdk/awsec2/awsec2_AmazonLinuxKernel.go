@@ -4,6 +4,7 @@ package awsec2
 // Amazon Linux Kernel.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //
@@ -47,12 +48,21 @@ package awsec2
 //   	}),
 //   })
 //
-// Experimental.
+//   // Graviton 3 Processor
+//   // Graviton 3 Processor
+//   ec2.NewInstance(this, jsii.String("Instance5"), &instanceProps{
+//   	vpc: vpc,
+//   	instanceType: ec2.*instanceType.of(ec2.instanceClass_C7G, ec2.instanceSize_LARGE),
+//   	machineImage: ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
+//   		generation: ec2.*amazonLinuxGeneration_AMAZON_LINUX_2,
+//   		cpuType: ec2.amazonLinuxCpuType_ARM_64,
+//   	}),
+//   })
+//
 type AmazonLinuxKernel string
 
 const (
 	// Standard edition.
-	// Experimental.
 	AmazonLinuxKernel_KERNEL5_X AmazonLinuxKernel = "KERNEL5_X"
 )
 

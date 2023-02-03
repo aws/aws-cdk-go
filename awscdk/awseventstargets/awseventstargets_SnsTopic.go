@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
 // Use an SNS topic as a target for Amazon EventBridge rules.
@@ -18,15 +18,12 @@ import (
 //   	target: targets.NewSnsTopic(topic),
 //   })
 //
-// Experimental.
 type SnsTopic interface {
 	awsevents.IRuleTarget
-	// Experimental.
 	Topic() awssns.ITopic
 	// Returns a RuleTarget that can be used to trigger this SNS topic as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sns-permissions
 	//
-	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -46,7 +43,6 @@ func (j *jsiiProxy_SnsTopic) Topic() awssns.ITopic {
 }
 
 
-// Experimental.
 func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	_init_.Initialize()
 
@@ -56,7 +52,7 @@ func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	j := jsiiProxy_SnsTopic{}
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.SnsTopic",
+		"aws-cdk-lib.aws_events_targets.SnsTopic",
 		[]interface{}{topic, props},
 		&j,
 	)
@@ -64,12 +60,11 @@ func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	return &j
 }
 
-// Experimental.
 func NewSnsTopic_Override(s SnsTopic, topic awssns.ITopic, props *SnsTopicProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.SnsTopic",
+		"aws-cdk-lib.aws_events_targets.SnsTopic",
 		[]interface{}{topic, props},
 		s,
 	)

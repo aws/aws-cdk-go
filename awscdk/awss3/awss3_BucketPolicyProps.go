@@ -1,13 +1,13 @@
 package awss3
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
@@ -16,16 +16,13 @@ import (
 //   	bucket: bucket,
 //
 //   	// the properties below are optional
-//   	removalPolicy: monocdk.removalPolicy_DESTROY,
+//   	removalPolicy: cdk.removalPolicy_DESTROY,
 //   }
 //
-// Experimental.
 type BucketPolicyProps struct {
 	// The Amazon S3 bucket that the policy applies to.
-	// Experimental.
 	Bucket IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// Policy to apply when the policy is removed from this stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

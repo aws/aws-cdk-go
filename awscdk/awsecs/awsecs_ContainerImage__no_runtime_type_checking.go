@@ -4,7 +4,7 @@ package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_ContainerImage) validateBindParameters(scope awscdk.Construct, containerDefinition ContainerDefinition) error {
+func (c *jsiiProxy_ContainerImage) validateBindParameters(scope constructs.Construct, containerDefinition ContainerDefinition) error {
 	return nil
 }
 

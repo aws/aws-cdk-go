@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnVpcIngressConnection) validateAddDeletionOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnVpcIngressConnection) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVpcIngressConnection) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnVpcIngressConnection) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnVpcIngressConnection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVpcIngressConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVpcIngressConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVpcIngressConnection) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnVpcIngressConnection) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnVpcIngressConnection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnVpcIngressConnection) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -84,7 +88,7 @@ func (j *jsiiProxy_CfnVpcIngressConnection) validateSetServiceArnParameters(val 
 	return nil
 }
 
-func validateNewCfnVpcIngressConnectionParameters(scope awscdk.Construct, id *string, props *CfnVpcIngressConnectionProps) error {
+func validateNewCfnVpcIngressConnectionParameters(scope constructs.Construct, id *string, props *CfnVpcIngressConnectionProps) error {
 	return nil
 }
 

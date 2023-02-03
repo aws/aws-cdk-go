@@ -8,10 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnApp",
+		"aws-cdk-lib.aws_sagemaker.CfnApp",
 		reflect.TypeOf((*CfnApp)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -31,22 +32,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceSpec", GoGetter: "ResourceSpec"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "userProfileName", GoGetter: "UserProfileName"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -57,14 +57,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnApp.ResourceSpecProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnApp.ResourceSpecProperty",
 		reflect.TypeOf((*CfnApp_ResourceSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnAppImageConfig",
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig",
 		reflect.TypeOf((*CfnAppImageConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -83,20 +84,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "kernelGatewayImageConfig", GoGetter: "KernelGatewayImageConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -107,30 +107,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnAppImageConfig.FileSystemConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.FileSystemConfigProperty",
 		reflect.TypeOf((*CfnAppImageConfig_FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnAppImageConfig.KernelGatewayImageConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.KernelGatewayImageConfigProperty",
 		reflect.TypeOf((*CfnAppImageConfig_KernelGatewayImageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnAppImageConfig.KernelSpecProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.KernelSpecProperty",
 		reflect.TypeOf((*CfnAppImageConfig_KernelSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnAppImageConfigProps",
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfigProps",
 		reflect.TypeOf((*CfnAppImageConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnAppProps",
+		"aws-cdk-lib.aws_sagemaker.CfnAppProps",
 		reflect.TypeOf((*CfnAppProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnCodeRepository",
+		"aws-cdk-lib.aws_sagemaker.CfnCodeRepository",
 		reflect.TypeOf((*CfnCodeRepository)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -149,20 +150,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -173,18 +173,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnCodeRepository.GitConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnCodeRepository.GitConfigProperty",
 		reflect.TypeOf((*CfnCodeRepository_GitConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnCodeRepositoryProps",
+		"aws-cdk-lib.aws_sagemaker.CfnCodeRepositoryProps",
 		reflect.TypeOf((*CfnCodeRepositoryProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition",
 		reflect.TypeOf((*CfnDataQualityJobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -210,22 +211,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfig", GoGetter: "NetworkConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stoppingCondition", GoGetter: "StoppingCondition"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -236,86 +236,87 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.BatchTransformInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.BatchTransformInputProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.ConstraintsResourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.ConstraintsResourceProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.CsvProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.CsvProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_CsvProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_DataQualityAppSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.DataQualityBaselineConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.DataQualityBaselineConfigProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_DataQualityBaselineConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.DataQualityJobInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.DataQualityJobInputProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_DataQualityJobInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.DatasetFormatProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.DatasetFormatProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_DatasetFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.EndpointInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.JsonProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.JsonProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringOutputConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringOutputConfigProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_MonitoringOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringOutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringOutputProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_MonitoringOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringResourcesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringResourcesProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_MonitoringResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.NetworkConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.NetworkConfigProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_NetworkConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.S3OutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.S3OutputProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_S3OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.StatisticsResourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.StatisticsResourceProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_StatisticsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.StoppingConditionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.StoppingConditionProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_StoppingConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.VpcConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinition.VpcConfigProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinitionProps",
+		"aws-cdk-lib.aws_sagemaker.CfnDataQualityJobDefinitionProps",
 		reflect.TypeOf((*CfnDataQualityJobDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnDevice",
+		"aws-cdk-lib.aws_sagemaker.CfnDevice",
 		reflect.TypeOf((*CfnDevice)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -333,20 +334,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -357,14 +357,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDevice.DeviceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDevice.DeviceProperty",
 		reflect.TypeOf((*CfnDevice_DeviceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnDeviceFleet",
+		"aws-cdk-lib.aws_sagemaker.CfnDeviceFleet",
 		reflect.TypeOf((*CfnDeviceFleet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -382,22 +383,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "outputConfig", GoGetter: "OutputConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -408,22 +408,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDeviceFleet.EdgeOutputConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDeviceFleet.EdgeOutputConfigProperty",
 		reflect.TypeOf((*CfnDeviceFleet_EdgeOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDeviceFleetProps",
+		"aws-cdk-lib.aws_sagemaker.CfnDeviceFleetProps",
 		reflect.TypeOf((*CfnDeviceFleetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDeviceProps",
+		"aws-cdk-lib.aws_sagemaker.CfnDeviceProps",
 		reflect.TypeOf((*CfnDeviceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnDomain",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain",
 		reflect.TypeOf((*CfnDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -453,21 +454,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
@@ -479,58 +479,59 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.CustomImageProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.CustomImageProperty",
 		reflect.TypeOf((*CfnDomain_CustomImageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.DefaultSpaceSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultSpaceSettingsProperty",
 		reflect.TypeOf((*CfnDomain_DefaultSpaceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.DomainSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.DomainSettingsProperty",
 		reflect.TypeOf((*CfnDomain_DomainSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.JupyterServerAppSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.JupyterServerAppSettingsProperty",
 		reflect.TypeOf((*CfnDomain_JupyterServerAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.KernelGatewayAppSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.KernelGatewayAppSettingsProperty",
 		reflect.TypeOf((*CfnDomain_KernelGatewayAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.RSessionAppSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.RSessionAppSettingsProperty",
 		reflect.TypeOf((*CfnDomain_RSessionAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.RStudioServerProAppSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.RStudioServerProAppSettingsProperty",
 		reflect.TypeOf((*CfnDomain_RStudioServerProAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.RStudioServerProDomainSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.RStudioServerProDomainSettingsProperty",
 		reflect.TypeOf((*CfnDomain_RStudioServerProDomainSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.ResourceSpecProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.ResourceSpecProperty",
 		reflect.TypeOf((*CfnDomain_ResourceSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.SharingSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.SharingSettingsProperty",
 		reflect.TypeOf((*CfnDomain_SharingSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomain.UserSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.UserSettingsProperty",
 		reflect.TypeOf((*CfnDomain_UserSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDomainProps",
+		"aws-cdk-lib.aws_sagemaker.CfnDomainProps",
 		reflect.TypeOf((*CfnDomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnEndpoint",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint",
 		reflect.TypeOf((*CfnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -551,22 +552,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "retainAllVariantProperties", GoGetter: "RetainAllVariantProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "retainDeploymentConfig", GoGetter: "RetainDeploymentConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -577,38 +577,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpoint.AlarmProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.AlarmProperty",
 		reflect.TypeOf((*CfnEndpoint_AlarmProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpoint.AutoRollbackConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.AutoRollbackConfigProperty",
 		reflect.TypeOf((*CfnEndpoint_AutoRollbackConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpoint.BlueGreenUpdatePolicyProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.BlueGreenUpdatePolicyProperty",
 		reflect.TypeOf((*CfnEndpoint_BlueGreenUpdatePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpoint.CapacitySizeProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.CapacitySizeProperty",
 		reflect.TypeOf((*CfnEndpoint_CapacitySizeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpoint.DeploymentConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.DeploymentConfigProperty",
 		reflect.TypeOf((*CfnEndpoint_DeploymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpoint.TrafficRoutingConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.TrafficRoutingConfigProperty",
 		reflect.TypeOf((*CfnEndpoint_TrafficRoutingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpoint.VariantPropertyProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpoint.VariantPropertyProperty",
 		reflect.TypeOf((*CfnEndpoint_VariantPropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnEndpointConfig",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig",
 		reflect.TypeOf((*CfnEndpointConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -630,22 +631,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "productionVariants", GoGetter: "ProductionVariants"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "shadowProductionVariants", GoGetter: "ShadowProductionVariants"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -656,78 +656,79 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.AsyncInferenceClientConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceClientConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceClientConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.AsyncInferenceConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.AsyncInferenceNotificationConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceNotificationConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceNotificationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.AsyncInferenceOutputConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceOutputConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.CaptureContentTypeHeaderProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.CaptureContentTypeHeaderProperty",
 		reflect.TypeOf((*CfnEndpointConfig_CaptureContentTypeHeaderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.CaptureOptionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.CaptureOptionProperty",
 		reflect.TypeOf((*CfnEndpointConfig_CaptureOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ClarifyExplainerConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ClarifyExplainerConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ClarifyExplainerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ClarifyInferenceConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ClarifyInferenceConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ClarifyInferenceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ClarifyShapBaselineConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ClarifyShapBaselineConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ClarifyShapBaselineConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ClarifyShapConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ClarifyShapConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ClarifyShapConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ClarifyTextConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ClarifyTextConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ClarifyTextConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.DataCaptureConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.DataCaptureConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_DataCaptureConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ExplainerConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ExplainerConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ExplainerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ProductionVariantProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ProductionVariantProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ProductionVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfig.ServerlessConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ServerlessConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ServerlessConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointConfigProps",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfigProps",
 		reflect.TypeOf((*CfnEndpointConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnEndpointProps",
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointProps",
 		reflect.TypeOf((*CfnEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnFeatureGroup",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup",
 		reflect.TypeOf((*CfnFeatureGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -747,24 +748,23 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "offlineStoreConfig", GoGetter: "OfflineStoreConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "onlineStoreConfig", GoGetter: "OnlineStoreConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "recordIdentifierFeatureName", GoGetter: "RecordIdentifierFeatureName"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -775,38 +775,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnFeatureGroup.DataCatalogConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup.DataCatalogConfigProperty",
 		reflect.TypeOf((*CfnFeatureGroup_DataCatalogConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnFeatureGroup.FeatureDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup.FeatureDefinitionProperty",
 		reflect.TypeOf((*CfnFeatureGroup_FeatureDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnFeatureGroup.OfflineStoreConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup.OfflineStoreConfigProperty",
 		reflect.TypeOf((*CfnFeatureGroup_OfflineStoreConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnFeatureGroup.OnlineStoreConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup.OnlineStoreConfigProperty",
 		reflect.TypeOf((*CfnFeatureGroup_OnlineStoreConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnFeatureGroup.OnlineStoreSecurityConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup.OnlineStoreSecurityConfigProperty",
 		reflect.TypeOf((*CfnFeatureGroup_OnlineStoreSecurityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnFeatureGroup.S3StorageConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup.S3StorageConfigProperty",
 		reflect.TypeOf((*CfnFeatureGroup_S3StorageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnFeatureGroupProps",
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroupProps",
 		reflect.TypeOf((*CfnFeatureGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnImage",
+		"aws-cdk-lib.aws_sagemaker.CfnImage",
 		reflect.TypeOf((*CfnImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -827,20 +828,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -851,14 +851,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnImageProps",
+		"aws-cdk-lib.aws_sagemaker.CfnImageProps",
 		reflect.TypeOf((*CfnImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnImageVersion",
+		"aws-cdk-lib.aws_sagemaker.CfnImageVersion",
 		reflect.TypeOf((*CfnImageVersion)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -880,19 +881,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -903,14 +903,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnImageVersionProps",
+		"aws-cdk-lib.aws_sagemaker.CfnImageVersionProps",
 		reflect.TypeOf((*CfnImageVersionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnModel",
+		"aws-cdk-lib.aws_sagemaker.CfnModel",
 		reflect.TypeOf((*CfnModel)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -932,21 +933,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "modelName", GoGetter: "ModelName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "primaryContainer", GoGetter: "PrimaryContainer"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConfig", GoGetter: "VpcConfig"},
 		},
@@ -958,34 +958,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModel.ContainerDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModel.ContainerDefinitionProperty",
 		reflect.TypeOf((*CfnModel_ContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModel.ImageConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModel.ImageConfigProperty",
 		reflect.TypeOf((*CfnModel_ImageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModel.InferenceExecutionConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModel.InferenceExecutionConfigProperty",
 		reflect.TypeOf((*CfnModel_InferenceExecutionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModel.MultiModelConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModel.MultiModelConfigProperty",
 		reflect.TypeOf((*CfnModel_MultiModelConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModel.RepositoryAuthConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModel.RepositoryAuthConfigProperty",
 		reflect.TypeOf((*CfnModel_RepositoryAuthConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModel.VpcConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModel.VpcConfigProperty",
 		reflect.TypeOf((*CfnModel_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition",
 		reflect.TypeOf((*CfnModelBiasJobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1011,22 +1012,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "modelBiasJobOutputConfig", GoGetter: "ModelBiasJobOutputConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfig", GoGetter: "NetworkConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stoppingCondition", GoGetter: "StoppingCondition"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1037,86 +1037,87 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.BatchTransformInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.BatchTransformInputProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ClusterConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ConstraintsResourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.ConstraintsResourceProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.CsvProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.CsvProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_CsvProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.DatasetFormatProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.DatasetFormatProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_DatasetFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.EndpointInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.JsonProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.JsonProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasBaselineConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasBaselineConfigProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasJobInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasJobInputProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ModelBiasJobInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_MonitoringGroundTruthS3InputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringOutputConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringOutputConfigProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_MonitoringOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringOutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringOutputProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_MonitoringOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringResourcesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.MonitoringResourcesProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_MonitoringResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.NetworkConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.NetworkConfigProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_NetworkConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.S3OutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.S3OutputProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_S3OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.StoppingConditionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.StoppingConditionProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_StoppingConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.VpcConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinition.VpcConfigProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinitionProps",
+		"aws-cdk-lib.aws_sagemaker.CfnModelBiasJobDefinitionProps",
 		reflect.TypeOf((*CfnModelBiasJobDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1142,22 +1143,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "modelExplainabilityJobOutputConfig", GoGetter: "ModelExplainabilityJobOutputConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfig", GoGetter: "NetworkConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stoppingCondition", GoGetter: "StoppingCondition"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1168,82 +1168,83 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.BatchTransformInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.BatchTransformInputProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ClusterConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ConstraintsResourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.ConstraintsResourceProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.CsvProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.CsvProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_CsvProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.DatasetFormatProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.DatasetFormatProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_DatasetFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.EndpointInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.JsonProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.JsonProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfigProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_MonitoringOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.MonitoringResourcesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.MonitoringResourcesProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_MonitoringResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.NetworkConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.NetworkConfigProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_NetworkConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.S3OutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.S3OutputProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_S3OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.StoppingConditionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.StoppingConditionProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_StoppingConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.VpcConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinition.VpcConfigProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinitionProps",
+		"aws-cdk-lib.aws_sagemaker.CfnModelExplainabilityJobDefinitionProps",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnModelPackage",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage",
 		reflect.TypeOf((*CfnModelPackage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberProperty{JsiiProperty: "additionalInferenceSpecificationDefinition", GoGetter: "AdditionalInferenceSpecificationDefinition"},
 			_jsii_.MemberProperty{JsiiProperty: "additionalInferenceSpecifications", GoGetter: "AdditionalInferenceSpecifications"},
@@ -1285,23 +1286,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "modelPackageStatusItem", GoGetter: "ModelPackageStatusItem"},
 			_jsii_.MemberProperty{JsiiProperty: "modelPackageVersion", GoGetter: "ModelPackageVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "samplePayloadUrl", GoGetter: "SamplePayloadUrl"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceAlgorithmSpecification", GoGetter: "SourceAlgorithmSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "task", GoGetter: "Task"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "validationSpecification", GoGetter: "ValidationSpecification"},
 		},
@@ -1313,130 +1313,131 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.AdditionalInferenceSpecificationDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.AdditionalInferenceSpecificationDefinitionProperty",
 		reflect.TypeOf((*CfnModelPackage_AdditionalInferenceSpecificationDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.BiasProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.BiasProperty",
 		reflect.TypeOf((*CfnModelPackage_BiasProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.DataSourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.DataSourceProperty",
 		reflect.TypeOf((*CfnModelPackage_DataSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.DriftCheckBaselinesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.DriftCheckBaselinesProperty",
 		reflect.TypeOf((*CfnModelPackage_DriftCheckBaselinesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.DriftCheckBiasProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.DriftCheckBiasProperty",
 		reflect.TypeOf((*CfnModelPackage_DriftCheckBiasProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.DriftCheckExplainabilityProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.DriftCheckExplainabilityProperty",
 		reflect.TypeOf((*CfnModelPackage_DriftCheckExplainabilityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.DriftCheckModelDataQualityProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.DriftCheckModelDataQualityProperty",
 		reflect.TypeOf((*CfnModelPackage_DriftCheckModelDataQualityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.DriftCheckModelQualityProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.DriftCheckModelQualityProperty",
 		reflect.TypeOf((*CfnModelPackage_DriftCheckModelQualityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ExplainabilityProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ExplainabilityProperty",
 		reflect.TypeOf((*CfnModelPackage_ExplainabilityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.FileSourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.FileSourceProperty",
 		reflect.TypeOf((*CfnModelPackage_FileSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.InferenceSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.InferenceSpecificationProperty",
 		reflect.TypeOf((*CfnModelPackage_InferenceSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.MetadataPropertiesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.MetadataPropertiesProperty",
 		reflect.TypeOf((*CfnModelPackage_MetadataPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.MetricsSourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.MetricsSourceProperty",
 		reflect.TypeOf((*CfnModelPackage_MetricsSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ModelDataQualityProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelDataQualityProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelDataQualityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ModelInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelInputProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ModelMetricsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelMetricsProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelMetricsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ModelPackageContainerDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelPackageContainerDefinitionProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelPackageContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ModelPackageStatusDetailsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelPackageStatusDetailsProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelPackageStatusDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ModelPackageStatusItemProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelPackageStatusItemProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelPackageStatusItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ModelQualityProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelQualityProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelQualityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.S3DataSourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.S3DataSourceProperty",
 		reflect.TypeOf((*CfnModelPackage_S3DataSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.SourceAlgorithmProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.SourceAlgorithmProperty",
 		reflect.TypeOf((*CfnModelPackage_SourceAlgorithmProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.SourceAlgorithmSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.SourceAlgorithmSpecificationProperty",
 		reflect.TypeOf((*CfnModelPackage_SourceAlgorithmSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.TransformInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.TransformInputProperty",
 		reflect.TypeOf((*CfnModelPackage_TransformInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.TransformJobDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.TransformJobDefinitionProperty",
 		reflect.TypeOf((*CfnModelPackage_TransformJobDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.TransformOutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.TransformOutputProperty",
 		reflect.TypeOf((*CfnModelPackage_TransformOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.TransformResourcesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.TransformResourcesProperty",
 		reflect.TypeOf((*CfnModelPackage_TransformResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.UserContextProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.UserContextProperty",
 		reflect.TypeOf((*CfnModelPackage_UserContextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ValidationProfileProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ValidationProfileProperty",
 		reflect.TypeOf((*CfnModelPackage_ValidationProfileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackage.ValidationSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ValidationSpecificationProperty",
 		reflect.TypeOf((*CfnModelPackage_ValidationSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnModelPackageGroup",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackageGroup",
 		reflect.TypeOf((*CfnModelPackageGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1458,20 +1459,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "modelPackageGroupName", GoGetter: "ModelPackageGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "modelPackageGroupPolicy", GoGetter: "ModelPackageGroupPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1482,22 +1482,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackageGroupProps",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackageGroupProps",
 		reflect.TypeOf((*CfnModelPackageGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelPackageProps",
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackageProps",
 		reflect.TypeOf((*CfnModelPackageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelProps",
+		"aws-cdk-lib.aws_sagemaker.CfnModelProps",
 		reflect.TypeOf((*CfnModelProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition",
 		reflect.TypeOf((*CfnModelQualityJobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1523,22 +1524,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "modelQualityJobOutputConfig", GoGetter: "ModelQualityJobOutputConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfig", GoGetter: "NetworkConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stoppingCondition", GoGetter: "StoppingCondition"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1549,86 +1549,87 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.BatchTransformInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.BatchTransformInputProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_BatchTransformInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ClusterConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.ClusterConfigProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ClusterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ConstraintsResourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.ConstraintsResourceProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.CsvProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.CsvProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_CsvProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.DatasetFormatProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.DatasetFormatProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_DatasetFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.EndpointInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.JsonProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.JsonProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityBaselineConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityBaselineConfigProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityJobInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityJobInputProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ModelQualityJobInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_MonitoringGroundTruthS3InputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringOutputConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringOutputConfigProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_MonitoringOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringOutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringOutputProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_MonitoringOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringResourcesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.MonitoringResourcesProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_MonitoringResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.NetworkConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.NetworkConfigProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_NetworkConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.S3OutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.S3OutputProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_S3OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.StoppingConditionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.StoppingConditionProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_StoppingConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.VpcConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinition.VpcConfigProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinitionProps",
+		"aws-cdk-lib.aws_sagemaker.CfnModelQualityJobDefinitionProps",
 		reflect.TypeOf((*CfnModelQualityJobDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule",
 		reflect.TypeOf((*CfnMonitoringSchedule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1653,20 +1654,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "monitoringScheduleName", GoGetter: "MonitoringScheduleName"},
 			_jsii_.MemberProperty{JsiiProperty: "monitoringScheduleStatus", GoGetter: "MonitoringScheduleStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1677,103 +1677,104 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.BaselineConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.BaselineConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_BaselineConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.BatchTransformInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.BatchTransformInputProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_BatchTransformInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.ClusterConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.ClusterConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_ClusterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.ConstraintsResourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.ConstraintsResourceProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_ConstraintsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.CsvProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.CsvProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_CsvProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.DatasetFormatProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.DatasetFormatProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_DatasetFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.EndpointInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.EndpointInputProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.JsonProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.JsonProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_JsonProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringAppSpecificationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringAppSpecificationProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringAppSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringExecutionSummaryProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringExecutionSummaryProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringExecutionSummaryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringInputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringInputProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringJobDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringJobDefinitionProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringJobDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringOutputConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringOutputConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringOutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringOutputProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringResourcesProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringResourcesProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringScheduleConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.MonitoringScheduleConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_MonitoringScheduleConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.NetworkConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.NetworkConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_NetworkConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.S3OutputProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.S3OutputProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_S3OutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.ScheduleConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.ScheduleConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_ScheduleConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.StatisticsResourceProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.StatisticsResourceProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_StatisticsResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.StoppingConditionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.StoppingConditionProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_StoppingConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.VpcConfigProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringSchedule.VpcConfigProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringScheduleProps",
+		"aws-cdk-lib.aws_sagemaker.CfnMonitoringScheduleProps",
 		reflect.TypeOf((*CfnMonitoringScheduleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnNotebookInstance",
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstance",
 		reflect.TypeOf((*CfnNotebookInstance)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "acceleratorTypes", GoGetter: "AcceleratorTypes"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberProperty{JsiiProperty: "additionalCodeRepositories", GoGetter: "AdditionalCodeRepositories"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
@@ -1798,25 +1799,24 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notebookInstanceName", GoGetter: "NotebookInstanceName"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "platformIdentifier", GoGetter: "PlatformIdentifier"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "rootAccess", GoGetter: "RootAccess"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupIds", GoGetter: "SecurityGroupIds"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "volumeSizeInGb", GoGetter: "VolumeSizeInGb"},
 		},
@@ -1828,14 +1828,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnNotebookInstance.InstanceMetadataServiceConfigurationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstance.InstanceMetadataServiceConfigurationProperty",
 		reflect.TypeOf((*CfnNotebookInstance_InstanceMetadataServiceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnNotebookInstanceLifecycleConfig",
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceLifecycleConfig",
 		reflect.TypeOf((*CfnNotebookInstanceLifecycleConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1853,21 +1854,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notebookInstanceLifecycleConfigName", GoGetter: "NotebookInstanceLifecycleConfigName"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "onCreate", GoGetter: "OnCreate"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
 			_jsii_.MemberProperty{JsiiProperty: "onStart", GoGetter: "OnStart"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1878,22 +1878,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnNotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHookProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHookProperty",
 		reflect.TypeOf((*CfnNotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHookProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnNotebookInstanceLifecycleConfigProps",
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceLifecycleConfigProps",
 		reflect.TypeOf((*CfnNotebookInstanceLifecycleConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnNotebookInstanceProps",
+		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceProps",
 		reflect.TypeOf((*CfnNotebookInstanceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnPipeline",
+		"aws-cdk-lib.aws_sagemaker.CfnPipeline",
 		reflect.TypeOf((*CfnPipeline)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1909,26 +1910,25 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parallelismConfiguration", GoGetter: "ParallelismConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineDefinition", GoGetter: "PipelineDefinition"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineDescription", GoGetter: "PipelineDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineDisplayName", GoGetter: "PipelineDisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineName", GoGetter: "PipelineName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -1939,26 +1939,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnPipeline.ParallelismConfigurationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnPipeline.ParallelismConfigurationProperty",
 		reflect.TypeOf((*CfnPipeline_ParallelismConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnPipeline.PipelineDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnPipeline.PipelineDefinitionProperty",
 		reflect.TypeOf((*CfnPipeline_PipelineDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnPipeline.S3LocationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnPipeline.S3LocationProperty",
 		reflect.TypeOf((*CfnPipeline_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnPipelineProps",
+		"aws-cdk-lib.aws_sagemaker.CfnPipelineProps",
 		reflect.TypeOf((*CfnPipelineProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnProject",
+		"aws-cdk-lib.aws_sagemaker.CfnProject",
 		reflect.TypeOf((*CfnProject)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -1980,23 +1981,22 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "projectDescription", GoGetter: "ProjectDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceCatalogProvisioningDetails", GoGetter: "ServiceCatalogProvisioningDetails"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2007,26 +2007,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnProject.ProvisioningParameterProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnProject.ProvisioningParameterProperty",
 		reflect.TypeOf((*CfnProject_ProvisioningParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnProject.ServiceCatalogProvisionedProductDetailsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnProject.ServiceCatalogProvisionedProductDetailsProperty",
 		reflect.TypeOf((*CfnProject_ServiceCatalogProvisionedProductDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnProject.ServiceCatalogProvisioningDetailsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnProject.ServiceCatalogProvisioningDetailsProperty",
 		reflect.TypeOf((*CfnProject_ServiceCatalogProvisioningDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnProjectProps",
+		"aws-cdk-lib.aws_sagemaker.CfnProjectProps",
 		reflect.TypeOf((*CfnProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnUserProfile",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile",
 		reflect.TypeOf((*CfnUserProfile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -2044,24 +2045,23 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "singleSignOnUserIdentifier", GoGetter: "SingleSignOnUserIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "singleSignOnUserValue", GoGetter: "SingleSignOnUserValue"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "userProfileName", GoGetter: "UserProfileName"},
 			_jsii_.MemberProperty{JsiiProperty: "userSettings", GoGetter: "UserSettings"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -2072,42 +2072,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfile.CustomImageProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.CustomImageProperty",
 		reflect.TypeOf((*CfnUserProfile_CustomImageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfile.JupyterServerAppSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.JupyterServerAppSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_JupyterServerAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfile.KernelGatewayAppSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.KernelGatewayAppSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_KernelGatewayAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfile.RStudioServerProAppSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.RStudioServerProAppSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_RStudioServerProAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfile.ResourceSpecProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.ResourceSpecProperty",
 		reflect.TypeOf((*CfnUserProfile_ResourceSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfile.SharingSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.SharingSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_SharingSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfile.UserSettingsProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.UserSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_UserSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnUserProfileProps",
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfileProps",
 		reflect.TypeOf((*CfnUserProfileProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_sagemaker.CfnWorkteam",
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteam",
 		reflect.TypeOf((*CfnWorkteam)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -2127,20 +2128,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "memberDefinitions", GoGetter: "MemberDefinitions"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationConfiguration", GoGetter: "NotificationConfiguration"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "workforceName", GoGetter: "WorkforceName"},
 			_jsii_.MemberProperty{JsiiProperty: "workteamName", GoGetter: "WorkteamName"},
@@ -2153,23 +2153,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnWorkteam.CognitoMemberDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteam.CognitoMemberDefinitionProperty",
 		reflect.TypeOf((*CfnWorkteam_CognitoMemberDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnWorkteam.MemberDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteam.MemberDefinitionProperty",
 		reflect.TypeOf((*CfnWorkteam_MemberDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnWorkteam.NotificationConfigurationProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteam.NotificationConfigurationProperty",
 		reflect.TypeOf((*CfnWorkteam_NotificationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnWorkteam.OidcMemberDefinitionProperty",
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteam.OidcMemberDefinitionProperty",
 		reflect.TypeOf((*CfnWorkteam_OidcMemberDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnWorkteamProps",
+		"aws-cdk-lib.aws_sagemaker.CfnWorkteamProps",
 		reflect.TypeOf((*CfnWorkteamProps)(nil)).Elem(),
 	)
 }

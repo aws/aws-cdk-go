@@ -8,6 +8,10 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateAddDeletionOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -44,11 +48,11 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateInspectParameters(inspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -56,7 +60,7 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateRenderPropertiesParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
 	return nil
 }
 
@@ -80,7 +84,7 @@ func (j *jsiiProxy_CfnEgressOnlyInternetGateway) validateSetVpcIdParameters(val 
 	return nil
 }
 
-func validateNewCfnEgressOnlyInternetGatewayParameters(scope awscdk.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) error {
+func validateNewCfnEgressOnlyInternetGatewayParameters(scope constructs.Construct, id *string, props *CfnEgressOnlyInternetGatewayProps) error {
 	return nil
 }
 

@@ -1,11 +1,15 @@
 //go:build no_runtime_type_checking
 
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
 func (c *jsiiProxy_CfnResource) validateAddDeletionOverrideParameters(path *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResource) validateAddDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -41,11 +45,11 @@ func (c *jsiiProxy_CfnResource) validateGetMetadataParameters(key *string) error
 	return nil
 }
 
-func (c *jsiiProxy_CfnResource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+func (c *jsiiProxy_CfnResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnResource) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnResource) validateRemoveDependencyParameters(target CfnResource) error {
 	return nil
 }
 
@@ -53,7 +57,7 @@ func (c *jsiiProxy_CfnResource) validateRenderPropertiesParameters(props *map[st
 	return nil
 }
 
-func (c *jsiiProxy_CfnResource) validateSynthesizeParameters(session ISynthesisSession) error {
+func (c *jsiiProxy_CfnResource) validateReplaceDependencyParameters(target CfnResource, newTarget CfnResource) error {
 	return nil
 }
 
