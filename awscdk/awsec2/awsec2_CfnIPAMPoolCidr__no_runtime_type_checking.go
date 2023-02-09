@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnIPAMPoolCidr) validateAddDeletionOverrideParameters(path *
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMPoolCidr) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnIPAMPoolCidr) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnIPAMPoolCidr) validateInspectParameters(inspector awscdk.T
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMPoolCidr) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnIPAMPoolCidr) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMPoolCidr) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnIPAMPoolCidr) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnIPAMPoolCidr) validateRenderPropertiesParameters(props *ma
 	return nil
 }
 
-func (c *jsiiProxy_CfnIPAMPoolCidr) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnIPAMPoolCidr) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnIPAMPoolCidr) validateSetIpamPoolIdParameters(val *string)
 	return nil
 }
 
-func validateNewCfnIPAMPoolCidrParameters(scope constructs.Construct, id *string, props *CfnIPAMPoolCidrProps) error {
+func validateNewCfnIPAMPoolCidrParameters(scope awscdk.Construct, id *string, props *CfnIPAMPoolCidrProps) error {
 	return nil
 }
 

@@ -22,14 +22,18 @@ package awsec2
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
+// Experimental.
 type AmazonLinuxStorage string
 
 const (
 	// EBS-backed storage.
+	// Experimental.
 	AmazonLinuxStorage_EBS AmazonLinuxStorage = "EBS"
 	// S3-backed storage.
+	// Experimental.
 	AmazonLinuxStorage_S3 AmazonLinuxStorage = "S3"
 	// General Purpose-based storage (recommended).
+	// Experimental.
 	AmazonLinuxStorage_GENERAL_PURPOSE AmazonLinuxStorage = "GENERAL_PURPOSE"
 )
 

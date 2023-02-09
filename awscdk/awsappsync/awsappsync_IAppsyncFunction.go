@@ -3,16 +3,19 @@ package awsappsync
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsappsync/internal"
 )
 
 // Interface for AppSync Functions.
+// Experimental.
 type IAppsyncFunction interface {
 	awscdk.IResource
 	// the ARN of the AppSync function.
+	// Experimental.
 	FunctionArn() *string
 	// the name of this AppSync Function.
+	// Experimental.
 	FunctionId() *string
 }
 

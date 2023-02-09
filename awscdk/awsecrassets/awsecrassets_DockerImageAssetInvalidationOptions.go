@@ -17,22 +17,28 @@ package awsecrassets
 //   	},
 //   })
 //
+// Experimental.
 type DockerImageAssetInvalidationOptions struct {
 	// Use `buildArgs` while calculating the asset hash.
+	// Experimental.
 	BuildArgs *bool `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Use `extraHash` while calculating the asset hash.
+	// Experimental.
 	ExtraHash *bool `field:"optional" json:"extraHash" yaml:"extraHash"`
 	// Use `file` while calculating the asset hash.
+	// Experimental.
 	File *bool `field:"optional" json:"file" yaml:"file"`
 	// Use `networkMode` while calculating the asset hash.
+	// Experimental.
 	NetworkMode *bool `field:"optional" json:"networkMode" yaml:"networkMode"`
-	// Use `outputs` while calculating the asset hash.
-	Outputs *bool `field:"optional" json:"outputs" yaml:"outputs"`
 	// Use `platform` while calculating the asset hash.
+	// Experimental.
 	Platform *bool `field:"optional" json:"platform" yaml:"platform"`
 	// Use `repositoryName` while calculating the asset hash.
+	// Experimental.
 	RepositoryName *bool `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Use `target` while calculating the asset hash.
+	// Experimental.
 	Target *bool `field:"optional" json:"target" yaml:"target"`
 }
 

@@ -39,30 +39,37 @@ package awsec2
 //   	service: ec2.interfaceVpcEndpointAwsService_ECR_DOCKER(),
 //   })
 //
+// Experimental.
 type InterfaceVpcEndpointOptions struct {
 	// The service to use for this interface VPC endpoint.
+	// Experimental.
 	Service IInterfaceVpcEndpointService `field:"required" json:"service" yaml:"service"`
 	// Limit to only those availability zones where the endpoint service can be created.
 	//
 	// Setting this to 'true' requires a lookup to be performed at synthesis time. Account
 	// and region must be set on the containing stack for this to work.
+	// Experimental.
 	LookupSupportedAzs *bool `field:"optional" json:"lookupSupportedAzs" yaml:"lookupSupportedAzs"`
 	// Whether to automatically allow VPC traffic to the endpoint.
 	//
 	// If enabled, all traffic to the endpoint from within the VPC will be
 	// automatically allowed. This is done based on the VPC's CIDR range.
+	// Experimental.
 	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// Whether to associate a private hosted zone with the specified VPC.
 	//
 	// This
 	// allows you to make requests to the service using its default DNS hostname.
+	// Experimental.
 	PrivateDnsEnabled *bool `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
 	// The security groups to associate with this interface VPC endpoint.
+	// Experimental.
 	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The subnets in which to create an endpoint network interface.
 	//
 	// At most one
 	// per availability zone.
+	// Experimental.
 	Subnets *SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

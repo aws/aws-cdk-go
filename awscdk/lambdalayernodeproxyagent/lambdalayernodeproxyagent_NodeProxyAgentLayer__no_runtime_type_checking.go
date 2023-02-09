@@ -20,6 +20,14 @@ func (n *jsiiProxy_NodeProxyAgentLayer) validateGetResourceNameAttributeParamete
 	return nil
 }
 
+func (n *jsiiProxy_NodeProxyAgentLayer) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (n *jsiiProxy_NodeProxyAgentLayer) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateNodeProxyAgentLayer_FromLayerVersionArnParameters(scope constructs.Construct, id *string, layerVersionArn *string) error {
 	return nil
 }
@@ -32,11 +40,7 @@ func validateNodeProxyAgentLayer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNodeProxyAgentLayer_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	return nil
-}
-
-func validateNodeProxyAgentLayer_IsResourceParameters(construct constructs.IConstruct) error {
+func validateNodeProxyAgentLayer_IsResourceParameters(construct awscdk.IConstruct) error {
 	return nil
 }
 

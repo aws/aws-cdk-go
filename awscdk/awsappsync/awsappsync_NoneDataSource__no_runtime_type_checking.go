@@ -4,11 +4,19 @@ package awsappsync
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (n *jsiiProxy_NoneDataSource) validateCreateFunctionParameters(id *string, props *BaseAppsyncFunctionProps) error {
+func (n *jsiiProxy_NoneDataSource) validateCreateFunctionParameters(props *BaseAppsyncFunctionProps) error {
 	return nil
 }
 
-func (n *jsiiProxy_NoneDataSource) validateCreateResolverParameters(id *string, props *BaseResolverProps) error {
+func (n *jsiiProxy_NoneDataSource) validateCreateResolverParameters(props *BaseResolverProps) error {
+	return nil
+}
+
+func (n *jsiiProxy_NoneDataSource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (n *jsiiProxy_NoneDataSource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 

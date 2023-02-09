@@ -12,11 +12,15 @@ func (p *jsiiProxy_PipelineBase) validateAddWaveParameters(id *string, options *
 	return nil
 }
 
-func validatePipelineBase_IsConstructParameters(x interface{}) error {
+func (p *jsiiProxy_PipelineBase) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func validatePipelineBase_IsPipelineParameters(x interface{}) error {
+func (p *jsiiProxy_PipelineBase) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
+func validatePipelineBase_IsConstructParameters(x interface{}) error {
 	return nil
 }
 

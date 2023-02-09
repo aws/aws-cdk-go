@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnStackFleetAssociation) validateAddDeletionOverrideParamete
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackFleetAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnStackFleetAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnStackFleetAssociation) validateInspectParameters(inspector
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackFleetAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnStackFleetAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackFleetAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnStackFleetAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnStackFleetAssociation) validateRenderPropertiesParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnStackFleetAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnStackFleetAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnStackFleetAssociation) validateSetStackNameParameters(val 
 	return nil
 }
 
-func validateNewCfnStackFleetAssociationParameters(scope constructs.Construct, id *string, props *CfnStackFleetAssociationProps) error {
+func validateNewCfnStackFleetAssociationParameters(scope awscdk.Construct, id *string, props *CfnStackFleetAssociationProps) error {
 	return nil
 }
 

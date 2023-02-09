@@ -15,10 +15,13 @@ package cloudassemblyschema
 //   	displayName: jsii.String("displayName"),
 //   }
 //
+// Experimental.
 type NestedCloudAssemblyProperties struct {
 	// Relative path to the nested cloud assembly.
+	// Experimental.
 	DirectoryName *string `field:"required" json:"directoryName" yaml:"directoryName"`
 	// Display name for the cloud assembly.
+	// Experimental.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 }
 

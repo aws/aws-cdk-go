@@ -1,7 +1,7 @@
 package awsappmesh
 
 
-// A wrapper for the tls config returned by `TlsCertificate.bind`.
+// A wrapper for the tls config returned by {@link TlsCertificate.bind}.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,8 +23,10 @@ package awsappmesh
 //   	},
 //   }
 //
+// Experimental.
 type TlsCertificateConfig struct {
 	// The CFN shape for a TLS certificate.
+	// Experimental.
 	TlsCertificate *CfnVirtualNode_ListenerTlsCertificateProperty `field:"required" json:"tlsCertificate" yaml:"tlsCertificate"`
 }
 

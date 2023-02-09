@@ -5,8 +5,10 @@ import (
 )
 
 // Topic subscription.
+// Experimental.
 type ITopicSubscription interface {
 	// Returns a configuration used to subscribe to an SNS topic.
+	// Experimental.
 	Bind(topic ITopic) *TopicSubscriptionConfig
 }
 

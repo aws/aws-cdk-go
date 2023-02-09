@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnVPCGatewayAttachment) validateAddDeletionOverrideParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCGatewayAttachment) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVPCGatewayAttachment) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnVPCGatewayAttachment) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCGatewayAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVPCGatewayAttachment) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCGatewayAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPCGatewayAttachment) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnVPCGatewayAttachment) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCGatewayAttachment) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPCGatewayAttachment) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -84,7 +80,7 @@ func (j *jsiiProxy_CfnVPCGatewayAttachment) validateSetVpcIdParameters(val *stri
 	return nil
 }
 
-func validateNewCfnVPCGatewayAttachmentParameters(scope constructs.Construct, id *string, props *CfnVPCGatewayAttachmentProps) error {
+func validateNewCfnVPCGatewayAttachmentParameters(scope awscdk.Construct, id *string, props *CfnVPCGatewayAttachmentProps) error {
 	return nil
 }
 

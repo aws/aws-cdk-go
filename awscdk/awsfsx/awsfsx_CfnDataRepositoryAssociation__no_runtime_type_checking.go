@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnDataRepositoryAssociation) validateAddDeletionOverridePara
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataRepositoryAssociation) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnDataRepositoryAssociation) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnDataRepositoryAssociation) validateInspectParameters(inspe
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataRepositoryAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnDataRepositoryAssociation) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataRepositoryAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDataRepositoryAssociation) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnDataRepositoryAssociation) validateRenderPropertiesParamet
 	return nil
 }
 
-func (c *jsiiProxy_CfnDataRepositoryAssociation) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnDataRepositoryAssociation) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnDataRepositoryAssociation) validateSetS3Parameters(val int
 	return nil
 }
 
-func validateNewCfnDataRepositoryAssociationParameters(scope constructs.Construct, id *string, props *CfnDataRepositoryAssociationProps) error {
+func validateNewCfnDataRepositoryAssociationParameters(scope awscdk.Construct, id *string, props *CfnDataRepositoryAssociationProps) error {
 	return nil
 }
 

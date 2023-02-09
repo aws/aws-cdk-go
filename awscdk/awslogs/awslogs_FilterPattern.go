@@ -1,18 +1,27 @@
 package awslogs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // A collection of static methods to generate appropriate ILogPatterns.
 //
 // Example:
-//   // Search for all events where the component field is equal to
-//   // "HttpServer" and either error is true or the latency is higher
-//   // than 1000.
-//   pattern := logs.filterPattern.all(logs.filterPattern.stringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.filterPattern.any(logs.filterPattern.booleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.filterPattern.numberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
+//   // Search for lines that contain both "ERROR" and "MainThread"
+//   pattern1 := logs.filterPattern.allTerms(jsii.String("ERROR"), jsii.String("MainThread"))
 //
+//   // Search for lines that either contain both "ERROR" and "MainThread", or
+//   // both "WARN" and "Deadlock".
+//   pattern2 := logs.filterPattern.anyTermGroup([]*string{
+//   	jsii.String("ERROR"),
+//   	jsii.String("MainThread"),
+//   }, []*string{
+//   	jsii.String("WARN"),
+//   	jsii.String("Deadlock"),
+//   })
+//
+// Experimental.
 type FilterPattern interface {
 }
 
@@ -21,13 +30,14 @@ type jsiiProxy_FilterPattern struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewFilterPattern() FilterPattern {
 	_init_.Initialize()
 
 	j := jsiiProxy_FilterPattern{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		nil, // no parameters
 		&j,
 	)
@@ -35,17 +45,19 @@ func NewFilterPattern() FilterPattern {
 	return &j
 }
 
+// Experimental.
 func NewFilterPattern_Override(f FilterPattern) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		nil, // no parameters
 		f,
 	)
 }
 
 // A JSON log pattern that matches if all given JSON log patterns match.
+// Experimental.
 func FilterPattern_All(patterns ...JsonPattern) JsonPattern {
 	_init_.Initialize()
 
@@ -57,7 +69,7 @@ func FilterPattern_All(patterns ...JsonPattern) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"all",
 		args,
 		&returns,
@@ -67,13 +79,14 @@ func FilterPattern_All(patterns ...JsonPattern) JsonPattern {
 }
 
 // A log pattern that matches all events.
+// Experimental.
 func FilterPattern_AllEvents() IFilterPattern {
 	_init_.Initialize()
 
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"allEvents",
 		nil, // no parameters
 		&returns,
@@ -83,6 +96,7 @@ func FilterPattern_AllEvents() IFilterPattern {
 }
 
 // A log pattern that matches if all the strings given appear in the event.
+// Experimental.
 func FilterPattern_AllTerms(terms ...*string) IFilterPattern {
 	_init_.Initialize()
 
@@ -94,7 +108,7 @@ func FilterPattern_AllTerms(terms ...*string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"allTerms",
 		args,
 		&returns,
@@ -104,6 +118,7 @@ func FilterPattern_AllTerms(terms ...*string) IFilterPattern {
 }
 
 // A JSON log pattern that matches if any of the given JSON log patterns match.
+// Experimental.
 func FilterPattern_Any(patterns ...JsonPattern) JsonPattern {
 	_init_.Initialize()
 
@@ -115,7 +130,7 @@ func FilterPattern_Any(patterns ...JsonPattern) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"any",
 		args,
 		&returns,
@@ -125,6 +140,7 @@ func FilterPattern_Any(patterns ...JsonPattern) JsonPattern {
 }
 
 // A log pattern that matches if any of the strings given appear in the event.
+// Experimental.
 func FilterPattern_AnyTerm(terms ...*string) IFilterPattern {
 	_init_.Initialize()
 
@@ -136,7 +152,7 @@ func FilterPattern_AnyTerm(terms ...*string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"anyTerm",
 		args,
 		&returns,
@@ -148,6 +164,7 @@ func FilterPattern_AnyTerm(terms ...*string) IFilterPattern {
 // A log pattern that matches if any of the given term groups matches the event.
 //
 // A term group matches an event if all the terms in it appear in the event string.
+// Experimental.
 func FilterPattern_AnyTermGroup(termGroups ...*[]*string) IFilterPattern {
 	_init_.Initialize()
 
@@ -159,7 +176,7 @@ func FilterPattern_AnyTermGroup(termGroups ...*[]*string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"anyTermGroup",
 		args,
 		&returns,
@@ -169,6 +186,7 @@ func FilterPattern_AnyTermGroup(termGroups ...*[]*string) IFilterPattern {
 }
 
 // A JSON log pattern that matches if the field exists and equals the boolean value.
+// Experimental.
 func FilterPattern_BooleanValue(jsonField *string, value *bool) JsonPattern {
 	_init_.Initialize()
 
@@ -178,7 +196,7 @@ func FilterPattern_BooleanValue(jsonField *string, value *bool) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"booleanValue",
 		[]interface{}{jsonField, value},
 		&returns,
@@ -190,6 +208,7 @@ func FilterPattern_BooleanValue(jsonField *string, value *bool) JsonPattern {
 // A JSON log patter that matches if the field exists.
 //
 // This is a readable convenience wrapper over 'field = *'.
+// Experimental.
 func FilterPattern_Exists(jsonField *string) JsonPattern {
 	_init_.Initialize()
 
@@ -199,7 +218,7 @@ func FilterPattern_Exists(jsonField *string) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"exists",
 		[]interface{}{jsonField},
 		&returns,
@@ -209,6 +228,7 @@ func FilterPattern_Exists(jsonField *string) JsonPattern {
 }
 
 // A JSON log pattern that matches if the field exists and has the special value 'null'.
+// Experimental.
 func FilterPattern_IsNull(jsonField *string) JsonPattern {
 	_init_.Initialize()
 
@@ -218,7 +238,7 @@ func FilterPattern_IsNull(jsonField *string) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"isNull",
 		[]interface{}{jsonField},
 		&returns,
@@ -231,6 +251,7 @@ func FilterPattern_IsNull(jsonField *string) JsonPattern {
 //
 // See https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html
 // for information on writing log patterns.
+// Experimental.
 func FilterPattern_Literal(logPatternString *string) IFilterPattern {
 	_init_.Initialize()
 
@@ -240,7 +261,7 @@ func FilterPattern_Literal(logPatternString *string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"literal",
 		[]interface{}{logPatternString},
 		&returns,
@@ -250,6 +271,7 @@ func FilterPattern_Literal(logPatternString *string) IFilterPattern {
 }
 
 // A JSON log pattern that matches if the field does not exist.
+// Experimental.
 func FilterPattern_NotExists(jsonField *string) JsonPattern {
 	_init_.Initialize()
 
@@ -259,7 +281,7 @@ func FilterPattern_NotExists(jsonField *string) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"notExists",
 		[]interface{}{jsonField},
 		&returns,
@@ -280,6 +302,7 @@ func FilterPattern_NotExists(jsonField *string) JsonPattern {
 // For more information, see:
 //
 // https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html
+// Experimental.
 func FilterPattern_NumberValue(jsonField *string, comparison *string, value *float64) JsonPattern {
 	_init_.Initialize()
 
@@ -289,7 +312,7 @@ func FilterPattern_NumberValue(jsonField *string, comparison *string, value *flo
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"numberValue",
 		[]interface{}{jsonField, comparison, value},
 		&returns,
@@ -307,6 +330,7 @@ func FilterPattern_NumberValue(jsonField *string, comparison *string, value *flo
 // '...' may be specified once to match any number of columns.
 //
 // Afterwards, conditions may be added to individual columns.
+// Experimental.
 func FilterPattern_SpaceDelimited(columns ...*string) SpaceDelimitedTextPattern {
 	_init_.Initialize()
 
@@ -318,7 +342,7 @@ func FilterPattern_SpaceDelimited(columns ...*string) SpaceDelimitedTextPattern 
 	var returns SpaceDelimitedTextPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"spaceDelimited",
 		args,
 		&returns,
@@ -339,6 +363,7 @@ func FilterPattern_SpaceDelimited(columns ...*string) SpaceDelimitedTextPattern 
 // For more information, see:
 //
 // https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html
+// Experimental.
 func FilterPattern_StringValue(jsonField *string, comparison *string, value *string) JsonPattern {
 	_init_.Initialize()
 
@@ -348,7 +373,7 @@ func FilterPattern_StringValue(jsonField *string, comparison *string, value *str
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"stringValue",
 		[]interface{}{jsonField, comparison, value},
 		&returns,

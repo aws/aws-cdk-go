@@ -80,10 +80,6 @@ package awscloudfront
 //   			override: jsii.Boolean(true),
 //   		},
 //   	},
-//   	removeHeaders: []*string{
-//   		jsii.String("Server"),
-//   	},
-//   	serverTimingSamplingRate: jsii.Number(50),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("myDistCustomPolicy"), &distributionProps{
 //   	defaultBehavior: &behaviorOptions{
@@ -92,12 +88,15 @@ package awscloudfront
 //   	},
 //   })
 //
+// Experimental.
 type HeadersFrameOption string
 
 const (
 	// The page can only be displayed in a frame on the same origin as the page itself.
+	// Experimental.
 	HeadersFrameOption_DENY HeadersFrameOption = "DENY"
 	// The page can only be displayed in a frame on the specified origin.
+	// Experimental.
 	HeadersFrameOption_SAMEORIGIN HeadersFrameOption = "SAMEORIGIN"
 )
 

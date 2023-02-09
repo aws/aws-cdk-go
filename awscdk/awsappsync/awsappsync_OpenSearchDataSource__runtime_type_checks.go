@@ -7,14 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
-func (o *jsiiProxy_OpenSearchDataSource) validateCreateFunctionParameters(id *string, props *BaseAppsyncFunctionProps) error {
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
+func (o *jsiiProxy_OpenSearchDataSource) validateCreateFunctionParameters(props *BaseAppsyncFunctionProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
@@ -25,16 +22,28 @@ func (o *jsiiProxy_OpenSearchDataSource) validateCreateFunctionParameters(id *st
 	return nil
 }
 
-func (o *jsiiProxy_OpenSearchDataSource) validateCreateResolverParameters(id *string, props *BaseResolverProps) error {
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
+func (o *jsiiProxy_OpenSearchDataSource) validateCreateResolverParameters(props *BaseResolverProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (o *jsiiProxy_OpenSearchDataSource) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
 	}
 
 	return nil

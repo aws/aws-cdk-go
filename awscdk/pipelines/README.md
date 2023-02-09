@@ -6,7 +6,7 @@ CDK Pipelines is an *opinionated construct library*. It is purpose-built to
 deploy one or more copies of your CDK applications using CloudFormation with a
 minimal amount of effort on your part. It is *not* intended to support arbitrary
 deployment pipelines, and very specifically it is not built to use CodeDeploy to
-deploy applications to instances, or deploy your custom-built ECR images to an ECS
+applications to instances, or deploy your custom-built ECR images to an ECS
 cluster directly: use CDK file assets with CloudFormation Init for instances, or
 CDK container assets for ECS clusters instead.
 
@@ -25,7 +25,7 @@ down to using the `aws-codepipeline` construct library directly.
 > allows more control of CodeBuild project generation; supports deployment
 > engines other than CodePipeline.
 >
-> The README for the original API, as well as a migration guide, can be found in [our GitHub repository](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
+> The README for the original API, as well as a migration guide, can be found in [our GitHub repository](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
 
 ## At a glance
 
@@ -47,7 +47,6 @@ To use the CodePipeline engine, define a `CodePipeline` construct.  The followin
 example creates a CodePipeline that deploys an application from GitHub:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 /** The stacks for our app are minimally defined here.  The internals of these
   * stacks aren't important, except that DatabaseStack exposes an attribute
   * "table" for a database table it defines, and ComputeStack accepts a reference
@@ -200,7 +199,6 @@ To make the development more convenient, the self-mutation feature can be turned
 off temporarily, by passing `selfMutation: false` property, example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Modern API
 modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 	selfMutation: jsii.Boolean(false),
@@ -224,12 +222,12 @@ originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdk
 })
 ```
 
-## Defining the pipeline
+## Definining the pipeline
 
 This section of the documentation describes the AWS CodePipeline engine,
 which comes with this library. If you want to use a different deployment
 engine, read the section
-[Using a different deployment engine](#using-a-different-deployment-engine) below.
+[Using a different deployment engine](#using-a-different-deployment-engine)below.
 
 ### Synth and sources
 
@@ -245,7 +243,6 @@ commands required will depend on the programming language you are using. For a
 typical NPM-based project, the synth will look like this:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var source iFileSetProducer
 // the repository source
 
@@ -267,7 +264,6 @@ CDK project lives in a subdirectory, be sure to adjust the
 `primaryOutputDirectory` to match:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var source iFileSetProducer
 // the repository source
 
@@ -301,7 +297,6 @@ look like in a number of different situations.
 For Yarn, the install commands are different:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var source iFileSetProducer
 // the repository source
 
@@ -321,7 +316,6 @@ For Python projects, remember to install the CDK CLI globally (as
 there is no `package.json` to automatically install it for you):
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var source iFileSetProducer
 // the repository source
 
@@ -343,7 +337,6 @@ and the Maven compilation step is automatically executed for you
 as you run `cdk synth`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var source iFileSetProducer
 // the repository source
 
@@ -377,7 +370,6 @@ To avoid this, put your build instructions in a separate script, for example
 `build.sh`, and call that script from the build `commands` array:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var source iFileSetProducer
 
 
@@ -408,7 +400,6 @@ You will first use the AWS Console to authenticate to the source control
 provider, and then use the connection ARN in your pipeline definition:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 pipelines.codePipelineSource.connection(jsii.String("org/repo"), jsii.String("branch"), &connectionSourceOptions{
 	connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
 })
@@ -423,7 +414,6 @@ you can change the name. The token should have the **repo** and **admin:repo_hoo
 scopes.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 pipelines.codePipelineSource.gitHub(jsii.String("org/repo"), jsii.String("branch"), &gitHubSourceOptions{
 	// This is optional
 	authentication: cdk.secretValue.secretsManager(jsii.String("my-token")),
@@ -437,7 +427,6 @@ that the CodeCommit repository and then use `CodePipelineSource.codeCommit`
 to reference it:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 repository := codecommit.repository.fromRepositoryName(this, jsii.String("Repository"), jsii.String("my-repository"))
 pipelines.codePipelineSource.codeCommit(repository, jsii.String("main"))
 ```
@@ -448,7 +437,6 @@ You can use a zip file in S3 as the source of the pipeline. The pipeline will be
 triggered every time the file in S3 is changed:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket"))
 pipelines.codePipelineSource.s3(bucket, jsii.String("my/source.zip"))
 ```
@@ -459,7 +447,6 @@ You can use a Docker image in ECR as the source of the pipeline. The pipeline wi
 triggered every time an image is pushed to ECR:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 repository := ecr.NewRepository(this, jsii.String("Repository"))
 pipelines.codePipelineSource.ecr(repository)
 ```
@@ -472,7 +459,6 @@ output file set can be used as an input, such as a `CodePipelineSource`, but
 also other `ShellStep`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 prebuild := pipelines.NewShellStep(jsii.String("Prebuild"), &shellStepProps{
 	input: pipelines.codePipelineSource.gitHub(jsii.String("myorg/repo1"), jsii.String("main")),
 	primaryOutputDirectory: jsii.String("./build"),
@@ -503,7 +489,6 @@ more CDK `Stages` which will be deployed to their target environments. To do
 so, call `pipeline.addStage()` on the Stage object:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 
 // Do this as many times as necessary with any account and region
@@ -538,7 +523,6 @@ deployed in sequence. For example, the following will deploy two copies of your
 application to `eu-west-1` and `eu-central-1` in parallel:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 
 europeWave := pipeline.addWave(jsii.String("Europe"))
@@ -566,17 +550,12 @@ pipeline.
 This will encrypt the artifact bucket(s), but incurs a cost for maintaining the
 KMS key.
 
-You may also wish to enable automatic key rotation for the created KMS key.
-
 Example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 	// Encrypt artifacts, required for cross-account deployments
 	crossAccountKeys: jsii.Boolean(true),
-	enableKeyRotation: jsii.Boolean(true),
-	 // optional
 	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
 			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
@@ -588,38 +567,6 @@ pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipeli
 		},
 	}),
 })
-```
-
-#### Deploying without change sets
-
-Deployment is done by default with `CodePipeline` engine using change sets,
-i.e. to first create a change set and then execute it. This allows you to inject
-steps that inspect the change set and approve or reject it, but failed deployments
-are not retryable and creation of the change set costs time.
-
-The creation of change sets can be switched off by setting `useChangeSets: false`:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var synth shellStep
-
-
-type pipelineStack struct {
-	stack
-}
-
-func newPipelineStack(scope construct, id *string, props stackProps) *pipelineStack {
-	this := &pipelineStack{}
-	newStack_Override(this, scope, id, props)
-
-	pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-		synth: synth,
-
-		// Disable change set creation and make deployments in pipeline as single step
-		useChangeSets: jsii.Boolean(false),
-	})
-	return this
-}
 ```
 
 ### Validation
@@ -635,7 +582,6 @@ a manual approval in the form of a `ManualApprovalStep` added to the pipeline. B
 pass in order to promote from the `PreProd` to the `Prod` environment:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 
 preprod := NewMyApplicationStage(this, jsii.String("PreProd"))
@@ -660,7 +606,6 @@ pipeline.addStage(prod, &addStageOpts{
 You can also specify steps to be executed at the stack level. To achieve this, you can specify the stack and step via the `stackSteps` property:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 type myStacksStage struct {
 	stage
@@ -707,7 +652,6 @@ If you specify multiple steps, they will execute in parallel by default. You can
 to if you wish to specify an order. To add a dependency, call `step.addStepDependency()`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 firstStep := pipelines.NewManualApprovalStep(jsii.String("A"))
 secondStep := pipelines.NewManualApprovalStep(jsii.String("B"))
 secondStep.addStepDependency(firstStep)
@@ -717,7 +661,6 @@ For convenience, `Step.sequence()` will take an array of steps and dependencies 
 so that the whole list executes in order:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 // Step A will depend on step B and step B will depend on step C
 orderedSteps := pipelines.step.sequence([]step{
 	pipelines.NewManualApprovalStep(jsii.String("A")),
@@ -736,7 +679,6 @@ To use Stack Outputs, expose the `CfnOutput` object you're interested in, and
 pass it to `envFromCfnOutputs` of the `ShellStep`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 type myOutputStage struct {
 	stage
@@ -781,7 +723,6 @@ Here's an example that captures an additional output directory in the synth
 step and runs tests from there:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var synth shellStep
 
 stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
@@ -811,7 +752,6 @@ generated, use a `CodeBuildStep` instead of a `ShellStep`. This class has a numb
 of properties that allow you to customize various aspects of the projects:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var mySecurityGroup securityGroup
 
@@ -843,14 +783,11 @@ pipelines.NewCodeBuildStep(jsii.String("Synth"), &codeBuildStepProps{
 	// Control Elastic Network Interface creation
 	vpc: vpc,
 	subnetSelection: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
+		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
 	securityGroups: []iSecurityGroup{
 		mySecurityGroup,
 	},
-
-	// Control caching
-	cache: codebuild.cache.bucket(s3.NewBucket(this, jsii.String("Cache"))),
 
 	// Additional policy statements for the execution role
 	rolePolicyStatements: []policyStatement{
@@ -865,7 +802,6 @@ or just for the synth, asset publishing, and self-mutation projects by passing `
 `assetPublishingCodeBuildDefaults`, or `selfMutationCodeBuildDefaults`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var vpc vpc
 var mySecurityGroup securityGroup
 
@@ -897,7 +833,7 @@ pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 		// Control Elastic Network Interface creation
 		vpc: vpc,
 		subnetSelection: &subnetSelection{
-			subnetType: ec2.subnetType_PRIVATE_WITH_EGRESS,
+			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 		},
 		securityGroups: []iSecurityGroup{
 			mySecurityGroup,
@@ -928,7 +864,6 @@ doesn't have a matching class yet, you can define your own step class that exten
 Here's an example that adds a Jenkins step:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 type myJenkinsStep struct {
 	step
 }
@@ -937,7 +872,7 @@ func newMyJenkinsStep(provider jenkinsProvider, input fileSet) *myJenkinsStep {
 	this := &myJenkinsStep{}
 	pipelines.NewStep_Override(this, jsii.String("MyJenkinsStep"))
 
-	// This is necessary if your step accepts parameters, like environment variables,
+	// This is necessary if your step accepts parametres, like environment variables,
 	// that may contain outputs from other steps. It doesn't matter what the
 	// structure is, as long as it contains the values that may contain outputs.
 	this.discoverReferencedOutputs(map[string]map[string]interface{}{
@@ -973,96 +908,6 @@ func (this *myJenkinsStep) produceAction(stage iStage, options produceActionOpti
 }
 ```
 
-Another example, adding a lambda step referencing outputs from a stack:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-type myLambdaStep struct {
-	step
-	stackOutputReference stackOutputReferencefunction lambda.Function
-	stackOutput cfnOutput
-}
-
-func newMyLambdaStep( ) *myLambdaStep {
-	this := &myLambdaStep{}
-	return this
-}{
-	newStack_Override(this, jsii.String("MyLambdaStep"))
-	this.stackOutputReference = pipelines.stackOutputReference.fromCfnOutput(stackOutput)
-}produceAction(stage, codepipeline.iStage, options, pipelines.produceActionOptions)pipelines.codePipelineActionFactoryResult{
-
-	stage.addAction(cpactions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
-		actionName: options.actionName,
-		runOrder: options.runOrder,
-		// Map the reference to the variable name the CDK has generated for you.
-		userParameters: map[string]interface{}{
-			"stackOutput": options.stackOutputsMap.toCodePipeline(this.stackOutputReference),
-		},
-		lambda: this.function,
-	}))
-
-	return map[string]*f64{
-		"runOrdersConsumed": jsii.Number(1),
-	}
-}getconsumedStackOutputs()pipelines.stackOutputReference[]{
-	return []interface{}{
-		this.stackOutputReference,
-	}
-}
-```
-
-### Using an existing AWS Codepipeline
-
-If you wish to use an existing `CodePipeline.Pipeline` while using the modern API's
-methods and classes, you can pass in the existing `CodePipeline.Pipeline` to be built upon
-instead of having the `pipelines.CodePipeline` construct create a new `CodePipeline.Pipeline`.
-This also gives you more direct control over the underlying `CodePipeline.Pipeline` construct
-if the way the modern API creates it doesn't allow for desired configurations. Use `CodePipelineFileset` to convert CodePipeline **artifacts** into CDK Pipelines **file sets**,
-that can be used everywhere a file set or file set producer is expected.
-
-Here's an example of passing in an existing pipeline and using a *source* that's already
-in the pipeline:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var codePipeline pipeline
-
-
-sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))
-
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	codePipeline: codePipeline,
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: pipelines.codePipelineFileSet.fromArtifact(sourceArtifact),
-		commands: []*string{
-			jsii.String("npm ci"),
-			jsii.String("npm run build"),
-			jsii.String("npx cdk synth"),
-		},
-	}),
-})
-```
-
-If your existing pipeline already provides a synth step, pass the existing
-artifact in place of the `synth` step:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var codePipeline pipeline
-
-
-buildArtifact := codepipeline.NewArtifact(jsii.String("MyBuildArtifact"))
-
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	codePipeline: codePipeline,
-	synth: pipelines.codePipelineFileSet.fromArtifact(buildArtifact),
-})
-```
-
-Note that if you provide an existing pipeline, you cannot provide values for
-`pipelineName`, `crossAccountKeys`, `reuseCrossRegionSupportStacks`, or `role`
-because those values are passed in directly to the underlying `codepipeline.Pipeline`.
-
 ## Using Docker in the pipeline
 
 Docker can be used in 3 different places in the pipeline:
@@ -1092,7 +937,6 @@ stacks the pipeline is deploying), for example by the use of `LinuxBuildImage.fr
 you need to pass `dockerEnabledForSelfMutation: true` to the pipeline. For example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
@@ -1138,7 +982,6 @@ if you add a construct like `@aws-cdk/aws-lambda-nodejs`), you need to pass
 `dockerEnabledForSynth: true` to the pipeline. For example:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
@@ -1168,7 +1011,6 @@ any of the application stages — require authentication, either due to being in
 different environment (e.g., ECR repo) or to avoid throttling (e.g., DockerHub).
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 dockerHubSecret := secretsmanager.secret.fromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
 customRegSecret := secretsmanager.secret.fromSecretCompleteArn(this, jsii.String("CRSecret"), jsii.String("arn:aws:..."))
 repo1 := ecr.repository.fromRepositoryArn(this, jsii.String("Repo"), jsii.String("arn:aws:ecr:eu-west-1:0123456789012:repository/Repo1"))
@@ -1200,7 +1042,7 @@ For authenticating to Docker registries that require a username and password com
 (like DockerHub), create a Secrets Manager Secret with fields named `username`
 and `secret`, and import it (the field names change be customized).
 
-Authentication to ECR repositories is done using the execution role of the
+Authentication to ECR repostories is done using the execution role of the
 relevant CodeBuild job. Both types of credentials can be provided with an
 optional role to assume before requesting the credentials.
 
@@ -1209,7 +1051,6 @@ the **Synth**, **Self-Update**, and **Asset Publishing** actions within the
 *pipeline. The scope of the credentials can be limited via the `DockerCredentialUsage` option.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 dockerHubSecret := secretsmanager.secret.fromSecretCompleteArn(this, jsii.String("DHSecret"), jsii.String("arn:aws:..."))
 // Only the image asset publishing actions will be granted read access to the secret.
 creds := pipelines.dockerCredential.dockerHub(dockerHubSecret, &externalDockerCredentialOptions{
@@ -1312,7 +1153,7 @@ These command lines explained:
   trusted account, only allowing it to look up values such as availability zones, EC2 images and
   VPCs. `--trust-for-lookup` does not give permissions to modify anything in the account.
   Note that `--trust` implies `--trust-for-lookup`, so you don't need to specify
-  the same account twice.
+  the same acocunt twice.
 * `aws://222222222222/us-east-2`: the account and region we're bootstrapping.
 
 > Be aware that anyone who has access to the trusted Accounts **effectively has all
@@ -1393,7 +1234,6 @@ give the synth CodeBuild execution role permissions to assume the bootstrapped
 lookup roles. As an example, doing so would look like this:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 	synth: pipelines.NewCodeBuildStep(jsii.String("Synth"), &codeBuildStepProps{
 		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
@@ -1477,7 +1317,6 @@ Pipeline
 You can insert the security check by using a `ConfirmPermissionsBroadening` step:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 
 stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
@@ -1495,7 +1334,6 @@ create an SNS Topic, subscribe your own email address, and pass it in as
 as the `notificationTopic` property:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 var pipeline codePipeline
 
 topic := sns.NewTopic(this, jsii.String("SecurityChangesTopic"))
@@ -1621,7 +1459,6 @@ that bundles asset using tools run via Docker, like `aws-lambda-nodejs`, `aws-la
 Make sure you set the `privileged` environment variable to `true` in the synth definition:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 sourceArtifact := codepipeline.NewArtifact()
 cloudAssemblyArtifact := codepipeline.NewArtifact()
 pipeline := pipelines.NewCdkPipeline(this, jsii.String("MyPipeline"), &cdkPipelineProps{
@@ -1639,47 +1476,6 @@ pipeline := pipelines.NewCdkPipeline(this, jsii.String("MyPipeline"), &cdkPipeli
 After turning on `privilegedMode: true`, you will need to do a one-time manual cdk deploy of your
 pipeline to get it going again (as with a broken 'synth' the pipeline will not be able to self
 update to the right state).
-
-### Not authorized to perform sts:AssumeRole on arn:aws:iam::*:role/*-lookup-role-*
-
-You may get an error like the following in the **Synth** step:
-
-```text
-Could not assume role in target account using current credentials (which are for account 111111111111). User:
-arn:aws:sts::111111111111:assumed-role/PipelineStack-PipelineBuildSynthCdkBuildProje-..../AWSCodeBuild-....
-is not authorized to perform: sts:AssumeRole on resource:
-arn:aws:iam::222222222222:role/cdk-hnb659fds-lookup-role-222222222222-us-east-1.
-Please make sure that this role exists in the account. If it doesn't exist, (re)-bootstrap the environment with
-the right '--trust', using the latest version of the CDK CLI.
-```
-
-This is a sign that the CLI is trying to do Context Lookups during the **Synth** step, which are failing
-because it cannot assume the right role. We recommend you don't rely on Context Lookups in the pipeline at
-all, and commit a file called `cdk.context.json` with the right lookup values in it to source control.
-
-If you do want to do lookups in the pipeline, the cause is one of the following:
-
-* The target environment has not been bootstrapped; OR
-* The target environment has been bootstrapped without the right `--trust` relationship; OR
-* The CodeBuild execution role does not have permissions to call `sts:AssumeRole`.
-
-See the section called **Context Lookups** for more information on using this feature.
-
-### IAM policies: Cannot exceed quota for PoliciesPerRole / Maximum policy size exceeded
-
-This happens as a result of having a lot of targets in the Pipeline: the IAM policies that
-get generated enumerate all required roles and grow too large.
-
-Make sure you are on version `2.26.0` or higher, and that your `cdk.json` contains the
-following:
-
-```json
-{
-  "context": {
-    "@aws-cdk/aws-iam:minimizePolicies": true
-  }
-}
-```
 
 ### S3 error: Access Denied
 
@@ -1702,7 +1498,6 @@ build projects get out-of-sync with the generated templates. To fix this, make s
 `selfMutating` property is set to `true`:
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 cloudAssemblyArtifact := codepipeline.NewArtifact()
 pipeline := pipelines.NewCdkPipeline(this, jsii.String("MyPipeline"), &cdkPipelineProps{
 	selfMutating: jsii.Boolean(true),
@@ -1740,7 +1535,6 @@ $ env CDK_NEW_BOOTSTRAP=1 npx cdk bootstrap \
   See https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html for more info.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdk.Newstack(this, jsii.String("MyStack"), &stackProps{
 	// Update this qualifier to match the one used above.
 	synthesizer: cdk.NewDefaultStackSynthesizer(&defaultStackSynthesizerProps{
@@ -1797,97 +1591,6 @@ We recommend you avoid specifying the `cliVersion` parameter at all. By default
 the pipeline will use the latest CLI version, which will support all cloud assembly
 versions.
 
-## Using Drop-in Docker Replacements
-
-By default, the AWS CDK will build and publish Docker image assets using the
-`docker` command. However, by specifying the `CDK_DOCKER` environment variable,
-you can override the command that will be used to build and publish your
-assets.
-
-In CDK Pipelines, the drop-in replacement for the `docker` command must be
-included in the CodeBuild environment and configured for your pipeline.
-
-### Adding to the default CodeBuild image
-
-You can add a drop-in Docker replacement command to the default CodeBuild
-environment by adding install-phase commands that encode how to install
-your tooling and by adding the `CDK_DOCKER` environment variable to your
-build environment.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var source iFileSetProducer // the repository source
-var synthCommands []*string // Commands to synthesize your app
-var installCommands []*string
-// Commands to install your toolchain
-
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	// Standard CodePipeline properties...
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: synthCommands,
-	}),
-
-	// Configure CodeBuild to use a drop-in Docker replacement.
-	codeBuildDefaults: &codeBuildOptions{
-		buildEnvironment: &buildEnvironment{
-			partialBuildSpec: codebuild_BuildSpec_FromObject(map[string]map[string]map[string][]*string{
-				"phases": map[string]map[string][]*string{
-					"install": map[string][]*string{
-						// Add the shell commands to install your drop-in Docker
-						// replacement to the CodeBuild enviromment.
-						"commands": installCommands,
-					},
-				},
-			}),
-			environmentVariables: map[string]buildEnvironmentVariable{
-				// Instruct the AWS CDK to use `drop-in-replacement` instead of
-				// `docker` when building / publishing docker images.
-				// e.g., `drop-in-replacement build . -f path/to/Dockerfile`
-				"CDK_DOCKER": jsii.String("drop-in-replacement"),
-			},
-		},
-	},
-})
-```
-
-### Using a custom build image
-
-If you're using a custom build image in CodeBuild, you can override the
-command the AWS CDK uses to build Docker images by providing `CDK_DOCKER` as
-an `ENV` in your `Dockerfile` or by providing the environment variable in the
-pipeline as shown below.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var source iFileSetProducer // the repository source
-var synthCommands []*string
-// Commands to synthesize your app
-
-pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-	// Standard CodePipeline properties...
-	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-		input: source,
-		commands: synthCommands,
-	}),
-
-	// Configure CodeBuild to use a drop-in Docker replacement.
-	codeBuildDefaults: &codeBuildOptions{
-		buildEnvironment: &buildEnvironment{
-			// Provide a custom build image containing your toolchain and the
-			// pre-installed replacement for the `docker` command.
-			buildImage: codebuild.linuxBuildImage.fromDockerRegistry(jsii.String("your-docker-registry")),
-			environmentVariables: map[string]buildEnvironmentVariable{
-				// If you haven't provided an `ENV` in your Dockerfile that overrides
-				// `CDK_DOCKER`, then you must provide the name of the command that
-				// the AWS CDK should run instead of `docker` here.
-				"CDK_DOCKER": jsii.String("drop-in-replacement"),
-			},
-		},
-	},
-})
-```
-
 ## Known Issues
 
 There are some usability issues that are caused by underlying technology, and
@@ -1897,7 +1600,7 @@ cannot be remedied by CDK at this point. They are reproduced here for completene
   console will assume all links are relative to the current account. You will
   not be able to use the pipeline console to click through to a CloudFormation
   stack in a different account.
-* **If a change set failed to apply the pipeline must be restarted**: if a change
+* **If a change set failed to apply the pipeline must restarted**: if a change
   set failed to apply, it cannot be retried. The pipeline must be restarted from
   the top by clicking **Release Change**.
 * **A stack that failed to create must be deleted manually**: if a stack

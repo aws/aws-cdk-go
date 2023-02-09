@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 func (v *jsiiProxy_VirtualGateway) validateAddGatewayRouteParameters(id *string, props *GatewayRouteBaseProps) error {
@@ -66,6 +66,22 @@ func (v *jsiiProxy_VirtualGateway) validateGrantStreamAggregatedResourcesParamet
 	return nil
 }
 
+func (v *jsiiProxy_VirtualGateway) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_VirtualGateway) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	if session == nil {
+		return fmt.Errorf("parameter session is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateVirtualGateway_FromVirtualGatewayArnParameters(scope constructs.Construct, id *string, virtualGatewayArn *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -109,15 +125,7 @@ func validateVirtualGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateVirtualGateway_IsOwnedResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateVirtualGateway_IsResourceParameters(construct constructs.IConstruct) error {
+func validateVirtualGateway_IsResourceParameters(construct awscdk.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
 	}

@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -15,8 +15,10 @@ import (
 //
 //   api.grant(role, appsync.iamResource.custom(jsii.String("types/Mutation/fields/updateExample")), jsii.String("appsync:GraphQL"))
 //
+// Experimental.
 type IamResource interface {
 	// Return the Resource ARN.
+	// Experimental.
 	ResourceArns(api GraphqlApi) *[]*string
 }
 
@@ -26,13 +28,14 @@ type jsiiProxy_IamResource struct {
 }
 
 // Generate the resource names that accepts all types: `*`.
+// Experimental.
 func IamResource_All() IamResource {
 	_init_.Initialize()
 
 	var returns IamResource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.IamResource",
+		"monocdk.aws_appsync.IamResource",
 		"all",
 		nil, // no parameters
 		&returns,
@@ -42,6 +45,7 @@ func IamResource_All() IamResource {
 }
 
 // Generate the resource names given custom arns.
+// Experimental.
 func IamResource_Custom(arns ...*string) IamResource {
 	_init_.Initialize()
 
@@ -53,7 +57,7 @@ func IamResource_Custom(arns ...*string) IamResource {
 	var returns IamResource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.IamResource",
+		"monocdk.aws_appsync.IamResource",
 		"custom",
 		args,
 		&returns,
@@ -63,6 +67,7 @@ func IamResource_Custom(arns ...*string) IamResource {
 }
 
 // Generate the resource names given a type and fields.
+// Experimental.
 func IamResource_OfType(type_ *string, fields ...*string) IamResource {
 	_init_.Initialize()
 
@@ -77,7 +82,7 @@ func IamResource_OfType(type_ *string, fields ...*string) IamResource {
 	var returns IamResource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appsync.IamResource",
+		"monocdk.aws_appsync.IamResource",
 		"ofType",
 		args,
 		&returns,

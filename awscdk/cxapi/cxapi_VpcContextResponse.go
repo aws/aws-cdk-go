@@ -42,7 +42,6 @@ package cxapi
 //   	publicSubnetRouteTableIds: []*string{
 //   		jsii.String("publicSubnetRouteTableIds"),
 //   	},
-//   	region: jsii.String("region"),
 //   	subnetGroups: []vpcSubnetGroup{
 //   		&vpcSubnetGroup{
 //   			name: jsii.String("name"),
@@ -63,59 +62,72 @@ package cxapi
 //   	vpnGatewayId: jsii.String("vpnGatewayId"),
 //   }
 //
+// Experimental.
 type VpcContextResponse struct {
 	// AZs.
+	// Experimental.
 	AvailabilityZones *[]*string `field:"required" json:"availabilityZones" yaml:"availabilityZones"`
 	// VPC id.
+	// Experimental.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// IDs of all isolated subnets.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups).
+	// Experimental.
 	IsolatedSubnetIds *[]*string `field:"optional" json:"isolatedSubnetIds" yaml:"isolatedSubnetIds"`
 	// Name of isolated subnet groups.
 	//
 	// Element count: #(isolatedGroups).
+	// Experimental.
 	IsolatedSubnetNames *[]*string `field:"optional" json:"isolatedSubnetNames" yaml:"isolatedSubnetNames"`
 	// Route Table IDs of isolated subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups).
+	// Experimental.
 	IsolatedSubnetRouteTableIds *[]*string `field:"optional" json:"isolatedSubnetRouteTableIds" yaml:"isolatedSubnetRouteTableIds"`
 	// IDs of all private subnets.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups).
+	// Experimental.
 	PrivateSubnetIds *[]*string `field:"optional" json:"privateSubnetIds" yaml:"privateSubnetIds"`
 	// Name of private subnet groups.
 	//
 	// Element count: #(privateGroups).
+	// Experimental.
 	PrivateSubnetNames *[]*string `field:"optional" json:"privateSubnetNames" yaml:"privateSubnetNames"`
 	// Route Table IDs of private subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups).
+	// Experimental.
 	PrivateSubnetRouteTableIds *[]*string `field:"optional" json:"privateSubnetRouteTableIds" yaml:"privateSubnetRouteTableIds"`
 	// IDs of all public subnets.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups).
+	// Experimental.
 	PublicSubnetIds *[]*string `field:"optional" json:"publicSubnetIds" yaml:"publicSubnetIds"`
 	// Name of public subnet groups.
 	//
 	// Element count: #(publicGroups).
+	// Experimental.
 	PublicSubnetNames *[]*string `field:"optional" json:"publicSubnetNames" yaml:"publicSubnetNames"`
 	// Route Table IDs of public subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups).
+	// Experimental.
 	PublicSubnetRouteTableIds *[]*string `field:"optional" json:"publicSubnetRouteTableIds" yaml:"publicSubnetRouteTableIds"`
-	// The region in which the VPC is in.
-	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The subnet groups discovered for the given VPC.
 	//
 	// Unlike the above properties, this will include asymmetric subnets,
 	// if the VPC has any.
-	// This property will only be populated if `VpcContextQuery.returnAsymmetricSubnets`
+	// This property will only be populated if {@link VpcContextQuery.returnAsymmetricSubnets}
 	// is true.
+	// Experimental.
 	SubnetGroups *[]*VpcSubnetGroup `field:"optional" json:"subnetGroups" yaml:"subnetGroups"`
 	// VPC cidr.
+	// Experimental.
 	VpcCidrBlock *string `field:"optional" json:"vpcCidrBlock" yaml:"vpcCidrBlock"`
 	// The VPN gateway ID.
+	// Experimental.
 	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 }
 

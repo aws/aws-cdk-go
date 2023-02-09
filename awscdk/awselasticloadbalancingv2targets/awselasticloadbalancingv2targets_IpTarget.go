@@ -1,11 +1,11 @@
 package awselasticloadbalancingv2targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2targets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2targets/internal"
 )
 
 // An IP address that is a target for load balancing.
@@ -25,6 +25,7 @@ import (
 //
 //   ipTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewIpTarget(jsii.String("ipAddress"), jsii.Number(123), jsii.String("availabilityZone"))
 //
+// Experimental.
 type IpTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
@@ -32,11 +33,13 @@ type IpTarget interface {
 	//
 	// Don't call this, it is called automatically when you add the target to a
 	// load balancer.
+	// Experimental.
 	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	// Register this instance target with a load balancer.
 	//
 	// Don't call this, it is called automatically when you add the target to a
 	// load balancer.
+	// Experimental.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 }
 
@@ -62,6 +65,7 @@ type jsiiProxy_IpTarget struct {
 // for the target group, the only supported value is all.
 //
 // Default is automatic.
+// Experimental.
 func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpTarget {
 	_init_.Initialize()
 
@@ -71,7 +75,7 @@ func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpT
 	j := jsiiProxy_IpTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.IpTarget",
+		"monocdk.aws_elasticloadbalancingv2_targets.IpTarget",
 		[]interface{}{ipAddress, port, availabilityZone},
 		&j,
 	)
@@ -95,11 +99,12 @@ func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpT
 // for the target group, the only supported value is all.
 //
 // Default is automatic.
+// Experimental.
 func NewIpTarget_Override(i IpTarget, ipAddress *string, port *float64, availabilityZone *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.IpTarget",
+		"monocdk.aws_elasticloadbalancingv2_targets.IpTarget",
 		[]interface{}{ipAddress, port, availabilityZone},
 		i,
 	)

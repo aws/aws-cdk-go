@@ -1,10 +1,10 @@
 package awselasticloadbalancingv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
 )
 
 // A certificate source for an ELBv2 listener.
@@ -16,9 +16,11 @@ import (
 //
 //   listenerCertificate := awscdk.Aws_elasticloadbalancingv2.listenerCertificate.fromArn(jsii.String("certificateArn"))
 //
+// Experimental.
 type ListenerCertificate interface {
 	IListenerCertificate
 	// The ARN of the certificate to use.
+	// Experimental.
 	CertificateArn() *string
 }
 
@@ -38,6 +40,7 @@ func (j *jsiiProxy_ListenerCertificate) CertificateArn() *string {
 }
 
 
+// Experimental.
 func NewListenerCertificate(certificateArn *string) ListenerCertificate {
 	_init_.Initialize()
 
@@ -47,7 +50,7 @@ func NewListenerCertificate(certificateArn *string) ListenerCertificate {
 	j := jsiiProxy_ListenerCertificate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		[]interface{}{certificateArn},
 		&j,
 	)
@@ -55,17 +58,19 @@ func NewListenerCertificate(certificateArn *string) ListenerCertificate {
 	return &j
 }
 
+// Experimental.
 func NewListenerCertificate_Override(l ListenerCertificate, certificateArn *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		[]interface{}{certificateArn},
 		l,
 	)
 }
 
 // Use any certificate, identified by its ARN, as a listener certificate.
+// Experimental.
 func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 	_init_.Initialize()
 
@@ -75,7 +80,7 @@ func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 	var returns ListenerCertificate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		"fromArn",
 		[]interface{}{certificateArn},
 		&returns,
@@ -85,6 +90,7 @@ func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 }
 
 // Use an ACM certificate as a listener certificate.
+// Experimental.
 func ListenerCertificate_FromCertificateManager(acmCertificate awscertificatemanager.ICertificate) ListenerCertificate {
 	_init_.Initialize()
 
@@ -94,7 +100,7 @@ func ListenerCertificate_FromCertificateManager(acmCertificate awscertificateman
 	var returns ListenerCertificate
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCertificate",
+		"monocdk.aws_elasticloadbalancingv2.ListenerCertificate",
 		"fromCertificateManager",
 		[]interface{}{acmCertificate},
 		&returns,

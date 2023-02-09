@@ -3,7 +3,7 @@ package awscloudfront
 
 // Represents a CloudFront function and event type when using CF Functions.
 //
-// The type of the `AddBehaviorOptions.functionAssociations` property.
+// The type of the {@link AddBehaviorOptions.functionAssociations} property.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,10 +17,13 @@ package awscloudfront
 //   	function: function_,
 //   }
 //
+// Experimental.
 type FunctionAssociation struct {
 	// The type of event which should invoke the function.
+	// Experimental.
 	EventType FunctionEventType `field:"required" json:"eventType" yaml:"eventType"`
 	// The CloudFront function that will be invoked.
+	// Experimental.
 	Function IFunction `field:"required" json:"function" yaml:"function"`
 }
 

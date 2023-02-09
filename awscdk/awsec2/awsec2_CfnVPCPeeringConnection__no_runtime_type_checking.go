@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) validateAddDeletionOverrideParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCPeeringConnection) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnVPCPeeringConnection) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCPeeringConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnVPCPeeringConnection) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCPeeringConnection) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPCPeeringConnection) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPCPeeringConnection) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnVPCPeeringConnection) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnVPCPeeringConnection) validateSetVpcIdParameters(val *stri
 	return nil
 }
 
-func validateNewCfnVPCPeeringConnectionParameters(scope constructs.Construct, id *string, props *CfnVPCPeeringConnectionProps) error {
+func validateNewCfnVPCPeeringConnectionParameters(scope awscdk.Construct, id *string, props *CfnVPCPeeringConnectionProps) error {
 	return nil
 }
 

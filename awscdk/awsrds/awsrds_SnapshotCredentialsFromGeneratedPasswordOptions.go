@@ -1,11 +1,11 @@
 package awsrds
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
-// Options used in the `SnapshotCredentials.fromGeneratedPassword` method.
+// Options used in the {@link SnapshotCredentials.fromGeneratedPassword} method.
 //
 // Example:
 //   var vpc vpc
@@ -33,12 +33,16 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 	// KMS encryption key to encrypt the generated secret.
+	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
+	// Experimental.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
+	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `field:"optional" json:"replicaRegions" yaml:"replicaRegions"`
 }
 

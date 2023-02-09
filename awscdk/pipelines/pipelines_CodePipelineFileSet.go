@@ -1,10 +1,10 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
 )
 
 // A FileSet created from a CodePipeline artifact.
@@ -13,39 +13,36 @@ import (
 // add the end of an existing CodePipeline, which should be very rare.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
-//   var codePipeline pipeline
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var artifact artifact
 //
-//   sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))
+//   codePipelineFileSet := awscdk.Pipelines.codePipelineFileSet.fromArtifact(artifact)
 //
-//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-//   	codePipeline: codePipeline,
-//   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
-//   		input: pipelines.codePipelineFileSet.fromArtifact(sourceArtifact),
-//   		commands: []*string{
-//   			jsii.String("npm ci"),
-//   			jsii.String("npm run build"),
-//   			jsii.String("npx cdk synth"),
-//   		},
-//   	}),
-//   })
-//
+// Experimental.
 type CodePipelineFileSet interface {
 	FileSet
 	// Human-readable descriptor for this file set (does not need to be unique).
+	// Experimental.
 	Id() *string
 	// The primary output of a file set producer.
 	//
 	// The primary output of a FileSet is itself.
+	// Experimental.
 	PrimaryOutput() FileSet
 	// The Step that produces this FileSet.
+	// Experimental.
 	Producer() Step
 	// Mark the given Step as the producer for this FileSet.
 	//
 	// This method can only be called once.
+	// Experimental.
 	ProducedBy(producer Step)
 	// Return a string representation of this FileSet.
+	// Experimental.
 	ToString() *string
 }
 
@@ -86,6 +83,7 @@ func (j *jsiiProxy_CodePipelineFileSet) Producer() Step {
 
 
 // Turn a CodePipeline Artifact into a FileSet.
+// Experimental.
 func CodePipelineFileSet_FromArtifact(artifact awscodepipeline.Artifact) CodePipelineFileSet {
 	_init_.Initialize()
 
@@ -95,7 +93,7 @@ func CodePipelineFileSet_FromArtifact(artifact awscodepipeline.Artifact) CodePip
 	var returns CodePipelineFileSet
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineFileSet",
+		"monocdk.pipelines.CodePipelineFileSet",
 		"fromArtifact",
 		[]interface{}{artifact},
 		&returns,

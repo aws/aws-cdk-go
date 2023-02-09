@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,7 +13,6 @@ import (
 // Not supported for Windows systems.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
@@ -67,9 +66,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type InitUser interface {
 	InitElement
 	// Returns the init element type for this element.
+	// Experimental.
 	ElementType() *string
 }
 
@@ -89,6 +90,7 @@ func (j *jsiiProxy_InitUser) ElementType() *string {
 }
 
 
+// Experimental.
 func NewInitUser(userName *string, userOptions *InitUserOptions) InitUser {
 	_init_.Initialize()
 
@@ -98,7 +100,7 @@ func NewInitUser(userName *string, userOptions *InitUserOptions) InitUser {
 	j := jsiiProxy_InitUser{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InitUser",
+		"monocdk.aws_ec2.InitUser",
 		[]interface{}{userName, userOptions},
 		&j,
 	)
@@ -106,17 +108,19 @@ func NewInitUser(userName *string, userOptions *InitUserOptions) InitUser {
 	return &j
 }
 
+// Experimental.
 func NewInitUser_Override(i InitUser, userName *string, userOptions *InitUserOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.InitUser",
+		"monocdk.aws_ec2.InitUser",
 		[]interface{}{userName, userOptions},
 		i,
 	)
 }
 
 // Create a user from user name.
+// Experimental.
 func InitUser_FromName(userName *string, options *InitUserOptions) InitUser {
 	_init_.Initialize()
 
@@ -126,7 +130,7 @@ func InitUser_FromName(userName *string, options *InitUserOptions) InitUser {
 	var returns InitUser
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.InitUser",
+		"monocdk.aws_ec2.InitUser",
 		"fromName",
 		[]interface{}{userName, options},
 		&returns,

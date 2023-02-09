@@ -5,11 +5,13 @@ import (
 )
 
 // A String SSM Parameter.
+// Experimental.
 type IStringParameter interface {
 	IParameter
 	// The parameter value.
 	//
 	// Value must not nest another parameter. Do not use {{}} in the value.
+	// Experimental.
 	StringValue() *string
 }
 

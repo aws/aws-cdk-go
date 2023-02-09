@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnMonitoringSchedule) validateAddDeletionOverrideParameters(
 	return nil
 }
 
-func (c *jsiiProxy_CfnMonitoringSchedule) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnMonitoringSchedule) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnMonitoringSchedule) validateInspectParameters(inspector aw
 	return nil
 }
 
-func (c *jsiiProxy_CfnMonitoringSchedule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnMonitoringSchedule) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnMonitoringSchedule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMonitoringSchedule) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnMonitoringSchedule) validateRenderPropertiesParameters(pro
 	return nil
 }
 
-func (c *jsiiProxy_CfnMonitoringSchedule) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnMonitoringSchedule) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -92,7 +88,7 @@ func (j *jsiiProxy_CfnMonitoringSchedule) validateSetMonitoringScheduleNameParam
 	return nil
 }
 
-func validateNewCfnMonitoringScheduleParameters(scope constructs.Construct, id *string, props *CfnMonitoringScheduleProps) error {
+func validateNewCfnMonitoringScheduleParameters(scope awscdk.Construct, id *string, props *CfnMonitoringScheduleProps) error {
 	return nil
 }
 

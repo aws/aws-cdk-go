@@ -1,7 +1,7 @@
 package awssesactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
 )
 
 // Construction properties for a bounce action.
@@ -23,15 +23,19 @@ import (
 //   	topic: topic,
 //   }
 //
+// Experimental.
 type BounceProps struct {
 	// The email address of the sender of the bounced email.
 	//
 	// This is the address
 	// from which the bounce message will be sent.
+	// Experimental.
 	Sender *string `field:"required" json:"sender" yaml:"sender"`
 	// The template containing the message, reply code and status code.
+	// Experimental.
 	Template BounceTemplate `field:"required" json:"template" yaml:"template"`
 	// The SNS topic to notify when the bounce action is taken.
+	// Experimental.
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

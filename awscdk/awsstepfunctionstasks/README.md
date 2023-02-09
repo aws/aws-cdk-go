@@ -6,10 +6,7 @@ You build applications from individual components that each perform a discrete
 function, or task, allowing you to scale and change applications quickly.
 
 A [Task](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-task-state.html) state represents a single unit of work performed by a state machine.
-All work in your state machine is performed by tasks.  This module contains a collection of classes that allow you to call various AWS services
-from your Step Functions state machine.
-
-Be sure to familiarize yourself with the [`aws-stepfunctions` module documentation](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions-readme.html) first.
+All work in your state machine is performed by tasks.
 
 This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
@@ -18,6 +15,13 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 * [Tasks for AWS Step Functions](#tasks-for-aws-step-functions)
 
   * [Table Of Contents](#table-of-contents)
+  * [Task](#task)
+  * [Paths](#paths)
+
+    * [InputPath](#inputpath)
+    * [OutputPath](#outputpath)
+    * [ResultPath](#resultpath)
+  * [Task parameters from the state JSON](#task-parameters-from-the-state-json)
   * [Evaluate Expression](#evaluate-expression)
   * [API Gateway](#api-gateway)
 
@@ -86,9 +90,166 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
     * [Invoke Activity](#invoke-activity)
   * [SQS](#sqs)
 
+## Task
+
+A Task state represents a single unit of work performed by a state machine. In the
+CDK, the exact work to be done is determined by a class that implements `IStepFunctionsTask`.
+
+AWS Step Functions [integrates](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-service-integrations.html) with some AWS services so that you can call API
+actions, and coordinate executions directly from the Amazon States Language in
+Step Functions. You can directly call and pass parameters to the APIs of those
+services.
+
 ## Paths
 
+In the Amazon States Language, a [path](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html) is a string beginning with `$` that you
+can use to identify components within JSON text.
+
 Learn more about input and output processing in Step Functions [here](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-input-output-filtering.html)
+
+### InputPath
+
+Both `InputPath` and `Parameters` fields provide a way to manipulate JSON as it
+moves through your workflow. AWS Step Functions applies the `InputPath` field first,
+and then the `Parameters` field. You can first filter your raw input to a selection
+you want using InputPath, and then apply Parameters to manipulate that input
+further, or add new values. If you don't specify an `InputPath`, a default value
+of `$` will be used.
+
+The following example provides the field named `input` as the input to the `Task`
+state that runs a Lambda function.
+
+```go
+var fn function
+
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	inputPath: jsii.String("$.input"),
+})
+```
+
+### OutputPath
+
+Tasks also allow you to select a portion of the state output to pass to the next
+state. This enables you to filter out unwanted information, and pass only the
+portion of the JSON that you care about. If you don't specify an `OutputPath`,
+a default value of `$` will be used. This passes the entire JSON node to the next
+state.
+
+The [response](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_ResponseSyntax) from a Lambda function includes the response from the function
+as well as other metadata.
+
+The following example assigns the output from the Task to a field named `result`
+
+```go
+var fn function
+
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	outputPath: jsii.String("$.Payload.result"),
+})
+```
+
+### ResultSelector
+
+You can use [`ResultSelector`](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector)
+to manipulate the raw result of a Task, Map or Parallel state before it is
+passed to [`ResultPath`](###ResultPath). For service integrations, the raw
+result contains metadata in addition to the response payload. You can use
+ResultSelector to construct a JSON payload that becomes the effective result
+using static values or references to the raw result or context object.
+
+The following example extracts the output payload of a Lambda function Task and combines
+it with some static values and the state name from the context object.
+
+```go
+var fn function
+
+tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	resultSelector: map[string]interface{}{
+		"lambdaOutput": sfn.JsonPath.stringAt(jsii.String("$.Payload")),
+		"invokeRequestId": sfn.JsonPath.stringAt(jsii.String("$.SdkResponseMetadata.RequestId")),
+		"staticValue": map[string]*string{
+			"foo": jsii.String("bar"),
+		},
+		"stateName": sfn.JsonPath.stringAt(jsii.String("$.State.Name")),
+	},
+})
+```
+
+### ResultPath
+
+The output of a state can be a copy of its input, the result it produces (for
+example, output from a Task state’s Lambda function), or a combination of its
+input and result. Use [`ResultPath`](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html) to control which combination of these is
+passed to the state output. If you don't specify an `ResultPath`, a default
+value of `$` will be used.
+
+The following example adds the item from calling DynamoDB's `getItem` API to the state
+input and passes it to the next state.
+
+```go
+var myTable table
+
+tasks.NewDynamoPutItem(this, jsii.String("PutItem"), &dynamoPutItemProps{
+	item: map[string]dynamoAttributeValue{
+		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-id")),
+	},
+	table: myTable,
+	resultPath: jsii.String("$.Item"),
+})
+```
+
+⚠️ The `OutputPath` is computed after applying `ResultPath`. All service integrations
+return metadata as part of their response. When using `ResultPath`, it's not possible to
+merge a subset of the task output to the input.
+
+## Task parameters from the state JSON
+
+Most tasks take parameters. Parameter values can either be static, supplied directly
+in the workflow definition (by specifying their values), or a value available at runtime
+in the state machine's execution (either as its input or an output of a prior state).
+Parameter values available at runtime can be specified via the `JsonPath` class,
+using methods such as `JsonPath.stringAt()`.
+
+The following example provides the field named `input` as the input to the Lambda function
+and invokes it asynchronously.
+
+```go
+var fn function
+
+
+submitJob := tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+	lambdaFunction: fn,
+	payload: sfn.taskInput.fromJsonPathAt(jsii.String("$.input")),
+	invocationType: tasks.lambdaInvocationType_EVENT,
+})
+```
+
+You can also use [intrinsic functions](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html) available on `JsonPath`, for example `JsonPath.format()`.
+Here is an example of starting an Athena query that is dynamically created using the task input:
+
+```go
+startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
+	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+	queryExecutionContext: &queryExecutionContext{
+		databaseName: jsii.String("interactions"),
+	},
+	resultConfiguration: &resultConfiguration{
+		encryptionConfiguration: &encryptionConfiguration{
+			encryptionOption: tasks.encryptionOption_S3_MANAGED,
+		},
+		outputLocation: &location{
+			bucketName: jsii.String("mybucket"),
+			objectKey: jsii.String("myprefix"),
+		},
+	},
+	integrationPattern: sfn.integrationPattern_RUN_JOB,
+})
+```
+
+Each service integration has its own set of parameters that can be supplied.
 
 ## Evaluate Expression
 
@@ -179,7 +340,6 @@ tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &callApiGa
 The `CallApiGatewayHttpApiEndpoint` calls the HTTP API endpoint.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 
 httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
@@ -231,31 +391,6 @@ listBuckets := tasks.NewCallAwsService(this, jsii.String("ListBuckets"), &callAw
 		jsii.String("*"),
 	},
 	iamAction: jsii.String("s3:ListAllMyBuckets"),
-})
-```
-
-Use the `additionalIamStatements` prop to pass additional IAM statements that will be added to the
-state machine role's policy. Use it in the case where the call requires more than a single statement
-to be executed:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-detectLabels := tasks.NewCallAwsService(stack, jsii.String("DetectLabels"), &callAwsServiceProps{
-	service: jsii.String("rekognition"),
-	action: jsii.String("detectLabels"),
-	iamResources: []*string{
-		jsii.String("*"),
-	},
-	additionalIamStatements: []policyStatement{
-		iam.NewPolicyStatement(&policyStatementProps{
-			actions: []*string{
-				jsii.String("s3:getObject"),
-			},
-			resources: []*string{
-				jsii.String("arn:aws:s3:::my-bucket/*"),
-			},
-		}),
-	},
 })
 ```
 
@@ -324,10 +459,9 @@ Step Functions supports [Batch](https://docs.aws.amazon.com/step-functions/lates
 The [SubmitJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) API submits an AWS Batch job from a job definition.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import batch "github.com/aws/aws-cdk-go/awscdk"
-var batchJobDefinition batch.JobDefinition
-var batchQueue batch.JobQueue
+var batchJobDefinition jobDefinition
+var batchQueue jobQueue
 
 
 task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &batchSubmitJobProps{
@@ -958,7 +1092,7 @@ tasks.NewGlueStartJobRun(this, jsii.String("Task"), &glueStartJobRunProps{
 	arguments: sfn.taskInput.fromObject(map[string]interface{}{
 		"key": jsii.String("value"),
 	}),
-	taskTimeout: sfn.timeout.duration(awscdk.Duration.minutes(jsii.Number(30))),
+	timeout: awscdk.Duration.minutes(jsii.Number(30)),
 	notifyDelayAfter: awscdk.Duration.minutes(jsii.Number(5)),
 })
 ```
@@ -1334,25 +1468,6 @@ submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
 
 tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &stepFunctionsInvokeActivityProps{
 	activity: submitJobActivity,
-})
-```
-
-Use the [Parameters](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters) field to create a collection of key-value pairs that are passed as input.
-The values of each can either be static values that you include in your state machine definition, or selected from either the input or the context object with a path.
-
-```go
-submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
-
-tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &stepFunctionsInvokeActivityProps{
-	activity: submitJobActivity,
-	parameters: map[string]interface{}{
-		"comment": jsii.String("Selecting what I care about."),
-		"MyDetails": map[string]interface{}{
-			"size": sfn.JsonPath.stringAt(jsii.String("$.product.details.size")),
-			"exists": sfn.JsonPath.stringAt(jsii.String("$.product.availability")),
-			"StaticValue": jsii.String("foo"),
-		},
-	},
 })
 ```
 

@@ -3,19 +3,22 @@ package awsses
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsses/internal"
 )
 
 // A receipt rule set.
+// Experimental.
 type IReceiptRuleSet interface {
 	awscdk.IResource
 	// Adds a new receipt rule in this rule set.
 	//
 	// The new rule is added after
 	// the last added rule unless `after` is specified.
+	// Experimental.
 	AddRule(id *string, options *ReceiptRuleOptions) ReceiptRule
 	// The receipt rule set name.
+	// Experimental.
 	ReceiptRuleSetName() *string
 }
 

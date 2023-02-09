@@ -1,11 +1,12 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
 )
 
 // Represents gateway response resource.
+// Experimental.
 type IGatewayResponse interface {
 	awscdk.IResource
 }

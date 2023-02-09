@@ -4,7 +4,6 @@ package awsappmesh
 // Represents the properties needed to define backend defaults.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var service service
 //
@@ -39,8 +38,10 @@ package awsappmesh
 //
 //   cdk.tags.of(node).add(jsii.String("Environment"), jsii.String("Dev"))
 //
+// Experimental.
 type BackendDefaults struct {
 	// TLS properties for Client policy for backend defaults.
+	// Experimental.
 	TlsClientPolicy *TlsClientPolicy `field:"optional" json:"tlsClientPolicy" yaml:"tlsClientPolicy"`
 }
 

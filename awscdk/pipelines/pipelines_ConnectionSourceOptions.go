@@ -4,7 +4,6 @@ package pipelines
 // Configuration options for CodeStar source.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 //   		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
@@ -38,18 +37,17 @@ package pipelines
 //   	},
 //   })
 //
+// Experimental.
 type ConnectionSourceOptions struct {
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// Example:
-	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   "arn:aws:codestar-connections:us-east-1:123456789012:connection/12345678-abcd-12ab-34cdef5678gh"
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
+	// Experimental.
 	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
-	// The action name used for this source in the CodePipeline.
-	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
 	// This provides access to repository history, and retains symlinks (symlinks would otherwise be
@@ -58,6 +56,7 @@ type ConnectionSourceOptions struct {
 	// **Note**: if this option is true, only CodeBuild jobs can use the output artifact.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
+	// Experimental.
 	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
@@ -65,6 +64,7 @@ type ConnectionSourceOptions struct {
 	// the default value is true, and the field does not display by default.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
+	// Experimental.
 	TriggerOnPush *bool `field:"optional" json:"triggerOnPush" yaml:"triggerOnPush"`
 }
 

@@ -5,7 +5,7 @@ package awsecr
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 func validatePublicGalleryAuthorizationToken_GrantReadParameters(grantee awsiam.IGrantable) error {

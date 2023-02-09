@@ -5,9 +5,9 @@ package awsroute53targets
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
 )
 
 func (c *jsiiProxy_CloudFrontTarget) validateBindParameters(_record awsroute53.IRecordSet) error {
@@ -18,7 +18,7 @@ func (c *jsiiProxy_CloudFrontTarget) validateBindParameters(_record awsroute53.I
 	return nil
 }
 
-func validateCloudFrontTarget_GetHostedZoneIdParameters(scope constructs.IConstruct) error {
+func validateCloudFrontTarget_GetHostedZoneIdParameters(scope awscdk.IConstruct) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

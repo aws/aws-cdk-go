@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnPrincipalPermissions) validateAddDeletionOverrideParameter
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrincipalPermissions) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnPrincipalPermissions) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnPrincipalPermissions) validateInspectParameters(inspector 
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrincipalPermissions) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnPrincipalPermissions) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrincipalPermissions) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPrincipalPermissions) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnPrincipalPermissions) validateRenderPropertiesParameters(p
 	return nil
 }
 
-func (c *jsiiProxy_CfnPrincipalPermissions) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnPrincipalPermissions) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -96,7 +92,7 @@ func (j *jsiiProxy_CfnPrincipalPermissions) validateSetResourceParameters(val in
 	return nil
 }
 
-func validateNewCfnPrincipalPermissionsParameters(scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) error {
+func validateNewCfnPrincipalPermissionsParameters(scope awscdk.Construct, id *string, props *CfnPrincipalPermissionsProps) error {
 	return nil
 }
 

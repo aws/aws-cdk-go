@@ -14,8 +14,10 @@ package awssecretsmanager
 //   	secret: secret,
 //   }
 //
+// Experimental.
 type ResourcePolicyProps struct {
 	// The secret to attach a resource-based permissions policy.
+	// Experimental.
 	Secret ISecret `field:"required" json:"secret" yaml:"secret"`
 }
 

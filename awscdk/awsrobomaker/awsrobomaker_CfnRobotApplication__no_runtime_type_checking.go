@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnRobotApplication) validateAddDeletionOverrideParameters(pa
 	return nil
 }
 
-func (c *jsiiProxy_CfnRobotApplication) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnRobotApplication) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnRobotApplication) validateInspectParameters(inspector awsc
 	return nil
 }
 
-func (c *jsiiProxy_CfnRobotApplication) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnRobotApplication) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRobotApplication) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRobotApplication) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnRobotApplication) validateRenderPropertiesParameters(props
 	return nil
 }
 
-func (c *jsiiProxy_CfnRobotApplication) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnRobotApplication) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -88,7 +84,7 @@ func (j *jsiiProxy_CfnRobotApplication) validateSetSourcesParameters(val interfa
 	return nil
 }
 
-func validateNewCfnRobotApplicationParameters(scope constructs.Construct, id *string, props *CfnRobotApplicationProps) error {
+func validateNewCfnRobotApplicationParameters(scope awscdk.Construct, id *string, props *CfnRobotApplicationProps) error {
 	return nil
 }
 

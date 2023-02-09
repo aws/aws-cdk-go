@@ -33,7 +33,6 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
   * [App Clients](#app-clients)
   * [Resource Servers](#resource-servers)
   * [Domains](#domains)
-  * [Deletion protection](#deletion-protection)
 
 ## User Pools
 
@@ -47,14 +46,8 @@ the `userPoolName` to give your own identifier to the user pool. If not, CloudFo
 ```go
 cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 	userPoolName: jsii.String("myawesomeapp-userpool"),
-	signInCaseSensitive: jsii.Boolean(false),
 })
 ```
-
-By default, usernames and email addresses in user pools are case sensitive, which means `user@example.com` and `User@example.com`
-are considered different. In most situations it is preferred to have usernames and email addresses be case insensitive so that
-capitalization differences are ignored. As shown above, you can make a user pool case insensitive by setting `signInCaseSensitive`
-to `false`. The case sensitivity cannot be changed once a user pool is created.
 
 The default set up for the user pool is configured such that only administrators will be allowed
 to create users. Features such as Multi-factor authentication (MFAs) and Lambda Triggers are not
@@ -233,34 +226,6 @@ User pools come with two 'built-in' attributes - `email_verified` and `phone_num
 configured (required-ness or mutability) as part of user pool creation. However, user pool administrators can modify
 them for specific users using the [AdminUpdateUserAttributes API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html).
 
-### Attribute verification
-
-When your user updates an email address or phone number attribute, Amazon Cognito marks it unverified until they verify the new value.
-You can’t send messages to an unverified email address or phone number.
-Your user can’t sign in with an unverified alias attribute.
-You can choose how Amazon Cognito handles an updated email address or phone number after the update and before the verification.
-
-Learn more on [configuring email or phone verification in Cognito's documentation.](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html?icmpid=docs_cognito_console_help_panel)
-
-The following code configures a user pool that keeps the original value for the two standard attributes (email and phone_number) until the new values are verified.
-
-```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	// ...
-	signInAliases: &signInAliases{
-		username: jsii.Boolean(true),
-	},
-	autoVerify: &autoVerifiedAttrs{
-		email: jsii.Boolean(true),
-		phone: jsii.Boolean(true),
-	},
-	keepOriginal: &keepOriginalAttrs{
-		email: jsii.Boolean(true),
-		phone: jsii.Boolean(true),
-	},
-})
-```
-
 ### Security
 
 Cognito sends various messages to its users via SMS, for different actions, ranging from account verification to
@@ -354,17 +319,6 @@ cognito.NewUserPool(this, jsii.String("UserPool"), &userPoolProps{
 The default for account recovery is by phone if available and by email otherwise.
 A user will not be allowed to reset their password via phone if they are also using it for MFA.
 
-#### Advanced Security Mode
-
-User pools can be configured to use Advanced security. You can turn the user pool advanced security features on, and customize the actions that are taken in response to different risks. Or you can use audit mode to gather metrics on detected risks without taking action. In audit mode, the advanced security features publish metrics to Amazon CloudWatch. See the [documentation on Advanced security](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) to learn more.
-
-```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	// ...
-	advancedSecurityMode: cognito.advancedSecurityMode_ENFORCED,
-})
-```
-
 ### Emails
 
 Cognito sends emails to users in the user pool, when particular actions take place, such as welcome emails, invitation
@@ -424,17 +378,6 @@ cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 		fromName: jsii.String("Awesome App"),
 		replyTo: jsii.String("support@myawesomeapp.com"),
 		sesVerifiedDomain: jsii.String("myawesomeapp.com"),
-	}),
-})
-```
-
-If `fromName` does not comply RFC 5322 atom or quoted-string, it will be quoted or mime-encoded.
-
-```go
-cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-	email: cognito.userPoolEmail.withSES(&userPoolSESOptions{
-		fromEmail: jsii.String("noreply@myawesomeapp.com"),
-		fromName: jsii.String("myname@mycompany.com"),
 	}),
 })
 ```
@@ -559,7 +502,6 @@ The following third-party identity providers are currently supported in the CDK 
 * [Google Login](https://developers.google.com/identity/sign-in/web/sign-in)
 * [Sign In With Apple](https://developer.apple.com/sign-in-with-apple/get-started/)
 * [OpenID Connect](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-oidc-idp.html)
-* [SAML](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-saml-idp.html)
 
 The following code configures a user pool to federate with the third party provider, 'Login with Amazon'. The identity
 provider needs to be configured with a set of credentials that the Cognito backend can use to federate with the
@@ -571,22 +513,6 @@ userpool := cognito.NewUserPool(this, jsii.String("Pool"))
 provider := cognito.NewUserPoolIdentityProviderAmazon(this, jsii.String("Amazon"), &userPoolIdentityProviderAmazonProps{
 	clientId: jsii.String("amzn-client-id"),
 	clientSecret: jsii.String("amzn-client-secret"),
-	userPool: userpool,
-})
-```
-
-Using Google identity provider is possible to use clientSecretValue with SecretValue from secrets manager.
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-userpool := cognito.NewUserPool(this, jsii.String("Pool"))
-secret := secretsManager.secret_FromSecretAttributes(this, jsii.String("CognitoClientSecret"), map[string]*string{
-	"secretCompleteArn": jsii.String("arn:aws:secretsmanager:xxx:xxx:secret:xxx-xxx"),
-}).secretValue
-
-provider := cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("Google"), &userPoolIdentityProviderGoogleProps{
-	clientId: jsii.String("amzn-client-id"),
-	clientSecretValue: secret,
 	userPool: userpool,
 })
 ```
@@ -745,17 +671,6 @@ client := pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
 client.node.addDependency(provider)
 ```
 
-The property `authSessionValidity` is the session token for each API request in the authentication flow.
-Valid duration is from 3 to 15 minutes.
-
-```go
-pool := cognito.NewUserPool(this, jsii.String("Pool"))
-pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
-	// ...
-	authSessionValidity: awscdk.Duration.minutes(jsii.Number(15)),
-})
-```
-
 In accordance with the OIDC open standard, Cognito user pool clients provide access tokens, ID tokens and refresh tokens.
 More information is available at [Using Tokens with User Pools](https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html).
 The expiration time for these tokens can be configured as shown below.
@@ -806,21 +721,6 @@ pool.addClient(jsii.String("app-client"), &userPoolClientOptions{
 	// ...
 	enableTokenRevocation: jsii.Boolean(true),
 })
-```
-
-User Pool clients can generate a client ID as well as a client secret, to support more advanced authentication workflows.
-
-To create a client with an autogenerated client secret, pass the `generateSecret: true` prop:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-userPoolClient := cognito.NewUserPoolClient(this, jsii.String("UserPoolClient"), &userPoolClientProps{
-	userPool: importedPool,
-	generateSecret: jsii.Boolean(true),
-})
-
-// Allows you to pass the generated secret to other pieces of infrastructure
-secret := userPoolClient.userPoolClientSecret
 ```
 
 ### Resource Servers
@@ -940,16 +840,3 @@ Existing domains can be imported into CDK apps using `UserPoolDomain.fromDomainN
 ```go
 myUserPoolDomain := cognito.userPoolDomain.fromDomainName(this, jsii.String("my-user-pool-domain"), jsii.String("domain-name"))
 ```
-
-### Deletion protection
-
-Deletion protection can be enabled on a user pool to prevent accidental deletion:
-
-```go
-userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &userPoolProps{
-	// ...
-	deletionProtection: jsii.Boolean(true),
-})
-```
-
-By default deletion protection is disabled.

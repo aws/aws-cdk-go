@@ -8,10 +8,6 @@ func (c *jsiiProxy_CfnAnnotationStore) validateAddDeletionOverrideParameters(pat
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnnotationStore) validateAddDependencyParameters(target awscdk.CfnResource) error {
-	return nil
-}
-
 func (c *jsiiProxy_CfnAnnotationStore) validateAddDependsOnParameters(target awscdk.CfnResource) error {
 	return nil
 }
@@ -48,11 +44,11 @@ func (c *jsiiProxy_CfnAnnotationStore) validateInspectParameters(inspector awscd
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnnotationStore) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+func (c *jsiiProxy_CfnAnnotationStore) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnnotationStore) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAnnotationStore) validateOverrideLogicalIdParameters(newLogicalId *string) error {
 	return nil
 }
 
@@ -60,7 +56,7 @@ func (c *jsiiProxy_CfnAnnotationStore) validateRenderPropertiesParameters(props 
 	return nil
 }
 
-func (c *jsiiProxy_CfnAnnotationStore) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+func (c *jsiiProxy_CfnAnnotationStore) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
 	return nil
 }
 
@@ -100,7 +96,7 @@ func (j *jsiiProxy_CfnAnnotationStore) validateSetStoreOptionsParameters(val int
 	return nil
 }
 
-func validateNewCfnAnnotationStoreParameters(scope constructs.Construct, id *string, props *CfnAnnotationStoreProps) error {
+func validateNewCfnAnnotationStoreParameters(scope awscdk.Construct, id *string, props *CfnAnnotationStoreProps) error {
 	return nil
 }
 

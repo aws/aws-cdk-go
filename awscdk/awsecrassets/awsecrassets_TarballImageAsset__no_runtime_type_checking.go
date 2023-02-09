@@ -4,6 +4,14 @@ package awsecrassets
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (t *jsiiProxy_TarballImageAsset) validateOnSynthesizeParameters(session constructs.ISynthesisSession) error {
+	return nil
+}
+
+func (t *jsiiProxy_TarballImageAsset) validateSynthesizeParameters(session awscdk.ISynthesisSession) error {
+	return nil
+}
+
 func validateTarballImageAsset_IsConstructParameters(x interface{}) error {
 	return nil
 }
